@@ -261,6 +261,21 @@ function HomeView({
   favorites,
   onToggleFavorite
 }) {
+  const [visibleCountryCount, setVisibleCountryCount] = useState(48);
+
+  useEffect(() => {
+    setVisibleCountryCount(48);
+  }, [countryFilters.searchText, countryFilters.favoriteOnly]);
+
+  const featuredCountries = countries.slice(0, 3);
+  const shouldShowAllCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
+  const displayedCountries = shouldShowAllCountries ? countries : countries.slice(0, visibleCountryCount);
+  const hasHiddenCountries = displayedCountries.length < countries.length;
+
+  function jumpToCountryDashboards() {
+    document.getElementById('country-dashboards')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   return (
     <>
       <section className="hero panel">
@@ -273,8 +288,21 @@ function HomeView({
           </p>
           <div className="hero-actions">
             <AppLink href="/schedule" className="primary-link">Browse full schedule</AppLink>
+            <button type="button" className="secondary-link button-link" onClick={jumpToCountryDashboards}>
+              Explore country dashboards
+            </button>
             <AppLink href="/changes" className="secondary-link">See recent changes</AppLink>
           </div>
+          {featuredCountries.length ? (
+            <div className="hero-inline-links">
+              <span className="hero-inline-label">Try a dashboard:</span>
+              {featuredCountries.map((country) => (
+                <AppLink key={country.noc} href={`/countries/${country.noc}`} className="text-link">
+                  {country.name}
+                </AppLink>
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className="hero-side">
           <p className="eyebrow">Update status</p>
@@ -320,13 +348,18 @@ function HomeView({
         )}
       </section>
 
-      <section className="panel">
+      <section className="panel" id="country-dashboards">
         <div className="section-heading">
           <div>
             <p className="eyebrow">Country dashboards</p>
-            <h2>Save countries now, then follow them as qualification data lands</h2>
+            <h2>Open any country dashboard, save favorites, and follow qualification as it lands</h2>
           </div>
-          <span className="supporting-copy">{formatCount(countries.length)} indexed countries</span>
+          <span className="supporting-copy">
+            {formatCount(countries.length)} indexed countries{!shouldShowAllCountries ? ` · ${formatCount(displayedCountries.length)} shown` : ''}
+          </span>
+        </div>
+        <div className="section-intro">
+          Each country card opens its own dashboard with qualification cards, pending vs confirmed sessions, and a country-specific change feed.
         </div>
         <div className="filters-grid countries-filter-grid">
           <label className="search-field">
@@ -348,11 +381,22 @@ function HomeView({
           </label>
         </div>
         <CountryDirectory
-          countries={countries.slice(0, 24)}
+          countries={displayedCountries}
           athleteCards={runtime.athleteCards}
           favorites={favorites}
           onToggleFavorite={onToggleFavorite}
         />
+        {hasHiddenCountries ? (
+          <div className="section-actions">
+            <button
+              type="button"
+              className="secondary-link button-link"
+              onClick={() => setVisibleCountryCount((current) => current + 48)}
+            >
+              Show 48 more countries
+            </button>
+          </div>
+        ) : null}
       </section>
     </>
   );
@@ -654,6 +698,10 @@ export default function App() {
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [route.name, route.noc]);
 
   useEffect(() => {
     let cancelled = false;
