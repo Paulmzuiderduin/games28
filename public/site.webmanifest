@@ -1,0 +1,15 @@
+{
+  "name": "Games28",
+  "short_name": "Games28",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff9ef",
+  "theme_color": "#fff0da",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

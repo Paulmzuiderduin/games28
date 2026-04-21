@@ -1,0 +1,1441 @@
+{
+  "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+  "notes": "Maintained IOC list snapshot seed. Replace with direct IOC scrape when tooling access is reliable.",
+  "countries": [
+    {
+      "noc": "AFG",
+      "name": "Afghanistan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ALB",
+      "name": "Albania",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ALG",
+      "name": "Algeria",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ASA",
+      "name": "American Samoa",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "AND",
+      "name": "Andorra",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ANG",
+      "name": "Angola",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ANT",
+      "name": "Antigua and Barbuda",
+      "continent": "North America",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ARG",
+      "name": "Argentina",
+      "continent": "South America",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ARM",
+      "name": "Armenia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ARU",
+      "name": "Aruba",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "AUS",
+      "name": "Australia",
+      "continent": "Oceania",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "AUT",
+      "name": "Austria",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "AZE",
+      "name": "Azerbaijan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BAH",
+      "name": "Bahamas",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BRN",
+      "name": "Bahrain",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BAN",
+      "name": "Bangladesh",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BAR",
+      "name": "Barbados",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BLR",
+      "name": "Belarus",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BEL",
+      "name": "Belgium",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BIZ",
+      "name": "Belize",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BEN",
+      "name": "Benin",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BER",
+      "name": "Bermuda",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BHU",
+      "name": "Bhutan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BOL",
+      "name": "Boliva",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BIH",
+      "name": "Bosnia and Herzegovina",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BOT",
+      "name": "Botswana",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BRA",
+      "name": "Brazil",
+      "continent": "South America",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BRU",
+      "name": "Brunei",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BUL",
+      "name": "Bulgaria",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BUR",
+      "name": "Burkina Faso",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "BDI",
+      "name": "Burundi",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CAM",
+      "name": "Cambodia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CMR",
+      "name": "Cameroon",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CAN",
+      "name": "Canada",
+      "continent": "North America",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CPV",
+      "name": "Cape Verde",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CAY",
+      "name": "Cayman Islands",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CAF",
+      "name": "Central African Republic",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CHA",
+      "name": "Chad",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CHI",
+      "name": "Chile",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CHN",
+      "name": "China",
+      "continent": "Asia",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "COL",
+      "name": "Colombia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "COM",
+      "name": "Comoros",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "COK",
+      "name": "Cook Islands",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CRC",
+      "name": "Costa Rica",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CRO",
+      "name": "Croatia",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CUB",
+      "name": "Cuba",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CYP",
+      "name": "Cyprus",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CZE",
+      "name": "Czech Republic",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "COD",
+      "name": "Democratic Republic of the Congo",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "DEN",
+      "name": "Denmark",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "DJI",
+      "name": "Djibouti",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "DMA",
+      "name": "Dominica",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "DOM",
+      "name": "Dominican Republic",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ECU",
+      "name": "Ecuador",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "EGY",
+      "name": "Egypt",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ESA",
+      "name": "El Salvador",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GEQ",
+      "name": "Equatorial Guinea",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ERI",
+      "name": "Eritrea",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "EST",
+      "name": "Estonia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ETH",
+      "name": "Ethiopia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "FIJ",
+      "name": "Fiji",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "FIN",
+      "name": "Finland",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "FRA",
+      "name": "France",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GAB",
+      "name": "Gabon",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GAM",
+      "name": "Gambia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GEO",
+      "name": "Georgia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GER",
+      "name": "Germany",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GHA",
+      "name": "Ghana",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GBR",
+      "name": "Great Britain",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GRE",
+      "name": "Greece",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GRN",
+      "name": "Grenada",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GUM",
+      "name": "Guam",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GUA",
+      "name": "Guatemala",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GUI",
+      "name": "Guinea",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GBS",
+      "name": "Guinea-Bissau",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "GUY",
+      "name": "Guyana",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "HAI",
+      "name": "Haiti",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "HON",
+      "name": "Honduras",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "HUN",
+      "name": "Hungary",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ISL",
+      "name": "Iceland",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "IND",
+      "name": "India",
+      "continent": "Asia",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "INA",
+      "name": "Indonesia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "IRI",
+      "name": "Iran",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "IRQ",
+      "name": "Iraq",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "IRL",
+      "name": "Ireland",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ISR",
+      "name": "Israel",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ITA",
+      "name": "Italy",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CIV",
+      "name": "Ivory Coast",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "JAM",
+      "name": "Jamaica",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "JPN",
+      "name": "Japan",
+      "continent": "Asia",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "JOR",
+      "name": "Jordan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KAZ",
+      "name": "Kazakhstan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KEN",
+      "name": "Kenya",
+      "continent": "Africa",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KIR",
+      "name": "Kiribati",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KOS",
+      "name": "Kosovo",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KUW",
+      "name": "Kuwait",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KGZ",
+      "name": "Kyrgyzstan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LAO",
+      "name": "Laos",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LAT",
+      "name": "Latvia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LIB",
+      "name": "Lebanon",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LES",
+      "name": "Lesotho",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LBR",
+      "name": "Liberia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LBA",
+      "name": "Libya",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LIE",
+      "name": "Liechtenstein",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LTU",
+      "name": "Lithuania",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LUX",
+      "name": "Luxembourg",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MKD",
+      "name": "Macedonia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MAD",
+      "name": "Madagascar",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MAW",
+      "name": "Malawi",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MAL",
+      "name": "Malaysia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MDV",
+      "name": "Maldives",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MLI",
+      "name": "Mali",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MLT",
+      "name": "Malta",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MHL",
+      "name": "Marshall Islands",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MTN",
+      "name": "Mauritania",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MRI",
+      "name": "Mauritius",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MEX",
+      "name": "Mexico",
+      "continent": "North America",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "FSM",
+      "name": "Micronesia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MDA",
+      "name": "Moldova",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MON",
+      "name": "Monaco",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MGL",
+      "name": "Mongolia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MNE",
+      "name": "Montenegro",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MAR",
+      "name": "Morocco",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MOZ",
+      "name": "Mozambique",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "MYA",
+      "name": "Myanmar",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TUV",
+      "name": "NA",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NAM",
+      "name": "Namibia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NRU",
+      "name": "Nauru",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NEP",
+      "name": "Nepal",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NED",
+      "name": "Netherlands",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NZL",
+      "name": "New Zealand",
+      "continent": "Oceania",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NCA",
+      "name": "Nicaragua",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NIG",
+      "name": "Niger",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NGR",
+      "name": "Nigeria",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PRK",
+      "name": "North Korea",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "NOR",
+      "name": "Norway",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "OMA",
+      "name": "Oman",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PAK",
+      "name": "Pakistan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PLW",
+      "name": "Palau",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PLE",
+      "name": "Palestine",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PAN",
+      "name": "Panama",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PNG",
+      "name": "Papua New Guinea",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PAR",
+      "name": "Paraguay",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PER",
+      "name": "Peru",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PHI",
+      "name": "Philippines",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "POL",
+      "name": "Poland",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "POR",
+      "name": "Portugal",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "PUR",
+      "name": "Puerto Rico",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "QAT",
+      "name": "Qatar",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "CGO",
+      "name": "Republic of Congo",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ROU",
+      "name": "Romania",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "RUS",
+      "name": "Russia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "RWA",
+      "name": "Rwanda",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SKN",
+      "name": "Saint Kitts",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "LCA",
+      "name": "Saint Lucia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "VIN",
+      "name": "Saint Vincent",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SAM",
+      "name": "Samoa",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SMR",
+      "name": "San Marino",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "STP",
+      "name": "Sao Tome and Principe",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KSA",
+      "name": "Saudi Arabia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SEN",
+      "name": "Senegal",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SRB",
+      "name": "Serbia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SEY",
+      "name": "Seychelles",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SLE",
+      "name": "Sierra Leone",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SIN",
+      "name": "Singapore",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SVK",
+      "name": "Slovakia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SLO",
+      "name": "Slovenia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SOL",
+      "name": "Solomon Islands",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SOM",
+      "name": "Somalia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "RSA",
+      "name": "South Africa",
+      "continent": "Africa",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "KOR",
+      "name": "South Korea",
+      "continent": "Asia",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SSD",
+      "name": "South Sudan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ESP",
+      "name": "Spain",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SRI",
+      "name": "Sri Lanka",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SUD",
+      "name": "Sudan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SUR",
+      "name": "Suriname",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SWZ",
+      "name": "Swaziland",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SWE",
+      "name": "Sweden",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SUI",
+      "name": "Switzerland",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "SYR",
+      "name": "Syria",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TPE",
+      "name": "Taiwan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TJK",
+      "name": "Tajikistan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TAN",
+      "name": "Tanzania",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "THA",
+      "name": "Thailand",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TLS",
+      "name": "Timor-Leste",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TOG",
+      "name": "Togo",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TGA",
+      "name": "Tonga",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TTO",
+      "name": "Trinidad",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TUN",
+      "name": "Tunisia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TUR",
+      "name": "Turkey",
+      "continent": "Asia",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "TKM",
+      "name": "Turkmenistan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "UGA",
+      "name": "Uganda",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "UKR",
+      "name": "Ukraine",
+      "continent": "Europe",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "UAE",
+      "name": "United Arab Emirates",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "USA",
+      "name": "United States",
+      "continent": "North America",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "URU",
+      "name": "Uruguay",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "UZB",
+      "name": "Uzbekistan",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "VAN",
+      "name": "Vanuatu",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "VEN",
+      "name": "Venezuela",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "VIE",
+      "name": "Vietnam",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "IVB",
+      "name": "Virgin Islands, British",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ISV",
+      "name": "Virgin Islands, US",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "YEM",
+      "name": "Yemen",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "ZAM",
+      "name": "Zambia",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    },
+    {
+      "noc": "RHO",
+      "name": "Zimbabwe",
+      "continent": "Undetermined",
+      "profileUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
+    }
+  ]
+}

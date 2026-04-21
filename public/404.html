@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Games28</title>
+    <script>
+      var path = window.location.pathname.replace(/^\//, '');
+      var query = window.location.search.replace(/^\?/, '');
+      var redirect = '/?p=' + path.split('/').map(encodeURIComponent).join('/');
+      if (query) {
+        redirect += '&q=' + encodeURIComponent(query);
+      }
+      window.location.replace(redirect + window.location.hash);
+    </script>
+  </head>
+  <body></body>
+</html>

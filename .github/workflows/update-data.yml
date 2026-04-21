@@ -1,0 +1,63 @@
+name: Refresh Games28 Data
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: games28-data-refresh
+  cancel-in-progress: true
+
+jobs:
+  update_dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ github.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Refresh datasets
+        run: npm run data:update
+
+      - name: Commit and push when data changed
+        run: |
+          if git diff --quiet -- src/data public; then
+            echo "No data changes to publish."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data public
+          git commit -m "chore(data): refresh Games28 datasets"
+
+          TARGET_BRANCH="${GITHUB_REF_NAME:-main}"
+
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${TARGET_BRANCH}"; then
+              exit 0
+            fi
+
+            if ! git pull --rebase --autostash origin "${TARGET_BRANCH}"; then
+              echo "Skipping after rebase conflict."
+              exit 0
+            fi
+          done
+
+          echo "Could not push after retries."
+          exit 0

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1dc" />
+      <stop offset="100%" stop-color="#fefcf7" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f26b32" />
+      <stop offset="100%" stop-color="#0f7d73" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="160" cy="120" r="180" fill="#ffd9c4" opacity="0.7" />
+  <circle cx="1040" cy="520" r="220" fill="#dff5f0" opacity="0.9" />
+  <rect x="80" y="88" width="220" height="220" rx="52" fill="url(#accent)" />
+  <text x="190" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="84" font-weight="700" fill="#ffffff">G28</text>
+  <text x="360" y="220" font-family="Arial, sans-serif" font-size="86" font-weight="700" fill="#1d2935">Games28</text>
+  <text x="360" y="304" font-family="Arial, sans-serif" font-size="34" fill="#475569">LA 2028 schedule explorer and country dashboards</text>
+  <text x="360" y="360" font-family="Arial, sans-serif" font-size="28" fill="#5c6b79">Official schedule metadata, change tracking, and a qualification-ready data model.</text>
+  <rect x="360" y="418" width="308" height="68" rx="34" fill="#ffffff" stroke="#d4d4d8" />
+  <text x="514" y="462" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f7d73">games28.paulzuiderduin.com</text>
+</svg>

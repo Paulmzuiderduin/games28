@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games28 | Country Dashboards and Olympic Schedule</title>
+    <meta
+      name="description"
+      content="Games28 tracks the LA 2028 competition schedule with country dashboards, favorites, change tracking, and a qualification pipeline ready for official athlete updates."
+    />
+    <meta name="theme-color" content="#fff0da" />
+    <meta property="og:title" content="Games28" />
+    <meta
+      property="og:description"
+      content="A global-first LA 2028 schedule explorer with country dashboards, favorites, and change tracking."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://games28.paulzuiderduin.com/" />
+    <meta property="og:image" content="https://games28.paulzuiderduin.com/social-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Games28" />
+    <meta
+      name="twitter:description"
+      content="Country dashboards, favorites, change tracking, and the LA 2028 competition schedule."
+    />
+    <meta name="twitter:image" content="https://games28.paulzuiderduin.com/social-card.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script>
+      (function () {
+        var search = window.location.search;
+        if (!search || search.indexOf('?p=') !== 0) {
+          return;
+        }
+
+        var path = search.slice(3);
+        var queryIndex = path.indexOf('&q=');
+        var route = queryIndex >= 0 ? path.slice(0, queryIndex) : path;
+        var query = queryIndex >= 0 ? path.slice(queryIndex + 3) : '';
+        var decodedPath = '/' + route.split('&').shift().split('/').map(function (part) {
+          return decodeURIComponent(part);
+        }).join('/');
+        var decodedQuery = query ? ('?' + decodeURIComponent(query)) : '';
+        window.history.replaceState(null, '', decodedPath + decodedQuery + window.location.hash);
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
