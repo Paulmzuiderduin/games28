@@ -2,6 +2,10 @@ function getViewerTimeZone() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
 }
 
+export function getViewerTimeZoneLabel() {
+  return getViewerTimeZone().replace(/_/g, ' ');
+}
+
 export function formatCount(value) {
   return new Intl.NumberFormat(undefined).format(value || 0);
 }
