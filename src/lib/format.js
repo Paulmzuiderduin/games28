@@ -86,3 +86,25 @@ export function formatStatusLabel(status) {
   if (normalized === 'scheduled') return 'Scheduled';
   return normalized ? normalized.charAt(0).toUpperCase() + normalized.slice(1) : 'Unknown';
 }
+
+export function formatCountdown(targetIso, now = Date.now()) {
+  if (!targetIso) {
+    return { label: 'Date TBD', isComplete: false };
+  }
+
+  const remainingMs = new Date(targetIso).getTime() - now;
+  if (remainingMs <= 0) {
+    return { label: 'Games are underway', isComplete: true };
+  }
+
+  const totalSeconds = Math.floor(remainingMs / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return {
+    label: `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`,
+    isComplete: false
+  };
+}

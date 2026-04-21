@@ -3,6 +3,7 @@ import CountryFlag from './components/CountryFlag.jsx';
 import { downloadCalendar } from './lib/ics.js';
 import {
   formatCount,
+  formatCountdown,
   formatDateLabel,
   formatDateTimeLabel,
   formatLaReference,
@@ -30,6 +31,8 @@ const DEFAULT_COUNTRY_FILTERS = {
   favoriteOnly: false,
   favorites: []
 };
+
+const LA28_COMPETITION_START_UTC = '2028-07-14T07:00:00.000Z';
 
 function useStoredState(key, fallbackValue) {
   const [value, setValue] = useState(() => {
@@ -248,6 +251,25 @@ function EmptyState({ title, description }) {
   );
 }
 
+function CountdownCard({ targetIso }) {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  const countdown = formatCountdown(targetIso, now);
+
+  return (
+    <div className="countdown-card">
+      <p className="eyebrow">Countdown</p>
+      <h2>{countdown.label}</h2>
+      <p>Until competition starts on {formatDateTimeLabel(targetIso, { timeZone: 'America/Los_Angeles' })} LA time.</p>
+    </div>
+  );
+}
+
 function HomeView({
   runtime,
   scheduleFilters,
@@ -305,6 +327,7 @@ function HomeView({
           ) : null}
         </div>
         <div className="hero-side">
+          <CountdownCard targetIso={LA28_COMPETITION_START_UTC} />
           <p className="eyebrow">Update status</p>
           <h2>{formatUpdatedLabel(runtime.checkedAt)}</h2>
           <p>Refresh cadence: {runtime.meta.refreshCadence || 'Daily'}.</p>
