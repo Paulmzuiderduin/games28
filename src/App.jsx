@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
-import { downloadCalendar } from './lib/ics.js';
+import { downloadCalendarEntries } from './lib/ics.js';
 import {
   formatCount,
   formatCountdown,
@@ -82,6 +82,12 @@ function SummaryCard({ label, value, detail }) {
       {detail ? <span>{detail}</span> : null}
     </article>
   );
+}
+
+function formatChangeEntityLabel(change) {
+  if (change.entityType === 'schedule_entry') return 'Schedule';
+  if (change.entityType === 'athlete_card') return 'Qualification';
+  return change.entityType || 'Update';
 }
 
 function SourceRail({ runtime }) {
@@ -242,9 +248,19 @@ function ScheduleCard({ entry, countryMode = false }) {
       </div>
       <div className="schedule-card-footer">
         <span>{formatDateLabel(entry.startAtUtc)}</span>
-        <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
-          Source
-        </a>
+        <div className="schedule-card-actions">
+          <button
+            type="button"
+            className="text-button"
+            onClick={() => downloadCalendarEntries([entry], `${entry.sessionCode || 'session'}-games28`)}
+            disabled={!entry.startAtUtc}
+          >
+            Add to calendar
+          </button>
+          <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
+            Source
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -298,6 +314,7 @@ function HomeView({
   }, [countryFilters.searchText, countryFilters.favoriteOnly]);
 
   const featuredCountries = countries.slice(0, 3);
+  const favoriteCountryCards = countries.filter((country) => favorites.includes(country.noc)).slice(0, 6);
   const shouldShowAllCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
   const displayedCountries = shouldShowAllCountries ? countries : countries.slice(0, visibleCountryCount);
   const hasHiddenCountries = displayedCountries.length < countries.length;
@@ -357,7 +374,17 @@ function HomeView({
             <p className="eyebrow">Schedule explorer</p>
             <h2>Scan the entire competition schedule</h2>
           </div>
-          <span className="supporting-copy">Showing {formatCount(scheduleEntries.length)} sessions</span>
+        <div className="heading-meta">
+          <span className="status-pill">Source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}</span>
+            <button
+              type="button"
+              className="secondary-link button-link"
+              onClick={() => downloadCalendarEntries(scheduleEntries, 'games28-schedule')}
+              disabled={!scheduleEntries.length}
+            >
+              Export visible sessions
+            </button>
+          </div>
         </div>
         <FilterBar
           filters={scheduleFilters}
@@ -385,12 +412,33 @@ function HomeView({
             <p className="eyebrow">Country dashboards</p>
             <h2>Open any country dashboard, save favorites, and follow qualification as it lands</h2>
           </div>
-          <span className="supporting-copy">
-            {formatCount(countries.length)} indexed countries{!shouldShowAllCountries ? ` · ${formatCount(displayedCountries.length)} shown` : ''}
-          </span>
+          <div className="heading-meta">
+            <span className="status-pill">{formatCount(countries.length)} indexed countries</span>
+            {!shouldShowAllCountries ? (
+              <span className="supporting-copy">{formatCount(displayedCountries.length)} shown</span>
+            ) : null}
+          </div>
         </div>
         <div className="section-intro">
           Each country card opens its own dashboard with qualification cards, pending vs confirmed sessions, and a country-specific change feed.
+        </div>
+        <div className="saved-countries-row">
+        <div className="saved-countries-label">
+            <p className="eyebrow">Saved countries</p>
+            <span>{favorites.length ? `${favorites.length} saved` : 'Nothing saved yet'}</span>
+          </div>
+          <div className="saved-countries-list">
+            {favoriteCountryCards.length ? (
+              favoriteCountryCards.map((country) => (
+                <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
+                  <CountryFlag country={country} />
+                  <span>{country.name}</span>
+                </AppLink>
+              ))
+            ) : (
+              <span className="supporting-copy">Save a few favorites and they’ll show up here for quick access.</span>
+            )}
+          </div>
         </div>
         <div className="filters-grid countries-filter-grid">
           <label className="search-field">
@@ -436,12 +484,22 @@ function HomeView({
 function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChange, scheduleOptions }) {
   return (
     <section className="panel page-section">
-      <div className="section-heading">
+        <div className="section-heading">
         <div>
           <p className="eyebrow">Schedule</p>
           <h1>Competition schedule</h1>
         </div>
-        <span className="supporting-copy">{formatCount(scheduleEntries.length)} visible sessions</span>
+        <div className="heading-meta">
+          <span className="status-pill">Local time + LA reference</span>
+          <button
+            type="button"
+            className="secondary-link button-link"
+            onClick={() => downloadCalendarEntries(scheduleEntries, 'games28-visible-schedule')}
+            disabled={!scheduleEntries.length}
+          >
+            Export visible sessions
+          </button>
+        </div>
       </div>
       <FilterBar
         filters={scheduleFilters}
@@ -479,6 +537,10 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
             {dashboard.country.noc} · {dashboard.country.continent}. This dashboard keeps qualification cards, derived
             schedule matches, and a change feed in one place.
           </p>
+          <div className="hero-inline-links">
+            <span className="status-pill">Source: derived country view</span>
+            <span className="supporting-copy">Confirmed sessions are explicit, pending sessions are best-effort matches.</span>
+          </div>
           <div className="hero-actions">
             <button
               type="button"
@@ -491,7 +553,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
               type="button"
               className="primary-link button-link"
               disabled={!hasConfirmedSessions}
-              onClick={() => downloadCalendar(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`)}
+              onClick={() => downloadCalendarEntries(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`)}
             >
               Export confirmed sessions
             </button>
@@ -503,6 +565,9 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
           <h2>{formatUpdatedLabel(dashboard.latestUpdateAt)}</h2>
           <p>{hasQualificationData ? 'Qualification cards are live for this country.' : 'Qualification cards are not populated yet.'}</p>
           <p>{hasConfirmedSessions ? 'Confirmed sessions are ready to export.' : 'Schedule items stay pending until official entry lists appear.'}</p>
+          <p className="supporting-copy">
+            Confirmed means a country or athlete is explicitly tied to the session. Pending means the schedule match looks likely, but the entry list is not final yet.
+          </p>
         </div>
       </section>
 
@@ -597,6 +662,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
               <p className="eyebrow">Country schedule</p>
               <h2>Confirmed sessions</h2>
             </div>
+            <span className="status-pill">Confirmed only</span>
           </div>
           {dashboard.confirmedSessions.length ? (
             <div className="schedule-grid compact-grid">
@@ -618,6 +684,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
               <p className="eyebrow">Country schedule</p>
               <h2>Pending schedule matches</h2>
             </div>
+            <span className="status-pill">Awaiting entries</span>
           </div>
           {dashboard.pendingSessions.length ? (
             <div className="schedule-grid compact-grid">
@@ -640,12 +707,14 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
             <p className="eyebrow">Recent changes</p>
             <h2>What moved for {dashboard.country.name}</h2>
           </div>
+          <span className="status-pill">Feed by country</span>
         </div>
         {dashboard.changes.length ? (
           <div className="stacked-list">
             {dashboard.changes.map((change) => (
               <article key={change.id} className="change-card">
                 <div>
+                  <p className="eyebrow">{formatChangeEntityLabel(change)}</p>
                   <h3>{change.summary}</h3>
                   <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
                 </div>
@@ -679,6 +748,7 @@ function ChangesView({ changes }) {
           {changes.map((change) => (
             <article key={change.id} className="change-card large">
               <div>
+                <p className="eyebrow">{formatChangeEntityLabel(change)}</p>
                 <h3>{change.summary}</h3>
                 <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
               </div>
