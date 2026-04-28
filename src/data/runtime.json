@@ -802,7 +802,7 @@
       "summary": "Added session CKT04 for Women's Group Stage First Round."
     }
   ],
-  "checkedAt": "2026-04-27T07:42:29.569Z",
+  "checkedAt": "2026-04-28T07:41:11.004Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -2855,7 +2855,7 @@
       "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
     }
   ],
-  "generatedAt": "2026-04-27T07:42:29.569Z",
+  "generatedAt": "2026-04-28T07:41:11.004Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
@@ -48122,7 +48122,7 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-04-27T07:42:29.569Z",
+      "checkedAt": "2026-04-28T07:41:11.004Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
       "fallbackUsed": false,
       "id": "official-la28-page",
@@ -48131,7 +48131,7 @@
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-04-27T07:42:29.569Z",
+      "checkedAt": "2026-04-28T07:41:11.004Z",
       "description": "Primary parser target for official schedule shadow mode.",
       "fallbackUsed": false,
       "id": "official-la28-event-pdf",
@@ -48140,7 +48140,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleByEventV3.0.pdf"
     },
     {
-      "checkedAt": "2026-04-27T07:42:29.569Z",
+      "checkedAt": "2026-04-28T07:41:11.004Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -48149,7 +48149,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-04-27T07:42:29.569Z",
+      "checkedAt": "2026-04-28T07:41:11.004Z",
       "description": "Structured comparison and fallback source during shadow mode.",
       "fallbackUsed": false,
       "id": "community-la28-sheet",
@@ -48158,7 +48158,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-04-27T07:42:29.569Z",
+      "checkedAt": "2026-04-28T07:41:11.004Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
