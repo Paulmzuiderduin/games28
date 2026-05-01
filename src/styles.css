@@ -162,6 +162,10 @@ strong,
   transform: translateY(-1px);
 }
 
+.nav-support-link {
+  border: 1px solid rgba(15, 125, 115, 0.16);
+}
+
 .page-content {
   width: min(1180px, calc(100% - 1.5rem));
   margin: 0 auto;
@@ -621,6 +625,7 @@ strong,
 
 .schedule-card-footer a,
 .text-link,
+.eyebrow-link,
 .info-card-footer a,
 .change-card a,
 .source-card a,
@@ -628,6 +633,10 @@ strong,
   color: var(--teal);
   text-decoration: none;
   font-weight: 600;
+}
+
+.eyebrow-link {
+  color: var(--accent-deep);
 }
 
 .country-grid,
@@ -736,8 +745,63 @@ strong,
   font-size: 0.9rem;
 }
 
+.source-footer {
+  margin: 0 1.4rem 1.4rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.source-footer p {
+  margin: 0;
+}
+
 .linked-note {
   margin: 0.5rem 0 0;
+}
+
+.support-cta {
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(15, 125, 115, 0.18);
+  background: linear-gradient(160deg, rgba(223, 245, 240, 0.96), rgba(255, 255, 255, 0.82));
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.support-cta h2 {
+  margin: 0.25rem 0 0;
+  font-size: 1.25rem;
+}
+
+.support-cta-actions,
+.session-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.session-detail-body {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.session-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 @keyframes rise-in {
@@ -758,18 +822,22 @@ strong,
   .source-list,
   .source-summary,
   .summary-grid,
-  .schedule-grid {
+  .schedule-grid,
+  .session-facts {
     grid-template-columns: 1fr;
   }
 
   .filters-grid,
   .countries-filter-grid,
+  .sport-filter-grid,
   .time-grid {
     grid-template-columns: 1fr;
   }
 
   .site-header,
   .section-heading,
+  .source-footer,
+  .support-cta,
   .schedule-card-top,
   .country-card-top,
   .change-card,

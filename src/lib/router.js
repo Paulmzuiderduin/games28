@@ -11,6 +11,22 @@ export function parseRoute(pathname) {
     return { name: 'changes' };
   }
 
+  const sportMatch = pathname.match(/^\/sports\/([A-Za-z0-9-]+)$/);
+  if (sportMatch) {
+    return {
+      name: 'sport',
+      sportSlug: sportMatch[1].toLowerCase()
+    };
+  }
+
+  const sessionMatch = pathname.match(/^\/sessions\/([A-Za-z0-9-]+)$/);
+  if (sessionMatch) {
+    return {
+      name: 'session',
+      sessionId: decodeURIComponent(sessionMatch[1])
+    };
+  }
+
   const countryMatch = pathname.match(/^\/countries\/([A-Za-z0-9-]+)$/);
   if (countryMatch) {
     return {

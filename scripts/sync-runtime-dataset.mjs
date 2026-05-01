@@ -1,8 +1,14 @@
 import { mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { copyFile, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, writeFile } from 'node:fs/promises';
 import { readJson } from './dataset-utils.mjs';
+import {
+  getSessionPath,
+  getSportPath,
+  routeUrl,
+  selectSeoSessionEntries
+} from '../src/lib/seo.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -15,6 +21,15 @@ const sitemapPath = resolve(publicDir, 'sitemap.xml');
 
 async function ensureDir(path) {
   await mkdir(path, { recursive: true });
+}
+
+function escapeXml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
 
 async function main() {
@@ -38,17 +53,24 @@ async function main() {
 
   await writeFile(publicMetaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
 
+  const sports = [...new Set(runtime.scheduleEntries.map((entry) => entry.sport).filter(Boolean))]
+    .sort((left, right) => left.localeCompare(right));
+  const selectedSessions = selectSeoSessionEntries(runtime.scheduleEntries);
+  const lastmod = runtime.checkedAt ? runtime.checkedAt.slice(0, 10) : new Date().toISOString().slice(0, 10);
+
   const urls = [
-    'https://games28.paulzuiderduin.com/',
-    'https://games28.paulzuiderduin.com/schedule',
-    'https://games28.paulzuiderduin.com/changes',
-    ...runtime.countries.map((country) => `https://games28.paulzuiderduin.com/countries/${country.noc}`)
+    '/',
+    '/schedule',
+    '/changes',
+    ...runtime.countries.map((country) => `/countries/${country.noc}`),
+    ...sports.map((sport) => getSportPath(sport)),
+    ...selectedSessions.map((entry) => getSessionPath(entry.id))
   ];
 
   const sitemap = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...urls.map((url) => `  <url><loc>${url}</loc></url>`),
+    ...urls.map((path) => `  <url><loc>${escapeXml(routeUrl(path))}</loc><lastmod>${lastmod}</lastmod></url>`),
     '</urlset>'
   ].join('\n');
 

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/sync-runtime-dataset.mjs && vite build",
+    "build": "node scripts/sync-runtime-dataset.mjs && vite build && node scripts/prerender-seo.mjs",
     "preview": "vite preview",
     "data:update": "node scripts/update-data.mjs && node scripts/sync-runtime-dataset.mjs",
     "test:unit": "node --test tests/unit/*.test.mjs"

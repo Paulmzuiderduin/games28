@@ -39,6 +39,17 @@ npm run test:unit
 - Domain: `games28.paulzuiderduin.com`
 - Host: GitHub Pages
 
+## SEO and analytics
+
+- Search Console property: `https://games28.paulzuiderduin.com/`
+- Submit sitemap: `https://games28.paulzuiderduin.com/sitemap.xml`
+- Recommended verification: DNS TXT record at the domain provider.
+- Optional fallback: add a Games28-specific `google-site-verification` meta tag to `index.html` if Google provides one.
+- Analytics: Umami Cloud with website ID `fa9fc201-00fd-427f-883e-a51dd6c45e09`.
+- Support link: `https://ko-fi.com/paulzuiderduin`.
+
+The build generates static SEO HTML for core routes after Vite finishes. Run `npm run build` to refresh route metadata, structured data, and sitemap output.
+
 ## Manual follow-up
 
 1. Create a public GitHub repository named `games28`.

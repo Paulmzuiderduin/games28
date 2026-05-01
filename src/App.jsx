@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
 import { downloadCalendarEntries } from './lib/ics.js';
+import { trackEvent, trackOutboundClick } from './lib/analytics.js';
 import {
   formatCount,
   formatCountdown,
@@ -13,6 +14,7 @@ import {
 } from './lib/format.js';
 import { navigate, parseRoute } from './lib/router.js';
 import { loadRuntimeDataset, runtimeFallback } from './lib/runtime-data.js';
+import { findSportBySlug, getSessionPath, getSportPath } from './lib/seo.js';
 import {
   buildCountryDashboard,
   buildHomeStats,
@@ -34,6 +36,7 @@ const DEFAULT_COUNTRY_FILTERS = {
 };
 
 const LA28_OPENING_CEREMONY_UTC = '2028-07-15T00:00:00.000Z';
+const KOFI_URL = 'https://ko-fi.com/paulzuiderduin';
 
 function useStoredState(key, fallbackValue) {
   const [value, setValue] = useState(() => {
@@ -90,6 +93,54 @@ function formatChangeEntityLabel(change) {
   return change.entityType || 'Update';
 }
 
+function KofiLink({ className = 'text-link', children = 'Support Games28 on Ko-fi' }) {
+  return (
+    <a
+      href={KOFI_URL}
+      className={className}
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => trackOutboundClick('kofi_click', KOFI_URL)}
+    >
+      {children}
+    </a>
+  );
+}
+
+function SourceLink({ href, children = 'Source', context = {} }) {
+  if (!href) {
+    return null;
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => trackOutboundClick('source_click', href, context)}
+    >
+      {children}
+    </a>
+  );
+}
+
+function SupportCta({ onDismiss }) {
+  return (
+    <section className="support-cta">
+      <div>
+        <p className="eyebrow">Free forever</p>
+        <h2>Calendar exported. If Games28 helped, Ko-fi keeps it running.</h2>
+      </div>
+      <div className="support-cta-actions">
+        <KofiLink className="primary-link">Support on Ko-fi</KofiLink>
+        <button type="button" className="text-button" onClick={onDismiss}>
+          Dismiss
+        </button>
+      </div>
+    </section>
+  );
+}
+
 function SourceRail({ runtime }) {
   const authorityLabel = runtime.meta.scheduleAuthority === 'official_pdf'
     ? 'Official PDF is live'
@@ -124,11 +175,15 @@ function SourceRail({ runtime }) {
             <h3>{source.label}</h3>
             <p>{source.description}</p>
             {source.fallbackUsed ? <p className="source-fallback">Using local snapshot fallback on this refresh.</p> : null}
-            <a href={source.url} target="_blank" rel="noreferrer">
+            <SourceLink href={source.url} context={{ sourceId: source.id }}>
               Open source
-            </a>
+            </SourceLink>
           </article>
         ))}
+      </div>
+      <div className="source-footer">
+        <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
+        <KofiLink />
       </div>
     </section>
   );
@@ -220,12 +275,14 @@ function CountryDirectory({ countries, athleteCards, favorites, onToggleFavorite
   );
 }
 
-function ScheduleCard({ entry, countryMode = false }) {
+function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
   return (
     <article className="schedule-card">
       <div className="schedule-card-top">
         <div>
-          <p className="eyebrow">{entry.sport}</p>
+          <p className="eyebrow">
+            <AppLink href={getSportPath(entry.sport)} className="eyebrow-link">{entry.sport}</AppLink>
+          </p>
           <h3>{entry.eventName}</h3>
         </div>
         <span className={`tag ${entry.derivedStatus === 'confirmed' ? 'confirmed' : entry.derivedStatus === 'pending' ? 'pending' : 'scheduled'}`}>
@@ -252,14 +309,16 @@ function ScheduleCard({ entry, countryMode = false }) {
           <button
             type="button"
             className="text-button"
-            onClick={() => downloadCalendarEntries([entry], `${entry.sessionCode || 'session'}-games28`)}
+            onClick={() => onCalendarExport?.([entry], `${entry.sessionCode || 'session'}-games28`, 'calendar_export_session', {
+              sessionId: entry.id,
+              sport: entry.sport
+            })}
             disabled={!entry.startAtUtc}
           >
             Add to calendar
           </button>
-          <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
-            Source
-          </a>
+          <AppLink href={getSessionPath(entry.id)} className="text-link">Details</AppLink>
+          <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} />
         </div>
       </div>
     </article>
@@ -298,6 +357,7 @@ function HomeView({
   runtime,
   scheduleFilters,
   onScheduleFiltersChange,
+  onCalendarExport,
   scheduleEntries,
   scheduleOptions,
   homeStats,
@@ -379,7 +439,10 @@ function HomeView({
             <button
               type="button"
               className="secondary-link button-link"
-              onClick={() => downloadCalendarEntries(scheduleEntries, 'games28-schedule')}
+              onClick={() => onCalendarExport(scheduleEntries, 'games28-schedule', 'calendar_export_visible', {
+                route: 'home',
+                count: scheduleEntries.length
+              })}
               disabled={!scheduleEntries.length}
             >
               Export visible sessions
@@ -395,7 +458,7 @@ function HomeView({
         {scheduleEntries.length ? (
           <div className="schedule-grid">
             {scheduleEntries.slice(0, 18).map((entry) => (
-              <ScheduleCard key={entry.id} entry={entry} />
+              <ScheduleCard key={entry.id} entry={entry} onCalendarExport={onCalendarExport} />
             ))}
           </div>
         ) : (
@@ -481,10 +544,10 @@ function HomeView({
   );
 }
 
-function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChange, scheduleOptions }) {
+function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
   return (
     <section className="panel page-section">
-        <div className="section-heading">
+      <div className="section-heading">
         <div>
           <p className="eyebrow">Schedule</p>
           <h1>Competition schedule</h1>
@@ -494,7 +557,10 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
           <button
             type="button"
             className="secondary-link button-link"
-            onClick={() => downloadCalendarEntries(scheduleEntries, 'games28-visible-schedule')}
+            onClick={() => onCalendarExport(scheduleEntries, 'games28-visible-schedule', 'calendar_export_visible', {
+              route: 'schedule',
+              count: scheduleEntries.length
+            })}
             disabled={!scheduleEntries.length}
           >
             Export visible sessions
@@ -510,7 +576,7 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
       {scheduleEntries.length ? (
         <div className="schedule-grid">
           {scheduleEntries.map((entry) => (
-            <ScheduleCard key={entry.id} entry={entry} />
+            <ScheduleCard key={entry.id} entry={entry} onCalendarExport={onCalendarExport} />
           ))}
         </div>
       ) : (
@@ -523,7 +589,144 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
   );
 }
 
-function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
+function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
+  if (!sport) {
+    return (
+      <section className="panel page-section">
+        <EmptyState
+          title="Sport not found"
+          description="Open the schedule explorer to choose one of the sports currently indexed by Games28."
+        />
+      </section>
+    );
+  }
+
+  return (
+    <section className="panel page-section">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Sport schedule</p>
+          <h1>{sport}</h1>
+        </div>
+        <div className="heading-meta">
+          <span className="status-pill">{formatCount(entries.length)} sessions</span>
+          <button
+            type="button"
+            className="secondary-link button-link"
+            onClick={() => onCalendarExport(entries, `${sport}-games28`, 'calendar_export_visible', {
+              route: 'sport',
+              sport,
+              count: entries.length
+            })}
+            disabled={!entries.length}
+          >
+            Export sport schedule
+          </button>
+        </div>
+      </div>
+      <div className="timezone-note">
+        Times are shown in your local timezone: <strong>{getViewerTimeZoneLabel()}</strong>. Each session also shows an LA reference time.
+      </div>
+      <div className="filters-grid sport-filter-grid">
+        <label>
+          <span>Date</span>
+          <select value={scheduleFilters.dayKey} onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, dayKey: event.target.value })}>
+            <option value="all">All competition days</option>
+            {scheduleOptions.dayOptions.map((dayKey) => (
+              <option key={dayKey} value={dayKey}>
+                {dayKey}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="search-field">
+          <span>Search {sport}</span>
+          <input
+            type="search"
+            value={scheduleFilters.searchText}
+            placeholder={`Search ${sport} sessions, venues, or session codes`}
+            onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, searchText: event.target.value })}
+          />
+        </label>
+      </div>
+      {entries.length ? (
+        <div className="schedule-grid">
+          {entries.map((entry) => (
+            <ScheduleCard key={entry.id} entry={entry} onCalendarExport={onCalendarExport} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          title="No sessions match those filters"
+          description="Try clearing the date or text search to see the full sport schedule."
+        />
+      )}
+    </section>
+  );
+}
+
+function SessionView({ entry, onCalendarExport }) {
+  if (!entry) {
+    return (
+      <section className="panel page-section">
+        <EmptyState
+          title="Session not found"
+          description="Open the schedule explorer to choose a currently indexed session."
+        />
+      </section>
+    );
+  }
+
+  return (
+    <section className="panel page-section session-detail">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">{entry.sport}</p>
+          <h1>{entry.eventName}</h1>
+        </div>
+        <div className="heading-meta">
+          <span className="status-pill">{entry.sessionCode || 'Session TBD'}</span>
+          <button
+            type="button"
+            className="secondary-link button-link"
+            onClick={() => onCalendarExport([entry], `${entry.sessionCode || entry.id}-games28`, 'calendar_export_session', {
+              route: 'session',
+              sessionId: entry.id,
+              sport: entry.sport
+            })}
+            disabled={!entry.startAtUtc}
+          >
+            Add to calendar
+          </button>
+        </div>
+      </div>
+      <div className="session-detail-body">
+        <div className="time-grid">
+          <div>
+            <span className="time-label">Your time</span>
+            <strong>{formatDateTimeLabel(entry.startAtUtc)}</strong>
+          </div>
+          <div>
+            <span className="time-label">LA reference</span>
+            <strong>{formatLaReference(entry.startAtUtc)}</strong>
+          </div>
+        </div>
+        <div className="session-facts">
+          <SummaryCard label="Phase" value={entry.phase || 'Scheduled'} />
+          <SummaryCard label="Venue" value={entry.venue || 'Venue TBC'} />
+          <SummaryCard label="Date" value={formatDateLabel(entry.startAtUtc)} />
+        </div>
+        <div className="session-links">
+          <AppLink href={getSportPath(entry.sport)} className="text-link">Open {entry.sport} schedule</AppLink>
+          <AppLink href="/schedule" className="text-link">Browse all sessions</AppLink>
+          <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalendarExport }) {
   const hasQualificationData = dashboard.athleteCards.length > 0;
   const hasConfirmedSessions = dashboard.confirmedSessions.length > 0;
 
@@ -553,7 +756,10 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
               type="button"
               className="primary-link button-link"
               disabled={!hasConfirmedSessions}
-              onClick={() => downloadCalendarEntries(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`)}
+              onClick={() => onCalendarExport(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`, 'calendar_export_country', {
+                noc: dashboard.country.noc,
+                count: dashboard.confirmedSessions.length
+              })}
             >
               Export confirmed sessions
             </button>
@@ -601,10 +807,12 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
                   <div className="info-card-footer">
                     <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
                     {card.profileUrl ? (
-                      <a href={card.profileUrl} target="_blank" rel="noreferrer">Profile</a>
+                      <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>
+                        Profile
+                      </SourceLink>
                     ) : null}
                     {card.sourceUrl ? (
-                      <a href={card.sourceUrl} target="_blank" rel="noreferrer">Source</a>
+                      <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
                     ) : null}
                   </div>
                 </article>
@@ -640,7 +848,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
                   <div className="info-card-footer">
                     <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
                     {card.sourceUrl ? (
-                      <a href={card.sourceUrl} target="_blank" rel="noreferrer">Source</a>
+                      <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
                     ) : null}
                   </div>
                 </article>
@@ -667,7 +875,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
           {dashboard.confirmedSessions.length ? (
             <div className="schedule-grid compact-grid">
               {dashboard.confirmedSessions.map((entry) => (
-                <ScheduleCard key={entry.id} entry={entry} countryMode />
+                <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
               ))}
             </div>
           ) : (
@@ -689,7 +897,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
           {dashboard.pendingSessions.length ? (
             <div className="schedule-grid compact-grid">
               {dashboard.pendingSessions.slice(0, 12).map((entry) => (
-                <ScheduleCard key={entry.id} entry={entry} countryMode />
+                <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
               ))}
             </div>
           ) : (
@@ -718,7 +926,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite }) {
                   <h3>{change.summary}</h3>
                   <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
                 </div>
-                <a href={change.sourceUrl} target="_blank" rel="noreferrer">Source</a>
+                <SourceLink href={change.sourceUrl} context={{ changeId: change.id, noc: dashboard.country.noc }} />
               </article>
             ))}
           </div>
@@ -754,7 +962,7 @@ function ChangesView({ changes }) {
               </div>
               <div className="change-card-actions">
                 {change.noc ? <AppLink href={`/countries/${change.noc}`} className="text-link">Open country</AppLink> : null}
-                <a href={change.sourceUrl} target="_blank" rel="noreferrer">Source</a>
+                <SourceLink href={change.sourceUrl} context={{ changeId: change.id }} />
               </div>
             </article>
           ))}
@@ -790,6 +998,7 @@ export default function App() {
   const [route, setRoute] = useState(() => parseRoute(window.location.pathname));
   const [runtime, setRuntime] = useState(runtimeFallback);
   const [isLoadingRuntime, setIsLoadingRuntime] = useState(true);
+  const [showSupportCta, setShowSupportCta] = useState(false);
   const [scheduleFilters, setScheduleFilters] = useStoredState('games28-schedule-filters', DEFAULT_SCHEDULE_FILTERS);
   const [favoriteCountries, setFavoriteCountries] = useStoredState('games28-favorite-countries', []);
   const [countryFiltersState, setCountryFiltersState] = useStoredState('games28-country-filters', DEFAULT_COUNTRY_FILTERS);
@@ -802,7 +1011,7 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [route.name, route.noc]);
+  }, [route.name, route.noc, route.sportSlug, route.sessionId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -845,14 +1054,50 @@ export default function App() {
     return buildCountryDashboard(runtime, route.noc);
   }, [runtime, route]);
 
+  const currentSport = useMemo(() => {
+    if (route.name !== 'sport') {
+      return null;
+    }
+    return findSportBySlug(runtime.scheduleEntries || [], route.sportSlug);
+  }, [runtime.scheduleEntries, route]);
+
+  const currentSportEntries = useMemo(() => {
+    if (!currentSport) {
+      return [];
+    }
+
+    return filterScheduleEntries(runtime.scheduleEntries || [], {
+      ...scheduleFilters,
+      sport: currentSport
+    });
+  }, [runtime.scheduleEntries, scheduleFilters, currentSport]);
+
+  const currentSession = useMemo(() => {
+    if (route.name !== 'session') {
+      return null;
+    }
+    return (runtime.scheduleEntries || []).find((entry) => entry.id === route.sessionId) || null;
+  }, [runtime.scheduleEntries, route]);
+
   const changes = useMemo(() => {
     return [...(runtime.changes || [])].sort((left, right) => String(right.changedAt).localeCompare(String(left.changedAt)));
   }, [runtime.changes]);
 
   function toggleFavoriteCountry(noc) {
     setFavoriteCountries((current) => {
-      return current.includes(noc) ? current.filter((entry) => entry !== noc) : [...current, noc].sort();
+      const next = current.includes(noc) ? current.filter((entry) => entry !== noc) : [...current, noc].sort();
+      trackEvent('country_save', { noc, saved: next.includes(noc) });
+      return next;
     });
+  }
+
+  function handleCalendarExport(entries, title, eventName, eventData = {}) {
+    const exported = downloadCalendarEntries(entries, title);
+    if (exported) {
+      trackEvent(eventName, eventData);
+      setShowSupportCta(true);
+    }
+    return exported;
   }
 
   return (
@@ -869,8 +1114,9 @@ export default function App() {
         </AppLink>
         <nav className="site-nav">
           <AppLink href="/" className={route.name === 'home' ? 'active' : ''}>Home</AppLink>
-          <AppLink href="/schedule" className={route.name === 'schedule' ? 'active' : ''}>Schedule</AppLink>
+          <AppLink href="/schedule" className={['schedule', 'sport', 'session'].includes(route.name) ? 'active' : ''}>Schedule</AppLink>
           <AppLink href="/changes" className={route.name === 'changes' ? 'active' : ''}>Changes</AppLink>
+          <KofiLink className="nav-support-link">Support</KofiLink>
         </nav>
       </header>
 
@@ -889,6 +1135,7 @@ export default function App() {
             runtime={runtime}
             scheduleFilters={scheduleFilters}
             onScheduleFiltersChange={setScheduleFilters}
+            onCalendarExport={handleCalendarExport}
             scheduleEntries={scheduleEntries}
             scheduleOptions={scheduleOptions}
             homeStats={homeStats}
@@ -906,6 +1153,25 @@ export default function App() {
             scheduleFilters={scheduleFilters}
             onScheduleFiltersChange={setScheduleFilters}
             scheduleOptions={scheduleOptions}
+            onCalendarExport={handleCalendarExport}
+          />
+        ) : null}
+
+        {!isLoadingRuntime && route.name === 'sport' ? (
+          <SportView
+            sport={currentSport}
+            entries={currentSportEntries}
+            scheduleFilters={scheduleFilters}
+            onScheduleFiltersChange={setScheduleFilters}
+            scheduleOptions={scheduleOptions}
+            onCalendarExport={handleCalendarExport}
+          />
+        ) : null}
+
+        {!isLoadingRuntime && route.name === 'session' ? (
+          <SessionView
+            entry={currentSession}
+            onCalendarExport={handleCalendarExport}
           />
         ) : null}
 
@@ -914,11 +1180,13 @@ export default function App() {
             dashboard={currentDashboard}
             favoriteCountries={favoriteCountries}
             onToggleFavorite={toggleFavoriteCountry}
+            onCalendarExport={handleCalendarExport}
           />
         ) : null}
 
         {!isLoadingRuntime && route.name === 'changes' ? <ChangesView changes={changes} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
+        {!isLoadingRuntime && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
         {!isLoadingRuntime ? <SourceRail runtime={runtime} /> : null}
       </main>
     </div>
