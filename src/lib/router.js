@@ -7,6 +7,10 @@ export function parseRoute(pathname) {
     return { name: 'schedule' };
   }
 
+  if (pathname === '/countries') {
+    return { name: 'countries' };
+  }
+
   if (pathname === '/changes') {
     return { name: 'changes' };
   }

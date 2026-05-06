@@ -37,6 +37,14 @@ const DEFAULT_COUNTRY_FILTERS = {
 
 const LA28_OPENING_CEREMONY_UTC = '2028-07-15T00:00:00.000Z';
 const KOFI_URL = 'https://ko-fi.com/paulzuiderduin';
+const FEATURED_NOCS = ['NED', 'USA', 'JPN', 'GBR', 'AUS', 'FRA'];
+
+const PRIMARY_NAV_ITEMS = [
+  { href: '/', routeNames: ['home'], label: 'Home', icon: 'home' },
+  { href: '/countries', routeNames: ['countries', 'country'], label: 'Countries', icon: 'flag' },
+  { href: '/schedule', routeNames: ['schedule', 'sport', 'session'], label: 'Schedule', icon: 'calendar' },
+  { href: '/changes', routeNames: ['changes'], label: 'Changes', icon: 'pulse' }
+];
 
 function useStoredState(key, fallbackValue) {
   const [value, setValue] = useState(() => {
@@ -74,6 +82,39 @@ function AppLink({ href, children, className }) {
     >
       {children}
     </a>
+  );
+}
+
+function NavIcon({ name }) {
+  if (name === 'flag') return <span aria-hidden="true">⚑</span>;
+  if (name === 'calendar') return <span aria-hidden="true">□</span>;
+  if (name === 'pulse') return <span aria-hidden="true">◌</span>;
+  return <span aria-hidden="true">⌂</span>;
+}
+
+function SiteNavigation({ routeName, mobile = false }) {
+  const navClassName = mobile ? 'mobile-tabbar' : 'desktop-nav';
+
+  return (
+    <nav className={navClassName} aria-label="Primary">
+      {PRIMARY_NAV_ITEMS.map((item) => {
+        const isActive = item.routeNames.includes(routeName);
+        const linkClassName = mobile
+          ? `mobile-tab ${isActive ? 'active' : ''}`.trim()
+          : `desktop-nav-link ${isActive ? 'active' : ''}`.trim();
+
+        return (
+          <AppLink
+            key={item.href}
+            href={item.href}
+            className={linkClassName}
+          >
+            <NavIcon name={item.icon} />
+            <span>{item.label}</span>
+          </AppLink>
+        );
+      })}
+    </nav>
   );
 }
 
@@ -132,7 +173,7 @@ function SupportCta({ onDismiss }) {
         <h2>Calendar exported. If Games28 helped, Ko-fi keeps it running.</h2>
       </div>
       <div className="support-cta-actions">
-        <KofiLink className="primary-link">Support on Ko-fi</KofiLink>
+        <KofiLink className="button-primary">Support on Ko-fi</KofiLink>
         <button type="button" className="text-button" onClick={onDismiss}>
           Dismiss
         </button>
@@ -249,8 +290,8 @@ function CountryDirectory({ countries, athleteCards, favorites, onToggleFavorite
         return (
           <article key={country.noc} className="country-card">
             <div className="country-card-top">
-              <div>
-                <CountryFlag country={country} />
+              <div className="country-card-identity">
+                <CountryFlag country={country} size="md" />
                 <h3>{country.name}</h3>
               </div>
               <button
@@ -367,78 +408,108 @@ function HomeView({
   favorites,
   onToggleFavorite
 }) {
-  const [visibleCountryCount, setVisibleCountryCount] = useState(48);
+  const featuredCountries = useMemo(() => {
+    const byNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
+    return FEATURED_NOCS.map((noc) => byNoc.get(noc)).filter(Boolean);
+  }, [runtime.countries]);
 
-  useEffect(() => {
-    setVisibleCountryCount(48);
-  }, [countryFilters.searchText, countryFilters.favoriteOnly]);
-
-  const featuredCountries = countries.slice(0, 3);
-  const favoriteCountryCards = countries.filter((country) => favorites.includes(country.noc)).slice(0, 6);
-  const shouldShowAllCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
-  const displayedCountries = shouldShowAllCountries ? countries : countries.slice(0, visibleCountryCount);
-  const hasHiddenCountries = displayedCountries.length < countries.length;
-
-  function jumpToCountryDashboards() {
-    document.getElementById('country-dashboards')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  const savedCountries = useMemo(() => {
+    const byNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
+    return favorites.map((noc) => byNoc.get(noc)).filter(Boolean);
+  }, [favorites, runtime.countries]);
 
   return (
     <>
-      <section className="hero panel">
-        <div>
-          <p className="eyebrow">Games28</p>
-          <h1>The LA 2028 schedule, with country dashboards ready for qualification tracking.</h1>
+      <section className="hero panel home-hero">
+        <div className="hero-main">
+          <p className="eyebrow">Start here</p>
+          <h1>Choose your country</h1>
           <p className="hero-copy">
-            Games28 is a global-first planning layer for LA 2028: full competition schedule, saved countries,
-            country dashboards, and a refresh pipeline ready for official athlete and quota updates.
+            Local-time LA 2028 schedules, clear country dashboards, and calendar exports without the clutter.
           </p>
-          <div className="hero-actions">
-            <AppLink href="/schedule" className="primary-link">Browse full schedule</AppLink>
-            <button type="button" className="secondary-link button-link" onClick={jumpToCountryDashboards}>
-              Explore country dashboards
-            </button>
-            <AppLink href="/changes" className="secondary-link">See recent changes</AppLink>
+          <div className="hero-search-wrap">
+            <label className="search-field hero-search">
+              <span>Search countries</span>
+              <input
+                type="search"
+                value={countryFilters.searchText}
+                placeholder="Search Netherlands, NED, Japan..."
+                onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
+              />
+            </label>
+          </div>
+          <div className="saved-countries-row compact">
+            <div className="saved-countries-label">
+              <p className="eyebrow">Saved countries</p>
+              <span>{savedCountries.length ? `${savedCountries.length} saved` : 'Nothing saved yet'}</span>
+            </div>
+            <div className="saved-countries-list">
+              {savedCountries.length ? (
+                savedCountries.slice(0, 6).map((country) => (
+                  <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
+                    <CountryFlag country={country} size="sm" />
+                    <span>{country.name}</span>
+                  </AppLink>
+                ))
+              ) : (
+                <span className="supporting-copy">Save countries and they’ll stay one tap away here.</span>
+              )}
+            </div>
           </div>
           {featuredCountries.length ? (
-            <div className="hero-inline-links">
-              <span className="hero-inline-label">Try a dashboard:</span>
-              {featuredCountries.map((country) => (
-                <AppLink key={country.noc} href={`/countries/${country.noc}`} className="text-link">
-                  {country.name}
-                </AppLink>
-              ))}
+            <div className="home-featured">
+              <p className="eyebrow">Popular dashboards</p>
+              <div className="featured-country-list">
+                {featuredCountries.map((country) => (
+                  <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
+                    <div className="row-main">
+                      <CountryFlag country={country} size="md" />
+                      <div>
+                        <h3>{country.name}</h3>
+                        <p>Open dashboard</p>
+                      </div>
+                    </div>
+                    <span aria-hidden="true">›</span>
+                  </AppLink>
+                ))}
+              </div>
             </div>
           ) : null}
+          <div className="hero-actions">
+            <AppLink href="/countries" className="button-primary">Open all countries</AppLink>
+            <AppLink href="/schedule" className="button-secondary">Browse full schedule</AppLink>
+          </div>
         </div>
-        <div className="hero-side">
+        <div className="hero-side home-hero-side">
           <CountdownCard targetIso={LA28_OPENING_CEREMONY_UTC} />
-          <p className="eyebrow">Update status</p>
+          <p className="eyebrow">Data status</p>
           <h2>{formatUpdatedLabel(runtime.checkedAt)}</h2>
-          <p>Refresh cadence: {runtime.meta.refreshCadence || 'Daily'}.</p>
-          <p>Published source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}.</p>
-          <p>The schedule is live. Qualification cards stay empty until verified athlete or quota updates are added.</p>
+          <p>Schedule source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}.</p>
+          <p>Qualification cards stay empty until an athlete or quota source is verified.</p>
           {runtime.meta.staleWarning ? <p>{runtime.meta.staleWarning}</p> : null}
+          <div className="hero-side-actions">
+            <AppLink href="/changes" className="text-link">See recent changes</AppLink>
+          </div>
         </div>
       </section>
 
-      <section className="summary-grid">
+      <section className="summary-grid summary-grid--quiet">
         {homeStats.map((card) => (
           <SummaryCard key={card.label} {...card} />
         ))}
       </section>
 
-      <section className="panel">
+      <section className="panel page-section">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Schedule explorer</p>
-            <h2>Scan the entire competition schedule</h2>
+            <p className="eyebrow">Schedule preview</p>
+            <h2>Scan the full competition schedule</h2>
           </div>
-        <div className="heading-meta">
-          <span className="status-pill">Source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}</span>
+          <div className="heading-meta">
+            <span className="status-pill">Source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}</span>
             <button
               type="button"
-              className="secondary-link button-link"
+              className="button-secondary"
               onClick={() => onCalendarExport(scheduleEntries, 'games28-schedule', 'calendar_export_visible', {
                 route: 'home',
                 count: scheduleEntries.length
@@ -464,83 +535,99 @@ function HomeView({
         ) : (
           <EmptyState
             title="No sessions match those filters"
-            description="Try resetting the date or sport filter to see the full competition slate."
-          />
-        )}
-      </section>
-
-      <section className="panel" id="country-dashboards">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Country dashboards</p>
-            <h2>Open any country dashboard, save favorites, and follow qualification as it lands</h2>
-          </div>
-          <div className="heading-meta">
-            <span className="status-pill">{formatCount(countries.length)} indexed countries</span>
-            {!shouldShowAllCountries ? (
-              <span className="supporting-copy">{formatCount(displayedCountries.length)} shown</span>
-            ) : null}
-          </div>
-        </div>
-        <div className="section-intro">
-          Each country card opens its own dashboard with qualification cards, pending vs confirmed sessions, and a country-specific change feed.
-        </div>
-        <div className="saved-countries-row">
-        <div className="saved-countries-label">
-            <p className="eyebrow">Saved countries</p>
-            <span>{favorites.length ? `${favorites.length} saved` : 'Nothing saved yet'}</span>
-          </div>
-          <div className="saved-countries-list">
-            {favoriteCountryCards.length ? (
-              favoriteCountryCards.map((country) => (
-                <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
-                  <CountryFlag country={country} />
-                  <span>{country.name}</span>
-                </AppLink>
-              ))
-            ) : (
-              <span className="supporting-copy">Save a few favorites and they’ll show up here for quick access.</span>
-            )}
-          </div>
-        </div>
-        <div className="filters-grid countries-filter-grid">
-          <label className="search-field">
-            <span>Find a country</span>
-            <input
-              type="search"
-              value={countryFilters.searchText}
-              placeholder="Search by name, NOC, or continent"
-              onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
-            />
-          </label>
-          <label className="toggle-row">
-            <span>Show saved countries only</span>
-            <input
-              type="checkbox"
-              checked={countryFilters.favoriteOnly}
-              onChange={(event) => onCountryFiltersChange({ ...countryFilters, favoriteOnly: event.target.checked })}
-            />
-          </label>
-        </div>
-        <CountryDirectory
-          countries={displayedCountries}
-          athleteCards={runtime.athleteCards}
-          favorites={favorites}
-          onToggleFavorite={onToggleFavorite}
+          description="Try resetting the date or sport filter to see the full competition slate."
         />
-        {hasHiddenCountries ? (
-          <div className="section-actions">
-            <button
-              type="button"
-              className="secondary-link button-link"
-              onClick={() => setVisibleCountryCount((current) => current + 48)}
-            >
-              Show 48 more countries
-            </button>
-          </div>
-        ) : null}
+      )}
       </section>
     </>
+  );
+}
+
+function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countries, favorites, onToggleFavorite }) {
+  const [visibleCountryCount, setVisibleCountryCount] = useState(48);
+
+  useEffect(() => {
+    setVisibleCountryCount(48);
+  }, [countryFilters.searchText, countryFilters.favoriteOnly]);
+
+  const savedCountries = useMemo(() => {
+    const byNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
+    return favorites.map((noc) => byNoc.get(noc)).filter(Boolean);
+  }, [favorites, runtime.countries]);
+
+  const shouldShowAllCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
+  const displayedCountries = shouldShowAllCountries ? countries : countries.slice(0, visibleCountryCount);
+  const hasHiddenCountries = displayedCountries.length < countries.length;
+
+  return (
+    <section className="panel page-section country-directory-page">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Countries</p>
+          <h1>Country dashboards</h1>
+        </div>
+        <div className="heading-meta">
+          <span className="status-pill">{formatCount(countries.length)} indexed countries</span>
+        </div>
+      </div>
+      <div className="section-intro">
+        Pick a country to see its dashboard, save favorites, and follow qualification and schedule updates in one place.
+      </div>
+      <div className="saved-countries-row">
+        <div className="saved-countries-label">
+          <p className="eyebrow">Saved countries</p>
+          <span>{savedCountries.length ? `${savedCountries.length} saved` : 'Nothing saved yet'}</span>
+        </div>
+        <div className="saved-countries-list">
+          {savedCountries.length ? (
+            savedCountries.map((country) => (
+              <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
+                <CountryFlag country={country} size="sm" />
+                <span>{country.name}</span>
+              </AppLink>
+            ))
+          ) : (
+            <span className="supporting-copy">Save a few favorites and they’ll stay at the top for quick access.</span>
+          )}
+        </div>
+      </div>
+      <div className="filters-grid countries-filter-grid">
+        <label className="search-field">
+          <span>Find a country</span>
+          <input
+            type="search"
+            value={countryFilters.searchText}
+            placeholder="Search by name, NOC, or continent"
+            onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
+          />
+        </label>
+        <label className="toggle-row">
+          <span>Show saved countries only</span>
+          <input
+            type="checkbox"
+            checked={countryFilters.favoriteOnly}
+            onChange={(event) => onCountryFiltersChange({ ...countryFilters, favoriteOnly: event.target.checked })}
+          />
+        </label>
+      </div>
+      <CountryDirectory
+        countries={displayedCountries}
+        athleteCards={runtime.athleteCards}
+        favorites={favorites}
+        onToggleFavorite={onToggleFavorite}
+      />
+      {hasHiddenCountries ? (
+        <div className="section-actions">
+          <button
+            type="button"
+            className="button-secondary"
+            onClick={() => setVisibleCountryCount((current) => current + 48)}
+          >
+            Show 48 more countries
+          </button>
+        </div>
+      ) : null}
+    </section>
   );
 }
 
@@ -556,7 +643,7 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
           <span className="status-pill">Local time + LA reference</span>
           <button
             type="button"
-            className="secondary-link button-link"
+              className="button-secondary"
             onClick={() => onCalendarExport(scheduleEntries, 'games28-visible-schedule', 'calendar_export_visible', {
               route: 'schedule',
               count: scheduleEntries.length
@@ -612,7 +699,7 @@ function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, s
           <span className="status-pill">{formatCount(entries.length)} sessions</span>
           <button
             type="button"
-            className="secondary-link button-link"
+            className="button-secondary"
             onClick={() => onCalendarExport(entries, `${sport}-games28`, 'calendar_export_visible', {
               route: 'sport',
               sport,
@@ -688,7 +775,7 @@ function SessionView({ entry, onCalendarExport }) {
           <span className="status-pill">{entry.sessionCode || 'Session TBD'}</span>
           <button
             type="button"
-            className="secondary-link button-link"
+            className="button-secondary"
             onClick={() => onCalendarExport([entry], `${entry.sessionCode || entry.id}-games28`, 'calendar_export_session', {
               route: 'session',
               sessionId: entry.id,
@@ -731,30 +818,28 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
   const hasConfirmedSessions = dashboard.confirmedSessions.length > 0;
 
   return (
-    <div className="country-layout">
-      <section className="hero panel country-hero">
-        <div>
-          <p className="eyebrow">Country dashboard</p>
-          <h1>{dashboard.country.name}</h1>
-          <p className="hero-copy">
-            {dashboard.country.noc} · {dashboard.country.continent}. This dashboard keeps qualification cards, derived
-            schedule matches, and a change feed in one place.
-          </p>
-          <div className="hero-inline-links">
-            <span className="status-pill">Source: derived country view</span>
-            <span className="supporting-copy">Confirmed sessions are explicit, pending sessions are best-effort matches.</span>
+    <section className="country-page">
+      <div className="panel page-section country-page__hero">
+        <div className="country-page__head">
+          <div className="country-page__identity">
+            <CountryFlag country={dashboard.country} size="lg" className="country-hero-flag" />
+            <div>
+              <p className="eyebrow">Country dashboard</p>
+              <h1>{dashboard.country.name}</h1>
+              <p className="hero-copy">{dashboard.country.noc} · {dashboard.country.continent}</p>
+            </div>
           </div>
-          <div className="hero-actions">
+          <div className="country-page__actions">
             <button
               type="button"
-              className={`secondary-link button-link ${favoriteCountries.includes(dashboard.country.noc) ? 'active' : ''}`}
+              className={`button-secondary ${favoriteCountries.includes(dashboard.country.noc) ? 'active' : ''}`}
               onClick={() => onToggleFavorite(dashboard.country.noc)}
             >
               {favoriteCountries.includes(dashboard.country.noc) ? 'Saved country' : 'Save country'}
             </button>
             <button
               type="button"
-              className="primary-link button-link"
+              className="button-primary"
               disabled={!hasConfirmedSessions}
               onClick={() => onCalendarExport(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`, 'calendar_export_country', {
                 noc: dashboard.country.noc,
@@ -765,182 +850,193 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
             </button>
           </div>
         </div>
-        <div className="hero-side">
-          <CountryFlag country={dashboard.country} className="country-hero-flag" />
-          <p className="eyebrow">Latest update</p>
-          <h2>{formatUpdatedLabel(dashboard.latestUpdateAt)}</h2>
-          <p>{hasQualificationData ? 'Qualification cards are live for this country.' : 'Qualification cards are not populated yet.'}</p>
-          <p>{hasConfirmedSessions ? 'Confirmed sessions are ready to export.' : 'Schedule items stay pending until official entry lists appear.'}</p>
-          <p className="supporting-copy">
-            Confirmed means a country or athlete is explicitly tied to the session. Pending means the schedule match looks likely, but the entry list is not final yet.
-          </p>
-        </div>
-      </section>
+        <p className="country-page__intro">
+          Confirmed sessions are explicit. Pending sessions are useful previews, but they stay marked pending until official entry lists are final.
+        </p>
+      </div>
 
-      <section className="summary-grid">
+      <section className="summary-grid country-page__stats">
         <SummaryCard label="Named athletes" value={dashboard.stats.namedAthleteCount} />
         <SummaryCard label="Quota places" value={dashboard.stats.quotaCount} />
         <SummaryCard label="Confirmed sessions" value={dashboard.stats.confirmedSessionCount} />
         <SummaryCard label="Pending schedule matches" value={dashboard.stats.pendingSessionCount} />
       </section>
 
-      <div className="split-panels">
-        <section className="panel">
-          <div className="section-heading compact">
-            <div>
-              <p className="eyebrow">Qualification cards</p>
-              <h2>Named athletes</h2>
+      <div className="country-page__body">
+        <div className="country-page__main">
+          <section className="panel">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Country schedule</p>
+                <h2>Next sessions</h2>
+              </div>
+              <span className="status-pill">Confirmed first</span>
             </div>
-          </div>
-          {dashboard.namedAthletes.length ? (
-            <div className="stacked-list">
-              {dashboard.namedAthletes.map((card) => (
-                <article key={card.id} className="info-card">
-                  <div className="info-card-top">
-                    <div>
-                      <h3>{card.name}</h3>
-                      <p>{card.sport}</p>
+            {dashboard.confirmedSessions.length ? (
+              <div className="schedule-grid compact-grid">
+                {dashboard.confirmedSessions.map((entry) => (
+                  <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No confirmed sessions yet"
+                description="Entry lists are not final. Confirmed sessions will appear here as country data is published."
+              />
+            )}
+          </section>
+
+          <section className="panel">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Qualification</p>
+                <h2>Named athletes</h2>
+              </div>
+            </div>
+            {dashboard.namedAthletes.length ? (
+              <div className="stacked-list">
+                {dashboard.namedAthletes.map((card) => (
+                  <article key={card.id} className="info-card">
+                    <div className="info-card-top">
+                      <div>
+                        <h3>{card.name}</h3>
+                        <p>{card.sport}</p>
+                      </div>
+                      <span className="tag confirmed">{formatStatusLabel(card.status)}</span>
                     </div>
-                    <span className="tag confirmed">{formatStatusLabel(card.status)}</span>
-                  </div>
-                  <p>{card.disciplines.join(', ')}</p>
-                  <div className="info-card-footer">
-                    <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
-                    {card.profileUrl ? (
-                      <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>
-                        Profile
-                      </SourceLink>
-                    ) : null}
-                    {card.sourceUrl ? (
-                      <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
-                    ) : null}
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="No named athletes tracked yet"
-              description="This is intentional. Games28 stays empty until a source is verified rather than guessing who is qualified for LA 2028."
-            />
-          )}
-        </section>
-
-        <section className="panel">
-          <div className="section-heading compact">
-            <div>
-              <p className="eyebrow">Qualification cards</p>
-              <h2>Quota places without named athletes</h2>
-            </div>
-          </div>
-          {dashboard.quotaPlaces.length ? (
-            <div className="stacked-list">
-              {dashboard.quotaPlaces.map((card) => (
-                <article key={card.id} className="info-card">
-                  <div className="info-card-top">
-                    <div>
-                      <h3>{card.name}</h3>
-                      <p>{card.sport}</p>
+                    <p>{card.disciplines.join(', ')}</p>
+                    <div className="info-card-footer">
+                      <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
+                      {card.profileUrl ? (
+                        <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>
+                          Profile
+                        </SourceLink>
+                      ) : null}
+                      {card.sourceUrl ? (
+                        <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
+                      ) : null}
                     </div>
-                    <span className="tag pending">{formatStatusLabel(card.status)}</span>
-                  </div>
-                  <p>{card.disciplines.join(', ')}</p>
-                  <div className="info-card-footer">
-                    <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
-                    {card.sourceUrl ? (
-                      <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
-                    ) : null}
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="No quota places tracked yet"
-              description="Add verified quota records to the qualification source file and this panel will light up automatically."
-            />
-          )}
-        </section>
-      </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No verified athlete cards yet"
+                description="Games28 stays empty until a source is verified instead of guessing who is qualified."
+              />
+            )}
+          </section>
 
-      <div className="split-panels">
-        <section className="panel">
-          <div className="section-heading compact">
-            <div>
-              <p className="eyebrow">Country schedule</p>
-              <h2>Confirmed sessions</h2>
+          <section className="panel">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Qualification</p>
+                <h2>Quota places without named athletes</h2>
+              </div>
             </div>
-            <span className="status-pill">Confirmed only</span>
-          </div>
-          {dashboard.confirmedSessions.length ? (
-            <div className="schedule-grid compact-grid">
-              {dashboard.confirmedSessions.map((entry) => (
-                <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="No confirmed sessions yet"
-              description="That is normal before final start lists and draws are published. Confirmed sessions will appear here when the source data names this country or athlete explicitly."
-            />
-          )}
-        </section>
-
-        <section className="panel">
-          <div className="section-heading compact">
-            <div>
-              <p className="eyebrow">Country schedule</p>
-              <h2>Pending schedule matches</h2>
-            </div>
-            <span className="status-pill">Awaiting entries</span>
-          </div>
-          {dashboard.pendingSessions.length ? (
-            <div className="schedule-grid compact-grid">
-              {dashboard.pendingSessions.slice(0, 12).map((entry) => (
-                <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="No pending schedule matches yet"
-              description="Once qualification cards are added, Games28 will derive likely sessions from the LA 2028 schedule and keep them marked as pending until entries are confirmed."
-            />
-          )}
-        </section>
-      </div>
-
-      <section className="panel">
-        <div className="section-heading compact">
-          <div>
-            <p className="eyebrow">Recent changes</p>
-            <h2>What moved for {dashboard.country.name}</h2>
-          </div>
-          <span className="status-pill">Feed by country</span>
+            {dashboard.quotaPlaces.length ? (
+              <div className="stacked-list">
+                {dashboard.quotaPlaces.map((card) => (
+                  <article key={card.id} className="info-card">
+                    <div className="info-card-top">
+                      <div>
+                        <h3>{card.name}</h3>
+                        <p>{card.sport}</p>
+                      </div>
+                      <span className="tag pending">{formatStatusLabel(card.status)}</span>
+                    </div>
+                    <p>{card.disciplines.join(', ')}</p>
+                    <div className="info-card-footer">
+                      <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
+                      {card.sourceUrl ? (
+                        <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No quota places tracked yet"
+                description="Verified quota records will appear here once they’re added to the source data."
+              />
+            )}
+          </section>
         </div>
-        {dashboard.changes.length ? (
-          <div className="stacked-list">
-            {dashboard.changes.map((change) => (
-              <article key={change.id} className="change-card">
-                <div>
-                  <p className="eyebrow">{formatChangeEntityLabel(change)}</p>
-                  <h3>{change.summary}</h3>
-                  <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
-                </div>
-                <SourceLink href={change.sourceUrl} context={{ changeId: change.id, noc: dashboard.country.noc }} />
+
+        <aside className="country-page__aside">
+          <section className="panel">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Pending schedule</p>
+                <h2>Awaiting entries</h2>
+              </div>
+            </div>
+            {dashboard.pendingSessions.length ? (
+              <div className="schedule-grid compact-grid">
+                {dashboard.pendingSessions.slice(0, 12).map((entry) => (
+                  <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No pending schedule matches yet"
+                description="Likely sessions appear here once qualification cards exist, but stay pending until entries are confirmed."
+              />
+            )}
+          </section>
+
+          <section className="panel">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Data status</p>
+                <h2>Source and freshness</h2>
+              </div>
+            </div>
+            <div className="stacked-list">
+              <article className="info-card">
+                <h3>{formatUpdatedLabel(dashboard.latestUpdateAt)}</h3>
+                <p>{hasQualificationData ? 'Qualification cards are live for this country.' : 'Qualification cards are not populated yet.'}</p>
               </article>
-            ))}
-          </div>
-        ) : (
-          <EmptyState
-            title="No tracked changes yet"
-            description="The first refresh that changes this country's schedule or qualification cards will appear here."
-          />
-        )}
-      </section>
-    </div>
+              <article className="info-card">
+                <h3>{hasConfirmedSessions ? 'Confirmed sessions ready' : 'Waiting for entry lists'}</h3>
+                <p>{hasConfirmedSessions ? 'Confirmed sessions can be exported now.' : 'Schedule items stay pending until official entry lists appear.'}</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="panel">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Recent changes</p>
+                <h2>What moved for {dashboard.country.name}</h2>
+              </div>
+            </div>
+            {dashboard.changes.length ? (
+              <div className="stacked-list">
+                {dashboard.changes.map((change) => (
+                  <article key={change.id} className="change-card">
+                    <div>
+                      <p className="eyebrow">{formatChangeEntityLabel(change)}</p>
+                      <h3>{change.summary}</h3>
+                      <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
+                    </div>
+                    <SourceLink href={change.sourceUrl} context={{ changeId: change.id, noc: dashboard.country.noc }} />
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No tracked changes yet"
+                description="The first refresh that changes this country’s schedule or qualification cards will appear here."
+              />
+            )}
+          </section>
+        </aside>
+      </div>
+    </section>
   );
 }
-
 function ChangesView({ changes }) {
   return (
     <section className="panel page-section">
@@ -1101,26 +1197,25 @@ export default function App() {
   }
 
   return (
-    <div className="page-shell">
+    <div className="app-shell">
       <div className="backdrop backdrop-top" />
       <div className="backdrop backdrop-bottom" />
       <header className="site-header">
-        <AppLink href="/" className="brand-lockup">
-          <span className="brand-mark">G28</span>
+        <AppLink href="/" className="site-brand">
+          <span className="site-brand-mark">G28</span>
           <span>
             <strong>Games28</strong>
             <small>LA 2028 schedule and country dashboards</small>
           </span>
         </AppLink>
-        <nav className="site-nav">
-          <AppLink href="/" className={route.name === 'home' ? 'active' : ''}>Home</AppLink>
-          <AppLink href="/schedule" className={['schedule', 'sport', 'session'].includes(route.name) ? 'active' : ''}>Schedule</AppLink>
-          <AppLink href="/changes" className={route.name === 'changes' ? 'active' : ''}>Changes</AppLink>
-          <KofiLink className="nav-support-link">Support</KofiLink>
-        </nav>
+        <div className="site-header-actions">
+          <SiteNavigation routeName={route.name} />
+          <KofiLink className="header-support-link">Support</KofiLink>
+        </div>
       </header>
 
-      <main className="page-content">
+      <main className="page-shell">
+        <div className="page-content">
         {isLoadingRuntime ? (
           <section className="panel page-section">
             <EmptyState
@@ -1139,6 +1234,17 @@ export default function App() {
             scheduleEntries={scheduleEntries}
             scheduleOptions={scheduleOptions}
             homeStats={homeStats}
+            countryFilters={countryFilters}
+            onCountryFiltersChange={setCountryFiltersState}
+            countries={countries}
+            favorites={favoriteCountries}
+            onToggleFavorite={toggleFavoriteCountry}
+          />
+        ) : null}
+
+        {!isLoadingRuntime && route.name === 'countries' ? (
+          <CountriesView
+            runtime={runtime}
             countryFilters={countryFilters}
             onCountryFiltersChange={setCountryFiltersState}
             countries={countries}
@@ -1188,7 +1294,9 @@ export default function App() {
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
         {!isLoadingRuntime && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
         {!isLoadingRuntime ? <SourceRail runtime={runtime} /> : null}
+        </div>
       </main>
+      <SiteNavigation routeName={route.name} mobile />
     </div>
   );
 }
