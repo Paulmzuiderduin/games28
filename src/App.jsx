@@ -862,6 +862,41 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
         <SummaryCard label="Pending schedule matches" value={dashboard.stats.pendingSessionCount} />
       </section>
 
+      {Date.now() >= new Date(LA28_OPENING_CEREMONY_UTC).getTime() - 7 * 24 * 60 * 60 * 1000 ? (
+        <section className="panel country-page__medals">
+          <div className="section-heading compact">
+            <div>
+              <p className="eyebrow">Performance</p>
+              <h2>Medal tally</h2>
+            </div>
+            <span className="status-pill">Live updates</span>
+          </div>
+          <div className="medal-grid">
+            <div className="medal-item">
+              <div className="medal-circle gold">G</div>
+              <div className="medal-info">
+                <span className="medal-label">Gold</span>
+                <strong className="medal-count">{dashboard.country.medals?.gold || 0}</strong>
+              </div>
+            </div>
+            <div className="medal-item">
+              <div className="medal-circle silver">S</div>
+              <div className="medal-info">
+                <span className="medal-label">Silver</span>
+                <strong className="medal-count">{dashboard.country.medals?.silver || 0}</strong>
+              </div>
+            </div>
+            <div className="medal-item">
+              <div className="medal-circle bronze">B</div>
+              <div className="medal-info">
+                <span className="medal-label">Bronze</span>
+                <strong className="medal-count">{dashboard.country.medals?.bronze || 0}</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <div className="country-page__body">
         <div className="country-page__main">
           <section className="panel">

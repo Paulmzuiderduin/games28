@@ -3,7 +3,8 @@ const EMPTY_COUNTRY = {
   name: 'Unknown country',
   flag: 'TBD',
   continent: 'Unknown',
-  profileSlug: 'unknown'
+  profileSlug: 'unknown',
+  medals: { gold: 0, silver: 0, bronze: 0, total: 0 }
 };
 
 function normalizeText(value) {
