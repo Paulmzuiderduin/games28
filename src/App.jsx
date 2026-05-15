@@ -134,6 +134,19 @@ function formatChangeEntityLabel(change) {
   return change.entityType || 'Update';
 }
 
+function isMedalEvent(entry) {
+  const haystack = `${entry?.eventName || ''} ${entry?.phase || ''}`.toLowerCase();
+  return (
+    haystack.includes('gold medal') ||
+    haystack.includes('bronze medal') ||
+    haystack.includes('medal match') ||
+    haystack.includes('medal game') ||
+    haystack.includes('medal contest') ||
+    haystack.includes('bronze') ||
+    haystack.includes('final')
+  );
+}
+
 function KofiLink({ className = 'text-link', children = 'Support Games28 on Ko-fi' }) {
   return (
     <a
@@ -317,6 +330,8 @@ function CountryDirectory({ countries, athleteCards, favorites, onToggleFavorite
 }
 
 function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
+  const medalEvent = isMedalEvent(entry);
+
   return (
     <article className="schedule-card">
       <div className="schedule-card-top">
@@ -326,9 +341,17 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
           </p>
           <h3>{entry.eventName}</h3>
         </div>
-        <span className={`tag ${entry.derivedStatus === 'confirmed' ? 'confirmed' : entry.derivedStatus === 'pending' ? 'pending' : 'scheduled'}`}>
-          {formatStatusLabel(entry.derivedStatus || entry.status)}
-        </span>
+        <div className="schedule-card-badges">
+          {medalEvent ? (
+            <span className="medal-badge" title="Medal event" aria-label="Medal event">
+              <span className="medal-badge__icon" aria-hidden="true" />
+              <span>Medal</span>
+            </span>
+          ) : null}
+          <span className={`tag ${entry.derivedStatus === 'confirmed' ? 'confirmed' : entry.derivedStatus === 'pending' ? 'pending' : 'scheduled'}`}>
+            {formatStatusLabel(entry.derivedStatus || entry.status)}
+          </span>
+        </div>
       </div>
       <p className="schedule-meta">{entry.phase} · {entry.venue || 'Venue TBC'} · {entry.sessionCode || 'Session TBD'}</p>
       {countryMode && entry.linkedQualificationLabel ? (
