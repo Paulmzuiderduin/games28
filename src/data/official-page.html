@@ -39,7 +39,7 @@
 
     
 
-    <script>
+    <script type="text/plain" class="optanon-category-C0002">
   (function(h,o,u,n,d) {
     h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
     d=o.createElement(u);d.async=1;d.src=n
@@ -91,7 +91,7 @@
     
     
     
-<link rel="stylesheet" href="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-c608a20eeb4e50b664f05d8b0c9f70d3-lc.min.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-bff6b96fa3ea73da1179cd1b178b6027-lc.min.css" type="text/css">
 
 
 
@@ -142,30 +142,55 @@
         }
     }
 </script>
-    <script class="optanon-category-C0002" type="text/javascript" src="///assets.adobedtm.com/be81217ed404/725a38f13c16/launch-eff339f397b3.min.js" async></script>
+    <script class="optanon-category-C0002" type="text/plain" src="///assets.adobedtm.com/be81217ed404/725a38f13c16/launch-eff339f397b3.min.js" async></script>
 
-    <!-- OneTrust Cookies Consent Notice start for la28.org -->
-    
-        <script src="https://cdn.cookielaw.org/consent/ba03e29b-1e73-4a96-bb6f-b9a4f044a66d/otSDKStub.js" type="text/javascript" charset="UTF-8" defer data-domain-script="ba03e29b-1e73-4a96-bb6f-b9a4f044a66d" crossorigin="anonymous"></script>
-    
-    
+    <!-- OneTrust Cookies Consent Notice for la28.org -->
     <script type="text/javascript">
+        (function() {
+            var domainScript = '';
+            window.loadOneTrust = function() {
+                if (document.querySelector('script[data-domain-script]')) {
+                    return;
+                }
+                var s = document.createElement('script');
+                s.src = 'https://cdn.cookielaw.org/consent/' + domainScript + '/otSDKStub.js';
+                s.type = 'text/javascript';
+                s.setAttribute('data-domain-script', domainScript);
+                s.setAttribute('crossorigin', 'anonymous');
+                document.head.appendChild(s);
+            };
+            // Only load the SDK immediately when the user has already accepted our US consent
+            // modal. For first-time US visitors the modal will handle consent gating; for
+            // non-US visitors UsConsentModal calls loadOneTrust() after country detection.
+            if (document.cookie.indexOf('us_privacy_consent=true') !== -1) {
+                window.loadOneTrust();
+            }
+        })();
+
         function OptanonWrapper() {
-            document.querySelector('#onetrust-policy').classList.add("la28");
-            document.querySelector('#onetrust-pc-btn-handler').classList.add("la28");
-            document.querySelector('#onetrust-accept-btn-handler').classList.add("la28");
-            document.querySelector('#ot-pc-desc').classList.add("la28");
-            document.querySelector('#ot-pc-title').classList.add("la28");
-            document.querySelector('#ot-header-id-C0001').classList.add("la28");
-            document.querySelector('.ot-always-active').classList.add("la28");
-            document.querySelector('#accept-recommended-btn-handler').classList.add("la28");
-            document.querySelector('.ot-pc-refuse-all-handler').classList.add("la28");
-            document.querySelector('.save-preference-btn-handler').classList.add("la28");
+            var selectors = [
+                '#onetrust-policy',
+                '#onetrust-pc-btn-handler',
+                '#onetrust-accept-btn-handler',
+                '#ot-pc-desc',
+                '#ot-pc-title',
+                '#ot-header-id-C0001',
+                '.ot-always-active',
+                '#accept-recommended-btn-handler',
+                '.ot-pc-refuse-all-handler',
+                '.save-preference-btn-handler',
+            ];
+            selectors.forEach(function(s) {
+                var el = document.querySelector(s);
+                if (el) {
+                    el.classList.add( 'la28' );
+                }
+            });
         }
     </script>
-    <!-- OneTrust Cookies Consent Notice end for la28.org -->
+    <!-- End OneTrust Cookies Consent Notice -->
 </head>
-<body class="page basicpage">
+<body class="page basicpage" data-env="prod">
     
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLBHLLPZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -2021,7 +2046,32 @@
     </div>
     <span class="transition"></span>
 </div>
+<div class="consent-modal-wrapper">
+    
+<div class="us-consent-modal" data-component="us-consent-modal" role="dialog" aria-modal="true" aria-labelledby="us-consent-modal-title" aria-describedby="us-consent-modal-body" hidden>
+    <div class="us-consent-modal__overlay" aria-hidden="true"></div>
+    <div class="us-consent-modal__card" role="document">
+        
+            <div class="us-consent-modal__brand" aria-hidden="true">
+                <img src="/adobe/dynamicmedia/deliver/dm-aid--cad5d859-3fd3-4d4e-87ed-183c256341d1/LA28_Badge_Dual_RGB_Color_Athlete_Spirit_Equality.png.webp?preferwebp=true" alt="LA28 logo" class="us-consent-modal__brand-image"/>
+            </div>
+        
+        
+        <h2 id="us-consent-modal-title" class="us-consent-modal__title">
+            Legal Terms and Privacy
+        </h2>
+        <p id="us-consent-modal-body" class="us-consent-modal__body">
+            By clicking “continue”, you agree to our <a href="/en/footer-links/terms-conditions.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>, including the arbitration provisions and class action waiver, and acknowledge that you have read our <a href="/en/footer-links/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. You agree that we and our third party vendors and partners may collect and use your information, including through cookies, pixels and similar technologies, for the purposes set forth in our <a href="/en/footer-links/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> such as personalizing your experience and ads. You can manage your cookie preferences at any time using the Cookie Settings link in the footer of the website.
+        </p>
+        <button type="button" class="a-2-cta-button type-outline" data-us-consent-accept aria-label="I Accept all cookies and enter the site">
+            <span class="cta-copy global-cta-type color-black">Continue</span>
+        </button>
+    </div>
 </div>
+
+    
+
+</div></div>
 
     
 </div>
@@ -2043,7 +2093,7 @@
                 
     
     
-<script src="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-124adec76d9001366729f6f4f63126c3-lc.min.js"></script>
+<script src="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-c9080e004ab4f2da082ef75492a5b795-lc.min.js"></script>
 <script src="/etc.clientlibs/clientlibs/granite/jquery.lc-7842899024219bcbdb5e72c946870b79-lc.min.js"></script>
 <script src="/etc.clientlibs/clientlibs/granite/utils.lc-e7bf340a353e643d198b25d0c8ccce47-lc.min.js"></script>
 
