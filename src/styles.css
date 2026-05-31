@@ -700,6 +700,7 @@ h4,
 
 .schedule-card-top > div:first-child {
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .schedule-card-badges {
@@ -1047,42 +1048,6 @@ h4,
 
   .mobile-tabbar {
     display: none;
-  }
-
-  .schedule-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.9fr) auto;
-    grid-template-areas: 'info times actions';
-    column-gap: var(--space-4);
-    align-items: start;
-  }
-
-  .schedule-card-top {
-    grid-area: info;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .schedule-card-badges {
-    justify-content: flex-start;
-  }
-
-  .time-grid {
-    grid-area: times;
-    align-self: center;
-  }
-
-  .schedule-card-footer {
-    grid-area: actions;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 8px;
-    margin-top: 0;
-  }
-
-  .schedule-card-actions {
-    justify-content: flex-end;
   }
 }
 
