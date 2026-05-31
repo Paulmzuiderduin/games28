@@ -1,21 +1,23 @@
 export function parseRoute(pathname) {
-  if (!pathname || pathname === '/') {
+  const normalizedPath = normalizePathname(pathname);
+
+  if (!normalizedPath || normalizedPath === '/') {
     return { name: 'home' };
   }
 
-  if (pathname === '/schedule') {
+  if (normalizedPath === '/schedule') {
     return { name: 'schedule' };
   }
 
-  if (pathname === '/countries') {
+  if (normalizedPath === '/countries') {
     return { name: 'countries' };
   }
 
-  if (pathname === '/changes') {
+  if (normalizedPath === '/changes') {
     return { name: 'changes' };
   }
 
-  const sportMatch = pathname.match(/^\/sports\/([A-Za-z0-9-]+)$/);
+  const sportMatch = normalizedPath.match(/^\/sports\/([A-Za-z0-9-]+)\/?$/);
   if (sportMatch) {
     return {
       name: 'sport',
@@ -23,7 +25,7 @@ export function parseRoute(pathname) {
     };
   }
 
-  const sessionMatch = pathname.match(/^\/sessions\/([A-Za-z0-9-]+)$/);
+  const sessionMatch = normalizedPath.match(/^\/sessions\/([A-Za-z0-9-]+)\/?$/);
   if (sessionMatch) {
     return {
       name: 'session',
@@ -31,7 +33,7 @@ export function parseRoute(pathname) {
     };
   }
 
-  const countryMatch = pathname.match(/^\/countries\/([A-Za-z0-9-]+)$/);
+  const countryMatch = normalizedPath.match(/^\/countries\/([A-Za-z0-9-]+)\/?$/);
   if (countryMatch) {
     return {
       name: 'country',
@@ -40,6 +42,18 @@ export function parseRoute(pathname) {
   }
 
   return { name: 'not-found' };
+}
+
+function normalizePathname(pathname) {
+  if (!pathname) {
+    return '/';
+  }
+
+  if (pathname === '/') {
+    return pathname;
+  }
+
+  return pathname.replace(/\/+$/, '') || '/';
 }
 
 export function navigate(path, options = {}) {
