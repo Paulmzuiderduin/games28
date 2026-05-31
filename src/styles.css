@@ -942,6 +942,40 @@ h4,
   font-weight: 600;
 }
 
+.source-rail .summary-card {
+  padding: 12px;
+}
+
+.source-rail .summary-card strong {
+  font-size: clamp(1.05rem, 1.4vw, 1.55rem);
+}
+
+.source-rail .summary-card span {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.source-card {
+  display: grid;
+  gap: 8px;
+}
+
+.source-card h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.source-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.source-card-top {
+  align-items: center;
+}
+
 .source-footer {
   margin: 0 var(--space-4) var(--space-4);
   padding: var(--space-3);
