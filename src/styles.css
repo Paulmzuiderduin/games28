@@ -362,6 +362,23 @@ h4,
   gap: 10px;
 }
 
+.schedule-card-actions {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+.schedule-card-action,
+.schedule-card-actions a,
+.schedule-card-actions button {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.schedule-card-source-link {
+  color: var(--text-muted);
+}
+
 .hero-search {
   display: grid;
   gap: 8px;
@@ -511,6 +528,10 @@ h4,
   align-items: flex-start;
   gap: var(--space-3);
   padding: var(--space-4) var(--space-4) 0;
+}
+
+.section-heading--schedule {
+  margin-bottom: var(--space-3);
 }
 
 .section-heading.compact {
@@ -862,7 +883,7 @@ h4,
 
 .country-page__body {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 .source-summary {
@@ -888,6 +909,16 @@ h4,
 .source-footer {
   margin: 0 var(--space-4) var(--space-4);
   padding: var(--space-3);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.source-footer-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .support-cta {
@@ -971,6 +1002,14 @@ h4,
   .site-brand small,
   .site-header-actions {
     display: none;
+  }
+
+  .source-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .source-footer-action {
+    justify-content: flex-start;
   }
 }
 

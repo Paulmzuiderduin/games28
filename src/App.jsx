@@ -161,7 +161,7 @@ function KofiLink({ className = 'text-link', children = 'Support Games28 on Ko-f
   );
 }
 
-function SourceLink({ href, children = 'Source', context = {} }) {
+function SourceLink({ href, children = 'Source', context = {}, className = '' }) {
   if (!href) {
     return null;
   }
@@ -169,6 +169,7 @@ function SourceLink({ href, children = 'Source', context = {} }) {
   return (
     <a
       href={href}
+      className={className}
       target="_blank"
       rel="noreferrer"
       onClick={() => trackOutboundClick('source_click', href, context)}
@@ -237,7 +238,9 @@ function SourceRail({ runtime }) {
       </div>
       <div className="source-footer">
         <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
-        <KofiLink />
+        <div className="source-footer-action">
+          <KofiLink />
+        </div>
       </div>
     </section>
   );
@@ -372,7 +375,7 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
         <div className="schedule-card-actions">
           <button
             type="button"
-            className="text-button"
+            className="text-button schedule-card-action"
             onClick={() => onCalendarExport?.([entry], `${entry.sessionCode || 'session'}-games28`, 'calendar_export_session', {
               sessionId: entry.id,
               sport: entry.sport
@@ -381,8 +384,8 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
           >
             Add to calendar
           </button>
-          <AppLink href={getSessionPath(entry.id)} className="text-link">Details</AppLink>
-          <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} />
+          <AppLink href={getSessionPath(entry.id)} className="text-link schedule-card-action">Details</AppLink>
+          <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} className="schedule-card-action schedule-card-source-link" />
         </div>
       </div>
     </article>
@@ -441,6 +444,8 @@ function HomeView({
     return favorites.map((noc) => byNoc.get(noc)).filter(Boolean);
   }, [favorites, runtime.countries]);
 
+  const displayCountries = countryFilters.searchText || countryFilters.favoriteOnly ? countries.slice(0, 6) : featuredCountries;
+
   return (
     <>
       <section className="hero panel home-hero">
@@ -481,21 +486,28 @@ function HomeView({
           </div>
           {featuredCountries.length ? (
             <div className="home-featured">
-              <p className="eyebrow">Popular dashboards</p>
-              <div className="featured-country-list">
-                {featuredCountries.map((country) => (
-                  <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
-                    <div className="row-main">
-                      <CountryFlag country={country} size="md" />
-                      <div>
-                        <h3>{country.name}</h3>
-                        <p>Open dashboard</p>
+              <p className="eyebrow">{countryFilters.searchText || countryFilters.favoriteOnly ? 'Search results' : 'Popular dashboards'}</p>
+              {displayCountries.length ? (
+                <div className="featured-country-list">
+                  {displayCountries.map((country) => (
+                    <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
+                      <div className="row-main">
+                        <CountryFlag country={country} size="md" />
+                        <div>
+                          <h3>{country.name}</h3>
+                          <p>Open dashboard</p>
+                        </div>
                       </div>
-                    </div>
-                    <span aria-hidden="true">›</span>
-                  </AppLink>
-                ))}
-              </div>
+                      <span aria-hidden="true">›</span>
+                    </AppLink>
+                  ))}
+                </div>
+              ) : (
+                <EmptyState
+                  title="No matching countries"
+                  description="Try a different country name or NOC code."
+                />
+              )}
             </div>
           ) : null}
           <div className="hero-actions">
@@ -558,9 +570,9 @@ function HomeView({
         ) : (
           <EmptyState
             title="No sessions match those filters"
-          description="Try resetting the date or sport filter to see the full competition slate."
-        />
-      )}
+            description="Try resetting the date or sport filter to see the full competition slate."
+          />
+        )}
       </section>
     </>
   );
@@ -584,7 +596,7 @@ function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countr
 
   return (
     <section className="panel page-section country-directory-page">
-      <div className="section-heading">
+      <div className="section-heading section-heading--schedule">
         <div>
           <p className="eyebrow">Countries</p>
           <h1>Country dashboards</h1>
@@ -657,7 +669,7 @@ function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countr
 function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
   return (
     <section className="panel page-section">
-      <div className="section-heading">
+      <div className="section-heading section-heading--schedule">
         <div>
           <p className="eyebrow">Schedule</p>
           <h1>Competition schedule</h1>
@@ -666,7 +678,7 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
           <span className="status-pill">Local time + LA reference</span>
           <button
             type="button"
-              className="button-secondary"
+            className="button-secondary"
             onClick={() => onCalendarExport(scheduleEntries, 'games28-visible-schedule', 'calendar_export_visible', {
               route: 'schedule',
               count: scheduleEntries.length
@@ -713,7 +725,7 @@ function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, s
 
   return (
     <section className="panel page-section">
-      <div className="section-heading">
+      <div className="section-heading section-heading--schedule">
         <div>
           <p className="eyebrow">Sport schedule</p>
           <h1>{sport}</h1>
