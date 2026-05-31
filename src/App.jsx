@@ -343,6 +343,7 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
             <AppLink href={getSportPath(entry.sport)} className="eyebrow-link">{entry.sport}</AppLink>
           </p>
           <h3>{entry.eventName}</h3>
+          <p className="schedule-meta">{entry.phase} · {entry.venue || 'Venue TBC'} · {entry.sessionCode || 'Session TBD'}</p>
         </div>
         <div className="schedule-card-badges">
           {medalEvent ? (
@@ -356,7 +357,6 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
           </span>
         </div>
       </div>
-      <p className="schedule-meta">{entry.phase} · {entry.venue || 'Venue TBC'} · {entry.sessionCode || 'Session TBD'}</p>
       {countryMode && entry.linkedQualificationLabel ? (
         <p className="linked-note">Matched from {entry.linkedQualificationLabel}</p>
       ) : null}
@@ -371,7 +371,7 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
         </div>
       </div>
       <div className="schedule-card-footer">
-        <span>{formatDateLabel(entry.startAtUtc)}</span>
+        <span className="schedule-card-date">{formatDateLabel(entry.startAtUtc)}</span>
         <div className="schedule-card-actions">
           <button
             type="button"

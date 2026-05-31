@@ -698,6 +698,10 @@ h4,
   gap: var(--space-3);
 }
 
+.schedule-card-top > div:first-child {
+  min-width: 0;
+}
+
 .schedule-card-badges {
   display: inline-flex;
   align-items: center;
@@ -720,7 +724,15 @@ h4,
 
 .schedule-meta,
 .linked-note {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
+}
+
+.schedule-card .schedule-meta {
+  font-size: 14px;
+}
+
+.schedule-card h3 {
+  line-height: 1.08;
 }
 
 .tag {
@@ -828,6 +840,14 @@ h4,
   font-size: 15px;
 }
 
+.schedule-card .time-grid {
+  gap: 12px;
+}
+
+.schedule-card .time-grid > div {
+  padding: 14px;
+}
+
 .country-badge,
 .country-flag {
   flex: 0 0 auto;
@@ -912,6 +932,16 @@ h4,
   flex-wrap: wrap;
 }
 
+.schedule-card-footer {
+  align-items: flex-end;
+}
+
+.schedule-card-date {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .source-footer {
   margin: 0 var(--space-4) var(--space-4);
   padding: var(--space-3);
@@ -983,6 +1013,42 @@ h4,
 
   .mobile-tabbar {
     display: none;
+  }
+
+  .schedule-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.9fr) auto;
+    grid-template-areas: 'info times actions';
+    column-gap: var(--space-4);
+    align-items: start;
+  }
+
+  .schedule-card-top {
+    grid-area: info;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .schedule-card-badges {
+    justify-content: flex-start;
+  }
+
+  .time-grid {
+    grid-area: times;
+    align-self: center;
+  }
+
+  .schedule-card-footer {
+    grid-area: actions;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .schedule-card-actions {
+    justify-content: flex-end;
   }
 }
 
@@ -1074,6 +1140,16 @@ h4,
   .time-grid,
   .session-facts {
     grid-template-columns: 1fr;
+  }
+
+  .schedule-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .schedule-card-top {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .hero h1,
