@@ -202,6 +202,9 @@ function SourceRail({ runtime }) {
     : runtime.meta.scheduleAuthority === 'stale_official'
       ? 'Last good official schedule'
       : 'Community fallback is live';
+  const officialValidationStreak = runtime.meta.officialShadowSuccessStreak || 0;
+  const officialValidationTarget = 3;
+  const officialValidationRemaining = Math.max(0, officialValidationTarget - officialValidationStreak);
 
   return (
     <section className="panel source-rail">
@@ -215,9 +218,11 @@ function SourceRail({ runtime }) {
       <div className="source-summary">
         <SummaryCard label="Published schedule" value={runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'} />
         <SummaryCard
-          label="Official shadow validation"
-          value={runtime.meta.officialValidation?.passed ? 'pass' : 'hold'}
-          detail={runtime.meta.officialValidation?.issues?.[0] || `Streak ${runtime.meta.officialShadowSuccessStreak || 0}/3`}
+          label="Official validation streak"
+          value={`${officialValidationStreak}/${officialValidationTarget}`}
+          detail={runtime.meta.officialValidation?.passed
+            ? 'Official PDF can be promoted on the next refresh.'
+            : runtime.meta.officialValidation?.issues?.[0] || `${officialValidationRemaining} more successful checks before promotion.`}
         />
       </div>
       <div className="source-list">
