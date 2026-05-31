@@ -915,16 +915,22 @@ h4,
 .source-footer {
   margin: 0 var(--space-4) var(--space-4);
   padding: var(--space-3);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.source-footer p {
+  margin: 0;
+  flex: 1 1 auto;
 }
 
 .source-footer-action {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-end;
+  flex: 0 0 auto;
 }
 
 .support-cta {
@@ -1011,7 +1017,8 @@ h4,
   }
 
   .source-footer {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .source-footer-action {
