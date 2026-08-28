@@ -802,7 +802,7 @@
       "summary": "Updated Women's Group Stage First Round (CKT04) timing, venue, or source."
     }
   ],
-  "checkedAt": "2026-08-28T14:54:40.796Z",
+  "checkedAt": "2026-08-28T17:26:30.666Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -2855,7 +2855,7 @@
       "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
     }
   ],
-  "generatedAt": "2026-08-28T14:54:40.796Z",
+  "generatedAt": "2026-08-28T17:26:30.666Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
@@ -2891,9 +2891,9 @@
     "qualificationRejectedCount": 0,
     "qualificationSources": [
       {
-        "available": false,
-        "checkedAt": "2026-08-28T14:54:40.796Z",
-        "httpStatus": null,
+        "available": true,
+        "checkedAt": "2026-08-28T17:26:30.666Z",
+        "httpStatus": 200,
         "id": "issf-la28",
         "kind": "quota_tracker",
         "label": "ISSF LA28 qualification tracker",
@@ -2904,9 +2904,9 @@
         "url": "https://www.issf-sports.org/competitions/3488"
       },
       {
-        "available": false,
-        "checkedAt": "2026-08-28T14:54:40.796Z",
-        "httpStatus": null,
+        "available": true,
+        "checkedAt": "2026-08-28T17:26:30.666Z",
+        "httpStatus": 200,
         "id": "uci-la28",
         "kind": "qualification_ranking",
         "label": "UCI LA28 qualification publications",
@@ -2918,8 +2918,8 @@
       },
       {
         "available": false,
-        "checkedAt": "2026-08-28T14:54:40.796Z",
-        "httpStatus": null,
+        "checkedAt": "2026-08-28T17:26:30.666Z",
+        "httpStatus": 403,
         "id": "iwf-la28",
         "kind": "qualification_ranking",
         "label": "IWF LA28 qualification ranking",
@@ -48167,25 +48167,25 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-08-28T14:54:40.796Z",
+      "checkedAt": "2026-08-28T17:26:30.666Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
-      "fallbackUsed": true,
+      "fallbackUsed": false,
       "id": "official-la28-page",
       "kind": "official",
       "label": "Official LA28 schedule hub",
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-08-28T14:54:40.796Z",
+      "checkedAt": "2026-08-28T17:26:30.666Z",
       "description": "Primary parser target for official schedule shadow mode.",
-      "fallbackUsed": true,
+      "fallbackUsed": false,
       "id": "official-la28-event-pdf",
       "kind": "official",
       "label": "Official LA28 By Event PDF",
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-08-28T14:54:40.796Z",
+      "checkedAt": "2026-08-28T17:26:30.666Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -48194,16 +48194,16 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-08-28T14:54:40.796Z",
+      "checkedAt": "2026-08-28T17:26:30.666Z",
       "description": "Structured comparison and fallback source during shadow mode.",
-      "fallbackUsed": true,
+      "fallbackUsed": false,
       "id": "community-la28-sheet",
       "kind": "secondary",
       "label": "Community schedule mirror",
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-08-28T14:54:40.796Z",
+      "checkedAt": "2026-08-28T17:26:30.666Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
