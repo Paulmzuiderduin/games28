@@ -1,8 +1,10 @@
 {
-  "checkedAt": "2026-08-27T16:30:24.890Z",
+  "checkedAt": "2026-08-28T14:54:40.796Z",
   "countryCount": 205,
   "lastChangedAt": "2026-07-30T07:42:18.832Z",
   "qualificationCount": 0,
+  "qualificationPolicy": "confirmation_only",
+  "qualificationRecordCount": 0,
   "scheduleCount": 1675,
   "sportCount": 58
 }

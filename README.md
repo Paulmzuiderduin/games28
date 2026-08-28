@@ -24,7 +24,15 @@ The runtime dataset is generated into `src/data/runtime.json` and copied into `p
 
 - Official source metadata: LA28 schedule page + by-event PDF URL
 - Practical parser input: public planning sheet export
-- Qualification cards: `src/data/qualification-cards.source.json`
+- Qualification sources and records: `src/data/qualification-sources.source.json`
+
+## Qualification policy
+
+Games28 publishes confirmation-only qualification records. A record must have an IOC, International Federation, NOC, or national federation source URL plus source and verification dates. Rankings, projections, and media reports never create a published qualification card.
+
+The record source distinguishes NOC quota allocation from a named athlete or team selection. A final entry is the strongest status and can replace an earlier allocation or selection record.
+
+Add only reviewed records to the `records` array. Keep uncertain reports, rankings, and possible allocations in `reviewQueue`; that queue is deliberately excluded from the public dataset.
 
 ## Commands
 

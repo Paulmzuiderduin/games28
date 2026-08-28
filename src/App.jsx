@@ -241,6 +241,26 @@ function SourceRail({ runtime }) {
           </article>
         ))}
       </div>
+      {runtime.meta.qualificationSources?.length ? (
+        <div className="qualification-source-list">
+          <p className="eyebrow">Qualification sources being watched</p>
+          <div className="source-list">
+            {runtime.meta.qualificationSources.map((source) => (
+              <article key={source.id} className="source-card">
+                <div className="source-card-top">
+                  <span className="tag official">{source.sourceTier}</span>
+                  <span className="source-updated">{source.sport}</span>
+                </div>
+                <h3>{source.label}</h3>
+                <p>Records publish only after an explicit allocation, selection, or final entry.</p>
+                <SourceLink href={source.url} context={{ sourceId: source.id }}>
+                  Open source
+                </SourceLink>
+              </article>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <div className="source-footer">
         <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
         <div className="source-footer-action">
@@ -328,7 +348,7 @@ function CountryDirectory({ countries, athleteCards, favorites, onToggleFavorite
               <AppLink href={`/countries/${country.noc}`} className="text-link">
                 Open dashboard
               </AppLink>
-              <span>{count ? `${count} tracked qualification cards` : 'Qualification feed pending'}</span>
+              <span>{count ? `${count} confirmed qualification records` : 'No confirmed records yet'}</span>
             </div>
           </article>
         );
@@ -891,13 +911,13 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
           </div>
         </div>
         <p className="country-page__intro">
-          Confirmed sessions are explicit. Pending sessions are useful previews, but they stay marked pending until official entry lists are final.
+          Games28 shows confirmation only: an official quota, an officially selected athlete, or a final Games entry. It never predicts a roster from rankings.
         </p>
       </div>
 
       <section className="summary-grid country-page__stats">
-        <SummaryCard label="Named athletes" value={dashboard.stats.namedAthleteCount} />
-        <SummaryCard label="Quota places" value={dashboard.stats.quotaCount} />
+        <SummaryCard label="Confirmed athletes / teams" value={dashboard.stats.namedAthleteCount} />
+        <SummaryCard label="Confirmed quota places" value={dashboard.stats.quotaCount} />
         <SummaryCard label="Confirmed sessions" value={dashboard.stats.confirmedSessionCount} />
         <SummaryCard label="Pending schedule matches" value={dashboard.stats.pendingSessionCount} />
       </section>
@@ -966,7 +986,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
             <div className="section-heading compact">
               <div>
                 <p className="eyebrow">Qualification</p>
-                <h2>Named athletes</h2>
+                <h2>Confirmed athletes and teams</h2>
               </div>
             </div>
             {dashboard.namedAthletes.length ? (
@@ -978,7 +998,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
                         <h3>{card.name}</h3>
                         <p>{card.sport}</p>
                       </div>
-                      <span className="tag confirmed">{formatStatusLabel(card.status)}</span>
+                      <span className="tag confirmed">{formatStatusLabel(card.state || card.status)}</span>
                     </div>
                     <p>{card.disciplines.join(', ')}</p>
                     <div className="info-card-footer">
@@ -998,8 +1018,8 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
             ) : (
               <EmptyState
                 compact
-                title="No verified athlete cards yet"
-                description="Games28 stays empty until a source is verified instead of guessing who is qualified."
+                title="No confirmed athletes or teams yet"
+                description="A person appears only after an official federation, NOC, or IOC source confirms their qualification, selection, or final entry."
               />
             )}
           </section>
@@ -1008,7 +1028,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
             <div className="section-heading compact">
               <div>
                 <p className="eyebrow">Qualification</p>
-                <h2>Quota places without named athletes</h2>
+                <h2>Confirmed quota places awaiting selection</h2>
               </div>
             </div>
             {dashboard.quotaPlaces.length ? (
@@ -1020,7 +1040,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
                         <h3>{card.name}</h3>
                         <p>{card.sport}</p>
                       </div>
-                      <span className="tag pending">{formatStatusLabel(card.status)}</span>
+                      <span className="tag pending">{formatStatusLabel(card.state || card.status)}</span>
                     </div>
                     <p>{card.disciplines.join(', ')}</p>
                     <div className="info-card-footer">
@@ -1035,8 +1055,8 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
             ) : (
               <EmptyState
                 compact
-                title="No quota places tracked yet"
-                description="Verified quota records will appear here once they’re added to the source data."
+                title="No confirmed quota places yet"
+                description="A quota appears only after the IOC, International Federation, or NOC publishes the allocation."
               />
             )}
           </section>
@@ -1075,11 +1095,34 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
             <div className="stacked-list">
               <article className="info-card">
                 <h3>{formatUpdatedLabel(dashboard.latestUpdateAt)}</h3>
-                <p>{hasQualificationData ? 'Qualification cards are live for this country.' : 'Qualification cards are not populated yet.'}</p>
+                <p>{hasQualificationData ? 'Every qualification card has a dated official source.' : 'No confirmed qualification records have been published yet.'}</p>
               </article>
               <article className="info-card">
                 <h3>{hasConfirmedSessions ? 'Confirmed sessions ready' : 'Waiting for entry lists'}</h3>
                 <p>{hasConfirmedSessions ? 'Confirmed sessions can be exported now.' : 'Schedule items stay pending until official entry lists appear.'}</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="panel qualification-guide">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">How it works</p>
+                <h2>Confirmation levels</h2>
+              </div>
+            </div>
+            <div className="stacked-list">
+              <article className="info-card">
+                <h3>Quota allocated</h3>
+                <p>The country has a confirmed place. The athlete can still be selected later.</p>
+              </article>
+              <article className="info-card">
+                <h3>Athlete selected or entered</h3>
+                <p>The athlete or team has an official named confirmation. Final entry is the strongest state.</p>
+              </article>
+              <article className="info-card">
+                <h3>Rankings are not entries</h3>
+                <p>Games28 does not turn rankings, projections, or news reports into qualification cards.</p>
               </article>
             </div>
           </section>
@@ -1108,7 +1151,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               <EmptyState
                 compact
                 title="No tracked changes yet"
-                description="The first refresh that changes this country’s schedule or qualification cards will appear here."
+                description="The first refresh that changes this country’s schedule or confirmed qualification records will appear here."
               />
             )}
           </section>
@@ -1146,7 +1189,7 @@ function ChangesView({ changes }) {
       ) : (
         <EmptyState
           title="No changes recorded yet"
-          description="Once the updater sees a real delta in the schedule or qualification source data, this feed will populate."
+          description="Once the updater sees a real delta in the schedule or confirmed qualification records, this feed will populate."
         />
       )}
     </section>

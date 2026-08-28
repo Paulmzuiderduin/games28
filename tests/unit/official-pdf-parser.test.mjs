@@ -28,7 +28,6 @@ test('official PDF parser keeps inline descriptions isolated from neighboring ro
 
 test('official PDF parser derives local-time overrides and overnight end times', async () => {
   const entries = await parseOfficialSchedulePdf(pdfBytes, {
-    pages: [7, 11, 31],
     sourcePdfUrl: 'https://example.com/la28.pdf',
     sourcePdfHash: 'hash',
     sourceVersion: 'V3.0'

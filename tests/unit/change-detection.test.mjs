@@ -23,6 +23,7 @@ test('detectChanges reports schedule and qualification deltas', () => {
         name: 'Existing athlete',
         noc: 'USA',
         status: 'named',
+        state: 'earned',
         lastUpdatedAt: '2026-04-01T00:00:00.000Z'
       }
     ],
@@ -47,6 +48,7 @@ test('detectChanges reports schedule and qualification deltas', () => {
         name: 'Existing athlete',
         noc: 'USA',
         status: 'named',
+        state: 'selected',
         lastUpdatedAt: '2026-04-11T00:00:00.000Z',
         sourceUrl: 'https://example.com'
       },

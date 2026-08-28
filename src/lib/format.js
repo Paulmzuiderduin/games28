@@ -87,6 +87,12 @@ export function formatStatusLabel(status) {
   if (normalized === 'pending') return 'Pending draw or entry list';
   if (normalized === 'quota') return 'Quota place';
   if (normalized === 'named') return 'Named athlete';
+  if (normalized === 'earned') return 'Qualification earned';
+  if (normalized === 'allocated') return 'Quota allocated';
+  if (normalized === 'selected') return 'Selected by NOC';
+  if (normalized === 'entered') return 'Final entry confirmed';
+  if (normalized === 'withdrawn') return 'Withdrawn';
+  if (normalized === 'replaced') return 'Replaced';
   if (normalized === 'scheduled') return 'Scheduled';
   return normalized ? normalized.charAt(0).toUpperCase() + normalized.slice(1) : 'Unknown';
 }

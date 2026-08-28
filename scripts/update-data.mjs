@@ -15,6 +15,7 @@ import {
   writeTextIfChanged
 } from './dataset-utils.mjs';
 import { parseOfficialSchedulePdf } from './official-pdf-parser.mjs';
+import { normalizeQualificationRecords, toQualificationCards } from './qualification-records.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -25,7 +26,7 @@ const officialPageSnapshotPath = resolve(dataDir, 'official-page.html');
 const officialPdfSnapshotPath = resolve(dataDir, 'official-schedule-by-event.snapshot.pdf');
 const runtimePath = resolve(dataDir, 'runtime.json');
 const sourceCheckPath = resolve(dataDir, 'source-check.json');
-const qualificationSourcePath = resolve(dataDir, 'qualification-cards.source.json');
+const qualificationSourcesPath = resolve(dataDir, 'qualification-sources.source.json');
 const registrySourcePath = resolve(dataDir, 'noc-registry.source.json');
 const isoOverridesPath = resolve(dataDir, 'noc-iso-overrides.json');
 const officialCandidatePath = resolve(dataDir, 'schedule-official-candidate.json');
@@ -72,6 +73,33 @@ async function fetchBuffer(url) {
     body: Buffer.from(await response.arrayBuffer()),
     headers: Object.fromEntries(response.headers.entries())
   };
+}
+
+async function checkQualificationSource(source, checkedAt) {
+  try {
+    const response = await fetch(source.url, {
+      headers: { 'user-agent': 'games28-data-bot/0.3' },
+      redirect: 'follow',
+      signal: AbortSignal.timeout(10000)
+    });
+
+    return {
+      ...source,
+      checkedAt,
+      available: response.ok,
+      httpStatus: response.status,
+      resolvedUrl: response.url || source.url
+    };
+  } catch (error) {
+    return {
+      ...source,
+      checkedAt,
+      available: false,
+      httpStatus: null,
+      resolvedUrl: source.url,
+      checkError: error.message
+    };
+  }
 }
 
 async function fetchTextWithFallback(url, snapshotPath) {
@@ -157,25 +185,6 @@ function normalizeCommunityReference(rows, sourceUrl) {
       zone: row.Zone?.trim() || ''
     }))
     .filter((entry) => entry.sessionCode && entry.sport && entry.eventName);
-}
-
-function normalizeAthleteCards(source) {
-  const cards = Array.isArray(source?.athleteCards) ? source.athleteCards : [];
-  return cards
-    .map((card) => ({
-      id: card.id,
-      disciplines: Array.isArray(card.disciplines) ? card.disciplines : [],
-      lastUpdatedAt: card.lastUpdatedAt || null,
-      name: card.name || 'Unnamed qualification card',
-      noc: card.noc,
-      profileUrl: card.profileUrl || null,
-      scheduleHints: Array.isArray(card.scheduleHints) ? card.scheduleHints : [],
-      sourceUrl: card.sourceUrl || null,
-      sport: card.sport || 'Unknown sport',
-      status: card.status === 'quota' ? 'quota' : 'named',
-      teamType: card.teamType === 'team' ? 'team' : 'individual'
-    }))
-    .filter((card) => card.id && card.noc);
 }
 
 function validateOfficialCandidate(candidate, communityReference, previousRuntime) {
@@ -327,7 +336,15 @@ export function detectChanges(previousRuntime, nextRuntime) {
       return;
     }
 
-    if (previous.lastUpdatedAt !== card.lastUpdatedAt || previous.status !== card.status || previous.name !== card.name) {
+    if (
+      previous.lastUpdatedAt !== card.lastUpdatedAt
+      || previous.status !== card.status
+      || previous.state !== card.state
+      || previous.subjectType !== card.subjectType
+      || previous.quotaCount !== card.quotaCount
+      || previous.name !== card.name
+      || previous.sourceUrl !== card.sourceUrl
+    ) {
       changes.push({
         id: buildChangeId(['qualification-updated', card.id, nextRuntime.checkedAt]),
         entityId: card.id,
@@ -336,7 +353,7 @@ export function detectChanges(previousRuntime, nextRuntime) {
         changedAt: card.lastUpdatedAt || nextRuntime.checkedAt,
         noc: card.noc,
         sourceUrl: card.sourceUrl,
-        summary: `${card.noc}: updated qualification card for ${card.name}.`
+        summary: `${card.noc}: ${card.name} is now ${card.state || card.status}.`
       });
     }
   });
@@ -356,10 +373,10 @@ export function detectChanges(previousRuntime, nextRuntime) {
 
 async function main() {
   const checkedAt = new Date().toISOString();
-  const [sourceCheck, previousRuntime, qualificationSource] = await Promise.all([
+  const [sourceCheck, previousRuntime, qualificationSources] = await Promise.all([
     readJson(sourceCheckPath, {}),
     readJson(runtimePath, null),
-    readJson(qualificationSourcePath, { athleteCards: [] })
+    readJson(qualificationSourcesPath, { sources: [], records: [] })
   ]);
 
   const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath);
@@ -370,7 +387,12 @@ async function main() {
   const sourcePdfHash = sha256Hex(officialPdf.body);
   const sourceVersion = detectSourceVersion(officialPdfUrl, officialPdf.body);
   const countryRegistry = await buildCountryRegistry({ registrySourcePath, isoOverridesPath });
-  const athleteCards = normalizeAthleteCards(qualificationSource);
+  const qualificationSourceChecks = await Promise.all(
+    (qualificationSources.sources || []).map((source) => checkQualificationSource(source, checkedAt))
+  );
+  const qualificationResult = normalizeQualificationRecords(qualificationSources);
+  const qualificationRecords = qualificationResult.records;
+  const athleteCards = toQualificationCards(qualificationRecords);
   const communityReference = normalizeCommunityReference(parseCsv(communitySchedule.body), COMMUNITY_REFERENCE_URL);
   const officialCandidate = await parseOfficialSchedulePdf(officialPdf.body, {
     sourcePdfHash,
@@ -443,6 +465,7 @@ async function main() {
       }
     ],
     countries: countryRegistry,
+    qualificationRecords,
     athleteCards,
     scheduleEntries: publishedSchedule,
     changes: [],
@@ -461,6 +484,22 @@ async function main() {
       officialSourceVersion: sourceVersion,
       officialValidation: validation,
       qualificationCount: athleteCards.length,
+      qualificationRecordCount: qualificationRecords.length,
+      qualificationRejectedCount: qualificationResult.rejected.length,
+      qualificationPolicy: 'confirmation_only',
+      qualificationSources: qualificationSourceChecks.map((source) => ({
+        id: source.id,
+        label: source.label,
+        sport: source.sport,
+        sourceTier: source.sourceTier,
+        kind: source.kind,
+        url: source.url,
+        refreshPolicy: source.refreshPolicy,
+        checkedAt: source.checkedAt,
+        available: source.available,
+        httpStatus: source.httpStatus,
+        resolvedUrl: source.resolvedUrl
+      })),
       refreshCadence: 'Daily',
       scheduleAuthority: publication.scheduleAuthority,
       scheduleCount: publishedSchedule.length,

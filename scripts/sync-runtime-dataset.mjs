@@ -47,6 +47,8 @@ async function main() {
     countryCount: runtime.meta.countryCount,
     lastChangedAt: runtime.meta.lastChangedAt,
     qualificationCount: runtime.meta.qualificationCount,
+    qualificationPolicy: runtime.meta.qualificationPolicy,
+    qualificationRecordCount: runtime.meta.qualificationRecordCount,
     scheduleCount: runtime.meta.scheduleCount,
     sportCount: runtime.meta.sportCount
   };
