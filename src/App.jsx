@@ -397,9 +397,9 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
   );
 }
 
-function EmptyState({ title, description }) {
+function EmptyState({ title, description, compact = false }) {
   return (
-    <div className="empty-state">
+    <div className={`empty-state ${compact ? 'empty-state--compact' : ''}`}>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
@@ -955,6 +955,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               </div>
             ) : (
               <EmptyState
+                compact
                 title="No confirmed sessions yet"
                 description="Entry lists are not final. Confirmed sessions will appear here as country data is published."
               />
@@ -996,6 +997,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               </div>
             ) : (
               <EmptyState
+                compact
                 title="No verified athlete cards yet"
                 description="Games28 stays empty until a source is verified instead of guessing who is qualified."
               />
@@ -1032,6 +1034,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               </div>
             ) : (
               <EmptyState
+                compact
                 title="No quota places tracked yet"
                 description="Verified quota records will appear here once they’re added to the source data."
               />
@@ -1055,6 +1058,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               </div>
             ) : (
               <EmptyState
+                compact
                 title="No pending schedule matches yet"
                 description="Likely sessions appear here once qualification cards exist, but stay pending until entries are confirmed."
               />
@@ -1102,6 +1106,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               </div>
             ) : (
               <EmptyState
+                compact
                 title="No tracked changes yet"
                 description="The first refresh that changes this country’s schedule or qualification cards will appear here."
               />
