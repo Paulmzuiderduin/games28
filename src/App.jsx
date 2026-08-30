@@ -238,6 +238,13 @@ function SourceRail({ runtime }) {
           value={`${countrySelectionCoverage.configuredCount || 0}/${countrySelectionCoverage.countryCount || runtime.countries.length || 0} configured`}
           detail="Every IOC NOC has a source slot; unavailable endpoints stay explicitly unavailable."
         />
+        <SummaryCard
+          label="Automatic qualification scan"
+          value={`${runtime.meta.qualificationSourceScanCount || 0} official sources checked`}
+          detail={runtime.meta.qualificationAutoRecordCount
+            ? `${runtime.meta.qualificationAutoRecordCount} structured records passed automatic validation.`
+            : 'Only complete official allocation tables publish automatically; prose stays in review.'}
+        />
       </div>
       <div className="source-list">
         {runtime.sources.map((source) => (

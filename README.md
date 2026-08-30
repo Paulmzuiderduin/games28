@@ -38,6 +38,8 @@ The record source distinguishes NOC quota allocation from a named athlete or tea
 
 Add machine-readable official allocations to `structuredRecords`; valid records auto-publish on refresh. Put official prose announcements and source conflicts in `reviewQueue`. A review candidate needs evidence, detected date, source URL, a reason, and a resolution. Only an `approved` candidate with a valid nested record can enter the public dataset; pending and rejected candidates remain auditable but private.
 
+The daily refresh also scans every configured official qualification source. It automatically recognizes JSON, CSV, and HTML allocation tables only when a row contains a known IOC NOC (or exact country name), an explicit confirmation state, and an official publication date. Unsupported PDFs, JavaScript-only trackers, or prose never auto-publish; designated official prose sources create stable review candidates in `src/data/qualification-ingestion.json` instead. This means source-specific adapters can be added as federations release more usable allocation feeds without weakening the confirmation rule.
+
 Records carry a lifecycle state: `allocated`, `earned`, `selected`, `entered`, `withdrawn`, or `replaced`. Final entries override earlier selections and quotas. Withdrawn or replaced history is retained but never shown as an active card.
 
 ## Commands

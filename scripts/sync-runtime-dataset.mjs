@@ -50,6 +50,8 @@ async function main() {
     qualificationPolicy: runtime.meta.qualificationPolicy,
     qualificationRecordCount: runtime.meta.qualificationRecordCount,
     qualificationReviewCount: runtime.meta.qualificationReviewCount,
+    qualificationAutoRecordCount: runtime.meta.qualificationAutoRecordCount,
+    qualificationSourceScanCount: runtime.meta.qualificationSourceScanCount,
     qualificationCoverage: runtime.meta.qualificationCoverage,
     countrySelectionCoverage: runtime.meta.countrySelectionCoverage,
     scheduleCount: runtime.meta.scheduleCount,

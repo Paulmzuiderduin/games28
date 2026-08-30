@@ -1,0 +1,75 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { ingestQualificationSources } from '../../scripts/qualification-ingestion.mjs';
+
+const countries = [{ noc: 'NED', name: 'Netherlands' }, { noc: 'USA', name: 'United States' }];
+const source = {
+  id: 'if-example',
+  url: 'https://if.example.org/allocations',
+  sourceTier: 'if',
+  sport: 'Example Sport',
+  status: 'structured_live'
+};
+
+function response(body, contentType = 'text/html') {
+  return new Response(body, { status: 200, headers: { 'content-type': contentType } });
+}
+
+test('auto-publishes only complete structured official allocation rows', async () => {
+  const result = await ingestQualificationSources({
+    sources: [source],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response(`
+      <table><tr><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
+      <tr><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr></table>
+    `)
+  });
+
+  assert.equal(result.sourceChecks[0].available, true);
+  assert.equal(result.structuredRecords.length, 1);
+  assert.equal(result.structuredRecords[0].noc, 'NED');
+  assert.equal(result.structuredRecords[0].state, 'allocated');
+  assert.equal(result.structuredRecords[0].quotaCount, 2);
+});
+
+test('does not publish incomplete tables or unknown NOCs', async () => {
+  const result = await ingestQualificationSources({
+    sources: [source],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response(`
+      <table><tr><th>NOC</th><th>Quota places</th><th>Status</th></tr>
+      <tr><td>XXX</td><td>2</td><td>Allocated</td></tr></table>
+    `)
+  });
+
+  assert.equal(result.structuredRecords.length, 0);
+});
+
+test('maps a full official country name to its IOC NOC code', async () => {
+  const result = await ingestQualificationSources({
+    sources: [source],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response(`
+      <table><tr><th>Country</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
+      <tr><td>Netherlands</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr></table>
+    `)
+  });
+
+  assert.equal(result.structuredRecords[0].noc, 'NED');
+});
+
+test('creates a stable pending candidate for designated official prose sources', async () => {
+  const result = await ingestQualificationSources({
+    sources: [{ ...source, id: 'if-prose', status: 'review_required' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response('<article><p>The federation confirmed the Olympic qualification selection pathway.</p></article>')
+  });
+
+  assert.equal(result.structuredRecords.length, 0);
+  assert.equal(result.reviewQueue.length, 1);
+  assert.match(result.reviewQueue[0].reason, /human approval/i);
+});

@@ -18,6 +18,7 @@ import { parseOfficialSchedulePdf } from './official-pdf-parser.mjs';
 import { buildQualificationPipeline, toQualificationCards } from './qualification-records.mjs';
 import { buildQualificationSystemIndex, toQualificationSources } from './qualification-systems.mjs';
 import { buildCountrySelectionRegistry, toCountrySelectionSources } from './country-selection-registry.mjs';
+import { ingestQualificationSources } from './qualification-ingestion.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -36,6 +37,7 @@ const officialCandidatePath = resolve(dataDir, 'schedule-official-candidate.json
 const communityReferencePath = resolve(dataDir, 'schedule-community-reference.json');
 const countryRegistryPath = resolve(dataDir, 'countries.registry.json');
 const countrySelectionRegistryPath = resolve(dataDir, 'country-selection.registry.json');
+const qualificationIngestionPath = resolve(dataDir, 'qualification-ingestion.json');
 
 const OFFICIAL_PAGE_URL = 'https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule';
 const COMMUNITY_SCHEDULE_URL = 'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/export?format=csv&gid=1622079921';
@@ -79,33 +81,6 @@ async function fetchBuffer(url) {
   };
 }
 
-async function checkQualificationSource(source, checkedAt) {
-  try {
-    const response = await fetch(source.url, {
-      headers: { 'user-agent': 'games28-data-bot/0.3' },
-      redirect: 'follow',
-      signal: AbortSignal.timeout(10000)
-    });
-
-    return {
-      ...source,
-      checkedAt,
-      available: response.ok,
-      httpStatus: response.status,
-      resolvedUrl: response.url || source.url
-    };
-  } catch (error) {
-    return {
-      ...source,
-      checkedAt,
-      available: false,
-      httpStatus: null,
-      resolvedUrl: source.url,
-      checkError: error.message
-    };
-  }
-}
-
 export function preserveQualificationSourceHealth(currentChecks, previousSources = []) {
   const previousById = new Map(previousSources.map((source) => [source.id, source]));
 
@@ -127,6 +102,28 @@ export function preserveQualificationSourceHealth(currentChecks, previousSources
       healthCheckFailedAt: source.checkedAt
     };
   });
+}
+
+export function preserveUnavailableIngestion(current, previous = {}) {
+  const unavailableSourceIds = new Set(current.sourceChecks.filter((source) => !source.available).map((source) => source.id));
+  const previousRecordsById = new Map((previous.structuredRecords || []).map((record) => [record.id, record]));
+  const previousReviewsById = new Map((previous.reviewQueue || []).map((entry) => [entry.id, entry]));
+  const carriedRecords = (previous.structuredRecords || []).filter((record) => unavailableSourceIds.has(record.sourceId));
+  const carriedReviews = (previous.reviewQueue || []).filter((entry) => unavailableSourceIds.has(entry.sourceId));
+  const currentRecords = current.structuredRecords.map((record) => {
+    const previousRecord = previousRecordsById.get(record.id);
+    return previousRecord ? { ...record, verifiedAt: previousRecord.verifiedAt } : record;
+  });
+  const currentReviews = current.reviewQueue.map((entry) => {
+    const previousReview = previousReviewsById.get(entry.id);
+    return previousReview ? { ...entry, detectedAt: previousReview.detectedAt } : entry;
+  });
+
+  return {
+    ...current,
+    structuredRecords: [...currentRecords, ...carriedRecords],
+    reviewQueue: [...currentReviews, ...carriedReviews]
+  };
 }
 
 async function fetchTextWithFallback(url, snapshotPath) {
@@ -415,11 +412,12 @@ export function detectChanges(previousRuntime, nextRuntime) {
 
 async function main() {
   const checkedAt = new Date().toISOString();
-  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides] = await Promise.all([
+  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides, previousIngestion] = await Promise.all([
     readJson(sourceCheckPath, {}),
     readJson(runtimePath, null),
     readJson(qualificationSourcesPath, { structuredRecords: [], reviewQueue: [] }),
-    readJson(countrySelectionOverridesPath, { sources: [] })
+    readJson(countrySelectionOverridesPath, { sources: [] }),
+    readJson(qualificationIngestionPath, { structuredRecords: [], reviewQueue: [] })
   ]);
 
   const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath);
@@ -446,14 +444,23 @@ async function main() {
   if (qualificationSystemIndex.missingSports.length) {
     throw new Error(`Qualification source coverage missing for: ${qualificationSystemIndex.missingSports.join(', ')}`);
   }
-  const checkedQualificationSources = await Promise.all(
-    qualificationSources.map((source) => checkQualificationSource(source, checkedAt))
-  );
+  const currentIngestion = await ingestQualificationSources({
+    sources: qualificationSources,
+    countries: countryRegistry,
+    checkedAt
+  });
+  const ingestion = preserveUnavailableIngestion(currentIngestion, previousIngestion);
   const qualificationSourceChecks = preserveQualificationSourceHealth(
-    checkedQualificationSources,
+    ingestion.sourceChecks,
     previousRuntime?.meta?.qualificationSources
   );
-  const qualificationResult = buildQualificationPipeline(qualificationInput, qualificationSources);
+  const manualReviewQueue = qualificationInput.reviewQueue || [];
+  const manualReviewIds = new Set(manualReviewQueue.map((entry) => entry.id).filter(Boolean));
+  const qualificationResult = buildQualificationPipeline({
+    structuredRecords: [...(qualificationInput.structuredRecords || []), ...ingestion.structuredRecords],
+    records: qualificationInput.records || [],
+    reviewQueue: [...manualReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
+  }, qualificationSources);
   const qualificationRecords = qualificationResult.activeRecords;
   const athleteCards = toQualificationCards(qualificationRecords);
 
@@ -548,6 +555,8 @@ async function main() {
       qualificationHistoryCount: qualificationResult.history.length,
       qualificationRejectedCount: qualificationResult.rejected.length,
       qualificationReviewCount: qualificationResult.reviewQueue.filter((entry) => entry.resolution === 'pending').length,
+      qualificationAutoRecordCount: ingestion.structuredRecords.length,
+      qualificationSourceScanCount: ingestion.scans.length,
       qualificationPolicy: 'confirmation_only',
       qualificationCoverage: {
         coveredSportCount: qualificationSystemIndex.systems.flatMap((system) => system.coveredSports).length,
@@ -612,7 +621,14 @@ async function main() {
     writeJsonIfChanged(officialCandidatePath, officialCandidate),
     writeJsonIfChanged(communityReferencePath, communityReference),
     writeJsonIfChanged(countryRegistryPath, countryRegistry),
-    writeJsonIfChanged(countrySelectionRegistryPath, countrySelectionRegistry)
+    writeJsonIfChanged(countrySelectionRegistryPath, countrySelectionRegistry),
+    writeJsonIfChanged(qualificationIngestionPath, {
+      checkedAt,
+      scans: ingestion.scans,
+      structuredRecords: ingestion.structuredRecords,
+      reviewQueue: ingestion.reviewQueue,
+      rejected: qualificationResult.rejected
+    })
   ]);
 
   console.log(`Updated Games28 runtime with ${publishedSchedule.length} published schedule entries (${publication.scheduleAuthority}).`);

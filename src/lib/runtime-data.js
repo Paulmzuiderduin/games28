@@ -45,6 +45,8 @@ export const runtimeFallback = {
     qualificationHistoryCount: 0,
     qualificationRejectedCount: 0,
     qualificationReviewCount: 0,
+    qualificationAutoRecordCount: 0,
+    qualificationSourceScanCount: 0,
     qualificationPolicy: 'confirmation_only',
     qualificationCoverage: {
       coveredSportCount: 0,

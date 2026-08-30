@@ -802,7 +802,7 @@
       "summary": "Updated Women's Group Stage First Round (CKT04) timing, venue, or source."
     }
   ],
-  "checkedAt": "2026-08-30T10:34:12.948Z",
+  "checkedAt": "2026-08-30T12:48:08.003Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -4497,7 +4497,7 @@
       "status": "awaiting_endpoint"
     }
   ],
-  "generatedAt": "2026-08-30T10:34:12.948Z",
+  "generatedAt": "2026-08-30T12:48:08.003Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
@@ -4532,6 +4532,7 @@
       },
       "passed": true
     },
+    "qualificationAutoRecordCount": 0,
     "qualificationCount": 0,
     "qualificationCoverage": {
       "configuredSystemCount": 10,
@@ -4544,11 +4545,12 @@
     "qualificationRecordCount": 0,
     "qualificationRejectedCount": 0,
     "qualificationReviewCount": 0,
+    "qualificationSourceScanCount": 37,
     "qualificationSources": [
       {
         "allocationUrl": "https://fiba.basketball/3x3",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -4570,7 +4572,7 @@
       {
         "allocationUrl": "https://www.worldarchery.sport/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Archery",
         "httpStatus": 200,
@@ -4592,7 +4594,7 @@
       {
         "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Aquatics",
         "httpStatus": 200,
@@ -4618,7 +4620,7 @@
       {
         "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Athletics",
         "httpStatus": 200,
@@ -4642,10 +4644,10 @@
       {
         "allocationUrl": "https://corporate.bwfbadminton.com/",
         "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "Badminton World Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-badminton",
         "kind": "qualification_system",
         "label": "Badminton World Federation - Badminton",
@@ -4664,10 +4666,10 @@
       {
         "allocationUrl": "https://www.wbsc.org/",
         "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Baseball Softball Confederation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-baseball-softball",
         "kind": "qualification_system",
         "label": "World Baseball Softball Confederation - Baseball and Softball",
@@ -4687,7 +4689,7 @@
       {
         "allocationUrl": "https://www.fiba.basketball/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -4709,7 +4711,7 @@
       {
         "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Boxing",
         "httpStatus": 200,
@@ -4732,7 +4734,7 @@
       {
         "allocationUrl": "https://www.ifsc-climbing.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Federation of Sport Climbing",
         "httpStatus": 200,
@@ -4754,7 +4756,7 @@
       {
         "allocationUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Cricket Council",
         "httpStatus": 200,
@@ -4776,7 +4778,7 @@
       {
         "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "Union Cycliste Internationale",
         "httpStatus": 200,
@@ -4803,7 +4805,7 @@
       {
         "allocationUrl": "https://inside.fei.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "Fédération Equestre Internationale",
         "httpStatus": 200,
@@ -4825,7 +4827,7 @@
       {
         "allocationUrl": "https://fie.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Fencing Federation",
         "httpStatus": 200,
@@ -4847,7 +4849,7 @@
       {
         "allocationUrl": "https://ifaf.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Federation of American Football",
         "httpStatus": 200,
@@ -4869,7 +4871,7 @@
       {
         "allocationUrl": "https://inside.fifa.com/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "FIFA",
         "httpStatus": 200,
@@ -4891,7 +4893,7 @@
       {
         "allocationUrl": "https://www.igfgolf.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Golf Federation",
         "httpStatus": 200,
@@ -4913,7 +4915,7 @@
       {
         "allocationUrl": "https://www.gymnastics.sport/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Gymnastics Federation",
         "httpStatus": 200,
@@ -4937,7 +4939,7 @@
       {
         "allocationUrl": "https://www.ihf.info/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Handball Federation",
         "httpStatus": 200,
@@ -4959,7 +4961,7 @@
       {
         "allocationUrl": "https://www.fih.hockey/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Hockey Federation",
         "httpStatus": 200,
@@ -4981,7 +4983,7 @@
       {
         "allocationUrl": "https://www.ijf.org/ijf/documents/26",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Judo Federation",
         "httpStatus": 200,
@@ -5003,7 +5005,7 @@
       {
         "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Lacrosse",
         "httpStatus": 200,
@@ -5025,7 +5027,7 @@
       {
         "allocationUrl": "https://www.uipmworld.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "Union Internationale de Pentathlon Moderne",
         "httpStatus": 200,
@@ -5047,7 +5049,7 @@
       {
         "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Rowing",
         "httpStatus": 200,
@@ -5070,7 +5072,7 @@
       {
         "allocationUrl": "https://www.world.rugby/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Rugby",
         "httpStatus": 200,
@@ -5092,7 +5094,7 @@
       {
         "allocationUrl": "https://www.sailing.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Sailing",
         "httpStatus": 200,
@@ -5115,7 +5117,7 @@
       {
         "allocationUrl": "https://www.issf-sports.org/competitions/3488",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Shooting Sport Federation",
         "httpStatus": 200,
@@ -5138,7 +5140,7 @@
       {
         "allocationUrl": "https://www.worldskate.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Skate",
         "httpStatus": 200,
@@ -5160,11 +5162,11 @@
       },
       {
         "allocationUrl": "https://www.canoeicf.com/",
-        "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "available": true,
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Canoe Federation",
-        "httpStatus": 500,
+        "httpStatus": 200,
         "id": "if-canoe",
         "kind": "qualification_system",
         "label": "International Canoe Federation - Canoe",
@@ -5184,16 +5186,16 @@
       {
         "allocationUrl": "https://www.worldsquash.org/",
         "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Squash Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-squash",
         "kind": "qualification_system",
         "label": "World Squash Federation - Squash",
         "qualificationSystemKey": "squash",
         "refreshPolicy": "daily",
-        "resolvedUrl": "https://www.worldsquash.sport/",
+        "resolvedUrl": "https://www.worldsquash.org/",
         "rulesUrl": "https://www.worldsquash.org/",
         "sourceTier": "if",
         "sport": "Squash",
@@ -5206,10 +5208,10 @@
       {
         "allocationUrl": "https://isasurf.org/",
         "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Surfing Association",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-surfing",
         "kind": "qualification_system",
         "label": "International Surfing Association - Surfing",
@@ -5228,10 +5230,10 @@
       {
         "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
         "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Table Tennis Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-table-tennis",
         "kind": "qualification_system",
         "label": "International Table Tennis Federation - Table Tennis",
@@ -5250,7 +5252,7 @@
       {
         "allocationUrl": "https://www.worldtaekwondo.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Taekwondo",
         "httpStatus": 200,
@@ -5272,7 +5274,7 @@
       {
         "allocationUrl": "https://www.itftennis.com/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Tennis Federation",
         "httpStatus": 200,
@@ -5294,7 +5296,7 @@
       {
         "allocationUrl": "https://triathlon.org/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "World Triathlon",
         "httpStatus": 200,
@@ -5316,7 +5318,7 @@
       {
         "allocationUrl": "https://www.fivb.com/",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "Fédération Internationale de Volleyball",
         "httpStatus": 200,
@@ -5339,10 +5341,10 @@
       {
         "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
         "available": false,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "International Weightlifting Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-weightlifting",
         "kind": "qualification_ranking",
         "label": "International Weightlifting Federation - Weightlifting",
@@ -5361,7 +5363,7 @@
       {
         "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
         "available": true,
-        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "checkedAt": "2026-08-30T12:48:08.003Z",
         "entryUrl": null,
         "governingBody": "United World Wrestling",
         "httpStatus": 200,
@@ -51367,25 +51369,25 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-08-30T10:34:12.948Z",
+      "checkedAt": "2026-08-30T12:48:08.003Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
-      "fallbackUsed": false,
+      "fallbackUsed": true,
       "id": "official-la28-page",
       "kind": "official",
       "label": "Official LA28 schedule hub",
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-08-30T10:34:12.948Z",
+      "checkedAt": "2026-08-30T12:48:08.003Z",
       "description": "Primary parser target for official schedule shadow mode.",
-      "fallbackUsed": false,
+      "fallbackUsed": true,
       "id": "official-la28-event-pdf",
       "kind": "official",
       "label": "Official LA28 By Event PDF",
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-08-30T10:34:12.948Z",
+      "checkedAt": "2026-08-30T12:48:08.003Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -51394,16 +51396,16 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-08-30T10:34:12.948Z",
+      "checkedAt": "2026-08-30T12:48:08.003Z",
       "description": "Structured comparison and fallback source during shadow mode.",
-      "fallbackUsed": false,
+      "fallbackUsed": true,
       "id": "community-la28-sheet",
       "kind": "secondary",
       "label": "Community schedule mirror",
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-08-30T10:34:12.948Z",
+      "checkedAt": "2026-08-30T12:48:08.003Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
