@@ -20,7 +20,11 @@ export const runtimeFallback = {
   version: 1,
   sources: [],
   countries: [],
+  countrySelectionRegistry: [],
+  qualificationSystems: [],
   qualificationRecords: [],
+  qualificationHistory: [],
+  qualificationReviewQueue: [],
   athleteCards: [],
   scheduleEntries: [],
   changes: [],
@@ -38,8 +42,21 @@ export const runtimeFallback = {
     officialShadowSuccessStreak: 0,
     qualificationCount: 0,
     qualificationRecordCount: 0,
+    qualificationHistoryCount: 0,
     qualificationRejectedCount: 0,
+    qualificationReviewCount: 0,
     qualificationPolicy: 'confirmation_only',
+    qualificationCoverage: {
+      coveredSportCount: 0,
+      missingSports: [],
+      systemCount: 0,
+      configuredSystemCount: 0
+    },
+    countrySelectionCoverage: {
+      countryCount: 0,
+      configuredCount: 0,
+      awaitingEndpointCount: 0
+    },
     qualificationSources: [],
     sportCount: 0,
     hasSecondaryScheduleSource: false,

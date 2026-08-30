@@ -205,6 +205,10 @@ function SourceRail({ runtime }) {
   const officialValidationStreak = runtime.meta.officialShadowSuccessStreak || 0;
   const officialValidationTarget = 3;
   const officialValidationRemaining = Math.max(0, officialValidationTarget - officialValidationStreak);
+  const qualificationCoverage = runtime.meta.qualificationCoverage || {};
+  const countrySelectionCoverage = runtime.meta.countrySelectionCoverage || {};
+  const qualificationSources = runtime.meta.qualificationSources || [];
+  const activeQualificationSources = qualificationSources.filter((source) => source.status !== 'watching');
 
   return (
     <section className="panel source-rail">
@@ -224,6 +228,16 @@ function SourceRail({ runtime }) {
             ? 'Official PDF can be promoted on the next refresh.'
             : runtime.meta.officialValidation?.issues?.[0] || `${officialValidationRemaining} more successful checks before promotion.`}
         />
+        <SummaryCard
+          label="Qualification systems"
+          value={`${qualificationCoverage.coveredSportCount || 0} schedule labels covered`}
+          detail={`${qualificationCoverage.systemCount || 0} official sport groups are checked daily. No predictions are published.`}
+        />
+        <SummaryCard
+          label="Country selection sources"
+          value={`${countrySelectionCoverage.configuredCount || 0}/${countrySelectionCoverage.countryCount || runtime.countries.length || 0} configured`}
+          detail="Every IOC NOC has a source slot; unavailable endpoints stay explicitly unavailable."
+        />
       </div>
       <div className="source-list">
         {runtime.sources.map((source) => (
@@ -241,18 +255,19 @@ function SourceRail({ runtime }) {
           </article>
         ))}
       </div>
-      {runtime.meta.qualificationSources?.length ? (
+      {qualificationSources.length ? (
         <div className="qualification-source-list">
-          <p className="eyebrow">Qualification sources being watched</p>
+          <p className="eyebrow">Qualification source coverage</p>
+          <p className="supporting-copy">A source being watched is not a qualification record. Only dated, official allocations, selections, and final entries appear on country dashboards.</p>
           <div className="source-list">
-            {runtime.meta.qualificationSources.map((source) => (
+            {activeQualificationSources.map((source) => (
               <article key={source.id} className="source-card">
                 <div className="source-card-top">
-                  <span className="tag official">{source.sourceTier}</span>
-                  <span className="source-updated">{source.sport}</span>
+                  <span className="tag official">{source.status.replace(/_/g, ' ')}</span>
+                  <span className="source-updated">{source.sports?.length || 1} sport{source.sports?.length === 1 ? '' : 's'}</span>
                 </div>
                 <h3>{source.label}</h3>
-                <p>Records publish only after an explicit allocation, selection, or final entry.</p>
+                <p>{source.status === 'review_required' ? 'Official announcements are queued for human review before publication.' : 'Records publish only after an explicit allocation, selection, or final entry.'}</p>
                 <SourceLink href={source.url} context={{ sourceId: source.id }}>
                   Open source
                 </SourceLink>
@@ -1100,6 +1115,10 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
               <article className="info-card">
                 <h3>{hasConfirmedSessions ? 'Confirmed sessions ready' : 'Waiting for entry lists'}</h3>
                 <p>{hasConfirmedSessions ? 'Confirmed sessions can be exported now.' : 'Schedule items stay pending until official entry lists appear.'}</p>
+              </article>
+              <article className="info-card">
+                <h3>{runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status === 'configured' ? 'Official selection source configured' : 'Official selection source slot reserved'}</h3>
+                <p>{runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status === 'configured' ? 'Games28 watches the listed NOC or national federation source for confirmed selections.' : 'No official country selection endpoint has been added yet. This never creates an inferred athlete.'}</p>
               </article>
             </div>
           </section>

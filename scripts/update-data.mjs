@@ -15,7 +15,9 @@ import {
   writeTextIfChanged
 } from './dataset-utils.mjs';
 import { parseOfficialSchedulePdf } from './official-pdf-parser.mjs';
-import { normalizeQualificationRecords, toQualificationCards } from './qualification-records.mjs';
+import { buildQualificationPipeline, toQualificationCards } from './qualification-records.mjs';
+import { buildQualificationSystemIndex, toQualificationSources } from './qualification-systems.mjs';
+import { buildCountrySelectionRegistry, toCountrySelectionSources } from './country-selection-registry.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -27,11 +29,13 @@ const officialPdfSnapshotPath = resolve(dataDir, 'official-schedule-by-event.sna
 const runtimePath = resolve(dataDir, 'runtime.json');
 const sourceCheckPath = resolve(dataDir, 'source-check.json');
 const qualificationSourcesPath = resolve(dataDir, 'qualification-sources.source.json');
+const countrySelectionOverridesPath = resolve(dataDir, 'country-selection-source-overrides.json');
 const registrySourcePath = resolve(dataDir, 'noc-registry.source.json');
 const isoOverridesPath = resolve(dataDir, 'noc-iso-overrides.json');
 const officialCandidatePath = resolve(dataDir, 'schedule-official-candidate.json');
 const communityReferencePath = resolve(dataDir, 'schedule-community-reference.json');
 const countryRegistryPath = resolve(dataDir, 'countries.registry.json');
+const countrySelectionRegistryPath = resolve(dataDir, 'country-selection.registry.json');
 
 const OFFICIAL_PAGE_URL = 'https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule';
 const COMMUNITY_SCHEDULE_URL = 'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/export?format=csv&gid=1622079921';
@@ -100,6 +104,29 @@ async function checkQualificationSource(source, checkedAt) {
       checkError: error.message
     };
   }
+}
+
+export function preserveQualificationSourceHealth(currentChecks, previousSources = []) {
+  const previousById = new Map(previousSources.map((source) => [source.id, source]));
+
+  return currentChecks.map((source) => {
+    const previous = previousById.get(source.id);
+    if (source.available || !previous?.available) {
+      return {
+        ...source,
+        lastSuccessfulAt: source.available ? source.checkedAt : previous?.lastSuccessfulAt || null
+      };
+    }
+
+    return {
+      ...source,
+      available: previous.available,
+      httpStatus: previous.httpStatus,
+      resolvedUrl: previous.resolvedUrl || source.resolvedUrl,
+      lastSuccessfulAt: previous.lastSuccessfulAt || previous.checkedAt,
+      healthCheckFailedAt: source.checkedAt
+    };
+  });
 }
 
 async function fetchTextWithFallback(url, snapshotPath) {
@@ -358,6 +385,21 @@ export function detectChanges(previousRuntime, nextRuntime) {
     }
   });
 
+  const nextCardIds = new Set(nextRuntime.athleteCards.map((card) => card.id));
+  previousRuntime.athleteCards.forEach((card) => {
+    if (nextCardIds.has(card.id)) return;
+    changes.push({
+      id: buildChangeId(['qualification-removed', card.id, nextRuntime.checkedAt]),
+      entityId: card.id,
+      entityType: 'athlete_card',
+      changeType: 'qualification-removed',
+      changedAt: nextRuntime.checkedAt,
+      noc: card.noc,
+      sourceUrl: card.sourceUrl,
+      summary: `${card.noc}: ${card.name} is no longer an active qualification record.`
+    });
+  });
+
   const merged = [...changes, ...(Array.isArray(previousRuntime.changes) ? previousRuntime.changes : [])];
   const seen = new Set();
 
@@ -373,10 +415,11 @@ export function detectChanges(previousRuntime, nextRuntime) {
 
 async function main() {
   const checkedAt = new Date().toISOString();
-  const [sourceCheck, previousRuntime, qualificationSources] = await Promise.all([
+  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides] = await Promise.all([
     readJson(sourceCheckPath, {}),
     readJson(runtimePath, null),
-    readJson(qualificationSourcesPath, { sources: [], records: [] })
+    readJson(qualificationSourcesPath, { structuredRecords: [], reviewQueue: [] }),
+    readJson(countrySelectionOverridesPath, { sources: [] })
   ]);
 
   const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath);
@@ -387,12 +430,7 @@ async function main() {
   const sourcePdfHash = sha256Hex(officialPdf.body);
   const sourceVersion = detectSourceVersion(officialPdfUrl, officialPdf.body);
   const countryRegistry = await buildCountryRegistry({ registrySourcePath, isoOverridesPath });
-  const qualificationSourceChecks = await Promise.all(
-    (qualificationSources.sources || []).map((source) => checkQualificationSource(source, checkedAt))
-  );
-  const qualificationResult = normalizeQualificationRecords(qualificationSources);
-  const qualificationRecords = qualificationResult.records;
-  const athleteCards = toQualificationCards(qualificationRecords);
+  const countrySelectionRegistry = buildCountrySelectionRegistry(countryRegistry, countrySelectionOverrides);
   const communityReference = normalizeCommunityReference(parseCsv(communitySchedule.body), COMMUNITY_REFERENCE_URL);
   const officialCandidate = await parseOfficialSchedulePdf(officialPdf.body, {
     sourcePdfHash,
@@ -400,6 +438,24 @@ async function main() {
     sourceVersion,
     timezoneFallback: 'PT'
   });
+  const qualificationSystemIndex = buildQualificationSystemIndex(officialCandidate);
+  const qualificationSources = [
+    ...toQualificationSources(qualificationSystemIndex.systems),
+    ...toCountrySelectionSources(countrySelectionRegistry)
+  ];
+  if (qualificationSystemIndex.missingSports.length) {
+    throw new Error(`Qualification source coverage missing for: ${qualificationSystemIndex.missingSports.join(', ')}`);
+  }
+  const checkedQualificationSources = await Promise.all(
+    qualificationSources.map((source) => checkQualificationSource(source, checkedAt))
+  );
+  const qualificationSourceChecks = preserveQualificationSourceHealth(
+    checkedQualificationSources,
+    previousRuntime?.meta?.qualificationSources
+  );
+  const qualificationResult = buildQualificationPipeline(qualificationInput, qualificationSources);
+  const qualificationRecords = qualificationResult.activeRecords;
+  const athleteCards = toQualificationCards(qualificationRecords);
 
   const validation = validateOfficialCandidate(officialCandidate, communityReference, previousRuntime);
   const publication = choosePublishedSchedule({
@@ -465,7 +521,11 @@ async function main() {
       }
     ],
     countries: countryRegistry,
+    countrySelectionRegistry,
+    qualificationSystems: qualificationSystemIndex.systems,
     qualificationRecords,
+    qualificationHistory: qualificationResult.history,
+    qualificationReviewQueue: qualificationResult.reviewQueue,
     athleteCards,
     scheduleEntries: publishedSchedule,
     changes: [],
@@ -485,15 +545,35 @@ async function main() {
       officialValidation: validation,
       qualificationCount: athleteCards.length,
       qualificationRecordCount: qualificationRecords.length,
+      qualificationHistoryCount: qualificationResult.history.length,
       qualificationRejectedCount: qualificationResult.rejected.length,
+      qualificationReviewCount: qualificationResult.reviewQueue.filter((entry) => entry.resolution === 'pending').length,
       qualificationPolicy: 'confirmation_only',
+      qualificationCoverage: {
+        coveredSportCount: qualificationSystemIndex.systems.flatMap((system) => system.coveredSports).length,
+        missingSports: qualificationSystemIndex.missingSports,
+        systemCount: qualificationSystemIndex.systems.length,
+        configuredSystemCount: qualificationSystemIndex.systems.filter((system) => system.status !== 'watching').length
+      },
+      countrySelectionCoverage: {
+        countryCount: countrySelectionRegistry.length,
+        configuredCount: countrySelectionRegistry.filter((entry) => entry.status === 'configured').length,
+        awaitingEndpointCount: countrySelectionRegistry.filter((entry) => entry.status === 'awaiting_endpoint').length
+      },
       qualificationSources: qualificationSourceChecks.map((source) => ({
         id: source.id,
+        qualificationSystemKey: source.qualificationSystemKey,
         label: source.label,
+        governingBody: source.governingBody,
         sport: source.sport,
+        sports: source.sports,
         sourceTier: source.sourceTier,
         kind: source.kind,
+        status: source.status,
         url: source.url,
+        rulesUrl: source.rulesUrl,
+        allocationUrl: source.allocationUrl,
+        entryUrl: source.entryUrl,
         refreshPolicy: source.refreshPolicy,
         checkedAt: source.checkedAt,
         available: source.available,
@@ -531,7 +611,8 @@ async function main() {
     writeJsonIfChanged(sourceCheckPath, nextSourceCheck),
     writeJsonIfChanged(officialCandidatePath, officialCandidate),
     writeJsonIfChanged(communityReferencePath, communityReference),
-    writeJsonIfChanged(countryRegistryPath, countryRegistry)
+    writeJsonIfChanged(countryRegistryPath, countryRegistry),
+    writeJsonIfChanged(countrySelectionRegistryPath, countrySelectionRegistry)
   ]);
 
   console.log(`Updated Games28 runtime with ${publishedSchedule.length} published schedule entries (${publication.scheduleAuthority}).`);

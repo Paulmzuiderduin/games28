@@ -1,0 +1,1642 @@
+[
+  {
+    "countryName": "Afghanistan",
+    "nationalFederationUrls": [],
+    "noc": "AFG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Albania",
+    "nationalFederationUrls": [],
+    "noc": "ALB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Algeria",
+    "nationalFederationUrls": [],
+    "noc": "ALG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "American Samoa",
+    "nationalFederationUrls": [],
+    "noc": "ASA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Andorra",
+    "nationalFederationUrls": [],
+    "noc": "AND",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Angola",
+    "nationalFederationUrls": [],
+    "noc": "ANG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Antigua and Barbuda",
+    "nationalFederationUrls": [],
+    "noc": "ANT",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Argentina",
+    "nationalFederationUrls": [],
+    "noc": "ARG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Armenia",
+    "nationalFederationUrls": [],
+    "noc": "ARM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Aruba",
+    "nationalFederationUrls": [],
+    "noc": "ARU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Australia",
+    "nationalFederationUrls": [],
+    "noc": "AUS",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Austria",
+    "nationalFederationUrls": [],
+    "noc": "AUT",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Azerbaijan",
+    "nationalFederationUrls": [],
+    "noc": "AZE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bahamas",
+    "nationalFederationUrls": [],
+    "noc": "BAH",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bahrain",
+    "nationalFederationUrls": [],
+    "noc": "BRN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bangladesh",
+    "nationalFederationUrls": [],
+    "noc": "BAN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Barbados",
+    "nationalFederationUrls": [],
+    "noc": "BAR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Belarus",
+    "nationalFederationUrls": [],
+    "noc": "BLR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Belgium",
+    "nationalFederationUrls": [],
+    "noc": "BEL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Belize",
+    "nationalFederationUrls": [],
+    "noc": "BIZ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Benin",
+    "nationalFederationUrls": [],
+    "noc": "BEN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bermuda",
+    "nationalFederationUrls": [],
+    "noc": "BER",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bhutan",
+    "nationalFederationUrls": [],
+    "noc": "BHU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Boliva",
+    "nationalFederationUrls": [],
+    "noc": "BOL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bosnia and Herzegovina",
+    "nationalFederationUrls": [],
+    "noc": "BIH",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Botswana",
+    "nationalFederationUrls": [],
+    "noc": "BOT",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Brazil",
+    "nationalFederationUrls": [],
+    "noc": "BRA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Brunei",
+    "nationalFederationUrls": [],
+    "noc": "BRU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Bulgaria",
+    "nationalFederationUrls": [],
+    "noc": "BUL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Burkina Faso",
+    "nationalFederationUrls": [],
+    "noc": "BUR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Burundi",
+    "nationalFederationUrls": [],
+    "noc": "BDI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cambodia",
+    "nationalFederationUrls": [],
+    "noc": "CAM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cameroon",
+    "nationalFederationUrls": [],
+    "noc": "CMR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Canada",
+    "nationalFederationUrls": [],
+    "noc": "CAN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cape Verde",
+    "nationalFederationUrls": [],
+    "noc": "CPV",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cayman Islands",
+    "nationalFederationUrls": [],
+    "noc": "CAY",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Central African Republic",
+    "nationalFederationUrls": [],
+    "noc": "CAF",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Chad",
+    "nationalFederationUrls": [],
+    "noc": "CHA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Chile",
+    "nationalFederationUrls": [],
+    "noc": "CHI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "China",
+    "nationalFederationUrls": [],
+    "noc": "CHN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Colombia",
+    "nationalFederationUrls": [],
+    "noc": "COL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Comoros",
+    "nationalFederationUrls": [],
+    "noc": "COM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cook Islands",
+    "nationalFederationUrls": [],
+    "noc": "COK",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Costa Rica",
+    "nationalFederationUrls": [],
+    "noc": "CRC",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Croatia",
+    "nationalFederationUrls": [],
+    "noc": "CRO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cuba",
+    "nationalFederationUrls": [],
+    "noc": "CUB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Cyprus",
+    "nationalFederationUrls": [],
+    "noc": "CYP",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Czech Republic",
+    "nationalFederationUrls": [],
+    "noc": "CZE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Democratic Republic of the Congo",
+    "nationalFederationUrls": [],
+    "noc": "COD",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Denmark",
+    "nationalFederationUrls": [],
+    "noc": "DEN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Djibouti",
+    "nationalFederationUrls": [],
+    "noc": "DJI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Dominica",
+    "nationalFederationUrls": [],
+    "noc": "DMA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Dominican Republic",
+    "nationalFederationUrls": [],
+    "noc": "DOM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Ecuador",
+    "nationalFederationUrls": [],
+    "noc": "ECU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Egypt",
+    "nationalFederationUrls": [],
+    "noc": "EGY",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "El Salvador",
+    "nationalFederationUrls": [],
+    "noc": "ESA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Equatorial Guinea",
+    "nationalFederationUrls": [],
+    "noc": "GEQ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Eritrea",
+    "nationalFederationUrls": [],
+    "noc": "ERI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Estonia",
+    "nationalFederationUrls": [],
+    "noc": "EST",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Ethiopia",
+    "nationalFederationUrls": [],
+    "noc": "ETH",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Fiji",
+    "nationalFederationUrls": [],
+    "noc": "FIJ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Finland",
+    "nationalFederationUrls": [],
+    "noc": "FIN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "France",
+    "nationalFederationUrls": [],
+    "noc": "FRA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Gabon",
+    "nationalFederationUrls": [],
+    "noc": "GAB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Gambia",
+    "nationalFederationUrls": [],
+    "noc": "GAM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Georgia",
+    "nationalFederationUrls": [],
+    "noc": "GEO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Germany",
+    "nationalFederationUrls": [],
+    "noc": "GER",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Ghana",
+    "nationalFederationUrls": [],
+    "noc": "GHA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Great Britain",
+    "nationalFederationUrls": [],
+    "noc": "GBR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Greece",
+    "nationalFederationUrls": [],
+    "noc": "GRE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Grenada",
+    "nationalFederationUrls": [],
+    "noc": "GRN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Guam",
+    "nationalFederationUrls": [],
+    "noc": "GUM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Guatemala",
+    "nationalFederationUrls": [],
+    "noc": "GUA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Guinea",
+    "nationalFederationUrls": [],
+    "noc": "GUI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Guinea-Bissau",
+    "nationalFederationUrls": [],
+    "noc": "GBS",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Guyana",
+    "nationalFederationUrls": [],
+    "noc": "GUY",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Haiti",
+    "nationalFederationUrls": [],
+    "noc": "HAI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Honduras",
+    "nationalFederationUrls": [],
+    "noc": "HON",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Hungary",
+    "nationalFederationUrls": [],
+    "noc": "HUN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Iceland",
+    "nationalFederationUrls": [],
+    "noc": "ISL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "India",
+    "nationalFederationUrls": [],
+    "noc": "IND",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Indonesia",
+    "nationalFederationUrls": [],
+    "noc": "INA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Iran",
+    "nationalFederationUrls": [],
+    "noc": "IRI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Iraq",
+    "nationalFederationUrls": [],
+    "noc": "IRQ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Ireland",
+    "nationalFederationUrls": [],
+    "noc": "IRL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Israel",
+    "nationalFederationUrls": [],
+    "noc": "ISR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Italy",
+    "nationalFederationUrls": [],
+    "noc": "ITA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Ivory Coast",
+    "nationalFederationUrls": [],
+    "noc": "CIV",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Jamaica",
+    "nationalFederationUrls": [],
+    "noc": "JAM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Japan",
+    "nationalFederationUrls": [],
+    "noc": "JPN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Jordan",
+    "nationalFederationUrls": [],
+    "noc": "JOR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Kazakhstan",
+    "nationalFederationUrls": [],
+    "noc": "KAZ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Kenya",
+    "nationalFederationUrls": [],
+    "noc": "KEN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Kiribati",
+    "nationalFederationUrls": [],
+    "noc": "KIR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Kosovo",
+    "nationalFederationUrls": [],
+    "noc": "KOS",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Kuwait",
+    "nationalFederationUrls": [],
+    "noc": "KUW",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Kyrgyzstan",
+    "nationalFederationUrls": [],
+    "noc": "KGZ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Laos",
+    "nationalFederationUrls": [],
+    "noc": "LAO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Latvia",
+    "nationalFederationUrls": [],
+    "noc": "LAT",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Lebanon",
+    "nationalFederationUrls": [],
+    "noc": "LIB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Lesotho",
+    "nationalFederationUrls": [],
+    "noc": "LES",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Liberia",
+    "nationalFederationUrls": [],
+    "noc": "LBR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Libya",
+    "nationalFederationUrls": [],
+    "noc": "LBA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Liechtenstein",
+    "nationalFederationUrls": [],
+    "noc": "LIE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Lithuania",
+    "nationalFederationUrls": [],
+    "noc": "LTU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Luxembourg",
+    "nationalFederationUrls": [],
+    "noc": "LUX",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Macedonia",
+    "nationalFederationUrls": [],
+    "noc": "MKD",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Madagascar",
+    "nationalFederationUrls": [],
+    "noc": "MAD",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Malawi",
+    "nationalFederationUrls": [],
+    "noc": "MAW",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Malaysia",
+    "nationalFederationUrls": [],
+    "noc": "MAL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Maldives",
+    "nationalFederationUrls": [],
+    "noc": "MDV",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Mali",
+    "nationalFederationUrls": [],
+    "noc": "MLI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Malta",
+    "nationalFederationUrls": [],
+    "noc": "MLT",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Marshall Islands",
+    "nationalFederationUrls": [],
+    "noc": "MHL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Mauritania",
+    "nationalFederationUrls": [],
+    "noc": "MTN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Mauritius",
+    "nationalFederationUrls": [],
+    "noc": "MRI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Mexico",
+    "nationalFederationUrls": [],
+    "noc": "MEX",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Micronesia",
+    "nationalFederationUrls": [],
+    "noc": "FSM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Moldova",
+    "nationalFederationUrls": [],
+    "noc": "MDA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Monaco",
+    "nationalFederationUrls": [],
+    "noc": "MON",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Mongolia",
+    "nationalFederationUrls": [],
+    "noc": "MGL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Montenegro",
+    "nationalFederationUrls": [],
+    "noc": "MNE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Morocco",
+    "nationalFederationUrls": [],
+    "noc": "MAR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Mozambique",
+    "nationalFederationUrls": [],
+    "noc": "MOZ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Myanmar",
+    "nationalFederationUrls": [],
+    "noc": "MYA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "NA",
+    "nationalFederationUrls": [],
+    "noc": "TUV",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Namibia",
+    "nationalFederationUrls": [],
+    "noc": "NAM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Nauru",
+    "nationalFederationUrls": [],
+    "noc": "NRU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Nepal",
+    "nationalFederationUrls": [],
+    "noc": "NEP",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Netherlands",
+    "nationalFederationUrls": [],
+    "noc": "NED",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "New Zealand",
+    "nationalFederationUrls": [],
+    "noc": "NZL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Nicaragua",
+    "nationalFederationUrls": [],
+    "noc": "NCA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Niger",
+    "nationalFederationUrls": [],
+    "noc": "NIG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Nigeria",
+    "nationalFederationUrls": [],
+    "noc": "NGR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "North Korea",
+    "nationalFederationUrls": [],
+    "noc": "PRK",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Norway",
+    "nationalFederationUrls": [],
+    "noc": "NOR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Oman",
+    "nationalFederationUrls": [],
+    "noc": "OMA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Pakistan",
+    "nationalFederationUrls": [],
+    "noc": "PAK",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Palau",
+    "nationalFederationUrls": [],
+    "noc": "PLW",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Palestine",
+    "nationalFederationUrls": [],
+    "noc": "PLE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Panama",
+    "nationalFederationUrls": [],
+    "noc": "PAN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Papua New Guinea",
+    "nationalFederationUrls": [],
+    "noc": "PNG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Paraguay",
+    "nationalFederationUrls": [],
+    "noc": "PAR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Peru",
+    "nationalFederationUrls": [],
+    "noc": "PER",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Philippines",
+    "nationalFederationUrls": [],
+    "noc": "PHI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Poland",
+    "nationalFederationUrls": [],
+    "noc": "POL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Portugal",
+    "nationalFederationUrls": [],
+    "noc": "POR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Puerto Rico",
+    "nationalFederationUrls": [],
+    "noc": "PUR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Qatar",
+    "nationalFederationUrls": [],
+    "noc": "QAT",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Republic of Congo",
+    "nationalFederationUrls": [],
+    "noc": "CGO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Romania",
+    "nationalFederationUrls": [],
+    "noc": "ROU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Russia",
+    "nationalFederationUrls": [],
+    "noc": "RUS",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Rwanda",
+    "nationalFederationUrls": [],
+    "noc": "RWA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Saint Kitts",
+    "nationalFederationUrls": [],
+    "noc": "SKN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Saint Lucia",
+    "nationalFederationUrls": [],
+    "noc": "LCA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Saint Vincent",
+    "nationalFederationUrls": [],
+    "noc": "VIN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Samoa",
+    "nationalFederationUrls": [],
+    "noc": "SAM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "San Marino",
+    "nationalFederationUrls": [],
+    "noc": "SMR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Sao Tome and Principe",
+    "nationalFederationUrls": [],
+    "noc": "STP",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Saudi Arabia",
+    "nationalFederationUrls": [],
+    "noc": "KSA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Senegal",
+    "nationalFederationUrls": [],
+    "noc": "SEN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Serbia",
+    "nationalFederationUrls": [],
+    "noc": "SRB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Seychelles",
+    "nationalFederationUrls": [],
+    "noc": "SEY",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Sierra Leone",
+    "nationalFederationUrls": [],
+    "noc": "SLE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Singapore",
+    "nationalFederationUrls": [],
+    "noc": "SIN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Slovakia",
+    "nationalFederationUrls": [],
+    "noc": "SVK",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Slovenia",
+    "nationalFederationUrls": [],
+    "noc": "SLO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Solomon Islands",
+    "nationalFederationUrls": [],
+    "noc": "SOL",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Somalia",
+    "nationalFederationUrls": [],
+    "noc": "SOM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "South Africa",
+    "nationalFederationUrls": [],
+    "noc": "RSA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "South Korea",
+    "nationalFederationUrls": [],
+    "noc": "KOR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "South Sudan",
+    "nationalFederationUrls": [],
+    "noc": "SSD",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Spain",
+    "nationalFederationUrls": [],
+    "noc": "ESP",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Sri Lanka",
+    "nationalFederationUrls": [],
+    "noc": "SRI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Sudan",
+    "nationalFederationUrls": [],
+    "noc": "SUD",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Suriname",
+    "nationalFederationUrls": [],
+    "noc": "SUR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Swaziland",
+    "nationalFederationUrls": [],
+    "noc": "SWZ",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Sweden",
+    "nationalFederationUrls": [],
+    "noc": "SWE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Switzerland",
+    "nationalFederationUrls": [],
+    "noc": "SUI",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Syria",
+    "nationalFederationUrls": [],
+    "noc": "SYR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Taiwan",
+    "nationalFederationUrls": [],
+    "noc": "TPE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Tajikistan",
+    "nationalFederationUrls": [],
+    "noc": "TJK",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Tanzania",
+    "nationalFederationUrls": [],
+    "noc": "TAN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Thailand",
+    "nationalFederationUrls": [],
+    "noc": "THA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Timor-Leste",
+    "nationalFederationUrls": [],
+    "noc": "TLS",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Togo",
+    "nationalFederationUrls": [],
+    "noc": "TOG",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Tonga",
+    "nationalFederationUrls": [],
+    "noc": "TGA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Trinidad",
+    "nationalFederationUrls": [],
+    "noc": "TTO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Tunisia",
+    "nationalFederationUrls": [],
+    "noc": "TUN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Turkey",
+    "nationalFederationUrls": [],
+    "noc": "TUR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Turkmenistan",
+    "nationalFederationUrls": [],
+    "noc": "TKM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Uganda",
+    "nationalFederationUrls": [],
+    "noc": "UGA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Ukraine",
+    "nationalFederationUrls": [],
+    "noc": "UKR",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "United Arab Emirates",
+    "nationalFederationUrls": [],
+    "noc": "UAE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "United States",
+    "nationalFederationUrls": [],
+    "noc": "USA",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Uruguay",
+    "nationalFederationUrls": [],
+    "noc": "URU",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Uzbekistan",
+    "nationalFederationUrls": [],
+    "noc": "UZB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Vanuatu",
+    "nationalFederationUrls": [],
+    "noc": "VAN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Venezuela",
+    "nationalFederationUrls": [],
+    "noc": "VEN",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Vietnam",
+    "nationalFederationUrls": [],
+    "noc": "VIE",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Virgin Islands, British",
+    "nationalFederationUrls": [],
+    "noc": "IVB",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Virgin Islands, US",
+    "nationalFederationUrls": [],
+    "noc": "ISV",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Yemen",
+    "nationalFederationUrls": [],
+    "noc": "YEM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Zambia",
+    "nationalFederationUrls": [],
+    "noc": "ZAM",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  },
+  {
+    "countryName": "Zimbabwe",
+    "nationalFederationUrls": [],
+    "noc": "RHO",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "status": "awaiting_endpoint"
+  }
+]

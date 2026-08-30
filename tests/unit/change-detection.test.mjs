@@ -89,3 +89,19 @@ test('detectChanges reports schedule and qualification deltas', () => {
   assert.equal(changes.some((change) => change.changeType === 'qualification-updated'), true);
   assert.equal(changes.some((change) => change.changeType === 'quota-added'), true);
 });
+
+test('detectChanges records when an active qualification card is removed', () => {
+  const previousRuntime = {
+    athleteCards: [{ id: 'withdrawn-card', noc: 'NED', name: '1 quota place', sourceUrl: 'https://example.com' }],
+    scheduleEntries: [],
+    changes: []
+  };
+  const nextRuntime = {
+    checkedAt: '2028-07-01T00:00:00.000Z',
+    athleteCards: [],
+    scheduleEntries: []
+  };
+
+  const changes = detectChanges(previousRuntime, nextRuntime);
+  assert.equal(changes.some((change) => change.changeType === 'qualification-removed'), true);
+});

@@ -24,15 +24,21 @@ The runtime dataset is generated into `src/data/runtime.json` and copied into `p
 
 - Official source metadata: LA28 schedule page + by-event PDF URL
 - Practical parser input: public planning sheet export
-- Qualification sources and records: `src/data/qualification-sources.source.json`
+- Qualification source inputs, structured confirmations, and review candidates: `src/data/qualification-sources.source.json`
+- Qualification-system registry: `scripts/qualification-systems.mjs` (derived against all schedule sport labels during refresh)
+- Country selection-source overrides: `src/data/country-selection-source-overrides.json`
 
 ## Qualification policy
 
-Games28 publishes confirmation-only qualification records. A record must have an IOC, International Federation, NOC, or national federation source URL plus source and verification dates. Rankings, projections, and media reports never create a published qualification card.
+Games28 publishes confirmation-only qualification records. Every schedule sport maps to an International Federation qualification system and every IOC NOC has an explicit country-selection source slot. A source being watched is not a qualification record.
+
+A published record must have an IOC, International Federation, NOC, or national federation source URL that matches its trusted source definition, plus source and verification dates. Rankings, projections, and media reports never create a published qualification card.
 
 The record source distinguishes NOC quota allocation from a named athlete or team selection. A final entry is the strongest status and can replace an earlier allocation or selection record.
 
-Add only reviewed records to the `records` array. Keep uncertain reports, rankings, and possible allocations in `reviewQueue`; that queue is deliberately excluded from the public dataset.
+Add machine-readable official allocations to `structuredRecords`; valid records auto-publish on refresh. Put official prose announcements and source conflicts in `reviewQueue`. A review candidate needs evidence, detected date, source URL, a reason, and a resolution. Only an `approved` candidate with a valid nested record can enter the public dataset; pending and rejected candidates remain auditable but private.
+
+Records carry a lifecycle state: `allocated`, `earned`, `selected`, `entered`, `withdrawn`, or `replaced`. Final entries override earlier selections and quotas. Withdrawn or replaced history is retained but never shown as an active card.
 
 ## Commands
 

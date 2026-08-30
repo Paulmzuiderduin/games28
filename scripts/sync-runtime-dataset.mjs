@@ -49,6 +49,9 @@ async function main() {
     qualificationCount: runtime.meta.qualificationCount,
     qualificationPolicy: runtime.meta.qualificationPolicy,
     qualificationRecordCount: runtime.meta.qualificationRecordCount,
+    qualificationReviewCount: runtime.meta.qualificationReviewCount,
+    qualificationCoverage: runtime.meta.qualificationCoverage,
+    countrySelectionCoverage: runtime.meta.countrySelectionCoverage,
     scheduleCount: runtime.meta.scheduleCount,
     sportCount: runtime.meta.sportCount
   };

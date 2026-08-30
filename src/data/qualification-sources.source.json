@@ -1,36 +1,4 @@
 {
-  "sources": [
-    {
-      "id": "issf-la28",
-      "label": "ISSF LA28 qualification tracker",
-      "sport": "Shooting",
-      "sourceTier": "if",
-      "kind": "quota_tracker",
-      "url": "https://www.issf-sports.org/competitions/3488",
-      "refreshPolicy": "watch",
-      "notes": "Use only published LA28 quota allocations or final entry lists. Do not infer places from rankings."
-    },
-    {
-      "id": "uci-la28",
-      "label": "UCI LA28 qualification publications",
-      "sport": "Cycling",
-      "sourceTier": "if",
-      "kind": "qualification_ranking",
-      "url": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
-      "refreshPolicy": "watch",
-      "notes": "Publish a country quota only after UCI confirms allocation; rankings alone are not allocations."
-    },
-    {
-      "id": "iwf-la28",
-      "label": "IWF LA28 qualification ranking",
-      "sport": "Weightlifting",
-      "sourceTier": "if",
-      "kind": "qualification_ranking",
-      "url": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
-      "refreshPolicy": "watch",
-      "notes": "Publish named athletes only from an IWF allocation, an NOC selection, or final entry list."
-    }
-  ],
-  "records": [],
+  "structuredRecords": [],
   "reviewQueue": []
 }
