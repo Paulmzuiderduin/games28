@@ -1,10 +1,22 @@
 {
-  "checkedAt": "2026-08-30T10:28:36.743Z",
+  "checkedAt": "2026-08-30T10:34:12.948Z",
   "countryCount": 205,
   "lastChangedAt": "2026-07-30T07:42:18.832Z",
   "qualificationCount": 0,
   "qualificationPolicy": "confirmation_only",
   "qualificationRecordCount": 0,
+  "qualificationReviewCount": 0,
+  "qualificationCoverage": {
+    "configuredSystemCount": 10,
+    "coveredSportCount": 58,
+    "missingSports": [],
+    "systemCount": 37
+  },
+  "countrySelectionCoverage": {
+    "awaitingEndpointCount": 205,
+    "configuredCount": 0,
+    "countryCount": 205
+  },
   "scheduleCount": 1675,
   "sportCount": 58
 }

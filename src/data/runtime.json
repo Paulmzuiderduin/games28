@@ -802,7 +802,7 @@
       "summary": "Updated Women's Group Stage First Round (CKT04) timing, venue, or source."
     }
   ],
-  "checkedAt": "2026-08-30T10:28:36.743Z",
+  "checkedAt": "2026-08-30T10:34:12.948Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -2855,11 +2855,1658 @@
       "sourceUrl": "https://www.olympics.com/ioc/national-olympic-committees"
     }
   ],
-  "generatedAt": "2026-08-30T10:28:36.743Z",
+  "countrySelectionRegistry": [
+    {
+      "countryName": "Afghanistan",
+      "nationalFederationUrls": [],
+      "noc": "AFG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Albania",
+      "nationalFederationUrls": [],
+      "noc": "ALB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Algeria",
+      "nationalFederationUrls": [],
+      "noc": "ALG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "American Samoa",
+      "nationalFederationUrls": [],
+      "noc": "ASA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Andorra",
+      "nationalFederationUrls": [],
+      "noc": "AND",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Angola",
+      "nationalFederationUrls": [],
+      "noc": "ANG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Antigua and Barbuda",
+      "nationalFederationUrls": [],
+      "noc": "ANT",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Argentina",
+      "nationalFederationUrls": [],
+      "noc": "ARG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Armenia",
+      "nationalFederationUrls": [],
+      "noc": "ARM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Aruba",
+      "nationalFederationUrls": [],
+      "noc": "ARU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Australia",
+      "nationalFederationUrls": [],
+      "noc": "AUS",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Austria",
+      "nationalFederationUrls": [],
+      "noc": "AUT",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Azerbaijan",
+      "nationalFederationUrls": [],
+      "noc": "AZE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bahamas",
+      "nationalFederationUrls": [],
+      "noc": "BAH",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bahrain",
+      "nationalFederationUrls": [],
+      "noc": "BRN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bangladesh",
+      "nationalFederationUrls": [],
+      "noc": "BAN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Barbados",
+      "nationalFederationUrls": [],
+      "noc": "BAR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Belarus",
+      "nationalFederationUrls": [],
+      "noc": "BLR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Belgium",
+      "nationalFederationUrls": [],
+      "noc": "BEL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Belize",
+      "nationalFederationUrls": [],
+      "noc": "BIZ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Benin",
+      "nationalFederationUrls": [],
+      "noc": "BEN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bermuda",
+      "nationalFederationUrls": [],
+      "noc": "BER",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bhutan",
+      "nationalFederationUrls": [],
+      "noc": "BHU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Boliva",
+      "nationalFederationUrls": [],
+      "noc": "BOL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bosnia and Herzegovina",
+      "nationalFederationUrls": [],
+      "noc": "BIH",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Botswana",
+      "nationalFederationUrls": [],
+      "noc": "BOT",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Brazil",
+      "nationalFederationUrls": [],
+      "noc": "BRA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Brunei",
+      "nationalFederationUrls": [],
+      "noc": "BRU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Bulgaria",
+      "nationalFederationUrls": [],
+      "noc": "BUL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Burkina Faso",
+      "nationalFederationUrls": [],
+      "noc": "BUR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Burundi",
+      "nationalFederationUrls": [],
+      "noc": "BDI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cambodia",
+      "nationalFederationUrls": [],
+      "noc": "CAM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cameroon",
+      "nationalFederationUrls": [],
+      "noc": "CMR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Canada",
+      "nationalFederationUrls": [],
+      "noc": "CAN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cape Verde",
+      "nationalFederationUrls": [],
+      "noc": "CPV",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cayman Islands",
+      "nationalFederationUrls": [],
+      "noc": "CAY",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Central African Republic",
+      "nationalFederationUrls": [],
+      "noc": "CAF",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Chad",
+      "nationalFederationUrls": [],
+      "noc": "CHA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Chile",
+      "nationalFederationUrls": [],
+      "noc": "CHI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "China",
+      "nationalFederationUrls": [],
+      "noc": "CHN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Colombia",
+      "nationalFederationUrls": [],
+      "noc": "COL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Comoros",
+      "nationalFederationUrls": [],
+      "noc": "COM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cook Islands",
+      "nationalFederationUrls": [],
+      "noc": "COK",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Costa Rica",
+      "nationalFederationUrls": [],
+      "noc": "CRC",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Croatia",
+      "nationalFederationUrls": [],
+      "noc": "CRO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cuba",
+      "nationalFederationUrls": [],
+      "noc": "CUB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Cyprus",
+      "nationalFederationUrls": [],
+      "noc": "CYP",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Czech Republic",
+      "nationalFederationUrls": [],
+      "noc": "CZE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Democratic Republic of the Congo",
+      "nationalFederationUrls": [],
+      "noc": "COD",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Denmark",
+      "nationalFederationUrls": [],
+      "noc": "DEN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Djibouti",
+      "nationalFederationUrls": [],
+      "noc": "DJI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Dominica",
+      "nationalFederationUrls": [],
+      "noc": "DMA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Dominican Republic",
+      "nationalFederationUrls": [],
+      "noc": "DOM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Ecuador",
+      "nationalFederationUrls": [],
+      "noc": "ECU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Egypt",
+      "nationalFederationUrls": [],
+      "noc": "EGY",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "El Salvador",
+      "nationalFederationUrls": [],
+      "noc": "ESA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Equatorial Guinea",
+      "nationalFederationUrls": [],
+      "noc": "GEQ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Eritrea",
+      "nationalFederationUrls": [],
+      "noc": "ERI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Estonia",
+      "nationalFederationUrls": [],
+      "noc": "EST",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Ethiopia",
+      "nationalFederationUrls": [],
+      "noc": "ETH",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Fiji",
+      "nationalFederationUrls": [],
+      "noc": "FIJ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Finland",
+      "nationalFederationUrls": [],
+      "noc": "FIN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "France",
+      "nationalFederationUrls": [],
+      "noc": "FRA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Gabon",
+      "nationalFederationUrls": [],
+      "noc": "GAB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Gambia",
+      "nationalFederationUrls": [],
+      "noc": "GAM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Georgia",
+      "nationalFederationUrls": [],
+      "noc": "GEO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Germany",
+      "nationalFederationUrls": [],
+      "noc": "GER",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Ghana",
+      "nationalFederationUrls": [],
+      "noc": "GHA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Great Britain",
+      "nationalFederationUrls": [],
+      "noc": "GBR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Greece",
+      "nationalFederationUrls": [],
+      "noc": "GRE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Grenada",
+      "nationalFederationUrls": [],
+      "noc": "GRN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Guam",
+      "nationalFederationUrls": [],
+      "noc": "GUM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Guatemala",
+      "nationalFederationUrls": [],
+      "noc": "GUA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Guinea",
+      "nationalFederationUrls": [],
+      "noc": "GUI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Guinea-Bissau",
+      "nationalFederationUrls": [],
+      "noc": "GBS",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Guyana",
+      "nationalFederationUrls": [],
+      "noc": "GUY",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Haiti",
+      "nationalFederationUrls": [],
+      "noc": "HAI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Honduras",
+      "nationalFederationUrls": [],
+      "noc": "HON",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Hungary",
+      "nationalFederationUrls": [],
+      "noc": "HUN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Iceland",
+      "nationalFederationUrls": [],
+      "noc": "ISL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "India",
+      "nationalFederationUrls": [],
+      "noc": "IND",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Indonesia",
+      "nationalFederationUrls": [],
+      "noc": "INA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Iran",
+      "nationalFederationUrls": [],
+      "noc": "IRI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Iraq",
+      "nationalFederationUrls": [],
+      "noc": "IRQ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Ireland",
+      "nationalFederationUrls": [],
+      "noc": "IRL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Israel",
+      "nationalFederationUrls": [],
+      "noc": "ISR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Italy",
+      "nationalFederationUrls": [],
+      "noc": "ITA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Ivory Coast",
+      "nationalFederationUrls": [],
+      "noc": "CIV",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Jamaica",
+      "nationalFederationUrls": [],
+      "noc": "JAM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Japan",
+      "nationalFederationUrls": [],
+      "noc": "JPN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Jordan",
+      "nationalFederationUrls": [],
+      "noc": "JOR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Kazakhstan",
+      "nationalFederationUrls": [],
+      "noc": "KAZ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Kenya",
+      "nationalFederationUrls": [],
+      "noc": "KEN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Kiribati",
+      "nationalFederationUrls": [],
+      "noc": "KIR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Kosovo",
+      "nationalFederationUrls": [],
+      "noc": "KOS",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Kuwait",
+      "nationalFederationUrls": [],
+      "noc": "KUW",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Kyrgyzstan",
+      "nationalFederationUrls": [],
+      "noc": "KGZ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Laos",
+      "nationalFederationUrls": [],
+      "noc": "LAO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Latvia",
+      "nationalFederationUrls": [],
+      "noc": "LAT",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Lebanon",
+      "nationalFederationUrls": [],
+      "noc": "LIB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Lesotho",
+      "nationalFederationUrls": [],
+      "noc": "LES",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Liberia",
+      "nationalFederationUrls": [],
+      "noc": "LBR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Libya",
+      "nationalFederationUrls": [],
+      "noc": "LBA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Liechtenstein",
+      "nationalFederationUrls": [],
+      "noc": "LIE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Lithuania",
+      "nationalFederationUrls": [],
+      "noc": "LTU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Luxembourg",
+      "nationalFederationUrls": [],
+      "noc": "LUX",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Macedonia",
+      "nationalFederationUrls": [],
+      "noc": "MKD",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Madagascar",
+      "nationalFederationUrls": [],
+      "noc": "MAD",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Malawi",
+      "nationalFederationUrls": [],
+      "noc": "MAW",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Malaysia",
+      "nationalFederationUrls": [],
+      "noc": "MAL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Maldives",
+      "nationalFederationUrls": [],
+      "noc": "MDV",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Mali",
+      "nationalFederationUrls": [],
+      "noc": "MLI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Malta",
+      "nationalFederationUrls": [],
+      "noc": "MLT",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Marshall Islands",
+      "nationalFederationUrls": [],
+      "noc": "MHL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Mauritania",
+      "nationalFederationUrls": [],
+      "noc": "MTN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Mauritius",
+      "nationalFederationUrls": [],
+      "noc": "MRI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Mexico",
+      "nationalFederationUrls": [],
+      "noc": "MEX",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Micronesia",
+      "nationalFederationUrls": [],
+      "noc": "FSM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Moldova",
+      "nationalFederationUrls": [],
+      "noc": "MDA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Monaco",
+      "nationalFederationUrls": [],
+      "noc": "MON",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Mongolia",
+      "nationalFederationUrls": [],
+      "noc": "MGL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Montenegro",
+      "nationalFederationUrls": [],
+      "noc": "MNE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Morocco",
+      "nationalFederationUrls": [],
+      "noc": "MAR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Mozambique",
+      "nationalFederationUrls": [],
+      "noc": "MOZ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Myanmar",
+      "nationalFederationUrls": [],
+      "noc": "MYA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "NA",
+      "nationalFederationUrls": [],
+      "noc": "TUV",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Namibia",
+      "nationalFederationUrls": [],
+      "noc": "NAM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Nauru",
+      "nationalFederationUrls": [],
+      "noc": "NRU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Nepal",
+      "nationalFederationUrls": [],
+      "noc": "NEP",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Netherlands",
+      "nationalFederationUrls": [],
+      "noc": "NED",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "New Zealand",
+      "nationalFederationUrls": [],
+      "noc": "NZL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Nicaragua",
+      "nationalFederationUrls": [],
+      "noc": "NCA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Niger",
+      "nationalFederationUrls": [],
+      "noc": "NIG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Nigeria",
+      "nationalFederationUrls": [],
+      "noc": "NGR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "North Korea",
+      "nationalFederationUrls": [],
+      "noc": "PRK",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Norway",
+      "nationalFederationUrls": [],
+      "noc": "NOR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Oman",
+      "nationalFederationUrls": [],
+      "noc": "OMA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Pakistan",
+      "nationalFederationUrls": [],
+      "noc": "PAK",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Palau",
+      "nationalFederationUrls": [],
+      "noc": "PLW",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Palestine",
+      "nationalFederationUrls": [],
+      "noc": "PLE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Panama",
+      "nationalFederationUrls": [],
+      "noc": "PAN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Papua New Guinea",
+      "nationalFederationUrls": [],
+      "noc": "PNG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Paraguay",
+      "nationalFederationUrls": [],
+      "noc": "PAR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Peru",
+      "nationalFederationUrls": [],
+      "noc": "PER",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Philippines",
+      "nationalFederationUrls": [],
+      "noc": "PHI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Poland",
+      "nationalFederationUrls": [],
+      "noc": "POL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Portugal",
+      "nationalFederationUrls": [],
+      "noc": "POR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Puerto Rico",
+      "nationalFederationUrls": [],
+      "noc": "PUR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Qatar",
+      "nationalFederationUrls": [],
+      "noc": "QAT",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Republic of Congo",
+      "nationalFederationUrls": [],
+      "noc": "CGO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Romania",
+      "nationalFederationUrls": [],
+      "noc": "ROU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Russia",
+      "nationalFederationUrls": [],
+      "noc": "RUS",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Rwanda",
+      "nationalFederationUrls": [],
+      "noc": "RWA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Saint Kitts",
+      "nationalFederationUrls": [],
+      "noc": "SKN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Saint Lucia",
+      "nationalFederationUrls": [],
+      "noc": "LCA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Saint Vincent",
+      "nationalFederationUrls": [],
+      "noc": "VIN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Samoa",
+      "nationalFederationUrls": [],
+      "noc": "SAM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "San Marino",
+      "nationalFederationUrls": [],
+      "noc": "SMR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Sao Tome and Principe",
+      "nationalFederationUrls": [],
+      "noc": "STP",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Saudi Arabia",
+      "nationalFederationUrls": [],
+      "noc": "KSA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Senegal",
+      "nationalFederationUrls": [],
+      "noc": "SEN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Serbia",
+      "nationalFederationUrls": [],
+      "noc": "SRB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Seychelles",
+      "nationalFederationUrls": [],
+      "noc": "SEY",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Sierra Leone",
+      "nationalFederationUrls": [],
+      "noc": "SLE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Singapore",
+      "nationalFederationUrls": [],
+      "noc": "SIN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Slovakia",
+      "nationalFederationUrls": [],
+      "noc": "SVK",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Slovenia",
+      "nationalFederationUrls": [],
+      "noc": "SLO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Solomon Islands",
+      "nationalFederationUrls": [],
+      "noc": "SOL",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Somalia",
+      "nationalFederationUrls": [],
+      "noc": "SOM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "South Africa",
+      "nationalFederationUrls": [],
+      "noc": "RSA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "South Korea",
+      "nationalFederationUrls": [],
+      "noc": "KOR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "South Sudan",
+      "nationalFederationUrls": [],
+      "noc": "SSD",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Spain",
+      "nationalFederationUrls": [],
+      "noc": "ESP",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Sri Lanka",
+      "nationalFederationUrls": [],
+      "noc": "SRI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Sudan",
+      "nationalFederationUrls": [],
+      "noc": "SUD",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Suriname",
+      "nationalFederationUrls": [],
+      "noc": "SUR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Swaziland",
+      "nationalFederationUrls": [],
+      "noc": "SWZ",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Sweden",
+      "nationalFederationUrls": [],
+      "noc": "SWE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Switzerland",
+      "nationalFederationUrls": [],
+      "noc": "SUI",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Syria",
+      "nationalFederationUrls": [],
+      "noc": "SYR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Taiwan",
+      "nationalFederationUrls": [],
+      "noc": "TPE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Tajikistan",
+      "nationalFederationUrls": [],
+      "noc": "TJK",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Tanzania",
+      "nationalFederationUrls": [],
+      "noc": "TAN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Thailand",
+      "nationalFederationUrls": [],
+      "noc": "THA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Timor-Leste",
+      "nationalFederationUrls": [],
+      "noc": "TLS",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Togo",
+      "nationalFederationUrls": [],
+      "noc": "TOG",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Tonga",
+      "nationalFederationUrls": [],
+      "noc": "TGA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Trinidad",
+      "nationalFederationUrls": [],
+      "noc": "TTO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Tunisia",
+      "nationalFederationUrls": [],
+      "noc": "TUN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Turkey",
+      "nationalFederationUrls": [],
+      "noc": "TUR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Turkmenistan",
+      "nationalFederationUrls": [],
+      "noc": "TKM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Uganda",
+      "nationalFederationUrls": [],
+      "noc": "UGA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Ukraine",
+      "nationalFederationUrls": [],
+      "noc": "UKR",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "United Arab Emirates",
+      "nationalFederationUrls": [],
+      "noc": "UAE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "United States",
+      "nationalFederationUrls": [],
+      "noc": "USA",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Uruguay",
+      "nationalFederationUrls": [],
+      "noc": "URU",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Uzbekistan",
+      "nationalFederationUrls": [],
+      "noc": "UZB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Vanuatu",
+      "nationalFederationUrls": [],
+      "noc": "VAN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Venezuela",
+      "nationalFederationUrls": [],
+      "noc": "VEN",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Vietnam",
+      "nationalFederationUrls": [],
+      "noc": "VIE",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Virgin Islands, British",
+      "nationalFederationUrls": [],
+      "noc": "IVB",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Virgin Islands, US",
+      "nationalFederationUrls": [],
+      "noc": "ISV",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Yemen",
+      "nationalFederationUrls": [],
+      "noc": "YEM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Zambia",
+      "nationalFederationUrls": [],
+      "noc": "ZAM",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    },
+    {
+      "countryName": "Zimbabwe",
+      "nationalFederationUrls": [],
+      "noc": "RHO",
+      "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+      "officialNocUrl": null,
+      "status": "awaiting_endpoint"
+    }
+  ],
+  "generatedAt": "2026-08-30T10:34:12.948Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
     "countryCount": 205,
+    "countrySelectionCoverage": {
+      "awaitingEndpointCount": 205,
+      "configuredCount": 0,
+      "countryCount": 205
+    },
     "flagPack": "flag-icons",
     "hasSecondaryScheduleSource": true,
     "lastChangedAt": "2026-07-30T07:42:18.832Z",
@@ -2886,48 +4533,852 @@
       "passed": true
     },
     "qualificationCount": 0,
+    "qualificationCoverage": {
+      "configuredSystemCount": 10,
+      "coveredSportCount": 58,
+      "missingSports": [],
+      "systemCount": 37
+    },
+    "qualificationHistoryCount": 0,
     "qualificationPolicy": "confirmation_only",
     "qualificationRecordCount": 0,
     "qualificationRejectedCount": 0,
+    "qualificationReviewCount": 0,
     "qualificationSources": [
       {
+        "allocationUrl": "https://fiba.basketball/3x3",
         "available": true,
-        "checkedAt": "2026-08-30T10:28:36.743Z",
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "FIBA",
         "httpStatus": 200,
-        "id": "issf-la28",
-        "kind": "quota_tracker",
-        "label": "ISSF LA28 qualification tracker",
-        "refreshPolicy": "watch",
-        "resolvedUrl": "https://www.issf-sports.org/competitions/3488",
+        "id": "if-3x3-basketball",
+        "kind": "qualification_system",
+        "label": "FIBA - 3x3 Basketball",
+        "qualificationSystemKey": "3x3-basketball",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.fiba.basketball/en",
+        "rulesUrl": "https://fiba.basketball/3x3",
         "sourceTier": "if",
-        "sport": "Shooting",
-        "url": "https://www.issf-sports.org/competitions/3488"
+        "sport": "3x3 Basketball",
+        "sports": [
+          "3x3 Basketball"
+        ],
+        "status": "watching",
+        "url": "https://fiba.basketball/3x3"
       },
       {
+        "allocationUrl": "https://www.worldarchery.sport/",
         "available": true,
-        "checkedAt": "2026-08-30T10:28:36.743Z",
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Archery",
         "httpStatus": 200,
-        "id": "uci-la28",
-        "kind": "qualification_ranking",
-        "label": "UCI LA28 qualification publications",
-        "refreshPolicy": "watch",
+        "id": "if-archery",
+        "kind": "qualification_system",
+        "label": "World Archery - Archery",
+        "qualificationSystemKey": "archery",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.worldarchery.sport/",
+        "rulesUrl": "https://www.worldarchery.sport/",
+        "sourceTier": "if",
+        "sport": "Archery",
+        "sports": [
+          "Archery"
+        ],
+        "status": "watching",
+        "url": "https://www.worldarchery.sport/"
+      },
+      {
+        "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Aquatics",
+        "httpStatus": 200,
+        "id": "if-aquatics",
+        "kind": "qualification_system",
+        "label": "World Aquatics - Aquatics",
+        "qualificationSystemKey": "aquatics",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+        "rulesUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+        "sourceTier": "if",
+        "sport": "Aquatics",
+        "sports": [
+          "Artistic Swimming",
+          "Diving",
+          "Open Water Swimming",
+          "Swimming",
+          "Water Polo"
+        ],
+        "status": "rules_published",
+        "url": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming"
+      },
+      {
+        "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Athletics",
+        "httpStatus": 200,
+        "id": "if-athletics",
+        "kind": "qualification_system",
+        "label": "World Athletics - Athletics",
+        "qualificationSystemKey": "athletics",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+        "rulesUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+        "sourceTier": "if",
+        "sport": "Athletics",
+        "sports": [
+          "Athletics (Marathon)",
+          "Athletics (Race Walk)",
+          "Athletics (Track & Field)"
+        ],
+        "status": "watching",
+        "url": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263"
+      },
+      {
+        "allocationUrl": "https://corporate.bwfbadminton.com/",
+        "available": false,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "Badminton World Federation",
+        "httpStatus": 403,
+        "id": "if-badminton",
+        "kind": "qualification_system",
+        "label": "Badminton World Federation - Badminton",
+        "qualificationSystemKey": "badminton",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://corporate.bwfbadminton.com/",
+        "rulesUrl": "https://corporate.bwfbadminton.com/",
+        "sourceTier": "if",
+        "sport": "Badminton",
+        "sports": [
+          "Badminton"
+        ],
+        "status": "watching",
+        "url": "https://corporate.bwfbadminton.com/"
+      },
+      {
+        "allocationUrl": "https://www.wbsc.org/",
+        "available": false,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Baseball Softball Confederation",
+        "httpStatus": 403,
+        "id": "if-baseball-softball",
+        "kind": "qualification_system",
+        "label": "World Baseball Softball Confederation - Baseball and Softball",
+        "qualificationSystemKey": "baseball-softball",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.wbsc.org/",
+        "rulesUrl": "https://www.wbsc.org/",
+        "sourceTier": "if",
+        "sport": "Baseball and Softball",
+        "sports": [
+          "Baseball",
+          "Softball"
+        ],
+        "status": "watching",
+        "url": "https://www.wbsc.org/"
+      },
+      {
+        "allocationUrl": "https://www.fiba.basketball/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "FIBA",
+        "httpStatus": 200,
+        "id": "if-basketball",
+        "kind": "qualification_system",
+        "label": "FIBA - Basketball",
+        "qualificationSystemKey": "basketball",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.fiba.basketball/en",
+        "rulesUrl": "https://www.fiba.basketball/",
+        "sourceTier": "if",
+        "sport": "Basketball",
+        "sports": [
+          "Basketball"
+        ],
+        "status": "watching",
+        "url": "https://www.fiba.basketball/"
+      },
+      {
+        "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Boxing",
+        "httpStatus": 200,
+        "id": "if-boxing",
+        "kind": "qualification_system",
+        "label": "World Boxing - Boxing",
+        "qualificationSystemKey": "boxing",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+        "rulesUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+        "sourceTier": "if",
+        "sport": "Boxing",
+        "sports": [
+          "Boxing - Final Stages",
+          "Boxing - Preliminary Stages"
+        ],
+        "status": "rules_published",
+        "url": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/"
+      },
+      {
+        "allocationUrl": "https://www.ifsc-climbing.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Federation of Sport Climbing",
+        "httpStatus": 200,
+        "id": "if-climbing",
+        "kind": "qualification_system",
+        "label": "International Federation of Sport Climbing - Sport Climbing",
+        "qualificationSystemKey": "climbing",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.worldclimbing.com/",
+        "rulesUrl": "https://www.ifsc-climbing.org/",
+        "sourceTier": "if",
+        "sport": "Sport Climbing",
+        "sports": [
+          "Climbing"
+        ],
+        "status": "watching",
+        "url": "https://www.ifsc-climbing.org/"
+      },
+      {
+        "allocationUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Cricket Council",
+        "httpStatus": 200,
+        "id": "if-cricket",
+        "kind": "team_qualification",
+        "label": "International Cricket Council - Cricket",
+        "qualificationSystemKey": "cricket",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+        "rulesUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+        "sourceTier": "if",
+        "sport": "Cricket",
+        "sports": [
+          "Cricket"
+        ],
+        "status": "review_required",
+        "url": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return"
+      },
+      {
+        "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "Union Cycliste Internationale",
+        "httpStatus": 200,
+        "id": "if-cycling",
+        "kind": "qualification_system",
+        "label": "Union Cycliste Internationale - Cycling",
+        "qualificationSystemKey": "cycling",
+        "refreshPolicy": "daily",
         "resolvedUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
+        "rulesUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
         "sourceTier": "if",
         "sport": "Cycling",
+        "sports": [
+          "BMX Freestyle",
+          "BMX Racing",
+          "Cycling Road (Road Race)",
+          "Cycling Road (Time Trial)",
+          "Cycling Track",
+          "Mountain Bike"
+        ],
+        "status": "rules_published",
         "url": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI"
       },
       {
+        "allocationUrl": "https://inside.fei.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "Fédération Equestre Internationale",
+        "httpStatus": 200,
+        "id": "if-equestrian",
+        "kind": "qualification_system",
+        "label": "Fédération Equestre Internationale - Equestrian",
+        "qualificationSystemKey": "equestrian",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://inside.fei.org/",
+        "rulesUrl": "https://inside.fei.org/",
+        "sourceTier": "if",
+        "sport": "Equestrian",
+        "sports": [
+          "Equestrian"
+        ],
+        "status": "watching",
+        "url": "https://inside.fei.org/"
+      },
+      {
+        "allocationUrl": "https://fie.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Fencing Federation",
+        "httpStatus": 200,
+        "id": "if-fencing",
+        "kind": "qualification_system",
+        "label": "International Fencing Federation - Fencing",
+        "qualificationSystemKey": "fencing",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://fie.org/",
+        "rulesUrl": "https://fie.org/",
+        "sourceTier": "if",
+        "sport": "Fencing",
+        "sports": [
+          "Fencing"
+        ],
+        "status": "watching",
+        "url": "https://fie.org/"
+      },
+      {
+        "allocationUrl": "https://ifaf.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Federation of American Football",
+        "httpStatus": 200,
+        "id": "if-flag-football",
+        "kind": "qualification_system",
+        "label": "International Federation of American Football - Flag Football",
+        "qualificationSystemKey": "flag-football",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://ifaf.org/",
+        "rulesUrl": "https://ifaf.org/",
+        "sourceTier": "if",
+        "sport": "Flag Football",
+        "sports": [
+          "Flag Football"
+        ],
+        "status": "watching",
+        "url": "https://ifaf.org/"
+      },
+      {
+        "allocationUrl": "https://inside.fifa.com/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "FIFA",
+        "httpStatus": 200,
+        "id": "if-football",
+        "kind": "qualification_system",
+        "label": "FIFA - Football",
+        "qualificationSystemKey": "football",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://inside.fifa.com/",
+        "rulesUrl": "https://inside.fifa.com/",
+        "sourceTier": "if",
+        "sport": "Football",
+        "sports": [
+          "Football (Soccer)"
+        ],
+        "status": "watching",
+        "url": "https://inside.fifa.com/"
+      },
+      {
+        "allocationUrl": "https://www.igfgolf.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Golf Federation",
+        "httpStatus": 200,
+        "id": "if-golf",
+        "kind": "qualification_system",
+        "label": "International Golf Federation - Golf",
+        "qualificationSystemKey": "golf",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.igfgolf.org/",
+        "rulesUrl": "https://www.igfgolf.org/",
+        "sourceTier": "if",
+        "sport": "Golf",
+        "sports": [
+          "Golf"
+        ],
+        "status": "watching",
+        "url": "https://www.igfgolf.org/"
+      },
+      {
+        "allocationUrl": "https://www.gymnastics.sport/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Gymnastics Federation",
+        "httpStatus": 200,
+        "id": "if-gymnastics",
+        "kind": "qualification_system",
+        "label": "International Gymnastics Federation - Gymnastics",
+        "qualificationSystemKey": "gymnastics",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.gymnastics.sport/site/",
+        "rulesUrl": "https://www.gymnastics.sport/",
+        "sourceTier": "if",
+        "sport": "Gymnastics",
+        "sports": [
+          "Artistic Gymnastics",
+          "Rhythmic Gymnastics",
+          "Trampoline Gymnastics"
+        ],
+        "status": "watching",
+        "url": "https://www.gymnastics.sport/"
+      },
+      {
+        "allocationUrl": "https://www.ihf.info/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Handball Federation",
+        "httpStatus": 200,
+        "id": "if-handball",
+        "kind": "qualification_system",
+        "label": "International Handball Federation - Handball",
+        "qualificationSystemKey": "handball",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.ihf.info/",
+        "rulesUrl": "https://www.ihf.info/",
+        "sourceTier": "if",
+        "sport": "Handball",
+        "sports": [
+          "Handball"
+        ],
+        "status": "watching",
+        "url": "https://www.ihf.info/"
+      },
+      {
+        "allocationUrl": "https://www.fih.hockey/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Hockey Federation",
+        "httpStatus": 200,
+        "id": "if-hockey",
+        "kind": "qualification_system",
+        "label": "International Hockey Federation - Hockey",
+        "qualificationSystemKey": "hockey",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.fih.hockey/",
+        "rulesUrl": "https://www.fih.hockey/",
+        "sourceTier": "if",
+        "sport": "Hockey",
+        "sports": [
+          "Hockey"
+        ],
+        "status": "watching",
+        "url": "https://www.fih.hockey/"
+      },
+      {
+        "allocationUrl": "https://www.ijf.org/ijf/documents/26",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Judo Federation",
+        "httpStatus": 200,
+        "id": "if-judo",
+        "kind": "qualification_system",
+        "label": "International Judo Federation - Judo",
+        "qualificationSystemKey": "judo",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.ijf.org/ijf/documents/26",
+        "rulesUrl": "https://www.ijf.org/ijf/documents/26",
+        "sourceTier": "if",
+        "sport": "Judo",
+        "sports": [
+          "Judo"
+        ],
+        "status": "rules_published",
+        "url": "https://www.ijf.org/ijf/documents/26"
+      },
+      {
+        "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Lacrosse",
+        "httpStatus": 200,
+        "id": "if-lacrosse",
+        "kind": "qualification_system",
+        "label": "World Lacrosse - Lacrosse",
+        "qualificationSystemKey": "lacrosse",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+        "rulesUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+        "sourceTier": "if",
+        "sport": "Lacrosse",
+        "sports": [
+          "Lacrosse"
+        ],
+        "status": "rules_published",
+        "url": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf"
+      },
+      {
+        "allocationUrl": "https://www.uipmworld.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "Union Internationale de Pentathlon Moderne",
+        "httpStatus": 200,
+        "id": "if-modern-pentathlon",
+        "kind": "qualification_system",
+        "label": "Union Internationale de Pentathlon Moderne - Modern Pentathlon",
+        "qualificationSystemKey": "modern-pentathlon",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.uipmworld.org/",
+        "rulesUrl": "https://www.uipmworld.org/",
+        "sourceTier": "if",
+        "sport": "Modern Pentathlon",
+        "sports": [
+          "Modern Pentathlon"
+        ],
+        "status": "watching",
+        "url": "https://www.uipmworld.org/"
+      },
+      {
+        "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Rowing",
+        "httpStatus": 200,
+        "id": "if-rowing",
+        "kind": "qualification_system",
+        "label": "World Rowing - Rowing",
+        "qualificationSystemKey": "rowing",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+        "rulesUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+        "sourceTier": "if",
+        "sport": "Rowing",
+        "sports": [
+          "Rowing",
+          "Rowing Coastal Beach Sprints"
+        ],
+        "status": "watching",
+        "url": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/"
+      },
+      {
+        "allocationUrl": "https://www.world.rugby/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Rugby",
+        "httpStatus": 200,
+        "id": "if-rugby-sevens",
+        "kind": "qualification_system",
+        "label": "World Rugby - Rugby Sevens",
+        "qualificationSystemKey": "rugby-sevens",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.world.rugby/",
+        "rulesUrl": "https://www.world.rugby/",
+        "sourceTier": "if",
+        "sport": "Rugby Sevens",
+        "sports": [
+          "Rugby Sevens"
+        ],
+        "status": "watching",
+        "url": "https://www.world.rugby/"
+      },
+      {
+        "allocationUrl": "https://www.sailing.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Sailing",
+        "httpStatus": 200,
+        "id": "if-sailing",
+        "kind": "qualification_system",
+        "label": "World Sailing - Sailing",
+        "qualificationSystemKey": "sailing",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.sailing.org/",
+        "rulesUrl": "https://www.sailing.org/",
+        "sourceTier": "if",
+        "sport": "Sailing",
+        "sports": [
+          "Sailing (Dinghy, Skiff & Multihull)",
+          "Sailing (Windsurfing & Kite)"
+        ],
+        "status": "watching",
+        "url": "https://www.sailing.org/"
+      },
+      {
+        "allocationUrl": "https://www.issf-sports.org/competitions/3488",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Shooting Sport Federation",
+        "httpStatus": 200,
+        "id": "if-shooting",
+        "kind": "quota_tracker",
+        "label": "International Shooting Sport Federation - Shooting",
+        "qualificationSystemKey": "shooting",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.issf-sports.org/competitions/3488",
+        "rulesUrl": "https://www.issf-sports.org/competitions/3488",
+        "sourceTier": "if",
+        "sport": "Shooting",
+        "sports": [
+          "Shooting (Rifle & Pistol)",
+          "Shooting (Shotgun)"
+        ],
+        "status": "rules_published",
+        "url": "https://www.issf-sports.org/competitions/3488"
+      },
+      {
+        "allocationUrl": "https://www.worldskate.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Skate",
+        "httpStatus": 200,
+        "id": "if-skateboarding",
+        "kind": "qualification_system",
+        "label": "World Skate - Skateboarding",
+        "qualificationSystemKey": "skateboarding",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.worldskate.org/",
+        "rulesUrl": "https://www.worldskate.org/",
+        "sourceTier": "if",
+        "sport": "Skateboarding",
+        "sports": [
+          "Skateboarding (Park)",
+          "Skateboarding (Street)"
+        ],
+        "status": "watching",
+        "url": "https://www.worldskate.org/"
+      },
+      {
+        "allocationUrl": "https://www.canoeicf.com/",
         "available": false,
-        "checkedAt": "2026-08-30T10:28:36.743Z",
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Canoe Federation",
+        "httpStatus": 500,
+        "id": "if-canoe",
+        "kind": "qualification_system",
+        "label": "International Canoe Federation - Canoe",
+        "qualificationSystemKey": "canoe",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.canoeicf.com/",
+        "rulesUrl": "https://www.canoeicf.com/",
+        "sourceTier": "if",
+        "sport": "Canoe",
+        "sports": [
+          "Slalom Paddle",
+          "Sprint Paddle"
+        ],
+        "status": "watching",
+        "url": "https://www.canoeicf.com/"
+      },
+      {
+        "allocationUrl": "https://www.worldsquash.org/",
+        "available": false,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Squash Federation",
         "httpStatus": 403,
-        "id": "iwf-la28",
+        "id": "if-squash",
+        "kind": "qualification_system",
+        "label": "World Squash Federation - Squash",
+        "qualificationSystemKey": "squash",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.worldsquash.sport/",
+        "rulesUrl": "https://www.worldsquash.org/",
+        "sourceTier": "if",
+        "sport": "Squash",
+        "sports": [
+          "Squash"
+        ],
+        "status": "watching",
+        "url": "https://www.worldsquash.org/"
+      },
+      {
+        "allocationUrl": "https://isasurf.org/",
+        "available": false,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Surfing Association",
+        "httpStatus": 403,
+        "id": "if-surfing",
+        "kind": "qualification_system",
+        "label": "International Surfing Association - Surfing",
+        "qualificationSystemKey": "surfing",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://isasurf.org/",
+        "rulesUrl": "https://isasurf.org/",
+        "sourceTier": "if",
+        "sport": "Surfing",
+        "sports": [
+          "Surfing"
+        ],
+        "status": "watching",
+        "url": "https://isasurf.org/"
+      },
+      {
+        "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+        "available": false,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Table Tennis Federation",
+        "httpStatus": 403,
+        "id": "if-table-tennis",
+        "kind": "qualification_system",
+        "label": "International Table Tennis Federation - Table Tennis",
+        "qualificationSystemKey": "table-tennis",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+        "rulesUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+        "sourceTier": "if",
+        "sport": "Table Tennis",
+        "sports": [
+          "Table Tennis"
+        ],
+        "status": "rules_published",
+        "url": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/"
+      },
+      {
+        "allocationUrl": "https://www.worldtaekwondo.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Taekwondo",
+        "httpStatus": 200,
+        "id": "if-taekwondo",
+        "kind": "qualification_system",
+        "label": "World Taekwondo - Taekwondo",
+        "qualificationSystemKey": "taekwondo",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.worldtaekwondo.org/",
+        "rulesUrl": "https://www.worldtaekwondo.org/",
+        "sourceTier": "if",
+        "sport": "Taekwondo",
+        "sports": [
+          "Taekwondo"
+        ],
+        "status": "watching",
+        "url": "https://www.worldtaekwondo.org/"
+      },
+      {
+        "allocationUrl": "https://www.itftennis.com/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Tennis Federation",
+        "httpStatus": 200,
+        "id": "if-tennis",
+        "kind": "qualification_system",
+        "label": "International Tennis Federation - Tennis",
+        "qualificationSystemKey": "tennis",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.itftennis.com/",
+        "rulesUrl": "https://www.itftennis.com/",
+        "sourceTier": "if",
+        "sport": "Tennis",
+        "sports": [
+          "Tennis"
+        ],
+        "status": "watching",
+        "url": "https://www.itftennis.com/"
+      },
+      {
+        "allocationUrl": "https://triathlon.org/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "World Triathlon",
+        "httpStatus": 200,
+        "id": "if-triathlon",
+        "kind": "qualification_system",
+        "label": "World Triathlon - Triathlon",
+        "qualificationSystemKey": "triathlon",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://triathlon.org/",
+        "rulesUrl": "https://triathlon.org/",
+        "sourceTier": "if",
+        "sport": "Triathlon",
+        "sports": [
+          "Triathlon"
+        ],
+        "status": "watching",
+        "url": "https://triathlon.org/"
+      },
+      {
+        "allocationUrl": "https://www.fivb.com/",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "Fédération Internationale de Volleyball",
+        "httpStatus": 200,
+        "id": "if-volleyball",
+        "kind": "qualification_system",
+        "label": "Fédération Internationale de Volleyball - Volleyball",
+        "qualificationSystemKey": "volleyball",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.fivb.com/",
+        "rulesUrl": "https://www.fivb.com/",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "sports": [
+          "Beach Volleyball",
+          "Volleyball"
+        ],
+        "status": "watching",
+        "url": "https://www.fivb.com/"
+      },
+      {
+        "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
+        "available": false,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "International Weightlifting Federation",
+        "httpStatus": 403,
+        "id": "if-weightlifting",
         "kind": "qualification_ranking",
-        "label": "IWF LA28 qualification ranking",
-        "refreshPolicy": "watch",
+        "label": "International Weightlifting Federation - Weightlifting",
+        "qualificationSystemKey": "weightlifting",
+        "refreshPolicy": "daily",
         "resolvedUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
+        "rulesUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
         "sourceTier": "if",
         "sport": "Weightlifting",
+        "sports": [
+          "Weightlifting"
+        ],
+        "status": "rules_published",
         "url": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/"
+      },
+      {
+        "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+        "available": true,
+        "checkedAt": "2026-08-30T10:34:12.948Z",
+        "entryUrl": null,
+        "governingBody": "United World Wrestling",
+        "httpStatus": 200,
+        "id": "if-wrestling",
+        "kind": "qualification_system",
+        "label": "United World Wrestling - Wrestling",
+        "qualificationSystemKey": "wrestling",
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+        "rulesUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+        "sourceTier": "if",
+        "sport": "Wrestling",
+        "sports": [
+          "Wrestling"
+        ],
+        "status": "rules_published",
+        "url": "https://cdn.uww.org/2026-02/01_qs_la28.pdf"
       }
     ],
     "refreshCadence": "Daily",
@@ -2937,7 +5388,756 @@
     "sportCount": 58,
     "staleWarning": null
   },
+  "qualificationHistory": [],
   "qualificationRecords": [],
+  "qualificationReviewQueue": [],
+  "qualificationSystems": [
+    {
+      "allocationUrl": "https://fiba.basketball/3x3",
+      "coveredSports": [
+        "3x3 Basketball"
+      ],
+      "entryUrl": null,
+      "governingBody": "FIBA",
+      "key": "3x3-basketball",
+      "label": "3x3 Basketball",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://fiba.basketball/3x3",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "3x3 Basketball"
+      ],
+      "status": "watching",
+      "url": "https://fiba.basketball/3x3"
+    },
+    {
+      "allocationUrl": "https://www.worldarchery.sport/",
+      "coveredSports": [
+        "Archery"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Archery",
+      "key": "archery",
+      "label": "Archery",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.worldarchery.sport/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Archery"
+      ],
+      "status": "watching",
+      "url": "https://www.worldarchery.sport/"
+    },
+    {
+      "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+      "coveredSports": [
+        "Artistic Swimming",
+        "Diving",
+        "Open Water Swimming",
+        "Swimming",
+        "Water Polo"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Aquatics",
+      "key": "aquatics",
+      "label": "Aquatics",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Artistic Swimming",
+        "Diving",
+        "Open Water Swimming",
+        "Swimming",
+        "Water Polo"
+      ],
+      "status": "rules_published",
+      "url": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming"
+    },
+    {
+      "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+      "coveredSports": [
+        "Athletics (Marathon)",
+        "Athletics (Race Walk)",
+        "Athletics (Track & Field)"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Athletics",
+      "key": "athletics",
+      "label": "Athletics",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Athletics (Marathon)",
+        "Athletics (Race Walk)",
+        "Athletics (Track & Field)"
+      ],
+      "status": "watching",
+      "url": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263"
+    },
+    {
+      "allocationUrl": "https://corporate.bwfbadminton.com/",
+      "coveredSports": [
+        "Badminton"
+      ],
+      "entryUrl": null,
+      "governingBody": "Badminton World Federation",
+      "key": "badminton",
+      "label": "Badminton",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://corporate.bwfbadminton.com/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Badminton"
+      ],
+      "status": "watching",
+      "url": "https://corporate.bwfbadminton.com/"
+    },
+    {
+      "allocationUrl": "https://www.wbsc.org/",
+      "coveredSports": [
+        "Baseball",
+        "Softball"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Baseball Softball Confederation",
+      "key": "baseball-softball",
+      "label": "Baseball and Softball",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.wbsc.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Baseball",
+        "Softball"
+      ],
+      "status": "watching",
+      "url": "https://www.wbsc.org/"
+    },
+    {
+      "allocationUrl": "https://www.fiba.basketball/",
+      "coveredSports": [
+        "Basketball"
+      ],
+      "entryUrl": null,
+      "governingBody": "FIBA",
+      "key": "basketball",
+      "label": "Basketball",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.fiba.basketball/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Basketball"
+      ],
+      "status": "watching",
+      "url": "https://www.fiba.basketball/"
+    },
+    {
+      "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+      "coveredSports": [
+        "Boxing - Final Stages",
+        "Boxing - Preliminary Stages"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Boxing",
+      "key": "boxing",
+      "label": "Boxing",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Boxing - Final Stages",
+        "Boxing - Preliminary Stages"
+      ],
+      "status": "rules_published",
+      "url": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/"
+    },
+    {
+      "allocationUrl": "https://www.ifsc-climbing.org/",
+      "coveredSports": [
+        "Climbing"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Federation of Sport Climbing",
+      "key": "climbing",
+      "label": "Sport Climbing",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.ifsc-climbing.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Climbing"
+      ],
+      "status": "watching",
+      "url": "https://www.ifsc-climbing.org/"
+    },
+    {
+      "allocationUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+      "coveredSports": [
+        "Cricket"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Cricket Council",
+      "key": "cricket",
+      "label": "Cricket",
+      "notes": "Official qualification announcements are reviewed before they become public records.",
+      "rulesUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+      "sourceTier": "if",
+      "sourceType": "team_qualification",
+      "sports": [
+        "Cricket"
+      ],
+      "status": "review_required",
+      "url": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return"
+    },
+    {
+      "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
+      "coveredSports": [
+        "BMX Freestyle",
+        "BMX Racing",
+        "Cycling Road (Road Race)",
+        "Cycling Road (Time Trial)",
+        "Cycling Track",
+        "Mountain Bike"
+      ],
+      "entryUrl": null,
+      "governingBody": "Union Cycliste Internationale",
+      "key": "cycling",
+      "label": "Cycling",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "BMX Freestyle",
+        "BMX Racing",
+        "Cycling Road (Road Race)",
+        "Cycling Road (Time Trial)",
+        "Cycling Track",
+        "Mountain Bike"
+      ],
+      "status": "rules_published",
+      "url": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI"
+    },
+    {
+      "allocationUrl": "https://inside.fei.org/",
+      "coveredSports": [
+        "Equestrian"
+      ],
+      "entryUrl": null,
+      "governingBody": "Fédération Equestre Internationale",
+      "key": "equestrian",
+      "label": "Equestrian",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://inside.fei.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Equestrian"
+      ],
+      "status": "watching",
+      "url": "https://inside.fei.org/"
+    },
+    {
+      "allocationUrl": "https://fie.org/",
+      "coveredSports": [
+        "Fencing"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Fencing Federation",
+      "key": "fencing",
+      "label": "Fencing",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://fie.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Fencing"
+      ],
+      "status": "watching",
+      "url": "https://fie.org/"
+    },
+    {
+      "allocationUrl": "https://ifaf.org/",
+      "coveredSports": [
+        "Flag Football"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Federation of American Football",
+      "key": "flag-football",
+      "label": "Flag Football",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://ifaf.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Flag Football"
+      ],
+      "status": "watching",
+      "url": "https://ifaf.org/"
+    },
+    {
+      "allocationUrl": "https://inside.fifa.com/",
+      "coveredSports": [
+        "Football (Soccer)"
+      ],
+      "entryUrl": null,
+      "governingBody": "FIFA",
+      "key": "football",
+      "label": "Football",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://inside.fifa.com/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Football (Soccer)"
+      ],
+      "status": "watching",
+      "url": "https://inside.fifa.com/"
+    },
+    {
+      "allocationUrl": "https://www.igfgolf.org/",
+      "coveredSports": [
+        "Golf"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Golf Federation",
+      "key": "golf",
+      "label": "Golf",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.igfgolf.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Golf"
+      ],
+      "status": "watching",
+      "url": "https://www.igfgolf.org/"
+    },
+    {
+      "allocationUrl": "https://www.gymnastics.sport/",
+      "coveredSports": [
+        "Artistic Gymnastics",
+        "Rhythmic Gymnastics",
+        "Trampoline Gymnastics"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Gymnastics Federation",
+      "key": "gymnastics",
+      "label": "Gymnastics",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.gymnastics.sport/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Artistic Gymnastics",
+        "Rhythmic Gymnastics",
+        "Trampoline Gymnastics"
+      ],
+      "status": "watching",
+      "url": "https://www.gymnastics.sport/"
+    },
+    {
+      "allocationUrl": "https://www.ihf.info/",
+      "coveredSports": [
+        "Handball"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Handball Federation",
+      "key": "handball",
+      "label": "Handball",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.ihf.info/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Handball"
+      ],
+      "status": "watching",
+      "url": "https://www.ihf.info/"
+    },
+    {
+      "allocationUrl": "https://www.fih.hockey/",
+      "coveredSports": [
+        "Hockey"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Hockey Federation",
+      "key": "hockey",
+      "label": "Hockey",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.fih.hockey/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Hockey"
+      ],
+      "status": "watching",
+      "url": "https://www.fih.hockey/"
+    },
+    {
+      "allocationUrl": "https://www.ijf.org/ijf/documents/26",
+      "coveredSports": [
+        "Judo"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Judo Federation",
+      "key": "judo",
+      "label": "Judo",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.ijf.org/ijf/documents/26",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Judo"
+      ],
+      "status": "rules_published",
+      "url": "https://www.ijf.org/ijf/documents/26"
+    },
+    {
+      "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+      "coveredSports": [
+        "Lacrosse"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Lacrosse",
+      "key": "lacrosse",
+      "label": "Lacrosse",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Lacrosse"
+      ],
+      "status": "rules_published",
+      "url": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf"
+    },
+    {
+      "allocationUrl": "https://www.uipmworld.org/",
+      "coveredSports": [
+        "Modern Pentathlon"
+      ],
+      "entryUrl": null,
+      "governingBody": "Union Internationale de Pentathlon Moderne",
+      "key": "modern-pentathlon",
+      "label": "Modern Pentathlon",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.uipmworld.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Modern Pentathlon"
+      ],
+      "status": "watching",
+      "url": "https://www.uipmworld.org/"
+    },
+    {
+      "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+      "coveredSports": [
+        "Rowing",
+        "Rowing Coastal Beach Sprints"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Rowing",
+      "key": "rowing",
+      "label": "Rowing",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Rowing",
+        "Rowing Coastal Beach Sprints"
+      ],
+      "status": "watching",
+      "url": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/"
+    },
+    {
+      "allocationUrl": "https://www.world.rugby/",
+      "coveredSports": [
+        "Rugby Sevens"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Rugby",
+      "key": "rugby-sevens",
+      "label": "Rugby Sevens",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.world.rugby/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Rugby Sevens"
+      ],
+      "status": "watching",
+      "url": "https://www.world.rugby/"
+    },
+    {
+      "allocationUrl": "https://www.sailing.org/",
+      "coveredSports": [
+        "Sailing (Dinghy, Skiff & Multihull)",
+        "Sailing (Windsurfing & Kite)"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Sailing",
+      "key": "sailing",
+      "label": "Sailing",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.sailing.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Sailing (Dinghy, Skiff & Multihull)",
+        "Sailing (Windsurfing & Kite)"
+      ],
+      "status": "watching",
+      "url": "https://www.sailing.org/"
+    },
+    {
+      "allocationUrl": "https://www.issf-sports.org/competitions/3488",
+      "coveredSports": [
+        "Shooting (Rifle & Pistol)",
+        "Shooting (Shotgun)"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Shooting Sport Federation",
+      "key": "shooting",
+      "label": "Shooting",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.issf-sports.org/competitions/3488",
+      "sourceTier": "if",
+      "sourceType": "quota_tracker",
+      "sports": [
+        "Shooting (Rifle & Pistol)",
+        "Shooting (Shotgun)"
+      ],
+      "status": "rules_published",
+      "url": "https://www.issf-sports.org/competitions/3488"
+    },
+    {
+      "allocationUrl": "https://www.worldskate.org/",
+      "coveredSports": [
+        "Skateboarding (Park)",
+        "Skateboarding (Street)"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Skate",
+      "key": "skateboarding",
+      "label": "Skateboarding",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.worldskate.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Skateboarding (Park)",
+        "Skateboarding (Street)"
+      ],
+      "status": "watching",
+      "url": "https://www.worldskate.org/"
+    },
+    {
+      "allocationUrl": "https://www.canoeicf.com/",
+      "coveredSports": [
+        "Slalom Paddle",
+        "Sprint Paddle"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Canoe Federation",
+      "key": "canoe",
+      "label": "Canoe",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.canoeicf.com/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Slalom Paddle",
+        "Sprint Paddle"
+      ],
+      "status": "watching",
+      "url": "https://www.canoeicf.com/"
+    },
+    {
+      "allocationUrl": "https://www.worldsquash.org/",
+      "coveredSports": [
+        "Squash"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Squash Federation",
+      "key": "squash",
+      "label": "Squash",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.worldsquash.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Squash"
+      ],
+      "status": "watching",
+      "url": "https://www.worldsquash.org/"
+    },
+    {
+      "allocationUrl": "https://isasurf.org/",
+      "coveredSports": [
+        "Surfing"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Surfing Association",
+      "key": "surfing",
+      "label": "Surfing",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://isasurf.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Surfing"
+      ],
+      "status": "watching",
+      "url": "https://isasurf.org/"
+    },
+    {
+      "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+      "coveredSports": [
+        "Table Tennis"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Table Tennis Federation",
+      "key": "table-tennis",
+      "label": "Table Tennis",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Table Tennis"
+      ],
+      "status": "rules_published",
+      "url": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/"
+    },
+    {
+      "allocationUrl": "https://www.worldtaekwondo.org/",
+      "coveredSports": [
+        "Taekwondo"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Taekwondo",
+      "key": "taekwondo",
+      "label": "Taekwondo",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.worldtaekwondo.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Taekwondo"
+      ],
+      "status": "watching",
+      "url": "https://www.worldtaekwondo.org/"
+    },
+    {
+      "allocationUrl": "https://www.itftennis.com/",
+      "coveredSports": [
+        "Tennis"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Tennis Federation",
+      "key": "tennis",
+      "label": "Tennis",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.itftennis.com/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Tennis"
+      ],
+      "status": "watching",
+      "url": "https://www.itftennis.com/"
+    },
+    {
+      "allocationUrl": "https://triathlon.org/",
+      "coveredSports": [
+        "Triathlon"
+      ],
+      "entryUrl": null,
+      "governingBody": "World Triathlon",
+      "key": "triathlon",
+      "label": "Triathlon",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://triathlon.org/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Triathlon"
+      ],
+      "status": "watching",
+      "url": "https://triathlon.org/"
+    },
+    {
+      "allocationUrl": "https://www.fivb.com/",
+      "coveredSports": [
+        "Beach Volleyball",
+        "Volleyball"
+      ],
+      "entryUrl": null,
+      "governingBody": "Fédération Internationale de Volleyball",
+      "key": "volleyball",
+      "label": "Volleyball",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://www.fivb.com/",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Beach Volleyball",
+        "Volleyball"
+      ],
+      "status": "watching",
+      "url": "https://www.fivb.com/"
+    },
+    {
+      "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
+      "coveredSports": [
+        "Weightlifting"
+      ],
+      "entryUrl": null,
+      "governingBody": "International Weightlifting Federation",
+      "key": "weightlifting",
+      "label": "Weightlifting",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
+      "sourceTier": "if",
+      "sourceType": "qualification_ranking",
+      "sports": [
+        "Weightlifting"
+      ],
+      "status": "rules_published",
+      "url": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/"
+    },
+    {
+      "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+      "coveredSports": [
+        "Wrestling"
+      ],
+      "entryUrl": null,
+      "governingBody": "United World Wrestling",
+      "key": "wrestling",
+      "label": "Wrestling",
+      "notes": "Publish only explicit quota allocations, selections, or final entries.",
+      "rulesUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+      "sourceTier": "if",
+      "sourceType": "qualification_system",
+      "sports": [
+        "Wrestling"
+      ],
+      "status": "rules_published",
+      "url": "https://cdn.uww.org/2026-02/01_qs_la28.pdf"
+    }
+  ],
   "scheduleEntries": [
     {
       "athleteIds": [],
@@ -48167,7 +51367,7 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-08-30T10:28:36.743Z",
+      "checkedAt": "2026-08-30T10:34:12.948Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
       "fallbackUsed": false,
       "id": "official-la28-page",
@@ -48176,7 +51376,7 @@
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-08-30T10:28:36.743Z",
+      "checkedAt": "2026-08-30T10:34:12.948Z",
       "description": "Primary parser target for official schedule shadow mode.",
       "fallbackUsed": false,
       "id": "official-la28-event-pdf",
@@ -48185,7 +51385,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-08-30T10:28:36.743Z",
+      "checkedAt": "2026-08-30T10:34:12.948Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -48194,7 +51394,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-08-30T10:28:36.743Z",
+      "checkedAt": "2026-08-30T10:34:12.948Z",
       "description": "Structured comparison and fallback source during shadow mode.",
       "fallbackUsed": false,
       "id": "community-la28-sheet",
@@ -48203,7 +51403,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-08-30T10:28:36.743Z",
+      "checkedAt": "2026-08-30T10:34:12.948Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
