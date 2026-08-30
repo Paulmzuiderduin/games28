@@ -1,340 +1,350 @@
 {
-  "checkedAt": "2026-08-30T13:13:15.193Z",
+  "checkedAt": "2026-08-30T13:53:00.770Z",
   "rejected": [],
-  "reviewQueue": [],
+  "reviewQueue": [
+    {
+      "detectedAt": "2026-08-30T13:53:00.770Z",
+      "extractedEvidence": "Qualifying pathway confirmed for Cricket&#x27;s Olympic Games return | ICC Women&#x27;s T20 World Cup, 2026 | ICC !function(e){var n=\"https://s.go-mpulse.net/boomerang/\";if(\"False\"==\"True\")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n=\"https://s2.go-mpulse.net/boomerang/\";if(window.BOOMR_API_key=\"Q298E-BXCRP-TNXXB-UWJ6T-DH7ZL\",function(){function e(){if(!i){var e=document.createElement(\"script\");e.id=\"boomr-scr-as\",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=d",
+      "id": "review-if-cricket-a316bb7cf59d5c8b",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-cricket",
+      "sourceUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return"
+    }
+  ],
   "scans": [
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
-      "rowCount": 0,
+      "rowCount": 5,
       "sourceId": "if-3x3-basketball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-archery",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html;charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-aquatics",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-athletics",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-badminton",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-baseball-softball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
-      "rowCount": 0,
+      "rowCount": 5,
       "sourceId": "if-basketball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-boxing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-climbing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
-      "reviewCandidateId": null,
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
+      "reviewCandidateId": "review-if-cricket-a316bb7cf59d5c8b",
       "rowCount": 0,
       "sourceId": "if-cricket",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-cycling",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-equestrian",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html;charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-fencing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html",
       "reviewCandidateId": null,
-      "rowCount": 0,
+      "rowCount": 4,
       "sourceId": "if-flag-football",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-football",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-golf",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-gymnastics",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-handball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-hockey",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-judo",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "application/pdf",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-lacrosse",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-modern-pentathlon",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-rowing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html;charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-rugby-sevens",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-sailing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-shooting",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-skateboarding",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-canoe",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-squash",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-surfing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-table-tennis",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html;charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-taekwondo",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-tennis",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-triathlon",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": true
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-volleyball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-weightlifting",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-08-30T13:13:15.193Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "format": "application/pdf",
       "reviewCandidateId": null,
       "rowCount": 0,
       "sourceId": "if-wrestling",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     }
   ],
   "structuredRecords": []
