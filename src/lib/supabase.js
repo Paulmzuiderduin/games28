@@ -1,7 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+// These are public browser credentials. RLS protects the private review data;
+// a service-role key is deliberately never bundled into the app.
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://gavpllldsyepqhldczud.supabase.co';
+const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_QYUoV9ivgFR8e8HqYcznLA_r0XvnGbP';
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseKey);
 export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseKey) : null;
