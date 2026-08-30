@@ -1018,6 +1018,65 @@ h4,
   flex: 0 0 auto;
 }
 
+.admin-console {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.admin-login,
+.admin-candidate {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 46rem;
+}
+
+.admin-login label,
+.admin-candidate label {
+  display: grid;
+  gap: var(--space-2);
+  font-weight: 700;
+}
+
+.admin-login input,
+.admin-candidate input,
+.admin-candidate textarea {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  padding: var(--space-3);
+}
+
+.admin-candidate textarea {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.84rem;
+}
+
+.admin-candidate-card {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.admin-form-row {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 620px) {
+  .admin-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .support-cta {
   padding: var(--space-3);
   display: flex;

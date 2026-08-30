@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
+import AdminReviewConsole from './components/AdminReviewConsole.jsx';
 import { downloadCalendarEntries } from './lib/ics.js';
 import { trackEvent, trackOutboundClick } from './lib/analytics.js';
 import {
@@ -1440,9 +1441,10 @@ export default function App() {
         ) : null}
 
         {!isLoadingRuntime && route.name === 'changes' ? <ChangesView changes={changes} /> : null}
+        {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
-        {!isLoadingRuntime && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
-        {!isLoadingRuntime ? <SourceRail runtime={runtime} /> : null}
+        {!isLoadingRuntime && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
+        {!isLoadingRuntime && route.name !== 'admin' ? <SourceRail runtime={runtime} /> : null}
         </div>
       </main>
       <SiteNavigation routeName={route.name} mobile />

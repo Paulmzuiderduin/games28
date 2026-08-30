@@ -81,6 +81,30 @@ async function fetchBuffer(url) {
   };
 }
 
+async function fetchApprovedReviewQueue() {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceRoleKey) return [];
+
+  const url = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?status=eq.approved&select=id,source_id,source_url,extracted_evidence,reason,detected_at,confirmation_record`;
+  const response = await fetch(url, {
+    headers: { apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}` }
+  });
+  if (!response.ok) throw new Error(`Unable to fetch approved qualification reviews: ${response.status}`);
+  const rows = await response.json();
+  return rows
+    .filter((row) => row.confirmation_record)
+    .map((row) => ({
+      id: row.id,
+      resolution: 'approved',
+      detectedAt: row.detected_at,
+      sourceUrl: row.source_url,
+      extractedEvidence: row.extracted_evidence,
+      reason: row.reason,
+      record: row.confirmation_record
+    }));
+}
+
 export function preserveQualificationSourceHealth(currentChecks, previousSources = []) {
   const previousById = new Map(previousSources.map((source) => [source.id, source]));
 
@@ -412,12 +436,13 @@ export function detectChanges(previousRuntime, nextRuntime) {
 
 async function main() {
   const checkedAt = new Date().toISOString();
-  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides, previousIngestion] = await Promise.all([
+  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides, previousIngestion, approvedReviewQueue] = await Promise.all([
     readJson(sourceCheckPath, {}),
     readJson(runtimePath, null),
     readJson(qualificationSourcesPath, { structuredRecords: [], reviewQueue: [] }),
     readJson(countrySelectionOverridesPath, { sources: [] }),
-    readJson(qualificationIngestionPath, { structuredRecords: [], reviewQueue: [] })
+    readJson(qualificationIngestionPath, { structuredRecords: [], reviewQueue: [] }),
+    fetchApprovedReviewQueue()
   ]);
 
   const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath);
@@ -459,7 +484,7 @@ async function main() {
   const qualificationResult = buildQualificationPipeline({
     structuredRecords: [...(qualificationInput.structuredRecords || []), ...ingestion.structuredRecords],
     records: qualificationInput.records || [],
-    reviewQueue: [...manualReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
+    reviewQueue: [...manualReviewQueue, ...approvedReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
   }, qualificationSources);
   const qualificationRecords = qualificationResult.activeRecords;
   const athleteCards = toQualificationCards(qualificationRecords);

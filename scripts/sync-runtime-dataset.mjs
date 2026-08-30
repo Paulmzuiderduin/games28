@@ -15,6 +15,7 @@ const rootDir = resolve(__dirname, '..');
 const publicDir = resolve(rootDir, 'public');
 const runtimePath = resolve(rootDir, 'src/data/runtime.json');
 const sourceCheckPath = resolve(rootDir, 'src/data/source-check.json');
+const qualificationIngestionPath = resolve(rootDir, 'src/data/qualification-ingestion.json');
 const publicRuntimePath = resolve(publicDir, 'runtime.json');
 const publicMetaPath = resolve(publicDir, 'runtime.meta.json');
 const sitemapPath = resolve(publicDir, 'sitemap.xml');
@@ -36,6 +37,7 @@ async function main() {
   await ensureDir(publicDir);
   await copyFile(runtimePath, publicRuntimePath);
   await copyFile(sourceCheckPath, resolve(publicDir, 'source-check.json'));
+  await copyFile(qualificationIngestionPath, resolve(publicDir, 'qualification-ingestion.json'));
 
   const runtime = await readJson(runtimePath, null);
   if (!runtime) {

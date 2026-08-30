@@ -50,6 +50,16 @@ npm run build
 npm run test:unit
 ```
 
+## Private Review Console
+
+`/admin` is an owner-only qualification-review console. It uses Supabase email magic-link authentication and an RLS-protected audit trail. The public app stays static and does not expose the Supabase server key.
+
+1. Create a new Supabase project and apply `supabase/migrations/20260830130814_games28_review_console.sql`.
+2. Configure the hosted project URL plus `https://games28.paulzuiderduin.com/admin` as an allowed Auth redirect URL.
+3. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` to the GitHub Pages build environment.
+4. Add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` as GitHub Actions secrets. The daily workflow then syncs detected review candidates to the private queue.
+5. After your first magic-link sign-in, insert your `auth.users` UUID into `public.games28_admins` using the documented line at the end of the migration. This is intentionally a one-time, explicit owner grant.
+
 ## Deployment target
 
 - Domain: `games28.paulzuiderduin.com`

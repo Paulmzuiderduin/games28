@@ -17,6 +17,10 @@ export function parseRoute(pathname) {
     return { name: 'changes' };
   }
 
+  if (normalizedPath === '/admin') {
+    return { name: 'admin' };
+  }
+
   const sportMatch = normalizedPath.match(/^\/sports\/([A-Za-z0-9-]+)\/?$/);
   if (sportMatch) {
     return {
