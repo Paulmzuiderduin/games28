@@ -527,48 +527,56 @@ function HomeView({
 
   return (
     <>
-      <section className="home-intro">
-        <p className="eyebrow">LA 2028, in your time zone</p>
-        <h1>Follow your country at the Games.</h1>
-        <p className="hero-copy">Find a country dashboard for verified qualification updates, session times in your local timezone, and a calendar you can take with you.</p>
-        <label className="search-field hero-search">
-          <span>Find a country</span>
-          <input
-            type="search"
-            value={countryFilters.searchText}
-            placeholder="Search Netherlands, NED, Japan..."
-            onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
-          />
-        </label>
-        {isSearchingCountries ? (
-          <div className="home-search-results" aria-live="polite">
-            <p className="eyebrow">Search results</p>
-            {displayCountries.length ? (
-              <div className="featured-country-list">
-                {displayCountries.map((country) => (
-                  <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
-                    <div className="row-main">
-                      <CountryFlag country={country} size="md" />
-                      <div>
-                        <h3>{country.name}</h3>
-                        <p>{country.noc} country dashboard</p>
-                      </div>
-                    </div>
-                    <span className="row-arrow" aria-hidden="true">›</span>
-                  </AppLink>
-                ))}
-              </div>
-            ) : (
-              <EmptyState title="No matching countries" description="Try a different country name or NOC code." compact />
-            )}
+      <div className="home-top-grid">
+        <section className="home-intro">
+          <p className="eyebrow">LA 2028, in your time zone</p>
+          <h1>Follow your country at the Games.</h1>
+          <p className="hero-copy">Find a country dashboard for verified qualification updates, session times in your local timezone, and a calendar you can take with you.</p>
+          <label className="search-field hero-search">
+            <span>Find a country</span>
+            <input
+              type="search"
+              value={countryFilters.searchText}
+              placeholder="Search Netherlands, NED, Japan..."
+              onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
+            />
+          </label>
+        </section>
+        <aside className="home-discovery" aria-live={isSearchingCountries ? 'polite' : undefined}>
+          <div className="section-heading section-heading--flush">
+            <div>
+              <p className="eyebrow">{isSearchingCountries ? 'Search results' : 'Popular dashboards'}</p>
+              <h2>{isSearchingCountries ? 'Choose a country' : 'Start with a country'}</h2>
+            </div>
+            {!isSearchingCountries ? <AppLink href="/countries" className="text-link">View all</AppLink> : null}
           </div>
-        ) : null}
+          {displayCountries.length ? (
+            <div className="featured-country-list">
+              {displayCountries.map((country) => (
+                <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
+                  <div className="row-main">
+                    <CountryFlag country={country} size="md" />
+                    <div>
+                      <h3>{country.name}</h3>
+                      <p>{country.noc} country dashboard</p>
+                    </div>
+                  </div>
+                  <span className="row-arrow" aria-hidden="true">›</span>
+                </AppLink>
+              ))}
+            </div>
+          ) : (
+            <EmptyState title="No matching countries" description="Try a different country name or NOC code." compact />
+          )}
+        </aside>
+        <div className="home-intro-actions">
         <div className="hero-actions">
           <AppLink href="/countries" className="button-primary">Browse all countries</AppLink>
           <AppLink href="/schedule" className="button-secondary">Browse full schedule</AppLink>
         </div>
         <TrustLine runtime={runtime} />
-      </section>
+        </div>
+      </div>
 
       {savedCountries.length ? (
         <section className="saved-countries-row saved-countries-row--editorial">
@@ -586,34 +594,6 @@ function HomeView({
           </div>
         </section>
       ) : null}
-
-      {!isSearchingCountries ? <section className="home-directory">
-        <div className="section-heading section-heading--flush">
-          <div>
-            <p className="eyebrow">Popular dashboards</p>
-            <h2>Start with a country</h2>
-          </div>
-          <AppLink href="/countries" className="text-link">View all countries</AppLink>
-        </div>
-        {displayCountries.length ? (
-          <div className="featured-country-list">
-            {displayCountries.map((country) => (
-              <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
-                <div className="row-main">
-                  <CountryFlag country={country} size="md" />
-                  <div>
-                    <h3>{country.name}</h3>
-                    <p>{country.noc} country dashboard</p>
-                  </div>
-                </div>
-                <span className="row-arrow" aria-hidden="true">›</span>
-              </AppLink>
-            ))}
-          </div>
-        ) : (
-          <EmptyState title="No matching countries" description="Try a different country name or NOC code." />
-        )}
-      </section> : null}
 
       <section className="home-meta-strip">
         <CountdownCard targetIso={LA28_OPENING_CEREMONY_UTC} />
