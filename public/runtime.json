@@ -802,7 +802,7 @@
       "summary": "Updated Women's Group Stage First Round (CKT04) timing, venue, or source."
     }
   ],
-  "checkedAt": "2026-08-30T13:53:00.770Z",
+  "checkedAt": "2026-08-31T10:27:22.007Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -2862,6 +2862,7 @@
       "noc": "AFG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2870,6 +2871,7 @@
       "noc": "ALB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2878,6 +2880,7 @@
       "noc": "ALG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2886,6 +2889,7 @@
       "noc": "ASA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2894,6 +2898,7 @@
       "noc": "AND",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2902,6 +2907,7 @@
       "noc": "ANG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2910,6 +2916,7 @@
       "noc": "ANT",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2917,8 +2924,9 @@
       "nationalFederationUrls": [],
       "noc": "ARG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://coarg.org.ar/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Armenia",
@@ -2926,6 +2934,7 @@
       "noc": "ARM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2934,23 +2943,59 @@
       "noc": "ARU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
       "countryName": "Australia",
-      "nationalFederationUrls": [],
+      "nationalFederationUrls": [
+        "https://www.equestrian.org.au/",
+        "https://www.cricket.com.au/"
+      ],
       "noc": "AUS",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.olympics.com.au/",
+      "selectionSources": [
+        {
+          "adapter": "official_confirmation_article",
+          "confirmationCandidates": [
+            {
+              "discipline": "Dressage",
+              "evidenceTerms": [
+                "Australia's Dressage team",
+                "Olympic qualification"
+              ],
+              "noc": "AUS",
+              "quotaCount": 3,
+              "sport": "Equestrian",
+              "state": "allocated",
+              "subjectType": "noc_quota"
+            }
+          ],
+          "evidenceTerms": [
+            "Dressage",
+            "Olympic qualification",
+            "Los Angeles 2028"
+          ],
+          "id": "noc-aus-dressage-la28",
+          "label": "Australian Olympic Committee - Dressage team en route to LA28",
+          "sourcePublishedAt": "2026-08-23",
+          "sourceTier": "noc",
+          "sport": "Equestrian",
+          "status": "review_required",
+          "url": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/"
+        }
+      ],
+      "status": "configured"
     },
     {
       "countryName": "Austria",
       "nationalFederationUrls": [],
       "noc": "AUT",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Azerbaijan",
@@ -2958,6 +3003,7 @@
       "noc": "AZE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2966,6 +3012,7 @@
       "noc": "BAH",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2974,6 +3021,7 @@
       "noc": "BRN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2982,6 +3030,7 @@
       "noc": "BAN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2990,6 +3039,7 @@
       "noc": "BAR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -2998,6 +3048,7 @@
       "noc": "BLR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3005,8 +3056,9 @@
       "nationalFederationUrls": [],
       "noc": "BEL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.teambelgium.be/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Belize",
@@ -3014,6 +3066,7 @@
       "noc": "BIZ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3022,6 +3075,7 @@
       "noc": "BEN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3030,6 +3084,7 @@
       "noc": "BER",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3038,6 +3093,7 @@
       "noc": "BHU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3046,6 +3102,7 @@
       "noc": "BOL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3054,6 +3111,7 @@
       "noc": "BIH",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3062,6 +3120,7 @@
       "noc": "BOT",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3069,8 +3128,9 @@
       "nationalFederationUrls": [],
       "noc": "BRA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.cob.org.br/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Brunei",
@@ -3078,6 +3138,7 @@
       "noc": "BRU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3086,6 +3147,7 @@
       "noc": "BUL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3094,6 +3156,7 @@
       "noc": "BUR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3102,6 +3165,7 @@
       "noc": "BDI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3110,6 +3174,7 @@
       "noc": "CAM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3118,6 +3183,7 @@
       "noc": "CMR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3125,8 +3191,9 @@
       "nationalFederationUrls": [],
       "noc": "CAN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olympic.ca/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Cape Verde",
@@ -3134,6 +3201,7 @@
       "noc": "CPV",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3142,6 +3210,7 @@
       "noc": "CAY",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3150,6 +3219,7 @@
       "noc": "CAF",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3158,6 +3228,7 @@
       "noc": "CHA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3166,6 +3237,7 @@
       "noc": "CHI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3173,8 +3245,9 @@
       "nationalFederationUrls": [],
       "noc": "CHN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.olympic.cn/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Colombia",
@@ -3182,6 +3255,7 @@
       "noc": "COL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3190,6 +3264,7 @@
       "noc": "COM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3198,6 +3273,7 @@
       "noc": "COK",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3206,6 +3282,7 @@
       "noc": "CRC",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3214,6 +3291,7 @@
       "noc": "CRO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3222,6 +3300,7 @@
       "noc": "CUB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3230,6 +3309,7 @@
       "noc": "CYP",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3237,8 +3317,9 @@
       "nationalFederationUrls": [],
       "noc": "CZE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.olympijskytym.cz/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Democratic Republic of the Congo",
@@ -3246,6 +3327,7 @@
       "noc": "COD",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3253,8 +3335,9 @@
       "nationalFederationUrls": [],
       "noc": "DEN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.dif.dk/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Djibouti",
@@ -3262,6 +3345,7 @@
       "noc": "DJI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3270,6 +3354,7 @@
       "noc": "DMA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3278,6 +3363,7 @@
       "noc": "DOM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3286,6 +3372,7 @@
       "noc": "ECU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3294,6 +3381,7 @@
       "noc": "EGY",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3302,6 +3390,7 @@
       "noc": "ESA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3310,6 +3399,7 @@
       "noc": "GEQ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3318,6 +3408,7 @@
       "noc": "ERI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3326,6 +3417,7 @@
       "noc": "EST",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3334,6 +3426,7 @@
       "noc": "ETH",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3342,6 +3435,7 @@
       "noc": "FIJ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3349,16 +3443,18 @@
       "nationalFederationUrls": [],
       "noc": "FIN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.olympiakomitea.fi/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "France",
       "nationalFederationUrls": [],
       "noc": "FRA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://cnosf.franceolympique.com/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Gabon",
@@ -3366,6 +3462,7 @@
       "noc": "GAB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3374,6 +3471,7 @@
       "noc": "GAM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3382,6 +3480,7 @@
       "noc": "GEO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3389,8 +3488,9 @@
       "nationalFederationUrls": [],
       "noc": "GER",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.dosb.de/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Ghana",
@@ -3398,23 +3498,30 @@
       "noc": "GHA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
       "countryName": "Great Britain",
-      "nationalFederationUrls": [],
+      "nationalFederationUrls": [
+        "https://www.ecb.co.uk/",
+        "https://www.britishswimming.org/",
+        "https://www.britishcycling.org.uk/"
+      ],
       "noc": "GBR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.teamgb.com/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Greece",
       "nationalFederationUrls": [],
       "noc": "GRE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.hoc.gr/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Grenada",
@@ -3422,6 +3529,7 @@
       "noc": "GRN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3430,6 +3538,7 @@
       "noc": "GUM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3438,6 +3547,7 @@
       "noc": "GUA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3446,6 +3556,7 @@
       "noc": "GUI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3454,6 +3565,7 @@
       "noc": "GBS",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3462,6 +3574,7 @@
       "noc": "GUY",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3470,6 +3583,7 @@
       "noc": "HAI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3478,6 +3592,7 @@
       "noc": "HON",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3485,8 +3600,9 @@
       "nationalFederationUrls": [],
       "noc": "HUN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olimpia.hu/kezdolap",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Iceland",
@@ -3494,15 +3610,19 @@
       "noc": "ISL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
       "countryName": "India",
-      "nationalFederationUrls": [],
+      "nationalFederationUrls": [
+        "https://www.bcci.tv/"
+      ],
       "noc": "IND",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olympic.ind.in/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Indonesia",
@@ -3510,6 +3630,7 @@
       "noc": "INA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3518,6 +3639,7 @@
       "noc": "IRI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3526,6 +3648,7 @@
       "noc": "IRQ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3533,8 +3656,9 @@
       "nationalFederationUrls": [],
       "noc": "IRL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olympics.ie/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Israel",
@@ -3542,6 +3666,7 @@
       "noc": "ISR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3549,8 +3674,9 @@
       "nationalFederationUrls": [],
       "noc": "ITA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.coni.it/it/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Ivory Coast",
@@ -3558,6 +3684,7 @@
       "noc": "CIV",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3566,6 +3693,7 @@
       "noc": "JAM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3573,8 +3701,9 @@
       "nationalFederationUrls": [],
       "noc": "JPN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.joc.or.jp/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Jordan",
@@ -3582,6 +3711,7 @@
       "noc": "JOR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3590,6 +3720,7 @@
       "noc": "KAZ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3598,6 +3729,7 @@
       "noc": "KEN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3606,6 +3738,7 @@
       "noc": "KIR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3614,6 +3747,7 @@
       "noc": "KOS",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3622,6 +3756,7 @@
       "noc": "KUW",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3630,6 +3765,7 @@
       "noc": "KGZ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3638,6 +3774,7 @@
       "noc": "LAO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3646,6 +3783,7 @@
       "noc": "LAT",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3654,6 +3792,7 @@
       "noc": "LIB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3662,6 +3801,7 @@
       "noc": "LES",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3670,6 +3810,7 @@
       "noc": "LBR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3678,6 +3819,7 @@
       "noc": "LBA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3686,6 +3828,7 @@
       "noc": "LIE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3694,6 +3837,7 @@
       "noc": "LTU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3702,6 +3846,7 @@
       "noc": "LUX",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3710,6 +3855,7 @@
       "noc": "MKD",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3718,6 +3864,7 @@
       "noc": "MAD",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3726,6 +3873,7 @@
       "noc": "MAW",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3734,6 +3882,7 @@
       "noc": "MAL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3742,6 +3891,7 @@
       "noc": "MDV",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3750,6 +3900,7 @@
       "noc": "MLI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3758,6 +3909,7 @@
       "noc": "MLT",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3766,6 +3918,7 @@
       "noc": "MHL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3774,6 +3927,7 @@
       "noc": "MTN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3782,6 +3936,7 @@
       "noc": "MRI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3790,6 +3945,7 @@
       "noc": "MEX",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3798,6 +3954,7 @@
       "noc": "FSM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3806,6 +3963,7 @@
       "noc": "MDA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3814,6 +3972,7 @@
       "noc": "MON",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3822,6 +3981,7 @@
       "noc": "MGL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3830,6 +3990,7 @@
       "noc": "MNE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3838,6 +3999,7 @@
       "noc": "MAR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3846,6 +4008,7 @@
       "noc": "MOZ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3854,6 +4017,7 @@
       "noc": "MYA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3862,6 +4026,7 @@
       "noc": "TUV",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3870,6 +4035,7 @@
       "noc": "NAM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3878,6 +4044,7 @@
       "noc": "NRU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3886,23 +4053,88 @@
       "noc": "NEP",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
       "countryName": "Netherlands",
-      "nationalFederationUrls": [],
+      "nationalFederationUrls": [
+        "https://www.knhs.nl/",
+        "https://www.nevobo.nl/"
+      ],
       "noc": "NED",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.teamnl.org/",
+      "selectionSources": [
+        {
+          "adapter": "official_confirmation_article",
+          "confirmationCandidates": [
+            {
+              "discipline": "Dressage",
+              "evidenceTerms": [
+                "Nederland",
+                "olympische kwalificatie"
+              ],
+              "noc": "NED",
+              "quotaCount": 3,
+              "sport": "Equestrian",
+              "state": "allocated",
+              "subjectType": "noc_quota"
+            }
+          ],
+          "evidenceTerms": [
+            "olympische kwalificatie",
+            "TeamNL",
+            "LA28"
+          ],
+          "id": "noc-ned-dressage-la28",
+          "label": "TeamNL - Dressage team qualified for LA28",
+          "sourcePublishedAt": "2026-08-12",
+          "sourceTier": "noc",
+          "sport": "Equestrian",
+          "status": "review_required",
+          "url": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig"
+        },
+        {
+          "adapter": "official_confirmation_article",
+          "confirmationCandidates": [
+            {
+              "discipline": "Women's beach volleyball",
+              "evidenceTerms": [
+                "Katja",
+                "Raïsa"
+              ],
+              "noc": "NED",
+              "sport": "Beach Volleyball",
+              "state": "earned",
+              "subjectType": "team",
+              "teamName": "Katja Stam and Raïsa Schoon"
+            }
+          ],
+          "evidenceTerms": [
+            "ticket",
+            "Los Angeles",
+            "olympisch beachvolleybal"
+          ],
+          "id": "noc-ned-beach-volleyball-la28",
+          "label": "TeamNL - Beach volleyball pair qualified for LA28",
+          "sourcePublishedAt": "2026-08-15",
+          "sourceTier": "noc",
+          "sport": "Beach Volleyball",
+          "status": "review_required",
+          "url": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28"
+        }
+      ],
+      "status": "configured"
     },
     {
       "countryName": "New Zealand",
       "nationalFederationUrls": [],
       "noc": "NZL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olympic.org.nz/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Nicaragua",
@@ -3910,6 +4142,7 @@
       "noc": "NCA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3918,6 +4151,7 @@
       "noc": "NIG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3926,6 +4160,7 @@
       "noc": "NGR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3934,6 +4169,7 @@
       "noc": "PRK",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3941,8 +4177,9 @@
       "nationalFederationUrls": [],
       "noc": "NOR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olympic.no/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Oman",
@@ -3950,6 +4187,7 @@
       "noc": "OMA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3958,6 +4196,7 @@
       "noc": "PAK",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3966,6 +4205,7 @@
       "noc": "PLW",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3974,6 +4214,7 @@
       "noc": "PLE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3982,6 +4223,7 @@
       "noc": "PAN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3990,6 +4232,7 @@
       "noc": "PNG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -3998,6 +4241,7 @@
       "noc": "PAR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4005,8 +4249,9 @@
       "nationalFederationUrls": [],
       "noc": "PER",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://ccdp.org.pe/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Philippines",
@@ -4014,6 +4259,7 @@
       "noc": "PHI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4021,16 +4267,18 @@
       "nationalFederationUrls": [],
       "noc": "POL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://olimpijski.pl/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Portugal",
       "nationalFederationUrls": [],
       "noc": "POR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://comiteolimpicoportugal.pt/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Puerto Rico",
@@ -4038,6 +4286,7 @@
       "noc": "PUR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4046,6 +4295,7 @@
       "noc": "QAT",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4054,6 +4304,7 @@
       "noc": "CGO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4061,8 +4312,9 @@
       "nationalFederationUrls": [],
       "noc": "ROU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.cosr.ro/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Russia",
@@ -4070,6 +4322,7 @@
       "noc": "RUS",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4078,6 +4331,7 @@
       "noc": "RWA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4086,6 +4340,7 @@
       "noc": "SKN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4094,6 +4349,7 @@
       "noc": "LCA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4102,6 +4358,7 @@
       "noc": "VIN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4110,6 +4367,7 @@
       "noc": "SAM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4118,6 +4376,7 @@
       "noc": "SMR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4126,6 +4385,7 @@
       "noc": "STP",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4134,6 +4394,7 @@
       "noc": "KSA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4142,6 +4403,7 @@
       "noc": "SEN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4150,6 +4412,7 @@
       "noc": "SRB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4158,6 +4421,7 @@
       "noc": "SEY",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4166,6 +4430,7 @@
       "noc": "SLE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4174,6 +4439,7 @@
       "noc": "SIN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4182,6 +4448,7 @@
       "noc": "SVK",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4190,6 +4457,7 @@
       "noc": "SLO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4198,6 +4466,7 @@
       "noc": "SOL",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4206,23 +4475,28 @@
       "noc": "SOM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
       "countryName": "South Africa",
-      "nationalFederationUrls": [],
+      "nationalFederationUrls": [
+        "https://cricket.co.za/"
+      ],
       "noc": "RSA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.sascoc.co.za/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "South Korea",
       "nationalFederationUrls": [],
       "noc": "KOR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.sports.or.kr/sports/main/main.do",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "South Sudan",
@@ -4230,6 +4504,7 @@
       "noc": "SSD",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4238,6 +4513,7 @@
       "noc": "ESP",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4246,6 +4522,7 @@
       "noc": "SRI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4254,6 +4531,7 @@
       "noc": "SUD",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4262,6 +4540,7 @@
       "noc": "SUR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4270,6 +4549,7 @@
       "noc": "SWZ",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4277,16 +4557,18 @@
       "nationalFederationUrls": [],
       "noc": "SWE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://sok.se/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Switzerland",
       "nationalFederationUrls": [],
       "noc": "SUI",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://swissolympic.ch/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Syria",
@@ -4294,6 +4576,7 @@
       "noc": "SYR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4302,6 +4585,7 @@
       "noc": "TPE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4310,6 +4594,7 @@
       "noc": "TJK",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4318,6 +4603,7 @@
       "noc": "TAN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4326,6 +4612,7 @@
       "noc": "THA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4334,6 +4621,7 @@
       "noc": "TLS",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4342,6 +4630,7 @@
       "noc": "TOG",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4350,6 +4639,7 @@
       "noc": "TGA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4358,6 +4648,7 @@
       "noc": "TTO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4366,6 +4657,7 @@
       "noc": "TUN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4374,6 +4666,7 @@
       "noc": "TUR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4382,6 +4675,7 @@
       "noc": "TKM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4390,6 +4684,7 @@
       "noc": "UGA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4398,6 +4693,7 @@
       "noc": "UKR",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4406,15 +4702,21 @@
       "noc": "UAE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
       "countryName": "United States",
-      "nationalFederationUrls": [],
+      "nationalFederationUrls": [
+        "https://www.usalacrosse.com/",
+        "https://www.usaswimming.org/",
+        "https://www.usafootball.com/"
+      ],
       "noc": "USA",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-      "officialNocUrl": null,
-      "status": "awaiting_endpoint"
+      "officialNocUrl": "https://www.usopc.org/",
+      "selectionSources": [],
+      "status": "configured"
     },
     {
       "countryName": "Uruguay",
@@ -4422,6 +4724,7 @@
       "noc": "URU",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4430,6 +4733,7 @@
       "noc": "UZB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4438,6 +4742,7 @@
       "noc": "VAN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4446,6 +4751,7 @@
       "noc": "VEN",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4454,6 +4760,7 @@
       "noc": "VIE",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4462,6 +4769,7 @@
       "noc": "IVB",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4470,6 +4778,7 @@
       "noc": "ISV",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4478,6 +4787,7 @@
       "noc": "YEM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4486,6 +4796,7 @@
       "noc": "ZAM",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     },
     {
@@ -4494,17 +4805,18 @@
       "noc": "RHO",
       "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
       "officialNocUrl": null,
+      "selectionSources": [],
       "status": "awaiting_endpoint"
     }
   ],
-  "generatedAt": "2026-08-30T13:53:00.770Z",
+  "generatedAt": "2026-08-31T10:27:22.007Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
     "countryCount": 205,
     "countrySelectionCoverage": {
-      "awaitingEndpointCount": 205,
-      "configuredCount": 0,
+      "awaitingEndpointCount": 174,
+      "configuredCount": 31,
       "countryCount": 205
     },
     "flagPack": "flag-icons",
@@ -4544,13 +4856,13 @@
     "qualificationPolicy": "confirmation_only",
     "qualificationRecordCount": 0,
     "qualificationRejectedCount": 0,
-    "qualificationReviewCount": 1,
-    "qualificationSourceScanCount": 37,
+    "qualificationReviewCount": 7,
+    "qualificationSourceScanCount": 83,
     "qualificationSources": [
       {
         "allocationUrl": "https://fiba.basketball/3x3",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -4572,7 +4884,7 @@
       {
         "allocationUrl": "https://www.worldarchery.sport/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Archery",
         "httpStatus": 200,
@@ -4594,7 +4906,7 @@
       {
         "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Aquatics",
         "httpStatus": 200,
@@ -4620,7 +4932,7 @@
       {
         "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Athletics",
         "httpStatus": 200,
@@ -4644,7 +4956,7 @@
       {
         "allocationUrl": "https://corporate.bwfbadminton.com/",
         "available": false,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "Badminton World Federation",
         "httpStatus": 403,
@@ -4666,7 +4978,7 @@
       {
         "allocationUrl": "https://www.wbsc.org/",
         "available": false,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Baseball Softball Confederation",
         "httpStatus": 403,
@@ -4689,7 +5001,7 @@
       {
         "allocationUrl": "https://www.fiba.basketball/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -4711,7 +5023,7 @@
       {
         "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Boxing",
         "httpStatus": 200,
@@ -4734,7 +5046,7 @@
       {
         "allocationUrl": "https://www.ifsc-climbing.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Federation of Sport Climbing",
         "httpStatus": 200,
@@ -4754,9 +5066,9 @@
         "url": "https://www.ifsc-climbing.org/"
       },
       {
-        "allocationUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+        "allocationUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Cricket Council",
         "httpStatus": 200,
@@ -4765,20 +5077,20 @@
         "label": "International Cricket Council - Cricket",
         "qualificationSystemKey": "cricket",
         "refreshPolicy": "daily",
-        "resolvedUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
-        "rulesUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+        "resolvedUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+        "rulesUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
         "sourceTier": "if",
         "sport": "Cricket",
         "sports": [
           "Cricket"
         ],
         "status": "review_required",
-        "url": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return"
+        "url": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28"
       },
       {
         "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "Union Cycliste Internationale",
         "httpStatus": 200,
@@ -4805,7 +5117,7 @@
       {
         "allocationUrl": "https://inside.fei.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "Fédération Equestre Internationale",
         "httpStatus": 200,
@@ -4827,7 +5139,7 @@
       {
         "allocationUrl": "https://fie.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Fencing Federation",
         "httpStatus": 200,
@@ -4849,7 +5161,7 @@
       {
         "allocationUrl": "https://ifaf.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Federation of American Football",
         "httpStatus": 200,
@@ -4871,7 +5183,7 @@
       {
         "allocationUrl": "https://inside.fifa.com/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "FIFA",
         "httpStatus": 200,
@@ -4893,7 +5205,7 @@
       {
         "allocationUrl": "https://www.igfgolf.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Golf Federation",
         "httpStatus": 200,
@@ -4915,7 +5227,7 @@
       {
         "allocationUrl": "https://www.gymnastics.sport/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Gymnastics Federation",
         "httpStatus": 200,
@@ -4939,7 +5251,7 @@
       {
         "allocationUrl": "https://www.ihf.info/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Handball Federation",
         "httpStatus": 200,
@@ -4961,7 +5273,7 @@
       {
         "allocationUrl": "https://www.fih.hockey/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Hockey Federation",
         "httpStatus": 200,
@@ -4983,7 +5295,7 @@
       {
         "allocationUrl": "https://www.ijf.org/ijf/documents/26",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Judo Federation",
         "httpStatus": 200,
@@ -5005,7 +5317,7 @@
       {
         "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Lacrosse",
         "httpStatus": 200,
@@ -5027,7 +5339,7 @@
       {
         "allocationUrl": "https://www.uipmworld.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "Union Internationale de Pentathlon Moderne",
         "httpStatus": 200,
@@ -5049,7 +5361,7 @@
       {
         "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Rowing",
         "httpStatus": 200,
@@ -5072,7 +5384,7 @@
       {
         "allocationUrl": "https://www.world.rugby/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Rugby",
         "httpStatus": 200,
@@ -5094,7 +5406,7 @@
       {
         "allocationUrl": "https://www.sailing.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Sailing",
         "httpStatus": 200,
@@ -5117,7 +5429,7 @@
       {
         "allocationUrl": "https://www.issf-sports.org/competitions/3488",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Shooting Sport Federation",
         "httpStatus": 200,
@@ -5140,7 +5452,7 @@
       {
         "allocationUrl": "https://www.worldskate.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Skate",
         "httpStatus": 200,
@@ -5163,7 +5475,7 @@
       {
         "allocationUrl": "https://www.canoeicf.com/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Canoe Federation",
         "httpStatus": 200,
@@ -5186,7 +5498,7 @@
       {
         "allocationUrl": "https://www.worldsquash.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Squash Federation",
         "httpStatus": 202,
@@ -5208,7 +5520,7 @@
       {
         "allocationUrl": "https://isasurf.org/",
         "available": false,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Surfing Association",
         "httpStatus": 403,
@@ -5230,7 +5542,7 @@
       {
         "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
         "available": false,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Table Tennis Federation",
         "httpStatus": 403,
@@ -5252,7 +5564,7 @@
       {
         "allocationUrl": "https://www.worldtaekwondo.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Taekwondo",
         "httpStatus": 200,
@@ -5274,7 +5586,7 @@
       {
         "allocationUrl": "https://www.itftennis.com/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Tennis Federation",
         "httpStatus": 200,
@@ -5283,7 +5595,7 @@
         "label": "International Tennis Federation - Tennis",
         "qualificationSystemKey": "tennis",
         "refreshPolicy": "daily",
-        "resolvedUrl": "https://www.itftennis.com/en/",
+        "resolvedUrl": "https://www.itftennis.com/",
         "rulesUrl": "https://www.itftennis.com/",
         "sourceTier": "if",
         "sport": "Tennis",
@@ -5296,7 +5608,7 @@
       {
         "allocationUrl": "https://triathlon.org/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "World Triathlon",
         "httpStatus": 200,
@@ -5318,10 +5630,10 @@
       {
         "allocationUrl": "https://www.fivb.com/",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "Fédération Internationale de Volleyball",
-        "httpStatus": 202,
+        "httpStatus": 200,
         "id": "if-volleyball",
         "kind": "qualification_system",
         "label": "Fédération Internationale de Volleyball - Volleyball",
@@ -5341,7 +5653,7 @@
       {
         "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
         "available": false,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "International Weightlifting Federation",
         "httpStatus": 403,
@@ -5363,7 +5675,7 @@
       {
         "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
         "available": true,
-        "checkedAt": "2026-08-30T13:53:00.770Z",
+        "checkedAt": "2026-08-31T10:27:22.007Z",
         "entryUrl": null,
         "governingBody": "United World Wrestling",
         "httpStatus": 200,
@@ -5381,6 +5693,932 @@
         ],
         "status": "rules_published",
         "url": "https://cdn.uww.org/2026-02/01_qs_la28.pdf"
+      },
+      {
+        "allocationUrl": "https://coarg.org.ar/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Argentina",
+        "httpStatus": 200,
+        "id": "noc-arg",
+        "kind": "country_selection",
+        "label": "Argentina NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://coarg.org.ar/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://coarg.org.ar/"
+      },
+      {
+        "allocationUrl": "https://www.olympics.com.au/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Australia",
+        "httpStatus": 200,
+        "id": "noc-aus",
+        "kind": "country_selection",
+        "label": "Australia NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.olympics.com.au/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.olympics.com.au/"
+      },
+      {
+        "allocationUrl": "https://www.equestrian.org.au/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Australia",
+        "httpStatus": 200,
+        "id": "national-federation-aus-1",
+        "kind": "country_selection",
+        "label": "Australia national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.equestrian.org.au/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.equestrian.org.au/"
+      },
+      {
+        "allocationUrl": "https://www.cricket.com.au/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Australia",
+        "httpStatus": 200,
+        "id": "national-federation-aus-2",
+        "kind": "country_selection",
+        "label": "Australia national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.cricket.com.au/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.cricket.com.au/"
+      },
+      {
+        "allocationUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Australia",
+        "httpStatus": 200,
+        "id": "noc-aus-dressage-la28",
+        "kind": "country_selection",
+        "label": "Australian Olympic Committee - Dressage team en route to LA28",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": "Equestrian",
+        "sports": [
+          "Equestrian"
+        ],
+        "status": "review_required",
+        "url": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/"
+      },
+      {
+        "allocationUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Austria",
+        "httpStatus": 200,
+        "id": "noc-aut",
+        "kind": "country_selection",
+        "label": "Austria NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771"
+      },
+      {
+        "allocationUrl": "https://www.teambelgium.be/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Belgium",
+        "httpStatus": 200,
+        "id": "noc-bel",
+        "kind": "country_selection",
+        "label": "Belgium NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.teambelgium.be/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.teambelgium.be/"
+      },
+      {
+        "allocationUrl": "https://www.cob.org.br/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Brazil",
+        "httpStatus": 200,
+        "id": "noc-bra",
+        "kind": "country_selection",
+        "label": "Brazil NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.cob.org.br/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.cob.org.br/"
+      },
+      {
+        "allocationUrl": "https://olympic.ca/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Canada",
+        "httpStatus": 200,
+        "id": "noc-can",
+        "kind": "country_selection",
+        "label": "Canada NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olympic.ca/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olympic.ca/"
+      },
+      {
+        "allocationUrl": "https://www.olympic.cn/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "China",
+        "httpStatus": 200,
+        "id": "noc-chn",
+        "kind": "country_selection",
+        "label": "China NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.olympic.cn/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.olympic.cn/"
+      },
+      {
+        "allocationUrl": "https://www.olympijskytym.cz/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Czech Republic",
+        "httpStatus": 200,
+        "id": "noc-cze",
+        "kind": "country_selection",
+        "label": "Czech Republic NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.olympijskytym.cz/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.olympijskytym.cz/"
+      },
+      {
+        "allocationUrl": "https://www.dif.dk/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Denmark",
+        "httpStatus": 200,
+        "id": "noc-den",
+        "kind": "country_selection",
+        "label": "Denmark NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.dif.dk/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.dif.dk/"
+      },
+      {
+        "allocationUrl": "https://www.olympiakomitea.fi/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Finland",
+        "httpStatus": 200,
+        "id": "noc-fin",
+        "kind": "country_selection",
+        "label": "Finland NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.olympiakomitea.fi/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.olympiakomitea.fi/"
+      },
+      {
+        "allocationUrl": "https://cnosf.franceolympique.com/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "France",
+        "httpStatus": 200,
+        "id": "noc-fra",
+        "kind": "country_selection",
+        "label": "France NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://cnosf.franceolympique.com/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://cnosf.franceolympique.com/"
+      },
+      {
+        "allocationUrl": "https://www.dosb.de/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Germany",
+        "httpStatus": 200,
+        "id": "noc-ger",
+        "kind": "country_selection",
+        "label": "Germany NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.dosb.de/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.dosb.de/"
+      },
+      {
+        "allocationUrl": "https://www.teamgb.com/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Great Britain",
+        "httpStatus": 200,
+        "id": "noc-gbr",
+        "kind": "country_selection",
+        "label": "Great Britain NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.teamgb.com/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.teamgb.com/"
+      },
+      {
+        "allocationUrl": "https://www.ecb.co.uk/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Great Britain",
+        "httpStatus": 200,
+        "id": "national-federation-gbr-1",
+        "kind": "country_selection",
+        "label": "Great Britain national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.ecb.co.uk/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.ecb.co.uk/"
+      },
+      {
+        "allocationUrl": "https://www.britishswimming.org/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Great Britain",
+        "httpStatus": 200,
+        "id": "national-federation-gbr-2",
+        "kind": "country_selection",
+        "label": "Great Britain national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.britishswimming.org/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.britishswimming.org/"
+      },
+      {
+        "allocationUrl": "https://www.britishcycling.org.uk/",
+        "available": false,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Great Britain",
+        "httpStatus": 403,
+        "id": "national-federation-gbr-3",
+        "kind": "country_selection",
+        "label": "Great Britain national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.britishcycling.org.uk/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.britishcycling.org.uk/"
+      },
+      {
+        "allocationUrl": "https://www.hoc.gr/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Greece",
+        "httpStatus": 200,
+        "id": "noc-gre",
+        "kind": "country_selection",
+        "label": "Greece NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.hoc.gr/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.hoc.gr/"
+      },
+      {
+        "allocationUrl": "https://olimpia.hu/kezdolap",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Hungary",
+        "httpStatus": 200,
+        "id": "noc-hun",
+        "kind": "country_selection",
+        "label": "Hungary NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olimpia.hu/kezdolap",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olimpia.hu/kezdolap"
+      },
+      {
+        "allocationUrl": "https://olympic.ind.in/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "India",
+        "httpStatus": 200,
+        "id": "noc-ind",
+        "kind": "country_selection",
+        "label": "India NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olympic.ind.in/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olympic.ind.in/"
+      },
+      {
+        "allocationUrl": "https://www.bcci.tv/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "India",
+        "httpStatus": 200,
+        "id": "national-federation-ind-1",
+        "kind": "country_selection",
+        "label": "India national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.bcci.tv/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.bcci.tv/"
+      },
+      {
+        "allocationUrl": "https://olympics.ie/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Ireland",
+        "httpStatus": 200,
+        "id": "noc-irl",
+        "kind": "country_selection",
+        "label": "Ireland NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olympics.ie/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olympics.ie/"
+      },
+      {
+        "allocationUrl": "https://www.coni.it/it/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Italy",
+        "httpStatus": 200,
+        "id": "noc-ita",
+        "kind": "country_selection",
+        "label": "Italy NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.coni.it/it/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.coni.it/it/"
+      },
+      {
+        "allocationUrl": "https://www.joc.or.jp/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Japan",
+        "httpStatus": 200,
+        "id": "noc-jpn",
+        "kind": "country_selection",
+        "label": "Japan NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.joc.or.jp/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.joc.or.jp/"
+      },
+      {
+        "allocationUrl": "https://www.teamnl.org/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Netherlands",
+        "httpStatus": 200,
+        "id": "noc-ned",
+        "kind": "country_selection",
+        "label": "Netherlands NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.teamnl.org/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.teamnl.org/"
+      },
+      {
+        "allocationUrl": "https://www.knhs.nl/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Netherlands",
+        "httpStatus": 200,
+        "id": "national-federation-ned-1",
+        "kind": "country_selection",
+        "label": "Netherlands national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.knhs.nl/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.knhs.nl/"
+      },
+      {
+        "allocationUrl": "https://www.nevobo.nl/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Netherlands",
+        "httpStatus": 200,
+        "id": "national-federation-ned-2",
+        "kind": "country_selection",
+        "label": "Netherlands national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.nevobo.nl/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.nevobo.nl/"
+      },
+      {
+        "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Netherlands",
+        "httpStatus": 200,
+        "id": "noc-ned-dressage-la28",
+        "kind": "country_selection",
+        "label": "TeamNL - Dressage team qualified for LA28",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": "Equestrian",
+        "sports": [
+          "Equestrian"
+        ],
+        "status": "review_required",
+        "url": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig"
+      },
+      {
+        "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Netherlands",
+        "httpStatus": 200,
+        "id": "noc-ned-beach-volleyball-la28",
+        "kind": "country_selection",
+        "label": "TeamNL - Beach volleyball pair qualified for LA28",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": "Beach Volleyball",
+        "sports": [
+          "Beach Volleyball"
+        ],
+        "status": "review_required",
+        "url": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28"
+      },
+      {
+        "allocationUrl": "https://olympic.org.nz/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "New Zealand",
+        "httpStatus": 200,
+        "id": "noc-nzl",
+        "kind": "country_selection",
+        "label": "New Zealand NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olympic.org.nz/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olympic.org.nz/"
+      },
+      {
+        "allocationUrl": "https://olympic.no/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Norway",
+        "httpStatus": 200,
+        "id": "noc-nor",
+        "kind": "country_selection",
+        "label": "Norway NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olympic.no/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olympic.no/"
+      },
+      {
+        "allocationUrl": "https://ccdp.org.pe/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Peru",
+        "httpStatus": 200,
+        "id": "noc-per",
+        "kind": "country_selection",
+        "label": "Peru NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://ccdp.org.pe/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://ccdp.org.pe/"
+      },
+      {
+        "allocationUrl": "https://olimpijski.pl/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Poland",
+        "httpStatus": 200,
+        "id": "noc-pol",
+        "kind": "country_selection",
+        "label": "Poland NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://olimpijski.pl/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://olimpijski.pl/"
+      },
+      {
+        "allocationUrl": "https://comiteolimpicoportugal.pt/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Portugal",
+        "httpStatus": 200,
+        "id": "noc-por",
+        "kind": "country_selection",
+        "label": "Portugal NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://comiteolimpicoportugal.pt/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://comiteolimpicoportugal.pt/"
+      },
+      {
+        "allocationUrl": "https://www.cosr.ro/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Romania",
+        "httpStatus": 200,
+        "id": "noc-rou",
+        "kind": "country_selection",
+        "label": "Romania NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.cosr.ro/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.cosr.ro/"
+      },
+      {
+        "allocationUrl": "https://www.sascoc.co.za/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "South Africa",
+        "httpStatus": 200,
+        "id": "noc-rsa",
+        "kind": "country_selection",
+        "label": "South Africa NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.teamsa.co.za/about-sascoc/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.sascoc.co.za/"
+      },
+      {
+        "allocationUrl": "https://cricket.co.za/",
+        "available": false,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "South Africa",
+        "httpStatus": 403,
+        "id": "national-federation-rsa-1",
+        "kind": "country_selection",
+        "label": "South Africa national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://cricket.co.za/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://cricket.co.za/"
+      },
+      {
+        "allocationUrl": "https://www.sports.or.kr/sports/main/main.do",
+        "available": false,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "South Korea",
+        "httpStatus": null,
+        "id": "noc-kor",
+        "kind": "country_selection",
+        "label": "South Korea NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.sports.or.kr/sports/main/main.do",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.sports.or.kr/sports/main/main.do"
+      },
+      {
+        "allocationUrl": "https://sok.se/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Sweden",
+        "httpStatus": 200,
+        "id": "noc-swe",
+        "kind": "country_selection",
+        "label": "Sweden NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://sok.se/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://sok.se/"
+      },
+      {
+        "allocationUrl": "https://swissolympic.ch/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "Switzerland",
+        "httpStatus": 200,
+        "id": "noc-sui",
+        "kind": "country_selection",
+        "label": "Switzerland NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://swissolympic.ch/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://swissolympic.ch/"
+      },
+      {
+        "allocationUrl": "https://www.usopc.org/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "United States",
+        "httpStatus": 200,
+        "id": "noc-usa",
+        "kind": "country_selection",
+        "label": "United States NOC",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.usopc.org/",
+        "rulesUrl": null,
+        "sourceTier": "noc",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.usopc.org/"
+      },
+      {
+        "allocationUrl": "https://www.usalacrosse.com/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "United States",
+        "httpStatus": 200,
+        "id": "national-federation-usa-1",
+        "kind": "country_selection",
+        "label": "United States national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.usalacrosse.com/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.usalacrosse.com/"
+      },
+      {
+        "allocationUrl": "https://www.usaswimming.org/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "United States",
+        "httpStatus": 200,
+        "id": "national-federation-usa-2",
+        "kind": "country_selection",
+        "label": "United States national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.usaswimming.org/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.usaswimming.org/"
+      },
+      {
+        "allocationUrl": "https://www.usafootball.com/",
+        "available": true,
+        "checkedAt": "2026-08-31T10:27:22.007Z",
+        "entryUrl": null,
+        "governingBody": "United States",
+        "httpStatus": 200,
+        "id": "national-federation-usa-3",
+        "kind": "country_selection",
+        "label": "United States national federation",
+        "qualificationSystemKey": null,
+        "refreshPolicy": "daily",
+        "resolvedUrl": "https://www.usafootball.com/",
+        "rulesUrl": null,
+        "sourceTier": "national_federation",
+        "sport": null,
+        "sports": [],
+        "status": "watching",
+        "url": "https://www.usafootball.com/"
       }
     ],
     "refreshCadence": "Daily",
@@ -5394,27 +6632,211 @@
   "qualificationRecords": [],
   "qualificationReviewQueue": [
     {
-      "detectedAt": "2026-08-30T13:53:00.770Z",
-      "extractedEvidence": "Qualifying pathway confirmed for Cricket&#x27;s Olympic Games return | ICC Women&#x27;s T20 World Cup, 2026 | ICC !function(e){var n=\"https://s.go-mpulse.net/boomerang/\";if(\"False\"==\"True\")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n=\"https://s2.go-mpulse.net/boomerang/\";if(window.BOOMR_API_key=\"Q298E-BXCRP-TNXXB-UWJ6T-DH7ZL\",function(){function e(){if(!i){var e=document.createElement(\"script\");e.id=\"boomr-scr-as\",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=d",
-      "id": "review-if-cricket-a316bb7cf59d5c8b",
-      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
+      "id": "review-if-cricket-aus-571e1aa10148b156",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "record": null,
       "resolution": "pending",
-      "sourceUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return"
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Women's T20"
+        ],
+        "id": "approved-if-cricket-aus-862f1abf42174eb8",
+        "noc": "AUS",
+        "qualificationRoute": null,
+        "quotaCount": null,
+        "sourceId": "if-cricket",
+        "sourcePublishedAt": "2026-06-29",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+        "sport": "Cricket",
+        "state": "allocated",
+        "subjectType": "team",
+        "teamName": "Australia women's cricket team"
+      }
+    },
+    {
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
+      "id": "review-if-cricket-gbr-317047fbbbd66561",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "record": null,
+      "resolution": "pending",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Women's T20"
+        ],
+        "id": "approved-if-cricket-gbr-3c1fd6a872dd2e18",
+        "noc": "GBR",
+        "qualificationRoute": null,
+        "quotaCount": null,
+        "sourceId": "if-cricket",
+        "sourcePublishedAt": "2026-06-29",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+        "sport": "Cricket",
+        "state": "allocated",
+        "subjectType": "team",
+        "teamName": "Great Britain women's cricket team"
+      }
+    },
+    {
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
+      "id": "review-if-cricket-ind-bd69176142f2771b",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "record": null,
+      "resolution": "pending",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Women's T20"
+        ],
+        "id": "approved-if-cricket-ind-62eb61d23bd90ef0",
+        "noc": "IND",
+        "qualificationRoute": null,
+        "quotaCount": null,
+        "sourceId": "if-cricket",
+        "sourcePublishedAt": "2026-06-29",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+        "sport": "Cricket",
+        "state": "allocated",
+        "subjectType": "team",
+        "teamName": "India women's cricket team"
+      }
+    },
+    {
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
+      "id": "review-if-cricket-rsa-84005752d2b77618",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "record": null,
+      "resolution": "pending",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Women's T20"
+        ],
+        "id": "approved-if-cricket-rsa-fdb74a2161a8e20a",
+        "noc": "RSA",
+        "qualificationRoute": null,
+        "quotaCount": null,
+        "sourceId": "if-cricket",
+        "sourcePublishedAt": "2026-06-29",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+        "sport": "Cricket",
+        "state": "allocated",
+        "subjectType": "team",
+        "teamName": "South Africa women's cricket team"
+      }
+    },
+    {
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 5 days ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
+      "id": "review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "record": null,
+      "resolution": "pending",
+      "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage"
+        ],
+        "id": "approved-noc-aus-dressage-la28-aus-1c9e03b89a852824",
+        "noc": "AUS",
+        "qualificationRoute": null,
+        "quotaCount": 3,
+        "sourceId": "noc-aus-dressage-la28",
+        "sourcePublishedAt": "2026-08-23",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "noc_quota",
+        "teamName": null
+      }
+    },
+    {
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "Nederland eindigde kort achter België als vijfde en dankte dit aan de topscores van Van der Putten (77,764%, 6e) en Van Liere (74,161%, 11e).",
+      "id": "review-noc-ned-dressage-la28-ned-61961ba7662742db",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "record": null,
+      "resolution": "pending",
+      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage"
+        ],
+        "id": "approved-noc-ned-dressage-la28-ned-1c9e03b89a852824",
+        "noc": "NED",
+        "qualificationRoute": null,
+        "quotaCount": 3,
+        "sourceId": "noc-ned-dressage-la28",
+        "sourcePublishedAt": "2026-08-12",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "noc_quota",
+        "teamName": null
+      }
+    },
+    {
+      "detectedAt": "2026-08-31T10:09:12.996Z",
+      "extractedEvidence": "Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 | TeamNL Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Raïsa Schoon en Katja Stam zijn voor de eerste keer in hun carrière Europees kampioen beachvolleybal geworden.",
+      "id": "review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "record": null,
+      "resolution": "pending",
+      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Women's beach volleyball"
+        ],
+        "id": "approved-noc-ned-beach-volleyball-la28-ned-49453d56541323c9",
+        "noc": "NED",
+        "qualificationRoute": null,
+        "quotaCount": null,
+        "sourceId": "noc-ned-beach-volleyball-la28",
+        "sourcePublishedAt": "2026-08-15",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
+        "sport": "Beach Volleyball",
+        "state": "earned",
+        "subjectType": "team",
+        "teamName": "Katja Stam and Raïsa Schoon"
+      }
     }
   ],
   "qualificationSystems": [
     {
+      "adapter": null,
       "allocationUrl": "https://fiba.basketball/3x3",
+      "confirmationCandidates": [],
       "coveredSports": [
         "3x3 Basketball"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "FIBA",
       "key": "3x3-basketball",
       "label": "3x3 Basketball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://fiba.basketball/3x3",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5424,16 +6846,20 @@
       "url": "https://fiba.basketball/3x3"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.worldarchery.sport/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Archery"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Archery",
       "key": "archery",
       "label": "Archery",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.worldarchery.sport/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5443,7 +6869,9 @@
       "url": "https://www.worldarchery.sport/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Artistic Swimming",
         "Diving",
@@ -5452,11 +6880,13 @@
         "Water Polo"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Aquatics",
       "key": "aquatics",
       "label": "Aquatics",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5470,18 +6900,22 @@
       "url": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Athletics (Marathon)",
         "Athletics (Race Walk)",
         "Athletics (Track & Field)"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Athletics",
       "key": "athletics",
       "label": "Athletics",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5493,16 +6927,20 @@
       "url": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://corporate.bwfbadminton.com/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Badminton"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "Badminton World Federation",
       "key": "badminton",
       "label": "Badminton",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://corporate.bwfbadminton.com/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5512,17 +6950,21 @@
       "url": "https://corporate.bwfbadminton.com/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.wbsc.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Baseball",
         "Softball"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Baseball Softball Confederation",
       "key": "baseball-softball",
       "label": "Baseball and Softball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.wbsc.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5533,16 +6975,20 @@
       "url": "https://www.wbsc.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.fiba.basketball/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Basketball"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "FIBA",
       "key": "basketball",
       "label": "Basketball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.fiba.basketball/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5552,17 +6998,21 @@
       "url": "https://www.fiba.basketball/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Boxing - Final Stages",
         "Boxing - Preliminary Stages"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Boxing",
       "key": "boxing",
       "label": "Boxing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5573,16 +7023,20 @@
       "url": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.ifsc-climbing.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Climbing"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Federation of Sport Climbing",
       "key": "climbing",
       "label": "Sport Climbing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.ifsc-climbing.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5592,26 +7046,85 @@
       "url": "https://www.ifsc-climbing.org/"
     },
     {
-      "allocationUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+      "adapter": "official_confirmation_article",
+      "allocationUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "confirmationCandidates": [
+        {
+          "discipline": "Women's T20",
+          "evidenceTerms": [
+            "Australia",
+            "qualified"
+          ],
+          "noc": "AUS",
+          "sport": "Cricket",
+          "state": "allocated",
+          "subjectType": "team",
+          "teamName": "Australia women's cricket team"
+        },
+        {
+          "discipline": "Women's T20",
+          "evidenceTerms": [
+            "Great Britain",
+            "qualified"
+          ],
+          "noc": "GBR",
+          "sport": "Cricket",
+          "state": "allocated",
+          "subjectType": "team",
+          "teamName": "Great Britain women's cricket team"
+        },
+        {
+          "discipline": "Women's T20",
+          "evidenceTerms": [
+            "India",
+            "qualified"
+          ],
+          "noc": "IND",
+          "sport": "Cricket",
+          "state": "allocated",
+          "subjectType": "team",
+          "teamName": "India women's cricket team"
+        },
+        {
+          "discipline": "Women's T20",
+          "evidenceTerms": [
+            "South Africa",
+            "qualified"
+          ],
+          "noc": "RSA",
+          "sport": "Cricket",
+          "state": "allocated",
+          "subjectType": "team",
+          "teamName": "South Africa women's cricket team"
+        }
+      ],
       "coveredSports": [
         "Cricket"
       ],
       "entryUrl": null,
+      "evidenceTerms": [
+        "first four teams",
+        "qualified",
+        "LA28"
+      ],
       "governingBody": "International Cricket Council",
       "key": "cricket",
       "label": "Cricket",
-      "notes": "Official qualification announcements are reviewed before they become public records.",
-      "rulesUrl": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return",
+      "notes": "Official prose announcements are reviewed before they become public records.",
+      "rulesUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "sourcePublishedAt": "2026-06-29",
       "sourceTier": "if",
       "sourceType": "team_qualification",
       "sports": [
         "Cricket"
       ],
       "status": "review_required",
-      "url": "https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return"
+      "url": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
+      "confirmationCandidates": [],
       "coveredSports": [
         "BMX Freestyle",
         "BMX Racing",
@@ -5621,11 +7134,13 @@
         "Mountain Bike"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "Union Cycliste Internationale",
       "key": "cycling",
       "label": "Cycling",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5640,16 +7155,20 @@
       "url": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://inside.fei.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Equestrian"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "Fédération Equestre Internationale",
       "key": "equestrian",
       "label": "Equestrian",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://inside.fei.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5659,16 +7178,20 @@
       "url": "https://inside.fei.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://fie.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Fencing"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Fencing Federation",
       "key": "fencing",
       "label": "Fencing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://fie.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5678,16 +7201,20 @@
       "url": "https://fie.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://ifaf.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Flag Football"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Federation of American Football",
       "key": "flag-football",
       "label": "Flag Football",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://ifaf.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5697,16 +7224,20 @@
       "url": "https://ifaf.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://inside.fifa.com/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Football (Soccer)"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "FIFA",
       "key": "football",
       "label": "Football",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://inside.fifa.com/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5716,16 +7247,20 @@
       "url": "https://inside.fifa.com/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.igfgolf.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Golf"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Golf Federation",
       "key": "golf",
       "label": "Golf",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.igfgolf.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5735,18 +7270,22 @@
       "url": "https://www.igfgolf.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.gymnastics.sport/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Artistic Gymnastics",
         "Rhythmic Gymnastics",
         "Trampoline Gymnastics"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Gymnastics Federation",
       "key": "gymnastics",
       "label": "Gymnastics",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.gymnastics.sport/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5758,16 +7297,20 @@
       "url": "https://www.gymnastics.sport/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.ihf.info/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Handball"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Handball Federation",
       "key": "handball",
       "label": "Handball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.ihf.info/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5777,16 +7320,20 @@
       "url": "https://www.ihf.info/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.fih.hockey/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Hockey"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Hockey Federation",
       "key": "hockey",
       "label": "Hockey",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.fih.hockey/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5796,16 +7343,20 @@
       "url": "https://www.fih.hockey/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.ijf.org/ijf/documents/26",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Judo"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Judo Federation",
       "key": "judo",
       "label": "Judo",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.ijf.org/ijf/documents/26",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5815,16 +7366,20 @@
       "url": "https://www.ijf.org/ijf/documents/26"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Lacrosse"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Lacrosse",
       "key": "lacrosse",
       "label": "Lacrosse",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5834,16 +7389,20 @@
       "url": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.uipmworld.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Modern Pentathlon"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "Union Internationale de Pentathlon Moderne",
       "key": "modern-pentathlon",
       "label": "Modern Pentathlon",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.uipmworld.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5853,17 +7412,21 @@
       "url": "https://www.uipmworld.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Rowing",
         "Rowing Coastal Beach Sprints"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Rowing",
       "key": "rowing",
       "label": "Rowing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5874,16 +7437,20 @@
       "url": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.world.rugby/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Rugby Sevens"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Rugby",
       "key": "rugby-sevens",
       "label": "Rugby Sevens",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.world.rugby/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5893,17 +7460,21 @@
       "url": "https://www.world.rugby/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.sailing.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Sailing (Dinghy, Skiff & Multihull)",
         "Sailing (Windsurfing & Kite)"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Sailing",
       "key": "sailing",
       "label": "Sailing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.sailing.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5914,17 +7485,21 @@
       "url": "https://www.sailing.org/"
     },
     {
+      "adapter": "issf_quota_tracker",
       "allocationUrl": "https://www.issf-sports.org/competitions/3488",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Shooting (Rifle & Pistol)",
         "Shooting (Shotgun)"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Shooting Sport Federation",
       "key": "shooting",
       "label": "Shooting",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.issf-sports.org/competitions/3488",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "quota_tracker",
       "sports": [
@@ -5935,17 +7510,21 @@
       "url": "https://www.issf-sports.org/competitions/3488"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.worldskate.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Skateboarding (Park)",
         "Skateboarding (Street)"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Skate",
       "key": "skateboarding",
       "label": "Skateboarding",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.worldskate.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5956,17 +7535,21 @@
       "url": "https://www.worldskate.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.canoeicf.com/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Slalom Paddle",
         "Sprint Paddle"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Canoe Federation",
       "key": "canoe",
       "label": "Canoe",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.canoeicf.com/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5977,16 +7560,20 @@
       "url": "https://www.canoeicf.com/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.worldsquash.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Squash"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Squash Federation",
       "key": "squash",
       "label": "Squash",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.worldsquash.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -5996,16 +7583,20 @@
       "url": "https://www.worldsquash.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://isasurf.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Surfing"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Surfing Association",
       "key": "surfing",
       "label": "Surfing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://isasurf.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -6015,16 +7606,20 @@
       "url": "https://isasurf.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Table Tennis"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Table Tennis Federation",
       "key": "table-tennis",
       "label": "Table Tennis",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -6034,16 +7629,20 @@
       "url": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.worldtaekwondo.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Taekwondo"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Taekwondo",
       "key": "taekwondo",
       "label": "Taekwondo",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.worldtaekwondo.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -6053,16 +7652,20 @@
       "url": "https://www.worldtaekwondo.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.itftennis.com/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Tennis"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Tennis Federation",
       "key": "tennis",
       "label": "Tennis",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.itftennis.com/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -6072,16 +7675,20 @@
       "url": "https://www.itftennis.com/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://triathlon.org/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Triathlon"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "World Triathlon",
       "key": "triathlon",
       "label": "Triathlon",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://triathlon.org/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -6091,17 +7698,21 @@
       "url": "https://triathlon.org/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://www.fivb.com/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Beach Volleyball",
         "Volleyball"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "Fédération Internationale de Volleyball",
       "key": "volleyball",
       "label": "Volleyball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://www.fivb.com/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -6112,16 +7723,20 @@
       "url": "https://www.fivb.com/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Weightlifting"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "International Weightlifting Federation",
       "key": "weightlifting",
       "label": "Weightlifting",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_ranking",
       "sports": [
@@ -6131,16 +7746,20 @@
       "url": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/"
     },
     {
+      "adapter": null,
       "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+      "confirmationCandidates": [],
       "coveredSports": [
         "Wrestling"
       ],
       "entryUrl": null,
+      "evidenceTerms": [],
       "governingBody": "United World Wrestling",
       "key": "wrestling",
       "label": "Wrestling",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
       "rulesUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
+      "sourcePublishedAt": null,
       "sourceTier": "if",
       "sourceType": "qualification_system",
       "sports": [
@@ -51379,7 +52998,7 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "checkedAt": "2026-08-31T10:27:22.007Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
       "fallbackUsed": false,
       "id": "official-la28-page",
@@ -51388,7 +53007,7 @@
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "checkedAt": "2026-08-31T10:27:22.007Z",
       "description": "Primary parser target for official schedule shadow mode.",
       "fallbackUsed": false,
       "id": "official-la28-event-pdf",
@@ -51397,7 +53016,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "checkedAt": "2026-08-31T10:27:22.007Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -51406,7 +53025,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "checkedAt": "2026-08-31T10:27:22.007Z",
       "description": "Structured comparison and fallback source during shadow mode.",
       "fallbackUsed": false,
       "id": "community-la28-sheet",
@@ -51415,7 +53034,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-08-30T13:53:00.770Z",
+      "checkedAt": "2026-08-31T10:27:22.007Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",

@@ -20,7 +20,8 @@ async function main() {
     source_url: entry.sourceUrl,
     extracted_evidence: entry.extractedEvidence,
     reason: entry.reason,
-    detected_at: entry.detectedAt
+    detected_at: entry.detectedAt,
+    suggested_record: entry.suggestedRecord || null
   }));
 
   if (!candidates.length) {

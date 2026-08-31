@@ -26,3 +26,23 @@ test('configured NOC and national federation endpoints become trusted source def
   assert.deepEqual(sources.map((source) => source.sourceTier).sort(), ['national_federation', 'noc']);
   assert.equal(sources.every((source) => source.refreshPolicy === 'daily'), true);
 });
+
+test('official selection announcements retain review prefill metadata', async () => {
+  const registry = buildCountrySelectionRegistry([{ noc: 'NED', name: 'Netherlands', profileUrl: 'https://olympics.example/ned' }], {
+    sources: [{
+      noc: 'NED',
+      selectionSources: [{
+        id: 'noc-ned-selection',
+        url: 'https://noc.example.org/la28-selection',
+        sport: 'Example Sport',
+        adapter: 'official_confirmation_article',
+        evidenceTerms: ['LA28'],
+        confirmationCandidates: [{ noc: 'NED', sport: 'Example Sport', evidenceTerms: ['Netherlands'] }]
+      }]
+    }]
+  });
+  const [source] = toCountrySelectionSources(registry);
+
+  assert.equal(source.adapter, 'official_confirmation_article');
+  assert.deepEqual(source.confirmationCandidates[0].noc, 'NED');
+});

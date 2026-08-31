@@ -1,3 +1,105 @@
 {
-  "sources": []
+  "sources": [
+    {
+      "noc": "AUS",
+      "officialNocUrl": "https://www.olympics.com.au/",
+      "nationalFederationUrls": ["https://www.equestrian.org.au/", "https://www.cricket.com.au/"],
+      "selectionSources": [
+        {
+          "id": "noc-aus-dressage-la28",
+          "label": "Australian Olympic Committee - Dressage team en route to LA28",
+          "url": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
+          "sport": "Equestrian",
+          "sourceTier": "noc",
+          "status": "review_required",
+          "adapter": "official_confirmation_article",
+          "evidenceTerms": ["Dressage", "Olympic qualification", "Los Angeles 2028"],
+          "sourcePublishedAt": "2026-08-23",
+          "confirmationCandidates": [
+            { "noc": "AUS", "sport": "Equestrian", "discipline": "Dressage", "subjectType": "noc_quota", "quotaCount": 3, "state": "allocated", "evidenceTerms": ["Australia's Dressage team", "Olympic qualification"] }
+          ]
+        }
+      ]
+    },
+    {
+      "noc": "GBR",
+      "officialNocUrl": "https://www.teamgb.com/",
+      "nationalFederationUrls": ["https://www.ecb.co.uk/", "https://www.britishswimming.org/", "https://www.britishcycling.org.uk/"]
+    },
+    {
+      "noc": "IND",
+      "officialNocUrl": "https://olympic.ind.in/",
+      "nationalFederationUrls": ["https://www.bcci.tv/"]
+    },
+    {
+      "noc": "NED",
+      "officialNocUrl": "https://www.teamnl.org/",
+      "nationalFederationUrls": ["https://www.knhs.nl/", "https://www.nevobo.nl/"],
+      "selectionSources": [
+        {
+          "id": "noc-ned-dressage-la28",
+          "label": "TeamNL - Dressage team qualified for LA28",
+          "url": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
+          "sport": "Equestrian",
+          "sourceTier": "noc",
+          "status": "review_required",
+          "adapter": "official_confirmation_article",
+          "evidenceTerms": ["olympische kwalificatie", "TeamNL", "LA28"],
+          "sourcePublishedAt": "2026-08-12",
+          "confirmationCandidates": [
+            { "noc": "NED", "sport": "Equestrian", "discipline": "Dressage", "subjectType": "noc_quota", "quotaCount": 3, "state": "allocated", "evidenceTerms": ["Nederland", "olympische kwalificatie"] }
+          ]
+        },
+        {
+          "id": "noc-ned-beach-volleyball-la28",
+          "label": "TeamNL - Beach volleyball pair qualified for LA28",
+          "url": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
+          "sport": "Beach Volleyball",
+          "sourceTier": "noc",
+          "status": "review_required",
+          "adapter": "official_confirmation_article",
+          "evidenceTerms": ["ticket", "Los Angeles", "olympisch beachvolleybal"],
+          "sourcePublishedAt": "2026-08-15",
+          "confirmationCandidates": [
+            { "noc": "NED", "sport": "Beach Volleyball", "discipline": "Women's beach volleyball", "subjectType": "team", "teamName": "Katja Stam and Raïsa Schoon", "state": "earned", "evidenceTerms": ["Katja", "Raïsa"] }
+          ]
+        }
+      ]
+    },
+    {
+      "noc": "RSA",
+      "officialNocUrl": "https://www.sascoc.co.za/",
+      "nationalFederationUrls": ["https://cricket.co.za/"]
+    },
+    {
+      "noc": "USA",
+      "officialNocUrl": "https://www.usopc.org/",
+      "nationalFederationUrls": ["https://www.usalacrosse.com/", "https://www.usaswimming.org/", "https://www.usafootball.com/"]
+    },
+    { "noc": "ARG", "officialNocUrl": "https://coarg.org.ar/" },
+    { "noc": "AUT", "officialNocUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771" },
+    { "noc": "BEL", "officialNocUrl": "https://www.teambelgium.be/" },
+    { "noc": "BRA", "officialNocUrl": "https://www.cob.org.br/" },
+    { "noc": "CAN", "officialNocUrl": "https://olympic.ca/" },
+    { "noc": "CHN", "officialNocUrl": "https://www.olympic.cn/" },
+    { "noc": "CZE", "officialNocUrl": "https://www.olympijskytym.cz/" },
+    { "noc": "DEN", "officialNocUrl": "https://www.dif.dk/" },
+    { "noc": "FIN", "officialNocUrl": "https://www.olympiakomitea.fi/" },
+    { "noc": "FRA", "officialNocUrl": "https://cnosf.franceolympique.com/" },
+    { "noc": "GER", "officialNocUrl": "https://www.dosb.de/" },
+    { "noc": "GRE", "officialNocUrl": "https://www.hoc.gr/" },
+    { "noc": "HUN", "officialNocUrl": "https://olimpia.hu/kezdolap" },
+    { "noc": "IRL", "officialNocUrl": "https://olympics.ie/" },
+    { "noc": "ITA", "officialNocUrl": "https://www.coni.it/it/" },
+    { "noc": "JPN", "officialNocUrl": "https://www.joc.or.jp/" },
+    { "noc": "KOR", "officialNocUrl": "https://www.sports.or.kr/sports/main/main.do" },
+    { "noc": "NOR", "officialNocUrl": "https://olympic.no/" },
+    { "noc": "NZL", "officialNocUrl": "https://olympic.org.nz/" },
+    { "noc": "PER", "officialNocUrl": "https://ccdp.org.pe/" },
+    { "noc": "POL", "officialNocUrl": "https://olimpijski.pl/" },
+    { "noc": "POR", "officialNocUrl": "https://comiteolimpicoportugal.pt/" },
+    { "noc": "ROU", "officialNocUrl": "https://www.cosr.ro/" },
+    { "noc": "SUI", "officialNocUrl": "https://swissolympic.ch/" },
+    { "noc": "SWE", "officialNocUrl": "https://sok.se/" }
+  ]
 }

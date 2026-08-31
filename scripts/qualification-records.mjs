@@ -102,7 +102,11 @@ export function normalizeReviewQueue(entries, sources) {
     if (!detectedAt || !sourceUrl || !extractedEvidence || !reason) problems.push('missing review evidence, date, source, or reason');
     if (resolution === 'approved' && !entry.record) problems.push('approved review requires record');
     if (problems.length) { rejected.push({ id, problems }); return; }
-    queue.push({ id, resolution, detectedAt, sourceUrl, extractedEvidence, reason, record: entry.record || null });
+    queue.push({
+      id, resolution, detectedAt, sourceUrl, extractedEvidence, reason,
+      record: entry.record || null,
+      suggestedRecord: entry.suggestedRecord || entry.suggested_record || null
+    });
     if (resolution === 'approved') approvedRawRecords.push(entry.record);
   });
   const approved = normalizeQualificationRecords(approvedRawRecords, sources);

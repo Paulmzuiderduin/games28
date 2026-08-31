@@ -19,7 +19,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   const [candidates, setCandidates] = useState([]);
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [draft, setDraft] = useState({ noc: '', sport: '', subjectType: 'noc_quota', state: 'allocated', athleteName: '', teamName: '', quotaCount: '1', sourcePublishedAt: '' });
+  const [draft, setDraft] = useState({ noc: '', sport: '', disciplines: [], subjectType: 'noc_quota', state: 'allocated', athleteName: '', teamName: '', quotaCount: '1', qualificationRoute: '', sourcePublishedAt: '' });
   const [note, setNote] = useState('');
 
   async function loadCandidates() {
@@ -35,7 +35,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
           status: candidate.resolution || 'pending',
           detected_at: candidate.detectedAt,
           extracted_evidence: candidate.extractedEvidence,
-          source_url: candidate.sourceUrl
+          source_url: candidate.sourceUrl,
+          suggested_record: candidate.suggestedRecord || null
         })));
       }
     } catch (error) {
@@ -72,15 +73,18 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
 
   function beginReview(candidate) {
     const source = qualificationSources.find((entry) => entry.id === candidate.source_id || entry.id === candidate.sourceId);
+    const suggested = candidate.suggested_record || candidate.suggestedRecord || {};
     setDraft({
-      noc: '',
-      sport: source?.sport || '',
-      subjectType: 'noc_quota',
-      state: 'allocated',
-      athleteName: '',
-      teamName: '',
-      quotaCount: '1',
-      sourcePublishedAt: String(candidate.detected_at || candidate.detectedAt || '').slice(0, 10)
+      noc: suggested.noc || '',
+      sport: suggested.sport || source?.sport || '',
+      disciplines: Array.isArray(suggested.disciplines) ? suggested.disciplines : [],
+      subjectType: suggested.subjectType || 'noc_quota',
+      state: suggested.state || 'allocated',
+      athleteName: suggested.athleteName || '',
+      teamName: suggested.teamName || '',
+      quotaCount: String(suggested.quotaCount || 1),
+      qualificationRoute: suggested.qualificationRoute || '',
+      sourcePublishedAt: String(suggested.sourcePublishedAt || candidate.detected_at || candidate.detectedAt || '').slice(0, 10)
     });
   }
 
@@ -93,11 +97,13 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       id: `approved-${candidate.id}`,
       noc: draft.noc,
       sport: draft.sport,
+      disciplines: draft.disciplines,
       subjectType: draft.subjectType,
       state: draft.state,
       athleteName: draft.subjectType === 'athlete' ? draft.athleteName.trim() : null,
       teamName: draft.subjectType === 'team' ? draft.teamName.trim() : null,
       quotaCount: draft.subjectType === 'noc_quota' ? Number(draft.quotaCount) : null,
+      qualificationRoute: draft.qualificationRoute.trim() || null,
       sourceId: candidate.source_id || candidate.sourceId,
       sourceUrl: candidate.source_url || candidate.sourceUrl,
       sourcePublishedAt: new Date(draft.sourcePublishedAt).toISOString(),
@@ -222,12 +228,14 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
 }
 
 function CandidateCard({ candidate, onReview }) {
+  const suggested = candidate.suggested_record || candidate.suggestedRecord;
   return (
     <article className="info-card admin-candidate-card">
       <p className="eyebrow">{candidate.status || 'pending'}</p>
       <h2>{candidate.source_id || candidate.sourceId}</h2>
       <p>{candidate.extracted_evidence || candidate.extractedEvidence}</p>
       <p>{candidate.reason}</p>
+      {suggested ? <p className="supporting-copy">Suggested record: {suggested.noc} · {suggested.sport}{suggested.teamName ? ` · ${suggested.teamName}` : ''}{suggested.quotaCount ? ` · ${suggested.quotaCount} quota places` : ''}</p> : null}
       <a className="text-link" href={candidate.source_url || candidate.sourceUrl} target="_blank" rel="noreferrer">Open official source</a>
       {onReview ? <button type="button" className="text-button" onClick={onReview}>Use this evidence</button> : null}
     </article>

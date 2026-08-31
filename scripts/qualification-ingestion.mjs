@@ -26,7 +26,14 @@ function hash(value) {
 }
 
 function stripHtml(value) {
-  return text(String(value || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' '));
+  return text(String(value || '')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(nbsp|#160);/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&(quot|#34);/gi, '"')
+    .replace(/&#x27;|&#39;/gi, "'"));
 }
 
 function parseCsvLine(line) {
@@ -102,7 +109,7 @@ function isIsoDate(value) {
   return Boolean(value) && Number.isFinite(Date.parse(value));
 }
 
-function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index) {
+function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index, options = {}) {
   const explicitNoc = findValue(row, HEADER_ALIASES.noc)?.toUpperCase();
   const countryName = findValue(row, HEADER_ALIASES.countryName);
   const noc = explicitNoc || nocByCountryName.get(key(countryName));
@@ -110,7 +117,7 @@ function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, inde
   const teamName = findValue(row, HEADER_ALIASES.teamName);
   const quotaCount = Number(findValue(row, HEADER_ALIASES.quotaCount));
   const subjectType = athleteName ? 'athlete' : teamName ? 'team' : Number.isInteger(quotaCount) && quotaCount > 0 ? 'noc_quota' : null;
-  const sourcePublishedAt = findValue(row, HEADER_ALIASES.sourcePublishedAt);
+  const sourcePublishedAt = findValue(row, HEADER_ALIASES.sourcePublishedAt) || options.sourcePublishedAt;
   const state = normalizeState(findValue(row, HEADER_ALIASES.state), subjectType);
 
   if (!noc || !knownNocs.has(noc) || !subjectType || !state || !isIsoDate(sourcePublishedAt)) return null;
@@ -126,7 +133,7 @@ function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, inde
     quotaCount: subjectType === 'noc_quota' ? quotaCount : null,
     qualificationRoute: findValue(row, HEADER_ALIASES.qualificationRoute),
     sourceId: source.id,
-    sourceUrl: source.url,
+    sourceUrl: options.sourceUrl || source.url,
     sourcePublishedAt: new Date(sourcePublishedAt).toISOString(),
     verifiedAt: checkedAt,
     sourceRecordType: 'structured_allocation'
@@ -153,14 +160,135 @@ async function fetchSource(source, fetchImpl) {
     httpStatus: response.status,
     resolvedUrl: response.url || source.url,
     contentType,
+    lastModified: response.headers.get('last-modified') || null,
     body: body.slice(0, MAX_SOURCE_BYTES),
     truncated: body.length > MAX_SOURCE_BYTES
   };
 }
 
-function reviewCandidate(source, body, checkedAt) {
+function htmlLinks(body, baseUrl) {
+  const anchors = String(body || '').match(/<a\b[\s\S]*?<\/a>/gi) || [];
+  return anchors.flatMap((anchor) => {
+    const href = anchor.match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2];
+    if (!href) return [];
+    try {
+      return [{ url: new URL(href, baseUrl).toString(), label: stripHtml(anchor) }];
+    } catch {
+      return [];
+    }
+  });
+}
+
+function extractPublishedAt(body, fallback = null) {
+  const html = String(body || '');
+  const candidates = [
+    html.match(/<time\b[^>]*\bdatetime\s*=\s*(["'])(.*?)\1/i)?.[2],
+    html.match(/<meta\b[^>]*(?:property|name)\s*=\s*(["'])(?:article:published_time|datePublished)\1[^>]*\bcontent\s*=\s*(["'])(.*?)\2/i)?.[3],
+    html.match(/"datePublished"\s*:\s*"([^"]+)"/i)?.[1],
+    fallback
+  ];
+  return candidates.find((value) => isIsoDate(value)) || null;
+}
+
+function issfQuotaTrackerUrl(body, baseUrl) {
+  return htmlLinks(body, baseUrl).find(({ label, url }) => {
+    const description = `${label} ${url}`.toLowerCase();
+    return description.includes('quota') && (description.includes('nation') || description.includes('country'));
+  })?.url || null;
+}
+
+async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl) {
+  let tracker = sourceResult;
+  const trackerUrl = issfQuotaTrackerUrl(sourceResult.body, sourceResult.resolvedUrl);
+  if (trackerUrl && trackerUrl !== sourceResult.resolvedUrl) {
+    tracker = await fetchSource({ ...source, url: trackerUrl }, fetchImpl);
+  }
+
+  // The ISSF page has also hosted previous Olympic cycles. Never carry those
+  // quota places into LA28 just because the table shape matches.
+  if (!tracker.available || !/\b(?:la\s*28|los angeles\s*2028)\b/i.test(stripHtml(tracker.body))) {
+    return { records: [], adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: 0, eligible: false } };
+  }
+
+  const publishedAt = extractPublishedAt(tracker.body, tracker.lastModified || source.sourcePublishedAt);
+  const rows = detectRows(tracker.body, tracker.contentType);
+  const records = rows.map((row, index) => recordFromRow({
+    ...row,
+    Status: findValue(row, HEADER_ALIASES.state) || 'Allocated',
+    'Qualification date': findValue(row, HEADER_ALIASES.sourcePublishedAt) || publishedAt
+  }, source, knownNocs, nocByCountryName, checkedAt, index, {
+    sourceUrl: tracker.resolvedUrl,
+    sourcePublishedAt: publishedAt
+  })).filter(Boolean);
+
+  return {
+    records,
+    adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: rows.length, eligible: true }
+  };
+}
+
+async function recordsFromAdapter(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl) {
+  if (source.adapter === 'issf_quota_tracker') {
+    return recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl);
+  }
+  const rows = detectRows(sourceResult.body, sourceResult.contentType);
+  return {
+    records: rows.map((row, index) => recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index)).filter(Boolean),
+    adapter: null
+  };
+}
+
+function sentenceAround(textValue, term) {
+  const source = text(textValue);
+  const index = source.toLowerCase().indexOf(String(term || '').toLowerCase());
+  if (index < 0) return source.slice(0, 700);
+  const start = Math.max(0, source.lastIndexOf('.', index) + 1);
+  const endAt = source.indexOf('.', index + String(term).length);
+  return source.slice(start, endAt >= 0 ? endAt + 1 : index + 700).trim();
+}
+
+function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
+  if (source.adapter !== 'official_confirmation_article') return [];
+  const evidence = stripHtml(body);
+  const requiredTerms = (source.evidenceTerms || []).map(key).filter(Boolean);
+  if (!requiredTerms.every((term) => key(evidence).includes(term))) return [];
+
+  return (source.confirmationCandidates || []).flatMap((candidate) => {
+    if (!knownNocs.has(candidate.noc)) return [];
+    const candidateTerms = (candidate.evidenceTerms || [candidate.noc, candidate.teamName, candidate.sport]).filter(Boolean);
+    if (!candidateTerms.some((term) => key(evidence).includes(key(term)))) return [];
+    const suggestion = {
+      id: `approved-${source.id}-${candidate.noc.toLowerCase()}-${hash(candidate.teamName || candidate.discipline || candidate.sport)}`,
+      noc: candidate.noc,
+      sport: candidate.sport || source.sport,
+      disciplines: candidate.discipline ? [candidate.discipline] : [],
+      subjectType: candidate.subjectType || 'noc_quota',
+      state: candidate.state || 'allocated',
+      athleteName: candidate.athleteName || null,
+      teamName: candidate.teamName || null,
+      quotaCount: candidate.quotaCount || null,
+      qualificationRoute: candidate.qualificationRoute || null,
+      sourceId: source.id,
+      sourceUrl: source.url,
+      sourcePublishedAt: candidate.sourcePublishedAt || source.sourcePublishedAt || null,
+      sourceRecordType: 'review_approved'
+    };
+    return [{
+      id: `review-${source.id}-${candidate.noc.toLowerCase()}-${hash(JSON.stringify(suggestion))}`,
+      sourceId: source.id,
+      resolution: 'pending',
+      detectedAt: checkedAt,
+      sourceUrl: source.url,
+      extractedEvidence: sentenceAround(evidence, candidate.evidenceTerms?.[0] || candidate.teamName || candidate.noc),
+      reason: 'Official confirmation article detected. Review the pre-filled record before publication.',
+      suggestedRecord: suggestion
+    }];
+  });
+}
+
+function genericReviewCandidate(source, body, checkedAt) {
   if (source.status !== 'review_required') return null;
-  const evidence = stripHtml(body).slice(0, 600);
+  const evidence = stripHtml(body).slice(0, 700);
   if (!/qualif|selection|selected|allocated|entry/i.test(evidence)) return null;
   return {
     id: `review-${source.id}-${hash(evidence)}`,
@@ -179,21 +307,25 @@ export async function ingestQualificationSources({ sources, countries, checkedAt
   const results = await Promise.all(sources.map(async (source) => {
     try {
       const result = await fetchSource(source, fetchImpl);
-      const rows = result.available ? detectRows(result.body, result.contentType) : [];
-      const records = rows.map((row, index) => recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index)).filter(Boolean);
-      const candidate = result.available ? reviewCandidate(source, result.body, checkedAt) : null;
+      const extracted = result.available
+        ? await recordsFromAdapter(source, result, knownNocs, nocByCountryName, checkedAt, fetchImpl)
+        : { records: [], adapter: null };
+      const records = extracted.records;
+      const configuredCandidates = result.available ? configuredReviewCandidates(source, result.body, checkedAt, knownNocs) : [];
+      const genericCandidate = result.available && !configuredCandidates.length ? genericReviewCandidate(source, result.body, checkedAt) : null;
+      const reviewCandidates = [...configuredCandidates, genericCandidate].filter(Boolean);
       return {
         sourceCheck: { ...source, checkedAt, available: result.available, httpStatus: result.httpStatus, resolvedUrl: result.resolvedUrl },
         records,
-        reviewCandidate: candidate,
-        scan: { sourceId: source.id, checkedAt, format: result.contentType || 'unknown', rowCount: rows.length, structuredRecordCount: records.length, reviewCandidateId: candidate?.id || null, truncated: result.truncated }
+        reviewCandidates,
+        scan: { sourceId: source.id, checkedAt, format: result.contentType || 'unknown', rowCount: extracted.adapter?.rowCount ?? detectRows(result.body, result.contentType).length, structuredRecordCount: records.length, reviewCandidateIds: reviewCandidates.map((candidate) => candidate.id), adapter: extracted.adapter, truncated: result.truncated }
       };
     } catch (error) {
       return {
         sourceCheck: { ...source, checkedAt, available: false, httpStatus: null, resolvedUrl: source.url, checkError: error.message },
         records: [],
-        reviewCandidate: null,
-        scan: { sourceId: source.id, checkedAt, format: 'unavailable', rowCount: 0, structuredRecordCount: 0, reviewCandidateId: null, error: error.message }
+        reviewCandidates: [],
+        scan: { sourceId: source.id, checkedAt, format: 'unavailable', rowCount: 0, structuredRecordCount: 0, reviewCandidateIds: [], error: error.message }
       };
     }
   }));
@@ -201,7 +333,7 @@ export async function ingestQualificationSources({ sources, countries, checkedAt
   return {
     sourceChecks: results.map((result) => result.sourceCheck),
     structuredRecords: results.flatMap((result) => result.records),
-    reviewQueue: results.map((result) => result.reviewCandidate).filter(Boolean),
+    reviewQueue: results.flatMap((result) => result.reviewCandidates),
     scans: results.map((result) => result.scan)
   };
 }

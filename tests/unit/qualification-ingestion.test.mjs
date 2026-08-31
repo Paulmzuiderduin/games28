@@ -73,3 +73,68 @@ test('creates a stable pending candidate for designated official prose sources',
   assert.equal(result.reviewQueue.length, 1);
   assert.match(result.reviewQueue[0].reason, /human approval/i);
 });
+
+test('pre-fills, but does not publish, configured official confirmation articles', async () => {
+  const result = await ingestQualificationSources({
+    sources: [{
+      ...source,
+      id: 'if-official-article',
+      status: 'review_required',
+      adapter: 'official_confirmation_article',
+      evidenceTerms: ['first teams', 'LA28'],
+      sourcePublishedAt: '2028-01-01',
+      confirmationCandidates: [{
+        noc: 'NED',
+        sport: 'Example Sport',
+        discipline: 'Example discipline',
+        subjectType: 'team',
+        teamName: 'Netherlands example team',
+        state: 'allocated',
+        evidenceTerms: ['Netherlands', 'qualified']
+      }]
+    }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response('<article><script>ignore this qualification text</script><p>The first teams qualified for LA28: Netherlands.</p></article>')
+  });
+
+  assert.equal(result.structuredRecords.length, 0);
+  assert.equal(result.reviewQueue.length, 1);
+  assert.equal(result.reviewQueue[0].suggestedRecord.noc, 'NED');
+  assert.equal(result.reviewQueue[0].suggestedRecord.teamName, 'Netherlands example team');
+  assert.doesNotMatch(result.reviewQueue[0].extractedEvidence, /ignore this/i);
+});
+
+test('uses the ISSF quota tracker only when its table explicitly names LA28', async () => {
+  const result = await ingestQualificationSources({
+    sources: [{ ...source, id: 'if-shooting', sport: 'Shooting', adapter: 'issf_quota_tracker' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async (url) => {
+      if (url === 'https://if.example.org/allocations') {
+        return response('<a href="/la28-quota-places">LA28 quota places by nation</a>');
+      }
+      return response(`
+        <time datetime="2028-01-01"></time><h1>LA28 Quota Places by Nation</h1>
+        <table><tr><th>NOC</th><th>Quota places</th></tr><tr><td>NED</td><td>2</td></tr></table>
+      `);
+    }
+  });
+
+  assert.equal(result.structuredRecords.length, 1);
+  assert.equal(result.structuredRecords[0].noc, 'NED');
+  assert.equal(result.structuredRecords[0].state, 'allocated');
+  assert.equal(result.scans[0].adapter.eligible, true);
+});
+
+test('does not use a stale non-LA28 ISSF tracker even when its table looks valid', async () => {
+  const result = await ingestQualificationSources({
+    sources: [{ ...source, id: 'if-shooting', sport: 'Shooting', adapter: 'issf_quota_tracker' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response('<table><tr><th>NOC</th><th>Quota places</th></tr><tr><td>NED</td><td>2</td></tr></table>')
+  });
+
+  assert.equal(result.structuredRecords.length, 0);
+  assert.equal(result.scans[0].adapter.eligible, false);
+});

@@ -12,6 +12,10 @@ function system(key, label, governingBody, sports, url, options = {}) {
     rulesUrl: options.rulesUrl || url,
     allocationUrl: options.allocationUrl || url,
     entryUrl: options.entryUrl || null,
+    adapter: options.adapter || null,
+    evidenceTerms: options.evidenceTerms || [],
+    confirmationCandidates: options.confirmationCandidates || [],
+    sourcePublishedAt: options.sourcePublishedAt || null,
     url,
     notes: options.notes || 'Publish only explicit quota allocations, selections, or final entries.'
   };
@@ -27,7 +31,20 @@ export const qualificationSystems = [
   system('basketball', 'Basketball', 'FIBA', ['Basketball'], 'https://www.fiba.basketball/'),
   system('boxing', 'Boxing', 'World Boxing', ['Boxing - Final Stages', 'Boxing - Preliminary Stages'], 'https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/', { status: 'rules_published' }),
   system('climbing', 'Sport Climbing', 'International Federation of Sport Climbing', ['Climbing'], 'https://www.ifsc-climbing.org/'),
-  system('cricket', 'Cricket', 'International Cricket Council', ['Cricket'], 'https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/qualifying-pathway-confirmed-for-cricket-s-olympic-games-return', { status: 'review_required', sourceType: 'team_qualification', notes: 'Official qualification announcements are reviewed before they become public records.' }),
+  system('cricket', 'Cricket', 'International Cricket Council', ['Cricket'], 'https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28', {
+    status: 'review_required',
+    sourceType: 'team_qualification',
+    adapter: 'official_confirmation_article',
+    evidenceTerms: ['first four teams', 'qualified', 'LA28'],
+    sourcePublishedAt: '2026-06-29',
+    confirmationCandidates: [
+      { noc: 'AUS', sport: 'Cricket', discipline: "Women's T20", subjectType: 'team', teamName: "Australia women's cricket team", state: 'allocated', evidenceTerms: ['Australia', 'qualified'] },
+      { noc: 'GBR', sport: 'Cricket', discipline: "Women's T20", subjectType: 'team', teamName: "Great Britain women's cricket team", state: 'allocated', evidenceTerms: ['Great Britain', 'qualified'] },
+      { noc: 'IND', sport: 'Cricket', discipline: "Women's T20", subjectType: 'team', teamName: "India women's cricket team", state: 'allocated', evidenceTerms: ['India', 'qualified'] },
+      { noc: 'RSA', sport: 'Cricket', discipline: "Women's T20", subjectType: 'team', teamName: "South Africa women's cricket team", state: 'allocated', evidenceTerms: ['South Africa', 'qualified'] }
+    ],
+    notes: 'Official prose announcements are reviewed before they become public records.'
+  }),
   system('cycling', 'Cycling', 'Union Cycliste Internationale', ['BMX Freestyle', 'BMX Racing', 'Cycling Road (Road Race)', 'Cycling Road (Time Trial)', 'Cycling Track', 'Mountain Bike'], 'https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI', { status: 'rules_published' }),
   system('equestrian', 'Equestrian', 'Fédération Equestre Internationale', ['Equestrian'], 'https://inside.fei.org/'),
   system('fencing', 'Fencing', 'International Fencing Federation', ['Fencing'], 'https://fie.org/'),
@@ -43,7 +60,7 @@ export const qualificationSystems = [
   system('rowing', 'Rowing', 'World Rowing', ['Rowing', 'Rowing Coastal Beach Sprints'], 'https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/'),
   system('rugby-sevens', 'Rugby Sevens', 'World Rugby', ['Rugby Sevens'], 'https://www.world.rugby/'),
   system('sailing', 'Sailing', 'World Sailing', ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Windsurfing & Kite)'], 'https://www.sailing.org/'),
-  system('shooting', 'Shooting', 'International Shooting Sport Federation', ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'], 'https://www.issf-sports.org/competitions/3488', { status: 'rules_published', sourceType: 'quota_tracker' }),
+  system('shooting', 'Shooting', 'International Shooting Sport Federation', ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'], 'https://www.issf-sports.org/competitions/3488', { status: 'rules_published', sourceType: 'quota_tracker', adapter: 'issf_quota_tracker' }),
   system('skateboarding', 'Skateboarding', 'World Skate', ['Skateboarding (Park)', 'Skateboarding (Street)'], 'https://www.worldskate.org/'),
   system('canoe', 'Canoe', 'International Canoe Federation', ['Slalom Paddle', 'Sprint Paddle'], 'https://www.canoeicf.com/'),
   system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.org/'),
@@ -85,6 +102,10 @@ export function toQualificationSources(systems) {
     rulesUrl: entry.rulesUrl,
     allocationUrl: entry.allocationUrl,
     entryUrl: entry.entryUrl,
+    adapter: entry.adapter,
+    evidenceTerms: entry.evidenceTerms,
+    confirmationCandidates: entry.confirmationCandidates,
+    sourcePublishedAt: entry.sourcePublishedAt,
     url: entry.url,
     refreshPolicy: 'daily',
     notes: entry.notes
