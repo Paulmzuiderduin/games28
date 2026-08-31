@@ -164,6 +164,17 @@ function buildPages(runtime) {
       heading: 'Recent LA 2028 schedule and qualification changes',
       facts: [`${runtime.changes.length} tracked changes`, `Last checked ${runtime.checkedAt || 'pending'}`],
       links: [{ href: '/schedule', label: 'Browse schedule' }]
+    },
+    {
+      url: routeUrl('/sources'),
+      title: 'Games28 Data & Sources | Games28',
+      description: 'See how Games28 verifies LA 2028 schedule and qualification data, including official source coverage and refresh status.',
+      heading: 'Games28 data and sources',
+      facts: ['Official sources only for published qualification records', `Last checked ${runtime.checkedAt || 'pending'}`],
+      links: [
+        { href: '/schedule', label: 'Browse schedule' },
+        { href: '/countries', label: 'Browse country dashboards' }
+      ]
     }
   ];
 

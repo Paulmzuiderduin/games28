@@ -17,6 +17,10 @@ export function parseRoute(pathname) {
     return { name: 'changes' };
   }
 
+  if (normalizedPath === '/sources') {
+    return { name: 'sources' };
+  }
+
   if (normalizedPath === '/admin') {
     return { name: 'admin' };
   }

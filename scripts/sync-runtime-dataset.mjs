@@ -71,6 +71,7 @@ async function main() {
     '/',
     '/schedule',
     '/changes',
+    '/sources',
     ...runtime.countries.map((country) => `/countries/${country.noc}`),
     ...sports.map((sport) => getSportPath(sport)),
     ...selectedSessions.map((entry) => getSessionPath(entry.id))

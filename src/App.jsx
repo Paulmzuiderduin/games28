@@ -197,7 +197,27 @@ function SupportCta({ onDismiss }) {
   );
 }
 
-function SourceRail({ runtime }) {
+function getScheduleAuthorityLabel(runtime) {
+  return runtime.meta.scheduleAuthority === 'official_pdf'
+    ? 'Official schedule'
+    : runtime.meta.scheduleAuthority === 'stale_official'
+      ? 'Last verified official schedule'
+      : 'Community schedule reference';
+}
+
+function TrustLine({ runtime, className = '' }) {
+  return (
+    <div className={`trust-line ${className}`.trim()}>
+      <span className="trust-line__dot" aria-hidden="true" />
+      <span>{getScheduleAuthorityLabel(runtime)}</span>
+      <span aria-hidden="true">·</span>
+      <span>{formatUpdatedLabel(runtime.checkedAt)}</span>
+      <AppLink href="/sources" className="trust-line__link">Data & sources</AppLink>
+    </div>
+  );
+}
+
+function SourcesView({ runtime }) {
   const authorityLabel = runtime.meta.scheduleAuthority === 'official_pdf'
     ? 'Official PDF is live'
     : runtime.meta.scheduleAuthority === 'stale_official'
@@ -212,22 +232,23 @@ function SourceRail({ runtime }) {
   const activeQualificationSources = qualificationSources.filter((source) => source.status !== 'watching');
 
   return (
-    <section className="panel source-rail">
+    <section className="page-section sources-page">
       <div className="section-heading compact">
         <div>
-          <p className="eyebrow">Source stack</p>
-          <h2>How Games28 is sourcing the data</h2>
+          <p className="eyebrow">Data & sources</p>
+          <h1>How Games28 verifies its data</h1>
+          <p className="section-intro section-intro--flush">We publish confirmed information, not predictions. Detailed source health stays here so the schedule and country dashboards can remain easy to scan.</p>
         </div>
-        <span className="supporting-copy">{authorityLabel}</span>
+        <span className="status-pill">{authorityLabel}</span>
       </div>
       <div className="source-summary">
         <SummaryCard label="Published schedule" value={runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'} />
         <SummaryCard
-          label="Official validation streak"
-          value={`${officialValidationStreak}/${officialValidationTarget}`}
+          label="Official PDF check"
+          value={runtime.meta.officialValidation?.passed ? 'Passed' : 'Needs review'}
           detail={runtime.meta.officialValidation?.passed
-            ? 'Official PDF can be promoted on the next refresh.'
-            : runtime.meta.officialValidation?.issues?.[0] || `${officialValidationRemaining} more successful checks before promotion.`}
+            ? `${officialValidationStreak} of ${officialValidationTarget} successful checks recorded before the parser is trusted automatically.`
+            : runtime.meta.officialValidation?.issues?.[0] || `${officialValidationRemaining} successful checks still needed before promotion.`}
         />
         <SummaryCard
           label="Qualification systems"
@@ -284,13 +305,19 @@ function SourceRail({ runtime }) {
           </div>
         </div>
       ) : null}
-      <div className="source-footer">
-        <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
-        <div className="source-footer-action">
-          <KofiLink />
-        </div>
-      </div>
     </section>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
+      <div className="site-footer__links">
+        <AppLink href="/sources">Data & sources</AppLink>
+        <KofiLink>Support Games28</KofiLink>
+      </div>
+    </footer>
   );
 }
 
@@ -384,14 +411,14 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
   const medalEvent = isMedalEvent(entry);
 
   return (
-    <article className="schedule-card">
+    <article className={`schedule-card ${countryMode ? 'schedule-card--country' : ''}`.trim()}>
       <div className="schedule-card-top">
         <div>
           <p className="eyebrow">
             <AppLink href={getSportPath(entry.sport)} className="eyebrow-link">{entry.sport}</AppLink>
           </p>
           <h3>{entry.eventName}</h3>
-          <p className="schedule-meta">{entry.phase} · {entry.venue || 'Venue TBC'} · {entry.sessionCode || 'Session TBD'}</p>
+          <p className="schedule-meta">{entry.phase || 'Scheduled'} · {entry.venue || 'Venue TBC'}</p>
         </div>
         <div className="schedule-card-badges">
           {medalEvent ? (
@@ -418,8 +445,11 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
           <strong>{formatLaReference(entry.startAtUtc)}</strong>
         </div>
       </div>
+      <div className="schedule-card-details">
+        <span>{entry.sessionCode || 'Session TBD'}</span>
+        <span>{formatDateLabel(entry.startAtUtc)}</span>
+      </div>
       <div className="schedule-card-footer">
-        <span className="schedule-card-date">{formatDateLabel(entry.startAtUtc)}</span>
         <div className="schedule-card-actions">
           <button
             type="button"
@@ -496,100 +526,85 @@ function HomeView({
 
   return (
     <>
-      <section className="hero panel home-hero">
-        <div className="hero-main">
-          <p className="eyebrow">Start here</p>
-          <h1>Choose your country</h1>
-          <p className="hero-copy">
-            Local-time LA 2028 schedules, clear country dashboards, and calendar exports without the clutter.
-          </p>
-          <div className="hero-search-wrap">
-            <label className="search-field hero-search">
-              <span>Search countries</span>
-              <input
-                type="search"
-                value={countryFilters.searchText}
-                placeholder="Search Netherlands, NED, Japan..."
-                onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
-              />
-            </label>
+      <section className="home-intro">
+        <p className="eyebrow">LA 2028, in your time zone</p>
+        <h1>Follow your country at the Games.</h1>
+        <p className="hero-copy">Find a country dashboard for verified qualification updates, session times in your local timezone, and a calendar you can take with you.</p>
+        <label className="search-field hero-search">
+          <span>Find a country</span>
+          <input
+            type="search"
+            value={countryFilters.searchText}
+            placeholder="Search Netherlands, NED, Japan..."
+            onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
+          />
+        </label>
+        <div className="hero-actions">
+          <AppLink href="/countries" className="button-primary">Browse all countries</AppLink>
+          <AppLink href="/schedule" className="button-secondary">Browse full schedule</AppLink>
+        </div>
+        <TrustLine runtime={runtime} />
+      </section>
+
+      {savedCountries.length ? (
+        <section className="saved-countries-row saved-countries-row--editorial">
+          <div className="saved-countries-label">
+            <p className="eyebrow">Saved countries</p>
+            <span>{savedCountries.length} saved</span>
           </div>
-          <div className="saved-countries-row compact">
-            <div className="saved-countries-label">
-              <p className="eyebrow">Saved countries</p>
-              <span>{savedCountries.length ? `${savedCountries.length} saved` : 'Nothing saved yet'}</span>
-            </div>
-            <div className="saved-countries-list">
-              {savedCountries.length ? (
-                savedCountries.slice(0, 6).map((country) => (
-                  <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
-                    <CountryFlag country={country} size="sm" />
-                    <span>{country.name}</span>
-                  </AppLink>
-                ))
-              ) : (
-                <span className="supporting-copy">Save countries and they’ll stay one tap away here.</span>
-              )}
-            </div>
+          <div className="saved-countries-list">
+            {savedCountries.slice(0, 6).map((country) => (
+              <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
+                <CountryFlag country={country} size="sm" />
+                <span>{country.name}</span>
+              </AppLink>
+            ))}
           </div>
-          {featuredCountries.length ? (
-            <div className="home-featured">
-              <p className="eyebrow">{countryFilters.searchText || countryFilters.favoriteOnly ? 'Search results' : 'Popular dashboards'}</p>
-              {displayCountries.length ? (
-                <div className="featured-country-list">
-                  {displayCountries.map((country) => (
-                    <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
-                      <div className="row-main">
-                        <CountryFlag country={country} size="md" />
-                        <div>
-                          <h3>{country.name}</h3>
-                          <p>Open dashboard</p>
-                        </div>
-                      </div>
-                      <span aria-hidden="true">›</span>
-                    </AppLink>
-                  ))}
+        </section>
+      ) : null}
+
+      <section className="home-directory">
+        <div className="section-heading section-heading--flush">
+          <div>
+            <p className="eyebrow">{countryFilters.searchText || countryFilters.favoriteOnly ? 'Search results' : 'Popular dashboards'}</p>
+            <h2>{countryFilters.searchText ? 'Choose a country' : 'Start with a country'}</h2>
+          </div>
+          <AppLink href="/countries" className="text-link">View all countries</AppLink>
+        </div>
+        {displayCountries.length ? (
+          <div className="featured-country-list">
+            {displayCountries.map((country) => (
+              <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
+                <div className="row-main">
+                  <CountryFlag country={country} size="md" />
+                  <div>
+                    <h3>{country.name}</h3>
+                    <p>{country.noc} country dashboard</p>
+                  </div>
                 </div>
-              ) : (
-                <EmptyState
-                  title="No matching countries"
-                  description="Try a different country name or NOC code."
-                />
-              )}
-            </div>
-          ) : null}
-          <div className="hero-actions">
-            <AppLink href="/countries" className="button-primary">Open all countries</AppLink>
-            <AppLink href="/schedule" className="button-secondary">Browse full schedule</AppLink>
+                <span className="row-arrow" aria-hidden="true">›</span>
+              </AppLink>
+            ))}
           </div>
-        </div>
-        <div className="hero-side home-hero-side">
-          <CountdownCard targetIso={LA28_OPENING_CEREMONY_UTC} />
-          <p className="eyebrow">Data status</p>
-          <h2>{formatUpdatedLabel(runtime.checkedAt)}</h2>
-          <p>Schedule source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}.</p>
-          <p>Qualification cards stay empty until an athlete or quota source is verified.</p>
-          {runtime.meta.staleWarning ? <p>{runtime.meta.staleWarning}</p> : null}
-          <div className="hero-side-actions">
-            <AppLink href="/changes" className="text-link">See recent changes</AppLink>
-          </div>
+        ) : (
+          <EmptyState title="No matching countries" description="Try a different country name or NOC code." />
+        )}
+      </section>
+
+      <section className="home-meta-strip">
+        <CountdownCard targetIso={LA28_OPENING_CEREMONY_UTC} />
+        <div className="home-stats">
+          {homeStats.slice(0, 3).map((card) => <SummaryCard key={card.label} {...card} />)}
         </div>
       </section>
 
-      <section className="summary-grid summary-grid--quiet">
-        {homeStats.map((card) => (
-          <SummaryCard key={card.label} {...card} />
-        ))}
-      </section>
-
-      <section className="panel page-section">
-        <div className="section-heading">
+      <section className="page-section schedule-preview">
+        <div className="section-heading section-heading--flush">
           <div>
             <p className="eyebrow">Schedule preview</p>
-            <h2>Scan the full competition schedule</h2>
+            <h2>Explore the competition schedule</h2>
           </div>
           <div className="heading-meta">
-            <span className="status-pill">Source: {runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'}</span>
             <button
               type="button"
               className="button-secondary"
@@ -611,7 +626,7 @@ function HomeView({
         />
         {scheduleEntries.length ? (
           <div className="schedule-grid">
-            {scheduleEntries.slice(0, 18).map((entry) => (
+            {scheduleEntries.slice(0, 8).map((entry) => (
               <ScheduleCard key={entry.id} entry={entry} onCalendarExport={onCalendarExport} />
             ))}
           </div>
@@ -643,8 +658,8 @@ function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countr
   const hasHiddenCountries = displayedCountries.length < countries.length;
 
   return (
-    <section className="panel page-section country-directory-page">
-      <div className="section-heading section-heading--schedule">
+    <section className="page-section country-directory-page">
+      <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">Countries</p>
           <h1>Country dashboards</h1>
@@ -656,24 +671,20 @@ function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countr
       <div className="section-intro">
         Pick a country to see its dashboard, save favorites, and follow qualification and schedule updates in one place.
       </div>
-      <div className="saved-countries-row">
+      {savedCountries.length ? <div className="saved-countries-row saved-countries-row--editorial">
         <div className="saved-countries-label">
           <p className="eyebrow">Saved countries</p>
-          <span>{savedCountries.length ? `${savedCountries.length} saved` : 'Nothing saved yet'}</span>
+          <span>{savedCountries.length} saved</span>
         </div>
         <div className="saved-countries-list">
-          {savedCountries.length ? (
-            savedCountries.map((country) => (
-              <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
-                <CountryFlag country={country} size="sm" />
-                <span>{country.name}</span>
-              </AppLink>
-            ))
-          ) : (
-            <span className="supporting-copy">Save a few favorites and they’ll stay at the top for quick access.</span>
-          )}
+          {savedCountries.map((country) => (
+            <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
+              <CountryFlag country={country} size="sm" />
+              <span>{country.name}</span>
+            </AppLink>
+          ))}
         </div>
-      </div>
+      </div> : null}
       <div className="filters-grid countries-filter-grid">
         <label className="search-field">
           <span>Find a country</span>
@@ -714,10 +725,10 @@ function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countr
   );
 }
 
-function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
+function ScheduleView({ runtime, scheduleEntries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
   return (
-    <section className="panel page-section">
-      <div className="section-heading section-heading--schedule">
+    <section className="page-section">
+      <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">Schedule</p>
           <h1>Competition schedule</h1>
@@ -737,6 +748,7 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
           </button>
         </div>
       </div>
+      <TrustLine runtime={runtime} className="trust-line--section" />
       <FilterBar
         filters={scheduleFilters}
         options={scheduleOptions}
@@ -759,10 +771,10 @@ function ScheduleView({ scheduleEntries, scheduleFilters, onScheduleFiltersChang
   );
 }
 
-function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
+function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
   if (!sport) {
     return (
-      <section className="panel page-section">
+      <section className="page-section">
         <EmptyState
           title="Sport not found"
           description="Open the schedule explorer to choose one of the sports currently indexed by Games28."
@@ -772,8 +784,8 @@ function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, s
   }
 
   return (
-    <section className="panel page-section">
-      <div className="section-heading section-heading--schedule">
+    <section className="page-section">
+      <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">Sport schedule</p>
           <h1>{sport}</h1>
@@ -794,6 +806,7 @@ function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, s
           </button>
         </div>
       </div>
+      <TrustLine runtime={runtime} className="trust-line--section" />
       <div className="timezone-note">
         Times are shown in your local timezone: <strong>{getViewerTimeZoneLabel()}</strong>. Each session also shows an LA reference time.
       </div>
@@ -835,10 +848,10 @@ function SportView({ sport, entries, scheduleFilters, onScheduleFiltersChange, s
   );
 }
 
-function SessionView({ entry, onCalendarExport }) {
+function SessionView({ runtime, entry, onCalendarExport }) {
   if (!entry) {
     return (
-      <section className="panel page-section">
+      <section className="page-section">
         <EmptyState
           title="Session not found"
           description="Open the schedule explorer to choose a currently indexed session."
@@ -848,8 +861,8 @@ function SessionView({ entry, onCalendarExport }) {
   }
 
   return (
-    <section className="panel page-section session-detail">
-      <div className="section-heading">
+    <section className="page-section session-detail">
+      <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">{entry.sport}</p>
           <h1>{entry.eventName}</h1>
@@ -870,6 +883,7 @@ function SessionView({ entry, onCalendarExport }) {
           </button>
         </div>
       </div>
+      <TrustLine runtime={runtime} className="trust-line--section" />
       <div className="session-detail-body">
         <div className="time-grid">
           <div>
@@ -896,13 +910,13 @@ function SessionView({ entry, onCalendarExport }) {
   );
 }
 
-function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalendarExport }) {
+function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, onCalendarExport }) {
   const hasQualificationData = dashboard.athleteCards.length > 0;
   const hasConfirmedSessions = dashboard.confirmedSessions.length > 0;
 
   return (
     <section className="country-page">
-      <div className="panel page-section country-page__hero">
+      <div className="country-page__hero">
         <div className="country-page__head">
           <div className="country-page__identity">
             <CountryFlag country={dashboard.country} size="lg" className="country-hero-flag" />
@@ -936,6 +950,7 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
         <p className="country-page__intro">
           Games28 shows confirmation only: an official quota, an officially selected athlete, or a final Games entry. It never predicts a roster from rankings.
         </p>
+        <TrustLine runtime={runtime} />
       </div>
 
       <section className="summary-grid country-page__stats">
@@ -1187,16 +1202,17 @@ function CountryView({ dashboard, favoriteCountries, onToggleFavorite, onCalenda
     </section>
   );
 }
-function ChangesView({ changes }) {
+function ChangesView({ runtime, changes }) {
   return (
-    <section className="panel page-section">
-      <div className="section-heading">
+    <section className="page-section changes-page">
+      <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">Change feed</p>
           <h1>Recent schedule and qualification changes</h1>
         </div>
         <span className="supporting-copy">{formatCount(changes.length)} tracked changes</span>
       </div>
+      <TrustLine runtime={runtime} className="trust-line--section" />
       {changes.length ? (
         <div className="stacked-list">
           {changes.map((change) => (
@@ -1225,8 +1241,8 @@ function ChangesView({ changes }) {
 
 function NotFoundView() {
   return (
-    <section className="panel page-section">
-      <div className="section-heading">
+    <section className="page-section">
+      <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">404</p>
           <h1>That route is not wired yet</h1>
@@ -1360,7 +1376,6 @@ export default function App() {
         </AppLink>
         <div className="site-header-actions">
           <SiteNavigation routeName={route.name} />
-          <KofiLink className="header-support-link">Support</KofiLink>
         </div>
       </header>
 
@@ -1405,6 +1420,7 @@ export default function App() {
 
         {!isLoadingRuntime && route.name === 'schedule' ? (
           <ScheduleView
+            runtime={runtime}
             scheduleEntries={scheduleEntries}
             scheduleFilters={scheduleFilters}
             onScheduleFiltersChange={setScheduleFilters}
@@ -1415,6 +1431,7 @@ export default function App() {
 
         {!isLoadingRuntime && route.name === 'sport' ? (
           <SportView
+            runtime={runtime}
             sport={currentSport}
             entries={currentSportEntries}
             scheduleFilters={scheduleFilters}
@@ -1426,6 +1443,7 @@ export default function App() {
 
         {!isLoadingRuntime && route.name === 'session' ? (
           <SessionView
+            runtime={runtime}
             entry={currentSession}
             onCalendarExport={handleCalendarExport}
           />
@@ -1433,6 +1451,7 @@ export default function App() {
 
         {!isLoadingRuntime && route.name === 'country' && currentDashboard ? (
           <CountryView
+            runtime={runtime}
             dashboard={currentDashboard}
             favoriteCountries={favoriteCountries}
             onToggleFavorite={toggleFavoriteCountry}
@@ -1440,11 +1459,12 @@ export default function App() {
           />
         ) : null}
 
-        {!isLoadingRuntime && route.name === 'changes' ? <ChangesView changes={changes} /> : null}
+        {!isLoadingRuntime && route.name === 'changes' ? <ChangesView runtime={runtime} changes={changes} /> : null}
+        {!isLoadingRuntime && route.name === 'sources' ? <SourcesView runtime={runtime} /> : null}
         {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
         {!isLoadingRuntime && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
-        {!isLoadingRuntime && route.name !== 'admin' ? <SourceRail runtime={runtime} /> : null}
+        {!isLoadingRuntime && route.name !== 'admin' ? <SiteFooter /> : null}
         </div>
       </main>
       <SiteNavigation routeName={route.name} mobile />
