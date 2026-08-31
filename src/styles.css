@@ -1596,6 +1596,10 @@ body {
 .hero-search { width: min(100%, 560px); margin-top: 6px; }
 .hero-search input { min-height: 54px; font-size: 1rem; box-shadow: 0 6px 20px rgba(25, 39, 74, 0.05); }
 .hero-actions { margin-top: 2px; }
+.home-search-results { display: grid; gap: 8px; width: min(100%, 560px); }
+.home-search-results .featured-country-list { grid-template-columns: 1fr; }
+.home-search-results .featured-country-row,
+.home-search-results .featured-country-row:nth-child(n) { padding: 12px 0; border-right: 0; }
 
 .trust-line {
   display: flex;

@@ -523,6 +523,7 @@ function HomeView({
   }, [favorites, runtime.countries]);
 
   const displayCountries = countryFilters.searchText || countryFilters.favoriteOnly ? countries.slice(0, 6) : featuredCountries;
+  const isSearchingCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
 
   return (
     <>
@@ -539,6 +540,29 @@ function HomeView({
             onChange={(event) => onCountryFiltersChange({ ...countryFilters, searchText: event.target.value })}
           />
         </label>
+        {isSearchingCountries ? (
+          <div className="home-search-results" aria-live="polite">
+            <p className="eyebrow">Search results</p>
+            {displayCountries.length ? (
+              <div className="featured-country-list">
+                {displayCountries.map((country) => (
+                  <AppLink key={country.noc} href={`/countries/${country.noc}`} className="featured-country-row">
+                    <div className="row-main">
+                      <CountryFlag country={country} size="md" />
+                      <div>
+                        <h3>{country.name}</h3>
+                        <p>{country.noc} country dashboard</p>
+                      </div>
+                    </div>
+                    <span className="row-arrow" aria-hidden="true">›</span>
+                  </AppLink>
+                ))}
+              </div>
+            ) : (
+              <EmptyState title="No matching countries" description="Try a different country name or NOC code." compact />
+            )}
+          </div>
+        ) : null}
         <div className="hero-actions">
           <AppLink href="/countries" className="button-primary">Browse all countries</AppLink>
           <AppLink href="/schedule" className="button-secondary">Browse full schedule</AppLink>
@@ -563,11 +587,11 @@ function HomeView({
         </section>
       ) : null}
 
-      <section className="home-directory">
+      {!isSearchingCountries ? <section className="home-directory">
         <div className="section-heading section-heading--flush">
           <div>
-            <p className="eyebrow">{countryFilters.searchText || countryFilters.favoriteOnly ? 'Search results' : 'Popular dashboards'}</p>
-            <h2>{countryFilters.searchText ? 'Choose a country' : 'Start with a country'}</h2>
+            <p className="eyebrow">Popular dashboards</p>
+            <h2>Start with a country</h2>
           </div>
           <AppLink href="/countries" className="text-link">View all countries</AppLink>
         </div>
@@ -589,7 +613,7 @@ function HomeView({
         ) : (
           <EmptyState title="No matching countries" description="Try a different country name or NOC code." />
         )}
-      </section>
+      </section> : null}
 
       <section className="home-meta-strip">
         <CountdownCard targetIso={LA28_OPENING_CEREMONY_UTC} />
