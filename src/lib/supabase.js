@@ -39,12 +39,13 @@ export async function getReviewCandidates() {
 
 export async function resolveReviewCandidate({ id, status, confirmationRecord, resolutionNote }) {
   if (!supabase) throw new Error('Supabase is not configured.');
+  const isFinalDecision = status === 'approved' || status === 'rejected';
   const payload = {
     status,
     confirmation_record: confirmationRecord,
-    resolution_note: resolutionNote || null,
-    resolved_at: new Date().toISOString(),
-    resolved_by: (await getAdminSession())?.user?.id || null,
+    resolution_note: status === 'pending' ? null : resolutionNote || null,
+    resolved_at: isFinalDecision ? new Date().toISOString() : null,
+    resolved_by: status === 'pending' ? null : (await getAdminSession())?.user?.id || null,
     updated_at: new Date().toISOString()
   };
   const { error } = await supabase.from('qualification_review_candidates').update(payload).eq('id', id);

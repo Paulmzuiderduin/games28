@@ -26,6 +26,12 @@ const STATE_LABELS = {
   entered: 'Final LA28 entry list confirms them'
 };
 
+const REVIEW_TABS = [
+  { status: 'pending', label: 'Waiting' },
+  { status: 'review_later', label: 'Review later' },
+  { status: 'rejected', label: 'Rejected' }
+];
+
 function localCandidateUrl() {
   const base = import.meta.env.VITE_DATA_BASE_URL || '';
   return `${base.replace(/\/$/, '')}/qualification-ingestion.json` || '/qualification-ingestion.json';
@@ -102,16 +108,21 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   const [email, setEmail] = useState('');
   const [candidates, setCandidates] = useState([]);
   const [selectedCandidateId, setSelectedCandidateId] = useState(null);
+  const [activeReviewTab, setActiveReviewTab] = useState('pending');
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [draft, setDraft] = useState(EMPTY_DRAFT);
   const [note, setNote] = useState('');
 
-  const pendingCandidates = useMemo(
-    () => candidates.filter((candidate) => candidate.status === 'pending'),
+  const candidatesByStatus = useMemo(
+    () => REVIEW_TABS.reduce((groups, tab) => ({
+      ...groups,
+      [tab.status]: candidates.filter((candidate) => candidate.status === tab.status)
+    }), {}),
     [candidates]
   );
-  const selectedCandidate = pendingCandidates.find((candidate) => candidate.id === selectedCandidateId) || null;
+  const visibleCandidates = candidatesByStatus[activeReviewTab] || [];
+  const selectedCandidate = visibleCandidates.find((candidate) => candidate.id === selectedCandidateId) || null;
   const sportOptions = useMemo(
     () => getSportOptions(scheduleEntries, qualificationSources),
     [scheduleEntries, qualificationSources]
@@ -161,8 +172,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   }
 
   useEffect(() => {
-    if (!selectedCandidate && pendingCandidates[0]) selectCandidate(pendingCandidates[0]);
-  }, [pendingCandidates.length, selectedCandidateId]);
+    if (!selectedCandidate && visibleCandidates[0]) selectCandidate(visibleCandidates[0]);
+  }, [activeReviewTab, selectedCandidateId, visibleCandidates]);
 
   async function requestLink(event) {
     event.preventDefault();
@@ -212,9 +223,13 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     setIsLoading(true);
     try {
       await resolveReviewCandidate({ id: candidate.id, status, confirmationRecord, resolutionNote: note });
-      setMessage(status === 'approved'
-        ? 'Approved. Games28 will publish this confirmed record in the next daily refresh.'
-        : 'Rejected. This item will not appear on the public site.');
+      const messages = {
+        approved: 'Approved. Games28 will publish this confirmed record in the next daily refresh.',
+        rejected: 'Rejected. This item stays private and can be reopened later.',
+        review_later: 'Moved to Review later. It stays private and will not be included in daily publishing.',
+        pending: 'Reopened. This report is back in the Waiting inbox for a fresh decision.'
+      };
+      setMessage(messages[status]);
       setSelectedCandidateId(null);
       setDraft(EMPTY_DRAFT);
       setNote('');
@@ -261,7 +276,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         <div>
           <p className="eyebrow">Private review console</p>
           <h1>Confirm qualification reports</h1>
-          <p>{pendingCandidates.length} waiting · {session.user.email}</p>
+          <p>{candidatesByStatus.pending.length} waiting · {session.user.email}</p>
         </div>
         <button type="button" className="button-secondary" onClick={() => signOutAdmin().then(() => setSession(null))}>Sign out</button>
       </div>
@@ -271,30 +286,55 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         <p><strong>3. Decide.</strong> Approve for the next daily publish, or reject so it stays private.</p>
       </section>
       {message ? <p className="timezone-note">{message}</p> : null}
+      <div className="admin-review-tabs" role="tablist" aria-label="Qualification review status">
+        {REVIEW_TABS.map((tab) => (
+          <button
+            key={tab.status}
+            type="button"
+            role="tab"
+            aria-selected={activeReviewTab === tab.status}
+            className={`admin-review-tab ${activeReviewTab === tab.status ? 'active' : ''}`}
+            onClick={() => {
+              setActiveReviewTab(tab.status);
+              setSelectedCandidateId(null);
+              setMessage('');
+            }}
+          >
+            {tab.label} <span>{candidatesByStatus[tab.status].length}</span>
+          </button>
+        ))}
+      </div>
       {selectedCandidate ? (
         <div className="admin-review-layout">
           <CandidateEvidence candidate={selectedCandidate} countries={countries} source={sourceFor(selectedCandidate, qualificationSources)} />
-          <ReviewEditor
-            candidate={selectedCandidate}
-            countries={countries}
-            sportOptions={sportOptions}
-            scheduleEntries={scheduleEntries}
-            draft={draft}
-            isLoading={isLoading}
-            note={note}
-            onChange={setDraft}
-            onNoteChange={setNote}
-            onApprove={() => resolve(selectedCandidate, 'approved')}
-            onReject={() => resolve(selectedCandidate, 'rejected')}
-          />
+          {activeReviewTab === 'rejected' ? (
+            <RejectedCandidateActions candidate={selectedCandidate} onReopen={() => resolve(selectedCandidate, 'pending')} />
+          ) : (
+            <ReviewEditor
+              candidate={selectedCandidate}
+              countries={countries}
+              sportOptions={sportOptions}
+              scheduleEntries={scheduleEntries}
+              draft={draft}
+              isLoading={isLoading}
+              note={note}
+              reviewStatus={activeReviewTab}
+              onChange={setDraft}
+              onNoteChange={setNote}
+              onApprove={() => resolve(selectedCandidate, 'approved')}
+              onReject={() => resolve(selectedCandidate, 'rejected')}
+              onReviewLater={() => resolve(selectedCandidate, 'review_later')}
+              onReopen={() => resolve(selectedCandidate, 'pending')}
+            />
+          )}
         </div>
-      ) : !isLoading ? <p className="supporting-copy">No candidates are waiting for a decision.</p> : null}
-      {pendingCandidates.length > 1 ? (
+      ) : !isLoading ? <p className="supporting-copy">No {REVIEW_TABS.find((tab) => tab.status === activeReviewTab)?.label.toLowerCase()} reports right now.</p> : null}
+      {visibleCandidates.length > 1 ? (
         <section className="admin-other-candidates">
           <p className="eyebrow">Other reports</p>
           <h2>Choose the next report to review</h2>
           <div className="admin-candidate-list">
-            {pendingCandidates.filter((candidate) => candidate.id !== selectedCandidate?.id).map((candidate) => (
+            {visibleCandidates.filter((candidate) => candidate.id !== selectedCandidate?.id).map((candidate) => (
               <button type="button" className="admin-candidate-choice" key={candidate.id} onClick={() => selectCandidate(candidate)}>
                 <span>{suggestedSubject(candidate, countries)}</span>
                 <small>{sourceFor(candidate, qualificationSources)?.label || 'Official qualification report'}</small>
@@ -330,7 +370,7 @@ function CandidateEvidence({ candidate, countries, source }) {
   );
 }
 
-function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, draft, isLoading, note, onChange, onNoteChange, onApprove, onReject }) {
+function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, draft, isLoading, note, reviewStatus, onChange, onNoteChange, onApprove, onReject, onReviewLater, onReopen }) {
   const update = (changes) => onChange({ ...draft, ...changes });
   const disciplineOptions = useMemo(
     () => getDisciplineOptions(scheduleEntries, draft.sport),
@@ -400,9 +440,25 @@ function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, dra
       </label>
       <div className="admin-actions">
         <button type="button" className="button-primary" disabled={isLoading} onClick={onApprove}>Approve for next daily publish</button>
+        {reviewStatus === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : null}
+        {reviewStatus === 'review_later' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to waiting</button> : null}
         <button type="button" className="button-secondary" disabled={isLoading} onClick={onReject}>Reject — do not publish</button>
       </div>
       <p className="admin-publish-note"><strong>Step 3:</strong> Approval adds this to the next daily data refresh. It does not make a prediction or name anyone beyond the official source.</p>
+    </section>
+  );
+}
+
+function RejectedCandidateActions({ candidate, onReopen }) {
+  return (
+    <section className="admin-review-editor">
+      <p className="eyebrow">Rejected report</p>
+      <h2>Keep private or reopen</h2>
+      <p className="supporting-copy">This report is not public and will not be included in the daily publish. Reopen it only when you want to review the official evidence again.</p>
+      {candidate.resolution_note || candidate.resolutionNote ? <p className="admin-publish-note"><strong>Previous note:</strong> {candidate.resolution_note || candidate.resolutionNote}</p> : null}
+      <div className="admin-actions">
+        <button type="button" className="button-secondary" onClick={onReopen}>Reopen for review</button>
+      </div>
     </section>
   );
 }

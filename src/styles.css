@@ -1321,6 +1321,50 @@ h4,
   background: var(--blue-wash);
 }
 
+.admin-review-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-review-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.admin-review-tab span {
+  display: inline-grid;
+  min-width: 20px;
+  min-height: 20px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--ink-muted);
+  font-size: 0.74rem;
+}
+
+.admin-review-tab:hover,
+.admin-review-tab.active {
+  border-color: var(--blue);
+  background: var(--blue-wash);
+  color: var(--blue);
+}
+
+.admin-review-tab.active span {
+  background: var(--blue);
+  color: #fff;
+}
+
 .admin-how-it-works p,
 .admin-evidence-reason,
 .admin-publish-note {
