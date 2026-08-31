@@ -7,6 +7,7 @@ import {
   resolveReviewCandidate,
   signOutAdmin
 } from '../lib/supabase.js';
+import { isAnalyticsDisabled, setAnalyticsDisabled } from '../lib/analytics.js';
 
 const EMPTY_DRAFT = {
   noc: '', sport: '', disciplines: [], subjectType: 'noc_quota', state: 'allocated',
@@ -113,6 +114,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   const [isLoading, setIsLoading] = useState(false);
   const [draft, setDraft] = useState(EMPTY_DRAFT);
   const [note, setNote] = useState('');
+  const [analyticsDisabled, setAnalyticsDisabledState] = useState(() => isAnalyticsDisabled());
 
   const candidatesByStatus = useMemo(
     () => REVIEW_TABS.reduce((groups, tab) => ({
@@ -284,6 +286,26 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         <p><strong>1. Check the official source.</strong> Open the link and verify the finding.</p>
         <p><strong>2. Check the proposed record.</strong> It is pre-filled; edit only what the source clearly proves.</p>
         <p><strong>3. Decide.</strong> Approve for the next daily publish, or reject so it stays private.</p>
+      </section>
+      <section className="admin-analytics-control" aria-label="Analytics preference for this browser">
+        <div>
+          <p className="eyebrow">Your testing browser</p>
+          <h2>Exclude this browser from analytics</h2>
+          <p>When enabled, Games28 does not send page views or action events from this browser to Umami. Turning it on reloads once to apply the setting. Other visitors are unaffected.</p>
+        </div>
+        <label className="analytics-toggle">
+          <input
+            type="checkbox"
+            checked={analyticsDisabled}
+            onChange={(event) => {
+              const nextValue = event.target.checked;
+              setAnalyticsDisabled(nextValue);
+              setAnalyticsDisabledState(nextValue);
+              if (nextValue) window.location.reload();
+            }}
+          />
+          <span>{analyticsDisabled ? 'Excluded' : 'Tracking enabled'}</span>
+        </label>
       </section>
       {message ? <p className="timezone-note">{message}</p> : null}
       <div className="admin-review-tabs" role="tablist" aria-label="Qualification review status">
