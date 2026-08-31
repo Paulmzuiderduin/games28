@@ -33,6 +33,21 @@ test('auto-publishes only complete structured official allocation rows', async (
   assert.equal(result.structuredRecords[0].quotaCount, 2);
 });
 
+test('keeps a structured record ID stable when an official table is reordered', async () => {
+  const sourceRows = (rows) => ingestQualificationSources({
+    sources: [source],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response(`<table><tr><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>${rows}</table>`)
+  });
+  const netherlands = '<tr><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr>';
+  const usa = '<tr><td>USA</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr>';
+  const first = await sourceRows(`${netherlands}${usa}`);
+  const second = await sourceRows(`${usa}${netherlands}`);
+
+  assert.equal(first.structuredRecords.find((record) => record.noc === 'NED').id, second.structuredRecords.find((record) => record.noc === 'NED').id);
+});
+
 test('does not publish incomplete tables or unknown NOCs', async () => {
   const result = await ingestQualificationSources({
     sources: [source],

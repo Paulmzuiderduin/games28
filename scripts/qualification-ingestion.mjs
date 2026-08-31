@@ -109,7 +109,7 @@ function isIsoDate(value) {
   return Boolean(value) && Number.isFinite(Date.parse(value));
 }
 
-function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index, options = {}) {
+function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, _index, options = {}) {
   const explicitNoc = findValue(row, HEADER_ALIASES.noc)?.toUpperCase();
   const countryName = findValue(row, HEADER_ALIASES.countryName);
   const noc = explicitNoc || nocByCountryName.get(key(countryName));
@@ -122,7 +122,9 @@ function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, inde
 
   if (!noc || !knownNocs.has(noc) || !subjectType || !state || !isIsoDate(sourcePublishedAt)) return null;
   return {
-    id: `auto-${source.id}-${hash(JSON.stringify(row))}-${index + 1}`,
+    // The row's source content is the identity. A supplier may reorder a table
+    // without changing a qualification, which must not create a false change.
+    id: `auto-${source.id}-${hash(JSON.stringify(row))}`,
     noc,
     sport: source.sport,
     disciplines: [findValue(row, HEADER_ALIASES.discipline)].filter(Boolean),
