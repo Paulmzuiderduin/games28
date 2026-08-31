@@ -79,7 +79,25 @@ function suggestedSubject(candidate, countries) {
   return `${countryName(countries, suggested.noc)} · ${subject || 'Qualification record'}`;
 }
 
-export default function AdminReviewConsole({ countries = [], qualificationSources = [] }) {
+function getSportOptions(scheduleEntries, qualificationSources) {
+  return [...new Set([
+    ...scheduleEntries.map((entry) => entry.sport),
+    ...qualificationSources.flatMap((source) => source.sports || [source.sport])
+  ].filter(Boolean))].sort((left, right) => left.localeCompare(right));
+}
+
+function getDisciplineOptions(scheduleEntries, sport) {
+  if (!sport) return [];
+
+  return [...new Set(
+    scheduleEntries
+      .filter((entry) => entry.sport === sport)
+      .map((entry) => entry.discipline || entry.eventName)
+      .filter(Boolean)
+  )].sort((left, right) => left.localeCompare(right));
+}
+
+export default function AdminReviewConsole({ countries = [], qualificationSources = [], scheduleEntries = [] }) {
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
   const [candidates, setCandidates] = useState([]);
@@ -94,6 +112,10 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     [candidates]
   );
   const selectedCandidate = pendingCandidates.find((candidate) => candidate.id === selectedCandidateId) || null;
+  const sportOptions = useMemo(
+    () => getSportOptions(scheduleEntries, qualificationSources),
+    [scheduleEntries, qualificationSources]
+  );
 
   async function loadCandidates() {
     setIsLoading(true);
@@ -255,6 +277,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
           <ReviewEditor
             candidate={selectedCandidate}
             countries={countries}
+            sportOptions={sportOptions}
+            scheduleEntries={scheduleEntries}
             draft={draft}
             isLoading={isLoading}
             note={note}
@@ -306,8 +330,15 @@ function CandidateEvidence({ candidate, countries, source }) {
   );
 }
 
-function ReviewEditor({ candidate, countries, draft, isLoading, note, onChange, onNoteChange, onApprove, onReject }) {
+function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, draft, isLoading, note, onChange, onNoteChange, onApprove, onReject }) {
   const update = (changes) => onChange({ ...draft, ...changes });
+  const disciplineOptions = useMemo(
+    () => getDisciplineOptions(scheduleEntries, draft.sport),
+    [scheduleEntries, draft.sport]
+  );
+  const currentDiscipline = draft.disciplines.length === 1 ? draft.disciplines[0] : '';
+  const hasCurrentSportOption = sportOptions.includes(draft.sport);
+  const hasCurrentDisciplineOption = disciplineOptions.includes(currentDiscipline);
   return (
     <section className="admin-review-editor">
       <p className="eyebrow">Step 2 · Check the record</p>
@@ -322,11 +353,21 @@ function ReviewEditor({ candidate, countries, draft, isLoading, note, onChange, 
       </label>
       <label>
         <span>Sport</span>
-        <input value={draft.sport} onChange={(event) => update({ sport: event.target.value })} placeholder="e.g. Cricket" />
+        <select value={draft.sport} onChange={(event) => update({ sport: event.target.value, disciplines: [] })}>
+          <option value="">Choose sport</option>
+          {draft.sport && !hasCurrentSportOption ? <option value={draft.sport}>Current value: {draft.sport}</option> : null}
+          {sportOptions.map((sport) => <option key={sport} value={sport}>{sport}</option>)}
+        </select>
+        <small>Choose the matching LA28 schedule sport. This prevents spelling variations in public records.</small>
       </label>
       <label>
         <span>Event or discipline</span>
-        <input value={draft.disciplines.join(', ')} onChange={(event) => update({ disciplines: event.target.value.split(',').map((value) => value.trim()).filter(Boolean) })} placeholder="e.g. Women's T20" />
+        <select value={currentDiscipline} onChange={(event) => update({ disciplines: event.target.value ? [event.target.value] : [] })} disabled={!draft.sport}>
+          <option value="">No event specified in the official source</option>
+          {currentDiscipline && !hasCurrentDisciplineOption ? <option value={currentDiscipline}>Current value: {currentDiscipline}</option> : null}
+          {disciplineOptions.map((discipline) => <option key={discipline} value={discipline}>{discipline}</option>)}
+        </select>
+        <small>Only choose an event when the official source explicitly names it. Otherwise, leave this as no event specified.</small>
       </label>
       <div className="admin-form-row">
         <label>

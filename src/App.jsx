@@ -1461,7 +1461,7 @@ export default function App() {
 
         {!isLoadingRuntime && route.name === 'changes' ? <ChangesView runtime={runtime} changes={changes} /> : null}
         {!isLoadingRuntime && route.name === 'sources' ? <SourcesView runtime={runtime} /> : null}
-        {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} /> : null}
+        {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} scheduleEntries={runtime.scheduleEntries} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
         {!isLoadingRuntime && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
         {!isLoadingRuntime && route.name !== 'admin' ? <SiteFooter /> : null}
