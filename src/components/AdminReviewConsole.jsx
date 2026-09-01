@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   getAdminSession,
+  createReviewCandidateFromCommunityReport,
+  getCommunityReports,
   getReviewCandidates,
   isSupabaseConfigured,
   requestAdminMagicLink,
+  resolveCommunityReport,
   resolveReviewCandidate,
   signOutAdmin
 } from '../lib/supabase.js';
@@ -32,6 +35,20 @@ const REVIEW_TABS = [
   { status: 'review_later', label: 'Review later' },
   { status: 'rejected', label: 'Rejected' }
 ];
+
+const COMMUNITY_REPORT_TABS = [
+  { status: 'pending', label: 'New' },
+  { status: 'review_later', label: 'Review later' },
+  { status: 'converted', label: 'In review' },
+  { status: 'rejected', label: 'Dismissed' }
+];
+
+const REPORT_CATEGORY_LABELS = {
+  missing_qualification: 'Missing qualification',
+  schedule_correction: 'Schedule correction',
+  qualification_correction: 'Qualification correction',
+  other: 'Other update'
+};
 
 function localCandidateUrl() {
   const base = import.meta.env.VITE_DATA_BASE_URL || '';
@@ -108,8 +125,11 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
   const [candidates, setCandidates] = useState([]);
+  const [communityReports, setCommunityReports] = useState([]);
   const [selectedCandidateId, setSelectedCandidateId] = useState(null);
   const [activeReviewTab, setActiveReviewTab] = useState('pending');
+  const [selectedCommunityReportId, setSelectedCommunityReportId] = useState(null);
+  const [activeCommunityReportTab, setActiveCommunityReportTab] = useState('pending');
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [draft, setDraft] = useState(EMPTY_DRAFT);
@@ -129,12 +149,23 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     () => getSportOptions(scheduleEntries, qualificationSources),
     [scheduleEntries, qualificationSources]
   );
+  const communityReportsByStatus = useMemo(
+    () => COMMUNITY_REPORT_TABS.reduce((groups, tab) => ({
+      ...groups,
+      [tab.status]: communityReports.filter((report) => report.status === tab.status)
+    }), {}),
+    [communityReports]
+  );
+  const visibleCommunityReports = communityReportsByStatus[activeCommunityReportTab] || [];
+  const selectedCommunityReport = visibleCommunityReports.find((report) => report.id === selectedCommunityReportId) || null;
 
   async function loadCandidates() {
     setIsLoading(true);
     try {
       if (isSupabaseConfigured) {
-        setCandidates(await getReviewCandidates());
+        const [reviewCandidates, reports] = await Promise.all([getReviewCandidates(), getCommunityReports()]);
+        setCandidates(reviewCandidates);
+        setCommunityReports(reports);
       } else {
         const response = await fetch(localCandidateUrl(), { headers: { 'cache-control': 'no-cache' } });
         const artifact = response.ok ? await response.json() : { reviewQueue: [] };
@@ -146,6 +177,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
           source_url: candidate.sourceUrl,
           suggested_record: candidate.suggestedRecord || null
         })));
+        setCommunityReports([]);
       }
     } catch (error) {
       setMessage(error.message || 'Unable to load review candidates.');
@@ -173,9 +205,18 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     setMessage('');
   }
 
+  function selectCommunityReport(report) {
+    setSelectedCommunityReportId(report.id);
+    setMessage('');
+  }
+
   useEffect(() => {
     if (!selectedCandidate && visibleCandidates[0]) selectCandidate(visibleCandidates[0]);
   }, [activeReviewTab, selectedCandidateId, visibleCandidates]);
+
+  useEffect(() => {
+    if (!selectedCommunityReport && visibleCommunityReports[0]) selectCommunityReport(visibleCommunityReports[0]);
+  }, [activeCommunityReportTab, selectedCommunityReportId, visibleCommunityReports]);
 
   async function requestLink(event) {
     event.preventDefault();
@@ -238,6 +279,51 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       await loadCandidates();
     } catch (error) {
       setMessage(error.message || 'Unable to save this decision.');
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function resolveReport(report, status) {
+    setIsLoading(true);
+    try {
+      await resolveCommunityReport({ id: report.id, status });
+      setMessage(status === 'review_later'
+        ? 'Moved to Review later. This stays private.'
+        : 'Dismissed. This report stays private and can be reopened later.');
+      setSelectedCommunityReportId(null);
+      await loadCandidates();
+    } catch (error) {
+      setMessage(error.message || 'Unable to save this report decision.');
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function convertReport(report, source) {
+    if (!source) {
+      setMessage('Choose the official source you will verify before creating a qualification candidate.');
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const suggestedRecord = {
+        noc: report.noc || '',
+        sport: report.sport || source.sport || '',
+        disciplines: [],
+        subjectType: 'noc_quota',
+        state: 'allocated',
+        quotaCount: 1,
+        sourcePublishedAt: String(report.created_at || '').slice(0, 10)
+      };
+      const candidateId = await createReviewCandidateFromCommunityReport({ report, source, suggestedRecord });
+      setSelectedCommunityReportId(null);
+      setActiveReviewTab('pending');
+      setSelectedCandidateId(candidateId);
+      setMessage('Added to the qualification review queue. Check the selected official source before approving it.');
+      await loadCandidates();
+    } catch (error) {
+      setMessage(error.message || 'Unable to create a qualification review candidate.');
     } finally {
       setIsLoading(false);
     }
@@ -365,7 +451,133 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
           </div>
         </section>
       ) : null}
+      <CommunityReportsPanel
+        reportsByStatus={communityReportsByStatus}
+        visibleReports={visibleCommunityReports}
+        selectedReport={selectedCommunityReport}
+        activeTab={activeCommunityReportTab}
+        countries={countries}
+        qualificationSources={qualificationSources}
+        isLoading={isLoading}
+        onTabChange={(status) => {
+          setActiveCommunityReportTab(status);
+          setSelectedCommunityReportId(null);
+          setMessage('');
+        }}
+        onSelect={selectCommunityReport}
+        onReviewLater={() => resolveReport(selectedCommunityReport, 'review_later')}
+        onDismiss={() => resolveReport(selectedCommunityReport, 'rejected')}
+        onReopen={() => resolveReport(selectedCommunityReport, 'pending')}
+        onConvert={convertReport}
+      />
     </section>
+  );
+}
+
+function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport, activeTab, countries, qualificationSources, isLoading, onTabChange, onSelect, onReviewLater, onDismiss, onReopen, onConvert }) {
+  const [sourceId, setSourceId] = useState('');
+  const relevantSources = useMemo(() => qualificationSources
+    .filter((source) => ['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier))
+    .filter((source) => !selectedReport?.sport || !source.sports?.length || source.sports.includes(selectedReport.sport))
+    .sort((left, right) => left.label.localeCompare(right.label)), [qualificationSources, selectedReport?.sport]);
+  const selectedSource = relevantSources.find((source) => source.id === sourceId) || null;
+  const canCreateQualificationCandidate = ['missing_qualification', 'qualification_correction'].includes(selectedReport?.category);
+
+  useEffect(() => {
+    setSourceId('');
+  }, [selectedReport?.id]);
+
+  return (
+    <section className="admin-community-reports" aria-label="Visitor reports">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Visitor reports</p>
+          <h2>Community updates</h2>
+          <p>These are leads, not evidence. Nothing moves into the qualification queue until you choose an official source to check.</p>
+        </div>
+      </div>
+      <div className="admin-review-tabs" role="tablist" aria-label="Community report status">
+        {COMMUNITY_REPORT_TABS.map((tab) => (
+          <button key={tab.status} type="button" role="tab" aria-selected={activeTab === tab.status} className={`admin-review-tab ${activeTab === tab.status ? 'active' : ''}`} onClick={() => onTabChange(tab.status)}>
+            {tab.label} <span>{reportsByStatus[tab.status].length}</span>
+          </button>
+        ))}
+      </div>
+      {selectedReport ? (
+        <div className="admin-community-report-layout">
+          <CommunityReportCard report={selectedReport} countries={countries} />
+          {activeTab === 'converted' ? (
+            <section className="admin-review-editor">
+              <p className="eyebrow">In qualification review</p>
+              <h2>Private candidate created</h2>
+              <p className="supporting-copy">This visitor report has been copied into the qualification review queue. Approve it there only after the official source proves the record.</p>
+            </section>
+          ) : activeTab === 'rejected' ? (
+            <section className="admin-review-editor">
+              <p className="eyebrow">Dismissed report</p>
+              <h2>Keep private or reopen</h2>
+              <p className="supporting-copy">This report was not used. Reopen it if new official evidence appears.</p>
+              <div className="admin-actions"><button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Reopen report</button></div>
+            </section>
+          ) : canCreateQualificationCandidate ? (
+            <section className="admin-review-editor">
+              <p className="eyebrow">Check before creating a candidate</p>
+              <h2>Choose an official source</h2>
+              <p className="supporting-copy">Use the visitor link as a lead only. Select the IOC, LA28, federation, or NOC source you will verify before this enters the qualification queue.</p>
+              <label>
+                <span>Official source to verify</span>
+                <select value={sourceId} onChange={(event) => setSourceId(event.target.value)}>
+                  <option value="">Choose official source</option>
+                  {relevantSources.map((source) => <option key={source.id} value={source.id}>{source.label}</option>)}
+                </select>
+              </label>
+              <div className="admin-actions">
+                <button type="button" className="button-primary" disabled={isLoading || !selectedSource} onClick={() => onConvert(selectedReport, selectedSource)}>Create qualification candidate</button>
+                {activeTab === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to new</button>}
+                <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>Dismiss report</button>
+              </div>
+            </section>
+          ) : (
+            <section className="admin-review-editor">
+              <p className="eyebrow">Schedule report</p>
+              <h2>Check the official schedule</h2>
+              <p className="supporting-copy">Schedule reports are not qualification evidence. Check the official LA28 schedule and update the schedule pipeline only if it confirms a correction.</p>
+              <div className="admin-actions">
+                {activeTab === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to new</button>}
+                <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>Dismiss report</button>
+              </div>
+            </section>
+          )}
+        </div>
+      ) : <p className="supporting-copy">No {COMMUNITY_REPORT_TABS.find((tab) => tab.status === activeTab)?.label.toLowerCase()} visitor reports right now.</p>}
+      {visibleReports.length > 1 ? (
+        <div className="admin-candidate-list">
+          {visibleReports.filter((report) => report.id !== selectedReport?.id).map((report) => (
+            <button type="button" className="admin-candidate-choice" key={report.id} onClick={() => onSelect(report)}>
+              <span>{REPORT_CATEGORY_LABELS[report.category] || 'Visitor report'}{report.noc ? ` · ${countryName(countries, report.noc)}` : ''}</span>
+              <small>{formatDate(report.created_at)}</small>
+            </button>
+          ))}
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+function CommunityReportCard({ report, countries }) {
+  return (
+    <article className="info-card admin-evidence-card">
+      <p className="eyebrow">Visitor-submitted lead</p>
+      <h2>{REPORT_CATEGORY_LABELS[report.category] || 'Visitor report'}</h2>
+      <dl className="admin-evidence-summary">
+        <div><dt>Country</dt><dd>{report.noc ? countryName(countries, report.noc) : 'Not specified'}</dd></div>
+        <div><dt>Sport</dt><dd>{report.sport || 'Not specified'}</dd></div>
+        <div><dt>Submitted</dt><dd>{formatDate(report.created_at)}</dd></div>
+      </dl>
+      <p className="admin-evidence-reason"><strong>What the visitor says:</strong> {report.details}</p>
+      {report.source_url ? <a className="button-secondary admin-source-link" href={report.source_url} target="_blank" rel="noreferrer">Open submitted link</a> : null}
+      {report.reporter_email ? <p className="admin-publish-note"><strong>Contact:</strong> {report.reporter_email}</p> : null}
+    </article>
   );
 }
 

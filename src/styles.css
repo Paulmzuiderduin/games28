@@ -1862,10 +1862,35 @@ body {
 .support-cta { padding: 18px 20px; background: #eef4ff; border-color: #cfdcff; }
 .support-cta h2 { margin: 4px 0 0; font-size: 1.05rem; line-height: 1.35; }
 
+.report-page { max-width: 780px; margin: 0 auto; }
+.report-guidance {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  border: 1px solid #d6e1ff;
+  border-radius: var(--radius-md);
+  background: rgba(238, 244, 255, 0.72);
+}
+.report-guidance p { margin: 0; color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; }
+.report-guidance strong { color: var(--text); }
+.report-form { display: grid; gap: var(--space-3); }
+.report-form label { display: grid; gap: var(--space-2); font-weight: 700; }
+.report-form label small { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; line-height: 1.45; }
+.report-form textarea { min-height: 150px; resize: vertical; }
+.report-form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.report-form__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3); }
+.report-form__actions p { max-width: 46ch; margin: 0; color: var(--text-muted); font-size: 0.78rem; line-height: 1.5; }
+.report-form__honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 .admin-console { max-width: 1040px; margin: 0 auto; }
 .admin-console > .section-heading { padding: 0; }
 .admin-how-it-works { border-color: #d6e1ff; background: rgba(238, 244, 255, 0.82); }
 .admin-evidence-card, .admin-review-editor { box-shadow: none; }
+.admin-community-reports { display: grid; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.admin-community-reports .section-heading { padding: 0; }
+.admin-community-report-layout { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr); align-items: start; }
 
 @media (max-width: 1099px) {
   .featured-country-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1934,6 +1959,10 @@ body {
   .country-page__main > .panel .section-heading, .country-page__aside > .panel .section-heading { padding-top: 16px; }
   .country-page .empty-state { padding: 14px; }
   .sources-page .source-summary, .sources-page .source-list { grid-template-columns: 1fr; }
+  .report-guidance, .report-form__row { grid-template-columns: 1fr; }
+  .report-form__actions { align-items: flex-start; flex-direction: column; }
+  .report-form__actions .button-primary { width: 100%; }
+  .admin-community-report-layout { grid-template-columns: 1fr; }
   .site-footer__links { gap: 16px; }
   .support-cta { align-items: flex-start; }
 }

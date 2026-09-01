@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
 import AdminReviewConsole from './components/AdminReviewConsole.jsx';
+import ReportUpdateForm from './components/ReportUpdateForm.jsx';
 import { downloadCalendarEntries } from './lib/ics.js';
 import { trackEvent, trackOutboundClick } from './lib/analytics.js';
 import {
@@ -360,6 +361,7 @@ function SiteFooter() {
       <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
       <div className="site-footer__links">
         <AppLink href="/sources">Data & sources</AppLink>
+        <AppLink href="/report">Report an update</AppLink>
         <BlueskyLink />
         <KofiLink>Support Games28</KofiLink>
       </div>
@@ -1561,6 +1563,7 @@ export default function App() {
 
         {!isLoadingRuntime && route.name === 'changes' ? <ChangesView runtime={runtime} changes={changes} /> : null}
         {!isLoadingRuntime && route.name === 'sources' ? <SourcesView runtime={runtime} /> : null}
+        {!isLoadingRuntime && route.name === 'report' ? <ReportUpdateForm countries={runtime.countries} scheduleEntries={runtime.scheduleEntries} /> : null}
         {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} scheduleEntries={runtime.scheduleEntries} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
         {!isLoadingRuntime && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}

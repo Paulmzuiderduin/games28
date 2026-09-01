@@ -177,6 +177,18 @@ function buildPages(runtime) {
         { href: '/schedule', label: 'Browse schedule' },
         { href: '/countries', label: 'Browse country dashboards' }
       ]
+    },
+    {
+      url: routeUrl('/report'),
+      title: 'Report a Games28 Update | Games28',
+      description: 'Report a possible LA 2028 schedule correction or missing qualification to Games28. Every report is checked before anything is published.',
+      heading: 'Report a Games28 update',
+      indexable: false,
+      facts: ['Reports stay private until reviewed', 'Official sources are required before publication'],
+      links: [
+        { href: '/schedule', label: 'Browse schedule' },
+        { href: '/sources', label: 'Data and sources' }
+      ]
     }
   ];
 
