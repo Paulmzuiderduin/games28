@@ -1830,6 +1830,7 @@ body {
 .country-page__aside { gap: 26px; }
 .info-card { padding: 15px; border-radius: 12px; box-shadow: none; }
 .info-card h3 { font-size: 16px; }
+.awaiting-entry-note { margin: 10px 0 0; color: var(--text-muted); font-size: 13px; line-height: 1.55; }
 
 .changes-page .stacked-list { gap: 0; }
 .changes-page .change-card { padding: 18px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }

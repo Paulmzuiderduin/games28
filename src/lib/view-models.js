@@ -14,49 +14,12 @@ function normalizeText(value) {
     .trim();
 }
 
-function uniqueById(items) {
-  const seen = new Set();
-  const output = [];
-
-  items.forEach((item) => {
-    if (!item || seen.has(item.id)) {
-      return;
-    }
-    seen.add(item.id);
-    output.push(item);
-  });
-
-  return output;
-}
-
 function sortByDate(items) {
   return [...items].sort((left, right) => {
     const a = left.startAtUtc || left.changedAt || '';
     const b = right.startAtUtc || right.changedAt || '';
     return String(a).localeCompare(String(b));
   });
-}
-
-function buildQualificationTokens(card) {
-  const rawHints = [];
-
-  if (Array.isArray(card.scheduleHints)) {
-    rawHints.push(...card.scheduleHints);
-  }
-
-  if (Array.isArray(card.disciplines)) {
-    rawHints.push(...card.disciplines);
-  }
-
-  if (card.name) {
-    rawHints.push(card.name);
-  }
-
-  return rawHints
-    .map((value) => normalizeText(value))
-    .filter(Boolean)
-    .flatMap((value) => value.split(' ').filter(Boolean))
-    .filter((token) => token.length >= 3);
 }
 
 export function buildScheduleOptions(scheduleEntries) {
@@ -130,43 +93,38 @@ export function buildCountryDashboard(runtime, noc) {
   const athleteCards = runtime.athleteCards.filter((card) => card.noc === noc);
   const namedAthletes = athleteCards.filter((card) => card.status === 'named');
   const quotaPlaces = athleteCards.filter((card) => card.status === 'quota');
-  const scheduleMatches = [];
-
-  athleteCards.forEach((card) => {
-    const tokens = buildQualificationTokens(card);
-    runtime.scheduleEntries.forEach((entry) => {
-      if (entry.sport !== card.sport) {
-        return;
-      }
-
-      const combinedText = normalizeText(`${entry.eventName} ${entry.phase} ${entry.discipline}`);
-      const matchesHint = !tokens.length || tokens.some((token) => combinedText.includes(token));
-      if (!matchesHint) {
-        return;
-      }
-
-      const confirmed = (entry.nocs || []).includes(noc) || (entry.athleteIds || []).includes(card.id);
-      scheduleMatches.push({
-        ...entry,
-        derivedStatus: confirmed ? 'confirmed' : 'pending',
-        linkedQualificationId: card.id,
-        linkedQualificationLabel: card.name
-      });
-    });
-  });
-
-  const dedupedMatches = uniqueById(
-    scheduleMatches.sort((left, right) => {
-      if (left.id === right.id) {
-        if (left.derivedStatus === right.derivedStatus) return 0;
-        return left.derivedStatus === 'confirmed' ? -1 : 1;
-      }
-      return left.startAtUtc.localeCompare(right.startAtUtc);
-    })
+  const confirmedSessions = sortByDate(
+    runtime.scheduleEntries
+      .filter((entry) => (entry.nocs || []).includes(noc) || (entry.athleteIds || []).some((id) => athleteCards.some((card) => card.id === id)))
+      .map((entry) => {
+        const linkedCard = athleteCards.find((card) => (entry.athleteIds || []).includes(card.id) || card.sport === entry.sport);
+        return {
+          ...entry,
+          derivedStatus: 'confirmed',
+          linkedQualificationId: linkedCard?.id || null,
+          linkedQualificationLabel: linkedCard?.name || country.name
+        };
+      })
   );
-
-  const confirmedSessions = dedupedMatches.filter((entry) => entry.derivedStatus === 'confirmed');
-  const pendingSessions = dedupedMatches.filter((entry) => entry.derivedStatus === 'pending');
+  const confirmedSports = new Set(confirmedSessions.map((entry) => entry.sport).filter(Boolean));
+  const awaitingScheduleGroups = [...athleteCards
+    .filter((card) => !confirmedSports.has(card.sport))
+    .reduce((groups, card) => {
+      const disciplines = [...new Set(card.disciplines || [])].sort();
+      const key = `${card.sport}::${disciplines.join('|')}`;
+      const group = groups.get(key) || {
+        id: key,
+        sport: card.sport,
+        disciplines,
+        entryCount: 0,
+        sourceUrl: card.sourceUrl || null
+      };
+      group.entryCount += 1;
+      groups.set(key, group);
+      return groups;
+    }, new Map())
+    .values()]
+    .sort((left, right) => left.sport.localeCompare(right.sport));
   const changes = sortByDate(
     runtime.changes.filter((change) => change.noc === noc || athleteCards.some((card) => card.id === change.entityId))
   ).reverse();
@@ -182,14 +140,14 @@ export function buildCountryDashboard(runtime, noc) {
     namedAthletes,
     quotaPlaces,
     confirmedSessions,
-    pendingSessions,
+    awaitingScheduleGroups,
     changes,
     latestUpdateAt,
     stats: {
       namedAthleteCount: namedAthletes.length,
       quotaCount: quotaPlaces.length,
       confirmedSessionCount: confirmedSessions.length,
-      pendingSessionCount: pendingSessions.length
+      awaitingScheduleGroupCount: awaitingScheduleGroups.length
     }
   };
 }

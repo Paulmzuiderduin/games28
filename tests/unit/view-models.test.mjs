@@ -74,14 +74,16 @@ const runtime = {
   ]
 };
 
-test('buildCountryDashboard separates confirmed and pending schedule matches', () => {
+test('buildCountryDashboard shows only explicit sessions and groups entries awaiting a draw', () => {
   const dashboard = buildCountryDashboard(runtime, 'NED');
   assert.equal(dashboard.namedAthletes.length, 1);
   assert.equal(dashboard.quotaPlaces.length, 1);
   assert.equal(dashboard.confirmedSessions.length, 1);
-  assert.equal(dashboard.pendingSessions.length, 1);
   assert.equal(dashboard.confirmedSessions[0].id, 'row-eight');
-  assert.equal(dashboard.pendingSessions[0].id, 'ath-marathon');
+  assert.equal(dashboard.awaitingScheduleGroups.length, 1);
+  assert.equal(dashboard.awaitingScheduleGroups[0].sport, 'Athletics');
+  assert.equal(dashboard.awaitingScheduleGroups[0].entryCount, 1);
+  assert.equal(dashboard.stats.awaitingScheduleGroupCount, 1);
   assert.equal(dashboard.changes.length, 1);
 });
 

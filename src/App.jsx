@@ -1026,7 +1026,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
         <SummaryCard label="Confirmed athletes / teams" value={dashboard.stats.namedAthleteCount} />
         <SummaryCard label="Confirmed quota places" value={dashboard.stats.quotaCount} />
         <SummaryCard label="Confirmed sessions" value={dashboard.stats.confirmedSessionCount} />
-        <SummaryCard label="Pending schedule matches" value={dashboard.stats.pendingSessionCount} />
+        <SummaryCard label="Entries awaiting draw" value={dashboard.stats.awaitingScheduleGroupCount} />
       </section>
 
       {Date.now() >= new Date(LA28_OPENING_CEREMONY_UTC).getTime() - 7 * 24 * 60 * 60 * 1000 ? (
@@ -1173,21 +1173,36 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
           <section className="panel">
             <div className="section-heading compact">
               <div>
-                <p className="eyebrow">Pending schedule</p>
-                <h2>Awaiting entries</h2>
+                <p className="eyebrow">Schedule status</p>
+                <h2>Awaiting official draw</h2>
               </div>
             </div>
-            {dashboard.pendingSessions.length ? (
-              <div className="schedule-grid compact-grid">
-                {dashboard.pendingSessions.slice(0, 12).map((entry) => (
-                  <ScheduleCard key={entry.id} entry={entry} countryMode onCalendarExport={onCalendarExport} />
+            {dashboard.awaitingScheduleGroups.length ? (
+              <div className="stacked-list">
+                {dashboard.awaitingScheduleGroups.map((group) => (
+                  <article key={group.id} className="info-card">
+                    <div className="info-card-top">
+                      <div>
+                        <h3>{group.sport}</h3>
+                        <p>{group.disciplines.join(', ') || 'Qualified entry'}</p>
+                      </div>
+                      <span className="tag pending">Awaiting draw</span>
+                    </div>
+                    <p className="awaiting-entry-note">
+                      {group.entryCount} qualified {group.entryCount === 1 ? 'entry is' : 'entries are'} awaiting an official draw or final entry list. Possible sessions are not shown as a country schedule.
+                    </p>
+                    <div className="info-card-footer">
+                      <AppLink href={getSportPath(group.sport)} className="text-link">Open {group.sport} schedule</AppLink>
+                      {group.sourceUrl ? <SourceLink href={group.sourceUrl} context={{ noc: dashboard.country.noc, sport: group.sport }} /> : null}
+                    </div>
+                  </article>
                 ))}
               </div>
             ) : (
               <EmptyState
                 compact
-                title="No pending schedule matches yet"
-                description="Likely sessions appear here once qualification cards exist, but stay pending until entries are confirmed."
+                title="No entries awaiting a draw"
+                description="When an official draw or entry list names this country, the exact sessions will appear above."
               />
             )}
           </section>
@@ -1206,7 +1221,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
               </article>
               <article className="info-card">
                 <h3>{hasConfirmedSessions ? 'Confirmed sessions ready' : 'Waiting for entry lists'}</h3>
-                <p>{hasConfirmedSessions ? 'Confirmed sessions can be exported now.' : 'Schedule items stay pending until official entry lists appear.'}</p>
+                <p>{hasConfirmedSessions ? 'Confirmed sessions can be exported now.' : 'Games28 does not list possible sessions. Exact sessions appear only after an official draw or entry list.'}</p>
               </article>
               <article className="info-card">
                 <h3>{runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status === 'configured' ? 'Official selection source configured' : 'Official selection source slot reserved'}</h3>
