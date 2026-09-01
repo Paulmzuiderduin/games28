@@ -3,8 +3,7 @@
 ## One-time launch tasks
 
 1. Submit `https://games28.paulzuiderduin.com/sitemap.xml` in Google Search Console.
-2. Create `@games28.bsky.social` if available; otherwise use `@games28app.bsky.social`.
-3. Add the profile link to the Games28 footer after the account exists. Do not ship a link to an unclaimed account.
+2. Created `@games28.bsky.social` and added its profile link to the Games28 footer.
 
 ## Bluesky launch post
 

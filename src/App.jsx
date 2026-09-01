@@ -39,6 +39,7 @@ const DEFAULT_COUNTRY_FILTERS = {
 
 const LA28_OPENING_CEREMONY_UTC = '2028-07-15T00:00:00.000Z';
 const KOFI_URL = 'https://ko-fi.com/paulzuiderduin';
+const BLUESKY_URL = 'https://bsky.app/profile/games28.bsky.social';
 const FEATURED_NOCS = ['NED', 'USA', 'JPN', 'GBR', 'AUS', 'FRA'];
 
 const PRIMARY_NAV_ITEMS = [
@@ -157,6 +158,20 @@ function KofiLink({ className = 'text-link', children = 'Support Games28 on Ko-f
       target="_blank"
       rel="noreferrer"
       onClick={() => trackOutboundClick('kofi_click', KOFI_URL)}
+    >
+      {children}
+    </a>
+  );
+}
+
+function BlueskyLink({ className = 'text-link', children = 'Follow on Bluesky' }) {
+  return (
+    <a
+      href={BLUESKY_URL}
+      className={className}
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => trackOutboundClick('bluesky_click', BLUESKY_URL)}
     >
       {children}
     </a>
@@ -345,6 +360,7 @@ function SiteFooter() {
       <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
       <div className="site-footer__links">
         <AppLink href="/sources">Data & sources</AppLink>
+        <BlueskyLink />
         <KofiLink>Support Games28</KofiLink>
       </div>
     </footer>
