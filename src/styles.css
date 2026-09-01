@@ -1801,6 +1801,12 @@ body {
 .schedule-card-actions a,
 .schedule-card-actions button { font-size: 13px; }
 .schedule-card-source-link { color: var(--text-muted); }
+.share-control { display: inline-flex; align-items: center; gap: 7px; }
+.share-feedback { color: var(--text-muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
+.page-utility-actions,
+.country-page__utility { display: flex; align-items: center; min-height: 26px; }
+.page-utility-actions { margin-top: 10px; }
+.country-page__utility { margin-top: -8px; }
 .schedule-card--country { gap: 12px; padding: 16px; }
 .schedule-card--country h3 { font-size: 17px; }
 
@@ -1914,6 +1920,7 @@ body {
   .time-grid strong { font-size: 13px; overflow-wrap: anywhere; }
   .schedule-card-footer { align-items: flex-start; }
   .schedule-card-actions { gap: 12px; }
+  .share-feedback { display: none; }
   .country-page { gap: 22px; }
   .country-page__head, .country-page__actions { align-items: flex-start; }
   .country-page__actions { width: 100%; }

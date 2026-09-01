@@ -14,6 +14,7 @@ import {
   getViewerTimeZoneLabel
 } from './lib/format.js';
 import { navigate, parseRoute } from './lib/router.js';
+import { getShareUrl, sharePage } from './lib/share.js';
 import { loadRuntimeDataset, runtimeFallback } from './lib/runtime-data.js';
 import { findSportBySlug, getSessionPath, getSportPath } from './lib/seo.js';
 import {
@@ -177,6 +178,35 @@ function SourceLink({ href, children = 'Source', context = {}, className = '' })
     >
       {children}
     </a>
+  );
+}
+
+function ShareButton({ title, text, path, context = {}, className = 'text-button', children = 'Share' }) {
+  const [feedback, setFeedback] = useState('');
+
+  async function handleShare() {
+    const result = await sharePage({ title, text, url: getShareUrl(path) });
+
+    if (result.status === 'shared') {
+      trackEvent('page_share', { ...context, method: result.method });
+      setFeedback(result.method === 'copy' ? 'Link copied' : 'Shared');
+      window.setTimeout(() => setFeedback(''), 2200);
+      return;
+    }
+
+    if (result.status === 'unavailable') {
+      setFeedback('Sharing is unavailable');
+      window.setTimeout(() => setFeedback(''), 2200);
+    }
+  }
+
+  return (
+    <span className="share-control">
+      <button type="button" className={className} onClick={handleShare}>
+        {children}
+      </button>
+      {feedback ? <span className="share-feedback" aria-live="polite">{feedback}</span> : null}
+    </span>
   );
 }
 
@@ -463,6 +493,13 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
             Add to calendar
           </button>
           <AppLink href={getSessionPath(entry.id)} className="text-link schedule-card-action">Details</AppLink>
+          <ShareButton
+            title={`${entry.eventName} | Games28`}
+            text={`${entry.sport} at LA 2028: ${entry.eventName}.`}
+            path={getSessionPath(entry.id)}
+            context={{ entityType: 'session', sessionId: entry.id, sport: entry.sport }}
+            className="text-button schedule-card-action"
+          />
           <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} className="schedule-card-action schedule-card-source-link" />
         </div>
       </div>
@@ -811,6 +848,16 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
         </div>
       </div>
       <TrustLine runtime={runtime} className="trust-line--section" />
+      <div className="page-utility-actions">
+        <ShareButton
+          title={`${sport} LA 2028 schedule | Games28`}
+          text={`Browse the ${sport} schedule for LA 2028 in your local time.`}
+          path={getSportPath(sport)}
+          context={{ entityType: 'sport', sport }}
+        >
+          Share {sport} schedule
+        </ShareButton>
+      </div>
       <div className="timezone-note">
         Times are shown in your local timezone: <strong>{getViewerTimeZoneLabel()}</strong>. Each session also shows an LA reference time.
       </div>
@@ -907,6 +954,14 @@ function SessionView({ runtime, entry, onCalendarExport }) {
         <div className="session-links">
           <AppLink href={getSportPath(entry.sport)} className="text-link">Open {entry.sport} schedule</AppLink>
           <AppLink href="/schedule" className="text-link">Browse all sessions</AppLink>
+          <ShareButton
+            title={`${entry.eventName} | Games28`}
+            text={`${entry.sport} at LA 2028: ${entry.eventName}.`}
+            path={getSessionPath(entry.id)}
+            context={{ entityType: 'session', sessionId: entry.id, sport: entry.sport }}
+          >
+            Share this session
+          </ShareButton>
           <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} />
         </div>
       </div>
@@ -955,6 +1010,16 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
           Games28 shows confirmation only: an official quota, an officially selected athlete, or a final Games entry. It never predicts a roster from rankings.
         </p>
         <TrustLine runtime={runtime} />
+        <div className="country-page__utility">
+          <ShareButton
+            title={`${dashboard.country.name} at LA 2028 | Games28`}
+            text={`Follow ${dashboard.country.name}'s LA 2028 qualification updates and schedule in your local time.`}
+            path={`/countries/${dashboard.country.noc}`}
+            context={{ entityType: 'country', noc: dashboard.country.noc }}
+          >
+            Share dashboard
+          </ShareButton>
+        </div>
       </div>
 
       <section className="summary-grid country-page__stats">

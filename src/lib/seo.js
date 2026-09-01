@@ -27,6 +27,13 @@ export function getSessionPath(sessionId) {
   return `/sessions/${encodeURIComponent(sessionId)}`;
 }
 
+export function isCountryDashboardIndexable(runtime, noc) {
+  const hasQualification = (runtime?.athleteCards || []).some((card) => card.noc === noc);
+  const hasConfirmedSession = (runtime?.scheduleEntries || []).some((entry) => Array.isArray(entry.nocs) && entry.nocs.includes(noc));
+
+  return hasQualification || hasConfirmedSession;
+}
+
 export function selectSeoSessionEntries(scheduleEntries, limit = 240) {
   const priorityPattern = /\b(final|gold medal|bronze medal|medal|marathon|opening|closing)\b/i;
   const withTimes = (scheduleEntries || []).filter((entry) => entry.startAtUtc);

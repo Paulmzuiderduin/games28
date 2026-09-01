@@ -4,6 +4,7 @@ import {
   findSportBySlug,
   getSessionPath,
   getSportPath,
+  isCountryDashboardIndexable,
   selectSeoSessionEntries,
   slugify
 } from '../../src/lib/seo.js';
@@ -31,4 +32,10 @@ test('selectSeoSessionEntries prioritizes medal and final sessions with times', 
 
 test('getSessionPath encodes ids for route generation', () => {
   assert.equal(getSessionPath('swm01--women-s-final'), '/sessions/swm01--women-s-final');
+});
+
+test('country dashboards become indexable only with qualification or confirmed session data', () => {
+  assert.equal(isCountryDashboardIndexable({ athleteCards: [], scheduleEntries: [] }, 'NED'), false);
+  assert.equal(isCountryDashboardIndexable({ athleteCards: [{ noc: 'NED' }], scheduleEntries: [] }, 'NED'), true);
+  assert.equal(isCountryDashboardIndexable({ athleteCards: [], scheduleEntries: [{ nocs: ['NED'] }] }, 'NED'), true);
 });

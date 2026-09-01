@@ -6,6 +6,7 @@ import { readJson } from './dataset-utils.mjs';
 import {
   getSessionPath,
   getSportPath,
+  isCountryDashboardIndexable,
   routeUrl,
   selectSeoSessionEntries
 } from '../src/lib/seo.js';
@@ -72,7 +73,9 @@ async function main() {
     '/schedule',
     '/changes',
     '/sources',
-    ...runtime.countries.map((country) => `/countries/${country.noc}`),
+    ...runtime.countries
+      .filter((country) => isCountryDashboardIndexable(runtime, country.noc))
+      .map((country) => `/countries/${country.noc}`),
     ...sports.map((sport) => getSportPath(sport)),
     ...selectedSessions.map((entry) => getSessionPath(entry.id))
   ];

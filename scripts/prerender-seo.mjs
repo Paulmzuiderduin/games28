@@ -7,6 +7,7 @@ import {
   SOCIAL_IMAGE_URL,
   getSessionPath,
   getSportPath,
+  isCountryDashboardIndexable,
   routeUrl,
   selectSeoSessionEntries
 } from '../src/lib/seo.js';
@@ -57,6 +58,7 @@ function metaTags(page) {
   return [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
+    page.indexable === false ? '<meta name="robots" content="noindex,follow" />' : '',
     `<link rel="canonical" href="${canonical}" />`,
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
@@ -67,7 +69,7 @@ function metaTags(page) {
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
     `<meta name="twitter:image" content="${SOCIAL_IMAGE_URL}" />`
-  ].join('\n    ');
+  ].filter(Boolean).join('\n    ');
 }
 
 function jsonLdScript(data) {
@@ -179,12 +181,14 @@ function buildPages(runtime) {
   ];
 
   runtime.countries.forEach((country) => {
+    const indexable = isCountryDashboardIndexable(runtime, country.noc);
     pages.push({
       url: routeUrl(`/countries/${country.noc}`),
       title: `${country.name} LA 2028 Schedule and Dashboard | Games28`,
       description: `Follow ${country.name} at LA 2028 with a country dashboard for schedule matches, qualification tracking, local-time sessions, and calendar export.`,
       heading: `${country.name} LA 2028 schedule dashboard`,
       facts: [`NOC ${country.noc}`, country.continent, 'Qualification cards appear when verified sources are added'],
+      indexable,
       links: [
         { href: '/schedule', label: 'Full schedule' },
         { href: '/changes', label: 'Recent changes' }
