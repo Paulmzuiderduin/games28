@@ -269,6 +269,7 @@ function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
       athleteName: candidate.athleteName || null,
       teamName: candidate.teamName || null,
       quotaCount: candidate.quotaCount || null,
+      teamSizeMax: candidate.teamSizeMax || null,
       qualificationRoute: candidate.qualificationRoute || null,
       sourceId: source.id,
       sourceUrl: source.url,

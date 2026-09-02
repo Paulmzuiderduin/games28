@@ -103,16 +103,17 @@
         "adapter": "official_confirmation_article",
         "confirmationCandidates": [
           {
-            "discipline": "Dressage",
+            "discipline": "Dressage - Team",
             "evidenceTerms": [
               "Australia's Dressage team",
               "Olympic qualification"
             ],
             "noc": "AUS",
-            "quotaCount": 3,
+            "quotaCount": 1,
             "sport": "Equestrian",
             "state": "allocated",
-            "subjectType": "noc_quota"
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
           }
         ],
         "evidenceTerms": [
@@ -1213,16 +1214,17 @@
         "adapter": "official_confirmation_article",
         "confirmationCandidates": [
           {
-            "discipline": "Dressage",
+            "discipline": "Dressage - Team",
             "evidenceTerms": [
               "Nederland",
               "olympische kwalificatie"
             ],
             "noc": "NED",
-            "quotaCount": 3,
+            "quotaCount": 1,
             "sport": "Equestrian",
             "state": "allocated",
-            "subjectType": "noc_quota"
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
           }
         ],
         "evidenceTerms": [

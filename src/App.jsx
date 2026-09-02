@@ -151,6 +151,13 @@ function isMedalEvent(entry) {
   );
 }
 
+function qualificationDetail(card) {
+  const discipline = (card.disciplines || []).join(', ');
+  if (card.subjectType !== 'team_quota') return discipline;
+  const capacity = card.teamSizeMax ? `Up to ${card.teamSizeMax} athlete-and-horse combinations` : 'Final team not selected yet';
+  return [discipline, capacity].filter(Boolean).join(' · ');
+}
+
 function KofiLink({ className = 'text-link', children = 'Support Games28 on Ko-fi' }) {
   return (
     <a
@@ -1148,7 +1155,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
                       </div>
                       <span className="tag confirmed">{formatStatusLabel(card.state || card.status)}</span>
                     </div>
-                    <p>{card.disciplines.join(', ')}</p>
+                    <p>{qualificationDetail(card)}</p>
                     <div className="info-card-footer">
                       <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
                       {card.profileUrl ? (
@@ -1190,7 +1197,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
                       </div>
                       <span className="tag pending">{formatStatusLabel(card.state || card.status)}</span>
                     </div>
-                    <p>{card.disciplines.join(', ')}</p>
+                    <p>{qualificationDetail(card)}</p>
                     <div className="info-card-footer">
                       <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
                       {card.sourceUrl ? (
@@ -1587,7 +1594,7 @@ export default function App() {
         {!isLoadingRuntime && route.name === 'changes' ? <ChangesView runtime={runtime} changes={changes} /> : null}
         {!isLoadingRuntime && route.name === 'sources' ? <SourcesView runtime={runtime} /> : null}
         {!isLoadingRuntime && route.name === 'report' ? <ReportUpdateForm countries={runtime.countries} scheduleEntries={runtime.scheduleEntries} /> : null}
-        {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} scheduleEntries={runtime.scheduleEntries} /> : null}
+        {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
         {!isLoadingRuntime && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
         {!isLoadingRuntime && route.name !== 'admin' ? <SiteFooter /> : null}

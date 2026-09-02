@@ -1,5 +1,5 @@
 const SOURCE_TIERS = new Set(['ioc', 'if', 'noc', 'national_federation']);
-const SUBJECT_TYPES = new Set(['noc_quota', 'athlete', 'team']);
+const SUBJECT_TYPES = new Set(['noc_quota', 'team_quota', 'athlete', 'team']);
 const RECORD_STATES = new Set(['earned', 'allocated', 'selected', 'entered', 'withdrawn', 'replaced']);
 const ACTIVE_STATES = new Set(['earned', 'allocated', 'selected', 'entered']);
 const REVIEW_RESOLUTIONS = new Set(['pending', 'approved', 'rejected']);
@@ -41,11 +41,13 @@ function normalizeRawRecord(raw, index, sourceById) {
   const sourceTier = asNonEmptyString(raw.sourceTier || sourceDefinition?.sourceTier);
   const sourceUrl = asNonEmptyString(raw.sourceUrl || sourceDefinition?.allocationUrl || sourceDefinition?.url);
   const quotaCount = Number(raw.quotaCount);
+  const teamSizeMax = Number(raw.teamSizeMax);
   const record = {
     id: asNonEmptyString(raw.id), noc: asNonEmptyString(raw.noc), sport: asNonEmptyString(raw.sport || sourceDefinition?.sport),
     disciplines: asStringArray(raw.disciplines), events: asStringArray(raw.events), scheduleHints: asStringArray(raw.scheduleHints),
     subjectType, state, athleteName: asNonEmptyString(raw.athleteName), teamName: asNonEmptyString(raw.teamName),
     quotaCount: Number.isInteger(quotaCount) && quotaCount > 0 ? quotaCount : null,
+    teamSizeMax: Number.isInteger(teamSizeMax) && teamSizeMax > 0 ? teamSizeMax : null,
     qualificationRoute: asNonEmptyString(raw.qualificationRoute), sourceId: asNonEmptyString(raw.sourceId), sourceTier, sourceUrl,
     sourcePublishedAt: parseDate(raw.sourcePublishedAt), verifiedAt: parseDate(raw.verifiedAt), profileUrl: asNonEmptyString(raw.profileUrl),
     notes: asNonEmptyString(raw.notes), supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
@@ -60,7 +62,7 @@ function normalizeRawRecord(raw, index, sourceById) {
   if (!record.sourcePublishedAt || !record.verifiedAt) problems.push('missing sourcePublishedAt or verifiedAt');
   if (record.subjectType === 'athlete' && !record.athleteName) problems.push('athlete record missing athleteName');
   if (record.subjectType === 'team' && !record.teamName) problems.push('team record missing teamName');
-  if (record.subjectType === 'noc_quota' && !record.quotaCount && ACTIVE_STATES.has(record.state)) problems.push('quota record missing quotaCount');
+  if (['noc_quota', 'team_quota'].includes(record.subjectType) && !record.quotaCount && ACTIVE_STATES.has(record.state)) problems.push('quota record missing quotaCount');
   if (!sourceDefinition || !SOURCE_TIERS.has(sourceDefinition.sourceTier)) problems.push('sourceId does not resolve to a trusted source');
   if (sourceDefinition && !hasTrustedSourceUrl(record.sourceUrl, sourceDefinition)) problems.push('source URL does not match the trusted official source');
   return { record, problems, fallbackId: `row-${index + 1}` };
@@ -135,10 +137,14 @@ export function buildQualificationPipeline(source, sources) {
 export function toQualificationCards(records) {
   return records.map((record) => ({
     id: record.id, noc: record.noc,
-    name: record.subjectType === 'athlete' ? record.athleteName : record.subjectType === 'team' ? record.teamName : `${record.quotaCount} ${record.quotaCount === 1 ? 'quota place' : 'quota places'}`,
+    name: record.subjectType === 'athlete'
+      ? record.athleteName
+      : record.subjectType === 'team'
+        ? record.teamName
+        : `${record.quotaCount} ${record.subjectType === 'team_quota' ? 'team' : 'individual'} ${record.quotaCount === 1 ? 'quota place' : 'quota places'}`,
     sport: record.sport, disciplines: record.disciplines, scheduleHints: record.scheduleHints.length ? record.scheduleHints : record.events,
-    status: record.subjectType === 'noc_quota' ? 'quota' : 'named', teamType: record.subjectType === 'team' ? 'team' : 'individual',
-    subjectType: record.subjectType, state: record.state, quotaCount: record.quotaCount, qualificationRoute: record.qualificationRoute,
+    status: ['noc_quota', 'team_quota'].includes(record.subjectType) ? 'quota' : 'named', teamType: ['team', 'team_quota'].includes(record.subjectType) ? 'team' : 'individual',
+    subjectType: record.subjectType, state: record.state, quotaCount: record.quotaCount, teamSizeMax: record.teamSizeMax, qualificationRoute: record.qualificationRoute,
     sourceId: record.sourceId, sourceTier: record.sourceTier, sourcePublishedAt: record.sourcePublishedAt, verifiedAt: record.verifiedAt,
     lastUpdatedAt: record.verifiedAt, sourceUrl: record.sourceUrl, profileUrl: record.profileUrl, notes: record.notes
   }));

@@ -601,6 +601,7 @@ async function main() {
         governingBody: source.governingBody,
         sport: source.sport,
         sports: source.sports,
+        qualificationEvents: source.qualificationEvents || [],
         sourceTier: source.sourceTier,
         kind: source.kind,
         status: source.status,

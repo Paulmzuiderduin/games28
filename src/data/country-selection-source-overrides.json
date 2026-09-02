@@ -16,7 +16,7 @@
           "evidenceTerms": ["Dressage", "Olympic qualification", "Los Angeles 2028"],
           "sourcePublishedAt": "2026-08-23",
           "confirmationCandidates": [
-            { "noc": "AUS", "sport": "Equestrian", "discipline": "Dressage", "subjectType": "noc_quota", "quotaCount": 3, "state": "allocated", "evidenceTerms": ["Australia's Dressage team", "Olympic qualification"] }
+            { "noc": "AUS", "sport": "Equestrian", "discipline": "Dressage - Team", "subjectType": "team_quota", "quotaCount": 1, "teamSizeMax": 3, "state": "allocated", "evidenceTerms": ["Australia's Dressage team", "Olympic qualification"] }
           ]
         }
       ]
@@ -47,7 +47,7 @@
           "evidenceTerms": ["olympische kwalificatie", "TeamNL", "LA28"],
           "sourcePublishedAt": "2026-08-12",
           "confirmationCandidates": [
-            { "noc": "NED", "sport": "Equestrian", "discipline": "Dressage", "subjectType": "noc_quota", "quotaCount": 3, "state": "allocated", "evidenceTerms": ["Nederland", "olympische kwalificatie"] }
+            { "noc": "NED", "sport": "Equestrian", "discipline": "Dressage - Team", "subjectType": "team_quota", "quotaCount": 1, "teamSizeMax": 3, "state": "allocated", "evidenceTerms": ["Nederland", "olympische kwalificatie"] }
           ]
         },
         {

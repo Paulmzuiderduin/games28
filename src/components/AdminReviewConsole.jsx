@@ -11,14 +11,16 @@ import {
   signOutAdmin
 } from '../lib/supabase.js';
 import { isAnalyticsDisabled, setAnalyticsDisabled } from '../lib/analytics.js';
+import { getQualificationEventOptions, getQualificationSportOptions } from '../lib/qualification-options.js';
 
 const EMPTY_DRAFT = {
   noc: '', sport: '', disciplines: [], subjectType: 'noc_quota', state: 'allocated',
-  athleteName: '', teamName: '', quotaCount: '1', qualificationRoute: '', sourcePublishedAt: ''
+  athleteName: '', teamName: '', quotaCount: '1', teamSizeMax: '', qualificationRoute: '', sourcePublishedAt: ''
 };
 
 const SUBJECT_LABELS = {
-  noc_quota: 'Country quota',
+  noc_quota: 'Country individual quota',
+  team_quota: 'Country team quota (team not named yet)',
   athlete: 'Named athlete',
   team: 'Named team'
 };
@@ -70,6 +72,7 @@ function candidateDraft(candidate, source) {
     athleteName: suggested.athleteName || '',
     teamName: suggested.teamName || '',
     quotaCount: String(suggested.quotaCount || 1),
+    teamSizeMax: suggested.teamSizeMax ? String(suggested.teamSizeMax) : '',
     qualificationRoute: suggested.qualificationRoute || '',
     sourcePublishedAt: String(suggested.sourcePublishedAt || candidate?.detected_at || candidate?.detectedAt || '').slice(0, 10)
   };
@@ -103,25 +106,7 @@ function suggestedSubject(candidate, countries) {
   return `${countryName(countries, suggested.noc)} · ${subject || 'Qualification record'}`;
 }
 
-function getSportOptions(scheduleEntries, qualificationSources) {
-  return [...new Set([
-    ...scheduleEntries.map((entry) => entry.sport),
-    ...qualificationSources.flatMap((source) => source.sports || [source.sport])
-  ].filter(Boolean))].sort((left, right) => left.localeCompare(right));
-}
-
-function getDisciplineOptions(scheduleEntries, sport) {
-  if (!sport) return [];
-
-  return [...new Set(
-    scheduleEntries
-      .filter((entry) => entry.sport === sport)
-      .map((entry) => entry.discipline || entry.eventName)
-      .filter(Boolean)
-  )].sort((left, right) => left.localeCompare(right));
-}
-
-export default function AdminReviewConsole({ countries = [], qualificationSources = [], scheduleEntries = [] }) {
+export default function AdminReviewConsole({ countries = [], qualificationSources = [] }) {
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
   const [candidates, setCandidates] = useState([]);
@@ -145,10 +130,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   );
   const visibleCandidates = candidatesByStatus[activeReviewTab] || [];
   const selectedCandidate = visibleCandidates.find((candidate) => candidate.id === selectedCandidateId) || null;
-  const sportOptions = useMemo(
-    () => getSportOptions(scheduleEntries, qualificationSources),
-    [scheduleEntries, qualificationSources]
-  );
+  const sportOptions = useMemo(() => getQualificationSportOptions(qualificationSources), [qualificationSources]);
   const communityReportsByStatus = useMemo(
     () => COMMUNITY_REPORT_TABS.reduce((groups, tab) => ({
       ...groups,
@@ -235,7 +217,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     if (!draft.noc || !draft.sport || !draft.sourcePublishedAt) throw new Error('Confirm the country, sport, and official publication date before approving.');
     if (draft.subjectType === 'athlete' && !draft.athleteName.trim()) throw new Error('Add the athlete name shown in the official source.');
     if (draft.subjectType === 'team' && !draft.teamName.trim()) throw new Error('Add the team name shown in the official source.');
-    if (draft.subjectType === 'noc_quota' && (!Number.isInteger(Number(draft.quotaCount)) || Number(draft.quotaCount) < 1)) throw new Error('Quota places must be at least 1.');
+    if (['noc_quota', 'team_quota'].includes(draft.subjectType) && (!Number.isInteger(Number(draft.quotaCount)) || Number(draft.quotaCount) < 1)) throw new Error('Quota places must be at least 1.');
+    if (draft.subjectType === 'team_quota' && draft.teamSizeMax && (!Number.isInteger(Number(draft.teamSizeMax)) || Number(draft.teamSizeMax) < 1)) throw new Error('Team size must be a positive whole number.');
     return {
       id: `approved-${candidate.id}`,
       noc: draft.noc,
@@ -245,7 +228,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       state: draft.state,
       athleteName: draft.subjectType === 'athlete' ? draft.athleteName.trim() : null,
       teamName: draft.subjectType === 'team' ? draft.teamName.trim() : null,
-      quotaCount: draft.subjectType === 'noc_quota' ? Number(draft.quotaCount) : null,
+      quotaCount: ['noc_quota', 'team_quota'].includes(draft.subjectType) ? Number(draft.quotaCount) : null,
+      teamSizeMax: draft.subjectType === 'team_quota' && draft.teamSizeMax ? Number(draft.teamSizeMax) : null,
       qualificationRoute: draft.qualificationRoute.trim() || null,
       sourceId: candidate.source_id || candidate.sourceId,
       sourceUrl: candidate.source_url || candidate.sourceUrl,
@@ -422,7 +406,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
               candidate={selectedCandidate}
               countries={countries}
               sportOptions={sportOptions}
-              scheduleEntries={scheduleEntries}
+              qualificationSources={qualificationSources}
+              source={sourceFor(selectedCandidate, qualificationSources)}
               draft={draft}
               isLoading={isLoading}
               note={note}
@@ -604,20 +589,20 @@ function CandidateEvidence({ candidate, countries, source }) {
   );
 }
 
-function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, draft, isLoading, note, reviewStatus, onChange, onNoteChange, onApprove, onReject, onReviewLater, onReopen }) {
+function ReviewEditor({ candidate, countries, sportOptions, qualificationSources, source, draft, isLoading, note, reviewStatus, onChange, onNoteChange, onApprove, onReject, onReviewLater, onReopen }) {
   const update = (changes) => onChange({ ...draft, ...changes });
-  const disciplineOptions = useMemo(
-    () => getDisciplineOptions(scheduleEntries, draft.sport),
-    [scheduleEntries, draft.sport]
+  const qualificationEventOptions = useMemo(
+    () => getQualificationEventOptions(qualificationSources, draft.sport, source?.id),
+    [qualificationSources, draft.sport, source?.id]
   );
   const currentDiscipline = draft.disciplines.length === 1 ? draft.disciplines[0] : '';
   const hasCurrentSportOption = sportOptions.includes(draft.sport);
-  const hasCurrentDisciplineOption = disciplineOptions.includes(currentDiscipline);
+  const hasCurrentDisciplineOption = qualificationEventOptions.some((entry) => entry.label === currentDiscipline);
   return (
     <section className="admin-review-editor">
       <p className="eyebrow">Step 2 · Check the record</p>
       <h2>What will be published</h2>
-      <p className="supporting-copy">These fields are pre-filled from the report. Edit only details the official source makes explicit.</p>
+      <p className="supporting-copy">These fields are pre-filled from the report. Edit only details the official source makes explicit. Qualification choices are separate from LA28 schedule sessions.</p>
       <label>
         <span>Country</span>
         <select value={draft.noc} onChange={(event) => update({ noc: event.target.value })}>
@@ -626,28 +611,29 @@ function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, dra
         </select>
       </label>
       <label>
-        <span>Sport</span>
+        <span>Qualification sport</span>
         <select value={draft.sport} onChange={(event) => update({ sport: event.target.value, disciplines: [] })}>
           <option value="">Choose sport</option>
           {draft.sport && !hasCurrentSportOption ? <option value={draft.sport}>Current value: {draft.sport}</option> : null}
           {sportOptions.map((sport) => <option key={sport} value={sport}>{sport}</option>)}
         </select>
-        <small>Choose the matching LA28 schedule sport. This prevents spelling variations in public records.</small>
+        <small>Choose the qualification system, not a schedule label. For example, select Boxing rather than a preliminary or final stage.</small>
       </label>
       <label>
-        <span>Event or discipline</span>
+        <span>Qualification event or discipline</span>
         <select value={currentDiscipline} onChange={(event) => update({ disciplines: event.target.value ? [event.target.value] : [] })} disabled={!draft.sport}>
           <option value="">No event specified in the official source</option>
           {currentDiscipline && !hasCurrentDisciplineOption ? <option value={currentDiscipline}>Current value: {currentDiscipline}</option> : null}
-          {disciplineOptions.map((discipline) => <option key={discipline} value={discipline}>{discipline}</option>)}
+          {qualificationEventOptions.map((event) => <option key={event.key} value={event.label}>{event.label}</option>)}
         </select>
-        <small>Only choose an event when the official source explicitly names it. Otherwise, leave this as no event specified.</small>
+        <small>Only curated qualification events appear here - never LA28 heats, finals, or sessions. Leave blank unless the official source is specific.</small>
       </label>
       <div className="admin-form-row">
         <label>
           <span>This record represents</span>
           <select value={draft.subjectType} onChange={(event) => update({ subjectType: event.target.value })}>
-            <option value="noc_quota">Country quota</option>
+            <option value="noc_quota">Country individual quota</option>
+            <option value="team_quota">Country team quota</option>
             <option value="athlete">Named athlete</option>
             <option value="team">Named team</option>
           </select>
@@ -661,7 +647,11 @@ function ReviewEditor({ candidate, countries, sportOptions, scheduleEntries, dra
           <small>{STATE_LABELS[draft.state]}</small>
         </label>
       </div>
-      {draft.subjectType === 'noc_quota' ? <label><span>Confirmed quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label> : null}
+      {draft.subjectType === 'noc_quota' ? <label><span>Confirmed individual quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label> : null}
+      {draft.subjectType === 'team_quota' ? <div className="admin-form-row">
+        <label><span>Confirmed team quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label>
+        <label><span>Maximum athletes in each team (optional)</span><input type="number" min="1" value={draft.teamSizeMax} onChange={(event) => update({ teamSizeMax: event.target.value })} /></label>
+      </div> : null}
       {draft.subjectType === 'athlete' ? <label><span>Confirmed athlete name</span><input value={draft.athleteName} onChange={(event) => update({ athleteName: event.target.value })} /></label> : null}
       {draft.subjectType === 'team' ? <label><span>Confirmed team name</span><input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} /></label> : null}
       <label>

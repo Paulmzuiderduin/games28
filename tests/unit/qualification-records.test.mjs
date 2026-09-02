@@ -51,6 +51,27 @@ test('normalizes confirmed quota and named qualification records', () => {
   assert.equal(cards[1].name, 'Example Rider');
 });
 
+test('keeps an unnamed country team quota distinct from a named team', () => {
+  const result = normalizeQualificationRecords([
+    record({
+      id: 'ger-dressage-team-quota',
+      sport: 'Equestrian',
+      disciplines: ['Dressage - Team'],
+      subjectType: 'team_quota',
+      state: 'allocated',
+      quotaCount: 1,
+      teamSizeMax: 3
+    })
+  ], sources);
+
+  assert.equal(result.rejected.length, 0);
+  const [card] = toQualificationCards(result.records);
+  assert.equal(card.status, 'quota');
+  assert.equal(card.teamType, 'team');
+  assert.equal(card.name, '1 team quota place');
+  assert.equal(card.teamSizeMax, 3);
+});
+
 test('rejects predictions, untrusted sources, and undated records', () => {
   const result = normalizeQualificationRecords([
     record({

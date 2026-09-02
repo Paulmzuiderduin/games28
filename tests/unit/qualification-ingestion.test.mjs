@@ -120,6 +120,38 @@ test('pre-fills, but does not publish, configured official confirmation articles
   assert.doesNotMatch(result.reviewQueue[0].extractedEvidence, /ignore this/i);
 });
 
+test('preserves an unnamed team allocation without treating it as a selected roster', async () => {
+  const result = await ingestQualificationSources({
+    sources: [{
+      ...source,
+      id: 'if-team-allocation',
+      status: 'review_required',
+      adapter: 'official_confirmation_article',
+      evidenceTerms: ['team quota', 'LA28'],
+      sourcePublishedAt: '2028-01-01',
+      confirmationCandidates: [{
+        noc: 'NED',
+        sport: 'Example Sport',
+        discipline: 'Example team event',
+        subjectType: 'team_quota',
+        quotaCount: 1,
+        teamSizeMax: 3,
+        state: 'allocated',
+        evidenceTerms: ['Netherlands', 'qualified']
+      }]
+    }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response('<article><p>LA28 team quota: Netherlands qualified.</p></article>')
+  });
+
+  const record = result.reviewQueue[0].suggestedRecord;
+  assert.equal(record.subjectType, 'team_quota');
+  assert.equal(record.quotaCount, 1);
+  assert.equal(record.teamSizeMax, 3);
+  assert.equal(record.teamName, null);
+});
+
 test('uses the ISSF quota tracker only when its table explicitly names LA28', async () => {
   const result = await ingestQualificationSources({
     sources: [{ ...source, id: 'if-shooting', sport: 'Shooting', adapter: 'issf_quota_tracker' }],
