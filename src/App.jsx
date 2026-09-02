@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
 import AdminReviewConsole from './components/AdminReviewConsole.jsx';
 import ReportUpdateForm from './components/ReportUpdateForm.jsx';
@@ -455,6 +455,27 @@ function CountryDirectory({ countries, athleteCards, favorites, onToggleFavorite
   );
 }
 
+function useCountrySearchNoResults(searchText, resultCount, location) {
+  const lastTrackedQuery = useRef('');
+
+  useEffect(() => {
+    const query = searchText.trim().toLocaleLowerCase();
+    if (!query || resultCount > 0) {
+      lastTrackedQuery.current = '';
+      return undefined;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      if (lastTrackedQuery.current === query) return;
+      // Keep the searched text private; the aggregate event is enough to spot a discovery problem.
+      trackEvent('country_search_no_results', { location });
+      lastTrackedQuery.current = query;
+    }, 650);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [location, resultCount, searchText]);
+}
+
 function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
   const medalEvent = isMedalEvent(entry);
 
@@ -579,6 +600,7 @@ function HomeView({
 
   const displayCountries = countryFilters.searchText || countryFilters.favoriteOnly ? countries.slice(0, 6) : featuredCountries;
   const isSearchingCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
+  useCountrySearchNoResults(countryFilters.searchText, countries.length, 'home');
 
   return (
     <>
@@ -715,6 +737,7 @@ function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countr
   const shouldShowAllCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
   const displayedCountries = shouldShowAllCountries ? countries : countries.slice(0, visibleCountryCount);
   const hasHiddenCountries = displayedCountries.length < countries.length;
+  useCountrySearchNoResults(countryFilters.searchText, countries.length, 'countries');
 
   return (
     <section className="page-section country-directory-page">

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { isSupabaseConfigured, submitCommunityReport } from '../lib/supabase.js';
+import { trackEvent } from '../lib/analytics.js';
 
 const EMPTY_REPORT = {
   category: 'missing_qualification',
@@ -33,6 +34,12 @@ export default function ReportUpdateForm({ countries = [], scheduleEntries = [] 
     setMessage('');
     try {
       await submitCommunityReport(report);
+      trackEvent('report_submitted', {
+        category: report.category,
+        hasCountry: Boolean(report.noc),
+        hasSport: Boolean(report.sport),
+        hasOfficialSource: Boolean(report.sourceUrl.trim())
+      });
       setReport(EMPTY_REPORT);
       setMessage('Thanks - your report is private and is now waiting for review. Games28 only publishes information confirmed by an official source.');
     } catch (error) {
