@@ -84,7 +84,9 @@ async function fetchBuffer(url) {
 async function fetchApprovedReviewQueue() {
   const supabaseUrl = process.env.SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!supabaseUrl || !serviceRoleKey) return [];
+  // Local builds deliberately do not have the private key. Treat that as an
+  // unavailable source, never as proof that the approved queue is empty.
+  if (!supabaseUrl || !serviceRoleKey) return { available: false, entries: [] };
 
   const url = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?status=eq.approved&select=id,source_id,source_url,extracted_evidence,reason,detected_at,confirmation_record`;
   const response = await fetch(url, {
@@ -92,7 +94,9 @@ async function fetchApprovedReviewQueue() {
   });
   if (!response.ok) throw new Error(`Unable to fetch approved qualification reviews: ${response.status}`);
   const rows = await response.json();
-  return rows
+  return {
+    available: true,
+    entries: rows
     .filter((row) => row.confirmation_record)
     .map((row) => ({
       id: row.id,
@@ -102,7 +106,13 @@ async function fetchApprovedReviewQueue() {
       extractedEvidence: row.extracted_evidence,
       reason: row.reason,
       record: row.confirmation_record
-    }));
+    }))
+  };
+}
+
+export function approvedRecordsFromRuntime(runtime) {
+  return (runtime?.qualificationHistory || [])
+    .filter((record) => record.sourceRecordType === 'review_approved');
 }
 
 export function preserveQualificationSourceHealth(currentChecks, previousSources = []) {
@@ -436,7 +446,7 @@ export function detectChanges(previousRuntime, nextRuntime) {
 
 async function main() {
   const checkedAt = new Date().toISOString();
-  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides, previousIngestion, approvedReviewQueue] = await Promise.all([
+  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides, previousIngestion, approvedReviewResult] = await Promise.all([
     readJson(sourceCheckPath, {}),
     readJson(runtimePath, null),
     readJson(qualificationSourcesPath, { structuredRecords: [], reviewQueue: [] }),
@@ -481,9 +491,11 @@ async function main() {
   );
   const manualReviewQueue = qualificationInput.reviewQueue || [];
   const manualReviewIds = new Set(manualReviewQueue.map((entry) => entry.id).filter(Boolean));
+  const approvedReviewQueue = approvedReviewResult.entries;
+  const retainedApprovedRecords = approvedReviewResult.available ? [] : approvedRecordsFromRuntime(previousRuntime);
   const qualificationResult = buildQualificationPipeline({
     structuredRecords: [...(qualificationInput.structuredRecords || []), ...ingestion.structuredRecords],
-    records: qualificationInput.records || [],
+    records: [...(qualificationInput.records || []), ...retainedApprovedRecords],
     reviewQueue: [...manualReviewQueue, ...approvedReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
   }, qualificationSources);
   const qualificationRecords = qualificationResult.activeRecords;

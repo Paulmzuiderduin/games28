@@ -5,6 +5,7 @@ import {
   normalizeQualificationRecords,
   toQualificationCards
 } from '../../scripts/qualification-records.mjs';
+import { approvedRecordsFromRuntime } from '../../scripts/update-data.mjs';
 
 const sources = [{
   id: 'if-example',
@@ -83,6 +84,12 @@ test('keeps a country quota visible when a later named athlete is linked to it',
   assert.equal(result.activeRecords.length, 2);
   const namedCard = toQualificationCards(result.activeRecords).find((card) => card.id === 'ned-rider');
   assert.equal(namedCard.allocationRecordId, 'ned-road-quota');
+});
+
+test('retains approved reviews when the private queue is unavailable to a local build', () => {
+  const approved = record({ id: 'approved-rider', sourceRecordType: 'review_approved' });
+  const structured = record({ id: 'structured-rider', sourceRecordType: 'structured_allocation' });
+  assert.deepEqual(approvedRecordsFromRuntime({ qualificationHistory: [approved, structured] }), [approved]);
 });
 
 test('rejects predictions, untrusted sources, and undated records', () => {
