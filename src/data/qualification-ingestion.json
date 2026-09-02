@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-09-02T12:05:25.577Z",
+  "checkedAt": "2026-09-02T15:16:07.524Z",
   "rejected": [],
   "reviewQueue": [
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-aus-2fb5b91c96a7ba26",
+      "id": "review-if-cricket-aus-ff64e5a775183f46",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "if-cricket",
@@ -26,14 +26,15 @@
         "sport": "Cricket",
         "state": "allocated",
         "subjectType": "team_quota",
+        "supersedesId": null,
         "teamName": null,
         "teamSizeMax": null
       }
     },
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-gbr-b070ae21815b3b97",
+      "id": "review-if-cricket-gbr-bab2b38e58677bde",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "if-cricket",
@@ -54,14 +55,15 @@
         "sport": "Cricket",
         "state": "allocated",
         "subjectType": "team_quota",
+        "supersedesId": null,
         "teamName": null,
         "teamSizeMax": null
       }
     },
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-ind-607d4fc37122a028",
+      "id": "review-if-cricket-ind-aefea7b3df19be15",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "if-cricket",
@@ -82,14 +84,15 @@
         "sport": "Cricket",
         "state": "allocated",
         "subjectType": "team_quota",
+        "supersedesId": null,
         "teamName": null,
         "teamSizeMax": null
       }
     },
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-rsa-b43b79288d32efa7",
+      "id": "review-if-cricket-rsa-a57108a124092b01",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "if-cricket",
@@ -110,14 +113,189 @@
         "sport": "Cricket",
         "state": "allocated",
         "subjectType": "team_quota",
+        "supersedesId": null,
         "teamName": null,
         "teamSizeMax": null
       }
     },
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
+      "extractedEvidence": "Germany claim 13th World Championship team gold on home soil | Sydney CDI Skip to main content Visit the Equestrian Australia National Website Search Home About us Organising Committee History CDI explained Previous winners Competitors Competitor Information Draws, Results What&#039;s on, Info Competition programme General Information Stallion Show Spectator Judging Young Horse School Tours FAQs Workshop Tickets Sponsors/Exhibitors Sponsors Sponsor packages Trade Show Programme booklet advertising News & Media News & Press Releases Photo galleries Videos Media Accreditation Volunteers Workshop Fundraising Stallion Show Toggle navigation MENU Home About Us Organising Committee CDI Explained Previous Winners History Competitors Competitor Information Jumping/Combined Training Draws, Results What&#039;s on, Info Competition programme General Information Stallion Show Spectator Judging Young Horse School Tours FAQ&#039;s Workshop Tickets News & Media News & Press Releases Videos Photo galleries Media Accreditation Sponsors/Exhibitors Current Sponsors Trade Stands Advertise in Booklet Sponsor Packages Volunteers Stallion Show Fundraising Live Stream Workshop Home About Us Organising Committee CDI Explained Previous Winners History Competitors Competitor Information Jumping/Combined Training Draws, Results What&#039;s on, Info Competition programme General Information Stallion Show Spectator Judging Young Horse School Tours FAQ&#039;s Workshop Tickets News & Media News & Press Releases Videos Photo galleries Media Accreditation Sponsors/Exhibitors Current Sponsors Trade Stands Advertise in Booklet Sponsor Packages Volunteers Stallion Show Fundraising Live Stream Workshop NEWS > Dressage Posted by FEI Media Release on 13/08/2026.",
+      "id": "review-if-equestrian-ger-53cd343340244df1",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-equestrian",
+      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-if-equestrian-ger-93b59ed6ab9c3471",
+        "noc": "GER",
+        "qualificationRoute": null,
+        "quotaCount": 1,
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-08-13",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
+        "teamName": null,
+        "teamSizeMax": 3
+      }
+    },
+    {
+      "detectedAt": "2026-09-02T15:16:07.524Z",
+      "extractedEvidence": "618 points clear of Great Britain, while defending champions Denmark took bronze.",
+      "id": "review-if-equestrian-gbr-70afffb1049ac3e4",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-equestrian",
+      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-if-equestrian-gbr-93b59ed6ab9c3471",
+        "noc": "GBR",
+        "qualificationRoute": null,
+        "quotaCount": 1,
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-08-13",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 3
+      }
+    },
+    {
+      "detectedAt": "2026-09-02T15:16:07.524Z",
+      "extractedEvidence": "618 points clear of Great Britain, while defending champions Denmark took bronze.",
+      "id": "review-if-equestrian-den-bb4061643c994325",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-equestrian",
+      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-if-equestrian-den-93b59ed6ab9c3471",
+        "noc": "DEN",
+        "qualificationRoute": null,
+        "quotaCount": 1,
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-08-13",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 3
+      }
+    },
+    {
+      "detectedAt": "2026-09-02T15:16:07.524Z",
+      "extractedEvidence": "Alongside medallists Germany, Great Britain and Denmark, qualification went to Belgium in fourth, the Netherlands in fifth and Sweden in sixth.",
+      "id": "review-if-equestrian-bel-2886c8e26db92fc7",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-equestrian",
+      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-if-equestrian-bel-93b59ed6ab9c3471",
+        "noc": "BEL",
+        "qualificationRoute": null,
+        "quotaCount": 1,
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-08-13",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 3
+      }
+    },
+    {
+      "detectedAt": "2026-09-02T15:16:07.524Z",
+      "extractedEvidence": "Alongside medallists Germany, Great Britain and Denmark, qualification went to Belgium in fourth, the Netherlands in fifth and Sweden in sixth.",
+      "id": "review-if-equestrian-ned-c19123eea492a9f1",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-equestrian",
+      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-if-equestrian-ned-93b59ed6ab9c3471",
+        "noc": "NED",
+        "qualificationRoute": null,
+        "quotaCount": 1,
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-08-13",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": "approved-review-noc-ned-dressage-la28-ned-61961ba7662742db",
+        "teamName": null,
+        "teamSizeMax": 3
+      }
+    },
+    {
+      "detectedAt": "2026-09-02T15:16:07.524Z",
+      "extractedEvidence": "Alongside medallists Germany, Great Britain and Denmark, qualification went to Belgium in fourth, the Netherlands in fifth and Sweden in sixth.",
+      "id": "review-if-equestrian-swe-b7d7f169580a8bb2",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-equestrian",
+      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-if-equestrian-swe-93b59ed6ab9c3471",
+        "noc": "SWE",
+        "qualificationRoute": null,
+        "quotaCount": 1,
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-08-13",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 3
+      }
+    },
+    {
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
-      "id": "review-noc-aus-dressage-la28-aus-e93c4f4d5ced133a",
+      "id": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "noc-aus-dressage-la28",
@@ -138,14 +316,15 @@
         "sport": "Equestrian",
         "state": "allocated",
         "subjectType": "team_quota",
+        "supersedesId": null,
         "teamName": null,
         "teamSizeMax": 3
       }
     },
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "Nederland eindigde kort achter België als vijfde en dankte dit aan de topscores van Van der Putten (77,764%, 6e) en Van Liere (74,161%, 11e).",
-      "id": "review-noc-ned-dressage-la28-ned-df9e105fb9ec7468",
+      "id": "review-noc-ned-dressage-la28-ned-797a2f328aa729f8",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "noc-ned-dressage-la28",
@@ -166,14 +345,15 @@
         "sport": "Equestrian",
         "state": "allocated",
         "subjectType": "team_quota",
+        "supersedesId": null,
         "teamName": null,
         "teamSizeMax": 3
       }
     },
     {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
+      "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 | TeamNL Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Raïsa Schoon en Katja Stam zijn voor de eerste keer in hun carrière Europees kampioen beachvolleybal geworden.",
-      "id": "review-noc-ned-beach-volleyball-la28-ned-ab84dba964caa260",
+      "id": "review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
       "sourceId": "noc-ned-beach-volleyball-la28",
@@ -194,6 +374,7 @@
         "sport": "Beach Volleyball",
         "state": "earned",
         "subjectType": "team",
+        "supersedesId": null,
         "teamName": "Katja Stam and Raïsa Schoon",
         "teamSizeMax": null
       }
@@ -202,7 +383,7 @@
   "scans": [
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 5,
@@ -212,7 +393,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -222,7 +403,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -232,7 +413,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -242,7 +423,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -252,7 +433,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -262,7 +443,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 5,
@@ -272,7 +453,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -282,7 +463,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -292,13 +473,13 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
-        "review-if-cricket-aus-2fb5b91c96a7ba26",
-        "review-if-cricket-gbr-b070ae21815b3b97",
-        "review-if-cricket-ind-607d4fc37122a028",
-        "review-if-cricket-rsa-b43b79288d32efa7"
+        "review-if-cricket-aus-ff64e5a775183f46",
+        "review-if-cricket-gbr-bab2b38e58677bde",
+        "review-if-cricket-ind-aefea7b3df19be15",
+        "review-if-cricket-rsa-a57108a124092b01"
       ],
       "rowCount": 0,
       "sourceId": "if-cricket",
@@ -307,7 +488,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -317,9 +498,16 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
-      "reviewCandidateIds": [],
+      "reviewCandidateIds": [
+        "review-if-equestrian-ger-53cd343340244df1",
+        "review-if-equestrian-gbr-70afffb1049ac3e4",
+        "review-if-equestrian-den-bb4061643c994325",
+        "review-if-equestrian-bel-2886c8e26db92fc7",
+        "review-if-equestrian-ned-c19123eea492a9f1",
+        "review-if-equestrian-swe-b7d7f169580a8bb2"
+      ],
       "rowCount": 0,
       "sourceId": "if-equestrian",
       "structuredRecordCount": 0,
@@ -327,7 +515,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -337,7 +525,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 4,
@@ -347,7 +535,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -357,7 +545,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -367,7 +555,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -377,7 +565,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -387,7 +575,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -397,7 +585,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -407,7 +595,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "application/pdf",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -417,7 +605,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -427,7 +615,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -437,7 +625,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -447,7 +635,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -462,7 +650,7 @@
         "resolvedUrl": "https://www.issf-sports.org/competitions/olympic-qualification-tracker/quota-place-by-nation-and-number",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -472,7 +660,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -482,7 +670,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -492,8 +680,8 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
-      "format": "text/html",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-squash",
@@ -502,7 +690,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -512,7 +700,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -522,7 +710,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -532,7 +720,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -542,7 +730,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -552,8 +740,8 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
-      "format": "text/html",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-volleyball",
@@ -562,7 +750,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -572,7 +760,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "application/pdf",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -582,7 +770,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -592,7 +780,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -602,7 +790,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -612,7 +800,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -622,10 +810,10 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
-        "review-noc-aus-dressage-la28-aus-e93c4f4d5ced133a"
+        "review-noc-aus-dressage-la28-aus-1ce9e125e048d221"
       ],
       "rowCount": 0,
       "sourceId": "noc-aus-dressage-la28",
@@ -634,7 +822,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; Charset=ISO-8859-1",
       "reviewCandidateIds": [],
       "rowCount": 1,
@@ -644,7 +832,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -654,7 +842,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -664,7 +852,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -674,7 +862,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 21,
@@ -684,7 +872,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -694,7 +882,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -704,7 +892,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -714,7 +902,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -724,7 +912,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 4,
@@ -734,7 +922,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -744,7 +932,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -754,7 +942,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -764,7 +952,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -774,7 +962,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -784,7 +972,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -794,7 +982,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -804,7 +992,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -814,7 +1002,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -824,7 +1012,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -834,7 +1022,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -844,7 +1032,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -854,7 +1042,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -864,7 +1052,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -874,10 +1062,10 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
-        "review-noc-ned-dressage-la28-ned-df9e105fb9ec7468"
+        "review-noc-ned-dressage-la28-ned-797a2f328aa729f8"
       ],
       "rowCount": 0,
       "sourceId": "noc-ned-dressage-la28",
@@ -886,10 +1074,10 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
-        "review-noc-ned-beach-volleyball-la28-ned-ab84dba964caa260"
+        "review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a"
       ],
       "rowCount": 0,
       "sourceId": "noc-ned-beach-volleyball-la28",
@@ -898,7 +1086,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -908,7 +1096,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -918,7 +1106,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -928,7 +1116,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -938,7 +1126,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -948,7 +1136,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -958,8 +1146,8 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
-      "format": "text/html",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rsa",
@@ -968,7 +1156,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -977,7 +1165,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -986,18 +1174,17 @@
       "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
-      "format": "text/html;charset=UTF-8",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-swe",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -1007,7 +1194,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -1017,7 +1204,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -1027,7 +1214,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 3,
@@ -1037,7 +1224,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T12:05:25.577Z",
+      "checkedAt": "2026-09-02T15:16:07.524Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
