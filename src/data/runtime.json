@@ -1011,7 +1011,7 @@
       "summary": "Added session CKT04 for Women's Group Stage First Round."
     }
   ],
-  "checkedAt": "2026-09-02T12:01:10.250Z",
+  "checkedAt": "2026-09-02T12:05:25.577Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -5020,7 +5020,7 @@
       "status": "awaiting_endpoint"
     }
   ],
-  "generatedAt": "2026-09-02T12:01:10.250Z",
+  "generatedAt": "2026-09-02T12:05:25.577Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
@@ -5055,6 +5055,11 @@
       },
       "passed": true
     },
+    "qualificationApprovalSync": {
+      "available": true,
+      "fetchedApprovedCount": 8,
+      "retainedApprovedCount": 0
+    },
     "qualificationAutoRecordCount": 0,
     "qualificationCount": 8,
     "qualificationCoverage": {
@@ -5073,7 +5078,7 @@
       {
         "allocationUrl": "https://fiba.basketball/3x3",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -5111,7 +5116,7 @@
       {
         "allocationUrl": "https://www.worldarchery.sport/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Archery",
         "httpStatus": 200,
@@ -5149,7 +5154,7 @@
       {
         "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Aquatics",
         "httpStatus": 200,
@@ -5176,7 +5181,7 @@
       {
         "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Athletics",
         "httpStatus": 200,
@@ -5201,7 +5206,7 @@
       {
         "allocationUrl": "https://corporate.bwfbadminton.com/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Badminton World Federation",
         "httpStatus": 403,
@@ -5224,7 +5229,7 @@
       {
         "allocationUrl": "https://www.wbsc.org/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Baseball Softball Confederation",
         "httpStatus": 403,
@@ -5263,7 +5268,7 @@
       {
         "allocationUrl": "https://www.fiba.basketball/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -5301,7 +5306,7 @@
       {
         "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Boxing",
         "httpStatus": 200,
@@ -5325,7 +5330,7 @@
       {
         "allocationUrl": "https://www.ifsc-climbing.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Federation of Sport Climbing",
         "httpStatus": 200,
@@ -5348,7 +5353,7 @@
       {
         "allocationUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Cricket Council",
         "httpStatus": 200,
@@ -5386,7 +5391,7 @@
       {
         "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Union Cycliste Internationale",
         "httpStatus": 200,
@@ -5414,7 +5419,7 @@
       {
         "allocationUrl": "https://inside.fei.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Fédération Equestre Internationale",
         "httpStatus": 200,
@@ -5480,7 +5485,7 @@
       {
         "allocationUrl": "https://fie.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Fencing Federation",
         "httpStatus": 200,
@@ -5503,7 +5508,7 @@
       {
         "allocationUrl": "https://ifaf.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Federation of American Football",
         "httpStatus": 200,
@@ -5541,7 +5546,7 @@
       {
         "allocationUrl": "https://inside.fifa.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "FIFA",
         "httpStatus": 200,
@@ -5579,7 +5584,7 @@
       {
         "allocationUrl": "https://www.igfgolf.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Golf Federation",
         "httpStatus": 200,
@@ -5617,7 +5622,7 @@
       {
         "allocationUrl": "https://www.gymnastics.sport/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Gymnastics Federation",
         "httpStatus": 200,
@@ -5642,7 +5647,7 @@
       {
         "allocationUrl": "https://www.ihf.info/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Handball Federation",
         "httpStatus": 200,
@@ -5680,7 +5685,7 @@
       {
         "allocationUrl": "https://www.fih.hockey/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Hockey Federation",
         "httpStatus": 200,
@@ -5718,7 +5723,7 @@
       {
         "allocationUrl": "https://www.ijf.org/ijf/documents/26",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Judo Federation",
         "httpStatus": 200,
@@ -5741,7 +5746,7 @@
       {
         "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Lacrosse",
         "httpStatus": 200,
@@ -5779,7 +5784,7 @@
       {
         "allocationUrl": "https://www.uipmworld.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Union Internationale de Pentathlon Moderne",
         "httpStatus": 200,
@@ -5802,7 +5807,7 @@
       {
         "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Rowing",
         "httpStatus": 200,
@@ -5826,7 +5831,7 @@
       {
         "allocationUrl": "https://www.world.rugby/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Rugby",
         "httpStatus": 200,
@@ -5864,7 +5869,7 @@
       {
         "allocationUrl": "https://www.sailing.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Sailing",
         "httpStatus": 200,
@@ -5889,7 +5894,7 @@
       {
         "allocationUrl": "https://www.issf-sports.org/competitions/3488",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Shooting Sport Federation",
         "httpStatus": 200,
@@ -5913,7 +5918,7 @@
       {
         "allocationUrl": "https://www.worldskate.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Skate",
         "httpStatus": 200,
@@ -5937,7 +5942,7 @@
       {
         "allocationUrl": "https://www.canoeicf.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Canoe Federation",
         "httpStatus": 200,
@@ -5962,18 +5967,18 @@
       },
       {
         "allocationUrl": "https://www.worldsquash.org/",
-        "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "available": true,
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Squash Federation",
-        "httpStatus": 403,
+        "httpStatus": 202,
         "id": "if-squash",
         "kind": "qualification_system",
         "label": "World Squash Federation - Squash",
         "qualificationEvents": [],
         "qualificationSystemKey": "squash",
         "refreshPolicy": "daily",
-        "resolvedUrl": "https://www.worldsquash.sport/",
+        "resolvedUrl": "https://www.worldsquash.org/",
         "rulesUrl": "https://www.worldsquash.org/",
         "sourceTier": "if",
         "sport": "Squash",
@@ -5986,7 +5991,7 @@
       {
         "allocationUrl": "https://isasurf.org/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Surfing Association",
         "httpStatus": 403,
@@ -6009,7 +6014,7 @@
       {
         "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Table Tennis Federation",
         "httpStatus": 403,
@@ -6032,7 +6037,7 @@
       {
         "allocationUrl": "https://www.worldtaekwondo.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Taekwondo",
         "httpStatus": 200,
@@ -6055,7 +6060,7 @@
       {
         "allocationUrl": "https://www.itftennis.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Tennis Federation",
         "httpStatus": 200,
@@ -6078,7 +6083,7 @@
       {
         "allocationUrl": "https://triathlon.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "World Triathlon",
         "httpStatus": 200,
@@ -6101,10 +6106,10 @@
       {
         "allocationUrl": "https://www.fivb.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Fédération Internationale de Volleyball",
-        "httpStatus": 200,
+        "httpStatus": 202,
         "id": "if-volleyball",
         "kind": "qualification_system",
         "label": "Fédération Internationale de Volleyball - Volleyball",
@@ -6154,7 +6159,7 @@
       {
         "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "International Weightlifting Federation",
         "httpStatus": 403,
@@ -6177,7 +6182,7 @@
       {
         "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "United World Wrestling",
         "httpStatus": 200,
@@ -6200,7 +6205,7 @@
       {
         "allocationUrl": "https://coarg.org.ar/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Argentina",
         "httpStatus": 200,
@@ -6221,7 +6226,7 @@
       {
         "allocationUrl": "https://www.olympics.com.au/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6242,7 +6247,7 @@
       {
         "allocationUrl": "https://www.equestrian.org.au/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6263,7 +6268,7 @@
       {
         "allocationUrl": "https://www.cricket.com.au/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6284,7 +6289,7 @@
       {
         "allocationUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6307,7 +6312,7 @@
       {
         "allocationUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Austria",
         "httpStatus": 200,
@@ -6328,7 +6333,7 @@
       {
         "allocationUrl": "https://www.teambelgium.be/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Belgium",
         "httpStatus": 200,
@@ -6349,7 +6354,7 @@
       {
         "allocationUrl": "https://www.cob.org.br/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Brazil",
         "httpStatus": 200,
@@ -6370,7 +6375,7 @@
       {
         "allocationUrl": "https://olympic.ca/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Canada",
         "httpStatus": 200,
@@ -6391,7 +6396,7 @@
       {
         "allocationUrl": "https://www.olympic.cn/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "China",
         "httpStatus": 200,
@@ -6412,7 +6417,7 @@
       {
         "allocationUrl": "https://www.olympijskytym.cz/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Czech Republic",
         "httpStatus": 200,
@@ -6433,7 +6438,7 @@
       {
         "allocationUrl": "https://www.dif.dk/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Denmark",
         "httpStatus": 200,
@@ -6454,7 +6459,7 @@
       {
         "allocationUrl": "https://www.olympiakomitea.fi/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Finland",
         "httpStatus": 200,
@@ -6475,7 +6480,7 @@
       {
         "allocationUrl": "https://cnosf.franceolympique.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "France",
         "httpStatus": 200,
@@ -6496,7 +6501,7 @@
       {
         "allocationUrl": "https://www.dosb.de/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Germany",
         "httpStatus": 200,
@@ -6517,7 +6522,7 @@
       {
         "allocationUrl": "https://www.teamgb.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
@@ -6538,7 +6543,7 @@
       {
         "allocationUrl": "https://www.ecb.co.uk/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
@@ -6559,7 +6564,7 @@
       {
         "allocationUrl": "https://www.britishswimming.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
@@ -6580,7 +6585,7 @@
       {
         "allocationUrl": "https://www.britishcycling.org.uk/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 403,
@@ -6601,7 +6606,7 @@
       {
         "allocationUrl": "https://www.hoc.gr/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Greece",
         "httpStatus": 200,
@@ -6622,7 +6627,7 @@
       {
         "allocationUrl": "https://olimpia.hu/kezdolap",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Hungary",
         "httpStatus": 200,
@@ -6643,7 +6648,7 @@
       {
         "allocationUrl": "https://olympic.ind.in/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "India",
         "httpStatus": 200,
@@ -6664,7 +6669,7 @@
       {
         "allocationUrl": "https://www.bcci.tv/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "India",
         "httpStatus": 200,
@@ -6685,7 +6690,7 @@
       {
         "allocationUrl": "https://olympics.ie/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Ireland",
         "httpStatus": 200,
@@ -6706,7 +6711,7 @@
       {
         "allocationUrl": "https://www.coni.it/it/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Italy",
         "httpStatus": 200,
@@ -6727,7 +6732,7 @@
       {
         "allocationUrl": "https://www.joc.or.jp/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Japan",
         "httpStatus": 200,
@@ -6748,7 +6753,7 @@
       {
         "allocationUrl": "https://www.teamnl.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -6769,7 +6774,7 @@
       {
         "allocationUrl": "https://www.knhs.nl/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -6790,7 +6795,7 @@
       {
         "allocationUrl": "https://www.nevobo.nl/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -6811,7 +6816,7 @@
       {
         "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -6834,7 +6839,7 @@
       {
         "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -6857,7 +6862,7 @@
       {
         "allocationUrl": "https://olympic.org.nz/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "New Zealand",
         "httpStatus": 200,
@@ -6878,7 +6883,7 @@
       {
         "allocationUrl": "https://olympic.no/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Norway",
         "httpStatus": 200,
@@ -6899,7 +6904,7 @@
       {
         "allocationUrl": "https://ccdp.org.pe/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Peru",
         "httpStatus": 200,
@@ -6920,7 +6925,7 @@
       {
         "allocationUrl": "https://olimpijski.pl/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Poland",
         "httpStatus": 200,
@@ -6941,7 +6946,7 @@
       {
         "allocationUrl": "https://comiteolimpicoportugal.pt/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Portugal",
         "httpStatus": 200,
@@ -6962,7 +6967,7 @@
       {
         "allocationUrl": "https://www.cosr.ro/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Romania",
         "httpStatus": 200,
@@ -6983,10 +6988,10 @@
       {
         "allocationUrl": "https://www.sascoc.co.za/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "South Africa",
-        "httpStatus": 200,
+        "httpStatus": 202,
         "id": "noc-rsa",
         "kind": "country_selection",
         "label": "South Africa NOC",
@@ -7004,10 +7009,10 @@
       {
         "allocationUrl": "https://cricket.co.za/",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "South Africa",
-        "httpStatus": null,
+        "httpStatus": 403,
         "id": "national-federation-rsa-1",
         "kind": "country_selection",
         "label": "South Africa national federation",
@@ -7025,7 +7030,7 @@
       {
         "allocationUrl": "https://www.sports.or.kr/sports/main/main.do",
         "available": false,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "South Korea",
         "httpStatus": null,
@@ -7046,7 +7051,7 @@
       {
         "allocationUrl": "https://sok.se/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Sweden",
         "httpStatus": 200,
@@ -7067,7 +7072,7 @@
       {
         "allocationUrl": "https://swissolympic.ch/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "Switzerland",
         "httpStatus": 200,
@@ -7088,7 +7093,7 @@
       {
         "allocationUrl": "https://www.usopc.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7109,7 +7114,7 @@
       {
         "allocationUrl": "https://www.usalacrosse.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7130,7 +7135,7 @@
       {
         "allocationUrl": "https://www.usaswimming.org/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7151,7 +7156,7 @@
       {
         "allocationUrl": "https://www.usafootball.com/",
         "available": true,
-        "checkedAt": "2026-09-02T12:01:10.250Z",
+        "checkedAt": "2026-09-02T12:05:25.577Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7182,34 +7187,6 @@
       "allocationRecordId": null,
       "athleteName": null,
       "disciplines": [
-        "Dressage - Team"
-      ],
-      "events": [],
-      "id": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-      "noc": "GER",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": 3,
-      "recordKey": "ger::equestrian::noc_quota::dressage - team",
-      "scheduleHints": [],
-      "sourceId": "if-equestrian",
-      "sourcePublishedAt": "2026-09-01T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://inside.fei.org/",
-      "sport": "Equestrian",
-      "state": "allocated",
-      "subjectType": "noc_quota",
-      "supersedesId": null,
-      "teamName": null,
-      "teamSizeMax": null,
-      "verifiedAt": "2026-09-02T11:56:14.456Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
-      "disciplines": [
         "Women's T20"
       ],
       "events": [],
@@ -7220,6 +7197,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "aus::cricket::team::australia women's cricket team",
+      "reviewCandidateId": "review-if-cricket-aus-571e1aa10148b156",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7248,6 +7226,7 @@
       "qualificationRoute": null,
       "quotaCount": 3,
       "recordKey": "ned::equestrian::noc_quota::dressage",
+      "reviewCandidateId": "review-noc-ned-dressage-la28-ned-61961ba7662742db",
       "scheduleHints": [],
       "sourceId": "noc-ned-dressage-la28",
       "sourcePublishedAt": "2026-08-12T00:00:00.000Z",
@@ -7276,6 +7255,7 @@
       "qualificationRoute": null,
       "quotaCount": 3,
       "recordKey": "aus::equestrian::noc_quota::dressage",
+      "reviewCandidateId": "review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
       "scheduleHints": [],
       "sourceId": "noc-aus-dressage-la28",
       "sourcePublishedAt": "2026-08-23T00:00:00.000Z",
@@ -7304,6 +7284,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "gbr::cricket::team::great britain women's cricket team",
+      "reviewCandidateId": "review-if-cricket-gbr-317047fbbbd66561",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7332,6 +7313,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "ind::cricket::team::india women's cricket team",
+      "reviewCandidateId": "review-if-cricket-ind-bd69176142f2771b",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7360,6 +7342,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "rsa::cricket::team::south africa women's cricket team",
+      "reviewCandidateId": "review-if-cricket-rsa-84005752d2b77618",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7388,6 +7371,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "ned::beach volleyball::team::katja stam and raïsa schoon",
+      "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
       "scheduleHints": [],
       "sourceId": "noc-ned-beach-volleyball-la28",
       "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
@@ -7401,6 +7385,35 @@
       "teamName": "Katja Stam and Raïsa Schoon",
       "teamSizeMax": null,
       "verifiedAt": "2026-08-31T12:52:11.211Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "disciplines": [
+        "Dressage - Team"
+      ],
+      "events": [],
+      "id": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
+      "noc": "GER",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": null,
+      "quotaCount": 3,
+      "recordKey": "ger::equestrian::noc_quota::dressage - team",
+      "reviewCandidateId": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
+      "scheduleHints": [],
+      "sourceId": "if-equestrian",
+      "sourcePublishedAt": "2026-09-01T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://inside.fei.org/",
+      "sport": "Equestrian",
+      "state": "allocated",
+      "subjectType": "noc_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": null,
+      "verifiedAt": "2026-09-02T11:56:14.456Z"
     }
   ],
   "qualificationRecords": [
@@ -7418,6 +7431,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "aus::cricket::team::australia women's cricket team",
+      "reviewCandidateId": "review-if-cricket-aus-571e1aa10148b156",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7446,6 +7460,7 @@
       "qualificationRoute": null,
       "quotaCount": 3,
       "recordKey": "aus::equestrian::noc_quota::dressage",
+      "reviewCandidateId": "review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
       "scheduleHints": [],
       "sourceId": "noc-aus-dressage-la28",
       "sourcePublishedAt": "2026-08-23T00:00:00.000Z",
@@ -7474,6 +7489,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "gbr::cricket::team::great britain women's cricket team",
+      "reviewCandidateId": "review-if-cricket-gbr-317047fbbbd66561",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7502,6 +7518,7 @@
       "qualificationRoute": null,
       "quotaCount": 3,
       "recordKey": "ger::equestrian::noc_quota::dressage - team",
+      "reviewCandidateId": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
       "scheduleHints": [],
       "sourceId": "if-equestrian",
       "sourcePublishedAt": "2026-09-01T00:00:00.000Z",
@@ -7530,6 +7547,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "ind::cricket::team::india women's cricket team",
+      "reviewCandidateId": "review-if-cricket-ind-bd69176142f2771b",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7558,6 +7576,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "ned::beach volleyball::team::katja stam and raïsa schoon",
+      "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
       "scheduleHints": [],
       "sourceId": "noc-ned-beach-volleyball-la28",
       "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
@@ -7586,6 +7605,7 @@
       "qualificationRoute": null,
       "quotaCount": 3,
       "recordKey": "ned::equestrian::noc_quota::dressage",
+      "reviewCandidateId": "review-noc-ned-dressage-la28-ned-61961ba7662742db",
       "scheduleHints": [],
       "sourceId": "noc-ned-dressage-la28",
       "sourcePublishedAt": "2026-08-12T00:00:00.000Z",
@@ -7614,6 +7634,7 @@
       "qualificationRoute": null,
       "quotaCount": null,
       "recordKey": "rsa::cricket::team::south africa women's cricket team",
+      "reviewCandidateId": "review-if-cricket-rsa-84005752d2b77618",
       "scheduleHints": [],
       "sourceId": "if-cricket",
       "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
@@ -7631,36 +7652,6 @@
   ],
   "qualificationReviewQueue": [
     {
-      "detectedAt": "2026-09-01T22:45:02.429Z",
-      "extractedEvidence": "Dressage qualifications:  GER, GBR, DEN, BEL, NED, SWE.\n\nTechnically the FEI website would probably have the \"official\" results for all three disciplines, but I couldn't figure out their website.",
-      "id": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-      "reason": "Visitor-submitted report. Verify the selected official source before publishing.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-        "noc": "GER",
-        "qualificationRoute": null,
-        "quotaCount": 3,
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-09-01T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://inside.fei.org/",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "noc_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T11:56:14.456Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://inside.fei.org/",
-      "suggestedRecord": null
-    },
-    {
       "detectedAt": "2026-08-31T10:09:12.996Z",
       "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
       "id": "review-if-cricket-aus-571e1aa10148b156",
@@ -7674,6 +7665,7 @@
         "noc": "AUS",
         "qualificationRoute": null,
         "quotaCount": null,
+        "reviewCandidateId": "review-if-cricket-aus-571e1aa10148b156",
         "sourceId": "if-cricket",
         "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7703,6 +7695,7 @@
         "noc": "NED",
         "qualificationRoute": null,
         "quotaCount": 3,
+        "reviewCandidateId": "review-noc-ned-dressage-la28-ned-61961ba7662742db",
         "sourceId": "noc-ned-dressage-la28",
         "sourcePublishedAt": "2026-08-12T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7733,6 +7726,7 @@
         "noc": "AUS",
         "qualificationRoute": null,
         "quotaCount": 3,
+        "reviewCandidateId": "review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
         "sourceId": "noc-aus-dressage-la28",
         "sourcePublishedAt": "2026-08-23T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7762,6 +7756,7 @@
         "noc": "GBR",
         "qualificationRoute": null,
         "quotaCount": null,
+        "reviewCandidateId": "review-if-cricket-gbr-317047fbbbd66561",
         "sourceId": "if-cricket",
         "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7790,6 +7785,7 @@
         "noc": "IND",
         "qualificationRoute": null,
         "quotaCount": null,
+        "reviewCandidateId": "review-if-cricket-ind-bd69176142f2771b",
         "sourceId": "if-cricket",
         "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7818,6 +7814,7 @@
         "noc": "RSA",
         "qualificationRoute": null,
         "quotaCount": null,
+        "reviewCandidateId": "review-if-cricket-rsa-84005752d2b77618",
         "sourceId": "if-cricket",
         "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7846,6 +7843,7 @@
         "noc": "NED",
         "qualificationRoute": null,
         "quotaCount": null,
+        "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
         "sourceId": "noc-ned-beach-volleyball-la28",
         "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
         "sourceRecordType": "review_approved",
@@ -7858,6 +7856,37 @@
       },
       "resolution": "approved",
       "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
+      "suggestedRecord": null
+    },
+    {
+      "detectedAt": "2026-09-01T22:45:02.429Z",
+      "extractedEvidence": "Dressage qualifications:  GER, GBR, DEN, BEL, NED, SWE.\n\nTechnically the FEI website would probably have the \"official\" results for all three disciplines, but I couldn't figure out their website.",
+      "id": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
+      "reason": "Visitor-submitted report. Verify the selected official source before publishing.",
+      "record": {
+        "allocationRecordId": null,
+        "athleteName": null,
+        "disciplines": [
+          "Dressage - Team"
+        ],
+        "id": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
+        "noc": "GER",
+        "qualificationRoute": null,
+        "quotaCount": 3,
+        "reviewCandidateId": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
+        "sourceId": "if-equestrian",
+        "sourcePublishedAt": "2026-09-01T00:00:00.000Z",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://inside.fei.org/",
+        "sport": "Equestrian",
+        "state": "allocated",
+        "subjectType": "noc_quota",
+        "teamName": null,
+        "teamSizeMax": null,
+        "verifiedAt": "2026-09-02T11:56:14.456Z"
+      },
+      "resolution": "approved",
+      "sourceUrl": "https://inside.fei.org/",
       "suggestedRecord": null
     },
     {
@@ -54526,7 +54555,7 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "checkedAt": "2026-09-02T12:05:25.577Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
       "fallbackUsed": false,
       "id": "official-la28-page",
@@ -54535,7 +54564,7 @@
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "checkedAt": "2026-09-02T12:05:25.577Z",
       "description": "Primary parser target for official schedule shadow mode.",
       "fallbackUsed": false,
       "id": "official-la28-event-pdf",
@@ -54544,7 +54573,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "checkedAt": "2026-09-02T12:05:25.577Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -54553,7 +54582,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "checkedAt": "2026-09-02T12:05:25.577Z",
       "description": "Structured comparison and fallback source during shadow mode.",
       "fallbackUsed": false,
       "id": "community-la28-sheet",
@@ -54562,7 +54591,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "checkedAt": "2026-09-02T12:05:25.577Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
