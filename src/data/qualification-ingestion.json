@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-02T11:48:35.880Z",
+  "checkedAt": "2026-09-02T12:01:10.250Z",
   "rejected": [],
   "reviewQueue": [
     {
@@ -201,18 +201,17 @@
   ],
   "scans": [
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
-      "rowCount": 5,
+      "rowCount": 0,
       "sourceId": "if-3x3-basketball",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -222,7 +221,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -232,7 +231,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -242,7 +241,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -252,7 +251,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -261,18 +260,17 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
-      "rowCount": 5,
+      "rowCount": 0,
       "sourceId": "if-basketball",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -281,18 +279,17 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-climbing",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-if-cricket-aus-2fb5b91c96a7ba26",
@@ -307,7 +304,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -317,7 +314,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -327,7 +324,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -337,7 +334,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 4,
@@ -347,7 +344,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -357,7 +354,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -367,7 +364,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -377,7 +374,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -387,7 +384,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -397,7 +394,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -407,7 +404,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "application/pdf",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -417,7 +414,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -427,7 +424,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -437,7 +434,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -447,7 +444,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -462,7 +459,7 @@
         "resolvedUrl": "https://www.issf-sports.org/competitions/olympic-qualification-tracker/quota-place-by-nation-and-number",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -472,7 +469,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -482,7 +479,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -492,7 +489,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -502,7 +499,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -512,7 +509,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -522,7 +519,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -532,8 +529,8 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-tennis",
@@ -542,7 +539,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -552,7 +549,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -562,7 +559,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -572,7 +569,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "application/pdf",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -582,7 +579,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -592,7 +589,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -602,7 +599,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -612,7 +609,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -622,7 +619,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-noc-aus-dressage-la28-aus-e93c4f4d5ced133a"
@@ -634,7 +631,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; Charset=ISO-8859-1",
       "reviewCandidateIds": [],
       "rowCount": 1,
@@ -644,7 +641,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -654,7 +651,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -664,7 +661,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -674,7 +671,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 21,
@@ -684,7 +681,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -694,7 +691,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -704,7 +701,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -714,7 +711,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -724,7 +721,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 4,
@@ -734,7 +731,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -744,7 +741,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -754,7 +751,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -764,7 +761,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -774,7 +771,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -784,7 +781,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -794,7 +791,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -804,7 +801,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -814,7 +811,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -824,7 +821,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -834,7 +831,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -844,7 +841,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -854,7 +851,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -864,7 +861,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -874,7 +871,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-noc-ned-dressage-la28-ned-df9e105fb9ec7468"
@@ -886,7 +883,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-noc-ned-beach-volleyball-la28-ned-ab84dba964caa260"
@@ -898,7 +895,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -908,7 +905,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -918,7 +915,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -928,7 +925,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -938,7 +935,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -947,38 +944,35 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rou",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rsa",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-rsa-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "error": "The operation was aborted due to timeout",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -986,64 +980,58 @@
       "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html;charset=UTF-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-swe",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html;charset=UTF-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-sui",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-usa",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-usa-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
-      "rowCount": 3,
+      "rowCount": 0,
       "sourceId": "national-federation-usa-2",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-02T11:48:35.880Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-02T12:01:10.250Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-usa-3",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     }
   ],
   "structuredRecords": []
