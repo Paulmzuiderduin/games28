@@ -634,7 +634,17 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
           {currentDiscipline && !hasCurrentDisciplineOption ? <option value={currentDiscipline}>Current value: {currentDiscipline}</option> : null}
           {qualificationEventOptions.map((event) => <option key={event.key} value={event.label}>{event.label}</option>)}
         </select>
-        <small>Only curated qualification events appear here - never LA28 heats, finals, or sessions. Leave blank unless the official source is specific.</small>
+        <small>These are the common curated choices. They are qualification events, never LA28 heats, finals, or sessions.</small>
+      </label>
+      <label>
+        <span>Exact official event or discipline (if not listed above)</span>
+        <input
+          value={currentDiscipline}
+          onChange={(event) => update({ disciplines: event.target.value.trim() ? [event.target.value] : [] })}
+          disabled={!draft.sport}
+          placeholder="Type the exact label used by the official source"
+        />
+        <small>Use this when the official source names a specific event not yet in the list. Leave it blank only when the source truly does not specify an event.</small>
       </label>
       <div className="admin-form-row">
         <label>
@@ -663,9 +673,9 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
       {draft.subjectType === 'athlete' ? <label><span>Confirmed athlete name</span><input value={draft.athleteName} onChange={(event) => update({ athleteName: event.target.value })} /></label> : null}
       {draft.subjectType === 'team' ? <label><span>Confirmed team name</span><input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} /></label> : null}
       {['athlete', 'team'].includes(draft.subjectType) ? <label>
-        <span>Link to an earlier country quota (optional)</span>
+        <span>{draft.subjectType === 'athlete' ? 'Which quota does this athlete fill? (optional)' : 'Which quota does this team fill? (optional)'}</span>
         <select value={draft.allocationRecordId} onChange={(event) => update({ allocationRecordId: event.target.value })}>
-          <option value="">No link — this source directly names the athlete or team</option>
+          <option value="">No link — this source directly qualifies or names them</option>
           {allocationOptions.map((card) => <option key={card.id} value={card.id}>{card.name}{card.disciplines?.length ? ` · ${card.disciplines.join(', ')}` : ''}</option>)}
         </select>
         <small>Use this when a federation names people for a quota Games28 already tracks. The quota stays visible; this shows who fills it.</small>
