@@ -160,10 +160,10 @@ export const qualificationSystems = [
     sourceType: 'team_qualification',
     status: 'review_required',
     adapter: 'official_confirmation_article',
-    evidenceTerms: ['Canada', 'LA28 Olympic', 'Olympic quota place'],
+    evidenceTerms: ['Canada', 'LA28 Olympic', 'earned their place'],
     sourcePublishedAt: '2026-08-30',
     confirmationCandidates: [
-      { noc: 'CAN', sport: 'Volleyball', discipline: "Women's tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Canada', 'Olympic quota place'] }
+      { noc: 'CAN', sport: 'Volleyball', discipline: "Women's tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Canada', 'earned their place'] }
     ],
     qualificationEvents: [
       qualificationEvent('beach-men', "Beach Volleyball - Men's tournament", ['Beach Volleyball']),
