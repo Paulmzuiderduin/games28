@@ -109,10 +109,10 @@ export const qualificationSystems = [
     qualificationEvent('men', "Men's tournament", ['Rugby Sevens']),
     qualificationEvent('women', "Women's tournament", ['Rugby Sevens'])
   ] }),
-  system('sailing', 'Sailing', 'World Sailing', ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Windsurfing & Kite)'], 'https://www.sailing.org/'),
+  system('sailing', 'Sailing', 'World Sailing', ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Dinghy, Skiff & | Multihull)', 'Sailing (Windsurfing & Kite)'], 'https://www.sailing.org/'),
   system('shooting', 'Shooting', 'International Shooting Sport Federation', ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'], 'https://www.issf-sports.org/competitions/3488', { status: 'rules_published', sourceType: 'quota_tracker', adapter: 'issf_quota_tracker' }),
   system('skateboarding', 'Skateboarding', 'World Skate', ['Skateboarding (Park)', 'Skateboarding (Street)'], 'https://www.worldskate.org/'),
-  system('canoe', 'Canoe', 'International Canoe Federation', ['Slalom Paddle', 'Sprint Paddle'], 'https://www.canoeicf.com/'),
+  system('canoe', 'Canoe', 'International Canoe Federation', ['Slalom Paddle', 'Sprint Paddle', 'Canoe Slalom', 'Canoe Sprint'], 'https://www.canoeicf.com/'),
   system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.org/'),
   system('surfing', 'Surfing', 'International Surfing Association', ['Surfing'], 'https://isasurf.org/'),
   system('table-tennis', 'Table Tennis', 'International Table Tennis Federation', ['Table Tennis'], 'https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/', { status: 'rules_published' }),

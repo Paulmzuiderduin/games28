@@ -15,7 +15,7 @@ import { getQualificationEventOptions, getQualificationSportOptions } from '../l
 
 const EMPTY_DRAFT = {
   noc: '', sport: '', disciplines: [], subjectType: 'noc_quota', state: 'allocated',
-  athleteName: '', teamName: '', quotaCount: '1', teamSizeMax: '', qualificationRoute: '', sourcePublishedAt: ''
+  athleteName: '', teamName: '', quotaCount: '1', teamSizeMax: '', allocationRecordId: '', qualificationRoute: '', sourcePublishedAt: ''
 };
 
 const SUBJECT_LABELS = {
@@ -73,6 +73,7 @@ function candidateDraft(candidate, source) {
     teamName: suggested.teamName || '',
     quotaCount: String(suggested.quotaCount || 1),
     teamSizeMax: suggested.teamSizeMax ? String(suggested.teamSizeMax) : '',
+    allocationRecordId: suggested.allocationRecordId || '',
     qualificationRoute: suggested.qualificationRoute || '',
     sourcePublishedAt: String(suggested.sourcePublishedAt || candidate?.detected_at || candidate?.detectedAt || '').slice(0, 10)
   };
@@ -106,7 +107,7 @@ function suggestedSubject(candidate, countries) {
   return `${countryName(countries, suggested.noc)} · ${subject || 'Qualification record'}`;
 }
 
-export default function AdminReviewConsole({ countries = [], qualificationSources = [] }) {
+export default function AdminReviewConsole({ countries = [], qualificationSources = [], qualificationCards = [] }) {
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
   const [candidates, setCandidates] = useState([]);
@@ -230,6 +231,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       teamName: draft.subjectType === 'team' ? draft.teamName.trim() : null,
       quotaCount: ['noc_quota', 'team_quota'].includes(draft.subjectType) ? Number(draft.quotaCount) : null,
       teamSizeMax: draft.subjectType === 'team_quota' && draft.teamSizeMax ? Number(draft.teamSizeMax) : null,
+      allocationRecordId: ['athlete', 'team'].includes(draft.subjectType) ? draft.allocationRecordId || null : null,
       qualificationRoute: draft.qualificationRoute.trim() || null,
       sourceId: candidate.source_id || candidate.sourceId,
       sourceUrl: candidate.source_url || candidate.sourceUrl,
@@ -407,6 +409,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
               countries={countries}
               sportOptions={sportOptions}
               qualificationSources={qualificationSources}
+              qualificationCards={qualificationCards}
               source={sourceFor(selectedCandidate, qualificationSources)}
               draft={draft}
               isLoading={isLoading}
@@ -589,7 +592,7 @@ function CandidateEvidence({ candidate, countries, source }) {
   );
 }
 
-function ReviewEditor({ candidate, countries, sportOptions, qualificationSources, source, draft, isLoading, note, reviewStatus, onChange, onNoteChange, onApprove, onReject, onReviewLater, onReopen }) {
+function ReviewEditor({ candidate, countries, sportOptions, qualificationSources, qualificationCards, source, draft, isLoading, note, reviewStatus, onChange, onNoteChange, onApprove, onReject, onReviewLater, onReopen }) {
   const update = (changes) => onChange({ ...draft, ...changes });
   const qualificationEventOptions = useMemo(
     () => getQualificationEventOptions(qualificationSources, draft.sport, source?.id),
@@ -598,6 +601,11 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
   const currentDiscipline = draft.disciplines.length === 1 ? draft.disciplines[0] : '';
   const hasCurrentSportOption = sportOptions.includes(draft.sport);
   const hasCurrentDisciplineOption = qualificationEventOptions.some((entry) => entry.label === currentDiscipline);
+  const allocationOptions = useMemo(() => qualificationCards.filter((card) => {
+    if (!['noc_quota', 'team_quota'].includes(card.subjectType)) return false;
+    if (card.noc !== draft.noc || card.sport !== draft.sport) return false;
+    return !currentDiscipline || (card.disciplines || []).includes(currentDiscipline);
+  }), [qualificationCards, draft.noc, draft.sport, currentDiscipline]);
   return (
     <section className="admin-review-editor">
       <p className="eyebrow">Step 2 · Check the record</p>
@@ -654,6 +662,14 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
       </div> : null}
       {draft.subjectType === 'athlete' ? <label><span>Confirmed athlete name</span><input value={draft.athleteName} onChange={(event) => update({ athleteName: event.target.value })} /></label> : null}
       {draft.subjectType === 'team' ? <label><span>Confirmed team name</span><input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} /></label> : null}
+      {['athlete', 'team'].includes(draft.subjectType) ? <label>
+        <span>Link to an earlier country quota (optional)</span>
+        <select value={draft.allocationRecordId} onChange={(event) => update({ allocationRecordId: event.target.value })}>
+          <option value="">No link — this source directly names the athlete or team</option>
+          {allocationOptions.map((card) => <option key={card.id} value={card.id}>{card.name}{card.disciplines?.length ? ` · ${card.disciplines.join(', ')}` : ''}</option>)}
+        </select>
+        <small>Use this when a federation names people for a quota Games28 already tracks. The quota stays visible; this shows who fills it.</small>
+      </label> : null}
       <label>
         <span>Official announcement date</span>
         <input type="date" value={draft.sourcePublishedAt} onChange={(event) => update({ sourcePublishedAt: event.target.value })} />

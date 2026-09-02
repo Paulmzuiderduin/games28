@@ -72,6 +72,19 @@ test('keeps an unnamed country team quota distinct from a named team', () => {
   assert.equal(card.teamSizeMax, 3);
 });
 
+test('keeps a country quota visible when a later named athlete is linked to it', () => {
+  const result = buildQualificationPipeline({
+    structuredRecords: [
+      record({ id: 'ned-road-quota', recordKey: 'ned-road-quota', quotaCount: 1 }),
+      record({ id: 'ned-rider', recordKey: 'ned-rider', subjectType: 'athlete', athleteName: 'Example Rider', quotaCount: null, state: 'selected', allocationRecordId: 'ned-road-quota' })
+    ]
+  }, sources);
+
+  assert.equal(result.activeRecords.length, 2);
+  const namedCard = toQualificationCards(result.activeRecords).find((card) => card.id === 'ned-rider');
+  assert.equal(namedCard.allocationRecordId, 'ned-road-quota');
+});
+
 test('rejects predictions, untrusted sources, and undated records', () => {
   const result = normalizeQualificationRecords([
     record({

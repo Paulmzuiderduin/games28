@@ -50,7 +50,8 @@ function normalizeRawRecord(raw, index, sourceById) {
     teamSizeMax: Number.isInteger(teamSizeMax) && teamSizeMax > 0 ? teamSizeMax : null,
     qualificationRoute: asNonEmptyString(raw.qualificationRoute), sourceId: asNonEmptyString(raw.sourceId), sourceTier, sourceUrl,
     sourcePublishedAt: parseDate(raw.sourcePublishedAt), verifiedAt: parseDate(raw.verifiedAt), profileUrl: asNonEmptyString(raw.profileUrl),
-    notes: asNonEmptyString(raw.notes), supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
+    notes: asNonEmptyString(raw.notes), allocationRecordId: asNonEmptyString(raw.allocationRecordId),
+    supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
     sourceRecordType: asNonEmptyString(raw.sourceRecordType || 'structured_allocation')
   };
   const problems = [];
@@ -146,6 +147,7 @@ export function toQualificationCards(records) {
     status: ['noc_quota', 'team_quota'].includes(record.subjectType) ? 'quota' : 'named', teamType: ['team', 'team_quota'].includes(record.subjectType) ? 'team' : 'individual',
     subjectType: record.subjectType, state: record.state, quotaCount: record.quotaCount, teamSizeMax: record.teamSizeMax, qualificationRoute: record.qualificationRoute,
     sourceId: record.sourceId, sourceTier: record.sourceTier, sourcePublishedAt: record.sourcePublishedAt, verifiedAt: record.verifiedAt,
+    allocationRecordId: record.allocationRecordId,
     lastUpdatedAt: record.verifiedAt, sourceUrl: record.sourceUrl, profileUrl: record.profileUrl, notes: record.notes
   }));
 }
