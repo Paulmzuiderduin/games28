@@ -9,8 +9,9 @@ function system(key, label, governingBody, sports, url, options = {}) {
     key,
     label,
     governingBody,
+    sourceLabel: options.sourceLabel || null,
     sports,
-    sourceTier: 'if',
+    sourceTier: options.sourceTier || 'if',
     sourceType: options.sourceType || 'qualification_system',
     status: options.status || 'watching',
     rulesUrl: options.rulesUrl || url,
@@ -68,14 +69,37 @@ export const qualificationSystems = [
     notes: 'Official prose announcements are reviewed before they become public records.'
   }),
   system('cycling', 'Cycling', 'Union Cycliste Internationale', ['BMX Freestyle', 'BMX Racing', 'Cycling Road (Road Race)', 'Cycling Road (Time Trial)', 'Cycling Track', 'Mountain Bike'], 'https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI', { status: 'rules_published' }),
-  system('equestrian', 'Equestrian', 'Fédération Equestre Internationale', ['Equestrian'], 'https://inside.fei.org/', { qualificationEvents: [
-    qualificationEvent('dressage-team', 'Dressage - Team', ['Equestrian']),
-    qualificationEvent('dressage-individual', 'Dressage - Individual', ['Equestrian']),
-    qualificationEvent('eventing-team', 'Eventing - Team', ['Equestrian']),
-    qualificationEvent('eventing-individual', 'Eventing - Individual', ['Equestrian']),
-    qualificationEvent('jumping-team', 'Jumping - Team', ['Equestrian']),
-    qualificationEvent('jumping-individual', 'Jumping - Individual', ['Equestrian'])
-  ] }),
+  system('equestrian', 'Equestrian', 'Fédération Equestre Internationale', ['Equestrian'], 'https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil', {
+    // FEI governs the qualification system. This Equestrian Australia report
+    // publishes the exact six team allocations, so it is suitable for review
+    // candidates but never for automatic publication.
+    sourceLabel: 'Equestrian Australia - Aachen Dressage Team qualification',
+    sourceTier: 'national_federation',
+    sourceType: 'team_qualification',
+    status: 'review_required',
+    adapter: 'official_confirmation_article',
+    rulesUrl: 'https://inside.fei.org/',
+    allocationUrl: 'https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil',
+    evidenceTerms: ['six highest-ranked eligible teams', 'Germany', 'Great Britain', 'Denmark', 'Belgium', 'Netherlands', 'Sweden'],
+    sourcePublishedAt: '2026-08-13',
+    confirmationCandidates: [
+      { noc: 'GER', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', supersedesId: 'approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da', evidenceTerms: ['Germany', 'team quota place'] },
+      { noc: 'GBR', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Great Britain', 'team quota place'] },
+      { noc: 'DEN', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Denmark', 'team quota place'] },
+      { noc: 'BEL', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Belgium', 'team quota place'] },
+      { noc: 'NED', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', supersedesId: 'approved-review-noc-ned-dressage-la28-ned-61961ba7662742db', evidenceTerms: ['Netherlands', 'team quota place'] },
+      { noc: 'SWE', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Sweden', 'team quota place'] }
+    ],
+    qualificationEvents: [
+      qualificationEvent('dressage-team', 'Dressage - Team', ['Equestrian']),
+      qualificationEvent('dressage-individual', 'Dressage - Individual', ['Equestrian']),
+      qualificationEvent('eventing-team', 'Eventing - Team', ['Equestrian']),
+      qualificationEvent('eventing-individual', 'Eventing - Individual', ['Equestrian']),
+      qualificationEvent('jumping-team', 'Jumping - Team', ['Equestrian']),
+      qualificationEvent('jumping-individual', 'Jumping - Individual', ['Equestrian'])
+    ],
+    notes: 'Review source: Equestrian Australia reports the six Dressage team quota allocations at Aachen. FEI remains the governing qualification authority.'
+  }),
   system('fencing', 'Fencing', 'International Fencing Federation', ['Fencing'], 'https://fie.org/'),
   system('flag-football', 'Flag Football', 'International Federation of American Football', ['Flag Football'], 'https://ifaf.org/', { qualificationEvents: [
     qualificationEvent('men', "Men's tournament", ['Flag Football']),
@@ -147,7 +171,7 @@ export function toQualificationSources(systems) {
   return systems.map((entry) => ({
     id: `if-${entry.key}`,
     qualificationSystemKey: entry.key,
-    label: `${entry.governingBody} - ${entry.label}`,
+    label: entry.sourceLabel || `${entry.governingBody} - ${entry.label}`,
     governingBody: entry.governingBody,
     sport: entry.label,
     sports: entry.sports,

@@ -15,7 +15,7 @@ import { getQualificationEventOptions, getQualificationSportOptions } from '../l
 
 const EMPTY_DRAFT = {
   noc: '', sport: '', disciplines: [], subjectType: 'noc_quota', state: 'allocated',
-  athleteName: '', teamName: '', quotaCount: '1', teamSizeMax: '', allocationRecordId: '', qualificationRoute: '', sourcePublishedAt: ''
+  athleteName: '', teamName: '', quotaCount: '1', teamSizeMax: '', allocationRecordId: '', qualificationRoute: '', supersedesId: '', sourcePublishedAt: ''
 };
 
 const SUBJECT_LABELS = {
@@ -75,6 +75,7 @@ function candidateDraft(candidate, source) {
     teamSizeMax: suggested.teamSizeMax ? String(suggested.teamSizeMax) : '',
     allocationRecordId: suggested.allocationRecordId || '',
     qualificationRoute: suggested.qualificationRoute || '',
+    supersedesId: suggested.supersedesId || '',
     sourcePublishedAt: String(suggested.sourcePublishedAt || candidate?.detected_at || candidate?.detectedAt || '').slice(0, 10)
   };
 }
@@ -234,6 +235,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       teamSizeMax: draft.subjectType === 'team_quota' && draft.teamSizeMax ? Number(draft.teamSizeMax) : null,
       allocationRecordId: ['athlete', 'team'].includes(draft.subjectType) ? draft.allocationRecordId || null : null,
       qualificationRoute: draft.qualificationRoute.trim() || null,
+      supersedesId: draft.supersedesId || null,
       sourceId: candidate.source_id || candidate.sourceId,
       sourceUrl: candidate.source_url || candidate.sourceUrl,
       sourcePublishedAt: new Date(draft.sourcePublishedAt).toISOString(),
@@ -612,6 +614,7 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
       <p className="eyebrow">Step 2 · Check the record</p>
       <h2>What will be published</h2>
       <p className="supporting-copy">These fields are pre-filled from the report. Edit only details the official source makes explicit. Qualification choices are separate from LA28 schedule sessions.</p>
+      {draft.supersedesId ? <p className="admin-publish-note"><strong>Correction:</strong> approving this record replaces a previously published record that used the wrong qualification type.</p> : null}
       <label>
         <span>Country</span>
         <select value={draft.noc} onChange={(event) => update({ noc: event.target.value })}>

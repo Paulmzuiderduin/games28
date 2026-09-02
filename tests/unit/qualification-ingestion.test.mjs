@@ -137,6 +137,7 @@ test('preserves an unnamed team allocation without treating it as a selected ros
         quotaCount: 1,
         teamSizeMax: 3,
         state: 'allocated',
+        supersedesId: 'old-incorrect-individual-quota',
         evidenceTerms: ['Netherlands', 'qualified']
       }]
     }],
@@ -148,6 +149,7 @@ test('preserves an unnamed team allocation without treating it as a selected ros
   const record = result.reviewQueue[0].suggestedRecord;
   assert.equal(record.subjectType, 'team_quota');
   assert.equal(record.quotaCount, 1);
+  assert.equal(record.supersedesId, 'old-incorrect-individual-quota');
   assert.equal(record.teamSizeMax, 3);
   assert.equal(record.teamName, null);
 });

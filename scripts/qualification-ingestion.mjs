@@ -271,6 +271,7 @@ function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
       quotaCount: candidate.quotaCount || null,
       teamSizeMax: candidate.teamSizeMax || null,
       qualificationRoute: candidate.qualificationRoute || null,
+      supersedesId: candidate.supersedesId || null,
       sourceId: source.id,
       sourceUrl: source.url,
       sourcePublishedAt: candidate.sourcePublishedAt || source.sourcePublishedAt || null,
