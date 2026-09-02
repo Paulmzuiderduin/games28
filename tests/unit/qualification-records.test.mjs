@@ -5,7 +5,7 @@ import {
   normalizeQualificationRecords,
   toQualificationCards
 } from '../../scripts/qualification-records.mjs';
-import { approvedRecordsFromRuntime } from '../../scripts/update-data.mjs';
+import { approvedRecordsFromRuntime, retainedApprovedRecords } from '../../scripts/update-data.mjs';
 
 const sources = [{
   id: 'if-example',
@@ -90,6 +90,15 @@ test('retains approved reviews when the private queue is unavailable to a local 
   const approved = record({ id: 'approved-rider', sourceRecordType: 'review_approved' });
   const structured = record({ id: 'structured-rider', sourceRecordType: 'structured_allocation' });
   assert.deepEqual(approvedRecordsFromRuntime({ qualificationHistory: [approved, structured] }), [approved]);
+});
+
+test('only removes an approved review after Supabase explicitly changes its status', () => {
+  const approved = record({ id: 'approved-candidate-1', sourceRecordType: 'review_approved' });
+  const previousRuntime = { qualificationHistory: [approved] };
+
+  assert.equal(retainedApprovedRecords(previousRuntime, { available: true, statusesById: {} }).length, 1);
+  assert.equal(retainedApprovedRecords(previousRuntime, { available: true, statusesById: { 'candidate-1': 'approved' } }).length, 0);
+  assert.equal(retainedApprovedRecords(previousRuntime, { available: true, statusesById: { 'candidate-1': 'rejected' } }).length, 0);
 });
 
 test('rejects predictions, untrusted sources, and undated records', () => {

@@ -222,6 +222,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     if (draft.subjectType === 'team_quota' && draft.teamSizeMax && (!Number.isInteger(Number(draft.teamSizeMax)) || Number(draft.teamSizeMax) < 1)) throw new Error('Team size must be a positive whole number.');
     return {
       id: `approved-${candidate.id}`,
+      reviewCandidateId: candidate.id,
       noc: draft.noc,
       sport: draft.sport,
       disciplines: draft.disciplines,

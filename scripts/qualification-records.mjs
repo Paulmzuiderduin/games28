@@ -50,7 +50,7 @@ function normalizeRawRecord(raw, index, sourceById) {
     teamSizeMax: Number.isInteger(teamSizeMax) && teamSizeMax > 0 ? teamSizeMax : null,
     qualificationRoute: asNonEmptyString(raw.qualificationRoute), sourceId: asNonEmptyString(raw.sourceId), sourceTier, sourceUrl,
     sourcePublishedAt: parseDate(raw.sourcePublishedAt), verifiedAt: parseDate(raw.verifiedAt), profileUrl: asNonEmptyString(raw.profileUrl),
-    notes: asNonEmptyString(raw.notes), allocationRecordId: asNonEmptyString(raw.allocationRecordId),
+    notes: asNonEmptyString(raw.notes), allocationRecordId: asNonEmptyString(raw.allocationRecordId), reviewCandidateId: asNonEmptyString(raw.reviewCandidateId),
     supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
     sourceRecordType: asNonEmptyString(raw.sourceRecordType || 'structured_allocation')
   };
@@ -105,12 +105,13 @@ export function normalizeReviewQueue(entries, sources) {
     if (!detectedAt || !sourceUrl || !extractedEvidence || !reason) problems.push('missing review evidence, date, source, or reason');
     if (resolution === 'approved' && !entry.record) problems.push('approved review requires record');
     if (problems.length) { rejected.push({ id, problems }); return; }
+    const record = entry.record ? { ...entry.record, reviewCandidateId: entry.record.reviewCandidateId || id } : null;
     queue.push({
       id, resolution, detectedAt, sourceUrl, extractedEvidence, reason,
-      record: entry.record || null,
+      record,
       suggestedRecord: entry.suggestedRecord || entry.suggested_record || null
     });
-    if (resolution === 'approved') approvedRawRecords.push(entry.record);
+    if (resolution === 'approved') approvedRawRecords.push(record);
   });
   const approved = normalizeQualificationRecords(approvedRawRecords, sources);
   return { queue, approvedRecords: approved.records, rejected: [...rejected, ...approved.rejected] };

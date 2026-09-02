@@ -88,16 +88,20 @@ async function fetchApprovedReviewQueue() {
   // unavailable source, never as proof that the approved queue is empty.
   if (!supabaseUrl || !serviceRoleKey) return { available: false, entries: [] };
 
-  const url = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?status=eq.approved&select=id,source_id,source_url,extracted_evidence,reason,detected_at,confirmation_record`;
+  // Fetch every candidate status, not only approved rows. A published record
+  // may be removed only when Supabase explicitly says its review changed.
+  const url = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?select=id,status,source_id,source_url,extracted_evidence,reason,detected_at,confirmation_record`;
   const response = await fetch(url, {
     headers: { apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}` }
   });
   if (!response.ok) throw new Error(`Unable to fetch approved qualification reviews: ${response.status}`);
   const rows = await response.json();
+  const statusesById = Object.fromEntries(rows.map((row) => [row.id, row.status]));
   return {
     available: true,
+    statusesById,
     entries: rows
-    .filter((row) => row.confirmation_record)
+    .filter((row) => row.status === 'approved' && row.confirmation_record)
     .map((row) => ({
       id: row.id,
       resolution: 'approved',
@@ -113,6 +117,25 @@ async function fetchApprovedReviewQueue() {
 export function approvedRecordsFromRuntime(runtime) {
   return (runtime?.qualificationHistory || [])
     .filter((record) => record.sourceRecordType === 'review_approved');
+}
+
+function reviewCandidateIdFor(record) {
+  if (record?.reviewCandidateId) return record.reviewCandidateId;
+  return String(record?.id || '').startsWith('approved-') ? record.id.slice('approved-'.length) : null;
+}
+
+export function retainedApprovedRecords(previousRuntime, reviewResult) {
+  const previous = approvedRecordsFromRuntime(previousRuntime);
+  if (!reviewResult?.available) return previous;
+  const statusesById = reviewResult.statusesById || {};
+  return previous.filter((record) => {
+    const reviewCandidateId = reviewCandidateIdFor(record);
+    // An omitted row is not evidence of removal. Only an explicit status
+    // change in Supabase is allowed to remove a public approval.
+    // An explicit approved row is rebuilt from its current Supabase record.
+    // A non-approved status removes it. Only an omitted row is retained.
+    return !reviewCandidateId || !Object.hasOwn(statusesById, reviewCandidateId);
+  });
 }
 
 export function preserveQualificationSourceHealth(currentChecks, previousSources = []) {
@@ -492,10 +515,10 @@ async function main() {
   const manualReviewQueue = qualificationInput.reviewQueue || [];
   const manualReviewIds = new Set(manualReviewQueue.map((entry) => entry.id).filter(Boolean));
   const approvedReviewQueue = approvedReviewResult.entries;
-  const retainedApprovedRecords = approvedReviewResult.available ? [] : approvedRecordsFromRuntime(previousRuntime);
+  const retainedRecords = retainedApprovedRecords(previousRuntime, approvedReviewResult);
   const qualificationResult = buildQualificationPipeline({
     structuredRecords: [...(qualificationInput.structuredRecords || []), ...ingestion.structuredRecords],
-    records: [...(qualificationInput.records || []), ...retainedApprovedRecords],
+    records: [...(qualificationInput.records || []), ...retainedRecords],
     reviewQueue: [...manualReviewQueue, ...approvedReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
   }, qualificationSources);
   const qualificationRecords = qualificationResult.activeRecords;
@@ -590,6 +613,11 @@ async function main() {
       qualificationCount: athleteCards.length,
       qualificationRecordCount: qualificationRecords.length,
       qualificationHistoryCount: qualificationResult.history.length,
+      qualificationApprovalSync: {
+        available: approvedReviewResult.available,
+        fetchedApprovedCount: approvedReviewQueue.length,
+        retainedApprovedCount: retainedRecords.length
+      },
       qualificationRejectedCount: qualificationResult.rejected.length,
       qualificationReviewCount: qualificationResult.reviewQueue.filter((entry) => entry.resolution === 'pending').length,
       qualificationAutoRecordCount: ingestion.structuredRecords.length,
