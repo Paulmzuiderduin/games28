@@ -118,10 +118,22 @@ export const qualificationSystems = [
     qualificationEvent('men', "Men's tournament", ['Handball']),
     qualificationEvent('women', "Women's tournament", ['Handball'])
   ] }),
-  system('hockey', 'Hockey', 'International Hockey Federation', ['Hockey'], 'https://www.fih.hockey/', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['Hockey']),
-    qualificationEvent('women', "Women's tournament", ['Hockey'])
-  ] }),
+  system('hockey', 'Hockey', 'International Hockey Federation', ['Hockey'], 'https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out', {
+    sourceLabel: 'FIH - Belgium men qualify through the Hockey Pro League',
+    sourceType: 'team_qualification',
+    status: 'review_required',
+    adapter: 'official_confirmation_article',
+    evidenceTerms: ['Belgium', 'Olympic qualification', 'LA'],
+    sourcePublishedAt: '2026-06-28',
+    confirmationCandidates: [
+      { noc: 'BEL', sport: 'Hockey', discipline: "Men's tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Belgium', 'Olympic qualification'] }
+    ],
+    qualificationEvents: [
+      qualificationEvent('men', "Men's tournament", ['Hockey']),
+      qualificationEvent('women', "Women's tournament", ['Hockey'])
+    ],
+    notes: 'FIH confirms Belgium won the 2025-26 Hockey Pro League and its LA28 quota. A separate FIH report is registered for the Netherlands women.'
+  }),
   system('judo', 'Judo', 'International Judo Federation', ['Judo'], 'https://www.ijf.org/ijf/documents/26', { status: 'rules_published' }),
   system('lacrosse', 'Lacrosse', 'World Lacrosse', ['Lacrosse'], 'https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf', { status: 'rules_published', qualificationEvents: [
     qualificationEvent('men-sixes', "Men's Sixes tournament", ['Lacrosse']),
@@ -143,12 +155,24 @@ export const qualificationSystems = [
   system('taekwondo', 'Taekwondo', 'World Taekwondo', ['Taekwondo'], 'https://www.worldtaekwondo.org/'),
   system('tennis', 'Tennis', 'International Tennis Federation', ['Tennis'], 'https://www.itftennis.com/'),
   system('triathlon', 'Triathlon', 'World Triathlon', ['Triathlon'], 'https://triathlon.org/'),
-  system('volleyball', 'Volleyball', 'Fédération Internationale de Volleyball', ['Beach Volleyball', 'Volleyball'], 'https://www.fivb.com/', { qualificationEvents: [
-    qualificationEvent('beach-men', "Beach Volleyball - Men's tournament", ['Beach Volleyball']),
-    qualificationEvent('beach-women', "Beach Volleyball - Women's tournament", ['Beach Volleyball']),
-    qualificationEvent('indoor-men', "Volleyball - Men's tournament", ['Volleyball']),
-    qualificationEvent('indoor-women', "Volleyball - Women's tournament", ['Volleyball'])
-  ] }),
+  system('volleyball', 'Volleyball', 'Fédération Internationale de Volleyball', ['Beach Volleyball', 'Volleyball'], 'https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/', {
+    sourceLabel: 'FIVB - Canada women qualify for LA28 volleyball',
+    sourceType: 'team_qualification',
+    status: 'review_required',
+    adapter: 'official_confirmation_article',
+    evidenceTerms: ['Canada', 'LA28 Olympic', 'Olympic quota place'],
+    sourcePublishedAt: '2026-08-30',
+    confirmationCandidates: [
+      { noc: 'CAN', sport: 'Volleyball', discipline: "Women's tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Canada', 'Olympic quota place'] }
+    ],
+    qualificationEvents: [
+      qualificationEvent('beach-men', "Beach Volleyball - Men's tournament", ['Beach Volleyball']),
+      qualificationEvent('beach-women', "Beach Volleyball - Women's tournament", ['Beach Volleyball']),
+      qualificationEvent('indoor-men', "Volleyball - Men's tournament", ['Volleyball']),
+      qualificationEvent('indoor-women', "Volleyball - Women's tournament", ['Volleyball'])
+    ],
+    notes: 'FIVB confirms Canada won the 2026 NORCECA Women’s Continental Championship and its LA28 quota.'
+  }),
   system('weightlifting', 'Weightlifting', 'International Weightlifting Federation', ['Weightlifting'], 'https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/', { status: 'rules_published', sourceType: 'qualification_ranking' }),
   system('wrestling', 'Wrestling', 'United World Wrestling', ['Wrestling'], 'https://cdn.uww.org/2026-02/01_qs_la28.pdf', { status: 'rules_published' })
 ];

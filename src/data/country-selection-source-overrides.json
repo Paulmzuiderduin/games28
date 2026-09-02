@@ -63,6 +63,22 @@
           "confirmationCandidates": [
             { "noc": "NED", "sport": "Beach Volleyball", "discipline": "Women's beach volleyball", "subjectType": "team", "teamName": "Katja Stam and Raïsa Schoon", "state": "earned", "evidenceTerms": ["Katja", "Raïsa"] }
           ]
+        },
+        {
+          "id": "if-hockey-ned-women-la28",
+          "qualificationSystemKey": "hockey",
+          "label": "FIH - Netherlands women qualify through the Hockey Pro League",
+          "url": "https://www.fih.hockey/events/fih-pro-league/news/red-lions-extend-unbeaten-streak-as-england-men-remain-in-the-hunt",
+          "sport": "Hockey",
+          "sourceTier": "if",
+          "kind": "team_qualification",
+          "status": "review_required",
+          "adapter": "official_confirmation_article",
+          "evidenceTerms": ["Dutch women", "Olympic qualification", "LA 2028"],
+          "sourcePublishedAt": "2026-06-25",
+          "confirmationCandidates": [
+            { "noc": "NED", "sport": "Hockey", "discipline": "Women's tournament", "subjectType": "team_quota", "quotaCount": 1, "state": "allocated", "evidenceTerms": ["Dutch women", "qualified"] }
+          ]
         }
       ]
     },
