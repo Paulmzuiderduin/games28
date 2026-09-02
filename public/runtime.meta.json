@@ -1,15 +1,15 @@
 {
-  "checkedAt": "2026-09-02T15:16:07.524Z",
+  "checkedAt": "2026-09-02T15:22:23.370Z",
   "countryCount": 205,
   "lastChangedAt": "2026-09-02T15:16:07.524Z",
   "qualificationCount": 14,
   "qualificationPolicy": "confirmation_only",
   "qualificationRecordCount": 14,
-  "qualificationReviewCount": 13,
+  "qualificationReviewCount": 15,
   "qualificationAutoRecordCount": 0,
-  "qualificationSourceScanCount": 83,
+  "qualificationSourceScanCount": 84,
   "qualificationCoverage": {
-    "configuredSystemCount": 11,
+    "configuredSystemCount": 13,
     "coveredSportCount": 58,
     "missingSports": [],
     "systemCount": 37

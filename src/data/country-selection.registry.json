@@ -1268,6 +1268,37 @@
         "sport": "Beach Volleyball",
         "status": "review_required",
         "url": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28"
+      },
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Women's tournament",
+            "evidenceTerms": [
+              "Dutch women",
+              "qualified"
+            ],
+            "noc": "NED",
+            "quotaCount": 1,
+            "sport": "Hockey",
+            "state": "allocated",
+            "subjectType": "team_quota"
+          }
+        ],
+        "evidenceTerms": [
+          "Dutch women",
+          "Olympic qualification",
+          "LA 2028"
+        ],
+        "id": "if-hockey-ned-women-la28",
+        "kind": "team_qualification",
+        "label": "FIH - Netherlands women qualify through the Hockey Pro League",
+        "qualificationSystemKey": "hockey",
+        "sourcePublishedAt": "2026-06-25",
+        "sourceTier": "if",
+        "sport": "Hockey",
+        "status": "review_required",
+        "url": "https://www.fih.hockey/events/fih-pro-league/news/red-lions-extend-unbeaten-streak-as-england-men-remain-in-the-hunt"
       }
     ],
     "status": "configured"
