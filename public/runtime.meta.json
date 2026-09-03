@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-09-03T09:50:57.278Z",
+  "checkedAt": "2026-09-03T19:08:05.933Z",
   "countryCount": 205,
-  "lastChangedAt": "2026-09-02T15:16:07.524Z",
-  "qualificationCount": 14,
+  "lastChangedAt": "2026-09-03T19:08:05.933Z",
+  "qualificationCount": 20,
   "qualificationPolicy": "confirmation_only",
-  "qualificationRecordCount": 14,
-  "qualificationReviewCount": 16,
+  "qualificationRecordCount": 20,
+  "qualificationReviewCount": 15,
   "qualificationAutoRecordCount": 0,
   "qualificationSourceScanCount": 84,
   "qualificationCoverage": {
