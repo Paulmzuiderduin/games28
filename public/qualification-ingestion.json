@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-03T19:17:04.457Z",
+  "checkedAt": "2026-09-03T19:20:37.149Z",
   "rejected": [],
   "reviewQueue": [
     {
@@ -322,35 +322,6 @@
       }
     },
     {
-      "detectedAt": "2026-09-03T19:17:04.457Z",
-      "extractedEvidence": "Canada secure LA28 Olympic berth to complete historic NORCECA double &#8211; FIVB Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players&#8217; Database → Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players&#8217; Database → Players Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball Foundation Volleyball World VBTV English Español Français Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players' Database → Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players' Database → Players PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Canada secure LA28 Olympic berth to complete historic NORCECA double FIVB Volleyball Empowerment-supported Canada celebrate Olympic qualification following first continental title in Santo Domingo Back Back Aug 30, 2026 Home / Volleyball Share Canada earned their place at the LA28 Olympic Games following a thrilling victory over hosts Dominican Republic on Saturday evening in Santo Domingo.",
-      "id": "review-if-volleyball-can-ec9089de2b28a22f",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "resolution": "pending",
-      "sourceId": "if-volleyball",
-      "sourceUrl": "https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/",
-      "suggestedRecord": {
-        "athleteName": null,
-        "disciplines": [
-          "Women's tournament"
-        ],
-        "id": "approved-if-volleyball-can-f837a0eb841f10fe",
-        "noc": "CAN",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "sourceId": "if-volleyball",
-        "sourcePublishedAt": "2026-08-30",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/",
-        "sport": "Volleyball",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null
-      }
-    },
-    {
       "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
       "id": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
@@ -469,18 +440,17 @@
   ],
   "scans": [
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
-      "rowCount": 5,
+      "rowCount": 0,
       "sourceId": "if-3x3-basketball",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -490,7 +460,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -500,7 +470,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -510,7 +480,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -520,7 +490,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -529,18 +499,17 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
-      "rowCount": 5,
+      "rowCount": 0,
       "sourceId": "if-basketball",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -549,7 +518,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -559,7 +528,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-if-cricket-aus-ff64e5a775183f46",
@@ -574,7 +543,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -584,7 +553,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-if-equestrian-ger-53cd343340244df1",
@@ -601,7 +570,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -611,7 +580,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -621,7 +590,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -631,7 +600,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -640,18 +609,17 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-gymnastics",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -661,7 +629,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-if-hockey-bel-7b07da54de4cebe3"
@@ -673,7 +641,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -683,7 +651,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "application/pdf",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -693,7 +661,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -703,7 +671,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -713,17 +681,17 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-rugby-sevens",
       "structuredRecordCount": 0,
-      "truncated": false
+      "truncated": true
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -738,7 +706,7 @@
         "resolvedUrl": "https://www.issf-sports.org/competitions/olympic-qualification-tracker/quota-place-by-nation-and-number",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -748,7 +716,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -758,7 +726,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -768,8 +736,8 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-squash",
@@ -778,7 +746,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -788,7 +756,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -798,7 +766,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -807,18 +775,17 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "The operation was aborted due to timeout",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-tennis",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -828,11 +795,9 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
-      "reviewCandidateIds": [
-        "review-if-volleyball-can-ec9089de2b28a22f"
-      ],
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "format": "text/html",
+      "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-volleyball",
       "structuredRecordCount": 0,
@@ -840,7 +805,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -850,7 +815,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "application/pdf",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -860,7 +825,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -870,7 +835,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -880,7 +845,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -890,7 +855,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -900,7 +865,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
         "review-noc-aus-dressage-la28-aus-1ce9e125e048d221"
@@ -912,7 +877,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; Charset=ISO-8859-1",
       "reviewCandidateIds": [],
       "rowCount": 1,
@@ -921,18 +886,17 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-bel",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -942,7 +906,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -952,7 +916,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 21,
@@ -962,7 +926,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -972,7 +936,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -982,7 +946,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -992,7 +956,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -1002,7 +966,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 4,
@@ -1012,7 +976,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
@@ -1021,223 +985,196 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html;charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-gbr-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-gbr-2",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-gbr-3",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-gre",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-hun",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-ind",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-ind-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-irl",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-ita",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-jpn",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-ned",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-ned-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "national-federation-ned-2",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
-      "reviewCandidateIds": [
-        "review-noc-ned-dressage-la28-ned-797a2f328aa729f8"
-      ],
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
+      "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-ned-dressage-la28",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
-      "reviewCandidateIds": [
-        "review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a"
-      ],
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
+      "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-ned-beach-volleyball-la28",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
-      "reviewCandidateIds": [
-        "review-if-hockey-ned-women-la28-ned-14c063a749f94f0c"
-      ],
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
+      "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-hockey-ned-women-la28",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-nzl",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-nor",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-per",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-pol",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-por",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1246,17 +1183,16 @@
       "structuredRecordCount": 0
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-03T19:17:04.457Z",
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
+      "error": "fetch failed",
+      "format": "unavailable",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rsa",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1265,7 +1201,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1274,7 +1210,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1283,7 +1219,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1292,7 +1228,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1301,7 +1237,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1310,7 +1246,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -1319,7 +1255,7 @@
       "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-03T19:17:04.457Z",
+      "checkedAt": "2026-09-03T19:20:37.149Z",
       "error": "fetch failed",
       "format": "unavailable",
       "reviewCandidateIds": [],
