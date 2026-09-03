@@ -32,13 +32,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Restore any historical approval that an older sync accidentally reset
+      # before the refresh decides which confirmed records stay public.
+      - name: Protect resolved qualification reviews
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/sync-review-candidates-to-supabase.mjs
+
       - name: Refresh datasets
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: npm run data:update
 
-      - name: Sync private qualification review queue
+      - name: Sync newly found qualification reviews
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

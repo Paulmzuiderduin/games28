@@ -7,14 +7,16 @@ const artifactPath = resolve(rootDir, 'src/data/qualification-ingestion.json');
 const supabaseUrl = process.env.SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-async function main() {
-  if (!supabaseUrl || !serviceRoleKey) {
-    console.log('Skipping private review sync: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is not configured.');
-    return;
-  }
+function headers(serviceRoleKey) {
+  return {
+    apikey: serviceRoleKey,
+    authorization: `Bearer ${serviceRoleKey}`,
+    'content-type': 'application/json'
+  };
+}
 
-  const artifact = JSON.parse(await readFile(artifactPath, 'utf8'));
-  const candidates = (artifact.reviewQueue || []).map((entry) => ({
+function toDatabaseCandidate(entry) {
+  return {
     id: entry.id,
     source_id: entry.sourceId,
     source_url: entry.sourceUrl,
@@ -22,32 +24,65 @@ async function main() {
     reason: entry.reason,
     detected_at: entry.detectedAt,
     suggested_record: entry.suggestedRecord || null
+  };
+}
+
+async function responseError(action, response) {
+  return new Error(`${action}: ${response.status} ${await response.text()}`);
+}
+
+export async function syncReviewCandidates({ candidates, supabaseUrl, serviceRoleKey, fetchImpl = fetch }) {
+  const baseUrl = supabaseUrl.replace(/\/$/, '');
+  const endpoint = `${baseUrl}/rest/v1/qualification_review_candidates`;
+  const existingResponse = await fetchImpl(`${endpoint}?select=id,status,confirmation_record`, {
+    headers: headers(serviceRoleKey)
+  });
+  if (!existingResponse.ok) throw await responseError('Unable to read existing review candidates', existingResponse);
+
+  const existing = await existingResponse.json();
+  const existingById = new Map(existing.map((candidate) => [candidate.id, candidate]));
+  const newCandidates = candidates.filter((candidate) => !existingById.has(candidate.id));
+
+  // Older upserts could reset an approved row to pending. A pending row that
+  // retains its confirmation record is unambiguously such a reset: reopening
+  // an item in Admin clears that record first.
+  const resetApprovals = existing.filter((candidate) => candidate.status === 'pending' && candidate.confirmation_record);
+  await Promise.all(resetApprovals.map(async (candidate) => {
+    const response = await fetchImpl(`${endpoint}?id=eq.${encodeURIComponent(candidate.id)}`, {
+      method: 'PATCH',
+      headers: { ...headers(serviceRoleKey), prefer: 'return=minimal' },
+      body: JSON.stringify({ status: 'approved' })
+    });
+    if (!response.ok) throw await responseError('Unable to restore an approved review candidate', response);
   }));
 
-  if (!candidates.length) {
-    console.log('No review candidates to sync.');
+  if (newCandidates.length) {
+    const response = await fetchImpl(endpoint, {
+      method: 'POST',
+      headers: { ...headers(serviceRoleKey), prefer: 'return=minimal' },
+      body: JSON.stringify(newCandidates)
+    });
+    if (!response.ok) throw await responseError('Unable to insert new review candidates', response);
+  }
+
+  return { insertedCount: newCandidates.length, restoredApprovalCount: resetApprovals.length, existingCount: existing.length };
+}
+
+async function main() {
+  if (!supabaseUrl || !serviceRoleKey) {
+    console.log('Skipping private review sync: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is not configured.');
     return;
   }
 
-  const response = await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?on_conflict=id`, {
-    method: 'POST',
-    headers: {
-      apikey: serviceRoleKey,
-      authorization: `Bearer ${serviceRoleKey}`,
-      'content-type': 'application/json',
-      prefer: 'resolution=merge-duplicates,return=minimal'
-    },
-    body: JSON.stringify(candidates)
-  });
-
-  if (!response.ok) {
-    throw new Error(`Supabase review sync failed: ${response.status} ${await response.text()}`);
-  }
-
-  console.log(`Synced ${candidates.length} review candidate(s) to Supabase.`);
+  const artifact = JSON.parse(await readFile(artifactPath, 'utf8'));
+  const candidates = (artifact.reviewQueue || []).map(toDatabaseCandidate);
+  const result = await syncReviewCandidates({ candidates, supabaseUrl, serviceRoleKey });
+  console.log(`Review queue sync: ${result.insertedCount} new, ${result.restoredApprovalCount} restored, ${result.existingCount} already stored.`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
