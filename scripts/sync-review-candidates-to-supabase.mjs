@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const rootDir = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const artifactPath = resolve(rootDir, 'src/data/qualification-ingestion.json');
+const manualReviewPath = resolve(rootDir, 'src/data/qualification-sources.source.json');
 const supabaseUrl = process.env.SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -25,6 +26,14 @@ function toDatabaseCandidate(entry) {
     detected_at: entry.detectedAt,
     suggested_record: entry.suggestedRecord || null
   };
+}
+
+export function mergeReviewCandidates(...candidateLists) {
+  const candidatesById = new Map();
+  candidateLists.flat().forEach((candidate) => {
+    if (candidate?.id && !candidatesById.has(candidate.id)) candidatesById.set(candidate.id, candidate);
+  });
+  return [...candidatesById.values()];
 }
 
 async function responseError(action, response) {
@@ -74,8 +83,14 @@ async function main() {
     return;
   }
 
-  const artifact = JSON.parse(await readFile(artifactPath, 'utf8'));
-  const candidates = (artifact.reviewQueue || []).map(toDatabaseCandidate);
+  const [artifact, manualInput] = await Promise.all([
+    readFile(artifactPath, 'utf8').then(JSON.parse),
+    readFile(manualReviewPath, 'utf8').then(JSON.parse)
+  ]);
+  // Manual, researched candidates are authoritative for their IDs. The
+  // ingestion artifact contributes the daily-discovered candidates alongside them.
+  const candidates = mergeReviewCandidates(manualInput.reviewQueue || [], artifact.reviewQueue || [])
+    .map(toDatabaseCandidate);
   const result = await syncReviewCandidates({ candidates, supabaseUrl, serviceRoleKey });
   console.log(`Review queue sync: ${result.insertedCount} new, ${result.restoredApprovalCount} restored, ${result.existingCount} already stored.`);
 }

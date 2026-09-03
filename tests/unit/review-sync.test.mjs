@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { syncReviewCandidates } from '../../scripts/sync-review-candidates-to-supabase.mjs';
+import { mergeReviewCandidates, syncReviewCandidates } from '../../scripts/sync-review-candidates-to-supabase.mjs';
 
 const baseUrl = 'https://example.supabase.co';
 const key = 'service-role-test-key';
@@ -22,6 +22,19 @@ const candidates = [
     detected_at: '2026-09-02T00:00:00.000Z'
   }
 ];
+
+test('merges manual and discovered candidates without duplicating a reviewed ID', () => {
+  const merged = mergeReviewCandidates(
+    [{ id: 'manual-candidate', reason: 'Reviewed research' }, { id: 'shared-candidate', reason: 'Manual source' }],
+    [{ id: 'shared-candidate', reason: 'Daily scan' }, { id: 'discovered-candidate', reason: 'Daily scan' }]
+  );
+
+  assert.deepEqual(merged, [
+    { id: 'manual-candidate', reason: 'Reviewed research' },
+    { id: 'shared-candidate', reason: 'Manual source' },
+    { id: 'discovered-candidate', reason: 'Daily scan' }
+  ]);
+});
 
 test('inserts only new review candidates and preserves resolved decisions', async () => {
   const requests = [];
