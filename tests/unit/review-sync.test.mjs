@@ -36,6 +36,31 @@ test('merges manual and discovered candidates without duplicating a reviewed ID'
   ]);
 });
 
+test('sync accepts a manually researched candidate whose source is pre-filled for approval', async () => {
+  let posted = null;
+  await syncReviewCandidates({
+    candidates: [{
+      id: 'manual-candidate',
+      sourceUrl: 'https://if.example.org/official-announcement',
+      extractedEvidence: 'Official confirmation.',
+      reason: 'Review this official source.',
+      detectedAt: '2026-09-03T00:00:00.000Z',
+      suggestedRecord: { sourceId: 'if-example' }
+    }],
+    supabaseUrl: baseUrl,
+    serviceRoleKey: key,
+    fetchImpl: async (url, options = {}) => {
+      if (options.method === 'POST') {
+        posted = JSON.parse(options.body);
+        return new Response(null, { status: 201 });
+      }
+      return new Response('[]', { status: 200, headers: { 'content-type': 'application/json' } });
+    }
+  });
+
+  assert.equal(posted[0].source_id, 'if-example');
+});
+
 test('inserts only new review candidates and preserves resolved decisions', async () => {
   const requests = [];
   const result = await syncReviewCandidates({

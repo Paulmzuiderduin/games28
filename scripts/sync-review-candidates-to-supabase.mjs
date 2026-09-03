@@ -19,12 +19,12 @@ function headers(serviceRoleKey) {
 function toDatabaseCandidate(entry) {
   return {
     id: entry.id,
-    source_id: entry.sourceId,
-    source_url: entry.sourceUrl,
-    extracted_evidence: entry.extractedEvidence,
+    source_id: entry.sourceId || entry.source_id || entry.suggestedRecord?.sourceId || entry.suggested_record?.source_id,
+    source_url: entry.sourceUrl || entry.source_url,
+    extracted_evidence: entry.extractedEvidence || entry.extracted_evidence,
     reason: entry.reason,
-    detected_at: entry.detectedAt,
-    suggested_record: entry.suggestedRecord || null
+    detected_at: entry.detectedAt || entry.detected_at,
+    suggested_record: entry.suggestedRecord || entry.suggested_record || null
   };
 }
 
@@ -69,7 +69,7 @@ export async function syncReviewCandidates({ candidates, supabaseUrl, serviceRol
     const response = await fetchImpl(endpoint, {
       method: 'POST',
       headers: { ...headers(serviceRoleKey), prefer: 'return=minimal' },
-      body: JSON.stringify(newCandidates)
+      body: JSON.stringify(newCandidates.map(toDatabaseCandidate))
     });
     if (!response.ok) throw await responseError('Unable to insert new review candidates', response);
   }
@@ -89,8 +89,7 @@ async function main() {
   ]);
   // Manual, researched candidates are authoritative for their IDs. The
   // ingestion artifact contributes the daily-discovered candidates alongside them.
-  const candidates = mergeReviewCandidates(manualInput.reviewQueue || [], artifact.reviewQueue || [])
-    .map(toDatabaseCandidate);
+  const candidates = mergeReviewCandidates(manualInput.reviewQueue || [], artifact.reviewQueue || []);
   const result = await syncReviewCandidates({ candidates, supabaseUrl, serviceRoleKey });
   console.log(`Review queue sync: ${result.insertedCount} new, ${result.restoredApprovalCount} restored, ${result.existingCount} already stored.`);
 }
