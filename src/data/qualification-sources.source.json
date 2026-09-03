@@ -1,4 +1,120 @@
 {
   "structuredRecords": [],
-  "reviewQueue": []
+  "reviewQueue": [
+    {
+      "id": "review-if-flag-football-ita-men-2026-worlds",
+      "resolution": "pending",
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that the United States, Italy and Canada have qualified for the men's six-team competition at LA28. Italy reached the final and secured its quota place.",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Italy men's team quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-if-flag-football-ita-men-2026-worlds",
+        "noc": "ITA",
+        "sport": "Flag Football",
+        "disciplines": ["Men's tournament"],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 10,
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "sourceId": "if-flag-football",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-flag-football-can-men-2026-worlds",
+      "resolution": "pending",
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Canada secured an LA28 Olympic quota place by winning the men's bronze-medal match over Mexico.",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Canada men's team quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-if-flag-football-can-men-2026-worlds",
+        "noc": "CAN",
+        "sport": "Flag Football",
+        "disciplines": ["Men's tournament"],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 10,
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "sourceId": "if-flag-football",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-flag-football-can-women-2026-worlds",
+      "resolution": "pending",
+      "detectedAt": "2026-08-15T00:00:00.000Z",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Canada qualified for the women's six-team competition at LA28 after reaching the final.",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Canada women's team quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-if-flag-football-can-women-2026-worlds",
+        "noc": "CAN",
+        "sport": "Flag Football",
+        "disciplines": ["Women's tournament"],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 10,
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "sourceId": "if-flag-football",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-flag-football-mex-women-2026-worlds",
+      "resolution": "pending",
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Mexico's women secured an LA28 Olympic quota place by winning the bronze-medal match over Great Britain.",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Mexico women's team quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-if-flag-football-mex-women-2026-worlds",
+        "noc": "MEX",
+        "sport": "Flag Football",
+        "disciplines": ["Women's tournament"],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 10,
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "sourceId": "if-flag-football",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-volleyball-tha-women-2026-avc",
+      "resolution": "pending",
+      "detectedAt": "2026-08-30T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+      "extractedEvidence": "Thailand won the 2026 AVC Women's Volleyball Continental Championship and the direct Asian qualification place for the LA28 Olympic Games.",
+      "reason": "Official FIVB confirmation. Confirm the pre-filled Thailand women's volleyball team quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-if-volleyball-tha-women-2026-avc",
+        "noc": "THA",
+        "sport": "Volleyball",
+        "disciplines": ["Women's tournament"],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 12,
+        "qualificationRoute": "2026 AVC Women's Volleyball Continental Championship",
+        "sourceId": "if-volleyball",
+        "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+        "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
+        "sourceRecordType": "review_approved"
+      }
+    }
+  ]
 }

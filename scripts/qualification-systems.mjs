@@ -101,7 +101,7 @@ export const qualificationSystems = [
     notes: 'Review source: Equestrian Australia reports the six Dressage team quota allocations at Aachen. FEI remains the governing qualification authority.'
   }),
   system('fencing', 'Fencing', 'International Fencing Federation', ['Fencing'], 'https://fie.org/'),
-  system('flag-football', 'Flag Football', 'International Federation of American Football', ['Flag Football'], 'https://ifaf.org/', { qualificationEvents: [
+  system('flag-football', 'Flag Football', 'International Federation of American Football', ['Flag Football'], 'https://www.americanfootball.sport/', { qualificationEvents: [
     qualificationEvent('men', "Men's tournament", ['Flag Football']),
     qualificationEvent('women', "Women's tournament", ['Flag Football'])
   ] }),
