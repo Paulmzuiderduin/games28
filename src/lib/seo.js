@@ -37,7 +37,7 @@ export function isCountryDashboardIndexable(runtime, noc) {
 export function selectSeoSessionEntries(scheduleEntries, limit = 240) {
   const priorityPattern = /\b(final|gold medal|bronze medal|medal|marathon|opening|closing)\b/i;
   const withTimes = (scheduleEntries || []).filter((entry) => entry.startAtUtc);
-  const priority = withTimes.filter((entry) => priorityPattern.test(`${entry.eventName} ${entry.phase} ${entry.description}`));
+  const priority = withTimes.filter((entry) => priorityPattern.test(`${entry.eventName} ${entry.description}`));
   const remaining = withTimes.filter((entry) => !priority.includes(entry));
   const byStart = (left, right) => String(left.startAtUtc).localeCompare(String(right.startAtUtc));
 

@@ -90,6 +90,7 @@ export function buildSportDirectory(runtime) {
 
 export function filterScheduleEntries(scheduleEntries, filters) {
   const query = normalizeText(filters.searchText);
+  const exactRoundQuery = new Set(['final', 'finals', 'semifinal', 'semifinals', 'quarterfinal', 'quarterfinals']).has(query);
 
   return scheduleEntries.filter((entry) => {
     if (filters.sport !== 'all' && entry.sport !== filters.sport) {
@@ -104,7 +105,10 @@ export function filterScheduleEntries(scheduleEntries, filters) {
       return true;
     }
 
-    const haystack = normalizeText(`${entry.sport} ${entry.eventName} ${entry.phase} ${entry.venue} ${entry.sessionCode}`);
+    const haystack = normalizeText(`${entry.sport} ${entry.eventName} ${entry.venue} ${entry.sessionCode}`);
+    if (exactRoundQuery) {
+      return new RegExp(`\\b${query}\\b`).test(haystack);
+    }
     return haystack.includes(query);
   });
 }

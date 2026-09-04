@@ -262,7 +262,7 @@ function buildPages(runtime) {
         '@type': 'Place',
         name: entry.venue
       },
-      description: compact(`${entry.phase || 'Scheduled session'} for ${entry.sport} at LA 2028. Source data is tracked by Games28.`)
+      description: compact(`${entry.eventName} for ${entry.sport} at LA 2028. Source data is tracked by Games28.`)
     } : null;
 
     pages.push({

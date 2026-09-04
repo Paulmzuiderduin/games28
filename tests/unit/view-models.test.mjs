@@ -98,6 +98,18 @@ test('filterScheduleEntries respects sport, date, and text filters', () => {
   assert.deepEqual(filtered.map((entry) => entry.id), ['1']);
 });
 
+test('schedule search ignores misleading session-level phases', () => {
+  const filtered = filterScheduleEntries(
+    [
+      { id: 'quarterfinal', sport: 'Badminton', eventName: 'Quarterfinal', phase: 'Final', venue: 'Arena', sessionCode: 'BDM10', dayKey: '2028-07-25' },
+      { id: 'final', sport: 'Badminton', eventName: "Women's Singles Final", phase: 'Final', venue: 'Arena', sessionCode: 'BDM20', dayKey: '2028-07-27' }
+    ],
+    { sport: 'all', dayKey: 'all', searchText: 'final' }
+  );
+
+  assert.deepEqual(filtered.map((entry) => entry.id), ['final']);
+});
+
 test('filterCountries prioritizes favorites and search', () => {
   const filtered = filterCountries(runtime.countries, runtime.athleteCards, {
     searchText: 'nether',

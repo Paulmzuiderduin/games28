@@ -23,6 +23,7 @@ test('findSportBySlug resolves sports from schedule entries', () => {
 test('selectSeoSessionEntries prioritizes medal and final sessions with times', () => {
   const selected = selectSeoSessionEntries([
     { id: 'early', eventName: 'Pool Round', phase: 'Preliminary', startAtUtc: '2028-07-15T10:00:00Z' },
+    { id: 'quarterfinal', eventName: 'Quarterfinal', phase: 'Final', startAtUtc: '2028-07-16T10:00:00Z' },
     { id: 'final', eventName: 'Gold Medal Match', phase: 'Final', startAtUtc: '2028-07-20T10:00:00Z' },
     { id: 'tbd', eventName: 'Final', phase: 'Final', startAtUtc: null }
   ], 1);

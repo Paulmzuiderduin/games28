@@ -15,6 +15,7 @@ import {
   getViewerTimeZoneLabel
 } from './lib/format.js';
 import { navigate, parseRoute } from './lib/router.js';
+import { isMedalEvent } from './lib/schedule-events.js';
 import { getShareUrl, sharePage } from './lib/share.js';
 import { loadRuntimeDataset, runtimeFallback } from './lib/runtime-data.js';
 import { findSportBySlug, getSessionPath, getSportPath } from './lib/seo.js';
@@ -200,19 +201,6 @@ function formatChangeEntityLabel(change) {
   if (change.entityType === 'schedule_entry') return 'Schedule';
   if (change.entityType === 'athlete_card') return 'Qualification';
   return change.entityType || 'Update';
-}
-
-function isMedalEvent(entry) {
-  const haystack = `${entry?.eventName || ''} ${entry?.phase || ''}`.toLowerCase();
-  return (
-    haystack.includes('gold medal') ||
-    haystack.includes('bronze medal') ||
-    haystack.includes('medal match') ||
-    haystack.includes('medal game') ||
-    haystack.includes('medal contest') ||
-    haystack.includes('bronze') ||
-    haystack.includes('final')
-  );
 }
 
 function qualificationDetail(card) {
@@ -578,7 +566,7 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
             <AppLink href={getSportPath(entry.sport)} className="eyebrow-link">{entry.sport}</AppLink>
           </p>
           <h3>{entry.eventName}</h3>
-          <p className="schedule-meta">{entry.phase || 'Scheduled'} · {entry.venue || 'Venue TBC'}</p>
+          <p className="schedule-meta">{entry.venue || 'Venue TBC'}</p>
         </div>
         <div className="schedule-card-badges">
           {medalEvent ? (
@@ -1204,7 +1192,6 @@ function SessionView({ runtime, entry, onCalendarExport }) {
           </div>
         </div>
         <div className="session-facts">
-          <SummaryCard label="Phase" value={entry.phase || 'Scheduled'} />
           <SummaryCard label="Venue" value={entry.venue || 'Venue TBC'} />
           <SummaryCard label="Date" value={formatDateLabel(entry.startAtUtc)} />
         </div>
