@@ -1106,6 +1106,7 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
           Share {sport} schedule
         </ShareButton>
       </div>
+      <SportQualificationOverview overview={qualificationOverview} sport={sport} />
       <div className="timezone-note">
         Times are shown in your local timezone: <strong>{getViewerTimeZoneLabel()}</strong>. Each session also shows an LA reference time.
       </div>
@@ -1143,7 +1144,6 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
           description="Try clearing the date or text search to see the full sport schedule."
         />
       )}
-      <SportQualificationOverview overview={qualificationOverview} sport={sport} />
     </section>
   );
 }

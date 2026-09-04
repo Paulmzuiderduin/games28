@@ -181,3 +181,38 @@ test('sport pages inherit qualification records from their official qualificatio
   assert.equal(overview.stats.recordCount, 1);
   assert.equal(overview.groups[0].cards[0].id, 'athletics-quota');
 });
+
+test('sport pages keep related qualification-system sports separate and normalize beach volleyball event labels', () => {
+  const volleyballRuntime = {
+    countries: runtime.countries,
+    athleteCards: [
+      {
+        id: 'can-indoor', noc: 'USA', name: '1 team quota place', sport: 'Volleyball',
+        sourceId: 'if-volleyball', disciplines: ["Women's tournament"], status: 'quota'
+      },
+      {
+        id: 'ned-beach', noc: 'NED', name: 'Beach pair', sport: 'Beach Volleyball',
+        sourceId: 'noc-ned-beach', disciplines: ["Women's beach volleyball"], status: 'named'
+      }
+    ],
+    meta: {
+      qualificationSources: [
+        {
+          id: 'if-volleyball', sport: 'Volleyball', sports: ['Beach Volleyball', 'Volleyball'],
+          qualificationEvents: [
+            { label: "Beach Volleyball - Women's tournament", sports: ['Beach Volleyball'] },
+            { label: "Volleyball - Women's tournament", sports: ['Volleyball'] }
+          ]
+        },
+        { id: 'noc-ned-beach', sport: 'Beach Volleyball', sports: ['Beach Volleyball'] }
+      ]
+    }
+  };
+
+  const beachOverview = buildSportQualificationOverview(volleyballRuntime, 'Beach Volleyball');
+  const indoorOverview = buildSportQualificationOverview(volleyballRuntime, 'Volleyball');
+
+  assert.deepEqual(beachOverview.cards.map((card) => card.id), ['ned-beach']);
+  assert.equal(beachOverview.groups[0].label, "Women's tournament");
+  assert.deepEqual(indoorOverview.cards.map((card) => card.id), ['can-indoor']);
+});

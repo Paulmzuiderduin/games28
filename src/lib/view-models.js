@@ -34,7 +34,19 @@ export function buildScheduleOptions(scheduleEntries) {
 export function getQualificationSportLabels(runtime, card) {
   const sources = runtime.meta?.qualificationSources || [];
   const matchingSources = sources.filter((source) => source.id === card.sourceId || source.sport === card.sport);
-  const mappedSports = [...new Set(matchingSources.flatMap((source) => source.sports || []).filter(Boolean))];
+  const mappedSports = [...new Set(matchingSources.flatMap((source) => {
+    const qualificationEvents = source.qualificationEvents || [];
+    const directSportEvents = qualificationEvents.filter((event) => (event.sports || []).includes(card.sport));
+
+    // Some governing bodies cover related Olympic sports. Prefer the record's
+    // explicit sport over the entire governing-body group (for example indoor
+    // volleyball must not also appear on the beach volleyball page).
+    if (directSportEvents.length) {
+      return directSportEvents.flatMap((event) => event.sports || []);
+    }
+
+    return source.sports || [];
+  }).filter(Boolean))];
 
   return mappedSports.length ? mappedSports : [card.sport].filter(Boolean);
 }
@@ -207,9 +219,24 @@ function qualificationStatusRank(card) {
   return 5;
 }
 
-function qualificationGroupLabel(card) {
+function qualificationGroupLabel(card, sport) {
   const disciplines = [...new Set(card.disciplines || [])].filter(Boolean).sort((left, right) => left.localeCompare(right));
-  return disciplines.length ? disciplines.join(' / ') : 'All qualification events';
+  if (!disciplines.length) return 'All qualification events';
+
+  // Official announcements use both "Women's beach volleyball" and
+  // "Beach Volleyball - Women's tournament" for the same Olympic event.
+  // Present one concise, consistent event label on the sport page.
+  if (sport === 'Beach Volleyball' && disciplines.length === 1) {
+    const discipline = normalizeText(disciplines[0]);
+    if (discipline.includes('women') && (discipline.includes('beach volleyball') || discipline.includes('tournament'))) {
+      return "Women's tournament";
+    }
+    if (discipline.includes('men') && (discipline.includes('beach volleyball') || discipline.includes('tournament'))) {
+      return "Men's tournament";
+    }
+  }
+
+  return disciplines.join(' / ');
 }
 
 export function buildSportQualificationOverview(runtime, sport) {
@@ -228,7 +255,7 @@ export function buildSportQualificationOverview(runtime, sport) {
   const groups = new Map();
 
   cards.forEach((card) => {
-    const label = qualificationGroupLabel(card);
+    const label = qualificationGroupLabel(card, sport);
     const group = groups.get(label) || {
       id: `${sport}::${label}`,
       label,
