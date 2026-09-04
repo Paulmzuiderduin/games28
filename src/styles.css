@@ -1803,6 +1803,11 @@ body {
 .sources-page > .source-summary,
 .sources-page > .source-list,
 .sources-page > .qualification-source-list { padding-left: 0; padding-right: 0; }
+
+.schedule-preview > .timezone-note {
+  margin: 22px 0 0;
+}
+
 .filters-grid { padding-top: 22px; }
 .schedule-grid { padding-top: 8px; }
 
