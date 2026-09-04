@@ -1107,43 +1107,51 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
         </ShareButton>
       </div>
       <SportQualificationOverview overview={qualificationOverview} sport={sport} />
-      <div className="timezone-note">
-        Times are shown in your local timezone: <strong>{getViewerTimeZoneLabel()}</strong>. Each session also shows an LA reference time.
-      </div>
-      <div className="filters-grid sport-filter-grid">
-        <label>
-          <span>Date</span>
-          <select value={scheduleFilters.dayKey} onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, dayKey: event.target.value })}>
-            <option value="all">All competition days</option>
-            {scheduleOptions.dayOptions.map((dayKey) => (
-              <option key={dayKey} value={dayKey}>
-                {dayKey}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="search-field">
-          <span>Search {sport}</span>
-          <input
-            type="search"
-            value={scheduleFilters.searchText}
-            placeholder={`Search ${sport} sessions, venues, or session codes`}
-            onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, searchText: event.target.value })}
-          />
-        </label>
-      </div>
-      {entries.length ? (
-        <div className="schedule-grid">
-          {entries.map((entry) => (
-            <ScheduleCard key={entry.id} entry={entry} onCalendarExport={onCalendarExport} />
-          ))}
+      <section className="sport-sessions-section">
+        <div className="section-heading section-heading--flush">
+          <div>
+            <p className="eyebrow">Schedule</p>
+            <h2>{sport} sessions</h2>
+          </div>
         </div>
-      ) : (
-        <EmptyState
-          title="No sessions match those filters"
-          description="Try clearing the date or text search to see the full sport schedule."
-        />
-      )}
+        <div className="timezone-note">
+          Times are shown in your local timezone: <strong>{getViewerTimeZoneLabel()}</strong>. Each session also shows an LA reference time.
+        </div>
+        <div className="filters-grid sport-filter-grid">
+          <label>
+            <span>Date</span>
+            <select value={scheduleFilters.dayKey} onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, dayKey: event.target.value })}>
+              <option value="all">All competition days</option>
+              {scheduleOptions.dayOptions.map((dayKey) => (
+                <option key={dayKey} value={dayKey}>
+                  {dayKey}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="search-field">
+            <span>Search {sport}</span>
+            <input
+              type="search"
+              value={scheduleFilters.searchText}
+              placeholder={`Search ${sport} sessions, venues, or session codes`}
+              onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, searchText: event.target.value })}
+            />
+          </label>
+        </div>
+        {entries.length ? (
+          <div className="schedule-grid">
+            {entries.map((entry) => (
+              <ScheduleCard key={entry.id} entry={entry} onCalendarExport={onCalendarExport} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState
+            title="No sessions match those filters"
+            description="Try clearing the date or text search to see the full sport schedule."
+          />
+        )}
+      </section>
     </section>
   );
 }

@@ -2065,6 +2065,23 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.sport-sessions-section {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: 38px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.sport-sessions-section .timezone-note {
+  margin: 0;
+}
+
+.sport-sessions-section .filters-grid,
+.sport-sessions-section .schedule-grid {
+  padding: 0;
+}
+
 .sport-qualification-section .supporting-copy {
   max-width: 64ch;
   margin: 10px 0 0;
@@ -2170,6 +2187,7 @@ body {
 
 @media (max-width: 720px) {
   .sport-qualification-section { gap: 16px; padding-top: 24px; }
+  .sport-sessions-section { margin-top: 30px; padding-top: 24px; gap: 16px; }
   .sport-qualification-group__heading { align-items: flex-start; flex-direction: column; gap: 4px; }
   .sport-qualification-record { grid-template-columns: 1fr; gap: 9px; padding: 14px; }
   .sport-qualification-record__meta { justify-content: flex-start; }
