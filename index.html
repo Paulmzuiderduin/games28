@@ -29,6 +29,19 @@
     <link rel="manifest" href="/site.webmanifest" />
     <script>
       (function () {
+        try {
+          var preference = JSON.parse(window.localStorage.getItem('games28-theme-preference'));
+          var theme = preference === 'light' || preference === 'dark'
+            ? preference
+            : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+      })();
+    </script>
+    <script>
+      (function () {
         var search = window.location.search;
         if (!search || search.indexOf('?p=') !== 0) {
           return;

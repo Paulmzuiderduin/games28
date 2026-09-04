@@ -159,6 +159,53 @@ h4,
   gap: 12px;
 }
 
+.theme-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle,
+.theme-follow-device {
+  min-height: 36px;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+}
+
+.theme-toggle:hover,
+.theme-follow-device:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.theme-toggle__icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.theme-follow-device {
+  padding: 0 8px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--primary);
+}
+
+.theme-controls--compact {
+  display: none;
+}
+
 .site-brand {
   display: inline-flex;
   align-items: center;
@@ -1922,6 +1969,7 @@ body {
   .site-header { min-height: 60px; }
   .site-brand small { display: none; }
   .site-header-actions { display: none; }
+  .site-header > .theme-controls--compact { display: inline-flex; margin-left: auto; }
   .mobile-tabbar { width: 100%; margin: 0; border-radius: 16px 16px 0 0; border-bottom: 0; background: rgba(255, 253, 248, 0.98); }
   .mobile-tab { min-height: 54px; padding: 7px 3px; }
 }
@@ -1983,75 +2031,77 @@ body {
   .support-cta { align-items: flex-start; }
 }
 
-/* Follow the visitor's device preference without adding another setting to manage. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --page-bg: #10131a;
-    --surface: #1a1f29;
-    --surface-soft: #222b3b;
-    --surface-muted: #29344a;
-    --text: #f4f6fb;
-    --text-muted: #b8c0cf;
-    --line: #343c4b;
-    --line-strong: #5a667b;
-    --primary: #91b0ff;
-    --primary-strong: #bdd0ff;
-    --success-soft: #173d33;
-    --success-text: #a7e4c8;
-    --warn-soft: #263862;
-    --warn-text: #c1ceff;
-    --blue: #91b0ff;
-    --blue-wash: #202d4a;
-    --ink: #f4f6fb;
-    --ink-muted: #b8c0cf;
-    --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.28);
-  }
+/* The saved preference overrides the device setting; new visitors start on their device setting. */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
 
-  body {
-    background:
-      radial-gradient(circle at 8% -10%, rgba(95, 138, 255, 0.18), transparent 31%),
-      radial-gradient(circle at 100% 22%, rgba(164, 110, 39, 0.13), transparent 29%),
-      linear-gradient(180deg, #151a24 0%, #10131a 54%, #0d1016 100%);
-  }
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --page-bg: #10131a;
+  --surface: #1a1f29;
+  --surface-soft: #222b3b;
+  --surface-muted: #29344a;
+  --text: #f4f6fb;
+  --text-muted: #b8c0cf;
+  --line: #343c4b;
+  --line-strong: #5a667b;
+  --primary: #91b0ff;
+  --primary-strong: #bdd0ff;
+  --success-soft: #173d33;
+  --success-text: #a7e4c8;
+  --warn-soft: #263862;
+  --warn-text: #c1ceff;
+  --blue: #91b0ff;
+  --blue-wash: #202d4a;
+  --ink: #f4f6fb;
+  --ink-muted: #b8c0cf;
+  --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
 
-  .backdrop { opacity: 0.42; }
-  .site-header { background: rgba(19, 23, 32, 0.9); }
-  .mobile-tabbar { background: rgba(19, 23, 32, 0.97); }
-  .panel { background: rgba(26, 31, 41, 0.94); }
-  .summary-grid--quiet .summary-card,
-  .home-discovery,
-  .schedule-preview,
-  .country-directory-page,
-  .changes-page,
-  .sources-page,
-  .session-detail,
-  .country-page__hero,
-  .featured-country-row:hover,
-  .country-page .empty-state,
-  .button-secondary {
-    background: rgba(26, 31, 41, 0.84);
-  }
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at 8% -10%, rgba(95, 138, 255, 0.18), transparent 31%),
+    radial-gradient(circle at 100% 22%, rgba(164, 110, 39, 0.13), transparent 29%),
+    linear-gradient(180deg, #151a24 0%, #10131a 54%, #0d1016 100%);
+}
 
-  .saved-countries-row--editorial,
-  .time-grid > div,
-  .schedule-card .time-grid > div,
-  .sources-page .summary-card {
-    background: rgba(34, 43, 59, 0.92);
-  }
+:root[data-theme='dark'] .backdrop { opacity: 0.42; }
+:root[data-theme='dark'] .site-header { background: rgba(19, 23, 32, 0.9); }
+:root[data-theme='dark'] .mobile-tabbar { background: rgba(19, 23, 32, 0.97); }
+:root[data-theme='dark'] .panel { background: rgba(26, 31, 41, 0.94); }
+:root[data-theme='dark'] .summary-grid--quiet .summary-card,
+:root[data-theme='dark'] .home-discovery,
+:root[data-theme='dark'] .schedule-preview,
+:root[data-theme='dark'] .country-directory-page,
+:root[data-theme='dark'] .changes-page,
+:root[data-theme='dark'] .sources-page,
+:root[data-theme='dark'] .session-detail,
+:root[data-theme='dark'] .country-page__hero,
+:root[data-theme='dark'] .featured-country-row:hover,
+:root[data-theme='dark'] .country-page .empty-state,
+:root[data-theme='dark'] .button-secondary {
+  background: rgba(26, 31, 41, 0.84);
+}
 
-  .support-cta,
-  .report-guidance,
-  .admin-how-it-works {
-    border-color: #405784;
-    background: rgba(32, 45, 74, 0.88);
-  }
+:root[data-theme='dark'] .saved-countries-row--editorial,
+:root[data-theme='dark'] .time-grid > div,
+:root[data-theme='dark'] .schedule-card .time-grid > div,
+:root[data-theme='dark'] .sources-page .summary-card {
+  background: rgba(34, 43, 59, 0.92);
+}
 
-  .trust-line__dot { background: #66c49f; }
-  .country-flag { box-shadow: 0 0 0 1px rgba(244, 246, 251, 0.24); }
-  .medal-badge {
-    border-color: rgba(238, 177, 61, 0.36);
-    background: linear-gradient(160deg, rgba(105, 70, 22, 0.92), rgba(65, 48, 25, 0.96));
-    color: #ffdc89;
-  }
+:root[data-theme='dark'] .support-cta,
+:root[data-theme='dark'] .report-guidance,
+:root[data-theme='dark'] .admin-how-it-works {
+  border-color: #405784;
+  background: rgba(32, 45, 74, 0.88);
+}
 
+:root[data-theme='dark'] .trust-line__dot { background: #66c49f; }
+:root[data-theme='dark'] .country-flag { box-shadow: 0 0 0 1px rgba(244, 246, 251, 0.24); }
+:root[data-theme='dark'] .medal-badge {
+  border-color: rgba(238, 177, 61, 0.36);
+  background: linear-gradient(160deg, rgba(105, 70, 22, 0.92), rgba(65, 48, 25, 0.96));
+  color: #ffdc89;
 }

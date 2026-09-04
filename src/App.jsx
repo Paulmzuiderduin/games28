@@ -42,6 +42,7 @@ const LA28_OPENING_CEREMONY_UTC = '2028-07-15T00:00:00.000Z';
 const KOFI_URL = 'https://ko-fi.com/paulzuiderduin';
 const BLUESKY_URL = 'https://bsky.app/profile/games28.bsky.social';
 const FEATURED_NOCS = ['NED', 'USA', 'JPN', 'GBR', 'AUS', 'FRA'];
+const THEME_PREFERENCE_KEY = 'games28-theme-preference';
 
 const PRIMARY_NAV_ITEMS = [
   { href: '/', routeNames: ['home'], label: 'Home', icon: 'home' },
@@ -69,6 +70,41 @@ function useStoredState(key, fallbackValue) {
   }, [key, value]);
 
   return [value, setValue];
+}
+
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function useThemePreference() {
+  const [preference, setPreference] = useStoredState(THEME_PREFERENCE_KEY, 'system');
+  const [systemTheme, setSystemTheme] = useState(getSystemTheme);
+  const theme = preference === 'system' ? systemTheme : preference;
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const updateTheme = () => setSystemTheme(mediaQuery.matches ? 'dark' : 'light');
+
+    mediaQuery.addEventListener('change', updateTheme);
+    return () => mediaQuery.removeEventListener('change', updateTheme);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  function toggleTheme() {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setPreference(nextTheme);
+    trackEvent('theme_change', { theme: nextTheme, preference: 'manual' });
+  }
+
+  function followDeviceTheme() {
+    setPreference('system');
+    trackEvent('theme_change', { theme: getSystemTheme(), preference: 'system' });
+  }
+
+  return { theme, preference, toggleTheme, followDeviceTheme };
 }
 
 function AppLink({ href, children, className }) {
@@ -119,6 +155,30 @@ function SiteNavigation({ routeName, mobile = false }) {
         );
       })}
     </nav>
+  );
+}
+
+function ThemeToggle({ theme, preference, onToggle, onFollowDevice, compact = false }) {
+  const nextTheme = theme === 'dark' ? 'light' : 'dark';
+
+  return (
+    <div className={`theme-controls ${compact ? 'theme-controls--compact' : ''}`.trim()}>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={onToggle}
+        aria-label={`Switch to ${nextTheme} mode`}
+        title={`Switch to ${nextTheme} mode`}
+      >
+        <span className="theme-toggle__icon" aria-hidden="true">{theme === 'dark' ? '☾' : '☀'}</span>
+        {!compact ? <span>{theme === 'dark' ? 'Dark mode' : 'Light mode'}</span> : null}
+      </button>
+      {!compact && preference !== 'system' ? (
+        <button type="button" className="theme-follow-device" onClick={onFollowDevice}>
+          Use device setting
+        </button>
+      ) : null}
+    </div>
   );
 }
 
@@ -362,7 +422,7 @@ function SourcesView({ runtime }) {
   );
 }
 
-function SiteFooter() {
+function SiteFooter({ theme, themePreference, onToggleTheme, onFollowDeviceTheme }) {
   return (
     <footer className="site-footer">
       <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
@@ -371,6 +431,12 @@ function SiteFooter() {
         <AppLink href="/report">Report an update</AppLink>
         <BlueskyLink />
         <KofiLink>Support Games28</KofiLink>
+        <ThemeToggle
+          theme={theme}
+          preference={themePreference}
+          onToggle={onToggleTheme}
+          onFollowDevice={onFollowDeviceTheme}
+        />
       </div>
     </footer>
   );
@@ -1396,6 +1462,7 @@ export default function App() {
   const [scheduleFilters, setScheduleFilters] = useStoredState('games28-schedule-filters', DEFAULT_SCHEDULE_FILTERS);
   const [favoriteCountries, setFavoriteCountries] = useStoredState('games28-favorite-countries', []);
   const [countryFiltersState, setCountryFiltersState] = useStoredState('games28-country-filters', DEFAULT_COUNTRY_FILTERS);
+  const themePreference = useThemePreference();
 
   useEffect(() => {
     const onPopState = () => setRoute(parseRoute(window.location.pathname));
@@ -1508,7 +1575,20 @@ export default function App() {
         </AppLink>
         <div className="site-header-actions">
           <SiteNavigation routeName={route.name} />
+          <ThemeToggle
+            theme={themePreference.theme}
+            preference={themePreference.preference}
+            onToggle={themePreference.toggleTheme}
+            onFollowDevice={themePreference.followDeviceTheme}
+          />
         </div>
+        <ThemeToggle
+          theme={themePreference.theme}
+          preference={themePreference.preference}
+          onToggle={themePreference.toggleTheme}
+          onFollowDevice={themePreference.followDeviceTheme}
+          compact
+        />
       </header>
 
       <main className="page-shell">
@@ -1597,7 +1677,14 @@ export default function App() {
         {!isLoadingRuntime && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} qualificationCards={runtime.athleteCards} /> : null}
         {!isLoadingRuntime && route.name === 'not-found' ? <NotFoundView /> : null}
         {!isLoadingRuntime && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
-        {!isLoadingRuntime && route.name !== 'admin' ? <SiteFooter /> : null}
+        {!isLoadingRuntime && route.name !== 'admin' ? (
+          <SiteFooter
+            theme={themePreference.theme}
+            themePreference={themePreference.preference}
+            onToggleTheme={themePreference.toggleTheme}
+            onFollowDeviceTheme={themePreference.followDeviceTheme}
+          />
+        ) : null}
         </div>
       </main>
       <SiteNavigation routeName={route.name} mobile />
