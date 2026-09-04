@@ -32,6 +32,8 @@ const STATE_LABELS = {
   entered: 'Final LA28 entry list confirms them'
 };
 
+const NAMED_RECORD_STATES = new Set(['earned', 'selected', 'entered']);
+
 const REVIEW_TABS = [
   { status: 'pending', label: 'Waiting' },
   { status: 'review_later', label: 'Review later' },
@@ -219,6 +221,9 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     if (!draft.noc || !draft.sport || !draft.sourcePublishedAt) throw new Error('Confirm the country, sport, and official publication date before approving.');
     if (draft.subjectType === 'athlete' && !draft.athleteName.trim()) throw new Error('Add the athlete name shown in the official source.');
     if (draft.subjectType === 'team' && !draft.teamName.trim()) throw new Error('Add the team name shown in the official source.');
+    if (['athlete', 'team'].includes(draft.subjectType) && !NAMED_RECORD_STATES.has(draft.state)) {
+      throw new Error('A named athlete or team cannot be an allocated quota. Choose earned, selected, or entered — or change this to a country quota.');
+    }
     if (['noc_quota', 'team_quota'].includes(draft.subjectType) && (!Number.isInteger(Number(draft.quotaCount)) || Number(draft.quotaCount) < 1)) throw new Error('Quota places must be at least 1.');
     if (draft.subjectType === 'team_quota' && draft.teamSizeMax && (!Number.isInteger(Number(draft.teamSizeMax)) || Number(draft.teamSizeMax) < 1)) throw new Error('Team size must be a positive whole number.');
     return {
@@ -664,18 +669,21 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
         <label>
           <span>Qualification outcome</span>
           <select value={draft.state} onChange={(event) => update({ state: event.target.value })}>
-            {Object.entries(STATE_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+            {Object.entries(STATE_LABELS).map(([value, label]) => (
+              <option key={value} value={value} disabled={['athlete', 'team'].includes(draft.subjectType) && value === 'allocated'}>{label}</option>
+            ))}
           </select>
           <small>{STATE_LABELS[draft.state]}</small>
         </label>
       </div>
+      {['athlete', 'team'].includes(draft.subjectType) && draft.state === 'allocated' ? <p className="admin-publish-note"><strong>Fix needed:</strong> an allocated place belongs to a country quota, not a named athlete or team. Choose <em>Country team quota</em> for a qualified national team, or use earned, selected, or entered only when the official source names the people or pair.</p> : null}
       {draft.subjectType === 'noc_quota' ? <label><span>Confirmed individual quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label> : null}
       {draft.subjectType === 'team_quota' ? <div className="admin-form-row">
         <label><span>Confirmed team quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label>
         <label><span>Maximum athletes in each team (optional)</span><input type="number" min="1" value={draft.teamSizeMax} onChange={(event) => update({ teamSizeMax: event.target.value })} /></label>
       </div> : null}
       {draft.subjectType === 'athlete' ? <label><span>Confirmed athlete name</span><input value={draft.athleteName} onChange={(event) => update({ athleteName: event.target.value })} /></label> : null}
-      {draft.subjectType === 'team' ? <label><span>Confirmed team name</span><input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} /></label> : null}
+      {draft.subjectType === 'team' ? <label><span>Confirmed team or pair name</span><input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} /><small>Use only when the source names a specific roster or pair, such as “Katja Stam and Raïsa Schoon”. A country team that merely qualified is a Country team quota.</small></label> : null}
       {['athlete', 'team'].includes(draft.subjectType) ? <label>
         <span>{draft.subjectType === 'athlete' ? 'Which quota does this athlete fill? (optional)' : 'Which quota does this team fill? (optional)'}</span>
         <select value={draft.allocationRecordId} onChange={(event) => update({ allocationRecordId: event.target.value })}>

@@ -72,6 +72,17 @@ export const runtimeFallback = {
   }
 };
 
+function isPublishableQualificationCard(card) {
+  return !(card?.subjectType === 'team' && card?.state === 'allocated');
+}
+
+function protectPublicQualificationCards(runtime) {
+  return {
+    ...runtime,
+    athleteCards: (runtime.athleteCards || []).filter(isPublishableQualificationCard)
+  };
+}
+
 export async function loadRuntimeDataset() {
   try {
     const response = await fetch(RUNTIME_URL, {
@@ -84,7 +95,7 @@ export async function loadRuntimeDataset() {
       throw new Error(`Runtime dataset request failed with ${response.status}`);
     }
 
-    return await response.json();
+    return protectPublicQualificationCards(await response.json());
   } catch (error) {
     console.warn('Falling back to empty runtime dataset.', error);
     return runtimeFallback;

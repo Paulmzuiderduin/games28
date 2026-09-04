@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import {
   buildQualificationPipeline,
+  isPublishableQualificationCard,
   normalizeQualificationRecords,
   toQualificationCards
 } from '../../scripts/qualification-records.mjs';
@@ -94,6 +95,19 @@ test('normalizes qualification aliases to one canonical event identity', () => {
   assert.equal(result.records[0].canonicalEventKey, 'volleyball:beach-women');
   assert.equal(result.records[0].canonicalEventLabel, "Beach Volleyball - Women's tournament");
   assert.equal(result.records[1].canonicalEventKey, 'volleyball:indoor-women');
+});
+
+test('rejects a qualified national team incorrectly entered as a named team', () => {
+  const result = normalizeQualificationRecords([
+    record({
+      id: 'aus-cricket-team', sport: 'Cricket', disciplines: ["Women's T20 tournament"],
+      subjectType: 'team', state: 'allocated', teamName: "Australia women's cricket team", quotaCount: null
+    })
+  ], sources);
+
+  assert.equal(result.records.length, 0);
+  assert.match(result.rejected[0].problems.join(' '), /allocated places must use a quota record/);
+  assert.equal(isPublishableQualificationCard({ subjectType: 'team', state: 'allocated' }), false);
 });
 
 test('keeps a country quota visible when a later named athlete is linked to it', () => {

@@ -67,6 +67,9 @@ function normalizeRawRecord(raw, index, sourceById, sources) {
   if (!record.sourcePublishedAt || !record.verifiedAt) problems.push('missing sourcePublishedAt or verifiedAt');
   if (record.subjectType === 'athlete' && !record.athleteName) problems.push('athlete record missing athleteName');
   if (record.subjectType === 'team' && !record.teamName) problems.push('team record missing teamName');
+  if (['athlete', 'team'].includes(record.subjectType) && record.state === 'allocated') {
+    problems.push('allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence');
+  }
   if (['noc_quota', 'team_quota'].includes(record.subjectType) && !record.quotaCount && ACTIVE_STATES.has(record.state)) problems.push('quota record missing quotaCount');
   if (!sourceDefinition || !SOURCE_TIERS.has(sourceDefinition.sourceTier)) problems.push('sourceId does not resolve to a trusted source');
   if (sourceDefinition && !hasTrustedSourceUrl(record.sourceUrl, sourceDefinition)) problems.push('source URL does not match the trusted official source');
@@ -135,6 +138,12 @@ export function resolveActiveQualificationRecords(records) {
     if (delta > 0 || (delta === 0 && record.verifiedAt > previous.verifiedAt)) winnersByKey.set(record.recordKey, record);
   });
   return [...winnersByKey.values()].sort((left, right) => left.noc.localeCompare(right.noc) || left.sport.localeCompare(right.sport));
+}
+
+export function isPublishableQualificationCard(card) {
+  // A country team qualifying is a quota allocation, not a named roster.
+  // Keep this public-data guard as a last line of defence for older snapshots.
+  return !(card?.subjectType === 'team' && card?.state === 'allocated');
 }
 
 export function buildQualificationPipeline(source, sources) {
