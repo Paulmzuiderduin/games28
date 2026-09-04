@@ -1781,6 +1781,7 @@ body {
 
 .schedule-preview,
 .country-directory-page,
+.sports-directory-page,
 .changes-page,
 .sources-page,
 .session-detail,
@@ -1816,6 +1817,26 @@ body {
 .country-card { padding: 16px; border-radius: 12px; box-shadow: none; }
 .country-card:hover { border-color: var(--line-strong); box-shadow: 0 8px 20px rgba(39, 43, 56, 0.05); }
 .country-card-actions { margin-top: 14px; }
+
+.sports-directory-page { display: grid; gap: 24px; }
+.sports-directory-page .section-intro--flush { padding: 0; margin: -10px 0 0; }
+.sport-directory-search { display: grid; max-width: 480px; }
+.sport-directory-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.sport-directory-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 154px;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+}
+.sport-directory-card:not(:nth-child(3n)) { border-right: 1px solid var(--line); }
+.sport-directory-card:hover { background: var(--surface-soft); color: var(--primary); }
+.sport-directory-card h2 { margin: 5px 0 7px; font-size: 18px; line-height: 1.18; letter-spacing: -0.02em; }
+.sport-directory-card p:not(.eyebrow) { margin: 0; color: var(--text-muted); font-size: 12px; line-height: 1.5; }
+.sport-directory-card .row-arrow { flex: 0 0 auto; margin-top: 4px; }
 
 .schedule-card {
   display: grid;
@@ -1962,6 +1983,9 @@ body {
   .featured-country-row:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 18px; }
   .featured-country-row:nth-child(even) { padding-left: 18px; }
   .sources-page .source-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sport-directory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sport-directory-card:not(:nth-child(3n)) { border-right: 0; }
+  .sport-directory-card:nth-child(odd) { border-right: 1px solid var(--line); }
 }
 
 @media (max-width: 899px) {
@@ -1996,7 +2020,7 @@ body {
   .home-stats .summary-card:first-child { padding-left: 0; }
   .home-stats .summary-card strong { font-size: 1.15rem; }
   .home-stats .summary-card span { display: none; }
-  .schedule-preview, .country-directory-page, .changes-page, .sources-page, .session-detail, .country-page__hero { padding: 20px 16px; border-radius: 16px; }
+  .schedule-preview, .country-directory-page, .sports-directory-page, .changes-page, .sources-page, .session-detail, .country-page__hero { padding: 20px 16px; border-radius: 16px; }
   .section-heading, .heading-meta { gap: 14px; }
   .heading-meta { width: 100%; }
   .heading-meta .button-secondary { width: 100%; }
@@ -2029,6 +2053,8 @@ body {
   .admin-community-report-layout { grid-template-columns: 1fr; }
   .site-footer__links { gap: 16px; }
   .support-cta { align-items: flex-start; }
+  .sport-directory-grid { grid-template-columns: 1fr; }
+  .sport-directory-card, .sport-directory-card:nth-child(odd) { min-height: auto; border-right: 0; }
 }
 
 .sport-qualification-section {
@@ -2192,6 +2218,7 @@ body {
 :root[data-theme='dark'] .home-discovery,
 :root[data-theme='dark'] .schedule-preview,
 :root[data-theme='dark'] .country-directory-page,
+:root[data-theme='dark'] .sports-directory-page,
 :root[data-theme='dark'] .changes-page,
 :root[data-theme='dark'] .sources-page,
 :root[data-theme='dark'] .session-detail,

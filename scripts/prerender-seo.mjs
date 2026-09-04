@@ -11,6 +11,7 @@ import {
   routeUrl,
   selectSeoSessionEntries
 } from '../src/lib/seo.js';
+import { getQualificationSportLabels } from '../src/lib/view-models.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -160,6 +161,14 @@ function buildPages(runtime) {
       links: sports.slice(0, 12).map((sport) => ({ href: getSportPath(sport), label: `${sport} schedule` }))
     },
     {
+      url: routeUrl('/sports'),
+      title: 'LA 2028 Sports Directory | Games28',
+      description: `Find all ${sports.length} LA 2028 sport pages, each with a schedule, local-time sessions, and confirmed qualification records when available.`,
+      heading: 'Find your LA 2028 sport',
+      facts: [`${sports.length} sports tracked`, 'Schedule and confirmed qualification information in one place', 'Times shown in each visitor local timezone'],
+      links: sports.map((sport) => ({ href: getSportPath(sport), label: `${sport} schedule and qualification` }))
+    },
+    {
       url: routeUrl('/changes'),
       title: 'LA 2028 Schedule Changes | Games28',
       description: 'Track Games28 schedule and qualification data changes as the LA 2028 dataset refreshes.',
@@ -215,7 +224,7 @@ function buildPages(runtime) {
 
   sports.forEach((sport) => {
     const entries = runtime.scheduleEntries.filter((entry) => entry.sport === sport);
-    const qualifications = runtime.athleteCards.filter((card) => card.sport === sport);
+    const qualifications = runtime.athleteCards.filter((card) => getQualificationSportLabels(runtime, card).includes(sport));
     const qualificationCountries = new Set(qualifications.map((card) => card.noc)).size;
     pages.push({
       url: routeUrl(getSportPath(sport)),

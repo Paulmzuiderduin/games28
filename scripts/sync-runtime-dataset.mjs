@@ -71,6 +71,7 @@ async function main() {
   const urls = [
     '/',
     '/schedule',
+    '/sports',
     '/changes',
     '/sources',
     ...runtime.countries

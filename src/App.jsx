@@ -22,6 +22,7 @@ import {
   buildCountryDashboard,
   buildHomeStats,
   buildScheduleOptions,
+  buildSportDirectory,
   buildSportQualificationOverview,
   filterCountries,
   filterScheduleEntries
@@ -48,7 +49,7 @@ const THEME_PREFERENCE_KEY = 'games28-theme-preference';
 const PRIMARY_NAV_ITEMS = [
   { href: '/', routeNames: ['home'], label: 'Home', icon: 'home' },
   { href: '/countries', routeNames: ['countries', 'country'], label: 'Countries', icon: 'flag' },
-  { href: '/schedule', routeNames: ['schedule', 'sport', 'session'], label: 'Schedule', icon: 'calendar' },
+  { href: '/schedule', routeNames: ['schedule', 'sports', 'sport', 'session'], label: 'Schedule', icon: 'calendar' },
   { href: '/changes', routeNames: ['changes'], label: 'Changes', icon: 'pulse' }
 ];
 
@@ -737,7 +738,7 @@ function HomeView({
         <div className="home-intro-actions">
         <div className="hero-actions">
           <AppLink href="/countries" className="button-primary">Browse all countries</AppLink>
-          <AppLink href="/schedule" className="button-secondary">Browse full schedule</AppLink>
+          <AppLink href="/sports" className="button-secondary">Browse sports</AppLink>
         </div>
         <TrustLine runtime={runtime} />
         </div>
@@ -905,6 +906,7 @@ function ScheduleView({ runtime, scheduleEntries, scheduleFilters, onScheduleFil
         </div>
         <div className="heading-meta">
           <span className="status-pill">Local time + LA reference</span>
+          <AppLink href="/sports" className="text-link">Browse sports</AppLink>
           <button
             type="button"
             className="button-secondary"
@@ -936,6 +938,56 @@ function ScheduleView({ runtime, scheduleEntries, scheduleFilters, onScheduleFil
           title="No schedule results"
           description="No sessions match those filters yet."
         />
+      )}
+    </section>
+  );
+}
+
+function SportsView({ sports }) {
+  const [query, setQuery] = useState('');
+  const normalizedQuery = query.trim().toLowerCase();
+  const filteredSports = normalizedQuery
+    ? sports.filter((sport) => sport.sport.toLowerCase().includes(normalizedQuery))
+    : sports;
+
+  return (
+    <section className="page-section sports-directory-page">
+      <div className="section-heading section-heading--flush">
+        <div>
+          <p className="eyebrow">Sports</p>
+          <h1>Find your sport</h1>
+        </div>
+        <span className="status-pill">{formatCount(sports.length)} sports</span>
+      </div>
+      <p className="section-intro section-intro--flush">
+        Open a sport page for its schedule, local session times, and confirmed qualification records.
+      </p>
+      <label className="search-field sport-directory-search">
+        <span>Search sports</span>
+        <input
+          type="search"
+          value={query}
+          placeholder="Swimming, volleyball, athletics..."
+          onChange={(event) => setQuery(event.target.value)}
+        />
+      </label>
+      {filteredSports.length ? (
+        <div className="sport-directory-grid">
+          {filteredSports.map((sport) => (
+            <AppLink key={sport.sport} href={getSportPath(sport.sport)} className="sport-directory-card">
+              <div>
+                <p className="eyebrow">{formatCount(sport.sessionCount)} sessions</p>
+                <h2>{sport.sport}</h2>
+                <p>{sport.qualificationRecordCount
+                  ? `${sport.qualificationRecordCount} confirmed qualification ${sport.qualificationRecordCount === 1 ? 'record' : 'records'} across ${sport.qualificationCountryCount} ${sport.qualificationCountryCount === 1 ? 'country' : 'countries'}`
+                  : 'Qualification records publish when officially confirmed'}</p>
+              </div>
+              <span className="row-arrow" aria-hidden="true">›</span>
+            </AppLink>
+          ))}
+        </div>
+      ) : (
+        <EmptyState compact title="No matching sports" description="Try a broader sport name." />
       )}
     </section>
   );
@@ -1042,6 +1094,7 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
       </div>
       <TrustLine runtime={runtime} className="trust-line--section" />
       <div className="page-utility-actions">
+        <AppLink href="/sports" className="text-link">Browse all sports</AppLink>
         <ShareButton
           title={`${sport} LA 2028 schedule | Games28`}
           text={`Browse the ${sport} schedule for LA 2028 in your local time.`}
@@ -1528,7 +1581,7 @@ function NotFoundView() {
       </div>
       <EmptyState
         title="Try the main routes"
-        description="Open the home page, schedule explorer, change feed, or a country dashboard from the directory."
+        description="Open the home page, sports directory, schedule explorer, change feed, or a country dashboard from the directory."
       />
     </section>
   );
@@ -1578,6 +1631,7 @@ export default function App() {
 
   const scheduleOptions = useMemo(() => buildScheduleOptions(runtime.scheduleEntries || []), [runtime.scheduleEntries]);
   const homeStats = useMemo(() => buildHomeStats(runtime), [runtime]);
+  const sports = useMemo(() => buildSportDirectory(runtime), [runtime]);
 
   const countryFilters = {
     ...countryFiltersState,
@@ -1720,6 +1774,8 @@ export default function App() {
             onCalendarExport={handleCalendarExport}
           />
         ) : null}
+
+        {!isLoadingRuntime && route.name === 'sports' ? <SportsView sports={sports} /> : null}
 
         {!isLoadingRuntime && route.name === 'sport' ? (
           <SportView

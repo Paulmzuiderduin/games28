@@ -12,6 +12,10 @@ test('parseRoute accepts trailing slashes on wired routes', () => {
     name: 'schedule'
   });
 
+  assert.deepEqual(parseRoute('/sports/'), {
+    name: 'sports'
+  });
+
   assert.deepEqual(parseRoute('/admin/'), {
     name: 'admin'
   });

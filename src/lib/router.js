@@ -9,6 +9,10 @@ export function parseRoute(pathname) {
     return { name: 'schedule' };
   }
 
+  if (normalizedPath === '/sports') {
+    return { name: 'sports' };
+  }
+
   if (normalizedPath === '/countries') {
     return { name: 'countries' };
   }

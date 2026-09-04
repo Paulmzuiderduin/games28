@@ -31,6 +31,49 @@ export function buildScheduleOptions(scheduleEntries) {
   return { sportOptions, dayOptions };
 }
 
+export function getQualificationSportLabels(runtime, card) {
+  const sources = runtime.meta?.qualificationSources || [];
+  const matchingSources = sources.filter((source) => source.id === card.sourceId || source.sport === card.sport);
+  const mappedSports = [...new Set(matchingSources.flatMap((source) => source.sports || []).filter(Boolean))];
+
+  return mappedSports.length ? mappedSports : [card.sport].filter(Boolean);
+}
+
+export function buildSportDirectory(runtime) {
+  const sports = new Map();
+
+  (runtime.scheduleEntries || []).forEach((entry) => {
+    if (!entry.sport) return;
+    const summary = sports.get(entry.sport) || {
+      sport: entry.sport,
+      sessionCount: 0,
+      venues: new Set(),
+      qualificationRecordCount: 0,
+      qualificationCountries: new Set()
+    };
+    summary.sessionCount += 1;
+    if (entry.venue) summary.venues.add(entry.venue);
+    sports.set(entry.sport, summary);
+  });
+
+  (runtime.athleteCards || []).forEach((card) => {
+    getQualificationSportLabels(runtime, card).forEach((sport) => {
+      const summary = sports.get(sport);
+      if (!summary) return;
+      summary.qualificationRecordCount += 1;
+      if (card.noc) summary.qualificationCountries.add(card.noc);
+    });
+  });
+
+  return [...sports.values()]
+    .map((summary) => ({
+      ...summary,
+      venueCount: summary.venues.size,
+      qualificationCountryCount: summary.qualificationCountries.size
+    }))
+    .sort((left, right) => left.sport.localeCompare(right.sport));
+}
+
 export function filterScheduleEntries(scheduleEntries, filters) {
   const query = normalizeText(filters.searchText);
 
@@ -172,7 +215,7 @@ function qualificationGroupLabel(card) {
 export function buildSportQualificationOverview(runtime, sport) {
   const countryByNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
   const cards = (runtime.athleteCards || [])
-    .filter((card) => card.sport === sport)
+    .filter((card) => getQualificationSportLabels(runtime, card).includes(sport))
     .sort((left, right) => {
       const statusDelta = qualificationStatusRank(left) - qualificationStatusRank(right);
       if (statusDelta !== 0) return statusDelta;

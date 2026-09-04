@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildCountryDashboard, buildSportQualificationOverview, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
+import { buildCountryDashboard, buildSportDirectory, buildSportQualificationOverview, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
 
 const runtime = {
   checkedAt: '2026-04-13T12:00:00.000Z',
@@ -135,4 +135,49 @@ test('buildSportQualificationOverview groups confirmed records by event and keep
   assert.equal(overview.groups[0].label, 'Marathon');
   assert.equal(overview.groups[0].countryCount, 2);
   assert.deepEqual(overview.groups[0].cards.map((card) => card.noc), ['USA', 'NED']);
+});
+
+test('buildSportDirectory makes every scheduled sport discoverable with qualification counts', () => {
+  const sports = buildSportDirectory(runtime);
+  const athletics = sports.find((sport) => sport.sport === 'Athletics');
+  const rowing = sports.find((sport) => sport.sport === 'Rowing');
+
+  assert.equal(sports.length, 2);
+  assert.equal(athletics.sessionCount, 1);
+  assert.equal(athletics.qualificationRecordCount, 1);
+  assert.equal(athletics.qualificationCountryCount, 1);
+  assert.equal(rowing.venueCount, 1);
+});
+
+test('sport pages inherit qualification records from their official qualification-system group', () => {
+  const groupedRuntime = {
+    ...runtime,
+    scheduleEntries: [
+      { id: 'marathon', sport: 'Athletics (Marathon)', venue: 'Road' },
+      { id: 'track', sport: 'Athletics (Track & Field)', venue: 'Stadium' }
+    ],
+    athleteCards: [{
+      id: 'athletics-quota',
+      noc: 'NED',
+      name: '1 quota place',
+      sport: 'Athletics',
+      sourceId: 'if-athletics',
+      status: 'quota',
+      disciplines: ['Track event']
+    }],
+    meta: {
+      qualificationSources: [{
+        id: 'if-athletics',
+        sport: 'Athletics',
+        sports: ['Athletics (Marathon)', 'Athletics (Track & Field)']
+      }]
+    }
+  };
+
+  const directory = buildSportDirectory(groupedRuntime);
+  const overview = buildSportQualificationOverview(groupedRuntime, 'Athletics (Track & Field)');
+
+  assert.equal(directory.find((sport) => sport.sport === 'Athletics (Marathon)').qualificationRecordCount, 1);
+  assert.equal(overview.stats.recordCount, 1);
+  assert.equal(overview.groups[0].cards[0].id, 'athletics-quota');
 });
