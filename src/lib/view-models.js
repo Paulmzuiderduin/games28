@@ -152,6 +152,76 @@ export function buildCountryDashboard(runtime, noc) {
   };
 }
 
+function qualificationStatusRank(card) {
+  const state = String(card.state || '').toLowerCase();
+  const status = String(card.status || '').toLowerCase();
+
+  if (state === 'entered') return 0;
+  if (state === 'selected') return 1;
+  if (status === 'named') return 2;
+  if (state === 'earned') return 3;
+  if (state === 'allocated' || status === 'quota') return 4;
+  return 5;
+}
+
+function qualificationGroupLabel(card) {
+  const disciplines = [...new Set(card.disciplines || [])].filter(Boolean).sort((left, right) => left.localeCompare(right));
+  return disciplines.length ? disciplines.join(' / ') : 'All qualification events';
+}
+
+export function buildSportQualificationOverview(runtime, sport) {
+  const countryByNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
+  const cards = (runtime.athleteCards || [])
+    .filter((card) => card.sport === sport)
+    .sort((left, right) => {
+      const statusDelta = qualificationStatusRank(left) - qualificationStatusRank(right);
+      if (statusDelta !== 0) return statusDelta;
+
+      const countryDelta = String(countryByNoc.get(left.noc)?.name || left.noc).localeCompare(String(countryByNoc.get(right.noc)?.name || right.noc));
+      if (countryDelta !== 0) return countryDelta;
+
+      return String(left.name).localeCompare(String(right.name));
+    });
+  const groups = new Map();
+
+  cards.forEach((card) => {
+    const label = qualificationGroupLabel(card);
+    const group = groups.get(label) || {
+      id: `${sport}::${label}`,
+      label,
+      cards: [],
+      countries: new Set()
+    };
+
+    group.cards.push({
+      ...card,
+      country: countryByNoc.get(card.noc) || { ...EMPTY_COUNTRY, noc: card.noc, name: card.noc }
+    });
+    group.countries.add(card.noc);
+    groups.set(label, group);
+  });
+
+  const groupedQualifications = [...groups.values()]
+    .map((group) => ({
+      ...group,
+      countryCount: group.countries.size
+    }))
+    .sort((left, right) => left.label.localeCompare(right.label));
+  const namedCount = cards.filter((card) => card.status === 'named' || ['selected', 'entered'].includes(card.state)).length;
+  const quotaCount = cards.filter((card) => card.status === 'quota' || (card.status !== 'named' && ['allocated', 'earned'].includes(card.state))).length;
+
+  return {
+    cards,
+    groups: groupedQualifications,
+    stats: {
+      countryCount: new Set(cards.map((card) => card.noc)).size,
+      recordCount: cards.length,
+      namedCount,
+      quotaCount
+    }
+  };
+}
+
 export function buildHomeStats(runtime) {
   const sports = new Set(runtime.scheduleEntries.map((entry) => entry.sport).filter(Boolean));
   const countriesWithCards = new Set(runtime.athleteCards.map((card) => card.noc));

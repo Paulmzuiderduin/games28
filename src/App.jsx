@@ -22,6 +22,7 @@ import {
   buildCountryDashboard,
   buildHomeStats,
   buildScheduleOptions,
+  buildSportQualificationOverview,
   filterCountries,
   filterScheduleEntries
 } from './lib/view-models.js';
@@ -216,6 +217,20 @@ function qualificationDetail(card) {
   if (card.subjectType !== 'team_quota') return discipline;
   const capacity = card.teamSizeMax ? `Up to ${card.teamSizeMax} athlete-and-horse combinations` : 'Final team not selected yet';
   return [discipline, capacity].filter(Boolean).join(' · ');
+}
+
+function sportQualificationStatus(card) {
+  const state = String(card.state || '').toLowerCase();
+
+  if (state === 'entered') return 'Final entry confirmed';
+  if (state === 'selected') return card.teamType === 'team' ? 'Team selected' : 'Athlete selected';
+  if (card.status === 'named') return card.teamType === 'team' ? 'Named team' : 'Named athlete';
+  if (state === 'earned') return 'Qualification earned';
+  return 'Quota allocated';
+}
+
+function isNamedQualification(card) {
+  return card.status === 'named' || ['selected', 'entered'].includes(card.state);
 }
 
 function KofiLink({ className = 'text-link', children = 'Support Games28 on Ko-fi' }) {
@@ -926,7 +941,71 @@ function ScheduleView({ runtime, scheduleEntries, scheduleFilters, onScheduleFil
   );
 }
 
+function SportQualificationOverview({ overview, sport }) {
+  return (
+    <section className="sport-qualification-section">
+      <div className="section-heading section-heading--flush">
+        <div>
+          <p className="eyebrow">Qualification</p>
+          <h2>Confirmed qualification</h2>
+          <p className="supporting-copy">Official quota places and named athletes or teams, grouped by event. No rankings or predictions.</p>
+        </div>
+        {overview.cards.length ? <span className="status-pill">{formatCount(overview.stats.countryCount)} countries</span> : null}
+      </div>
+
+      {overview.groups.length ? (
+        <div className="sport-qualification-groups">
+          {overview.groups.map((group) => (
+            <section key={group.id} className="sport-qualification-group">
+              <div className="sport-qualification-group__heading">
+                <h3>{group.label}</h3>
+                <span>{formatCount(group.countryCount)} {group.countryCount === 1 ? 'country' : 'countries'}</span>
+              </div>
+              <div className="sport-qualification-list">
+                {group.cards.map((card) => (
+                  <article key={card.id} className="sport-qualification-record">
+                    <div className="sport-qualification-record__country">
+                      <CountryFlag country={card.country} size="md" />
+                      <AppLink href={`/countries/${card.noc}`} className="sport-qualification-record__country-link">
+                        {card.country.name}
+                      </AppLink>
+                    </div>
+                    <div className="sport-qualification-record__details">
+                      <strong>{card.name}</strong>
+                      <span>{qualificationDetail(card)}</span>
+                    </div>
+                    <div className="sport-qualification-record__meta">
+                      <span className={`tag ${isNamedQualification(card) ? 'confirmed' : 'pending'}`}>
+                        {sportQualificationStatus(card)}
+                      </span>
+                      <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
+                      {card.sourceUrl ? (
+                        <SourceLink href={card.sourceUrl} context={{ sport, noc: card.noc, qualificationId: card.id }} />
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          compact
+          title={`No confirmed ${sport} qualification records yet`}
+          description="Games28 will list a country, athlete, or team here only after an official source confirms the allocation, selection, or final entry."
+        />
+      )}
+    </section>
+  );
+}
+
 function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
+  const qualificationOverview = useMemo(
+    () => (sport ? buildSportQualificationOverview(runtime, sport) : { cards: [], groups: [], stats: {} }),
+    [runtime, sport]
+  );
+
   if (!sport) {
     return (
       <section className="page-section">
@@ -1009,6 +1088,7 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
           description="Try clearing the date or text search to see the full sport schedule."
         />
       )}
+      <SportQualificationOverview overview={qualificationOverview} sport={sport} />
     </section>
   );
 }

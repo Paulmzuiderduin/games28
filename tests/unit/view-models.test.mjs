@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildCountryDashboard, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
+import { buildCountryDashboard, buildSportQualificationOverview, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
 
 const runtime = {
   checkedAt: '2026-04-13T12:00:00.000Z',
@@ -106,4 +106,33 @@ test('filterCountries prioritizes favorites and search', () => {
   });
   assert.equal(filtered.length, 1);
   assert.equal(filtered[0].noc, 'NED');
+});
+
+test('buildSportQualificationOverview groups confirmed records by event and keeps their confirmation state distinct', () => {
+  const overview = buildSportQualificationOverview({
+    ...runtime,
+    athleteCards: [
+      ...runtime.athleteCards,
+      {
+        id: 'usa-marathon-selection',
+        noc: 'USA',
+        name: 'Alex Runner',
+        sport: 'Athletics',
+        disciplines: ['Marathon'],
+        status: 'named',
+        state: 'selected',
+        teamType: 'individual',
+        lastUpdatedAt: '2026-04-12T00:00:00.000Z'
+      }
+    ]
+  }, 'Athletics');
+
+  assert.equal(overview.stats.countryCount, 2);
+  assert.equal(overview.stats.recordCount, 2);
+  assert.equal(overview.stats.namedCount, 1);
+  assert.equal(overview.stats.quotaCount, 1);
+  assert.equal(overview.groups.length, 1);
+  assert.equal(overview.groups[0].label, 'Marathon');
+  assert.equal(overview.groups[0].countryCount, 2);
+  assert.deepEqual(overview.groups[0].cards.map((card) => card.noc), ['USA', 'NED']);
 });

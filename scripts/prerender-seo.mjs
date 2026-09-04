@@ -215,12 +215,21 @@ function buildPages(runtime) {
 
   sports.forEach((sport) => {
     const entries = runtime.scheduleEntries.filter((entry) => entry.sport === sport);
+    const qualifications = runtime.athleteCards.filter((card) => card.sport === sport);
+    const qualificationCountries = new Set(qualifications.map((card) => card.noc)).size;
     pages.push({
       url: routeUrl(getSportPath(sport)),
       title: `${sport} LA 2028 Schedule | Games28`,
-      description: `Browse the ${sport} LA 2028 schedule with session times, venues, source links, and calendar export.`,
+      description: qualifications.length
+        ? `Browse the ${sport} LA 2028 schedule plus ${qualifications.length} confirmed qualification records across ${qualificationCountries} countries, with official source links and calendar export.`
+        : `Browse the ${sport} LA 2028 schedule with session times, venues, source links, and calendar export.`,
       heading: `${sport} LA 2028 schedule`,
-      facts: [`${entries.length} sessions tracked`, `${new Set(entries.map((entry) => entry.venue).filter(Boolean)).size} venues`, 'Times convert to each visitor local timezone'],
+      facts: [
+        `${entries.length} sessions tracked`,
+        `${new Set(entries.map((entry) => entry.venue).filter(Boolean)).size} venues`,
+        qualifications.length ? `${qualifications.length} confirmed qualification records across ${qualificationCountries} countries` : 'Qualification records publish only after official confirmation',
+        'Times convert to each visitor local timezone'
+      ],
       links: entries.slice(0, 8).map((entry) => ({ href: getSessionPath(entry.id), label: compact(`${entry.eventName} ${entry.sessionCode}`) })),
       structuredData: [breadcrumbJsonLd([
         { name: 'Games28', url: routeUrl('/') },

@@ -2031,6 +2031,124 @@ body {
   .support-cta { align-items: flex-start; }
 }
 
+.sport-qualification-section {
+  display: grid;
+  gap: 20px;
+  margin-top: 10px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.sport-qualification-section .supporting-copy {
+  max-width: 64ch;
+  margin: 10px 0 0;
+}
+
+.sport-qualification-groups {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.sport-qualification-group {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.sport-qualification-group__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+.sport-qualification-group__heading h3 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.sport-qualification-group__heading span,
+.sport-qualification-record__details span,
+.sport-qualification-record__meta > span:not(.tag) {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.sport-qualification-list {
+  display: grid;
+}
+
+.sport-qualification-record {
+  display: grid;
+  grid-template-columns: minmax(145px, 0.7fr) minmax(0, 1.2fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.sport-qualification-record + .sport-qualification-record {
+  border-top: 1px solid var(--line);
+}
+
+.sport-qualification-record__country,
+.sport-qualification-record__details,
+.sport-qualification-record__meta {
+  min-width: 0;
+}
+
+.sport-qualification-record__country {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sport-qualification-record__country-link {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.sport-qualification-record__country-link:hover {
+  color: var(--primary);
+}
+
+.sport-qualification-record__details {
+  display: grid;
+  gap: 3px;
+}
+
+.sport-qualification-record__details strong {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.sport-qualification-record__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.sport-qualification-record__meta a {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+@media (max-width: 720px) {
+  .sport-qualification-section { gap: 16px; padding-top: 24px; }
+  .sport-qualification-group__heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .sport-qualification-record { grid-template-columns: 1fr; gap: 9px; padding: 14px; }
+  .sport-qualification-record__meta { justify-content: flex-start; }
+}
+
 /* The saved preference overrides the device setting; new visitors start on their device setting. */
 :root[data-theme='light'] {
   color-scheme: light;
