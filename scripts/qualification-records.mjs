@@ -1,4 +1,5 @@
 const SOURCE_TIERS = new Set(['ioc', 'if', 'noc', 'national_federation']);
+import { resolveCanonicalQualificationEvent } from '../src/lib/qualification-events.js';
 const SUBJECT_TYPES = new Set(['noc_quota', 'team_quota', 'athlete', 'team']);
 const RECORD_STATES = new Set(['earned', 'allocated', 'selected', 'entered', 'withdrawn', 'replaced']);
 const ACTIVE_STATES = new Set(['earned', 'allocated', 'selected', 'entered']);
@@ -34,7 +35,7 @@ function hasTrustedSourceUrl(sourceUrl, sourceDefinition) {
   }
 }
 
-function normalizeRawRecord(raw, index, sourceById) {
+function normalizeRawRecord(raw, index, sourceById, sources) {
   const sourceDefinition = sourceById.get(raw.sourceId);
   const subjectType = asNonEmptyString(raw.subjectType);
   const state = asNonEmptyString(raw.state);
@@ -54,6 +55,9 @@ function normalizeRawRecord(raw, index, sourceById) {
     supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
     sourceRecordType: asNonEmptyString(raw.sourceRecordType || 'structured_allocation')
   };
+  const canonicalEvent = resolveCanonicalQualificationEvent(record, sources);
+  record.canonicalEventKey = canonicalEvent?.key || null;
+  record.canonicalEventLabel = canonicalEvent?.label || null;
   const problems = [];
   if (!record.id || !record.noc || !record.sport) problems.push('missing id, noc, or sport');
   if (!SUBJECT_TYPES.has(record.subjectType)) problems.push('invalid subjectType');
@@ -70,7 +74,11 @@ function normalizeRawRecord(raw, index, sourceById) {
 }
 
 function defaultRecordKey(record) {
-  const subject = record.subjectType === 'athlete' ? record.athleteName : record.subjectType === 'team' ? record.teamName : record.disciplines.join('|') || record.events.join('|') || 'all';
+  const subject = record.subjectType === 'athlete'
+    ? record.athleteName
+    : record.subjectType === 'team'
+      ? record.teamName
+      : record.canonicalEventKey || record.disciplines.join('|') || record.events.join('|') || 'all';
   return [record.noc, record.sport, record.subjectType, subject].map((value) => String(value || '').toLowerCase()).join('::');
 }
 
@@ -80,7 +88,7 @@ export function normalizeQualificationRecords(rawRecords, sources) {
   const rejected = [];
   const ids = new Set();
   (rawRecords || []).forEach((raw, index) => {
-    const { record, problems, fallbackId } = normalizeRawRecord(raw, index, sourceById);
+    const { record, problems, fallbackId } = normalizeRawRecord(raw, index, sourceById, sources);
     if (ids.has(record.id)) problems.push('duplicate qualification record id');
     if (problems.length) { rejected.push({ id: record.id || fallbackId, problems }); return; }
     ids.add(record.id);
@@ -144,7 +152,8 @@ export function toQualificationCards(records) {
       : record.subjectType === 'team'
         ? record.teamName
         : `${record.quotaCount} ${record.subjectType === 'team_quota' ? 'team' : 'individual'} ${record.quotaCount === 1 ? 'quota place' : 'quota places'}`,
-    sport: record.sport, disciplines: record.disciplines, scheduleHints: record.scheduleHints.length ? record.scheduleHints : record.events,
+    sport: record.sport, disciplines: record.disciplines, canonicalEventKey: record.canonicalEventKey, canonicalEventLabel: record.canonicalEventLabel,
+    scheduleHints: record.scheduleHints.length ? record.scheduleHints : record.events,
     status: ['noc_quota', 'team_quota'].includes(record.subjectType) ? 'quota' : 'named', teamType: ['team', 'team_quota'].includes(record.subjectType) ? 'team' : 'individual',
     subjectType: record.subjectType, state: record.state, quotaCount: record.quotaCount, teamSizeMax: record.teamSizeMax, qualificationRoute: record.qualificationRoute,
     sourceId: record.sourceId, sourceTier: record.sourceTier, sourcePublishedAt: record.sourcePublishedAt, verifiedAt: record.verifiedAt,

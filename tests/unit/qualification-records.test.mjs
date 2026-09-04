@@ -75,6 +75,27 @@ test('keeps an unnamed country team quota distinct from a named team', () => {
   assert.equal(card.teamSizeMax, 3);
 });
 
+test('normalizes qualification aliases to one canonical event identity', () => {
+  const volleyballSources = [{
+    id: 'if-volleyball', sourceTier: 'if', sport: 'Volleyball',
+    allocationUrl: 'https://example.org/la28-allocations',
+    qualificationSystemKey: 'volleyball',
+    qualificationEvents: [
+      { key: 'beach-women', label: "Beach Volleyball - Women's tournament", sports: ['Beach Volleyball'] },
+      { key: 'indoor-women', label: "Volleyball - Women's tournament", sports: ['Volleyball'] }
+    ]
+  }];
+  const result = normalizeQualificationRecords([
+    record({ id: 'ned-beach', sport: 'Beach Volleyball', disciplines: ["Women's beach volleyball"], sourceId: 'if-volleyball' }),
+    record({ id: 'can-indoor', sport: 'Volleyball', disciplines: ["Women's tournament"], sourceId: 'if-volleyball' })
+  ], volleyballSources);
+
+  assert.equal(result.rejected.length, 0);
+  assert.equal(result.records[0].canonicalEventKey, 'volleyball:beach-women');
+  assert.equal(result.records[0].canonicalEventLabel, "Beach Volleyball - Women's tournament");
+  assert.equal(result.records[1].canonicalEventKey, 'volleyball:indoor-women');
+});
+
 test('keeps a country quota visible when a later named athlete is linked to it', () => {
   const result = buildQualificationPipeline({
     structuredRecords: [

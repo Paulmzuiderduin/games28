@@ -1,3 +1,5 @@
+import { formatCanonicalEventLabel, resolveCanonicalQualificationEvent } from './qualification-events.js';
+
 const EMPTY_COUNTRY = {
   noc: 'TBD',
   name: 'Unknown country',
@@ -219,7 +221,14 @@ function qualificationStatusRank(card) {
   return 5;
 }
 
-function qualificationGroupLabel(card, sport) {
+function qualificationGroupLabel(runtime, card, sport) {
+  const canonicalEvent = card.canonicalEventLabel
+    ? { label: card.canonicalEventLabel }
+    : resolveCanonicalQualificationEvent(card, runtime.meta?.qualificationSources || []);
+  if (canonicalEvent?.label) {
+    return formatCanonicalEventLabel(canonicalEvent.label, sport);
+  }
+
   const disciplines = [...new Set(card.disciplines || [])].filter(Boolean).sort((left, right) => left.localeCompare(right));
   if (!disciplines.length) return 'All qualification events';
 
@@ -255,7 +264,7 @@ export function buildSportQualificationOverview(runtime, sport) {
   const groups = new Map();
 
   cards.forEach((card) => {
-    const label = qualificationGroupLabel(card, sport);
+    const label = qualificationGroupLabel(runtime, card, sport);
     const group = groups.get(label) || {
       id: `${sport}::${label}`,
       label,
