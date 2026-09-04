@@ -49,7 +49,8 @@ const THEME_PREFERENCE_KEY = 'games28-theme-preference';
 const PRIMARY_NAV_ITEMS = [
   { href: '/', routeNames: ['home'], label: 'Home', icon: 'home' },
   { href: '/countries', routeNames: ['countries', 'country'], label: 'Countries', icon: 'flag' },
-  { href: '/schedule', routeNames: ['schedule', 'sports', 'sport', 'session'], label: 'Schedule', icon: 'calendar' },
+  { href: '/sports', routeNames: ['sports', 'sport'], label: 'Sports', icon: 'sports' },
+  { href: '/schedule', routeNames: ['schedule', 'session'], label: 'Schedule', icon: 'calendar' },
   { href: '/changes', routeNames: ['changes'], label: 'Changes', icon: 'pulse' }
 ];
 
@@ -129,6 +130,7 @@ function AppLink({ href, children, className }) {
 
 function NavIcon({ name }) {
   if (name === 'flag') return <span aria-hidden="true">⚑</span>;
+  if (name === 'sports') return <span aria-hidden="true">●</span>;
   if (name === 'calendar') return <span aria-hidden="true">□</span>;
   if (name === 'pulse') return <span aria-hidden="true">◌</span>;
   return <span aria-hidden="true">⌂</span>;
