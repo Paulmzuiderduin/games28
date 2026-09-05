@@ -46,6 +46,14 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: npm run data:update
 
+      - name: Discover possible official qualifications on the web
+        env:
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          # 24 daily searches is about 720 per 30-day month, below the current
+          # monthly credit allowance while the system is in its first rollout.
+          BRAVE_SEARCH_MAX_QUERIES: '24'
+        run: node scripts/discover-qualification-search.mjs
+
       - name: Sync newly found qualification reviews
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

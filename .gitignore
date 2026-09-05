@@ -5,3 +5,4 @@ dist/
 .worktrees/
 .env
 .env.local
+src/data/qualification-search-discovery.private.json

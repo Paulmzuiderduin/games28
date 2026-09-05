@@ -40,6 +40,12 @@ Add machine-readable official allocations to `structuredRecords`; valid records 
 
 The daily refresh also scans every configured official qualification source. It automatically recognizes JSON, CSV, and HTML allocation tables only when a row contains a known IOC NOC (or exact country name), an explicit confirmation state, and an official publication date. Unsupported PDFs, JavaScript-only trackers, or prose never auto-publish; designated official prose sources create stable review candidates in `src/data/qualification-ingestion.json` instead. This means source-specific adapters can be added as federations release more usable allocation feeds without weakening the confirmation rule.
 
+### Optional daily web discovery
+
+The refresh can also search trusted International Federation domains for official qualification announcements. It is deliberately discovery-only: results create private Admin review candidates and never publish a qualification by themselves. Candidate IDs are stable per official qualification scope (`source + event + NOC + allocation/selection`), so a changed source updates the existing pending/review-later item instead of creating another row. Once an active quota exists for that NOC and event, further allocation search results are suppressed; named-athlete/team selection remains a separate later state.
+
+To enable it, create a Brave Search API key and save it as the GitHub Actions secret `BRAVE_SEARCH_API_KEY`. The workflow starts with 24 rotating sport/event searches daily (about 720 per 30-day month). Adjust `BRAVE_SEARCH_MAX_QUERIES` in `.github/workflows/update-data.yml` only after checking your Brave usage limit.
+
 Records carry a lifecycle state: `allocated`, `earned`, `selected`, `entered`, `withdrawn`, or `replaced`. Final entries override earlier selections and quotas. Withdrawn or replaced history is retained but never shown as an active card.
 
 ## Commands

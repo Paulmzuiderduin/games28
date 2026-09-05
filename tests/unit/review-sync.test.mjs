@@ -77,7 +77,7 @@ test('inserts only new review candidates and preserves resolved decisions', asyn
     }
   });
 
-  assert.deepEqual(result, { insertedCount: 1, restoredApprovalCount: 0, existingCount: 2 });
+  assert.deepEqual(result, { insertedCount: 1, updatedEvidenceCount: 0, restoredApprovalCount: 0, existingCount: 2 });
   assert.equal(requests.filter((request) => request.options.method === 'POST').length, 1);
   assert.deepEqual(
     JSON.parse(requests.find((request) => request.options.method === 'POST').options.body).map((candidate) => candidate.id),
@@ -102,8 +102,43 @@ test('repairs only a reset approval that still has its confirmation record', asy
     }
   });
 
-  assert.deepEqual(result, { insertedCount: 0, restoredApprovalCount: 1, existingCount: 2 });
+  assert.deepEqual(result, { insertedCount: 0, updatedEvidenceCount: 0, restoredApprovalCount: 1, existingCount: 2 });
   const repair = requests.find((request) => request.options.method === 'PATCH');
   assert.match(repair.url, /id=eq\.reset-approval/);
   assert.deepEqual(JSON.parse(repair.options.body), { status: 'approved' });
+});
+
+test('updates changed search evidence in place without reopening a review', async () => {
+  const requests = [];
+  const result = await syncReviewCandidates({
+    candidates: [{
+      id: 'review-search-if-example-event-ned-allocation',
+      sourceId: 'if-example',
+      sourceUrl: 'https://if.example.org/new-announcement',
+      extractedEvidence: 'Updated official evidence.',
+      reason: 'Official web discovery found a possible allocation.',
+      detectedAt: '2026-09-05T00:00:00.000Z'
+    }],
+    supabaseUrl: baseUrl,
+    serviceRoleKey: key,
+    fetchImpl: async (url, options = {}) => {
+      requests.push({ url, options });
+      if (options.method === 'PATCH') return new Response(null, { status: 204 });
+      return new Response(JSON.stringify([{
+        id: 'review-search-if-example-event-ned-allocation',
+        status: 'review_later',
+        confirmation_record: null,
+        source_url: 'https://if.example.org/old-announcement',
+        extracted_evidence: 'Older official evidence.',
+        reason: 'Official web discovery found a possible allocation.',
+        suggested_record: null
+      }]), { status: 200, headers: { 'content-type': 'application/json' } });
+    }
+  });
+
+  assert.deepEqual(result, { insertedCount: 0, updatedEvidenceCount: 1, restoredApprovalCount: 0, existingCount: 1 });
+  const update = requests.find((request) => request.options.method === 'PATCH');
+  assert.match(update.url, /review-search-if-example-event-ned-allocation/);
+  assert.equal(JSON.parse(update.options.body).source_url, 'https://if.example.org/new-announcement');
+  assert.equal(JSON.parse(update.options.body).status, undefined);
 });
