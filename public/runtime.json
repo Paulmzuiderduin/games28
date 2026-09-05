@@ -2,32 +2,8 @@
   "athleteCards": [
     {
       "allocationRecordId": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "id": "approved-review-if-cricket-aus-571e1aa10148b156",
-      "lastUpdatedAt": "2026-08-31T12:52:43.326Z",
-      "name": "Australia women's cricket team",
-      "noc": "AUS",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "status": "named",
-      "subjectType": "team",
-      "teamSizeMax": null,
-      "teamType": "team",
-      "verifiedAt": "2026-08-31T12:52:43.326Z"
-    },
-    {
-      "allocationRecordId": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -54,6 +30,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage"
       ],
@@ -80,6 +58,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -106,6 +86,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -132,6 +114,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "hockey:men",
+      "canonicalEventLabel": "Men's tournament",
       "disciplines": [
         "Men's tournament"
       ],
@@ -158,6 +142,64 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "flag-football:men",
+      "canonicalEventLabel": "Men's tournament",
+      "disciplines": [
+        "Men's tournament"
+      ],
+      "id": "approved-review-if-flag-football-can-men-2026-worlds",
+      "lastUpdatedAt": "2026-09-04T10:14:05.974Z",
+      "name": "1 team quota place",
+      "noc": "CAN",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "status": "quota",
+      "subjectType": "team_quota",
+      "teamSizeMax": 10,
+      "teamType": "team",
+      "verifiedAt": "2026-09-04T10:14:05.974Z"
+    },
+    {
+      "allocationRecordId": null,
+      "canonicalEventKey": "flag-football:women",
+      "canonicalEventLabel": "Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "id": "approved-review-if-flag-football-can-women-2026-worlds",
+      "lastUpdatedAt": "2026-09-04T10:14:15.358Z",
+      "name": "1 team quota place",
+      "noc": "CAN",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "status": "quota",
+      "subjectType": "team_quota",
+      "teamSizeMax": 10,
+      "teamType": "team",
+      "verifiedAt": "2026-09-04T10:14:15.358Z"
+    },
+    {
+      "allocationRecordId": null,
+      "canonicalEventKey": "volleyball:indoor-women",
+      "canonicalEventLabel": "Volleyball - Women's tournament",
       "disciplines": [
         "Women's tournament"
       ],
@@ -184,6 +226,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -210,6 +254,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -236,32 +282,8 @@
     },
     {
       "allocationRecordId": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "id": "approved-review-if-cricket-gbr-317047fbbbd66561",
-      "lastUpdatedAt": "2026-08-31T12:52:45.727Z",
-      "name": "Great Britain women's cricket team",
-      "noc": "GBR",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "status": "named",
-      "subjectType": "team",
-      "teamSizeMax": null,
-      "teamType": "team",
-      "verifiedAt": "2026-08-31T12:52:45.727Z"
-    },
-    {
-      "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -288,6 +310,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -314,6 +338,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -340,32 +366,64 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "flag-football:men",
+      "canonicalEventLabel": "Men's tournament",
       "disciplines": [
-        "Women's T20"
+        "Men's tournament"
       ],
-      "id": "approved-review-if-cricket-ind-bd69176142f2771b",
-      "lastUpdatedAt": "2026-08-31T12:52:46.860Z",
-      "name": "India women's cricket team",
-      "noc": "IND",
+      "id": "approved-review-if-flag-football-ita-men-2026-worlds",
+      "lastUpdatedAt": "2026-09-04T10:14:10.306Z",
+      "name": "1 team quota place",
+      "noc": "ITA",
       "notes": null,
       "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
       "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
       "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
       "state": "allocated",
-      "status": "named",
-      "subjectType": "team",
-      "teamSizeMax": null,
+      "status": "quota",
+      "subjectType": "team_quota",
+      "teamSizeMax": 10,
       "teamType": "team",
-      "verifiedAt": "2026-08-31T12:52:46.860Z"
+      "verifiedAt": "2026-09-04T10:14:10.306Z"
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "flag-football:women",
+      "canonicalEventLabel": "Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "id": "approved-review-if-flag-football-mex-women-2026-worlds",
+      "lastUpdatedAt": "2026-09-04T10:13:58.573Z",
+      "name": "1 team quota place",
+      "noc": "MEX",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "status": "quota",
+      "subjectType": "team_quota",
+      "teamSizeMax": 10,
+      "teamType": "team",
+      "verifiedAt": "2026-09-04T10:13:58.573Z"
+    },
+    {
+      "allocationRecordId": null,
+      "canonicalEventKey": "volleyball:beach-women",
+      "canonicalEventLabel": "Beach Volleyball - Women's tournament",
       "disciplines": [
         "Women's beach volleyball"
       ],
@@ -392,6 +450,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -418,6 +478,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": "hockey:women",
+      "canonicalEventLabel": "Women's tournament",
       "disciplines": [
         "Women's tournament"
       ],
@@ -444,32 +506,8 @@
     },
     {
       "allocationRecordId": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "id": "approved-review-if-cricket-rsa-84005752d2b77618",
-      "lastUpdatedAt": "2026-08-31T12:52:48.351Z",
-      "name": "South Africa women's cricket team",
-      "noc": "RSA",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "status": "named",
-      "subjectType": "team",
-      "teamSizeMax": null,
-      "teamType": "team",
-      "verifiedAt": "2026-08-31T12:52:48.351Z"
-    },
-    {
-      "allocationRecordId": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -496,6 +534,8 @@
     },
     {
       "allocationRecordId": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -519,9 +559,127 @@
       "teamSizeMax": 3,
       "teamType": "team",
       "verifiedAt": "2026-09-03T19:07:52.260Z"
+    },
+    {
+      "allocationRecordId": null,
+      "canonicalEventKey": "volleyball:indoor-women",
+      "canonicalEventLabel": "Volleyball - Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "id": "approved-review-if-volleyball-tha-women-2026-avc",
+      "lastUpdatedAt": "2026-09-04T10:13:07.173Z",
+      "name": "1 team quota place",
+      "noc": "THA",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 AVC Women's Volleyball Continental Championship",
+      "quotaCount": 1,
+      "scheduleHints": [],
+      "sourceId": "if-volleyball",
+      "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+      "sport": "Volleyball",
+      "state": "allocated",
+      "status": "quota",
+      "subjectType": "team_quota",
+      "teamSizeMax": 12,
+      "teamType": "team",
+      "verifiedAt": "2026-09-04T10:13:07.173Z"
     }
   ],
   "changes": [
+    {
+      "changeType": "qualification-removed",
+      "changedAt": "2026-09-05T09:05:30.830Z",
+      "entityId": "approved-review-if-cricket-aus-571e1aa10148b156",
+      "entityType": "athlete_card",
+      "id": "qualification-removed--approved-review-if-cricket-aus-571e1aa10148b156--2026-09-05t09-05-30-830z",
+      "noc": "AUS",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "summary": "AUS: Australia women's cricket team is no longer an active qualification record."
+    },
+    {
+      "changeType": "qualification-removed",
+      "changedAt": "2026-09-05T09:05:30.830Z",
+      "entityId": "approved-review-if-cricket-gbr-317047fbbbd66561",
+      "entityType": "athlete_card",
+      "id": "qualification-removed--approved-review-if-cricket-gbr-317047fbbbd66561--2026-09-05t09-05-30-830z",
+      "noc": "GBR",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "summary": "GBR: Great Britain women's cricket team is no longer an active qualification record."
+    },
+    {
+      "changeType": "qualification-removed",
+      "changedAt": "2026-09-05T09:05:30.830Z",
+      "entityId": "approved-review-if-cricket-ind-bd69176142f2771b",
+      "entityType": "athlete_card",
+      "id": "qualification-removed--approved-review-if-cricket-ind-bd69176142f2771b--2026-09-05t09-05-30-830z",
+      "noc": "IND",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "summary": "IND: India women's cricket team is no longer an active qualification record."
+    },
+    {
+      "changeType": "qualification-removed",
+      "changedAt": "2026-09-05T09:05:30.830Z",
+      "entityId": "approved-review-if-cricket-rsa-84005752d2b77618",
+      "entityType": "athlete_card",
+      "id": "qualification-removed--approved-review-if-cricket-rsa-84005752d2b77618--2026-09-05t09-05-30-830z",
+      "noc": "RSA",
+      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
+      "summary": "RSA: South Africa women's cricket team is no longer an active qualification record."
+    },
+    {
+      "changeType": "quota-added",
+      "changedAt": "2026-09-04T10:14:15.358Z",
+      "entityId": "approved-review-if-flag-football-can-women-2026-worlds",
+      "entityType": "athlete_card",
+      "id": "qualification-added--approved-review-if-flag-football-can-women-2026-worlds--2026-09-05t09-05-30-830z",
+      "noc": "CAN",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "summary": "CAN: 1 team quota place is now tracked as quota."
+    },
+    {
+      "changeType": "quota-added",
+      "changedAt": "2026-09-04T10:14:10.306Z",
+      "entityId": "approved-review-if-flag-football-ita-men-2026-worlds",
+      "entityType": "athlete_card",
+      "id": "qualification-added--approved-review-if-flag-football-ita-men-2026-worlds--2026-09-05t09-05-30-830z",
+      "noc": "ITA",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "summary": "ITA: 1 team quota place is now tracked as quota."
+    },
+    {
+      "changeType": "quota-added",
+      "changedAt": "2026-09-04T10:14:05.974Z",
+      "entityId": "approved-review-if-flag-football-can-men-2026-worlds",
+      "entityType": "athlete_card",
+      "id": "qualification-added--approved-review-if-flag-football-can-men-2026-worlds--2026-09-05t09-05-30-830z",
+      "noc": "CAN",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "summary": "CAN: 1 team quota place is now tracked as quota."
+    },
+    {
+      "changeType": "quota-added",
+      "changedAt": "2026-09-04T10:13:58.573Z",
+      "entityId": "approved-review-if-flag-football-mex-women-2026-worlds",
+      "entityType": "athlete_card",
+      "id": "qualification-added--approved-review-if-flag-football-mex-women-2026-worlds--2026-09-05t09-05-30-830z",
+      "noc": "MEX",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "summary": "MEX: 1 team quota place is now tracked as quota."
+    },
+    {
+      "changeType": "quota-added",
+      "changedAt": "2026-09-04T10:13:07.173Z",
+      "entityId": "approved-review-if-volleyball-tha-women-2026-avc",
+      "entityType": "athlete_card",
+      "id": "qualification-added--approved-review-if-volleyball-tha-women-2026-avc--2026-09-05t09-05-30-830z",
+      "noc": "THA",
+      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+      "summary": "THA: 1 team quota place is now tracked as quota."
+    },
     {
       "changeType": "qualification-removed",
       "changedAt": "2026-09-03T19:08:05.933Z",
@@ -1231,99 +1389,9 @@
       "noc": null,
       "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
       "summary": "Added session FBL39 for Women's Group Stage."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl40--women-s-group-stage",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl40-women-s-group-stage--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL40 for Women's Group Stage."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl41--women-s-group-stage",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl41-women-s-group-stage--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL41 for Women's Group Stage."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl42--women-s-group-stage",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl42-women-s-group-stage--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL42 for Women's Group Stage."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl43--men-s-quarterfinal",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl43-men-s-quarterfinal--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL43 for Men's Quarterfinal."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl44--men-s-quarterfinal",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl44-men-s-quarterfinal--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL44 for Men's Quarterfinal."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl45--men-s-quarterfinal",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl45-men-s-quarterfinal--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL45 for Men's Quarterfinal."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl46--men-s-quarterfinal",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl46-men-s-quarterfinal--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL46 for Men's Quarterfinal."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl47--women-s-quarterfinal",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl47-women-s-quarterfinal--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL47 for Women's Quarterfinal."
-    },
-    {
-      "changeType": "schedule-added",
-      "changedAt": "2026-09-02T12:01:10.250Z",
-      "entityId": "fbl48--women-s-quarterfinal",
-      "entityType": "schedule_entry",
-      "id": "schedule-added--fbl48-women-s-quarterfinal--2026-09-02t12-01-10-250z",
-      "noc": null,
-      "sourceUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
-      "summary": "Added session FBL48 for Women's Quarterfinal."
     }
   ],
-  "checkedAt": "2026-09-04T09:44:48.593Z",
+  "checkedAt": "2026-09-05T09:05:30.830Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -5363,7 +5431,7 @@
       "status": "awaiting_endpoint"
     }
   ],
-  "generatedAt": "2026-09-04T09:44:48.593Z",
+  "generatedAt": "2026-09-05T09:05:30.830Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
@@ -5375,7 +5443,7 @@
     },
     "flagPack": "flag-icons",
     "hasSecondaryScheduleSource": true,
-    "lastChangedAt": "2026-09-03T19:08:05.933Z",
+    "lastChangedAt": "2026-09-05T09:05:30.830Z",
     "officialCandidateCount": 1675,
     "officialEventPdfUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
     "officialPageUrl": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule",
@@ -5400,28 +5468,28 @@
     },
     "qualificationApprovalSync": {
       "available": true,
-      "fetchedApprovedCount": 31,
+      "fetchedApprovedCount": 36,
       "retainedApprovedCount": 0
     },
     "qualificationAutoRecordCount": 0,
-    "qualificationCount": 20,
+    "qualificationCount": 21,
     "qualificationCoverage": {
       "configuredSystemCount": 13,
       "coveredSportCount": 58,
       "missingSports": [],
       "systemCount": 37
     },
-    "qualificationHistoryCount": 31,
+    "qualificationHistoryCount": 32,
     "qualificationPolicy": "confirmation_only",
-    "qualificationRecordCount": 20,
-    "qualificationRejectedCount": 0,
+    "qualificationRecordCount": 21,
+    "qualificationRejectedCount": 4,
     "qualificationReviewCount": 20,
     "qualificationSourceScanCount": 84,
     "qualificationSources": [
       {
         "allocationUrl": "https://fiba.basketball/3x3",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -5459,7 +5527,7 @@
       {
         "allocationUrl": "https://www.worldarchery.sport/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Archery",
         "httpStatus": 200,
@@ -5497,7 +5565,7 @@
       {
         "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Aquatics",
         "httpStatus": 200,
@@ -5524,7 +5592,7 @@
       {
         "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Athletics",
         "httpStatus": 200,
@@ -5549,7 +5617,7 @@
       {
         "allocationUrl": "https://corporate.bwfbadminton.com/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Badminton World Federation",
         "httpStatus": 403,
@@ -5572,7 +5640,7 @@
       {
         "allocationUrl": "https://www.wbsc.org/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Baseball Softball Confederation",
         "httpStatus": 403,
@@ -5611,7 +5679,7 @@
       {
         "allocationUrl": "https://www.fiba.basketball/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
@@ -5649,7 +5717,7 @@
       {
         "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Boxing",
         "httpStatus": 200,
@@ -5673,7 +5741,7 @@
       {
         "allocationUrl": "https://www.ifsc-climbing.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Federation of Sport Climbing",
         "httpStatus": 200,
@@ -5696,7 +5764,7 @@
       {
         "allocationUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Cricket Council",
         "httpStatus": 200,
@@ -5734,7 +5802,7 @@
       {
         "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Union Cycliste Internationale",
         "httpStatus": 200,
@@ -5762,7 +5830,7 @@
       {
         "allocationUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Fédération Equestre Internationale",
         "httpStatus": 200,
@@ -5828,7 +5896,7 @@
       {
         "allocationUrl": "https://fie.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Fencing Federation",
         "httpStatus": 200,
@@ -5851,7 +5919,7 @@
       {
         "allocationUrl": "https://www.americanfootball.sport/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Federation of American Football",
         "httpStatus": 200,
@@ -5889,7 +5957,7 @@
       {
         "allocationUrl": "https://inside.fifa.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "FIFA",
         "httpStatus": 200,
@@ -5927,7 +5995,7 @@
       {
         "allocationUrl": "https://www.igfgolf.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Golf Federation",
         "httpStatus": 200,
@@ -5965,7 +6033,7 @@
       {
         "allocationUrl": "https://www.gymnastics.sport/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Gymnastics Federation",
         "httpStatus": 200,
@@ -5990,7 +6058,7 @@
       {
         "allocationUrl": "https://www.ihf.info/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Handball Federation",
         "httpStatus": 200,
@@ -6028,7 +6096,7 @@
       {
         "allocationUrl": "https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Hockey Federation",
         "httpStatus": 200,
@@ -6066,7 +6134,7 @@
       {
         "allocationUrl": "https://www.ijf.org/ijf/documents/26",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Judo Federation",
         "httpStatus": 200,
@@ -6089,7 +6157,7 @@
       {
         "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Lacrosse",
         "httpStatus": 200,
@@ -6127,7 +6195,7 @@
       {
         "allocationUrl": "https://www.uipmworld.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Union Internationale de Pentathlon Moderne",
         "httpStatus": 200,
@@ -6150,7 +6218,7 @@
       {
         "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Rowing",
         "httpStatus": 200,
@@ -6174,7 +6242,7 @@
       {
         "allocationUrl": "https://www.world.rugby/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Rugby",
         "httpStatus": 200,
@@ -6212,7 +6280,7 @@
       {
         "allocationUrl": "https://www.sailing.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Sailing",
         "httpStatus": 200,
@@ -6237,7 +6305,7 @@
       {
         "allocationUrl": "https://www.issf-sports.org/competitions/3488",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Shooting Sport Federation",
         "httpStatus": 200,
@@ -6261,7 +6329,7 @@
       {
         "allocationUrl": "https://www.worldskate.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Skate",
         "httpStatus": 200,
@@ -6285,7 +6353,7 @@
       {
         "allocationUrl": "https://www.canoeicf.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Canoe Federation",
         "httpStatus": 200,
@@ -6311,7 +6379,7 @@
       {
         "allocationUrl": "https://www.worldsquash.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Squash Federation",
         "httpStatus": 202,
@@ -6334,7 +6402,7 @@
       {
         "allocationUrl": "https://isasurf.org/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Surfing Association",
         "httpStatus": 403,
@@ -6357,7 +6425,7 @@
       {
         "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Table Tennis Federation",
         "httpStatus": 403,
@@ -6380,7 +6448,7 @@
       {
         "allocationUrl": "https://www.worldtaekwondo.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Taekwondo",
         "httpStatus": 200,
@@ -6403,7 +6471,7 @@
       {
         "allocationUrl": "https://www.itftennis.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Tennis Federation",
         "httpStatus": 200,
@@ -6426,7 +6494,7 @@
       {
         "allocationUrl": "https://triathlon.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "World Triathlon",
         "httpStatus": 200,
@@ -6449,7 +6517,7 @@
       {
         "allocationUrl": "https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Fédération Internationale de Volleyball",
         "httpStatus": 202,
@@ -6502,7 +6570,7 @@
       {
         "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "International Weightlifting Federation",
         "httpStatus": 403,
@@ -6525,7 +6593,7 @@
       {
         "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "United World Wrestling",
         "httpStatus": 200,
@@ -6548,7 +6616,7 @@
       {
         "allocationUrl": "https://coarg.org.ar/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Argentina",
         "httpStatus": 200,
@@ -6569,7 +6637,7 @@
       {
         "allocationUrl": "https://www.olympics.com.au/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6590,7 +6658,7 @@
       {
         "allocationUrl": "https://www.equestrian.org.au/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6611,7 +6679,7 @@
       {
         "allocationUrl": "https://www.cricket.com.au/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6632,7 +6700,7 @@
       {
         "allocationUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
@@ -6655,7 +6723,7 @@
       {
         "allocationUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Austria",
         "httpStatus": 200,
@@ -6676,7 +6744,7 @@
       {
         "allocationUrl": "https://www.teambelgium.be/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Belgium",
         "httpStatus": 200,
@@ -6697,7 +6765,7 @@
       {
         "allocationUrl": "https://www.cob.org.br/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Brazil",
         "httpStatus": 200,
@@ -6718,7 +6786,7 @@
       {
         "allocationUrl": "https://olympic.ca/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Canada",
         "httpStatus": 200,
@@ -6739,7 +6807,7 @@
       {
         "allocationUrl": "https://www.olympic.cn/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "China",
         "httpStatus": 200,
@@ -6760,7 +6828,7 @@
       {
         "allocationUrl": "https://www.olympijskytym.cz/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Czech Republic",
         "httpStatus": 200,
@@ -6781,7 +6849,7 @@
       {
         "allocationUrl": "https://www.dif.dk/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Denmark",
         "httpStatus": 200,
@@ -6802,7 +6870,7 @@
       {
         "allocationUrl": "https://www.olympiakomitea.fi/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Finland",
         "httpStatus": 200,
@@ -6823,7 +6891,7 @@
       {
         "allocationUrl": "https://cnosf.franceolympique.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "France",
         "httpStatus": 200,
@@ -6844,7 +6912,7 @@
       {
         "allocationUrl": "https://www.dosb.de/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Germany",
         "httpStatus": 200,
@@ -6865,7 +6933,7 @@
       {
         "allocationUrl": "https://www.teamgb.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
@@ -6886,7 +6954,7 @@
       {
         "allocationUrl": "https://www.ecb.co.uk/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
@@ -6907,7 +6975,7 @@
       {
         "allocationUrl": "https://www.britishswimming.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
@@ -6928,7 +6996,7 @@
       {
         "allocationUrl": "https://www.britishcycling.org.uk/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 403,
@@ -6949,7 +7017,7 @@
       {
         "allocationUrl": "https://www.hoc.gr/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Greece",
         "httpStatus": 200,
@@ -6970,7 +7038,7 @@
       {
         "allocationUrl": "https://olimpia.hu/kezdolap",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Hungary",
         "httpStatus": 200,
@@ -6991,7 +7059,7 @@
       {
         "allocationUrl": "https://olympic.ind.in/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "India",
         "httpStatus": 200,
@@ -7012,7 +7080,7 @@
       {
         "allocationUrl": "https://www.bcci.tv/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "India",
         "httpStatus": 200,
@@ -7033,7 +7101,7 @@
       {
         "allocationUrl": "https://olympics.ie/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Ireland",
         "httpStatus": 200,
@@ -7054,7 +7122,7 @@
       {
         "allocationUrl": "https://www.coni.it/it/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Italy",
         "httpStatus": 200,
@@ -7075,7 +7143,7 @@
       {
         "allocationUrl": "https://www.joc.or.jp/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Japan",
         "httpStatus": 200,
@@ -7096,7 +7164,7 @@
       {
         "allocationUrl": "https://www.teamnl.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -7117,7 +7185,7 @@
       {
         "allocationUrl": "https://www.knhs.nl/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -7138,7 +7206,7 @@
       {
         "allocationUrl": "https://www.nevobo.nl/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -7159,7 +7227,7 @@
       {
         "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -7182,7 +7250,7 @@
       {
         "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -7205,7 +7273,7 @@
       {
         "allocationUrl": "https://www.fih.hockey/events/fih-pro-league/news/red-lions-extend-unbeaten-streak-as-england-men-remain-in-the-hunt",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
@@ -7228,7 +7296,7 @@
       {
         "allocationUrl": "https://olympic.org.nz/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "New Zealand",
         "httpStatus": 200,
@@ -7249,7 +7317,7 @@
       {
         "allocationUrl": "https://olympic.no/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Norway",
         "httpStatus": 200,
@@ -7270,7 +7338,7 @@
       {
         "allocationUrl": "https://ccdp.org.pe/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Peru",
         "httpStatus": 200,
@@ -7291,7 +7359,7 @@
       {
         "allocationUrl": "https://olimpijski.pl/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Poland",
         "httpStatus": 200,
@@ -7312,7 +7380,7 @@
       {
         "allocationUrl": "https://comiteolimpicoportugal.pt/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Portugal",
         "httpStatus": 200,
@@ -7333,7 +7401,7 @@
       {
         "allocationUrl": "https://www.cosr.ro/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Romania",
         "httpStatus": 200,
@@ -7354,7 +7422,7 @@
       {
         "allocationUrl": "https://www.sascoc.co.za/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "South Africa",
         "httpStatus": 202,
@@ -7375,7 +7443,7 @@
       {
         "allocationUrl": "https://cricket.co.za/",
         "available": false,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "South Africa",
         "httpStatus": 403,
@@ -7396,7 +7464,7 @@
       {
         "allocationUrl": "https://www.sports.or.kr/sports/main/main.do",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "South Korea",
         "httpStatus": 200,
@@ -7417,7 +7485,7 @@
       {
         "allocationUrl": "https://sok.se/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Sweden",
         "httpStatus": 200,
@@ -7438,7 +7506,7 @@
       {
         "allocationUrl": "https://swissolympic.ch/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "Switzerland",
         "httpStatus": 200,
@@ -7459,7 +7527,7 @@
       {
         "allocationUrl": "https://www.usopc.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7480,7 +7548,7 @@
       {
         "allocationUrl": "https://www.usalacrosse.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7501,7 +7569,7 @@
       {
         "allocationUrl": "https://www.usaswimming.org/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7522,7 +7590,7 @@
       {
         "allocationUrl": "https://www.usafootball.com/",
         "available": true,
-        "checkedAt": "2026-09-04T09:44:48.593Z",
+        "checkedAt": "2026-09-05T09:05:30.830Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
@@ -7552,35 +7620,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-aus-571e1aa10148b156",
-      "noc": "AUS",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "aus::cricket::team::australia women's cricket team",
-      "reviewCandidateId": "review-if-cricket-aus-571e1aa10148b156",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "Australia women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:43.326Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage"
       ],
@@ -7610,6 +7651,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage"
       ],
@@ -7639,6 +7682,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "volleyball:indoor-women",
+      "canonicalEventLabel": "Volleyball - Women's tournament",
       "disciplines": [
         "Women's tournament"
       ],
@@ -7649,7 +7694,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "can::volleyball::team_quota::women's tournament",
+      "recordKey": "can::volleyball::team_quota::volleyball:indoor-women",
       "reviewCandidateId": "review-if-volleyball-can-ec9089de2b28a22f",
       "scheduleHints": [],
       "sourceId": "if-volleyball",
@@ -7668,6 +7713,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "volleyball:beach-women",
+      "canonicalEventLabel": "Beach Volleyball - Women's tournament",
       "disciplines": [
         "Women's beach volleyball"
       ],
@@ -7697,6 +7744,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -7707,7 +7756,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "aus::cricket::team_quota::women's t20 tournament",
+      "recordKey": "aus::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-aus-ff64e5a775183f46",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -7726,6 +7775,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -7736,7 +7787,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "gbr::cricket::team_quota::women's t20 tournament",
+      "recordKey": "gbr::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-gbr-bab2b38e58677bde",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -7755,35 +7806,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-gbr-317047fbbbd66561",
-      "noc": "GBR",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "gbr::cricket::team::great britain women's cricket team",
-      "reviewCandidateId": "review-if-cricket-gbr-317047fbbbd66561",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "Great Britain women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:45.727Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -7794,7 +7818,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "ind::cricket::team_quota::women's t20 tournament",
+      "recordKey": "ind::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-ind-aefea7b3df19be15",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -7813,6 +7837,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -7823,7 +7849,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "gbr::cricket::team_quota::women's t20 tournament",
+      "recordKey": "gbr::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-gbr-b070ae21815b3b97",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -7842,35 +7868,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-ind-bd69176142f2771b",
-      "noc": "IND",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "ind::cricket::team::india women's cricket team",
-      "reviewCandidateId": "review-if-cricket-ind-bd69176142f2771b",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "India women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:46.860Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -7900,6 +7899,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -7910,7 +7911,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "ind::cricket::team_quota::women's t20 tournament",
+      "recordKey": "ind::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-ind-607d4fc37122a028",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -7929,6 +7930,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -7958,35 +7961,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-rsa-84005752d2b77618",
-      "noc": "RSA",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "rsa::cricket::team::south africa women's cricket team",
-      "reviewCandidateId": "review-if-cricket-rsa-84005752d2b77618",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "South Africa women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:48.351Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": "volleyball:beach-women",
+      "canonicalEventLabel": "Beach Volleyball - Women's tournament",
       "disciplines": [
         "Women's beach volleyball"
       ],
@@ -8016,6 +7992,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8045,6 +8023,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8074,6 +8054,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8103,6 +8085,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "volleyball:beach-women",
+      "canonicalEventLabel": "Beach Volleyball - Women's tournament",
       "disciplines": [
         "Women's beach volleyball"
       ],
@@ -8132,6 +8116,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8142,7 +8128,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "rsa::cricket::team_quota::women's t20 tournament",
+      "recordKey": "rsa::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-rsa-b43b79288d32efa7",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -8161,6 +8147,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8171,7 +8159,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "aus::cricket::team_quota::women's t20 tournament",
+      "recordKey": "aus::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-aus-2fb5b91c96a7ba26",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -8190,6 +8178,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "hockey:women",
+      "canonicalEventLabel": "Women's tournament",
       "disciplines": [
         "Women's tournament"
       ],
@@ -8200,7 +8190,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "ned::hockey::team_quota::women's tournament",
+      "recordKey": "ned::hockey::team_quota::hockey:women",
       "reviewCandidateId": "review-if-hockey-ned-women-la28-ned-14c063a749f94f0c",
       "scheduleHints": [],
       "sourceId": "if-hockey-ned-women-la28",
@@ -8219,6 +8209,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8248,6 +8240,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8277,6 +8271,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "hockey:men",
+      "canonicalEventLabel": "Men's tournament",
       "disciplines": [
         "Men's tournament"
       ],
@@ -8287,7 +8283,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "bel::hockey::team_quota::men's tournament",
+      "recordKey": "bel::hockey::team_quota::hockey:men",
       "reviewCandidateId": "review-if-hockey-bel-7b07da54de4cebe3",
       "scheduleHints": [],
       "sourceId": "if-hockey",
@@ -8306,6 +8302,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8335,6 +8333,39 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "flag-football:men",
+      "canonicalEventLabel": "Men's tournament",
+      "disciplines": [
+        "Men's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-ita-men-2026-worlds",
+      "noc": "ITA",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "ita::flag football::team_quota::flag-football:men",
+      "reviewCandidateId": "review-if-flag-football-ita-men-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:14:10.306Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8364,6 +8395,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8374,7 +8407,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "rsa::cricket::team_quota::women's t20 tournament",
+      "recordKey": "rsa::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-rsa-a57108a124092b01",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -8393,6 +8426,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8422,6 +8457,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8447,41 +8484,138 @@
       "teamName": null,
       "teamSizeMax": 3,
       "verifiedAt": "2026-09-03T19:07:56.825Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "volleyball:indoor-women",
+      "canonicalEventLabel": "Volleyball - Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-volleyball-tha-women-2026-avc",
+      "noc": "THA",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 AVC Women's Volleyball Continental Championship",
+      "quotaCount": 1,
+      "recordKey": "tha::volleyball::team_quota::volleyball:indoor-women",
+      "reviewCandidateId": "review-if-volleyball-tha-women-2026-avc",
+      "scheduleHints": [],
+      "sourceId": "if-volleyball",
+      "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+      "sport": "Volleyball",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 12,
+      "verifiedAt": "2026-09-04T10:13:07.173Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "flag-football:women",
+      "canonicalEventLabel": "Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-mex-women-2026-worlds",
+      "noc": "MEX",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "mex::flag football::team_quota::flag-football:women",
+      "reviewCandidateId": "review-if-flag-football-mex-women-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:13:58.573Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "flag-football:men",
+      "canonicalEventLabel": "Men's tournament",
+      "disciplines": [
+        "Men's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-can-men-2026-worlds",
+      "noc": "CAN",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "can::flag football::team_quota::flag-football:men",
+      "reviewCandidateId": "review-if-flag-football-can-men-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:14:05.974Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "flag-football:women",
+      "canonicalEventLabel": "Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-can-women-2026-worlds",
+      "noc": "CAN",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "can::flag football::team_quota::flag-football:women",
+      "reviewCandidateId": "review-if-flag-football-can-women-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:14:15.358Z"
     }
   ],
   "qualificationRecords": [
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-aus-571e1aa10148b156",
-      "noc": "AUS",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "aus::cricket::team::australia women's cricket team",
-      "reviewCandidateId": "review-if-cricket-aus-571e1aa10148b156",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "Australia women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:43.326Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8492,7 +8626,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "aus::cricket::team_quota::women's t20 tournament",
+      "recordKey": "aus::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-aus-ff64e5a775183f46",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -8511,6 +8645,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage"
       ],
@@ -8540,6 +8676,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8569,6 +8707,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8598,6 +8738,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "hockey:men",
+      "canonicalEventLabel": "Men's tournament",
       "disciplines": [
         "Men's tournament"
       ],
@@ -8608,7 +8750,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "bel::hockey::team_quota::men's tournament",
+      "recordKey": "bel::hockey::team_quota::hockey:men",
       "reviewCandidateId": "review-if-hockey-bel-7b07da54de4cebe3",
       "scheduleHints": [],
       "sourceId": "if-hockey",
@@ -8627,6 +8769,70 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "flag-football:men",
+      "canonicalEventLabel": "Men's tournament",
+      "disciplines": [
+        "Men's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-can-men-2026-worlds",
+      "noc": "CAN",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "can::flag football::team_quota::flag-football:men",
+      "reviewCandidateId": "review-if-flag-football-can-men-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:14:05.974Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "flag-football:women",
+      "canonicalEventLabel": "Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-can-women-2026-worlds",
+      "noc": "CAN",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "can::flag football::team_quota::flag-football:women",
+      "reviewCandidateId": "review-if-flag-football-can-women-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:14:15.358Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "volleyball:indoor-women",
+      "canonicalEventLabel": "Volleyball - Women's tournament",
       "disciplines": [
         "Women's tournament"
       ],
@@ -8637,7 +8843,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "can::volleyball::team_quota::women's tournament",
+      "recordKey": "can::volleyball::team_quota::volleyball:indoor-women",
       "reviewCandidateId": "review-if-volleyball-can-ec9089de2b28a22f",
       "scheduleHints": [],
       "sourceId": "if-volleyball",
@@ -8656,6 +8862,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8685,6 +8893,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8695,7 +8905,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "gbr::cricket::team_quota::women's t20 tournament",
+      "recordKey": "gbr::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-gbr-bab2b38e58677bde",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -8714,35 +8924,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-gbr-317047fbbbd66561",
-      "noc": "GBR",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "gbr::cricket::team::great britain women's cricket team",
-      "reviewCandidateId": "review-if-cricket-gbr-317047fbbbd66561",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "Great Britain women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:45.727Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8772,6 +8955,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8801,6 +8986,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8811,7 +8998,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "ind::cricket::team_quota::women's t20 tournament",
+      "recordKey": "ind::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-ind-aefea7b3df19be15",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -8830,35 +9017,70 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "flag-football:men",
+      "canonicalEventLabel": "Men's tournament",
       "disciplines": [
-        "Women's T20"
+        "Men's tournament"
       ],
       "events": [],
-      "id": "approved-review-if-cricket-ind-bd69176142f2771b",
-      "noc": "IND",
+      "id": "approved-review-if-flag-football-ita-men-2026-worlds",
+      "noc": "ITA",
       "notes": null,
       "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "ind::cricket::team::india women's cricket team",
-      "reviewCandidateId": "review-if-cricket-ind-bd69176142f2771b",
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "ita::flag football::team_quota::flag-football:men",
+      "reviewCandidateId": "review-if-flag-football-ita-men-2026-worlds",
       "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
       "sourceRecordType": "review_approved",
       "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
       "state": "allocated",
-      "subjectType": "team",
+      "subjectType": "team_quota",
       "supersedesId": null,
-      "teamName": "India women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:46.860Z"
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:14:10.306Z"
     },
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "flag-football:women",
+      "canonicalEventLabel": "Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-flag-football-mex-women-2026-worlds",
+      "noc": "MEX",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 IFAF Flag Football World Championships",
+      "quotaCount": 1,
+      "recordKey": "mex::flag football::team_quota::flag-football:women",
+      "reviewCandidateId": "review-if-flag-football-mex-women-2026-worlds",
+      "scheduleHints": [],
+      "sourceId": "if-flag-football",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "sport": "Flag Football",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 10,
+      "verifiedAt": "2026-09-04T10:13:58.573Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "volleyball:beach-women",
+      "canonicalEventLabel": "Beach Volleyball - Women's tournament",
       "disciplines": [
         "Women's beach volleyball"
       ],
@@ -8888,6 +9110,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -8917,6 +9141,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": "hockey:women",
+      "canonicalEventLabel": "Women's tournament",
       "disciplines": [
         "Women's tournament"
       ],
@@ -8927,7 +9153,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "ned::hockey::team_quota::women's tournament",
+      "recordKey": "ned::hockey::team_quota::hockey:women",
       "reviewCandidateId": "review-if-hockey-ned-women-la28-ned-14c063a749f94f0c",
       "scheduleHints": [],
       "sourceId": "if-hockey-ned-women-la28",
@@ -8946,35 +9172,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
-      "disciplines": [
-        "Women's T20"
-      ],
-      "events": [],
-      "id": "approved-review-if-cricket-rsa-84005752d2b77618",
-      "noc": "RSA",
-      "notes": null,
-      "profileUrl": null,
-      "qualificationRoute": null,
-      "quotaCount": null,
-      "recordKey": "rsa::cricket::team::south africa women's cricket team",
-      "reviewCandidateId": "review-if-cricket-rsa-84005752d2b77618",
-      "scheduleHints": [],
-      "sourceId": "if-cricket",
-      "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-      "sourceRecordType": "review_approved",
-      "sourceTier": "if",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "sport": "Cricket",
-      "state": "allocated",
-      "subjectType": "team",
-      "supersedesId": null,
-      "teamName": "South Africa women's cricket team",
-      "teamSizeMax": null,
-      "verifiedAt": "2026-08-31T12:52:48.351Z"
-    },
-    {
-      "allocationRecordId": null,
-      "athleteName": null,
+      "canonicalEventKey": "cricket:women-t20",
+      "canonicalEventLabel": "Women's T20 tournament",
       "disciplines": [
         "Women's T20 tournament"
       ],
@@ -8985,7 +9184,7 @@
       "profileUrl": null,
       "qualificationRoute": null,
       "quotaCount": 1,
-      "recordKey": "rsa::cricket::team_quota::women's t20 tournament",
+      "recordKey": "rsa::cricket::team_quota::cricket:women-t20",
       "reviewCandidateId": "review-if-cricket-rsa-a57108a124092b01",
       "scheduleHints": [],
       "sourceId": "if-cricket",
@@ -9004,6 +9203,8 @@
     {
       "allocationRecordId": null,
       "athleteName": null,
+      "canonicalEventKey": null,
+      "canonicalEventLabel": null,
       "disciplines": [
         "Dressage - Team"
       ],
@@ -9029,6 +9230,37 @@
       "teamName": null,
       "teamSizeMax": 3,
       "verifiedAt": "2026-09-03T19:07:52.260Z"
+    },
+    {
+      "allocationRecordId": null,
+      "athleteName": null,
+      "canonicalEventKey": "volleyball:indoor-women",
+      "canonicalEventLabel": "Volleyball - Women's tournament",
+      "disciplines": [
+        "Women's tournament"
+      ],
+      "events": [],
+      "id": "approved-review-if-volleyball-tha-women-2026-avc",
+      "noc": "THA",
+      "notes": null,
+      "profileUrl": null,
+      "qualificationRoute": "2026 AVC Women's Volleyball Continental Championship",
+      "quotaCount": 1,
+      "recordKey": "tha::volleyball::team_quota::volleyball:indoor-women",
+      "reviewCandidateId": "review-if-volleyball-tha-women-2026-avc",
+      "scheduleHints": [],
+      "sourceId": "if-volleyball",
+      "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
+      "sourceRecordType": "review_approved",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+      "sport": "Volleyball",
+      "state": "allocated",
+      "subjectType": "team_quota",
+      "supersedesId": null,
+      "teamName": null,
+      "teamSizeMax": 12,
+      "verifiedAt": "2026-09-04T10:13:07.173Z"
     }
   ],
   "qualificationReviewQueue": [
@@ -10002,6 +10234,38 @@
       "suggestedRecord": null
     },
     {
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that the United States, Italy and Canada have qualified for the men's six-team competition at LA28. Italy reached the final and secured its quota place.",
+      "id": "review-if-flag-football-ita-men-2026-worlds",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Italy men's team quota before publication.",
+      "record": {
+        "allocationRecordId": null,
+        "athleteName": null,
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "id": "approved-review-if-flag-football-ita-men-2026-worlds",
+        "noc": "ITA",
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "quotaCount": 1,
+        "reviewCandidateId": "review-if-flag-football-ita-men-2026-worlds",
+        "sourceId": "if-flag-football",
+        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sport": "Flag Football",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 10,
+        "verifiedAt": "2026-09-04T10:14:10.306Z"
+      },
+      "resolution": "approved",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "suggestedRecord": null
+    },
+    {
       "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
       "id": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
@@ -10127,6 +10391,134 @@
       },
       "resolution": "approved",
       "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
+      "suggestedRecord": null
+    },
+    {
+      "detectedAt": "2026-08-30T00:00:00.000Z",
+      "extractedEvidence": "Thailand won the 2026 AVC Women's Volleyball Continental Championship and the direct Asian qualification place for the LA28 Olympic Games.",
+      "id": "review-if-volleyball-tha-women-2026-avc",
+      "reason": "Official FIVB confirmation. Confirm the pre-filled Thailand women's volleyball team quota before publication.",
+      "record": {
+        "allocationRecordId": null,
+        "athleteName": null,
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "id": "approved-review-if-volleyball-tha-women-2026-avc",
+        "noc": "THA",
+        "qualificationRoute": "2026 AVC Women's Volleyball Continental Championship",
+        "quotaCount": 1,
+        "reviewCandidateId": "review-if-volleyball-tha-women-2026-avc",
+        "sourceId": "if-volleyball",
+        "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+        "sport": "Volleyball",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 12,
+        "verifiedAt": "2026-09-04T10:13:07.173Z"
+      },
+      "resolution": "approved",
+      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
+      "suggestedRecord": null
+    },
+    {
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Mexico's women secured an LA28 Olympic quota place by winning the bronze-medal match over Great Britain.",
+      "id": "review-if-flag-football-mex-women-2026-worlds",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Mexico women's team quota before publication.",
+      "record": {
+        "allocationRecordId": null,
+        "athleteName": null,
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "id": "approved-review-if-flag-football-mex-women-2026-worlds",
+        "noc": "MEX",
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "quotaCount": 1,
+        "reviewCandidateId": "review-if-flag-football-mex-women-2026-worlds",
+        "sourceId": "if-flag-football",
+        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sport": "Flag Football",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 10,
+        "verifiedAt": "2026-09-04T10:13:58.573Z"
+      },
+      "resolution": "approved",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "suggestedRecord": null
+    },
+    {
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Canada secured an LA28 Olympic quota place by winning the men's bronze-medal match over Mexico.",
+      "id": "review-if-flag-football-can-men-2026-worlds",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Canada men's team quota before publication.",
+      "record": {
+        "allocationRecordId": null,
+        "athleteName": null,
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "id": "approved-review-if-flag-football-can-men-2026-worlds",
+        "noc": "CAN",
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "quotaCount": 1,
+        "reviewCandidateId": "review-if-flag-football-can-men-2026-worlds",
+        "sourceId": "if-flag-football",
+        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sport": "Flag Football",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 10,
+        "verifiedAt": "2026-09-04T10:14:05.974Z"
+      },
+      "resolution": "approved",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+      "suggestedRecord": null
+    },
+    {
+      "detectedAt": "2026-08-15T00:00:00.000Z",
+      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Canada qualified for the women's six-team competition at LA28 after reaching the final.",
+      "id": "review-if-flag-football-can-women-2026-worlds",
+      "reason": "Official IFAF World Championship result. Confirm the pre-filled Canada women's team quota before publication.",
+      "record": {
+        "allocationRecordId": null,
+        "athleteName": null,
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "id": "approved-review-if-flag-football-can-women-2026-worlds",
+        "noc": "CAN",
+        "qualificationRoute": "2026 IFAF Flag Football World Championships",
+        "quotaCount": 1,
+        "reviewCandidateId": "review-if-flag-football-can-women-2026-worlds",
+        "sourceId": "if-flag-football",
+        "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
+        "sport": "Flag Football",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 10,
+        "verifiedAt": "2026-09-04T10:14:15.358Z"
+      },
+      "resolution": "approved",
+      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
       "suggestedRecord": null
     },
     {
@@ -10421,7 +10813,7 @@
     },
     {
       "detectedAt": "2026-09-02T15:22:23.370Z",
-      "extractedEvidence": "Belgium men seal the deal as Irish women bow out Trending Check Out the World Rankings! International Hockey Federation Medical/Anti-Doping Rankings FIH.",
+      "extractedEvidence": "Belgium men seal the deal as Irish women bow out Trending Vote now for the Poligras Magic Skill Award! International Hockey Federation Medical/Anti-Doping Rankings FIH.",
       "id": "review-if-hockey-bel-7b07da54de4cebe3",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "record": null,
@@ -10450,7 +10842,7 @@
     },
     {
       "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
+      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 2 weeks ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past an",
       "id": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "record": null,
@@ -57194,7 +57586,7 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-09-04T09:44:48.593Z",
+      "checkedAt": "2026-09-05T09:05:30.830Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
       "fallbackUsed": false,
       "id": "official-la28-page",
@@ -57203,7 +57595,7 @@
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-09-04T09:44:48.593Z",
+      "checkedAt": "2026-09-05T09:05:30.830Z",
       "description": "Primary parser target for official schedule shadow mode.",
       "fallbackUsed": false,
       "id": "official-la28-event-pdf",
@@ -57212,7 +57604,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-09-04T09:44:48.593Z",
+      "checkedAt": "2026-09-05T09:05:30.830Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -57221,7 +57613,7 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-09-04T09:44:48.593Z",
+      "checkedAt": "2026-09-05T09:05:30.830Z",
       "description": "Structured comparison and fallback source during shadow mode.",
       "fallbackUsed": false,
       "id": "community-la28-sheet",
@@ -57230,7 +57622,7 @@
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-09-04T09:44:48.593Z",
+      "checkedAt": "2026-09-05T09:05:30.830Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
