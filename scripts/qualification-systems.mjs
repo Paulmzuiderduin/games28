@@ -1,3 +1,5 @@
+import { getIocQualificationDocuments } from './ioc-qualification-documents.mjs';
+
 const STATUS_VALUES = new Set(['rules_published', 'watching', 'structured_live', 'review_required', 'final_entries_live']);
 
 function qualificationEvent(key, label, sports) {
@@ -15,6 +17,7 @@ function system(key, label, governingBody, sports, url, options = {}) {
     sourceType: options.sourceType || 'qualification_system',
     status: options.status || 'watching',
     rulesUrl: options.rulesUrl || url,
+    iocDocuments: getIocQualificationDocuments(key),
     allocationUrl: options.allocationUrl || url,
     entryUrl: options.entryUrl || null,
     adapter: options.adapter || null,
@@ -203,6 +206,7 @@ export function toQualificationSources(systems) {
     kind: entry.sourceType,
     status: STATUS_VALUES.has(entry.status) ? entry.status : 'watching',
     rulesUrl: entry.rulesUrl,
+    iocDocuments: entry.iocDocuments,
     allocationUrl: entry.allocationUrl,
     entryUrl: entry.entryUrl,
     adapter: entry.adapter,

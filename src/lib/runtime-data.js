@@ -48,6 +48,15 @@ export const runtimeFallback = {
     qualificationAutoRecordCount: 0,
     qualificationSourceScanCount: 0,
     qualificationPolicy: 'confirmation_only',
+    iocQualificationRules: {
+      hubUrl: null,
+      principles: null,
+      documents: [],
+      expectedSystemCount: 0,
+      publishedSystemCount: 0,
+      listedDocumentCount: 0,
+      waitingSystems: []
+    },
     qualificationCoverage: {
       coveredSportCount: 0,
       missingSports: [],

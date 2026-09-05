@@ -11,6 +11,7 @@ test('every schedule sport label has an official qualification-system source', a
   assert.deepEqual(index.missingSports, []);
   assert.equal(new Set(index.systems.flatMap((system) => system.coveredSports)).size, new Set(runtime.scheduleEntries.map((entry) => entry.sport)).size);
   assert.equal(sources.every((source) => /^https:\/\//.test(source.url) && ['if', 'noc', 'national_federation'].includes(source.sourceTier)), true);
+  assert.equal(sources.find((source) => source.qualificationSystemKey === 'archery').iocDocuments.length, 1);
 });
 
 test('keeps the Aachen Dressage Team allocation as review-only team quotas', async () => {

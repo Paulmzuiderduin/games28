@@ -2070,6 +2070,52 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.sport-rules-section {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.sport-rules-section .supporting-copy {
+  max-width: 64ch;
+  margin: 10px 0 0;
+}
+
+.official-rules-list {
+  border-top: 1px solid var(--line);
+}
+
+.official-rule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.official-rule-row strong,
+.official-rule-row span {
+  display: block;
+}
+
+.official-rule-row strong {
+  font-size: 15px;
+}
+
+.official-rule-row span,
+.official-rules-empty {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.official-rules-empty {
+  margin: 0;
+}
+
 .sport-sessions-section {
   display: grid;
   gap: var(--space-4);
@@ -2192,6 +2238,8 @@ body {
 
 @media (max-width: 720px) {
   .sport-qualification-section { gap: 16px; padding-top: 24px; }
+  .sport-rules-section { gap: 14px; margin-top: 24px; padding-top: 24px; }
+  .official-rule-row { align-items: flex-start; flex-direction: column; gap: 7px; }
   .sport-sessions-section { margin-top: 30px; padding-top: 24px; gap: 16px; }
   .sport-qualification-group__heading { align-items: flex-start; flex-direction: column; gap: 4px; }
   .sport-qualification-record { grid-template-columns: 1fr; gap: 9px; padding: 14px; }

@@ -347,6 +347,7 @@ function SourcesView({ runtime }) {
   const officialValidationRemaining = Math.max(0, officialValidationTarget - officialValidationStreak);
   const qualificationCoverage = runtime.meta.qualificationCoverage || {};
   const countrySelectionCoverage = runtime.meta.countrySelectionCoverage || {};
+  const iocQualificationRules = runtime.meta.iocQualificationRules || {};
   const qualificationSources = runtime.meta.qualificationSources || [];
   const activeQualificationSources = qualificationSources.filter((source) => source.status !== 'watching');
 
@@ -373,6 +374,11 @@ function SourcesView({ runtime }) {
           label="Qualification systems"
           value={`${qualificationCoverage.coveredSportCount || 0} schedule labels covered`}
           detail={`${qualificationCoverage.systemCount || 0} official sport groups are checked daily. No predictions are published.`}
+        />
+        <SummaryCard
+          label="IOC qualification rules"
+          value={`${iocQualificationRules.publishedSystemCount || 0}/${iocQualificationRules.expectedSystemCount || qualificationCoverage.systemCount || 0} published`}
+          detail={`${iocQualificationRules.listedDocumentCount || 0} direct IOC documents listed; sports without a document stay clearly marked as waiting.`}
         />
         <SummaryCard
           label="Country selection sources"
@@ -1042,6 +1048,52 @@ function SportQualificationOverview({ overview, sport }) {
   );
 }
 
+function OfficialQualificationRules({ runtime, sport }) {
+  const source = (runtime.meta?.qualificationSources || []).find((entry) => (
+    entry.qualificationSystemKey && (entry.sports || []).includes(sport)
+  ));
+  const checksById = new Map((runtime.meta?.iocQualificationRules?.documents || []).map((entry) => [entry.id, entry]));
+  const documents = (source?.iocDocuments || [])
+    .filter((entry) => !(entry.sports || []).length || entry.sports.includes(sport))
+    .map((entry) => ({ ...entry, ...checksById.get(entry.id) }));
+
+  if (!source) return null;
+
+  return (
+    <section className="sport-rules-section">
+      <div className="section-heading section-heading--flush">
+        <div>
+          <p className="eyebrow">Qualification rules</p>
+          <h2>How qualification works</h2>
+          <p className="supporting-copy">These IOC-published documents explain the official quota and qualification pathway. They do not confirm that a country, athlete, or team has qualified.</p>
+        </div>
+        <span className="status-pill">IOC rules</span>
+      </div>
+      {documents.length ? (
+        <div className="official-rules-list">
+          {documents.map((document) => (
+            <article key={document.id} className="official-rule-row">
+              <div>
+                <strong>{document.title}</strong>
+                <span>Published {formatDateLabel(document.publishedAt, { includeWeekday: false, timeZone: 'UTC' })}</span>
+              </div>
+              <SourceLink
+                href={document.url}
+                className="text-link"
+                context={{ sourceId: source.id, qualificationSystemKey: source.qualificationSystemKey, documentId: document.id }}
+              >
+                Open IOC document
+              </SourceLink>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="official-rules-empty">The IOC has not published a sport-specific LA28 qualification PDF here yet. Games28 is still watching the official {source.governingBody} source for confirmed allocations and selections.</p>
+      )}
+    </section>
+  );
+}
+
 function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFiltersChange, scheduleOptions, onCalendarExport }) {
   const qualificationOverview = useMemo(
     () => (sport ? buildSportQualificationOverview(runtime, sport) : { cards: [], groups: [], stats: {} }),
@@ -1094,6 +1146,7 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
           Share {sport} schedule
         </ShareButton>
       </div>
+      <OfficialQualificationRules runtime={runtime} sport={sport} />
       <SportQualificationOverview overview={qualificationOverview} sport={sport} />
       <section className="sport-sessions-section">
         <div className="section-heading section-heading--flush">

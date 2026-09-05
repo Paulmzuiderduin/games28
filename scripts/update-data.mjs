@@ -19,6 +19,7 @@ import { buildQualificationPipeline, toQualificationCards } from './qualificatio
 import { buildQualificationSystemIndex, toQualificationSources } from './qualification-systems.mjs';
 import { buildCountrySelectionRegistry, toCountrySelectionSources } from './country-selection-registry.mjs';
 import { ingestQualificationSources } from './qualification-ingestion.mjs';
+import { buildIocQualificationRulesIndex } from './ioc-qualification-documents.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -502,6 +503,10 @@ async function main() {
   if (qualificationSystemIndex.missingSports.length) {
     throw new Error(`Qualification source coverage missing for: ${qualificationSystemIndex.missingSports.join(', ')}`);
   }
+  const iocQualificationRules = buildIocQualificationRulesIndex({
+    systems: qualificationSystemIndex.systems,
+    checkedAt
+  });
   const currentIngestion = await ingestQualificationSources({
     sources: qualificationSources,
     countries: countryRegistry,
@@ -623,6 +628,7 @@ async function main() {
       qualificationAutoRecordCount: ingestion.structuredRecords.length,
       qualificationSourceScanCount: ingestion.scans.length,
       qualificationPolicy: 'confirmation_only',
+      iocQualificationRules,
       qualificationCoverage: {
         coveredSportCount: qualificationSystemIndex.systems.flatMap((system) => system.coveredSports).length,
         missingSports: qualificationSystemIndex.missingSports,
@@ -647,6 +653,7 @@ async function main() {
         status: source.status,
         url: source.url,
         rulesUrl: source.rulesUrl,
+        iocDocuments: source.iocDocuments || [],
         allocationUrl: source.allocationUrl,
         entryUrl: source.entryUrl,
         refreshPolicy: source.refreshPolicy,

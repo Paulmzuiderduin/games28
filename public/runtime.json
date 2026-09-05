@@ -1391,7 +1391,7 @@
       "summary": "Added session FBL39 for Women's Group Stage."
     }
   ],
-  "checkedAt": "2026-09-05T09:05:30.830Z",
+  "checkedAt": "2026-09-05T10:44:58.277Z",
   "countries": [
     {
       "continent": "Undetermined",
@@ -5431,7 +5431,7 @@
       "status": "awaiting_endpoint"
     }
   ],
-  "generatedAt": "2026-09-05T09:05:30.830Z",
+  "generatedAt": "2026-09-05T10:44:58.277Z",
   "meta": {
     "communityReferenceCount": 1849,
     "communityScheduleUrl": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921",
@@ -5443,6 +5443,690 @@
     },
     "flagPack": "flag-icons",
     "hasSecondaryScheduleSource": true,
+    "iocQualificationRules": {
+      "checkedAt": "2026-09-05T10:44:58.277Z",
+      "documents": [
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "FIBA",
+          "id": "ioc-3x3-basketball",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "3x3-basketball",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [],
+          "title": "3x3 Basketball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BK3-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Archery",
+          "id": "ioc-archery",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "archery",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Archery",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Aquatics",
+          "id": "ioc-artistic-swimming",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "aquatics",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Artistic Swimming"
+          ],
+          "title": "Artistic Swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Aquatics",
+          "id": "ioc-diving",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-16",
+          "qualificationSystemKey": "aquatics",
+          "sourceVersion": "ioc-published-2026-06-16",
+          "sports": [
+            "Diving"
+          ],
+          "title": "Diving",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/DIV-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Aquatics",
+          "id": "ioc-open-water-swimming",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "aquatics",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Open Water Swimming"
+          ],
+          "title": "Open Water Swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/OWS-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Aquatics",
+          "id": "ioc-swimming",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "aquatics",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Swimming"
+          ],
+          "title": "Swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWM-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Aquatics",
+          "id": "ioc-water-polo",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-06",
+          "qualificationSystemKey": "aquatics",
+          "sourceVersion": "ioc-published-2026-05-06",
+          "sports": [
+            "Water Polo"
+          ],
+          "title": "Water Polo",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WPO-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Badminton World Federation",
+          "id": "ioc-badminton",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "badminton",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Badminton",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BDM-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Baseball Softball Confederation",
+          "id": "ioc-baseball-softball",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "baseball-softball",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Baseball and Softball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "FIBA",
+          "id": "ioc-basketball",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "basketball",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Basketball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BKB-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Boxing",
+          "id": "ioc-boxing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-08-05",
+          "qualificationSystemKey": "boxing",
+          "sourceVersion": "ioc-published-2026-08-05",
+          "sports": [],
+          "title": "Boxing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BOX-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Federation of Sport Climbing",
+          "id": "ioc-climbing-boulder",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-24",
+          "qualificationSystemKey": "climbing",
+          "sourceVersion": "ioc-published-2026-07-24",
+          "sports": [],
+          "title": "Climbing - Boulder",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Boulder-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Federation of Sport Climbing",
+          "id": "ioc-climbing-lead",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-24",
+          "qualificationSystemKey": "climbing",
+          "sourceVersion": "ioc-published-2026-07-24",
+          "sports": [],
+          "title": "Climbing - Lead",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Lead-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Federation of Sport Climbing",
+          "id": "ioc-climbing-speed",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-24",
+          "qualificationSystemKey": "climbing",
+          "sourceVersion": "ioc-published-2026-07-24",
+          "sports": [],
+          "title": "Climbing - Speed",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Speed-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Cricket Council",
+          "id": "ioc-cricket",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-29",
+          "qualificationSystemKey": "cricket",
+          "sourceVersion": "ioc-published-2026-06-29",
+          "sports": [],
+          "title": "Cricket",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Union Cycliste Internationale",
+          "id": "ioc-cycling-road",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "cycling",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Cycling Road (Road Race)",
+            "Cycling Road (Time Trial)"
+          ],
+          "title": "Cycling Road",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRD-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Union Cycliste Internationale",
+          "id": "ioc-cycling-track",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "cycling",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [
+            "Cycling Track"
+          ],
+          "title": "Cycling Track",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CTR-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Union Cycliste Internationale",
+          "id": "ioc-mountain-bike",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "cycling",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [
+            "Mountain Bike"
+          ],
+          "title": "Mountain Bike",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/MTB-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Union Cycliste Internationale",
+          "id": "ioc-bmx-freestyle",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-22",
+          "qualificationSystemKey": "cycling",
+          "sourceVersion": "ioc-published-2026-07-22",
+          "sports": [
+            "BMX Freestyle"
+          ],
+          "title": "BMX Freestyle",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BMF-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Union Cycliste Internationale",
+          "id": "ioc-bmx-racing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "cycling",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [
+            "BMX Racing"
+          ],
+          "title": "BMX Racing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BMX-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Fédération Equestre Internationale",
+          "id": "ioc-equestrian-dressage",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-23",
+          "qualificationSystemKey": "equestrian",
+          "sourceVersion": "ioc-published-2026-06-23",
+          "sports": [],
+          "title": "Equestrian Dressage",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Fédération Equestre Internationale",
+          "id": "ioc-equestrian-eventing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-23",
+          "qualificationSystemKey": "equestrian",
+          "sourceVersion": "ioc-published-2026-06-23",
+          "sports": [],
+          "title": "Equestrian Eventing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Fédération Equestre Internationale",
+          "id": "ioc-equestrian-jumping",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-23",
+          "qualificationSystemKey": "equestrian",
+          "sourceVersion": "ioc-published-2026-06-23",
+          "sports": [],
+          "title": "Equestrian Jumping",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Fencing Federation",
+          "id": "ioc-fencing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "fencing",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Fencing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FEN-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Federation of American Football",
+          "id": "ioc-flag-football",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "flag-football",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [],
+          "title": "Flag Football",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Golf Federation",
+          "id": "ioc-golf",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-08-28",
+          "qualificationSystemKey": "golf",
+          "sourceVersion": "ioc-published-2026-08-28",
+          "sports": [],
+          "title": "Golf",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GLF-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Gymnastics Federation",
+          "id": "ioc-artistic-gymnastics",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-29",
+          "qualificationSystemKey": "gymnastics",
+          "sourceVersion": "ioc-published-2026-05-29",
+          "sports": [
+            "Artistic Gymnastics"
+          ],
+          "title": "Artistic Gymnastics",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Gymnastics Federation",
+          "id": "ioc-rhythmic-gymnastics",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "gymnastics",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Rhythmic Gymnastics"
+          ],
+          "title": "Rhythmic Gymnastics",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Gymnastics Federation",
+          "id": "ioc-trampoline",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "gymnastics",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Trampoline Gymnastics"
+          ],
+          "title": "Trampoline",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GTR-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Handball Federation",
+          "id": "ioc-handball",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "handball",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Handball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HBL-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Hockey Federation",
+          "id": "ioc-hockey",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "hockey",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Hockey",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Judo Federation",
+          "id": "ioc-judo",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "judo",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Judo",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/JUD-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Lacrosse",
+          "id": "ioc-lacrosse",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "lacrosse",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Lacrosse",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/LAC-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Union Internationale de Pentathlon Moderne",
+          "id": "ioc-modern-pentathlon",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "modern-pentathlon",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Modern Pentathlon",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/MPN-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Rowing",
+          "id": "ioc-rowing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "rowing",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Rowing"
+          ],
+          "title": "Rowing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ROW-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Rowing",
+          "id": "ioc-rowing-coastal",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "rowing",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Rowing Coastal Beach Sprints"
+          ],
+          "title": "Rowing Coastal",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RCB-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Rugby",
+          "id": "ioc-rugby-sevens",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "rugby-sevens",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Rugby Sevens",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RU7-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Sailing",
+          "id": "ioc-sailing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-22",
+          "qualificationSystemKey": "sailing",
+          "sourceVersion": "ioc-published-2026-06-22",
+          "sports": [],
+          "title": "Sailing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Shooting Sport Federation",
+          "id": "ioc-shooting",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-23",
+          "qualificationSystemKey": "shooting",
+          "sourceVersion": "ioc-published-2026-06-23",
+          "sports": [],
+          "title": "Shooting",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Skate",
+          "id": "ioc-skateboarding",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "skateboarding",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [],
+          "title": "Skateboarding",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SKB-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Canoe Federation",
+          "id": "ioc-slalom-paddle",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "canoe",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Slalom Paddle",
+            "Canoe Slalom"
+          ],
+          "title": "Slalom Paddle",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/PSL-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Canoe Federation",
+          "id": "ioc-sprint-paddle",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-28",
+          "qualificationSystemKey": "canoe",
+          "sourceVersion": "ioc-published-2026-07-28",
+          "sports": [
+            "Sprint Paddle",
+            "Canoe Sprint"
+          ],
+          "title": "Sprint Paddle",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/PSP-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Squash Federation",
+          "id": "ioc-squash",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-23",
+          "qualificationSystemKey": "squash",
+          "sourceVersion": "ioc-published-2026-06-23",
+          "sports": [],
+          "title": "Squash",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SQU-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Surfing Association",
+          "id": "ioc-surfing",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-06-29",
+          "qualificationSystemKey": "surfing",
+          "sourceVersion": "ioc-published-2026-06-29",
+          "sports": [],
+          "title": "Surfing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Table Tennis Federation",
+          "id": "ioc-table-tennis",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-08-14",
+          "qualificationSystemKey": "table-tennis",
+          "sourceVersion": "ioc-published-2026-08-14",
+          "sports": [],
+          "title": "Table Tennis",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TTE-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Taekwondo",
+          "id": "ioc-taekwondo",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "taekwondo",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Taekwondo",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TKW-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Tennis Federation",
+          "id": "ioc-tennis",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "tennis",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Tennis",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TEN-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "World Triathlon",
+          "id": "ioc-triathlon",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "triathlon",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Triathlon",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Fédération Internationale de Volleyball",
+          "id": "ioc-beach-volleyball",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-07-10",
+          "qualificationSystemKey": "volleyball",
+          "sourceVersion": "ioc-published-2026-07-10",
+          "sports": [
+            "Beach Volleyball"
+          ],
+          "title": "Beach Volleyball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "Fédération Internationale de Volleyball",
+          "id": "ioc-volleyball",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "volleyball",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [
+            "Volleyball"
+          ],
+          "title": "Volleyball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "International Weightlifting Federation",
+          "id": "ioc-weightlifting",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-05-12",
+          "qualificationSystemKey": "weightlifting",
+          "sourceVersion": "ioc-published-2026-05-12",
+          "sports": [],
+          "title": "Weightlifting",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WLF-LA28-Qualification-System.pdf"
+        },
+        {
+          "availability": "listed_by_ioc",
+          "governingBody": "United World Wrestling",
+          "id": "ioc-wrestling",
+          "listedAt": "2026-09-05T10:44:58.277Z",
+          "publishedAt": "2026-08-13",
+          "qualificationSystemKey": "wrestling",
+          "sourceVersion": "ioc-published-2026-08-13",
+          "sports": [],
+          "title": "Wrestling",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WRE-LA28-Qualification-System.pdf"
+        }
+      ],
+      "expectedSystemCount": 37,
+      "hubUrl": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+      "listedDocumentCount": 52,
+      "principles": {
+        "id": "ioc-la28-qualification-principles",
+        "publishedAt": "2026-05-12",
+        "title": "LA28 Qualification System Principles",
+        "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/LA2028-Qualification-System-Principles.pdf"
+      },
+      "publishedSystemCount": 35,
+      "waitingSystems": [
+        "athletics",
+        "football"
+      ]
+    },
     "lastChangedAt": "2026-09-05T09:05:30.830Z",
     "officialCandidateCount": 1675,
     "officialEventPdfUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf",
@@ -5467,9 +6151,9 @@
       "passed": true
     },
     "qualificationApprovalSync": {
-      "available": true,
-      "fetchedApprovedCount": 36,
-      "retainedApprovedCount": 0
+      "available": false,
+      "fetchedApprovedCount": 0,
+      "retainedApprovedCount": 32
     },
     "qualificationAutoRecordCount": 0,
     "qualificationCount": 21,
@@ -5482,18 +6166,27 @@
     "qualificationHistoryCount": 32,
     "qualificationPolicy": "confirmation_only",
     "qualificationRecordCount": 21,
-    "qualificationRejectedCount": 4,
+    "qualificationRejectedCount": 0,
     "qualificationReviewCount": 20,
     "qualificationSourceScanCount": 84,
     "qualificationSources": [
       {
         "allocationUrl": "https://fiba.basketball/3x3",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
         "id": "if-3x3-basketball",
+        "iocDocuments": [
+          {
+            "id": "ioc-3x3-basketball",
+            "publishedAt": "2026-07-10",
+            "sports": [],
+            "title": "3x3 Basketball",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BK3-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "FIBA - 3x3 Basketball",
         "qualificationEvents": [
@@ -5527,11 +6220,20 @@
       {
         "allocationUrl": "https://www.worldarchery.sport/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Archery",
         "httpStatus": 200,
         "id": "if-archery",
+        "iocDocuments": [
+          {
+            "id": "ioc-archery",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Archery",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Archery - Archery",
         "qualificationEvents": [
@@ -5565,11 +6267,58 @@
       {
         "allocationUrl": "https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Aquatics",
         "httpStatus": 200,
         "id": "if-aquatics",
+        "iocDocuments": [
+          {
+            "id": "ioc-artistic-swimming",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Artistic Swimming"
+            ],
+            "title": "Artistic Swimming",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-diving",
+            "publishedAt": "2026-06-16",
+            "sports": [
+              "Diving"
+            ],
+            "title": "Diving",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/DIV-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-open-water-swimming",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Open Water Swimming"
+            ],
+            "title": "Open Water Swimming",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/OWS-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-swimming",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Swimming"
+            ],
+            "title": "Swimming",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWM-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-water-polo",
+            "publishedAt": "2026-05-06",
+            "sports": [
+              "Water Polo"
+            ],
+            "title": "Water Polo",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WPO-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Aquatics - Aquatics",
         "qualificationEvents": [],
@@ -5592,11 +6341,12 @@
       {
         "allocationUrl": "https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Athletics",
         "httpStatus": 200,
         "id": "if-athletics",
+        "iocDocuments": [],
         "kind": "qualification_system",
         "label": "World Athletics - Athletics",
         "qualificationEvents": [],
@@ -5617,11 +6367,20 @@
       {
         "allocationUrl": "https://corporate.bwfbadminton.com/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Badminton World Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-badminton",
+        "iocDocuments": [
+          {
+            "id": "ioc-badminton",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Badminton",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BDM-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "Badminton World Federation - Badminton",
         "qualificationEvents": [],
@@ -5640,11 +6399,20 @@
       {
         "allocationUrl": "https://www.wbsc.org/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Baseball Softball Confederation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-baseball-softball",
+        "iocDocuments": [
+          {
+            "id": "ioc-baseball-softball",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Baseball and Softball",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Baseball Softball Confederation - Baseball and Softball",
         "qualificationEvents": [
@@ -5679,11 +6447,20 @@
       {
         "allocationUrl": "https://www.fiba.basketball/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "FIBA",
         "httpStatus": 200,
         "id": "if-basketball",
+        "iocDocuments": [
+          {
+            "id": "ioc-basketball",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Basketball",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BKB-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "FIBA - Basketball",
         "qualificationEvents": [
@@ -5717,11 +6494,20 @@
       {
         "allocationUrl": "https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Boxing",
         "httpStatus": 200,
         "id": "if-boxing",
+        "iocDocuments": [
+          {
+            "id": "ioc-boxing",
+            "publishedAt": "2026-08-05",
+            "sports": [],
+            "title": "Boxing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BOX-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Boxing - Boxing",
         "qualificationEvents": [],
@@ -5741,11 +6527,34 @@
       {
         "allocationUrl": "https://www.ifsc-climbing.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Federation of Sport Climbing",
         "httpStatus": 200,
         "id": "if-climbing",
+        "iocDocuments": [
+          {
+            "id": "ioc-climbing-boulder",
+            "publishedAt": "2026-07-24",
+            "sports": [],
+            "title": "Climbing - Boulder",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Boulder-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-climbing-lead",
+            "publishedAt": "2026-07-24",
+            "sports": [],
+            "title": "Climbing - Lead",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Lead-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-climbing-speed",
+            "publishedAt": "2026-07-24",
+            "sports": [],
+            "title": "Climbing - Speed",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Speed-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Federation of Sport Climbing - Sport Climbing",
         "qualificationEvents": [],
@@ -5764,11 +6573,20 @@
       {
         "allocationUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Cricket Council",
         "httpStatus": 200,
         "id": "if-cricket",
+        "iocDocuments": [
+          {
+            "id": "ioc-cricket",
+            "publishedAt": "2026-06-29",
+            "sports": [],
+            "title": "Cricket",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "team_qualification",
         "label": "International Cricket Council - Cricket",
         "qualificationEvents": [
@@ -5802,11 +6620,59 @@
       {
         "allocationUrl": "https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Union Cycliste Internationale",
         "httpStatus": 200,
         "id": "if-cycling",
+        "iocDocuments": [
+          {
+            "id": "ioc-cycling-road",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Cycling Road (Road Race)",
+              "Cycling Road (Time Trial)"
+            ],
+            "title": "Cycling Road",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRD-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-cycling-track",
+            "publishedAt": "2026-07-10",
+            "sports": [
+              "Cycling Track"
+            ],
+            "title": "Cycling Track",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CTR-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-mountain-bike",
+            "publishedAt": "2026-07-10",
+            "sports": [
+              "Mountain Bike"
+            ],
+            "title": "Mountain Bike",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/MTB-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-bmx-freestyle",
+            "publishedAt": "2026-07-22",
+            "sports": [
+              "BMX Freestyle"
+            ],
+            "title": "BMX Freestyle",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BMF-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-bmx-racing",
+            "publishedAt": "2026-07-10",
+            "sports": [
+              "BMX Racing"
+            ],
+            "title": "BMX Racing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BMX-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "Union Cycliste Internationale - Cycling",
         "qualificationEvents": [],
@@ -5830,11 +6696,34 @@
       {
         "allocationUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Fédération Equestre Internationale",
         "httpStatus": 200,
         "id": "if-equestrian",
+        "iocDocuments": [
+          {
+            "id": "ioc-equestrian-dressage",
+            "publishedAt": "2026-06-23",
+            "sports": [],
+            "title": "Equestrian Dressage",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-equestrian-eventing",
+            "publishedAt": "2026-06-23",
+            "sports": [],
+            "title": "Equestrian Eventing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-equestrian-jumping",
+            "publishedAt": "2026-06-23",
+            "sports": [],
+            "title": "Equestrian Jumping",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "team_qualification",
         "label": "Equestrian Australia - Aachen Dressage Team qualification",
         "qualificationEvents": [
@@ -5896,11 +6785,20 @@
       {
         "allocationUrl": "https://fie.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Fencing Federation",
         "httpStatus": 200,
         "id": "if-fencing",
+        "iocDocuments": [
+          {
+            "id": "ioc-fencing",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Fencing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FEN-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Fencing Federation - Fencing",
         "qualificationEvents": [],
@@ -5919,11 +6817,20 @@
       {
         "allocationUrl": "https://www.americanfootball.sport/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Federation of American Football",
         "httpStatus": 200,
         "id": "if-flag-football",
+        "iocDocuments": [
+          {
+            "id": "ioc-flag-football",
+            "publishedAt": "2026-07-10",
+            "sports": [],
+            "title": "Flag Football",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Federation of American Football - Flag Football",
         "qualificationEvents": [
@@ -5957,11 +6864,12 @@
       {
         "allocationUrl": "https://inside.fifa.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "FIFA",
         "httpStatus": 200,
         "id": "if-football",
+        "iocDocuments": [],
         "kind": "qualification_system",
         "label": "FIFA - Football",
         "qualificationEvents": [
@@ -5995,11 +6903,20 @@
       {
         "allocationUrl": "https://www.igfgolf.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Golf Federation",
         "httpStatus": 200,
         "id": "if-golf",
+        "iocDocuments": [
+          {
+            "id": "ioc-golf",
+            "publishedAt": "2026-08-28",
+            "sports": [],
+            "title": "Golf",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GLF-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Golf Federation - Golf",
         "qualificationEvents": [
@@ -6033,11 +6950,40 @@
       {
         "allocationUrl": "https://www.gymnastics.sport/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Gymnastics Federation",
         "httpStatus": 200,
         "id": "if-gymnastics",
+        "iocDocuments": [
+          {
+            "id": "ioc-artistic-gymnastics",
+            "publishedAt": "2026-05-29",
+            "sports": [
+              "Artistic Gymnastics"
+            ],
+            "title": "Artistic Gymnastics",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-rhythmic-gymnastics",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Rhythmic Gymnastics"
+            ],
+            "title": "Rhythmic Gymnastics",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-trampoline",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Trampoline Gymnastics"
+            ],
+            "title": "Trampoline",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GTR-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Gymnastics Federation - Gymnastics",
         "qualificationEvents": [],
@@ -6058,11 +7004,20 @@
       {
         "allocationUrl": "https://www.ihf.info/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Handball Federation",
         "httpStatus": 200,
         "id": "if-handball",
+        "iocDocuments": [
+          {
+            "id": "ioc-handball",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Handball",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HBL-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Handball Federation - Handball",
         "qualificationEvents": [
@@ -6096,11 +7051,20 @@
       {
         "allocationUrl": "https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Hockey Federation",
         "httpStatus": 200,
         "id": "if-hockey",
+        "iocDocuments": [
+          {
+            "id": "ioc-hockey",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Hockey",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "team_qualification",
         "label": "FIH - Belgium men qualify through the Hockey Pro League",
         "qualificationEvents": [
@@ -6134,11 +7098,20 @@
       {
         "allocationUrl": "https://www.ijf.org/ijf/documents/26",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Judo Federation",
         "httpStatus": 200,
         "id": "if-judo",
+        "iocDocuments": [
+          {
+            "id": "ioc-judo",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Judo",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/JUD-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Judo Federation - Judo",
         "qualificationEvents": [],
@@ -6157,11 +7130,20 @@
       {
         "allocationUrl": "https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Lacrosse",
         "httpStatus": 200,
         "id": "if-lacrosse",
+        "iocDocuments": [
+          {
+            "id": "ioc-lacrosse",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Lacrosse",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/LAC-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Lacrosse - Lacrosse",
         "qualificationEvents": [
@@ -6195,11 +7177,20 @@
       {
         "allocationUrl": "https://www.uipmworld.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Union Internationale de Pentathlon Moderne",
         "httpStatus": 200,
         "id": "if-modern-pentathlon",
+        "iocDocuments": [
+          {
+            "id": "ioc-modern-pentathlon",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Modern Pentathlon",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/MPN-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "Union Internationale de Pentathlon Moderne - Modern Pentathlon",
         "qualificationEvents": [],
@@ -6218,11 +7209,31 @@
       {
         "allocationUrl": "https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Rowing",
         "httpStatus": 200,
         "id": "if-rowing",
+        "iocDocuments": [
+          {
+            "id": "ioc-rowing",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Rowing"
+            ],
+            "title": "Rowing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ROW-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-rowing-coastal",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Rowing Coastal Beach Sprints"
+            ],
+            "title": "Rowing Coastal",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RCB-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Rowing - Rowing",
         "qualificationEvents": [],
@@ -6242,11 +7253,20 @@
       {
         "allocationUrl": "https://www.world.rugby/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Rugby",
         "httpStatus": 200,
         "id": "if-rugby-sevens",
+        "iocDocuments": [
+          {
+            "id": "ioc-rugby-sevens",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Rugby Sevens",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RU7-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Rugby - Rugby Sevens",
         "qualificationEvents": [
@@ -6280,11 +7300,20 @@
       {
         "allocationUrl": "https://www.sailing.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Sailing",
         "httpStatus": 200,
         "id": "if-sailing",
+        "iocDocuments": [
+          {
+            "id": "ioc-sailing",
+            "publishedAt": "2026-06-22",
+            "sports": [],
+            "title": "Sailing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Sailing - Sailing",
         "qualificationEvents": [],
@@ -6305,11 +7334,20 @@
       {
         "allocationUrl": "https://www.issf-sports.org/competitions/3488",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Shooting Sport Federation",
         "httpStatus": 200,
         "id": "if-shooting",
+        "iocDocuments": [
+          {
+            "id": "ioc-shooting",
+            "publishedAt": "2026-06-23",
+            "sports": [],
+            "title": "Shooting",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "quota_tracker",
         "label": "International Shooting Sport Federation - Shooting",
         "qualificationEvents": [],
@@ -6329,11 +7367,20 @@
       {
         "allocationUrl": "https://www.worldskate.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Skate",
         "httpStatus": 200,
         "id": "if-skateboarding",
+        "iocDocuments": [
+          {
+            "id": "ioc-skateboarding",
+            "publishedAt": "2026-07-10",
+            "sports": [],
+            "title": "Skateboarding",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SKB-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Skate - Skateboarding",
         "qualificationEvents": [],
@@ -6353,11 +7400,33 @@
       {
         "allocationUrl": "https://www.canoeicf.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Canoe Federation",
         "httpStatus": 200,
         "id": "if-canoe",
+        "iocDocuments": [
+          {
+            "id": "ioc-slalom-paddle",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Slalom Paddle",
+              "Canoe Slalom"
+            ],
+            "title": "Slalom Paddle",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/PSL-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-sprint-paddle",
+            "publishedAt": "2026-07-28",
+            "sports": [
+              "Sprint Paddle",
+              "Canoe Sprint"
+            ],
+            "title": "Sprint Paddle",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/PSP-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Canoe Federation - Canoe",
         "qualificationEvents": [],
@@ -6379,11 +7448,20 @@
       {
         "allocationUrl": "https://www.worldsquash.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Squash Federation",
         "httpStatus": 202,
         "id": "if-squash",
+        "iocDocuments": [
+          {
+            "id": "ioc-squash",
+            "publishedAt": "2026-06-23",
+            "sports": [],
+            "title": "Squash",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SQU-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Squash Federation - Squash",
         "qualificationEvents": [],
@@ -6402,11 +7480,20 @@
       {
         "allocationUrl": "https://isasurf.org/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Surfing Association",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-surfing",
+        "iocDocuments": [
+          {
+            "id": "ioc-surfing",
+            "publishedAt": "2026-06-29",
+            "sports": [],
+            "title": "Surfing",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Surfing Association - Surfing",
         "qualificationEvents": [],
@@ -6425,11 +7512,20 @@
       {
         "allocationUrl": "https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Table Tennis Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-table-tennis",
+        "iocDocuments": [
+          {
+            "id": "ioc-table-tennis",
+            "publishedAt": "2026-08-14",
+            "sports": [],
+            "title": "Table Tennis",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TTE-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Table Tennis Federation - Table Tennis",
         "qualificationEvents": [],
@@ -6448,11 +7544,20 @@
       {
         "allocationUrl": "https://www.worldtaekwondo.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Taekwondo",
         "httpStatus": 200,
         "id": "if-taekwondo",
+        "iocDocuments": [
+          {
+            "id": "ioc-taekwondo",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Taekwondo",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TKW-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Taekwondo - Taekwondo",
         "qualificationEvents": [],
@@ -6471,11 +7576,20 @@
       {
         "allocationUrl": "https://www.itftennis.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Tennis Federation",
         "httpStatus": 200,
         "id": "if-tennis",
+        "iocDocuments": [
+          {
+            "id": "ioc-tennis",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Tennis",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TEN-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "International Tennis Federation - Tennis",
         "qualificationEvents": [],
@@ -6494,11 +7608,20 @@
       {
         "allocationUrl": "https://triathlon.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "World Triathlon",
         "httpStatus": 200,
         "id": "if-triathlon",
+        "iocDocuments": [
+          {
+            "id": "ioc-triathlon",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Triathlon",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "World Triathlon - Triathlon",
         "qualificationEvents": [],
@@ -6517,11 +7640,31 @@
       {
         "allocationUrl": "https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Fédération Internationale de Volleyball",
         "httpStatus": 202,
         "id": "if-volleyball",
+        "iocDocuments": [
+          {
+            "id": "ioc-beach-volleyball",
+            "publishedAt": "2026-07-10",
+            "sports": [
+              "Beach Volleyball"
+            ],
+            "title": "Beach Volleyball",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf"
+          },
+          {
+            "id": "ioc-volleyball",
+            "publishedAt": "2026-05-12",
+            "sports": [
+              "Volleyball"
+            ],
+            "title": "Volleyball",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "team_qualification",
         "label": "FIVB - Canada women qualify for LA28 volleyball",
         "qualificationEvents": [
@@ -6570,11 +7713,20 @@
       {
         "allocationUrl": "https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "International Weightlifting Federation",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "if-weightlifting",
+        "iocDocuments": [
+          {
+            "id": "ioc-weightlifting",
+            "publishedAt": "2026-05-12",
+            "sports": [],
+            "title": "Weightlifting",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WLF-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_ranking",
         "label": "International Weightlifting Federation - Weightlifting",
         "qualificationEvents": [],
@@ -6593,11 +7745,20 @@
       {
         "allocationUrl": "https://cdn.uww.org/2026-02/01_qs_la28.pdf",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "United World Wrestling",
         "httpStatus": 200,
         "id": "if-wrestling",
+        "iocDocuments": [
+          {
+            "id": "ioc-wrestling",
+            "publishedAt": "2026-08-13",
+            "sports": [],
+            "title": "Wrestling",
+            "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WRE-LA28-Qualification-System.pdf"
+          }
+        ],
         "kind": "qualification_system",
         "label": "United World Wrestling - Wrestling",
         "qualificationEvents": [],
@@ -6616,11 +7777,12 @@
       {
         "allocationUrl": "https://coarg.org.ar/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Argentina",
         "httpStatus": 200,
         "id": "noc-arg",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Argentina NOC",
         "qualificationEvents": [],
@@ -6637,11 +7799,12 @@
       {
         "allocationUrl": "https://www.olympics.com.au/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
         "id": "noc-aus",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Australia NOC",
         "qualificationEvents": [],
@@ -6658,11 +7821,12 @@
       {
         "allocationUrl": "https://www.equestrian.org.au/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
         "id": "national-federation-aus-1",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Australia national federation",
         "qualificationEvents": [],
@@ -6679,11 +7843,12 @@
       {
         "allocationUrl": "https://www.cricket.com.au/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
         "id": "national-federation-aus-2",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Australia national federation",
         "qualificationEvents": [],
@@ -6700,11 +7865,12 @@
       {
         "allocationUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Australia",
         "httpStatus": 200,
         "id": "noc-aus-dressage-la28",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Australian Olympic Committee - Dressage team en route to LA28",
         "qualificationEvents": [],
@@ -6723,11 +7889,12 @@
       {
         "allocationUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Austria",
         "httpStatus": 200,
         "id": "noc-aut",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Austria NOC",
         "qualificationEvents": [],
@@ -6744,11 +7911,12 @@
       {
         "allocationUrl": "https://www.teambelgium.be/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Belgium",
         "httpStatus": 200,
         "id": "noc-bel",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Belgium NOC",
         "qualificationEvents": [],
@@ -6765,11 +7933,12 @@
       {
         "allocationUrl": "https://www.cob.org.br/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Brazil",
         "httpStatus": 200,
         "id": "noc-bra",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Brazil NOC",
         "qualificationEvents": [],
@@ -6786,11 +7955,12 @@
       {
         "allocationUrl": "https://olympic.ca/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Canada",
         "httpStatus": 200,
         "id": "noc-can",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Canada NOC",
         "qualificationEvents": [],
@@ -6807,11 +7977,12 @@
       {
         "allocationUrl": "https://www.olympic.cn/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "China",
         "httpStatus": 200,
         "id": "noc-chn",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "China NOC",
         "qualificationEvents": [],
@@ -6828,11 +7999,12 @@
       {
         "allocationUrl": "https://www.olympijskytym.cz/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Czech Republic",
         "httpStatus": 200,
         "id": "noc-cze",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Czech Republic NOC",
         "qualificationEvents": [],
@@ -6849,11 +8021,12 @@
       {
         "allocationUrl": "https://www.dif.dk/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Denmark",
         "httpStatus": 200,
         "id": "noc-den",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Denmark NOC",
         "qualificationEvents": [],
@@ -6870,11 +8043,12 @@
       {
         "allocationUrl": "https://www.olympiakomitea.fi/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Finland",
         "httpStatus": 200,
         "id": "noc-fin",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Finland NOC",
         "qualificationEvents": [],
@@ -6891,11 +8065,12 @@
       {
         "allocationUrl": "https://cnosf.franceolympique.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "France",
         "httpStatus": 200,
         "id": "noc-fra",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "France NOC",
         "qualificationEvents": [],
@@ -6912,11 +8087,12 @@
       {
         "allocationUrl": "https://www.dosb.de/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Germany",
         "httpStatus": 200,
         "id": "noc-ger",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Germany NOC",
         "qualificationEvents": [],
@@ -6933,11 +8109,12 @@
       {
         "allocationUrl": "https://www.teamgb.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
         "id": "noc-gbr",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Great Britain NOC",
         "qualificationEvents": [],
@@ -6954,11 +8131,12 @@
       {
         "allocationUrl": "https://www.ecb.co.uk/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
         "id": "national-federation-gbr-1",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Great Britain national federation",
         "qualificationEvents": [],
@@ -6975,11 +8153,12 @@
       {
         "allocationUrl": "https://www.britishswimming.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
         "httpStatus": 200,
         "id": "national-federation-gbr-2",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Great Britain national federation",
         "qualificationEvents": [],
@@ -6996,11 +8175,12 @@
       {
         "allocationUrl": "https://www.britishcycling.org.uk/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Great Britain",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "national-federation-gbr-3",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Great Britain national federation",
         "qualificationEvents": [],
@@ -7017,11 +8197,12 @@
       {
         "allocationUrl": "https://www.hoc.gr/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Greece",
         "httpStatus": 200,
         "id": "noc-gre",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Greece NOC",
         "qualificationEvents": [],
@@ -7038,11 +8219,12 @@
       {
         "allocationUrl": "https://olimpia.hu/kezdolap",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Hungary",
         "httpStatus": 200,
         "id": "noc-hun",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Hungary NOC",
         "qualificationEvents": [],
@@ -7059,11 +8241,12 @@
       {
         "allocationUrl": "https://olympic.ind.in/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "India",
         "httpStatus": 200,
         "id": "noc-ind",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "India NOC",
         "qualificationEvents": [],
@@ -7080,11 +8263,12 @@
       {
         "allocationUrl": "https://www.bcci.tv/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "India",
         "httpStatus": 200,
         "id": "national-federation-ind-1",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "India national federation",
         "qualificationEvents": [],
@@ -7101,11 +8285,12 @@
       {
         "allocationUrl": "https://olympics.ie/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Ireland",
         "httpStatus": 200,
         "id": "noc-irl",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Ireland NOC",
         "qualificationEvents": [],
@@ -7122,11 +8307,12 @@
       {
         "allocationUrl": "https://www.coni.it/it/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Italy",
         "httpStatus": 200,
         "id": "noc-ita",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Italy NOC",
         "qualificationEvents": [],
@@ -7143,11 +8329,12 @@
       {
         "allocationUrl": "https://www.joc.or.jp/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Japan",
         "httpStatus": 200,
         "id": "noc-jpn",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Japan NOC",
         "qualificationEvents": [],
@@ -7164,11 +8351,12 @@
       {
         "allocationUrl": "https://www.teamnl.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
         "id": "noc-ned",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Netherlands NOC",
         "qualificationEvents": [],
@@ -7185,11 +8373,12 @@
       {
         "allocationUrl": "https://www.knhs.nl/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
         "id": "national-federation-ned-1",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Netherlands national federation",
         "qualificationEvents": [],
@@ -7206,11 +8395,12 @@
       {
         "allocationUrl": "https://www.nevobo.nl/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
         "id": "national-federation-ned-2",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Netherlands national federation",
         "qualificationEvents": [],
@@ -7227,11 +8417,12 @@
       {
         "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
         "id": "noc-ned-dressage-la28",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "TeamNL - Dressage team qualified for LA28",
         "qualificationEvents": [],
@@ -7250,11 +8441,12 @@
       {
         "allocationUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
         "id": "noc-ned-beach-volleyball-la28",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "TeamNL - Beach volleyball pair qualified for LA28",
         "qualificationEvents": [],
@@ -7273,11 +8465,12 @@
       {
         "allocationUrl": "https://www.fih.hockey/events/fih-pro-league/news/red-lions-extend-unbeaten-streak-as-england-men-remain-in-the-hunt",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Netherlands",
         "httpStatus": 200,
         "id": "if-hockey-ned-women-la28",
+        "iocDocuments": [],
         "kind": "team_qualification",
         "label": "FIH - Netherlands women qualify through the Hockey Pro League",
         "qualificationEvents": [],
@@ -7296,11 +8489,12 @@
       {
         "allocationUrl": "https://olympic.org.nz/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "New Zealand",
         "httpStatus": 200,
         "id": "noc-nzl",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "New Zealand NOC",
         "qualificationEvents": [],
@@ -7317,11 +8511,12 @@
       {
         "allocationUrl": "https://olympic.no/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Norway",
         "httpStatus": 200,
         "id": "noc-nor",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Norway NOC",
         "qualificationEvents": [],
@@ -7338,11 +8533,12 @@
       {
         "allocationUrl": "https://ccdp.org.pe/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Peru",
         "httpStatus": 200,
         "id": "noc-per",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Peru NOC",
         "qualificationEvents": [],
@@ -7359,11 +8555,12 @@
       {
         "allocationUrl": "https://olimpijski.pl/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Poland",
         "httpStatus": 200,
         "id": "noc-pol",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Poland NOC",
         "qualificationEvents": [],
@@ -7380,11 +8577,12 @@
       {
         "allocationUrl": "https://comiteolimpicoportugal.pt/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Portugal",
         "httpStatus": 200,
         "id": "noc-por",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Portugal NOC",
         "qualificationEvents": [],
@@ -7401,11 +8599,12 @@
       {
         "allocationUrl": "https://www.cosr.ro/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Romania",
         "httpStatus": 200,
         "id": "noc-rou",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Romania NOC",
         "qualificationEvents": [],
@@ -7422,11 +8621,12 @@
       {
         "allocationUrl": "https://www.sascoc.co.za/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "South Africa",
         "httpStatus": 202,
         "id": "noc-rsa",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "South Africa NOC",
         "qualificationEvents": [],
@@ -7443,11 +8643,12 @@
       {
         "allocationUrl": "https://cricket.co.za/",
         "available": false,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "South Africa",
-        "httpStatus": 403,
+        "httpStatus": null,
         "id": "national-federation-rsa-1",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "South Africa national federation",
         "qualificationEvents": [],
@@ -7464,11 +8665,12 @@
       {
         "allocationUrl": "https://www.sports.or.kr/sports/main/main.do",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "South Korea",
         "httpStatus": 200,
         "id": "noc-kor",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "South Korea NOC",
         "qualificationEvents": [],
@@ -7485,11 +8687,12 @@
       {
         "allocationUrl": "https://sok.se/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Sweden",
         "httpStatus": 200,
         "id": "noc-swe",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Sweden NOC",
         "qualificationEvents": [],
@@ -7506,11 +8709,12 @@
       {
         "allocationUrl": "https://swissolympic.ch/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "Switzerland",
         "httpStatus": 200,
         "id": "noc-sui",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "Switzerland NOC",
         "qualificationEvents": [],
@@ -7527,11 +8731,12 @@
       {
         "allocationUrl": "https://www.usopc.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
         "id": "noc-usa",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "United States NOC",
         "qualificationEvents": [],
@@ -7548,11 +8753,12 @@
       {
         "allocationUrl": "https://www.usalacrosse.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
         "id": "national-federation-usa-1",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "United States national federation",
         "qualificationEvents": [],
@@ -7569,11 +8775,12 @@
       {
         "allocationUrl": "https://www.usaswimming.org/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
         "id": "national-federation-usa-2",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "United States national federation",
         "qualificationEvents": [],
@@ -7590,11 +8797,12 @@
       {
         "allocationUrl": "https://www.usafootball.com/",
         "available": true,
-        "checkedAt": "2026-09-05T09:05:30.830Z",
+        "checkedAt": "2026-09-05T10:44:58.277Z",
         "entryUrl": null,
         "governingBody": "United States",
         "httpStatus": 200,
         "id": "national-federation-usa-3",
+        "iocDocuments": [],
         "kind": "country_selection",
         "label": "United States national federation",
         "qualificationEvents": [],
@@ -9395,1133 +10603,6 @@
       }
     },
     {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-aus-571e1aa10148b156",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20"
-        ],
-        "id": "approved-review-if-cricket-aus-571e1aa10148b156",
-        "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-if-cricket-aus-571e1aa10148b156",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team",
-        "teamName": "Australia women's cricket team",
-        "verifiedAt": "2026-08-31T12:52:43.326Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "Nederland eindigde kort achter België als vijfde en dankte dit aan de topscores van Van der Putten (77,764%, 6e) en Van Liere (74,161%, 11e).",
-      "id": "review-noc-ned-dressage-la28-ned-61961ba7662742db",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage"
-        ],
-        "id": "approved-review-noc-ned-dressage-la28-ned-61961ba7662742db",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": 3,
-        "reviewCandidateId": "review-noc-ned-dressage-la28-ned-61961ba7662742db",
-        "sourceId": "noc-ned-dressage-la28",
-        "sourcePublishedAt": "2026-08-12T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "noc_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T11:56:49.456Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
-      "id": "review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage"
-        ],
-        "id": "approved-review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
-        "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": 3,
-        "reviewCandidateId": "review-noc-aus-dressage-la28-aus-76c5f62f69ea1f4c",
-        "sourceId": "noc-aus-dressage-la28",
-        "sourcePublishedAt": "2026-08-23T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "noc_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T11:55:48.090Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:24:18.919Z",
-      "extractedEvidence": "Canada secure LA28 Olympic berth to complete historic NORCECA double &#8211; FIVB Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players&#8217; Database → Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players&#8217; Database → Players Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball Foundation Volleyball World VBTV English Español Français Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players' Database → Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players' Database → Players PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Canada secure LA28 Olympic berth to complete historic NORCECA double FIVB Volleyball Empowerment-supported Canada celebrate Olympic qualification following first continental title in Santo Domingo Back Back Aug 30, 2026 Home / Volleyball Share Canada earned their place at the LA28 Olympic Games following a thrilling victory over hosts Dominican Republic on Saturday evening in Santo Domingo.",
-      "id": "review-if-volleyball-can-ec9089de2b28a22f",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's tournament"
-        ],
-        "id": "approved-review-if-volleyball-can-ec9089de2b28a22f",
-        "noc": "CAN",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-volleyball-can-ec9089de2b28a22f",
-        "sourceId": "if-volleyball",
-        "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/",
-        "sport": "Volleyball",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:05:55.358Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 | TeamNL Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Raïsa Schoon en Katja Stam zijn voor de eerste keer in hun carrière Europees kampioen beachvolleybal geworden.",
-      "id": "review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's beach volleyball"
-        ],
-        "id": "approved-review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a",
-        "sourceId": "noc-ned-beach-volleyball-la28",
-        "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
-        "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
-        "supersedesId": null,
-        "teamName": "Katja Stam and Raïsa Schoon",
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:06:32.558Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-aus-ff64e5a775183f46",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-aus-ff64e5a775183f46",
-        "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-aus-ff64e5a775183f46",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:06:41.825Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-gbr-bab2b38e58677bde",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-gbr-bab2b38e58677bde",
-        "noc": "GBR",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-gbr-bab2b38e58677bde",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:06:46.009Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-gbr-317047fbbbd66561",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20"
-        ],
-        "id": "approved-review-if-cricket-gbr-317047fbbbd66561",
-        "noc": "GBR",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-if-cricket-gbr-317047fbbbd66561",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team",
-        "teamName": "Great Britain women's cricket team",
-        "verifiedAt": "2026-08-31T12:52:45.727Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-ind-aefea7b3df19be15",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-ind-aefea7b3df19be15",
-        "noc": "IND",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-ind-aefea7b3df19be15",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:07:07.164Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-gbr-b070ae21815b3b97",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-gbr-b070ae21815b3b97",
-        "noc": "GBR",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-gbr-b070ae21815b3b97",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T15:02:04.152Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-ind-bd69176142f2771b",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20"
-        ],
-        "id": "approved-review-if-cricket-ind-bd69176142f2771b",
-        "noc": "IND",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-if-cricket-ind-bd69176142f2771b",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team",
-        "teamName": "India women's cricket team",
-        "verifiedAt": "2026-08-31T12:52:46.860Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "618 points clear of Great Britain, while defending champions Denmark took bronze.",
-      "id": "review-if-equestrian-gbr-70afffb1049ac3e4",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-if-equestrian-gbr-70afffb1049ac3e4",
-        "noc": "GBR",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-equestrian-gbr-70afffb1049ac3e4",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-08-13T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:07:47.627Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-ind-607d4fc37122a028",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-ind-607d4fc37122a028",
-        "noc": "IND",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-ind-607d4fc37122a028",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T15:02:25.956Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
-      "id": "review-noc-aus-dressage-la28-aus-e93c4f4d5ced133a",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-noc-aus-dressage-la28-aus-e93c4f4d5ced133a",
-        "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-noc-aus-dressage-la28-aus-e93c4f4d5ced133a",
-        "sourceId": "noc-aus-dressage-la28",
-        "sourcePublishedAt": "2026-08-23T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-02T15:02:37.852Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-rsa-84005752d2b77618",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20"
-        ],
-        "id": "approved-review-if-cricket-rsa-84005752d2b77618",
-        "noc": "RSA",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-if-cricket-rsa-84005752d2b77618",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team",
-        "teamName": "South Africa women's cricket team",
-        "verifiedAt": "2026-08-31T12:52:48.351Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-31T10:09:12.996Z",
-      "extractedEvidence": "Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 | TeamNL Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Raïsa Schoon en Katja Stam zijn voor de eerste keer in hun carrière Europees kampioen beachvolleybal geworden.",
-      "id": "review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "athleteName": null,
-        "disciplines": [
-          "Women's beach volleyball"
-        ],
-        "id": "approved-review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-dc1e9b035250fc84",
-        "sourceId": "noc-ned-beach-volleyball-la28",
-        "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
-        "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
-        "teamName": "Katja Stam and Raïsa Schoon",
-        "verifiedAt": "2026-08-31T12:52:11.211Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-01T22:45:02.429Z",
-      "extractedEvidence": "Dressage qualifications:  GER, GBR, DEN, BEL, NED, SWE.\n\nTechnically the FEI website would probably have the \"official\" results for all three disciplines, but I couldn't figure out their website.",
-      "id": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-      "reason": "Visitor-submitted report. Verify the selected official source before publishing.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-        "noc": "GER",
-        "qualificationRoute": null,
-        "quotaCount": 3,
-        "reviewCandidateId": "visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-09-01T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://inside.fei.org/",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "noc_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T11:56:14.456Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://inside.fei.org/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "618 points clear of Great Britain, while defending champions Denmark took bronze.",
-      "id": "review-if-equestrian-den-bb4061643c994325",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-if-equestrian-den-bb4061643c994325",
-        "noc": "DEN",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-equestrian-den-bb4061643c994325",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-08-13T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:08:00.242Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "Nederland eindigde kort achter België als vijfde en dankte dit aan de topscores van Van der Putten (77,764%, 6e) en Van Liere (74,161%, 11e).",
-      "id": "review-noc-ned-dressage-la28-ned-df9e105fb9ec7468",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-noc-ned-dressage-la28-ned-df9e105fb9ec7468",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-noc-ned-dressage-la28-ned-df9e105fb9ec7468",
-        "sourceId": "noc-ned-dressage-la28",
-        "sourcePublishedAt": "2026-08-12T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-02T15:01:16.573Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 | TeamNL Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Met Europese titel veroveren Stam en Schoon ook ticket voor LA28 15 augustus 2026 Nevobo Foto: ANP lees verder Raïsa Schoon en Katja Stam zijn voor de eerste keer in hun carrière Europees kampioen beachvolleybal geworden.",
-      "id": "review-noc-ned-beach-volleyball-la28-ned-ab84dba964caa260",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's beach volleyball"
-        ],
-        "id": "approved-review-noc-ned-beach-volleyball-la28-ned-ab84dba964caa260",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": null,
-        "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-ab84dba964caa260",
-        "sourceId": "noc-ned-beach-volleyball-la28",
-        "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
-        "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
-        "teamName": "Katja Stam and Raïsa Schoon",
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T15:01:21.888Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/met-europese-titel-veroveren-stam-en-schoon-ook-ticket-voor-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-rsa-b43b79288d32efa7",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-rsa-b43b79288d32efa7",
-        "noc": "RSA",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-rsa-b43b79288d32efa7",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T15:02:31.868Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T11:48:35.880Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-aus-2fb5b91c96a7ba26",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-aus-2fb5b91c96a7ba26",
-        "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-aus-2fb5b91c96a7ba26",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-02T15:02:42.834Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:22:23.370Z",
-      "extractedEvidence": "Meanwhile, the Dutch women celebrated sealing a sixth Pro League title and Olympic qualification in style by completing a commanding 6-0 victory over Australia in Belgium.",
-      "id": "review-if-hockey-ned-women-la28-ned-14c063a749f94f0c",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's tournament"
-        ],
-        "id": "approved-review-if-hockey-ned-women-la28-ned-14c063a749f94f0c",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-hockey-ned-women-la28-ned-14c063a749f94f0c",
-        "sourceId": "if-hockey-ned-women-la28",
-        "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.fih.hockey/events/fih-pro-league/news/red-lions-extend-unbeaten-streak-as-england-men-remain-in-the-hunt",
-        "sport": "Hockey",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:06:22.359Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.fih.hockey/events/fih-pro-league/news/red-lions-extend-unbeaten-streak-as-england-men-remain-in-the-hunt",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Alongside medallists Germany, Great Britain and Denmark, qualification went to Belgium in fourth, the Netherlands in fifth and Sweden in sixth.",
-      "id": "review-if-equestrian-bel-2886c8e26db92fc7",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-if-equestrian-bel-2886c8e26db92fc7",
-        "noc": "BEL",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-equestrian-bel-2886c8e26db92fc7",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-08-13T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:06:37.693Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Alongside medallists Germany, Great Britain and Denmark, qualification went to Belgium in fourth, the Netherlands in fifth and Sweden in sixth.",
-      "id": "review-if-equestrian-swe-b7d7f169580a8bb2",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-if-equestrian-swe-b7d7f169580a8bb2",
-        "noc": "SWE",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-equestrian-swe-b7d7f169580a8bb2",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-08-13T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:07:52.260Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:22:23.370Z",
-      "extractedEvidence": "Belgium men seal the deal as Irish women bow out Trending Check Out the World Rankings! International Hockey Federation Medical/Anti-Doping Rankings FIH.",
-      "id": "review-if-hockey-bel-7b07da54de4cebe3",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Men's tournament"
-        ],
-        "id": "approved-review-if-hockey-bel-7b07da54de4cebe3",
-        "noc": "BEL",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-hockey-bel-7b07da54de4cebe3",
-        "sourceId": "if-hockey",
-        "sourcePublishedAt": "2026-06-28T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out",
-        "sport": "Hockey",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:06:01.242Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Alongside medallists Germany, Great Britain and Denmark, qualification went to Belgium in fourth, the Netherlands in fifth and Sweden in sixth.",
-      "id": "review-if-equestrian-ned-c19123eea492a9f1",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-if-equestrian-ned-c19123eea492a9f1",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-equestrian-ned-c19123eea492a9f1",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-08-13T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": "approved-review-noc-ned-dressage-la28-ned-61961ba7662742db",
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:06:28.710Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-16T00:00:00.000Z",
-      "extractedEvidence": "IFAF's World Flag 2026 results confirm that the United States, Italy and Canada have qualified for the men's six-team competition at LA28. Italy reached the final and secured its quota place.",
-      "id": "review-if-flag-football-ita-men-2026-worlds",
-      "reason": "Official IFAF World Championship result. Confirm the pre-filled Italy men's team quota before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Men's tournament"
-        ],
-        "id": "approved-review-if-flag-football-ita-men-2026-worlds",
-        "noc": "ITA",
-        "qualificationRoute": "2026 IFAF Flag Football World Championships",
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-flag-football-ita-men-2026-worlds",
-        "sourceId": "if-flag-football",
-        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-        "sport": "Flag Football",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 10,
-        "verifiedAt": "2026-09-04T10:14:10.306Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 week ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past and",
-      "id": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
-        "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
-        "sourceId": "noc-aus-dressage-la28",
-        "sourcePublishedAt": "2026-08-23T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:06:50.825Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
-      "id": "review-if-cricket-rsa-a57108a124092b01",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's T20 tournament"
-        ],
-        "id": "approved-review-if-cricket-rsa-a57108a124092b01",
-        "noc": "RSA",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-cricket-rsa-a57108a124092b01",
-        "sourceId": "if-cricket",
-        "sourcePublishedAt": "2026-06-29T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-        "sport": "Cricket",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": null,
-        "verifiedAt": "2026-09-03T19:07:39.793Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Germany claim 13th World Championship team gold on home soil | Sydney CDI Skip to main content Visit the Equestrian Australia National Website Search Home About us Organising Committee History CDI explained Previous winners Competitors Competitor Information Draws, Results What&#039;s on, Info Competition programme General Information Stallion Show Spectator Judging Young Horse School Tours FAQs Workshop Tickets Sponsors/Exhibitors Sponsors Sponsor packages Trade Show Programme booklet advertising News & Media News & Press Releases Photo galleries Videos Media Accreditation Volunteers Workshop Fundraising Stallion Show Toggle navigation MENU Home About Us Organising Committee CDI Explained Previous Winners History Competitors Competitor Information Jumping/Combined Training Draws, Results What&#039;s on, Info Competition programme General Information Stallion Show Spectator Judging Young Horse School Tours FAQ&#039;s Workshop Tickets News & Media News & Press Releases Videos Photo galleries Media Accreditation Sponsors/Exhibitors Current Sponsors Trade Stands Advertise in Booklet Sponsor Packages Volunteers Stallion Show Fundraising Live Stream Workshop Home About Us Organising Committee CDI Explained Previous Winners History Competitors Competitor Information Jumping/Combined Training Draws, Results What&#039;s on, Info Competition programme General Information Stallion Show Spectator Judging Young Horse School Tours FAQ&#039;s Workshop Tickets News & Media News & Press Releases Videos Photo galleries Media Accreditation Sponsors/Exhibitors Current Sponsors Trade Stands Advertise in Booklet Sponsor Packages Volunteers Stallion Show Fundraising Live Stream Workshop NEWS > Dressage Posted by FEI Media Release on 13/08/2026.",
-      "id": "review-if-equestrian-ger-53cd343340244df1",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-if-equestrian-ger-53cd343340244df1",
-        "noc": "GER",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-equestrian-ger-53cd343340244df1",
-        "sourceId": "if-equestrian",
-        "sourcePublishedAt": "2026-08-13T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": "approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da",
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:07:44.794Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Nederland eindigde kort achter België als vijfde en dankte dit aan de topscores van Van der Putten (77,764%, 6e) en Van Liere (74,161%, 11e).",
-      "id": "review-noc-ned-dressage-la28-ned-797a2f328aa729f8",
-      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Dressage - Team"
-        ],
-        "id": "approved-review-noc-ned-dressage-la28-ned-797a2f328aa729f8",
-        "noc": "NED",
-        "qualificationRoute": null,
-        "quotaCount": 1,
-        "reviewCandidateId": "review-noc-ned-dressage-la28-ned-797a2f328aa729f8",
-        "sourceId": "noc-ned-dressage-la28",
-        "sourcePublishedAt": "2026-08-12T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
-        "sport": "Equestrian",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 3,
-        "verifiedAt": "2026-09-03T19:07:56.825Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.teamnl.org/artikelen/2026/08/dressuurteam-stelt-olympisch-ticket-veilig",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-30T00:00:00.000Z",
-      "extractedEvidence": "Thailand won the 2026 AVC Women's Volleyball Continental Championship and the direct Asian qualification place for the LA28 Olympic Games.",
-      "id": "review-if-volleyball-tha-women-2026-avc",
-      "reason": "Official FIVB confirmation. Confirm the pre-filled Thailand women's volleyball team quota before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's tournament"
-        ],
-        "id": "approved-review-if-volleyball-tha-women-2026-avc",
-        "noc": "THA",
-        "qualificationRoute": "2026 AVC Women's Volleyball Continental Championship",
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-volleyball-tha-women-2026-avc",
-        "sourceId": "if-volleyball",
-        "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
-        "sport": "Volleyball",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 12,
-        "verifiedAt": "2026-09-04T10:13:07.173Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-16T00:00:00.000Z",
-      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Mexico's women secured an LA28 Olympic quota place by winning the bronze-medal match over Great Britain.",
-      "id": "review-if-flag-football-mex-women-2026-worlds",
-      "reason": "Official IFAF World Championship result. Confirm the pre-filled Mexico women's team quota before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's tournament"
-        ],
-        "id": "approved-review-if-flag-football-mex-women-2026-worlds",
-        "noc": "MEX",
-        "qualificationRoute": "2026 IFAF Flag Football World Championships",
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-flag-football-mex-women-2026-worlds",
-        "sourceId": "if-flag-football",
-        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-        "sport": "Flag Football",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 10,
-        "verifiedAt": "2026-09-04T10:13:58.573Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-16T00:00:00.000Z",
-      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Canada secured an LA28 Olympic quota place by winning the men's bronze-medal match over Mexico.",
-      "id": "review-if-flag-football-can-men-2026-worlds",
-      "reason": "Official IFAF World Championship result. Confirm the pre-filled Canada men's team quota before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Men's tournament"
-        ],
-        "id": "approved-review-if-flag-football-can-men-2026-worlds",
-        "noc": "CAN",
-        "qualificationRoute": "2026 IFAF Flag Football World Championships",
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-flag-football-can-men-2026-worlds",
-        "sourceId": "if-flag-football",
-        "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-        "sport": "Flag Football",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 10,
-        "verifiedAt": "2026-09-04T10:14:05.974Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-      "suggestedRecord": null
-    },
-    {
-      "detectedAt": "2026-08-15T00:00:00.000Z",
-      "extractedEvidence": "IFAF's World Flag 2026 results confirm that Canada qualified for the women's six-team competition at LA28 after reaching the final.",
-      "id": "review-if-flag-football-can-women-2026-worlds",
-      "reason": "Official IFAF World Championship result. Confirm the pre-filled Canada women's team quota before publication.",
-      "record": {
-        "allocationRecordId": null,
-        "athleteName": null,
-        "disciplines": [
-          "Women's tournament"
-        ],
-        "id": "approved-review-if-flag-football-can-women-2026-worlds",
-        "noc": "CAN",
-        "qualificationRoute": "2026 IFAF Flag Football World Championships",
-        "quotaCount": 1,
-        "reviewCandidateId": "review-if-flag-football-can-women-2026-worlds",
-        "sourceId": "if-flag-football",
-        "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
-        "sourceRecordType": "review_approved",
-        "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-        "sport": "Flag Football",
-        "state": "allocated",
-        "subjectType": "team_quota",
-        "supersedesId": null,
-        "teamName": null,
-        "teamSizeMax": 10,
-        "verifiedAt": "2026-09-04T10:14:15.358Z"
-      },
-      "resolution": "approved",
-      "sourceUrl": "https://www.americanfootball.sport/2026/08/16/canada-and-united-states-crowned-ifaf-world-flag-2026-champions/",
-      "suggestedRecord": null
-    },
-    {
       "detectedAt": "2026-09-02T15:16:07.524Z",
       "extractedEvidence": "29 June, 2026 Australia, Great Britain (through England), India and South Africa have qualified for the six-team women's event after finishing as the highest-ranked teams from Oceania, Europe, Asia and Africa, respectively, at the ongoing ICC Women's T20 World Cup 2026 .",
       "id": "review-if-cricket-aus-ff64e5a775183f46",
@@ -10968,6 +11049,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "FIBA",
+      "iocDocuments": [
+        {
+          "id": "ioc-3x3-basketball",
+          "publishedAt": "2026-07-10",
+          "sports": [],
+          "title": "3x3 Basketball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BK3-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "3x3-basketball",
       "label": "3x3 Basketball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11008,6 +11098,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Archery",
+      "iocDocuments": [
+        {
+          "id": "ioc-archery",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Archery",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "archery",
       "label": "Archery",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11052,6 +11151,53 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Aquatics",
+      "iocDocuments": [
+        {
+          "id": "ioc-artistic-swimming",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Artistic Swimming"
+          ],
+          "title": "Artistic Swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-diving",
+          "publishedAt": "2026-06-16",
+          "sports": [
+            "Diving"
+          ],
+          "title": "Diving",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/DIV-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-open-water-swimming",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Open Water Swimming"
+          ],
+          "title": "Open Water Swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/OWS-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-swimming",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Swimming"
+          ],
+          "title": "Swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWM-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-water-polo",
+          "publishedAt": "2026-05-06",
+          "sports": [
+            "Water Polo"
+          ],
+          "title": "Water Polo",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WPO-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "aquatics",
       "label": "Aquatics",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11083,6 +11229,7 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Athletics",
+      "iocDocuments": [],
       "key": "athletics",
       "label": "Athletics",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11110,6 +11257,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "Badminton World Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-badminton",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Badminton",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BDM-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "badminton",
       "label": "Badminton",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11136,6 +11292,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Baseball Softball Confederation",
+      "iocDocuments": [
+        {
+          "id": "ioc-baseball-softball",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Baseball and Softball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "baseball-softball",
       "label": "Baseball and Softball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11177,6 +11342,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "FIBA",
+      "iocDocuments": [
+        {
+          "id": "ioc-basketball",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Basketball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BKB-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "basketball",
       "label": "Basketball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11218,6 +11392,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Boxing",
+      "iocDocuments": [
+        {
+          "id": "ioc-boxing",
+          "publishedAt": "2026-08-05",
+          "sports": [],
+          "title": "Boxing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BOX-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "boxing",
       "label": "Boxing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11244,6 +11427,29 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Federation of Sport Climbing",
+      "iocDocuments": [
+        {
+          "id": "ioc-climbing-boulder",
+          "publishedAt": "2026-07-24",
+          "sports": [],
+          "title": "Climbing - Boulder",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Boulder-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-climbing-lead",
+          "publishedAt": "2026-07-24",
+          "sports": [],
+          "title": "Climbing - Lead",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Lead-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-climbing-speed",
+          "publishedAt": "2026-07-24",
+          "sports": [],
+          "title": "Climbing - Speed",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Speed-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "climbing",
       "label": "Sport Climbing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11322,6 +11528,15 @@
         "LA28"
       ],
       "governingBody": "International Cricket Council",
+      "iocDocuments": [
+        {
+          "id": "ioc-cricket",
+          "publishedAt": "2026-06-29",
+          "sports": [],
+          "title": "Cricket",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "cricket",
       "label": "Cricket",
       "notes": "Official prose announcements are reviewed before they become public records.",
@@ -11367,6 +11582,54 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "Union Cycliste Internationale",
+      "iocDocuments": [
+        {
+          "id": "ioc-cycling-road",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Cycling Road (Road Race)",
+            "Cycling Road (Time Trial)"
+          ],
+          "title": "Cycling Road",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRD-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-cycling-track",
+          "publishedAt": "2026-07-10",
+          "sports": [
+            "Cycling Track"
+          ],
+          "title": "Cycling Track",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CTR-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-mountain-bike",
+          "publishedAt": "2026-07-10",
+          "sports": [
+            "Mountain Bike"
+          ],
+          "title": "Mountain Bike",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/MTB-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-bmx-freestyle",
+          "publishedAt": "2026-07-22",
+          "sports": [
+            "BMX Freestyle"
+          ],
+          "title": "BMX Freestyle",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BMF-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-bmx-racing",
+          "publishedAt": "2026-07-10",
+          "sports": [
+            "BMX Racing"
+          ],
+          "title": "BMX Racing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BMX-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "cycling",
       "label": "Cycling",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11486,6 +11749,29 @@
         "Sweden"
       ],
       "governingBody": "Fédération Equestre Internationale",
+      "iocDocuments": [
+        {
+          "id": "ioc-equestrian-dressage",
+          "publishedAt": "2026-06-23",
+          "sports": [],
+          "title": "Equestrian Dressage",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-equestrian-eventing",
+          "publishedAt": "2026-06-23",
+          "sports": [],
+          "title": "Equestrian Eventing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-equestrian-jumping",
+          "publishedAt": "2026-06-23",
+          "sports": [],
+          "title": "Equestrian Jumping",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "equestrian",
       "label": "Equestrian",
       "notes": "Review source: Equestrian Australia reports the six Dressage team quota allocations at Aachen. FEI remains the governing qualification authority.",
@@ -11554,6 +11840,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Fencing Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-fencing",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Fencing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FEN-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "fencing",
       "label": "Fencing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11579,6 +11874,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Federation of American Football",
+      "iocDocuments": [
+        {
+          "id": "ioc-flag-football",
+          "publishedAt": "2026-07-10",
+          "sports": [],
+          "title": "Flag Football",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "flag-football",
       "label": "Flag Football",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11619,6 +11923,7 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "FIFA",
+      "iocDocuments": [],
       "key": "football",
       "label": "Football",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11659,6 +11964,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Golf Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-golf",
+          "publishedAt": "2026-08-28",
+          "sports": [],
+          "title": "Golf",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GLF-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "golf",
       "label": "Golf",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11701,6 +12015,35 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Gymnastics Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-artistic-gymnastics",
+          "publishedAt": "2026-05-29",
+          "sports": [
+            "Artistic Gymnastics"
+          ],
+          "title": "Artistic Gymnastics",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-rhythmic-gymnastics",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Rhythmic Gymnastics"
+          ],
+          "title": "Rhythmic Gymnastics",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-trampoline",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Trampoline Gymnastics"
+          ],
+          "title": "Trampoline",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GTR-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "gymnastics",
       "label": "Gymnastics",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11728,6 +12071,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Handball Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-handball",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Handball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HBL-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "handball",
       "label": "Handball",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11785,6 +12137,15 @@
         "LA"
       ],
       "governingBody": "International Hockey Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-hockey",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Hockey",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "hockey",
       "label": "Hockey",
       "notes": "FIH confirms Belgium won the 2025-26 Hockey Pro League and its LA28 quota. A separate FIH report is registered for the Netherlands women.",
@@ -11825,6 +12186,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Judo Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-judo",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Judo",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/JUD-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "judo",
       "label": "Judo",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11850,6 +12220,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Lacrosse",
+      "iocDocuments": [
+        {
+          "id": "ioc-lacrosse",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Lacrosse",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/LAC-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "lacrosse",
       "label": "Lacrosse",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11890,6 +12269,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "Union Internationale de Pentathlon Moderne",
+      "iocDocuments": [
+        {
+          "id": "ioc-modern-pentathlon",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Modern Pentathlon",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/MPN-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "modern-pentathlon",
       "label": "Modern Pentathlon",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11916,6 +12304,26 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Rowing",
+      "iocDocuments": [
+        {
+          "id": "ioc-rowing",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Rowing"
+          ],
+          "title": "Rowing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ROW-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-rowing-coastal",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Rowing Coastal Beach Sprints"
+          ],
+          "title": "Rowing Coastal",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RCB-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "rowing",
       "label": "Rowing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11942,6 +12350,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Rugby",
+      "iocDocuments": [
+        {
+          "id": "ioc-rugby-sevens",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Rugby Sevens",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RU7-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "rugby-sevens",
       "label": "Rugby Sevens",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -11983,6 +12400,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Sailing",
+      "iocDocuments": [
+        {
+          "id": "ioc-sailing",
+          "publishedAt": "2026-06-22",
+          "sports": [],
+          "title": "Sailing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "sailing",
       "label": "Sailing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12011,6 +12437,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Shooting Sport Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-shooting",
+          "publishedAt": "2026-06-23",
+          "sports": [],
+          "title": "Shooting",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "shooting",
       "label": "Shooting",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12038,6 +12473,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Skate",
+      "iocDocuments": [
+        {
+          "id": "ioc-skateboarding",
+          "publishedAt": "2026-07-10",
+          "sports": [],
+          "title": "Skateboarding",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SKB-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "skateboarding",
       "label": "Skateboarding",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12065,6 +12509,28 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Canoe Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-slalom-paddle",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Slalom Paddle",
+            "Canoe Slalom"
+          ],
+          "title": "Slalom Paddle",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/PSL-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-sprint-paddle",
+          "publishedAt": "2026-07-28",
+          "sports": [
+            "Sprint Paddle",
+            "Canoe Sprint"
+          ],
+          "title": "Sprint Paddle",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/PSP-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "canoe",
       "label": "Canoe",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12093,6 +12559,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Squash Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-squash",
+          "publishedAt": "2026-06-23",
+          "sports": [],
+          "title": "Squash",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SQU-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "squash",
       "label": "Squash",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12118,6 +12593,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Surfing Association",
+      "iocDocuments": [
+        {
+          "id": "ioc-surfing",
+          "publishedAt": "2026-06-29",
+          "sports": [],
+          "title": "Surfing",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "surfing",
       "label": "Surfing",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12143,6 +12627,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Table Tennis Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-table-tennis",
+          "publishedAt": "2026-08-14",
+          "sports": [],
+          "title": "Table Tennis",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TTE-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "table-tennis",
       "label": "Table Tennis",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12168,6 +12661,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Taekwondo",
+      "iocDocuments": [
+        {
+          "id": "ioc-taekwondo",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Taekwondo",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TKW-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "taekwondo",
       "label": "Taekwondo",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12193,6 +12695,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Tennis Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-tennis",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Tennis",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TEN-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "tennis",
       "label": "Tennis",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12218,6 +12729,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "World Triathlon",
+      "iocDocuments": [
+        {
+          "id": "ioc-triathlon",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Triathlon",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "triathlon",
       "label": "Triathlon",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12261,6 +12781,26 @@
         "earned their place"
       ],
       "governingBody": "Fédération Internationale de Volleyball",
+      "iocDocuments": [
+        {
+          "id": "ioc-beach-volleyball",
+          "publishedAt": "2026-07-10",
+          "sports": [
+            "Beach Volleyball"
+          ],
+          "title": "Beach Volleyball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf"
+        },
+        {
+          "id": "ioc-volleyball",
+          "publishedAt": "2026-05-12",
+          "sports": [
+            "Volleyball"
+          ],
+          "title": "Volleyball",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "volleyball",
       "label": "Volleyball",
       "notes": "FIVB confirms Canada won the 2026 NORCECA Women’s Continental Championship and its LA28 quota.",
@@ -12316,6 +12856,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "International Weightlifting Federation",
+      "iocDocuments": [
+        {
+          "id": "ioc-weightlifting",
+          "publishedAt": "2026-05-12",
+          "sports": [],
+          "title": "Weightlifting",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WLF-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "weightlifting",
       "label": "Weightlifting",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -12341,6 +12890,15 @@
       "entryUrl": null,
       "evidenceTerms": [],
       "governingBody": "United World Wrestling",
+      "iocDocuments": [
+        {
+          "id": "ioc-wrestling",
+          "publishedAt": "2026-08-13",
+          "sports": [],
+          "title": "Wrestling",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WRE-LA28-Qualification-System.pdf"
+        }
+      ],
       "key": "wrestling",
       "label": "Wrestling",
       "notes": "Publish only explicit quota allocations, selections, or final entries.",
@@ -57586,25 +58144,25 @@
   ],
   "sources": [
     {
-      "checkedAt": "2026-09-05T09:05:30.830Z",
+      "checkedAt": "2026-09-05T10:44:58.277Z",
       "description": "Discovery page for the current By Event and By Session PDFs.",
-      "fallbackUsed": false,
+      "fallbackUsed": true,
       "id": "official-la28-page",
       "kind": "official",
       "label": "Official LA28 schedule hub",
       "url": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule"
     },
     {
-      "checkedAt": "2026-09-05T09:05:30.830Z",
+      "checkedAt": "2026-09-05T10:44:58.277Z",
       "description": "Primary parser target for official schedule shadow mode.",
-      "fallbackUsed": false,
+      "fallbackUsed": true,
       "id": "official-la28-event-pdf",
       "kind": "official",
       "label": "Official LA28 By Event PDF",
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf"
     },
     {
-      "checkedAt": "2026-09-05T09:05:30.830Z",
+      "checkedAt": "2026-09-05T10:44:58.277Z",
       "description": "Visual audit reference only; not used for machine parsing.",
       "fallbackUsed": false,
       "id": "official-la28-session-pdf",
@@ -57613,16 +58171,16 @@
       "url": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf"
     },
     {
-      "checkedAt": "2026-09-05T09:05:30.830Z",
+      "checkedAt": "2026-09-05T10:44:58.277Z",
       "description": "Structured comparison and fallback source during shadow mode.",
-      "fallbackUsed": false,
+      "fallbackUsed": true,
       "id": "community-la28-sheet",
       "kind": "secondary",
       "label": "Community schedule mirror",
       "url": "https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921"
     },
     {
-      "checkedAt": "2026-09-05T09:05:30.830Z",
+      "checkedAt": "2026-09-05T10:44:58.277Z",
       "description": "Canonical authority URL for the maintained NOC registry snapshot.",
       "fallbackUsed": true,
       "id": "ioc-noc-list",
