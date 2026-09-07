@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
+import SportIcon from './components/SportIcon.jsx';
 import AdminReviewConsole from './components/AdminReviewConsole.jsx';
 import ReportUpdateForm from './components/ReportUpdateForm.jsx';
 import { downloadCalendarEntries } from './lib/ics.js';
@@ -569,7 +570,7 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
       <div className="schedule-card-top">
         <div>
           <p className="eyebrow">
-            <AppLink href={getSportPath(entry.sport)} className="eyebrow-link">{entry.sport}</AppLink>
+            <AppLink href={getSportPath(entry.sport)} className="eyebrow-link sport-label"><SportIcon sport={entry.sport} size={18} />{entry.sport}</AppLink>
           </p>
           <h3>{entry.eventName}</h3>
           <p className="schedule-meta">{entry.venue || 'Venue TBC'}</p>
@@ -973,7 +974,7 @@ function SportsView({ sports }) {
             <AppLink key={sport.sport} href={getSportPath(sport.sport)} className="sport-directory-card">
               <div>
                 <p className="eyebrow">{formatCount(sport.sessionCount)} sessions</p>
-                <h2>{sport.sport}</h2>
+                <h2 className="sport-label"><SportIcon sport={sport.sport} /><span>{sport.sport}</span></h2>
                 <p>{sport.qualificationRecordCount
                   ? `${sport.qualificationRecordCount} confirmed qualification ${sport.qualificationRecordCount === 1 ? 'record' : 'records'} across ${sport.qualificationCountryCount} ${sport.qualificationCountryCount === 1 ? 'country' : 'countries'}`
                   : 'Qualification records publish when officially confirmed'}</p>
@@ -1116,7 +1117,7 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
       <div className="section-heading section-heading--flush">
         <div>
           <p className="eyebrow">Sport schedule</p>
-          <h1>{sport}</h1>
+          <h1 className="sport-label"><SportIcon sport={sport} size={36} /><span>{sport}</span></h1>
         </div>
         <div className="heading-meta">
           <span className="status-pill">{formatCount(entries.length)} sessions</span>

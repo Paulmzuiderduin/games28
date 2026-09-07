@@ -913,6 +913,24 @@ h4,
 }
 
 .country-badge,
+.sport-icon {
+  display: inline-block;
+  width: var(--sport-icon-size, 24px);
+  height: var(--sport-icon-size, 24px);
+  flex: 0 0 var(--sport-icon-size, 24px);
+  background-color: var(--primary);
+  -webkit-mask: var(--sport-icon-url) center / contain no-repeat;
+  mask: var(--sport-icon-url) center / contain no-repeat;
+}
+
+.sport-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sport-label > span:not(.sport-icon) { min-width: 0; }
+
 .country-flag {
   flex: 0 0 auto;
   display: inline-flex;
