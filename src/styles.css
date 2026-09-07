@@ -923,7 +923,6 @@ h4,
 .country-flag {
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(25, 27, 37, 0.12);
 }
 
 .country-badge {
@@ -2315,7 +2314,6 @@ body {
 }
 
 :root[data-theme='dark'] .trust-line__dot { background: #66c49f; }
-:root[data-theme='dark'] .country-flag { box-shadow: 0 0 0 1px rgba(244, 246, 251, 0.24); }
 :root[data-theme='dark'] .medal-badge {
   border-color: rgba(238, 177, 61, 0.36);
   background: linear-gradient(160deg, rgba(105, 70, 22, 0.92), rgba(65, 48, 25, 0.96));
