@@ -597,7 +597,7 @@ async function main() {
     qualificationSystems: qualificationSystemIndex.systems,
     qualificationRecords,
     qualificationHistory: qualificationResult.history,
-    qualificationReviewQueue: qualificationResult.reviewQueue,
+    // Evidence lives in the private review console, never in a committed runtime.
     athleteCards,
     scheduleEntries: publishedSchedule,
     changes: [],
@@ -615,6 +615,7 @@ async function main() {
       officialSessionPdfUrl: OFFICIAL_SESSION_PDF_URL,
       officialSourceVersion: sourceVersion,
       officialValidation: validation,
+      officialShadowSuccessStreak: publication.officialShadowSuccessStreak,
       qualificationCount: athleteCards.length,
       qualificationRecordCount: qualificationRecords.length,
       qualificationHistoryCount: qualificationResult.history.length,

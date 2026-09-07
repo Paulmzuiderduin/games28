@@ -1,9 +1,10 @@
 import { getSportGroup } from '../src/lib/sport-groups.js';
+import { publicRuntime, publicIngestion } from './public-dataset.mjs';
 import { mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { copyFile, writeFile } from 'node:fs/promises';
-import { readJson } from './dataset-utils.mjs';
+import { readJson, stableStringify } from './dataset-utils.mjs';
 import {
   getSessionPath,
   getSportPath,
@@ -37,14 +38,15 @@ function escapeXml(value) {
 
 async function main() {
   await ensureDir(publicDir);
-  await copyFile(runtimePath, publicRuntimePath);
   await copyFile(sourceCheckPath, resolve(publicDir, 'source-check.json'));
-  await copyFile(qualificationIngestionPath, resolve(publicDir, 'qualification-ingestion.json'));
 
   const runtime = await readJson(runtimePath, null);
   if (!runtime) {
     throw new Error('Missing runtime dataset. Run npm run data:update first.');
   }
+  await writeFile(publicRuntimePath, stableStringify(publicRuntime(runtime)) + '\n');
+  const ingestion = await readJson(qualificationIngestionPath, {});
+  await writeFile(resolve(publicDir, 'qualification-ingestion.json'), stableStringify(publicIngestion(ingestion)) + '\n');
 
   const meta = {
     checkedAt: runtime.checkedAt,
