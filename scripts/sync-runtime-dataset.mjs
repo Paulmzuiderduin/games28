@@ -1,3 +1,4 @@
+import { getSportGroup } from '../src/lib/sport-groups.js';
 import { mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -64,7 +65,7 @@ async function main() {
 
   await writeFile(publicMetaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
 
-  const sports = [...new Set(runtime.scheduleEntries.map((entry) => entry.sport).filter(Boolean))]
+  const sports = [...new Set(runtime.scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
     .sort((left, right) => left.localeCompare(right));
   const selectedSessions = selectSeoSessionEntries(runtime.scheduleEntries);
   const lastmod = runtime.checkedAt ? runtime.checkedAt.slice(0, 10) : new Date().toISOString().slice(0, 10);

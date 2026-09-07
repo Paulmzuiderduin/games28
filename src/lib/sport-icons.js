@@ -1,4 +1,5 @@
 export const sportIconNames = {
+  "Boxing": "boxing",
   "3x3 Basketball": "ball-basketball",
   "Archery": "bow",
   "Artistic Gymnastics": "gymnastics",

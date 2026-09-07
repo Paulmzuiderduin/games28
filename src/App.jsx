@@ -1,3 +1,4 @@
+import { getSportGroup } from './lib/sport-groups.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
 import SportIcon from './components/SportIcon.jsx';
@@ -1051,11 +1052,11 @@ function SportQualificationOverview({ overview, sport }) {
 
 function OfficialQualificationRules({ runtime, sport }) {
   const source = (runtime.meta?.qualificationSources || []).find((entry) => (
-    entry.qualificationSystemKey && (entry.sports || []).includes(sport)
+    entry.qualificationSystemKey && (entry.sports || []).map(getSportGroup).includes(sport)
   ));
   const checksById = new Map((runtime.meta?.iocQualificationRules?.documents || []).map((entry) => [entry.id, entry]));
   const documents = (source?.iocDocuments || [])
-    .filter((entry) => !(entry.sports || []).length || entry.sports.includes(sport))
+    .filter((entry) => !(entry.sports || []).length || entry.sports.map(getSportGroup).includes(sport))
     .map((entry) => ({ ...entry, ...checksById.get(entry.id) }));
 
   if (!source) return null;

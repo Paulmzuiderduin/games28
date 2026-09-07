@@ -1,3 +1,4 @@
+import { getSportGroup } from './sport-groups.js';
 export const SITE_ORIGIN = 'https://games28.paulzuiderduin.com';
 export const SITE_NAME = 'Games28';
 export const SOCIAL_IMAGE_URL = `${SITE_ORIGIN}/social-card.svg`;
@@ -11,7 +12,7 @@ export function slugify(value) {
 }
 
 export function getSportSlug(sport) {
-  return slugify(sport);
+  return slugify(getSportGroup(sport));
 }
 
 export function getSportPath(sport) {
@@ -20,7 +21,8 @@ export function getSportPath(sport) {
 
 export function findSportBySlug(scheduleEntries, sportSlug) {
   return [...new Set((scheduleEntries || []).map((entry) => entry.sport).filter(Boolean))]
-    .find((sport) => getSportSlug(sport) === sportSlug) || null;
+    .map(getSportGroup)
+    .find((sport) => getSportSlug(sport) === sportSlug || (sport === 'Boxing' && ['boxing-final-stages', 'boxing-preliminary-stages'].includes(sportSlug))) || null;
 }
 
 export function getSessionPath(sessionId) {

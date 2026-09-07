@@ -1,3 +1,4 @@
+import { getSportGroup } from './sport-groups.js';
 import { formatCanonicalEventLabel, resolveCanonicalQualificationEvent } from './qualification-events.js';
 
 const EMPTY_COUNTRY = {
@@ -25,7 +26,7 @@ function sortByDate(items) {
 }
 
 export function buildScheduleOptions(scheduleEntries) {
-  const sportOptions = [...new Set(scheduleEntries.map((entry) => entry.sport).filter(Boolean))]
+  const sportOptions = [...new Set(scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b));
   const dayOptions = [...new Set(scheduleEntries.map((entry) => entry.dayKey).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b));
@@ -50,7 +51,7 @@ export function getQualificationSportLabels(runtime, card) {
     return source.sports || [];
   }).filter(Boolean))];
 
-  return mappedSports.length ? mappedSports : [card.sport].filter(Boolean);
+  return [...new Set((mappedSports.length ? mappedSports : [card.sport].filter(Boolean)).map(getSportGroup))];
 }
 
 export function buildSportDirectory(runtime) {
@@ -58,8 +59,9 @@ export function buildSportDirectory(runtime) {
 
   (runtime.scheduleEntries || []).forEach((entry) => {
     if (!entry.sport) return;
-    const summary = sports.get(entry.sport) || {
-      sport: entry.sport,
+    const sport = getSportGroup(entry.sport);
+    const summary = sports.get(sport) || {
+      sport,
       sessionCount: 0,
       venues: new Set(),
       qualificationRecordCount: 0,
@@ -67,7 +69,7 @@ export function buildSportDirectory(runtime) {
     };
     summary.sessionCount += 1;
     if (entry.venue) summary.venues.add(entry.venue);
-    sports.set(entry.sport, summary);
+    sports.set(sport, summary);
   });
 
   (runtime.athleteCards || []).forEach((card) => {
@@ -93,7 +95,7 @@ export function filterScheduleEntries(scheduleEntries, filters) {
   const exactRoundQuery = new Set(['final', 'finals', 'semifinal', 'semifinals', 'quarterfinal', 'quarterfinals']).has(query);
 
   return scheduleEntries.filter((entry) => {
-    if (filters.sport !== 'all' && entry.sport !== filters.sport) {
+    if (filters.sport !== 'all' && getSportGroup(entry.sport) !== getSportGroup(filters.sport)) {
       return false;
     }
 
@@ -306,7 +308,7 @@ export function buildSportQualificationOverview(runtime, sport) {
 }
 
 export function buildHomeStats(runtime) {
-  const sports = new Set(runtime.scheduleEntries.map((entry) => entry.sport).filter(Boolean));
+  const sports = new Set(runtime.scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean));
   const countriesWithCards = new Set(runtime.athleteCards.map((card) => card.noc));
 
   return [

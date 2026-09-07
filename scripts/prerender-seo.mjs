@@ -1,3 +1,4 @@
+import { getSportGroup } from '../src/lib/sport-groups.js';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -129,7 +130,7 @@ async function writeRoute(template, page) {
 }
 
 function buildPages(runtime) {
-  const sports = [...new Set(runtime.scheduleEntries.map((entry) => entry.sport).filter(Boolean))]
+  const sports = [...new Set(runtime.scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
     .sort((left, right) => left.localeCompare(right));
   const selectedSessions = selectSeoSessionEntries(runtime.scheduleEntries);
   const pages = [
@@ -223,7 +224,7 @@ function buildPages(runtime) {
   });
 
   sports.forEach((sport) => {
-    const entries = runtime.scheduleEntries.filter((entry) => entry.sport === sport);
+    const entries = runtime.scheduleEntries.filter((entry) => getSportGroup(entry.sport) === sport);
     const qualifications = runtime.athleteCards.filter((card) => getQualificationSportLabels(runtime, card).includes(sport));
     const qualificationCountries = new Set(qualifications.map((card) => card.noc)).size;
     pages.push({
