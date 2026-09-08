@@ -1,3 +1,4 @@
+import { applySeoPage, getSeoPage } from './lib/seo-pages.js';
 import { getSportGroup } from './lib/sport-groups.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
@@ -1642,6 +1643,10 @@ export default function App() {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (!isLoadingRuntime) applySeoPage(getSeoPage(runtime, window.location.pathname));
+  }, [runtime, isLoadingRuntime, route]);
 
   const scheduleEntries = useMemo(() => {
     return filterScheduleEntries(runtime.scheduleEntries || [], scheduleFilters);

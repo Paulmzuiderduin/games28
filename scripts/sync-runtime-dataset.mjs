@@ -78,6 +78,7 @@ async function main() {
     '/sports',
     '/changes',
     '/sources',
+    '/countries',
     ...runtime.countries
       .filter((country) => isCountryDashboardIndexable(runtime, country.noc))
       .map((country) => `/countries/${country.noc}`),
