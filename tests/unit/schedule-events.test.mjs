@@ -21,3 +21,10 @@ test('final must be a complete word', () => {
   assert.equal(isMedalEvent({ eventName: "Women's Single Sculls Final B" }), false);
   assert.equal(isMedalEvent({ eventName: "Men's Pair Final C" }), false);
 });
+
+test('hyphenated and spaced non-medal rounds never receive a medal badge', () => {
+  for (const eventName of ['Semi-final', 'Quarter-final', 'Semi final', 'Quarter–final', 'Final qualification', 'Classification Final', 'Placement Final']) {
+    assert.equal(isMedalEvent({eventName}),false,eventName);
+  }
+  assert.equal(isMedalEvent({eventName:"Women's 100m Final"}),true);
+});

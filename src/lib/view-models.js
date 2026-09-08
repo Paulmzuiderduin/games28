@@ -208,7 +208,7 @@ export function buildCountryDashboard(runtime, noc) {
     latestUpdateAt,
     stats: {
       namedAthleteCount: namedAthletes.length,
-      quotaCount: quotaPlaces.length,
+      quotaCount: quotaPlaces.reduce((total, card) => total + (Number.isInteger(card.quotaCount) && card.quotaCount > 0 ? card.quotaCount : 0), 0),
       confirmedSessionCount: confirmedSessions.length,
       awaitingScheduleGroupCount: awaitingScheduleGroups.length
     }

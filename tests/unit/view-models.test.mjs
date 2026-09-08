@@ -228,3 +228,14 @@ test('sport pages keep related qualification-system sports separate and normaliz
   assert.equal(beachOverview.groups[0].label, "Women's tournament");
   assert.deepEqual(indoorOverview.cards.map((card) => card.id), ['can-indoor']);
 });
+
+test('country quota total sums allocated places rather than counting records', () => {
+  const result = buildCountryDashboard({
+    countries:[{noc:'NED',name:'Netherlands'}],
+    athleteCards:[
+      {id:'one',noc:'NED',sport:'Athletics',status:'quota',quotaCount:3},
+      {id:'two',noc:'NED',sport:'Hockey',status:'quota',quotaCount:1,subjectType:'team_quota',teamSizeMax:16}
+    ],scheduleEntries:[],changes:[]
+  },'NED');
+  assert.equal(result.stats.quotaCount,4);
+});
