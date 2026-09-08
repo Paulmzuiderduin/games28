@@ -315,14 +315,15 @@ function validateOfficialCandidate(candidate, communityReference, previousRuntim
   };
 }
 
-function choosePublishedSchedule({ validation, candidate, communityReference, previousRuntime, sourceCheck }) {
+export function choosePublishedSchedule({ validation, candidate, communityReference, previousRuntime, sourceCheck }) {
   const previousMeta = previousRuntime?.meta || {};
   const previousAuthority = previousMeta.scheduleAuthority || null;
   const previousPublished = Array.isArray(previousRuntime?.scheduleEntries) ? previousRuntime.scheduleEntries : [];
   const previousStreak = Number(sourceCheck?.officialShadowSuccessStreak || 0);
   const nextStreak = validation.passed ? previousStreak + 1 : 0;
+  const alreadyOfficial = ['official_pdf', 'stale_official'].includes(previousAuthority) && previousPublished.length > 0;
 
-  if (validation.passed && nextStreak >= OFFICIAL_PROMOTION_STREAK) {
+  if (validation.passed && (alreadyOfficial || nextStreak >= OFFICIAL_PROMOTION_STREAK)) {
     return {
       publishedSchedule: candidate,
       scheduleAuthority: 'official_pdf',
@@ -331,7 +332,7 @@ function choosePublishedSchedule({ validation, candidate, communityReference, pr
     };
   }
 
-  if (!validation.passed && previousAuthority === 'official_pdf' && previousPublished.length) {
+  if (!validation.passed && alreadyOfficial) {
     return {
       publishedSchedule: previousPublished,
       scheduleAuthority: 'stale_official',

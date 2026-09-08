@@ -1,90 +1,55 @@
-function toIcsTimestamp(value) {
-  return value.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, '');
+function timestamp(value) {
+  return new Date(value).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
 }
 
 function escapeText(value) {
-  return String(value || '')
-    .replace(/\\/g, '\\\\')
-    .replace(/;/g, '\\;')
-    .replace(/,/g, '\\,')
-    .replace(/\n/g, '\\n');
+  return String(value || '').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r\n|\r|\n/g, '\\n');
 }
 
-export function downloadCalendar(entries, title) {
-  if (!Array.isArray(entries) || !entries.length) {
-    return false;
-  }
+function validDate(value) {
+  return typeof value === 'string' && /T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value) && Number.isFinite(Date.parse(value));
+}
 
-  const now = new Date();
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Games28//Country Dashboard//EN',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH'
-  ];
-
-  entries.forEach((entry) => {
-    const start = new Date(entry.startAtUtc);
-    const end = new Date(entry.endAtUtc || start.getTime() + 60 * 60 * 1000);
-    lines.push('BEGIN:VEVENT');
-    lines.push(`UID:${escapeText(entry.id)}@games28.paulzuiderduin.com`);
-    lines.push(`DTSTAMP:${toIcsTimestamp(now)}Z`);
-    lines.push(`DTSTART:${toIcsTimestamp(start)}Z`);
-    lines.push(`DTEND:${toIcsTimestamp(end)}Z`);
-    lines.push(`SUMMARY:${escapeText(`${entry.sport}: ${entry.eventName}`)}`);
-    lines.push(`LOCATION:${escapeText(entry.venue || 'Venue TBC')}`);
-    lines.push(`DESCRIPTION:${escapeText(`Games28 exported this confirmed session. Source: ${entry.sourceUrl || 'Unavailable'}`)}`);
-    lines.push('END:VEVENT');
+export function getExportableEntries(entries = []) {
+  const seen = new Set();
+  return entries.filter((entry) => {
+    if (!entry.id || seen.has(entry.id) || !validDate(entry.startAtUtc)) return false;
+    if (entry.endAtUtc && (!validDate(entry.endAtUtc) || Date.parse(entry.endAtUtc) <= Date.parse(entry.startAtUtc))) return false;
+    seen.add(entry.id);
+    return true;
   });
+}
 
-  lines.push('END:VCALENDAR');
-
-  const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `${String(title || 'games28').toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'games28'}.ics`;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-  return true;
+// RFC 5545 folds at 75 octets, not 75 JS characters; never split a UTF-8 code point.
+function foldLine(line) {
+  const encoder = new TextEncoder();
+  let result = '', length = 0;
+  for (const char of line) {
+    const size = encoder.encode(char).length;
+    if (length + size > 75) { result += '\r\n '; length = 1; }
+    result += char;
+    length += size;
+  }
+  return result;
 }
 
 export function buildCalendarFile(entries, title) {
-  if (!Array.isArray(entries) || !entries.length) {
-    return null;
-  }
-
-  const now = new Date();
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Games28//Country Dashboard//EN',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH'
-  ];
-
-  entries.forEach((entry) => {
-    const start = new Date(entry.startAtUtc);
-    const end = new Date(entry.endAtUtc || start.getTime() + 60 * 60 * 1000);
-    lines.push('BEGIN:VEVENT');
-    lines.push(`UID:${escapeText(entry.id)}@games28.paulzuiderduin.com`);
-    lines.push(`DTSTAMP:${toIcsTimestamp(now)}Z`);
-    lines.push(`DTSTART:${toIcsTimestamp(start)}Z`);
-    lines.push(`DTEND:${toIcsTimestamp(end)}Z`);
-    lines.push(`SUMMARY:${escapeText(`${entry.sport}: ${entry.eventName}`)}`);
-    lines.push(`LOCATION:${escapeText(entry.venue || 'Venue TBC')}`);
-    lines.push(`DESCRIPTION:${escapeText(`Games28 exported this session. Source: ${entry.sourceUrl || 'Unavailable'}`)}`);
-    lines.push('END:VEVENT');
+  const valid = getExportableEntries(Array.isArray(entries) ? entries : []);
+  if (!valid.length) return null;
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Games28//Schedule//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
+  const now = timestamp(new Date().toISOString());
+  valid.forEach((entry) => {
+    lines.push('BEGIN:VEVENT', `UID:${escapeText(entry.id)}@games28.paulzuiderduin.com`, `DTSTAMP:${now}`, `DTSTART:${timestamp(entry.startAtUtc)}`);
+    if (entry.endAtUtc) lines.push(`DTEND:${timestamp(entry.endAtUtc)}`);
+    lines.push(`SUMMARY:${escapeText(`${entry.sport}: ${entry.eventName}`)}`, `LOCATION:${escapeText(entry.venue || 'Venue TBC')}`, `DESCRIPTION:${escapeText(`Games28 schedule. Source: ${entry.sourceUrl || 'Unavailable'}`)}`, 'END:VEVENT');
   });
-
   lines.push('END:VCALENDAR');
-
-  const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
-  const filename = `${String(title || 'games28').toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'games28'}.ics`;
-  return { blob, filename };
+  return {
+    blob: new Blob([lines.map(foldLine).join('\r\n') + '\r\n'], { type: 'text/calendar;charset=utf-8' }),
+    filename: `${String(title || 'games28').toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'games28'}.ics`,
+    exportedCount: valid.length,
+    skippedCount: entries.length - valid.length
+  };
 }
 
 export function downloadBlob(blob, filename) {
@@ -94,16 +59,14 @@ export function downloadBlob(blob, filename) {
   link.download = filename;
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
   return true;
 }
 
 export function downloadCalendarEntries(entries, title) {
   const calendar = buildCalendarFile(entries, title);
-  if (!calendar) {
-    return false;
-  }
-
-  return downloadBlob(calendar.blob, calendar.filename);
+  return calendar ? downloadBlob(calendar.blob, calendar.filename) : false;
 }
+
+export const downloadCalendar = downloadCalendarEntries;

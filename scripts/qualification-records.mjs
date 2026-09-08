@@ -85,6 +85,12 @@ function defaultRecordKey(record) {
   return [record.noc, record.sport, record.subjectType, subject].map((value) => String(value || '').toLowerCase()).join('::');
 }
 
+function eventScopedRecordKey(record) {
+  const base = (record.recordKey || defaultRecordKey(record)).replace(/::event=.*$/, '');
+  const event = record.canonicalEventKey || [...new Set([...record.disciplines, ...record.events])].sort().join('|') || 'unspecified';
+  return `${base}::event=${event.toLowerCase()}`;
+}
+
 export function normalizeQualificationRecords(rawRecords, sources) {
   const sourceById = new Map((sources || []).map((entry) => [entry.id, entry]));
   const records = [];
@@ -95,7 +101,7 @@ export function normalizeQualificationRecords(rawRecords, sources) {
     if (ids.has(record.id)) problems.push('duplicate qualification record id');
     if (problems.length) { rejected.push({ id: record.id || fallbackId, problems }); return; }
     ids.add(record.id);
-    records.push({ ...record, recordKey: record.recordKey || defaultRecordKey(record) });
+    records.push({ ...record, recordKey: eventScopedRecordKey(record) });
   });
   return { records, rejected };
 }
@@ -131,13 +137,23 @@ export function normalizeReviewQueue(entries, sources) {
 export function resolveActiveQualificationRecords(records) {
   const supersededIds = new Set(records.map((record) => record.supersedesId).filter(Boolean));
   const winnersByKey = new Map();
-  records.filter((record) => ACTIVE_STATES.has(record.state) && !supersededIds.has(record.id)).forEach((record) => {
+  records.filter((record) => !supersededIds.has(record.id)).forEach((record) => {
     const previous = winnersByKey.get(record.recordKey);
     if (!previous) { winnersByKey.set(record.recordKey, record); return; }
+    const terminal = !ACTIVE_STATES.has(record.state);
+    const previousTerminal = !ACTIVE_STATES.has(previous.state);
+    const date = record.sourcePublishedAt || record.verifiedAt;
+    const previousDate = previous.sourcePublishedAt || previous.verifiedAt;
+    if (terminal || previousTerminal) {
+      // Resolve corrections before hiding terminal states. Equal-date withdrawal
+      // wins conservatively until an explicit later reinstatement is supplied.
+      if (date > previousDate || (date === previousDate && terminal)) winnersByKey.set(record.recordKey, record);
+      return;
+    }
     const delta = (STATE_PRECEDENCE[record.state] || 0) - (STATE_PRECEDENCE[previous.state] || 0);
-    if (delta > 0 || (delta === 0 && record.verifiedAt > previous.verifiedAt)) winnersByKey.set(record.recordKey, record);
+    if (delta > 0 || (delta === 0 && (date > previousDate || (date === previousDate && record.verifiedAt > previous.verifiedAt)))) winnersByKey.set(record.recordKey, record);
   });
-  return [...winnersByKey.values()].sort((left, right) => left.noc.localeCompare(right.noc) || left.sport.localeCompare(right.sport));
+  return [...winnersByKey.values()].filter((record) => ACTIVE_STATES.has(record.state)).sort((left, right) => left.noc.localeCompare(right.noc) || left.sport.localeCompare(right.sport));
 }
 
 export function isPublishableQualificationCard(card) {

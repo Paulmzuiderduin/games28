@@ -4,7 +4,7 @@ import CountryFlag from './components/CountryFlag.jsx';
 import SportIcon from './components/SportIcon.jsx';
 import AdminReviewConsole from './components/AdminReviewConsole.jsx';
 import ReportUpdateForm from './components/ReportUpdateForm.jsx';
-import { downloadCalendarEntries } from './lib/ics.js';
+import { downloadCalendarEntries, getExportableEntries } from './lib/ics.js';
 import { trackEvent, trackOutboundClick } from './lib/analytics.js';
 import {
   formatCount,
@@ -614,7 +614,7 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
               sessionId: entry.id,
               sport: entry.sport
             })}
-            disabled={!entry.startAtUtc}
+            disabled={!getExportableEntries([entry]).length}
           >
             Add to calendar
           </button>
@@ -776,11 +776,11 @@ function HomeView({
             <button
               type="button"
               className="button-secondary"
-              onClick={() => onCalendarExport(scheduleEntries, 'games28-schedule', 'calendar_export_visible', {
+              onClick={() => onCalendarExport(scheduleEntries.slice(0, 8), 'games28-schedule', 'calendar_export_visible', {
                 route: 'home',
-                count: scheduleEntries.length
+                count: scheduleEntries.slice(0, 8).length
               })}
-              disabled={!scheduleEntries.length}
+              disabled={!getExportableEntries(scheduleEntries.slice(0, 8)).length}
             >
               Export visible sessions
             </button>
@@ -912,7 +912,7 @@ function ScheduleView({ runtime, scheduleEntries, scheduleFilters, onScheduleFil
               route: 'schedule',
               count: scheduleEntries.length
             })}
-            disabled={!scheduleEntries.length}
+            disabled={!getExportableEntries(scheduleEntries).length}
           >
             Export visible sessions
           </button>
@@ -1130,7 +1130,7 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
               sport,
               count: entries.length
             })}
-            disabled={!entries.length}
+            disabled={!getExportableEntries(entries).length}
           >
             Export sport schedule
           </button>
@@ -1228,7 +1228,7 @@ function SessionView({ runtime, entry, onCalendarExport }) {
               sessionId: entry.id,
               sport: entry.sport
             })}
-            disabled={!entry.startAtUtc}
+            disabled={!getExportableEntries([entry]).length}
           >
             Add to calendar
           </button>
@@ -1295,7 +1295,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
             <button
               type="button"
               className="button-primary"
-              disabled={!hasConfirmedSessions}
+              disabled={!getExportableEntries(dashboard.confirmedSessions).length}
               onClick={() => onCalendarExport(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`, 'calendar_export_country', {
                 noc: dashboard.country.noc,
                 count: dashboard.confirmedSessions.length
@@ -1644,6 +1644,7 @@ export default function App() {
   const [runtime, setRuntime] = useState(runtimeFallback);
   const [isLoadingRuntime, setIsLoadingRuntime] = useState(true);
   const [showSupportCta, setShowSupportCta] = useState(false);
+  const [exportNotice, setExportNotice] = useState('');
   const [scheduleFilters, setScheduleFilters] = useStoredState('games28-schedule-filters', DEFAULT_SCHEDULE_FILTERS);
   const [favoriteCountries, setFavoriteCountries] = useStoredState('games28-favorite-countries', []);
   const [countryFiltersState, setCountryFiltersState] = useStoredState('games28-country-filters', DEFAULT_COUNTRY_FILTERS);
@@ -1739,9 +1740,12 @@ export default function App() {
   }
 
   function handleCalendarExport(entries, title, eventName, eventData = {}) {
-    const exported = downloadCalendarEntries(entries, title);
+    const valid = getExportableEntries(entries);
+    const skipped = entries.length - valid.length;
+    const exported = downloadCalendarEntries(valid, title);
+    setExportNotice(exported ? `Exported ${valid.length} schedule entries.${skipped ? ` Skipped ${skipped} entries with unavailable or invalid times.` : ''}` : 'No entries with confirmed times are available to export.');
     if (exported) {
-      trackEvent(eventName, eventData);
+      trackEvent(eventName, { ...eventData, count: valid.length, skipped });
       setShowSupportCta(true);
     }
     return exported;
@@ -1779,6 +1783,7 @@ export default function App() {
 
       <main className="page-shell">
         <div className="page-content">
+        {exportNotice ? <p className="timezone-note" role="status">{exportNotice}</p> : null}
         {isLoadingRuntime ? (
           <section className="panel page-section">
             <EmptyState
