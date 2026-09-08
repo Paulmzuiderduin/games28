@@ -240,3 +240,31 @@ test('country quota total sums allocated places rather than counting records', (
   },'NED');
   assert.equal(result.stats.quotaCount,4);
 });
+
+test('country schedule confirmation only removes the matching event from awaiting draw', () => {
+  const data = {
+    ...runtime,
+    athleteCards: [
+      { id: '100m', noc: 'NED', sport: 'Athletics', disciplines: ["Men's 100m"], canonicalEventKey: 'athletics:men-100m', status: 'named', name: 'First athlete' },
+      { id: '200m', noc: 'NED', sport: 'Athletics', disciplines: ["Men's 200m"], canonicalEventKey: 'athletics:men-200m', status: 'named', name: 'Second athlete' }
+    ],
+    scheduleEntries: [{ id: '100m-final', sport: 'Athletics', canonicalEventKey: 'athletics:men-100m', nocs: ['NED'], athleteIds: [] }]
+  };
+  const dashboard = buildCountryDashboard(data, 'NED');
+  assert.deepEqual(dashboard.awaitingScheduleGroups.map(group => group.disciplines), [["Men's 200m"]]);
+  assert.equal(dashboard.confirmedSessions[0].linkedQualificationLabel, 'Netherlands');
+  assert.equal(dashboard.confirmedSessions[0].linkedQualificationId, null);
+  data.scheduleEntries[0].athleteIds = ['100m'];
+  assert.equal(buildCountryDashboard(data, 'NED').confirmedSessions[0].linkedQualificationLabel, 'First athlete');
+});
+test('unknown event context does not suppress other qualifications in a confirmed sport', () => {
+  const data = { ...runtime, scheduleEntries: [{ id: 'rowing', sport: 'Rowing', nocs: ['NED'], athleteIds: [] }] };
+  assert.equal(buildCountryDashboard(data, 'NED').awaitingScheduleGroups.length, 2);
+});
+test('a multi-event card retains only its events still awaiting a draw', () => {
+  const data = { ...runtime,
+    athleteCards: [{ id: 'runner', noc: 'NED', sport: 'Athletics', disciplines: ["Men's 100m", "Men's 200m"], status: 'named', name: 'Runner' }],
+    scheduleEntries: [{ id: '100m', sport: 'Athletics', discipline: "Men's 100m", nocs: ['NED'], athleteIds: [] }]
+  };
+  assert.deepEqual(buildCountryDashboard(data, 'NED').awaitingScheduleGroups[0].disciplines, ["Men's 200m"]);
+});

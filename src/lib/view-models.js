@@ -158,6 +158,19 @@ export function filterCountries(countries, athleteCards, filters) {
     });
 }
 
+function sessionMatchesQualificationEvent(runtime, entry, card) {
+  if (!getQualificationSportLabels(runtime, card).includes(getSportGroup(entry.sport))) return false;
+  if (entry.canonicalEventKey && card.canonicalEventKey) return entry.canonicalEventKey === card.canonicalEventKey;
+  const disciplines = (card.disciplines || []).map(normalizeText).filter(Boolean);
+  if (disciplines.length > 1) return false;
+  if ((entry.athleteIds || []).includes(card.id)) return true;
+  // Match exact event fields only. A sport match or fuzzy round-name match is
+  // not evidence that another event (or another athlete) has a confirmed draw.
+  const eventLabels = [entry.discipline, entry.eventName].map(normalizeText).filter(Boolean);
+  return disciplines.length === 1 && disciplines[0] !== normalizeText(card.sport)
+    && eventLabels.includes(disciplines[0]);
+}
+
 export function buildCountryDashboard(runtime, noc) {
   const country = runtime.countries.find((entry) => entry.noc === noc) || { ...EMPTY_COUNTRY, noc };
   const athleteCards = runtime.athleteCards.filter((card) => card.noc === noc);
@@ -167,18 +180,24 @@ export function buildCountryDashboard(runtime, noc) {
     runtime.scheduleEntries
       .filter((entry) => (entry.nocs || []).includes(noc) || (entry.athleteIds || []).some((id) => athleteCards.some((card) => card.id === id)))
       .map((entry) => {
-        const linkedCard = athleteCards.find((card) => (entry.athleteIds || []).includes(card.id) || card.sport === entry.sport);
+        const linkedCards = athleteCards.filter((card) => (entry.athleteIds || []).includes(card.id));
         return {
           ...entry,
           derivedStatus: 'confirmed',
-          linkedQualificationId: linkedCard?.id || null,
-          linkedQualificationLabel: linkedCard?.name || country.name
+          linkedQualificationId: linkedCards.length === 1 ? linkedCards[0].id : null,
+          linkedQualificationLabel: linkedCards.length ? linkedCards.map(card => card.name).join(', ') : country.name
         };
       })
   );
-  const confirmedSports = new Set(confirmedSessions.map((entry) => entry.sport).filter(Boolean));
   const awaitingScheduleGroups = [...athleteCards
-    .filter((card) => !confirmedSports.has(card.sport))
+    .map((card) => {
+      if ((card.disciplines || []).length <= 1) return card;
+      const disciplines = card.disciplines.filter(discipline => !confirmedSessions.some(entry =>
+        sessionMatchesQualificationEvent(runtime, entry, { ...card, canonicalEventKey: null, disciplines: [discipline], id: null })
+      ));
+      return { ...card, disciplines, canonicalEventKey: null, hasPendingDisciplines: disciplines.length > 0 };
+    })
+    .filter((card) => card.hasPendingDisciplines ?? !confirmedSessions.some(entry => sessionMatchesQualificationEvent(runtime, entry, card)))
     .reduce((groups, card) => {
       const disciplines = [...new Set(card.disciplines || [])].sort();
       const key = `${card.sport}::${disciplines.join('|')}`;
