@@ -8,7 +8,8 @@ const source = {
   url: 'https://if.example.org/allocations',
   sourceTier: 'if',
   sport: 'Example Sport',
-  status: 'structured_live'
+  status: 'structured_live',
+  adapter: 'la28_allocation_table'
 };
 
 function response(body, contentType = 'text/html') {
@@ -21,8 +22,8 @@ test('auto-publishes only complete structured official allocation rows', async (
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
     fetchImpl: async () => response(`
-      <table><tr><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
-      <tr><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr></table>
+      <table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
+      <tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr></table>
     `)
   });
 
@@ -38,10 +39,10 @@ test('keeps a structured record ID stable when an official table is reordered', 
     sources: [source],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response(`<table><tr><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>${rows}</table>`)
+    fetchImpl: async () => response(`<table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>${rows}</table>`)
   });
-  const netherlands = '<tr><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr>';
-  const usa = '<tr><td>USA</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr>';
+  const netherlands = '<tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr>';
+  const usa = '<tr><td>LA28</td><td>Mixed event</td><td>USA</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr>';
   const first = await sourceRows(`${netherlands}${usa}`);
   const second = await sourceRows(`${usa}${netherlands}`);
 
@@ -54,8 +55,8 @@ test('does not publish incomplete tables or unknown NOCs', async () => {
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
     fetchImpl: async () => response(`
-      <table><tr><th>NOC</th><th>Quota places</th><th>Status</th></tr>
-      <tr><td>XXX</td><td>2</td><td>Allocated</td></tr></table>
+      <table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th></tr>
+      <tr><td>LA28</td><td>Mixed event</td><td>XXX</td><td>2</td><td>Allocated</td></tr></table>
     `)
   });
 
@@ -68,8 +69,8 @@ test('maps a full official country name to its IOC NOC code', async () => {
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
     fetchImpl: async () => response(`
-      <table><tr><th>Country</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
-      <tr><td>Netherlands</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr></table>
+      <table><tr><th>Games</th><th>Event</th><th>Country</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
+      <tr><td>LA28</td><td>Mixed event</td><td>Netherlands</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr></table>
     `)
   });
 
@@ -165,7 +166,7 @@ test('uses the ISSF quota tracker only when its table explicitly names LA28', as
       }
       return response(`
         <time datetime="2028-01-01"></time><h1>LA28 Quota Places by Nation</h1>
-        <table><tr><th>NOC</th><th>Quota places</th></tr><tr><td>NED</td><td>2</td></tr></table>
+        <table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th></tr><tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td></tr></table>
       `);
     }
   });
@@ -181,9 +182,43 @@ test('does not use a stale non-LA28 ISSF tracker even when its table looks valid
     sources: [{ ...source, id: 'if-shooting', sport: 'Shooting', adapter: 'issf_quota_tracker' }],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response('<table><tr><th>NOC</th><th>Quota places</th></tr><tr><td>NED</td><td>2</td></tr></table>')
+    fetchImpl: async () => response('<table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th></tr><tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td></tr></table>')
   });
 
   assert.equal(result.structuredRecords.length, 0);
   assert.equal(result.scans[0].adapter.eligible, false);
+});
+
+const validRows = [{ Games: 'LA28', Event: 'Mixed event', NOC: 'NED', 'Quota places': 1, Status: 'Allocated', 'Qualification date': '2028-01-01' }];
+const ingestRows = (rows, overrides = {}) => ingestQualificationSources({
+  sources: [{ ...source, ...overrides }], countries, checkedAt: '2028-01-02T00:00:00Z',
+  fetchImpl: async () => response(JSON.stringify(rows), 'application/json')
+});
+test('rules, watching and prose sources never auto-publish matching tables', async () => {
+  for (const status of ['rules_published', 'watching', 'review_required']) {
+    assert.equal((await ingestRows(validRows, { status })).structuredRecords.length, 0);
+  }
+  assert.equal((await ingestRows(validRows, { adapter: null })).structuredRecords.length, 0);
+});
+test('rejects wrong editions, missing events, projections and partial tables atomically', async () => {
+  for (const mutation of [{ Games: 'Paris 2024' }, { Games: '' }, { Event: '' }, { Status: 'Projected' }, { NOC: 'XXX' }, { 'Qualification date': '2030-01-01' }]) {
+    const result = await ingestRows([...validRows, { ...validRows[0], ...mutation }]);
+    assert.equal(result.structuredRecords.length, 0);
+    assert.equal(result.scans[0].dataValidated, false);
+  }
+});
+test('empty or malformed feeds are not validated replacements', async () => {
+  const result = await ingestRows([]);
+  assert.equal(result.scans[0].dataValidated, false);
+});
+
+test('explicit dated withdrawals flow through without guessing from missing rows', async () => {
+  const result = await ingestRows([{ ...validRows[0], Status: 'Withdrawn', 'Quota places': 0 }]);
+  assert.equal(result.scans[0].dataValidated, true);
+  assert.equal(result.structuredRecords[0].state, 'withdrawn');
+});
+test('a named team cannot auto-publish an allocated quota as a selected roster', async () => {
+  const result = await ingestRows([{ ...validRows[0], Team: 'Netherlands team' }]);
+  assert.equal(result.scans[0].dataValidated, false);
+  assert.equal(result.structuredRecords.length, 0);
 });

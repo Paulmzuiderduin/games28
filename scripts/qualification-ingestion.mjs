@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { normalizeQualificationRecords } from './qualification-records.mjs';
 
 const MAX_SOURCE_BYTES = 2 * 1024 * 1024;
 const HEADER_ALIASES = {
@@ -14,7 +15,7 @@ const HEADER_ALIASES = {
 };
 
 function text(value) {
-  return String(value || '').replace(/\s+/g, ' ').trim();
+  return String(value ?? '').replace(/\s+/g, ' ').trim();
 }
 
 function key(value) {
@@ -57,6 +58,7 @@ function rowsFromCsv(body) {
   const headers = parseCsvLine(lines[0]);
   return lines.slice(1).map((line) => {
     const cells = parseCsvLine(line);
+    if (cells.length !== headers.length) throw new Error('CSV column count changed');
     return Object.fromEntries(headers.map((header, index) => [header, cells[index] || '']));
   });
 }
@@ -68,6 +70,7 @@ function rowsFromHtml(body) {
     if (rows.length < 2) return [];
     const matrix = rows.map((row) => (row.match(/<t[hd]\b[\s\S]*?<\/t[hd]>/gi) || []).map(stripHtml));
     const headers = matrix[0];
+    if (matrix.slice(1).some((cells) => cells.length !== headers.length)) throw new Error('HTML table column count changed');
     return matrix.slice(1)
       .filter((cells) => cells.length === headers.length)
       .map((cells) => Object.fromEntries(headers.map((header, index) => [header, cells[index]])));
@@ -98,6 +101,7 @@ function findValue(row, aliases) {
 
 function normalizeState(value, subjectType) {
   const normalized = key(value);
+  if (['withdrawn', 'replaced'].includes(normalized)) return normalized;
   if (['allocated', 'allocation', 'qualified quota'].includes(normalized)) return 'allocated';
   if (['earned', 'qualified'].includes(normalized)) return subjectType === 'noc_quota' ? 'allocated' : 'earned';
   if (['selected', 'selection', 'nominated'].includes(normalized)) return 'selected';
@@ -115,12 +119,16 @@ function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, _ind
   const noc = explicitNoc || nocByCountryName.get(key(countryName));
   const athleteName = findValue(row, HEADER_ALIASES.athleteName);
   const teamName = findValue(row, HEADER_ALIASES.teamName);
-  const quotaCount = Number(findValue(row, HEADER_ALIASES.quotaCount));
-  const subjectType = athleteName ? 'athlete' : teamName ? 'team' : Number.isInteger(quotaCount) && quotaCount > 0 ? 'noc_quota' : null;
+  const quotaValue = findValue(row, HEADER_ALIASES.quotaCount);
+  const quotaCount = Number(quotaValue);
+  const terminal = ['withdrawn', 'replaced'].includes(key(findValue(row, HEADER_ALIASES.state)));
+  const subjectType = athleteName ? 'athlete' : teamName ? 'team' : quotaValue !== null && Number.isInteger(quotaCount) && (quotaCount > 0 || (terminal && quotaCount === 0)) ? 'noc_quota' : null;
   const sourcePublishedAt = findValue(row, HEADER_ALIASES.sourcePublishedAt) || options.sourcePublishedAt;
   const state = normalizeState(findValue(row, HEADER_ALIASES.state), subjectType);
 
-  if (!noc || !knownNocs.has(noc) || !subjectType || !state || !isIsoDate(sourcePublishedAt)) return null;
+  const discipline = findValue(row, HEADER_ALIASES.discipline);
+  if (!noc || !knownNocs.has(noc) || !subjectType || !state || !discipline || !isIsoDate(sourcePublishedAt)) return null;
+  if (new Date(sourcePublishedAt) > new Date(checkedAt)) return null;
   return {
     // The row's source content is the identity. A supplier may reorder a table
     // without changing a qualification, which must not create a false change.
@@ -208,11 +216,13 @@ async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocB
 
   // The ISSF page has also hosted previous Olympic cycles. Never carry those
   // quota places into LA28 just because the table shape matches.
-  if (!tracker.available || !/\b(?:la\s*28|los angeles\s*2028)\b/i.test(stripHtml(tracker.body))) {
+  if (!tracker.available || tracker.truncated || !sameOrigin(source.url, tracker.resolvedUrl)
+    || !/\b(?:la\s*28|los angeles\s*2028)\b/i.test(stripHtml(tracker.body))
+    || /\b(?:paris\s*2024|tokyo\s*2020|projection|projected|ranking)\b/i.test(stripHtml(tracker.body))) {
     return { records: [], adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: 0, eligible: false } };
   }
 
-  const publishedAt = extractPublishedAt(tracker.body, tracker.lastModified || source.sourcePublishedAt);
+  const publishedAt = extractPublishedAt(tracker.body, source.sourcePublishedAt);
   const rows = detectRows(tracker.body, tracker.contentType);
   const records = rows.map((row, index) => recordFromRow({
     ...row,
@@ -224,20 +234,34 @@ async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocB
   })).filter(Boolean);
 
   return {
-    records,
-    adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: rows.length, eligible: true }
+    records: rows.length > 0 && records.length === rows.length ? records : [],
+    adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: rows.length, eligible: rows.length > 0 && records.length === rows.length }
   };
 }
 
+function sameOrigin(expected, actual) {
+  try { return new URL(expected).origin === new URL(actual).origin; } catch { return false; }
+}
+
 async function recordsFromAdapter(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl) {
+  const rejected = { records: [], adapter: { name: source.adapter || 'unconfigured', eligible: false, rowCount: 0 } };
+  if (!['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier)
+    || sourceResult.truncated || !sameOrigin(source.url, sourceResult.resolvedUrl)) return rejected;
   if (source.adapter === 'issf_quota_tracker') {
     return recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl);
   }
+  // Generic tables on rules/news/rankings pages are not allocation feeds. This
+  // adapter must be opted into for a vetted endpoint, with edition per record.
+  if (source.adapter !== 'la28_allocation_table'
+    || !['structured_live', 'final_entries_live'].includes(source.status)) return rejected;
   const rows = detectRows(sourceResult.body, sourceResult.contentType);
-  return {
-    records: rows.map((row, index) => recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index)).filter(Boolean),
-    adapter: null
-  };
+  const records = rows.map((row, index) => {
+    const edition = key(findValue(row, ['games', 'edition', 'olympic games']));
+    if (!['la28', 'la 28', 'los angeles 2028'].includes(edition)) return null;
+    return recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index);
+  }).filter(Boolean);
+  const eligible = rows.length > 0 && records.length === rows.length;
+  return { records: eligible ? records : [], adapter: { name: source.adapter, rowCount: rows.length, eligible } };
 }
 
 function sentenceAround(textValue, term) {
@@ -314,6 +338,11 @@ export async function ingestQualificationSources({ sources, countries, checkedAt
       const extracted = result.available
         ? await recordsFromAdapter(source, result, knownNocs, nocByCountryName, checkedAt, fetchImpl)
         : { records: [], adapter: null };
+      const validated = normalizeQualificationRecords(extracted.records, [source]);
+      if (validated.rejected.length) {
+        extracted.records = [];
+        if (extracted.adapter) extracted.adapter.eligible = false;
+      }
       const records = extracted.records;
       const configuredCandidates = result.available ? configuredReviewCandidates(source, result.body, checkedAt, knownNocs) : [];
       const genericCandidate = result.available && !configuredCandidates.length ? genericReviewCandidate(source, result.body, checkedAt) : null;
@@ -322,7 +351,7 @@ export async function ingestQualificationSources({ sources, countries, checkedAt
         sourceCheck: { ...source, checkedAt, available: result.available, httpStatus: result.httpStatus, resolvedUrl: result.resolvedUrl },
         records,
         reviewCandidates,
-        scan: { sourceId: source.id, checkedAt, format: result.contentType || 'unknown', rowCount: extracted.adapter?.rowCount ?? detectRows(result.body, result.contentType).length, structuredRecordCount: records.length, reviewCandidateIds: reviewCandidates.map((candidate) => candidate.id), adapter: extracted.adapter, truncated: result.truncated }
+        scan: { sourceId: source.id, checkedAt, format: result.contentType || 'unknown', dataValidated: extracted.adapter?.eligible === true, rowCount: extracted.adapter?.rowCount ?? detectRows(result.body, result.contentType).length, structuredRecordCount: records.length, reviewCandidateIds: reviewCandidates.map((candidate) => candidate.id), adapter: extracted.adapter, truncated: result.truncated }
       };
     } catch (error) {
       return {

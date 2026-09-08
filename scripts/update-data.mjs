@@ -144,43 +144,38 @@ export function preserveQualificationSourceHealth(currentChecks, previousSources
 
   return currentChecks.map((source) => {
     const previous = previousById.get(source.id);
-    if (source.available || !previous?.available) {
-      return {
-        ...source,
-        lastSuccessfulAt: source.available ? source.checkedAt : previous?.lastSuccessfulAt || null
-      };
-    }
-
     return {
       ...source,
-      available: previous.available,
-      httpStatus: previous.httpStatus,
-      resolvedUrl: previous.resolvedUrl || source.resolvedUrl,
-      lastSuccessfulAt: previous.lastSuccessfulAt || previous.checkedAt,
-      healthCheckFailedAt: source.checkedAt
+      lastSuccessfulAt: source.available ? source.checkedAt : previous?.lastSuccessfulAt || (previous?.available ? previous.checkedAt : null),
+      healthCheckFailedAt: source.available ? null : source.checkedAt
     };
   });
 }
 
 export function preserveUnavailableIngestion(current, previous = {}) {
-  const unavailableSourceIds = new Set(current.sourceChecks.filter((source) => !source.available).map((source) => source.id));
+  const scans = current.scans || [];
+  const invalidSourceIds = new Set(current.sourceChecks.filter((source) =>
+    !source.available || !scans.some((scan) => scan.sourceId === source.id && scan.dataValidated === true && !scan.truncated)
+  ).map((source) => source.id));
   const previousRecordsById = new Map((previous.structuredRecords || []).map((record) => [record.id, record]));
   const previousReviewsById = new Map((previous.reviewQueue || []).map((entry) => [entry.id, entry]));
-  const carriedRecords = (previous.structuredRecords || []).filter((record) => unavailableSourceIds.has(record.sourceId));
-  const carriedReviews = (previous.reviewQueue || []).filter((entry) => unavailableSourceIds.has(entry.sourceId));
-  const currentRecords = current.structuredRecords.map((record) => {
+  // An omitted row is not an official withdrawal. Preserve evidence history;
+  // newer explicit records are resolved by the qualification lifecycle layer.
+  const recordsById = new Map(previousRecordsById);
+  for (const record of current.structuredRecords) {
+    if (invalidSourceIds.has(record.sourceId)) continue;
     const previousRecord = previousRecordsById.get(record.id);
-    return previousRecord ? { ...record, verifiedAt: previousRecord.verifiedAt } : record;
-  });
-  const currentReviews = current.reviewQueue.map((entry) => {
+    recordsById.set(record.id, previousRecord ? { ...record, verifiedAt: previousRecord.verifiedAt } : record);
+  }
+  const reviewsById = new Map(previousReviewsById);
+  for (const entry of current.reviewQueue) {
     const previousReview = previousReviewsById.get(entry.id);
-    return previousReview ? { ...entry, detectedAt: previousReview.detectedAt } : entry;
-  });
-
+    reviewsById.set(entry.id, previousReview ? { ...entry, detectedAt: previousReview.detectedAt } : entry);
+  }
   return {
     ...current,
-    structuredRecords: [...currentRecords, ...carriedRecords],
-    reviewQueue: [...currentReviews, ...carriedReviews]
+    structuredRecords: [...recordsById.values()],
+    reviewQueue: [...reviewsById.values()]
   };
 }
 
@@ -686,7 +681,9 @@ async function main() {
         checkedAt: source.checkedAt,
         available: source.available,
         httpStatus: source.httpStatus,
-        resolvedUrl: source.resolvedUrl
+        resolvedUrl: source.resolvedUrl,
+        lastSuccessfulAt: source.lastSuccessfulAt,
+        healthCheckFailedAt: source.healthCheckFailedAt
       })),
       refreshCadence: 'Daily',
       scheduleAuthority: publication.scheduleAuthority,

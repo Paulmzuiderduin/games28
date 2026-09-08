@@ -23,7 +23,7 @@ export function publicRuntime(runtime) {
 export function publicIngestion(ingestion) {
   return {
     checkedAt: ingestion.checkedAt,
-    scans: (ingestion.scans || []).map((scan) => pick(scan, ['sourceId', 'checkedAt', 'format', 'rowCount', 'structuredRecordCount', 'truncated'])),
+    scans: (ingestion.scans || []).map((scan) => pick(scan, ['sourceId', 'checkedAt', 'format', 'rowCount', 'structuredRecordCount', 'truncated', 'dataValidated'])),
     reviewCount: (ingestion.reviewQueue || []).length
   };
 }
