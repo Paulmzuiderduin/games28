@@ -78,7 +78,7 @@ function candidateDraft(candidate, source) {
     allocationRecordId: suggested.allocationRecordId || '',
     qualificationRoute: suggested.qualificationRoute || '',
     supersedesId: suggested.supersedesId || '',
-    sourcePublishedAt: String(suggested.sourcePublishedAt || candidate?.detected_at || candidate?.detectedAt || '').slice(0, 10)
+    sourcePublishedAt: String(suggested.sourcePublishedAt || '').slice(0, 10)
   };
 }
 
@@ -294,7 +294,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     }
   }
 
-  async function convertReport(report, source) {
+  async function convertReport(report, source, evidenceUrl) {
     if (!source) {
       setMessage('Choose the official source you will verify before creating a qualification candidate.');
       return;
@@ -308,9 +308,9 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         subjectType: 'noc_quota',
         state: 'allocated',
         quotaCount: 1,
-        sourcePublishedAt: String(report.created_at || '').slice(0, 10)
+        sourcePublishedAt: ''
       };
-      const candidateId = await createReviewCandidateFromCommunityReport({ report, source, suggestedRecord });
+      const candidateId = await createReviewCandidateFromCommunityReport({ report, source, suggestedRecord, evidenceUrl });
       setSelectedCommunityReportId(null);
       setActiveReviewTab('pending');
       setSelectedCandidateId(candidateId);
@@ -472,6 +472,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
 
 function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport, activeTab, countries, qualificationSources, isLoading, onTabChange, onSelect, onReviewLater, onDismiss, onReopen, onConvert }) {
   const [sourceId, setSourceId] = useState('');
+  const [evidenceUrl, setEvidenceUrl] = useState('');
   const relevantSources = useMemo(() => qualificationSources
     .filter((source) => ['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier))
     .filter((source) => !selectedReport?.sport || !source.sports?.length || source.sports.includes(selectedReport.sport))
@@ -481,6 +482,7 @@ function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport
 
   useEffect(() => {
     setSourceId('');
+    setEvidenceUrl(selectedReport?.source_url || '');
   }, [selectedReport?.id]);
 
   return (
@@ -527,8 +529,13 @@ function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport
                   {relevantSources.map((source) => <option key={source.id} value={source.id}>{source.label}</option>)}
                 </select>
               </label>
+              <label>
+                <span>Exact official evidence link</span>
+                <input type="url" value={evidenceUrl} onChange={(event) => setEvidenceUrl(event.target.value)} placeholder="https://official-source.org/article" />
+                <span className="supporting-copy">Keep the submitted article if it is official, or replace it with the official confirmation. This exact link stays with the review.</span>
+              </label>
               <div className="admin-actions">
-                <button type="button" className="button-primary" disabled={isLoading || !selectedSource} onClick={() => onConvert(selectedReport, selectedSource)}>Create qualification candidate</button>
+                <button type="button" className="button-primary" disabled={isLoading || !selectedSource || !evidenceUrl.trim()} onClick={() => onConvert(selectedReport, selectedSource, evidenceUrl)}>Create qualification candidate</button>
                 {activeTab === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to new</button>}
                 <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>Dismiss report</button>
               </div>
@@ -588,7 +595,7 @@ function CandidateEvidence({ candidate, countries, source }) {
       <dl className="admin-evidence-summary">
         <div><dt>What Games28 found</dt><dd>{suggestedSubject(candidate, countries)}</dd></div>
         <div><dt>Sport</dt><dd>{suggested.sport || source?.sport || 'Not supplied'}{suggested.disciplines?.length ? ` · ${suggested.disciplines.join(', ')}` : ''}</dd></div>
-        <div><dt>Officially published</dt><dd>{formatDate(suggested.sourcePublishedAt || candidate.detected_at || candidate.detectedAt)}</dd></div>
+        <div><dt>Officially published</dt><dd>{suggested.sourcePublishedAt ? formatDate(suggested.sourcePublishedAt) : 'Verify the official publication date'}</dd></div>
       </dl>
       <p className="admin-evidence-reason"><strong>Why you are seeing this:</strong> {candidate.reason}</p>
       <a className="button-secondary admin-source-link" href={sourceUrl} target="_blank" rel="noreferrer">Open official source</a>

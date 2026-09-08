@@ -1,3 +1,4 @@
+import { resolveReportEvidenceUrl } from './report-evidence.js';
 import { fetchClientIdPages } from './pagination.js';
 import { createClient } from '@supabase/supabase-js';
 
@@ -64,30 +65,17 @@ export async function resolveCommunityReport({ id, status, resolutionNote }) {
   if (error) throw error;
 }
 
-export async function createReviewCandidateFromCommunityReport({ report, source, suggestedRecord }) {
+export async function createReviewCandidateFromCommunityReport({ report, source, suggestedRecord, evidenceUrl }) {
   if (!supabase) throw new Error('Supabase is not configured.');
-  const id = `visitor-report-${report.id}`;
-  const candidate = {
-    id,
-    source_id: source.id,
-    source_url: source.allocationUrl || source.url,
-    extracted_evidence: report.details,
-    reason: 'Visitor-submitted report. Verify the selected official source before publishing.',
-    detected_at: report.created_at,
-    suggested_record: suggestedRecord
-  };
-  const { error: candidateError } = await supabase.from('qualification_review_candidates').insert(candidate);
-  if (candidateError) throw candidateError;
-
-  const session = await getAdminSession();
-  const { error: reportError } = await supabase.from('community_reports').update({
-    status: 'converted',
-    converted_candidate_id: id,
-    reviewed_at: new Date().toISOString(),
-    reviewed_by: session?.user?.id || null
-  }).eq('id', report.id);
-  if (reportError) throw reportError;
-  return id;
+  const sourceUrl = resolveReportEvidenceUrl(report, source, evidenceUrl);
+  const { data, error } = await supabase.rpc('convert_community_report', {
+    p_report_id: report.id,
+    p_source_id: source.id,
+    p_source_url: sourceUrl,
+    p_suggested_record: { ...suggestedRecord, sourceId: source.id, sourceUrl }
+  });
+  if (error) throw error;
+  return data;
 }
 
 export async function resolveReviewCandidate({ id, status, confirmationRecord, resolutionNote }) {
