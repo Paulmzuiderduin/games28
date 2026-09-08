@@ -209,7 +209,7 @@ function formatChangeEntityLabel(change) {
 function qualificationDetail(card) {
   const discipline = (card.disciplines || []).join(', ');
   if (card.subjectType !== 'team_quota') return discipline;
-  const capacity = card.teamSizeMax ? `Up to ${card.teamSizeMax} athlete-and-horse combinations` : 'Final team not selected yet';
+  const capacity = card.teamSizeMax ? `Up to ${card.teamSizeMax} ${card.sport === 'Equestrian' ? 'athlete-and-horse combinations' : 'athletes'} per team` : '';
   return [discipline, capacity].filter(Boolean).join(' · ');
 }
 
@@ -992,6 +992,16 @@ function SportsView({ sports }) {
   );
 }
 
+function QuotaLinkDetails({ card }) {
+  if (card.allocationLinkProblem || card.quotaLinkProblem) return <p className="supporting-copy">Quota link awaiting review. The official qualification record is preserved.</p>;
+  if (card.quotaOccupants) return <div className="supporting-copy">
+    <p>{card.filledQuotaCount} of {card.quotaCount} places linked to selections; {card.remainingQuotaCount} not yet linked to a selection.</p>
+    {card.quotaOccupants.map(person => <p key={person.id}>{person.name}{person.sourceUrl ? <> · <SourceLink href={person.sourceUrl}>Selection source</SourceLink></> : null}</p>)}
+  </div>;
+  if (card.allocationRecordId) return <p className="supporting-copy">Fills an existing country quota, not an additional place.</p>;
+  return null;
+}
+
 function SportQualificationOverview({ overview, sport }) {
   return (
     <section className="sport-qualification-section">
@@ -1024,6 +1034,7 @@ function SportQualificationOverview({ overview, sport }) {
                     <div className="sport-qualification-record__details">
                       <strong>{card.name}</strong>
                       <span>{qualificationDetail(card)}</span>
+                      <QuotaLinkDetails card={card} />
                     </div>
                     <div className="sport-qualification-record__meta">
                       <span className={`tag ${isNamedQualification(card) ? 'confirmed' : 'pending'}`}>
@@ -1373,6 +1384,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
                       <span className="tag confirmed">{formatStatusLabel(card.state || card.status)}</span>
                     </div>
                     <p>{qualificationDetail(card)}</p>
+                    <QuotaLinkDetails card={card} />
                     <div className="info-card-footer">
                       <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
                       {card.profileUrl ? (
@@ -1400,7 +1412,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
             <div className="section-heading compact">
               <div>
                 <p className="eyebrow">Qualification</p>
-                <h2>Confirmed quota places awaiting selection</h2>
+                <h2>Confirmed quota places</h2>
               </div>
             </div>
             {dashboard.quotaPlaces.length ? (
@@ -1415,6 +1427,7 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
                       <span className="tag pending">{formatStatusLabel(card.state || card.status)}</span>
                     </div>
                     <p>{qualificationDetail(card)}</p>
+                    <QuotaLinkDetails card={card} />
                     <div className="info-card-footer">
                       <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
                       {card.sourceUrl ? (

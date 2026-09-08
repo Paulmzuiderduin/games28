@@ -1,3 +1,4 @@
+import { annotateQuotaLinks } from './quota-links.js';
 import { formatDayKey } from './format.js';
 import { getSportGroup } from './sport-groups.js';
 import { formatCanonicalEventLabel, resolveCanonicalQualificationEvent } from './qualification-events.js';
@@ -173,7 +174,7 @@ function sessionMatchesQualificationEvent(runtime, entry, card) {
 
 export function buildCountryDashboard(runtime, noc) {
   const country = runtime.countries.find((entry) => entry.noc === noc) || { ...EMPTY_COUNTRY, noc };
-  const athleteCards = runtime.athleteCards.filter((card) => card.noc === noc);
+  const athleteCards = annotateQuotaLinks(runtime.athleteCards.filter((card) => card.noc === noc));
   const namedAthletes = athleteCards.filter((card) => card.status === 'named');
   const quotaPlaces = athleteCards.filter((card) => card.status === 'quota');
   const confirmedSessions = sortByDate(
@@ -282,7 +283,7 @@ function qualificationGroupLabel(runtime, card, sport) {
 
 export function buildSportQualificationOverview(runtime, sport) {
   const countryByNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
-  const cards = (runtime.athleteCards || [])
+  const cards = annotateQuotaLinks(runtime.athleteCards || [])
     .filter((card) => getQualificationSportLabels(runtime, card).includes(sport))
     .sort((left, right) => {
       const statusDelta = qualificationStatusRank(left) - qualificationStatusRank(right);
@@ -296,6 +297,8 @@ export function buildSportQualificationOverview(runtime, sport) {
   const groups = new Map();
 
   cards.forEach((card) => {
+    // A linked selection is rendered inside its quota row, not as a second place.
+    if (card.allocationRecordId && !card.allocationLinkProblem && cards.some(quota => quota.id === card.allocationRecordId)) return;
     const label = qualificationGroupLabel(runtime, card, sport);
     const group = groups.get(label) || {
       id: `${sport}::${label}`,
@@ -319,7 +322,7 @@ export function buildSportQualificationOverview(runtime, sport) {
     }))
     .sort((left, right) => left.label.localeCompare(right.label));
   const namedCount = cards.filter((card) => card.status === 'named' || ['selected', 'entered'].includes(card.state)).length;
-  const quotaCount = cards.filter((card) => card.status === 'quota' || (card.status !== 'named' && ['allocated', 'earned'].includes(card.state))).length;
+  const quotaCount = cards.filter((card) => card.status === 'quota').reduce((total, card) => total + (Number.isInteger(card.quotaCount) ? card.quotaCount : 0), 0);
 
   return {
     cards,

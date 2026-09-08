@@ -1,3 +1,5 @@
+import { quotaLinkProblem, reviewQuotaRecords, validateQuotaSelection } from '../lib/quota-links.js';
+import { resolveCanonicalQualificationEvent } from '../lib/qualification-events.js';
 import { useEffect, useMemo, useState } from 'react';
 import {
   getAdminSession,
@@ -125,6 +127,8 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   const [note, setNote] = useState('');
   const [analyticsDisabled, setAnalyticsDisabledState] = useState(() => isAnalyticsDisabled());
 
+  const liveQualificationCards = useMemo(() => reviewQuotaRecords(qualificationCards, candidates), [qualificationCards, candidates]);
+
   const candidatesByStatus = useMemo(
     () => REVIEW_TABS.reduce((groups, tab) => ({
       ...groups,
@@ -226,7 +230,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     }
     if (['noc_quota', 'team_quota'].includes(draft.subjectType) && (!Number.isInteger(Number(draft.quotaCount)) || Number(draft.quotaCount) < 1)) throw new Error('Quota places must be at least 1.');
     if (draft.subjectType === 'team_quota' && draft.teamSizeMax && (!Number.isInteger(Number(draft.teamSizeMax)) || Number(draft.teamSizeMax) < 1)) throw new Error('Team size must be a positive whole number.');
-    return {
+    const record = {
       id: `approved-${candidate.id}`,
       reviewCandidateId: candidate.id,
       noc: draft.noc,
@@ -247,6 +251,9 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       verifiedAt: new Date().toISOString(),
       sourceRecordType: 'review_approved'
     };
+    record.canonicalEventKey = resolveCanonicalQualificationEvent(record, qualificationSources)?.key || null;
+    validateQuotaSelection(record, liveQualificationCards);
+    return record;
   }
 
   async function resolve(candidate, status) {
@@ -417,7 +424,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
               countries={countries}
               sportOptions={sportOptions}
               qualificationSources={qualificationSources}
-              qualificationCards={qualificationCards}
+              qualificationCards={liveQualificationCards}
               source={sourceFor(selectedCandidate, qualificationSources)}
               draft={draft}
               isLoading={isLoading}
@@ -616,11 +623,9 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
   const currentDiscipline = draft.disciplines.length === 1 ? draft.disciplines[0] : '';
   const hasCurrentSportOption = sportOptions.includes(draft.sport);
   const hasCurrentDisciplineOption = qualificationEventOptions.some((entry) => entry.label === currentDiscipline);
-  const allocationOptions = useMemo(() => qualificationCards.filter((card) => {
-    if (!['noc_quota', 'team_quota'].includes(card.subjectType)) return false;
-    if (card.noc !== draft.noc || card.sport !== draft.sport) return false;
-    return !currentDiscipline || (card.disciplines || []).includes(currentDiscipline);
-  }), [qualificationCards, draft.noc, draft.sport, currentDiscipline]);
+  const allocationOptions = useMemo(() => qualificationCards.filter(card => !quotaLinkProblem({
+    ...draft, canonicalEventKey: resolveCanonicalQualificationEvent(draft, qualificationSources)?.key || null
+  }, card)), [qualificationCards, draft, qualificationSources]);
   return (
     <section className="admin-review-editor">
       <p className="eyebrow">Step 2 · Check the record</p>

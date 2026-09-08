@@ -546,7 +546,7 @@ async function main() {
     reviewQueue: [...manualReviewQueue, ...approvedReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
   }, qualificationSources);
   const qualificationRecords = qualificationResult.activeRecords;
-  const athleteCards = toQualificationCards(qualificationRecords);
+  const athleteCards = toQualificationCards(qualificationRecords, qualificationResult.history);
 
   const validation = validateOfficialCandidate(officialCandidate, communityReference, previousRuntime);
   const publication = choosePublishedSchedule({

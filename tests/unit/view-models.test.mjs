@@ -17,6 +17,7 @@ const runtime = {
       disciplines: ['Marathon'],
       scheduleHints: ['marathon'],
       status: 'quota',
+      quotaCount: 1,
       teamType: 'individual',
       lastUpdatedAt: '2026-04-10T00:00:00.000Z'
     },
@@ -267,4 +268,16 @@ test('a multi-event card retains only its events still awaiting a draw', () => {
     scheduleEntries: [{ id: '100m', sport: 'Athletics', discipline: "Men's 100m", nocs: ['NED'], athleteIds: [] }]
   };
   assert.deepEqual(buildCountryDashboard(data, 'NED').awaitingScheduleGroups[0].disciplines, ["Men's 200m"]);
+});
+
+test('sport overview nests a linked selection under its quota instead of creating a second place', () => {
+  const data = { ...runtime, athleteCards: [
+    { id: 'quota', noc: 'NED', sport: 'Rowing', subjectType: 'team_quota', status: 'quota', state: 'allocated', quotaCount: 1, disciplines: ['Eight'], name: '1 team quota' },
+    { id: 'crew', noc: 'NED', sport: 'Rowing', subjectType: 'team', status: 'named', state: 'selected', disciplines: ['Eight'], name: 'Named crew', allocationRecordId: 'quota' }
+  ] };
+  const overview = buildSportQualificationOverview(data, 'Rowing');
+  assert.equal(overview.stats.quotaCount, 1);
+  assert.equal(overview.stats.namedCount, 1);
+  assert.equal(overview.groups[0].cards.length, 1);
+  assert.equal(overview.groups[0].cards[0].quotaOccupants[0].name, 'Named crew');
 });
