@@ -36,3 +36,15 @@ test('official schedule survives repeated failed refreshes and recovers without 
   assert.equal(result.scheduleAuthority,'official_pdf');
   assert.equal(result.publishedSchedule[0].id,'new-good');
 });
+
+test('a cached official PDF passing validation is not a fresh publication or promotion', () => {
+  const input = { validation: { passed: true }, candidate: [{ id: 'cached' }], communityReference: [{ id: 'mirror' }], sourceCheck: { officialShadowSuccessStreak: 2 }, officialFetchUsedFallback: true };
+  const existing = choosePublishedSchedule({ ...input, previousRuntime: { meta: { scheduleAuthority: 'official_pdf' }, scheduleEntries: [{ id: 'published' }] } });
+  assert.equal(existing.scheduleAuthority, 'stale_official');
+  assert.equal(existing.publishedSchedule[0].id, 'published');
+  assert.match(existing.staleWarning, /cached PDF/);
+  assert.equal(existing.officialShadowSuccessStreak, 0);
+  const shadow = choosePublishedSchedule({ ...input, previousRuntime: { meta: { scheduleAuthority: 'community_reference' }, scheduleEntries: [{ id: 'mirror' }] } });
+  assert.equal(shadow.scheduleAuthority, 'community_reference');
+  assert.equal(shadow.promotionAchieved, false);
+});

@@ -309,15 +309,15 @@ function validateOfficialCandidate(candidate, communityReference, previousRuntim
   };
 }
 
-export function choosePublishedSchedule({ validation, candidate, communityReference, previousRuntime, sourceCheck }) {
+export function choosePublishedSchedule({ validation, candidate, communityReference, previousRuntime, sourceCheck, officialFetchUsedFallback = false }) {
   const previousMeta = previousRuntime?.meta || {};
   const previousAuthority = previousMeta.scheduleAuthority || null;
   const previousPublished = Array.isArray(previousRuntime?.scheduleEntries) ? previousRuntime.scheduleEntries : [];
   const previousStreak = Number(sourceCheck?.officialShadowSuccessStreak || 0);
-  const nextStreak = validation.passed ? previousStreak + 1 : 0;
+  const nextStreak = validation.passed && !officialFetchUsedFallback ? previousStreak + 1 : 0;
   const alreadyOfficial = ['official_pdf', 'stale_official'].includes(previousAuthority) && previousPublished.length > 0;
 
-  if (validation.passed && (alreadyOfficial || nextStreak >= OFFICIAL_PROMOTION_STREAK)) {
+  if (validation.passed && !officialFetchUsedFallback && (alreadyOfficial || nextStreak >= OFFICIAL_PROMOTION_STREAK)) {
     return {
       publishedSchedule: candidate,
       scheduleAuthority: 'official_pdf',
@@ -326,10 +326,13 @@ export function choosePublishedSchedule({ validation, candidate, communityRefere
     };
   }
 
-  if (!validation.passed && alreadyOfficial) {
+  if ((!validation.passed || officialFetchUsedFallback) && alreadyOfficial) {
     return {
       publishedSchedule: previousPublished,
       scheduleAuthority: 'stale_official',
+      staleWarning: officialFetchUsedFallback
+        ? 'The latest official schedule could not be fetched. Games28 is keeping the last verified official schedule; a cached PDF passing validation is not a fresh source check.'
+        : 'Official parser validation failed on this refresh, so Games28 is serving the last known good official schedule.',
       officialShadowSuccessStreak: 0,
       promotionAchieved: false
     };
@@ -554,7 +557,8 @@ async function main() {
     candidate: officialCandidate,
     communityReference,
     previousRuntime,
-    sourceCheck
+    sourceCheck,
+    officialFetchUsedFallback: officialPage.fallbackUsed || officialPdf.fallbackUsed
   });
 
   const publishedSchedule = publication.publishedSchedule;
@@ -689,9 +693,7 @@ async function main() {
       scheduleCount: publishedSchedule.length,
       shadowMode: true,
       sportCount: sports.size,
-      staleWarning: publication.scheduleAuthority === 'stale_official'
-        ? 'Official parser validation failed on this refresh, so Games28 is serving the last known good official schedule.'
-        : null
+      staleWarning: publication.staleWarning || null
     }
   };
 
@@ -705,6 +707,9 @@ async function main() {
     officialPdfHash: sourcePdfHash,
     officialSourceVersion: sourceVersion,
     officialShadowSuccessStreak: publication.officialShadowSuccessStreak,
+    officialFetchUsedFallback: officialPage.fallbackUsed || officialPdf.fallbackUsed,
+    officialLastSuccessfulAt: !officialPage.fallbackUsed && !officialPdf.fallbackUsed
+      ? checkedAt : sourceCheck.officialLastSuccessfulAt || null,
     officialValidationPassed: validation.passed,
     officialValidationIssues: validation.issues,
     promotionAchieved: publication.promotionAchieved
