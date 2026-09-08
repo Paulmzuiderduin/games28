@@ -293,27 +293,32 @@ function buildUtcRange(dateLabel, startTimeLocal, endTimeLocal, timezone) {
 
 export async function extractPdfPageLines(pdfInput, options = {}) {
   const normalizedInput = Buffer.isBuffer(pdfInput) ? new Uint8Array(pdfInput) : pdfInput;
-  const loadingTask = pdfjs.getDocument(normalizedInput);
-  const pdf = await loadingTask.promise;
-  const pages = options.pages || Array.from({ length: pdf.numPages }, (_, index) => index + 1);
-  const results = [];
+  const loadingTask = pdfjs.getDocument(normalizedInput instanceof Uint8Array || normalizedInput instanceof ArrayBuffer
+    ? { data: normalizedInput } : typeof normalizedInput === 'string' ? { url: normalizedInput } : normalizedInput);
+  try {
+    const pdf = await loadingTask.promise;
+    const pages = options.pages || Array.from({ length: pdf.numPages }, (_, index) => index + 1);
+    const results = [];
 
-  for (const pageNumber of pages) {
-    const page = await pdf.getPage(pageNumber);
-    const content = await page.getTextContent();
-    const items = content.items.map((item) => ({
-      str: item.str,
-      x: Number(item.transform[4].toFixed(2)),
-      y: Number(item.transform[5].toFixed(2)),
-      width: Number((item.width || 0).toFixed?.(2) || 0)
-    }));
-    results.push({
-      pageNumber,
-      lines: bucketByY(items)
-    });
+    for (const pageNumber of pages) {
+      const page = await pdf.getPage(pageNumber);
+      const content = await page.getTextContent();
+      const items = content.items.map((item) => ({
+        str: item.str,
+        x: Number(item.transform[4].toFixed(2)),
+        y: Number(item.transform[5].toFixed(2)),
+        width: Number((item.width || 0).toFixed?.(2) || 0)
+      }));
+      results.push({
+        pageNumber,
+        lines: bucketByY(items)
+      });
+    }
+
+    return results;
+  } finally {
+    await loadingTask.destroy();
   }
-
-  return results;
 }
 
 export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
