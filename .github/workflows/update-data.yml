@@ -19,6 +19,7 @@ concurrency:
 jobs:
   update_dataset:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
         with:
@@ -30,7 +31,10 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Run regression tests
+        run: npm run test:unit
 
       # Restore any historical approval that an older sync accidentally reset
       # before the refresh decides which confirmed records stay public.
@@ -83,15 +87,15 @@ jobs:
             fi
 
             if ! git pull --rebase --autostash origin "${TARGET_BRANCH}"; then
-              echo "Skipping after rebase conflict."
+              echo "::error::Data refresh was not published: rebase conflict."
               echo "changed=false" >> "$GITHUB_OUTPUT"
-              exit 0
+              exit 1
             fi
           done
 
-          echo "Could not push after retries."
+          echo "::error::Data refresh was not published: push failed after three attempts."
           echo "changed=false" >> "$GITHUB_OUTPUT"
-          exit 0
+          exit 1
 
       - name: Deploy refreshed data
         if: steps.publish_data.outputs.changed == 'true'

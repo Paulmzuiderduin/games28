@@ -20,6 +20,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
         with:
@@ -30,7 +31,10 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Run regression tests
+        run: npm run test:unit
 
       - name: Build app
         env:
@@ -48,6 +52,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
