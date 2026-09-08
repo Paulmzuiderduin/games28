@@ -70,6 +70,7 @@ test('inserts only new review candidates and preserves resolved decisions', asyn
     fetchImpl: async (url, options = {}) => {
       requests.push({ url, options });
       if (options.method === 'POST') return new Response(null, { status: 201 });
+      if (new URL(url).searchParams.get('id')?.startsWith('gt.')) return new Response('[]');
       return new Response(JSON.stringify([
         { id: 'already-approved', status: 'approved', confirmation_record: { id: 'approved-already-approved' } },
         { id: 'review-later', status: 'review_later', confirmation_record: null }
@@ -95,6 +96,7 @@ test('repairs only a reset approval that still has its confirmation record', asy
     fetchImpl: async (url, options = {}) => {
       requests.push({ url, options });
       if (options.method === 'PATCH') return new Response(null, { status: 204 });
+      if (new URL(url).searchParams.get('id')?.startsWith('gt.')) return new Response('[]');
       return new Response(JSON.stringify([
         { id: 'reset-approval', status: 'pending', confirmation_record: { id: 'approved-reset-approval' } },
         { id: 'ordinary-pending', status: 'pending', confirmation_record: null }
@@ -124,6 +126,7 @@ test('updates changed search evidence in place without reopening a review', asyn
     fetchImpl: async (url, options = {}) => {
       requests.push({ url, options });
       if (options.method === 'PATCH') return new Response(null, { status: 204 });
+      if (new URL(url).searchParams.get('id')?.startsWith('gt.')) return new Response('[]');
       return new Response(JSON.stringify([{
         id: 'review-search-if-example-event-ned-allocation',
         status: 'review_later',

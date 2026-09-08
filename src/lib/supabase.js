@@ -1,3 +1,4 @@
+import { fetchClientIdPages } from './pagination.js';
 import { createClient } from '@supabase/supabase-js';
 
 // These are public browser credentials. RLS protects the private review data;
@@ -29,12 +30,7 @@ export async function getAdminSession() {
 
 export async function getReviewCandidates() {
   if (!supabase) throw new Error('Supabase is not configured.');
-  const { data, error } = await supabase
-    .from('qualification_review_candidates')
-    .select('*')
-    .order('detected_at', { ascending: false });
-  if (error) throw error;
-  return data || [];
+  return fetchClientIdPages(supabase, 'qualification_review_candidates', 'detected_at');
 }
 
 export async function submitCommunityReport(report) {
@@ -53,12 +49,7 @@ export async function submitCommunityReport(report) {
 
 export async function getCommunityReports() {
   if (!supabase) throw new Error('Supabase is not configured.');
-  const { data, error } = await supabase
-    .from('community_reports')
-    .select('*')
-    .order('created_at', { ascending: false });
-  if (error) throw error;
-  return data || [];
+  return fetchClientIdPages(supabase, 'community_reports', 'created_at');
 }
 
 export async function resolveCommunityReport({ id, status, resolutionNote }) {

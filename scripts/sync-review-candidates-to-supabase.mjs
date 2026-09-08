@@ -1,3 +1,4 @@
+import { fetchRestIdPages } from '../src/lib/pagination.js';
 import { readFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -64,12 +65,9 @@ async function responseError(action, response) {
 export async function syncReviewCandidates({ candidates, supabaseUrl, serviceRoleKey, fetchImpl = fetch }) {
   const baseUrl = supabaseUrl.replace(/\/$/, '');
   const endpoint = `${baseUrl}/rest/v1/qualification_review_candidates`;
-  const existingResponse = await fetchImpl(`${endpoint}?select=id,status,confirmation_record,source_url,extracted_evidence,reason,suggested_record`, {
-    headers: headers(serviceRoleKey)
+  const existing = await fetchRestIdPages(`${endpoint}?select=id,status,confirmation_record,source_url,extracted_evidence,reason,suggested_record`, {
+    headers: headers(serviceRoleKey), fetchImpl
   });
-  if (!existingResponse.ok) throw await responseError('Unable to read existing review candidates', existingResponse);
-
-  const existing = await existingResponse.json();
   const existingById = new Map(existing.map((candidate) => [candidate.id, candidate]));
   const newCandidates = candidates.filter((candidate) => !existingById.has(candidate.id));
   const evidenceUpdates = candidates.filter((candidate) => {

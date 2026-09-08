@@ -1,3 +1,4 @@
+import { fetchRestIdPages } from '../src/lib/pagination.js';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildCountryRegistry } from './country-registry.mjs';
@@ -92,11 +93,9 @@ async function fetchApprovedReviewQueue() {
   // Fetch every candidate status, not only approved rows. A published record
   // may be removed only when Supabase explicitly says its review changed.
   const url = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?select=id,status,source_id,source_url,extracted_evidence,reason,detected_at,confirmation_record`;
-  const response = await fetch(url, {
+  const rows = await fetchRestIdPages(url, {
     headers: { apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}` }
   });
-  if (!response.ok) throw new Error(`Unable to fetch approved qualification reviews: ${response.status}`);
-  const rows = await response.json();
   const statusesById = Object.fromEntries(rows.map((row) => [row.id, row.status]));
   return {
     available: true,
