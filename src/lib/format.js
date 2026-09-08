@@ -68,7 +68,7 @@ export function formatUpdatedLabel(isoString) {
   return formatDateTimeLabel(isoString, { timeZone: 'UTC' }) + ' UTC';
 }
 
-export function formatDayKey(isoString) {
+export function formatDayKey(isoString, options = {}) {
   if (!isoString) {
     return 'unknown';
   }
@@ -77,7 +77,7 @@ export function formatDayKey(isoString) {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
-    timeZone: 'UTC'
+    timeZone: options.timeZone || getViewerTimeZone()
   }).format(new Date(isoString));
 }
 

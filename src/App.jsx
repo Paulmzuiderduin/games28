@@ -477,12 +477,12 @@ function FilterBar({ filters, options, onChange, searchPlaceholder }) {
           </select>
         </label>
         <label>
-          <span>Date</span>
+          <span>Date (your timezone)</span>
           <select value={filters.dayKey} onChange={(event) => onChange({ ...filters, dayKey: event.target.value })}>
             <option value="all">All competition days</option>
             {options.dayOptions.map((dayKey) => (
               <option key={dayKey} value={dayKey}>
-                {dayKey}
+                {dayKey === 'time-tbd' ? 'Time not announced' : dayKey}
               </option>
             ))}
           </select>
@@ -1162,12 +1162,12 @@ function SportView({ runtime, sport, entries, scheduleFilters, onScheduleFilters
         </div>
         <div className="filters-grid sport-filter-grid">
           <label>
-            <span>Date</span>
+            <span>Date (your timezone)</span>
             <select value={scheduleFilters.dayKey} onChange={(event) => onScheduleFiltersChange({ ...scheduleFilters, dayKey: event.target.value })}>
               <option value="all">All competition days</option>
               {scheduleOptions.dayOptions.map((dayKey) => (
                 <option key={dayKey} value={dayKey}>
-                  {dayKey}
+                  {dayKey === 'time-tbd' ? 'Time not announced' : dayKey}
                 </option>
               ))}
             </select>

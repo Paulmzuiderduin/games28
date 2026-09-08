@@ -1,3 +1,4 @@
+import { formatDayKey } from './format.js';
 import { getSportGroup } from './sport-groups.js';
 import { formatCanonicalEventLabel, resolveCanonicalQualificationEvent } from './qualification-events.js';
 
@@ -25,10 +26,16 @@ function sortByDate(items) {
   });
 }
 
-export function buildScheduleOptions(scheduleEntries) {
+export function getScheduleFilterDay(entry, timeZone) {
+  // A date without a start time cannot safely be converted to the viewer's day.
+  if (!entry.startAtUtc || !Number.isFinite(Date.parse(entry.startAtUtc))) return 'time-tbd';
+  return formatDayKey(entry.startAtUtc, { timeZone });
+}
+
+export function buildScheduleOptions(scheduleEntries, { timeZone } = {}) {
   const sportOptions = [...new Set(scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b));
-  const dayOptions = [...new Set(scheduleEntries.map((entry) => entry.dayKey).filter(Boolean))]
+  const dayOptions = [...new Set(scheduleEntries.map((entry) => getScheduleFilterDay(entry, timeZone)).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b));
 
   return { sportOptions, dayOptions };
@@ -90,7 +97,7 @@ export function buildSportDirectory(runtime) {
     .sort((left, right) => left.sport.localeCompare(right.sport));
 }
 
-export function filterScheduleEntries(scheduleEntries, filters) {
+export function filterScheduleEntries(scheduleEntries, filters, { timeZone } = {}) {
   const query = normalizeText(filters.searchText);
   const exactRoundQuery = new Set(['final', 'finals', 'semifinal', 'semifinals', 'quarterfinal', 'quarterfinals']).has(query);
 
@@ -99,7 +106,7 @@ export function filterScheduleEntries(scheduleEntries, filters) {
       return false;
     }
 
-    if (filters.dayKey !== 'all' && entry.dayKey !== filters.dayKey) {
+    if (filters.dayKey !== 'all' && getScheduleFilterDay(entry, timeZone) !== filters.dayKey) {
       return false;
     }
 

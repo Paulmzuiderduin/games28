@@ -90,10 +90,11 @@ test('buildCountryDashboard shows only explicit sessions and groups entries awai
 test('filterScheduleEntries respects sport, date, and text filters', () => {
   const filtered = filterScheduleEntries(
     [
-      { id: '1', sport: 'Athletics', eventName: 'Marathon', phase: 'Final', venue: 'Stadium', sessionCode: 'A1', dayKey: '2028-07-29' },
-      { id: '2', sport: 'Rowing', eventName: 'Eight', phase: 'Heat', venue: 'Lake', sessionCode: 'R2', dayKey: '2028-07-30' }
+      { id: '1', sport: 'Athletics', eventName: 'Marathon', phase: 'Final', venue: 'Stadium', sessionCode: 'A1', dayKey: '2028-07-29', startAtUtc: '2028-07-29T12:00:00Z' },
+      { id: '2', sport: 'Rowing', eventName: 'Eight', phase: 'Heat', venue: 'Lake', sessionCode: 'R2', dayKey: '2028-07-30', startAtUtc: '2028-07-30T12:00:00Z' }
     ],
-    { sport: 'Athletics', dayKey: '2028-07-29', searchText: 'marathon' }
+    { sport: 'Athletics', dayKey: '2028-07-29', searchText: 'marathon' },
+    { timeZone: 'UTC' }
   );
   assert.deepEqual(filtered.map((entry) => entry.id), ['1']);
 });
