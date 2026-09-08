@@ -359,7 +359,7 @@ export function detectChanges(previousRuntime, nextRuntime) {
         changeType: 'initial-import',
         changedAt: nextRuntime.checkedAt,
         noc: null,
-        sourceUrl: nextRuntime.meta.scheduleAuthority === 'official_pdf' ? nextRuntime.meta.officialScheduleUrl : nextRuntime.meta.communityScheduleUrl,
+        sourceUrl: nextRuntime.meta.scheduleAuthority === 'official_pdf' ? nextRuntime.meta.officialEventPdfUrl : nextRuntime.meta.communityScheduleUrl,
         summary: `Published ${nextRuntime.scheduleEntries.length} schedule rows into Games28.`
       }
     ];
@@ -384,11 +384,13 @@ export function detectChanges(previousRuntime, nextRuntime) {
       return;
     }
 
-    const timingChanged = previous.startAtUtc !== entry.startAtUtc || previous.endAtUtc !== entry.endAtUtc;
-    const venueChanged = previous.venue !== entry.venue;
-    const authorityChanged = previous.sourcePdfHash !== entry.sourcePdfHash;
+    const fields = ['startAtUtc', 'endAtUtc', 'dayKey', 'venue', 'eventName', 'sport', 'status'];
+    const changedFields = fields.filter((field) => (previous[field] ?? null) !== (entry[field] ?? null));
+    for (const field of ['nocs', 'athleteIds']) {
+      if (JSON.stringify([...(previous[field] || [])].sort()) !== JSON.stringify([...(entry[field] || [])].sort())) changedFields.push(field);
+    }
 
-    if (timingChanged || venueChanged || authorityChanged) {
+    if (changedFields.length) {
       changes.push({
         id: buildChangeId(['schedule-updated', entry.id, nextRuntime.checkedAt]),
         entityId: entry.id,
@@ -397,10 +399,31 @@ export function detectChanges(previousRuntime, nextRuntime) {
         changedAt: nextRuntime.checkedAt,
         noc: null,
         sourceUrl: entry.sourceUrl,
-        summary: `Updated ${entry.eventName} (${entry.sessionCode}) timing, venue, or source.`
+        summary: `Updated ${entry.eventName} (${entry.sessionCode}): ${changedFields.join(", ")}.`
       });
     }
   });
+
+  const nextScheduleIds = new Set(nextRuntime.scheduleEntries.map((entry) => entry.id));
+  for (const entry of previousRuntime.scheduleEntries) {
+    if (nextScheduleIds.has(entry.id)) continue;
+    changes.push({
+      id: buildChangeId(['schedule-removed', entry.id, nextRuntime.checkedAt]),
+      entityId: entry.id, entityType: 'schedule_entry', changeType: 'schedule-removed',
+      changedAt: nextRuntime.checkedAt, noc: null, sourceUrl: entry.sourceUrl,
+      summary: `Removed ${entry.eventName} (${entry.sessionCode}) from the published schedule.`
+    });
+  }
+  const beforeHash = previousRuntime.meta?.officialPdfHash;
+  const afterHash = nextRuntime.meta?.officialPdfHash;
+  if (beforeHash && afterHash && beforeHash !== afterHash) {
+    changes.push({
+      id: buildChangeId(['schedule-source-updated', afterHash]),
+      entityId: 'official-schedule-source', entityType: 'source', changeType: 'schedule-source-updated',
+      changedAt: nextRuntime.checkedAt, noc: null, sourceUrl: nextRuntime.meta.officialEventPdfUrl,
+      summary: 'The official schedule source was revised. Session changes are listed separately.'
+    });
+  }
 
   const previousCardsById = new Map(previousRuntime.athleteCards.map((card) => [card.id, card]));
   nextRuntime.athleteCards.forEach((card) => {
@@ -420,13 +443,14 @@ export function detectChanges(previousRuntime, nextRuntime) {
     }
 
     if (
-      previous.lastUpdatedAt !== card.lastUpdatedAt
-      || previous.status !== card.status
+      previous.status !== card.status
       || previous.state !== card.state
       || previous.subjectType !== card.subjectType
       || previous.quotaCount !== card.quotaCount
       || previous.name !== card.name
       || previous.sourceUrl !== card.sourceUrl
+      || previous.canonicalEventKey !== card.canonicalEventKey
+      || JSON.stringify([...(previous.disciplines || [])].sort()) !== JSON.stringify([...(card.disciplines || [])].sort())
     ) {
       changes.push({
         id: buildChangeId(['qualification-updated', card.id, nextRuntime.checkedAt]),
@@ -466,7 +490,7 @@ export function detectChanges(previousRuntime, nextRuntime) {
       seen.add(change.id);
       return true;
     })
-    .slice(0, 80);
+;
 }
 
 async function main() {

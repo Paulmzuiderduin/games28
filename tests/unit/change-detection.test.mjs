@@ -105,3 +105,21 @@ test('detectChanges records when an active qualification card is removed', () =>
   const changes = detectChanges(previousRuntime, nextRuntime);
   assert.equal(changes.some((change) => change.changeType === 'qualification-removed'), true);
 });
+
+test('PDF hashes produce one source notice, not false changes for every event', () => {
+  const previous = { checkedAt:'2026-09-01',meta:{officialPdfHash:'old'}, athleteCards:[], scheduleEntries:[{id:'one',eventName:'Final',sourcePdfHash:'old'}],changes:[] };
+  const next = { ...previous,checkedAt:'2026-09-08',meta:{officialPdfHash:'new'},scheduleEntries:[{...previous.scheduleEntries[0],sourcePdfHash:'new'}] };
+  const changes=detectChanges(previous,next);
+  assert.deepEqual(changes.map(c=>c.changeType),['schedule-source-updated']);
+});
+test('removed sessions are recorded and older audit history is retained', () => {
+  const previous={athleteCards:[],scheduleEntries:[{id:'removed',eventName:'Final',sessionCode:'A01'}],changes:Array.from({length:90},(_,i)=>({id:String(i),changedAt:'2026-01-01'}))};
+  const changes=detectChanges(previous,{athleteCards:[],scheduleEntries:[],checkedAt:'2026-09-08'});
+  assert.equal(changes.length,91);
+  assert.equal(changes[0].changeType,'schedule-removed');
+});
+test('qualification check timestamps alone do not create public changes', () => {
+  const previous={scheduleEntries:[],athleteCards:[{id:'quota',lastUpdatedAt:'2026-01-01'}]};
+  const changes=detectChanges(previous,{scheduleEntries:[],athleteCards:[{id:'quota',lastUpdatedAt:'2026-02-01'}],checkedAt:'2026-02-01'});
+  assert.equal(changes.length,0);
+});
