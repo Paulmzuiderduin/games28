@@ -1707,7 +1707,7 @@ export default function App() {
     if (route.name !== 'session') {
       return null;
     }
-    return (runtime.scheduleEntries || []).find((entry) => entry.id === route.sessionId) || null;
+    return (runtime.scheduleEntries || []).find((entry) => entry.id === route.sessionId || entry.aliasIds?.includes(route.sessionId)) || null;
   }, [runtime.scheduleEntries, route]);
 
   const changes = useMemo(() => {

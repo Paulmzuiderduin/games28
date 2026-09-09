@@ -15,7 +15,7 @@ import {
   writeJsonIfChanged,
   writeTextIfChanged
 } from './dataset-utils.mjs';
-import { parseOfficialSchedulePdf } from './official-pdf-parser.mjs';
+import { buildScheduleCandidate } from './schedule-candidate.mjs';
 import { buildQualificationPipeline, toQualificationCards } from './qualification-records.mjs';
 import { buildQualificationSystemIndex, toQualificationSources } from './qualification-systems.mjs';
 import { buildCountrySelectionRegistry, toCountrySelectionSources } from './country-selection-registry.mjs';
@@ -263,7 +263,7 @@ function normalizeCommunityReference(rows, sourceUrl) {
     .filter((entry) => entry.sessionCode && entry.sport && entry.eventName);
 }
 
-function validateOfficialCandidate(candidate, communityReference, previousRuntime) {
+export function validateOfficialCandidate(candidate, communityReference, previousRuntime) {
   const duplicateIds = candidate.length - new Set(candidate.map((entry) => entry.id)).size;
   const missingRequired = candidate.filter((entry) => !entry.sport || !entry.sessionCode || !entry.dateLabel || !entry.eventName).length;
   const invalidTimes = candidate.filter((entry) => entry.startAtUtc && entry.endAtUtc && entry.startAtUtc >= entry.endAtUtc).length;
@@ -401,7 +401,7 @@ export function detectChanges(previousRuntime, nextRuntime) {
     }
   });
 
-  const nextScheduleIds = new Set(nextRuntime.scheduleEntries.map((entry) => entry.id));
+  const nextScheduleIds = new Set(nextRuntime.scheduleEntries.flatMap((entry) => [entry.id, ...(entry.aliasIds || [])]));
   for (const entry of previousRuntime.scheduleEntries) {
     if (nextScheduleIds.has(entry.id)) continue;
     changes.push({
@@ -511,13 +511,16 @@ async function main() {
   const countryRegistry = await buildCountryRegistry({ registrySourcePath, isoOverridesPath });
   const countrySelectionRegistry = buildCountrySelectionRegistry(countryRegistry, countrySelectionOverrides);
   const communityReference = normalizeCommunityReference(parseCsv(communitySchedule.body), COMMUNITY_REFERENCE_URL);
-  const officialCandidate = await parseOfficialSchedulePdf(officialPdf.body, {
+  const candidateResult = await buildScheduleCandidate(officialPdf.body, {
     sourcePdfHash,
     sourcePdfUrl: officialPdfUrl,
     sourceVersion,
     timezoneFallback: 'PT'
-  });
-  const qualificationSystemIndex = buildQualificationSystemIndex(officialCandidate);
+  }, previousRuntime?.scheduleEntries || []);
+  const officialCandidate = candidateResult.entries;
+  const qualificationSystemIndex = buildQualificationSystemIndex(candidateResult.parserError
+    ? previousRuntime?.scheduleEntries?.length ? previousRuntime.scheduleEntries : communityReference
+    : officialCandidate);
   const qualificationSources = [
     ...toQualificationSources(qualificationSystemIndex.systems),
     ...toCountrySelectionSources(countrySelectionRegistry)
@@ -552,6 +555,10 @@ async function main() {
   const athleteCards = toQualificationCards(qualificationRecords, qualificationResult.history);
 
   const validation = validateOfficialCandidate(officialCandidate, communityReference, previousRuntime);
+  if (candidateResult.parserError) {
+    validation.passed = false;
+    validation.issues.unshift(`Official PDF parsing failed: ${candidateResult.parserError}`);
+  }
   const publication = choosePublishedSchedule({
     validation,
     candidate: officialCandidate,
@@ -712,13 +719,15 @@ async function main() {
       ? checkedAt : sourceCheck.officialLastSuccessfulAt || null,
     officialValidationPassed: validation.passed,
     officialValidationIssues: validation.issues,
+    officialParserError: candidateResult.parserError,
     promotionAchieved: publication.promotionAchieved
   };
 
   await Promise.all([
     writeJsonIfChanged(runtimePath, nextRuntime),
     writeJsonIfChanged(sourceCheckPath, nextSourceCheck),
-    writeJsonIfChanged(officialCandidatePath, officialCandidate),
+    // Preserve the previous candidate artifact when no complete parse exists.
+    ...(candidateResult.parserError ? [] : [writeJsonIfChanged(officialCandidatePath, officialCandidate)]),
     writeJsonIfChanged(communityReferencePath, communityReference),
     writeJsonIfChanged(countryRegistryPath, countryRegistry),
     writeJsonIfChanged(countrySelectionRegistryPath, countrySelectionRegistry),

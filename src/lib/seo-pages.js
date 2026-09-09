@@ -214,7 +214,7 @@ export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntrie
 
 export function getSeoPage(runtime, pathname) {
   const route = parseRoute(pathname);
-  const entry = route.name === 'session' ? runtime.scheduleEntries.find(item => item.id === route.sessionId) : null;
+  const entry = route.name === 'session' ? runtime.scheduleEntries.find(item => item.id === route.sessionId || item.aliasIds?.includes(route.sessionId)) : null;
   const sport = route.name === 'sport' ? findSportBySlug(runtime.scheduleEntries, route.sportSlug) : null;
   const path = route.name === 'country' ? `/countries/${route.noc}`
     : sport ? getSportPath(sport)
