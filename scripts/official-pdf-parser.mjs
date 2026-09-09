@@ -1,4 +1,5 @@
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
+import { extractRowSeparators, rowBoundsAt } from './pdf-row-bounds.mjs';
 import {
   dayKeyFromDateLabel,
   localTimeToUtcIso,
@@ -106,10 +107,10 @@ function isBoilerplateLine(line) {
   const text = line.text;
   return (
     !text ||
-    text === '3.0' ||
+    /^(?:Version\s+)?\d+\.\d+$/.test(text) ||
     text.startsWith('Sport Venue Zone Session Code Date Games Day Session Type Session Description Start Time End Time') ||
     text.startsWith('Olympic Competition Schedule by Event Version') ||
-    text.startsWith('As of March 16, 2026') ||
+    /^As of [A-Za-z]+ \d{1,2}, \d{4}/.test(text) ||
     text.startsWith('This competition schedule is subject to change') ||
     text.startsWith('2028 Games.') ||
     text.startsWith('order in which they will occur') ||
@@ -292,6 +293,7 @@ function buildUtcRange(dateLabel, startTimeLocal, endTimeLocal, timezone) {
 }
 
 export async function extractPdfPageLines(pdfInput, options = {}) {
+  options = { tableBorders: true, ...options };
   const normalizedInput = Buffer.isBuffer(pdfInput) ? new Uint8Array(pdfInput) : pdfInput;
   const loadingTask = pdfjs.getDocument(normalizedInput instanceof Uint8Array || normalizedInput instanceof ArrayBuffer
     ? { data: normalizedInput } : typeof normalizedInput === 'string' ? { url: normalizedInput } : normalizedInput);
@@ -311,6 +313,7 @@ export async function extractPdfPageLines(pdfInput, options = {}) {
       }));
       results.push({
         pageNumber,
+        ...(options.tableBorders ? { rowSeparators: extractRowSeparators(await page.getOperatorList()) } : {}),
         lines: bucketByY(items)
       });
     }
@@ -322,6 +325,7 @@ export async function extractPdfPageLines(pdfInput, options = {}) {
 }
 
 export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
+  options = { tableBorders: true, ...options };
   const entries = [];
   let columns = COLUMN_DEFAULTS;
 
@@ -335,25 +339,49 @@ export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
       .filter((candidate) => candidate.sessionCode)
       .sort((left, right) => right.line.y - left.line.y);
 
+    if (options.tableBorders && headerLine && !anchors.length) {
+      throw new Error(`No recognizable session anchors on PDF table page ${page.pageNumber}`);
+    }
+    if (options.tableBorders && anchors.length) {
+      for (const line of usableLines) {
+        if (!hasInlineDescription(line, columns)) continue;
+        const bounds = rowBoundsAt(line.y, page.rowSeparators || []);
+        if (!bounds) continue;
+        if (!anchors.some((anchor) => anchor.line.y < bounds.upper && anchor.line.y > bounds.lower)) {
+          throw new Error(`Unassigned description on PDF page ${page.pageNumber}; possible continued or changed row`);
+        }
+      }
+    }
+
     anchors.forEach((anchor, index) => {
       const previousAnchor = anchors[index - 1];
       const nextAnchor = anchors[index + 1];
       const anchorHasInlineDescription = hasInlineDescription(anchor.line, columns);
       const previousHasInlineDescription = previousAnchor ? hasInlineDescription(previousAnchor.line, columns) : false;
       const nextHasInlineDescription = nextAnchor ? hasInlineDescription(nextAnchor.line, columns) : false;
+      const borders = options.tableBorders ? rowBoundsAt(anchor.line.y, page.rowSeparators || []) : null;
+      if (options.tableBorders && (!borders || anchors.filter((candidate) => candidate.line.y < borders.upper && candidate.line.y > borders.lower).length !== 1)) {
+        throw new Error(`Uncertain PDF row boundaries on page ${page.pageNumber}, session ${anchor.sessionCode}`);
+      }
 
-      const upperBound = previousAnchor
+      const upperBound = borders?.upper ?? (previousAnchor
         ? (!anchorHasInlineDescription && previousHasInlineDescription
           ? previousAnchor.line.y
           : midpoint(previousAnchor.line.y, anchor.line.y))
-        : Number.POSITIVE_INFINITY;
-      const lowerBound = nextAnchor
+        : Number.POSITIVE_INFINITY);
+      const lowerBound = borders?.lower ?? (nextAnchor
         ? (!anchorHasInlineDescription && nextHasInlineDescription
           ? nextAnchor.line.y
           : midpoint(anchor.line.y, nextAnchor.line.y))
-        : Number.NEGATIVE_INFINITY;
+        : Number.NEGATIVE_INFINITY);
       const rowLines = usableLines.filter((line) => line.y <= upperBound && line.y > lowerBound);
       const base = extractBaseFields(anchor.line, columns, options.timezoneFallback || 'PT');
+      if (borders) {
+        for (const [field, column] of [['sport', 'sport'], ['venue', 'venue'], ['zone', 'zone'], ['dateLabel', 'date'], ['sessionType', 'sessionType']]) {
+          base[field] = extractColumnFragments(rowLines, columns, column).join(' ');
+        }
+        base.dayKey = DATE_RE.test(base.dateLabel) ? dayKeyFromDateLabel(base.dateLabel) : null;
+      }
       const sportFragments = extractColumnFragments(rowLines, columns, 'sport');
       if (!base.sport && sportFragments.length) {
         base.sport = sportFragments.join(' ').replace(/\s+/g, ' ').trim();
@@ -362,7 +390,7 @@ export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
       const timezone = supplementalTiming.timezone || base.timezone;
       const startTimeLocal = base.startTimeLocal || supplementalTiming.startTimeLocal;
       const endTimeLocal = base.endTimeLocal || supplementalTiming.endTimeLocal;
-      const descriptions = normalizeDescriptionLines(anchorHasInlineDescription ? [anchor.line] : rowLines, columns);
+      const descriptions = normalizeDescriptionLines(!borders && anchorHasInlineDescription ? [anchor.line] : rowLines, columns);
       const eventNames = descriptions.length ? descriptions : ['Session details pending'];
       const { startAtUtc, endAtUtc } = buildUtcRange(base.dateLabel, startTimeLocal, endTimeLocal, timezone);
 
