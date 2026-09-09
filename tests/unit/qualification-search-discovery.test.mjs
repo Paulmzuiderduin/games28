@@ -28,7 +28,7 @@ test('builds rotating sport-event search targets on the trusted official host', 
   assert.deepEqual(selectDailyTargets(targets, '2026-09-05T00:00:00.000Z', 1).length, 1);
 });
 
-test('suppresses an already-known quota but keeps selection discovery separate', () => {
+test('keeps additional quota evidence and selection discovery separate', () => {
   const target = buildSearchTargets(sources).find((entry) => entry.eventKey === 'indoor-women');
   const result = [{
     url: 'https://www.fivb.com/thailand-qualified',
@@ -42,8 +42,8 @@ test('suppresses an already-known quota but keeps selection discovery separate',
     state: 'allocated'
   }];
   const allocation = candidatesFromSearchResults({ target, results: result, countries, qualificationRecords: records, checkedAt: '2026-09-05T00:00:00.000Z' });
-  assert.equal(allocation.candidates.length, 0);
-  assert.equal(allocation.suppressedKnownQuotaCount, 1);
+  assert.equal(allocation.candidates.length, 1);
+  assert.equal(allocation.suppressedKnownQuotaCount, 0);
 
   const selection = candidatesFromSearchResults({
     target,
@@ -56,7 +56,7 @@ test('suppresses an already-known quota but keeps selection discovery separate',
   assert.match(selection.candidates[0].id, /tha-selection$/);
 });
 
-test('keeps a source update on the same stable review candidate', async () => {
+test('keeps distinct official articles as separate review candidates', async () => {
   const target = buildSearchTargets(sources).find((entry) => entry.eventKey === 'indoor-women');
   const first = candidatesFromSearchResults({
     target,
@@ -72,7 +72,7 @@ test('keeps a source update on the same stable review candidate', async () => {
     qualificationRecords: [],
     checkedAt: '2026-09-06T00:00:00.000Z'
   }).candidates[0];
-  assert.equal(first.id, second.id);
+  assert.notEqual(first.id, second.id);
   assert.notEqual(first.sourceUrl, second.sourceUrl);
 
   const discovery = await discoverQualificationSearch({
@@ -86,4 +86,27 @@ test('keeps a source update on the same stable review candidate', async () => {
   });
   assert.equal(discovery.queryCount, 1);
   assert.equal(discovery.candidates.length, 1);
+});
+
+test('same article updates keep their identity and tracking parameters do not create duplicates', () => {
+  const target = buildSearchTargets(sources)[0];
+  const make = (url, title) => candidatesFromSearchResults({ target, results: [{ url, title }], countries, qualificationRecords: [], checkedAt: '2026-09-09' }).candidates[0];
+  const first = make('https://www.fivb.com/announcement?utm_source=test', 'Thailand qualified for LA28');
+  const updated = make('https://www.fivb.com/announcement', 'Thailand qualified for LA28 with two places');
+  assert.ok(first);
+  assert.equal(first.id, updated.id);
+  assert.notEqual(first.discovery.evidenceHash, updated.discovery.evidenceHash);
+});
+
+test('rotation advances by a complete daily batch', () => {
+  const targets = Array.from({ length: 48 }, (_, id) => ({ id }));
+  const first = selectDailyTargets(targets, '2026-09-08', 24);
+  const second = selectDailyTargets(targets, '2026-09-09', 24);
+  assert.equal(new Set([...first, ...second].map((target) => target.id)).size, 48);
+});
+
+test('disabled search makes no requests', async () => {
+  const result = await discoverQualificationSearch({ sources, countries, qualificationRecords: [], checkedAt: '2026-09-09', fetchImpl: () => { throw new Error('Must not fetch'); } });
+  assert.equal(result.enabled, false);
+  assert.equal(result.queryCount, 0);
 });

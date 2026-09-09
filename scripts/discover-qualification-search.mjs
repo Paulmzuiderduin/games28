@@ -27,6 +27,10 @@ function domain(value) {
 }
 
 function hostMatches(url, expectedHost) {
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol !== 'https:' || parsed.username || parsed.password) return false;
+  } catch { return false; }
   const candidate = domain(url);
   return Boolean(candidate && expectedHost && (candidate === expectedHost || candidate.endsWith(`.${expectedHost}`)));
 }
@@ -38,7 +42,7 @@ function escapeRegExp(value) {
 function intentFromEvidence(value) {
   const evidence = text(value).toLowerCase();
   if (/\b(selected|selection|named|nominated|nomination|roster|squad|entered)\b/.test(evidence)) return 'selection';
-  if (/\b(qualif|quota|berth|allocated|allocation|secured|earn(?:ed|s)?)\b/.test(evidence)) return 'allocation';
+  if (/\b(qualif(?:ied|ication|ications|y|ying)?|quota|berth|allocated|allocation|secured|earn(?:ed|s)?)\b/.test(evidence)) return 'allocation';
   return null;
 }
 
@@ -84,7 +88,7 @@ export function selectDailyTargets(targets, checkedAt, maxQueries) {
   if (!targets.length || maxQueries <= 0) return [];
   const count = Math.min(targets.length, maxQueries);
   const day = Math.floor(new Date(checkedAt).getTime() / 86_400_000);
-  const start = ((day % targets.length) + targets.length) % targets.length;
+  const start = (((day * count) % targets.length) + targets.length) % targets.length;
   return Array.from({ length: count }, (_, offset) => targets[(start + offset) % targets.length]);
 }
 
@@ -92,25 +96,35 @@ function queryForTarget(target) {
   return `("LA28" OR "Los Angeles 2028") "${target.eventLabel}" qualification site:${target.trustedHost}`;
 }
 
-function hasKnownQuota(records, target, noc) {
+function hasKnownQuota(records, target, noc, result) {
   if (!target.canonicalEventKey || !noc) return false;
   return (records || []).some((record) => (
     record.noc === noc
     && record.canonicalEventKey === target.canonicalEventKey
     && QUOTA_TYPES.has(record.subjectType)
     && ACTIVE_STATES.has(record.state)
+    // A country can earn multiple places in one event. Only suppress evidence
+    // already recorded, never all future allocations for that country/event.
+    && record.sourceUrl === result.url
+    && record.discoveryEvidenceHash === hash(text([result.title, result.description].filter(Boolean).join('. ')).slice(0, 1200))
   ));
 }
 
-function candidateId(target, noc, intent) {
-  return `review-search-${target.sourceId}-${target.eventKey || 'all'}-${noc || 'unassigned'}-${intent}`
+function candidateId(target, noc, intent, url) {
+  const article = new URL(url);
+  article.hash = '';
+  for (const key of [...article.searchParams.keys()]) {
+    if (/^utm_/i.test(key)) article.searchParams.delete(key);
+  }
+  article.searchParams.sort();
+  return `review-search-${target.sourceId}-${target.eventKey || 'all'}-${hash(article.href)}-${noc || 'unassigned'}-${intent}`
     .replace(/[^a-z0-9-]+/gi, '-').toLowerCase();
 }
 
 function candidateForResult(target, result, noc, intent, checkedAt) {
   const evidence = text([result.title, result.description].filter(Boolean).join('. ')).slice(0, 1200);
   return {
-    id: candidateId(target, noc, intent),
+    id: candidateId(target, noc, intent, result.url),
     sourceId: target.sourceId,
     resolution: 'pending',
     detectedAt: checkedAt,
@@ -156,7 +170,7 @@ async function refreshEvidenceFromOfficialPage(candidate, fetchImpl) {
       headers: { 'user-agent': 'games28-data-bot/0.5' },
       signal: AbortSignal.timeout(15_000)
     });
-    if (!response.ok || !/text\/html/i.test(response.headers.get('content-type') || '')) return candidate;
+    if (!response.ok || (response.url && !hostMatches(response.url, domain(candidate.sourceUrl))) || !/text\/html/i.test(response.headers.get('content-type') || '')) return candidate;
     const excerpt = qualificationExcerpt(await response.text());
     if (!excerpt || !isDiscoveryEvidence(excerpt)) return candidate;
     return {
@@ -184,9 +198,7 @@ export function candidatesFromSearchResults({ target, results, countries, qualif
     const nocs = countryNocsInEvidence(evidence, countries);
     const scopes = nocs.length ? nocs : [null];
     scopes.forEach((noc) => {
-      // A quota is complete once that NOC/event already has an active quota.
-      // Selection remains a separate future state and must still be discoverable.
-      if (intent === 'allocation' && hasKnownQuota(qualificationRecords, target, noc)) {
+      if (intent === 'allocation' && hasKnownQuota(qualificationRecords, target, noc, result)) {
         suppressedKnownQuotaCount += 1;
         return;
       }
@@ -274,7 +286,7 @@ async function main() {
     apiKey,
     sources: runtime.meta?.qualificationSources || [],
     countries: runtime.countries || [],
-    qualificationRecords: runtime.qualificationHistory || [],
+    qualificationRecords: runtime.qualificationRecords || [],
     checkedAt: new Date().toISOString(),
     maxQueries: Number(process.env.BRAVE_SEARCH_MAX_QUERIES) || 24
   });
