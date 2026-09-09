@@ -25,6 +25,19 @@ export function formatDateLabel(isoString, options = {}) {
   return formatter.format(new Date(isoString));
 }
 
+export function formatScheduleDate(entry, options = {}) {
+  if (entry.startAtUtc && Number.isFinite(Date.parse(entry.startAtUtc))) return formatDateLabel(entry.startAtUtc, options);
+  const day = String(entry.dayKey || '');
+  if (/^\d{4}-\d{2}-\d{2}$/.test(day)) {
+    const date = new Date(`${day}T12:00:00Z`);
+    if (Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === day) {
+      // A date without a time cannot be converted to a viewer's calendar day.
+      return `${formatDateLabel(date.toISOString(), { ...options, timeZone: 'UTC' })} (source date)`;
+    }
+  }
+  return 'Date not announced';
+}
+
 export function formatTimeLabel(isoString, options = {}) {
   if (!isoString) {
     return 'TBD';

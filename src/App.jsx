@@ -11,6 +11,7 @@ import {
   formatCount,
   formatCountdown,
   formatDateLabel,
+  formatScheduleDate,
   formatDateTimeLabel,
   formatLaReference,
   formatStatusLabel,
@@ -595,16 +596,16 @@ function ScheduleCard({ entry, countryMode = false, onCalendarExport }) {
       <div className="time-grid">
         <div>
           <span className="time-label">Your time</span>
-          <strong>{formatDateTimeLabel(entry.startAtUtc)}</strong>
+          <strong>{entry.startAtUtc ? formatDateTimeLabel(entry.startAtUtc) : 'Time not announced'}</strong>
         </div>
         <div>
           <span className="time-label">LA reference</span>
-          <strong>{formatLaReference(entry.startAtUtc)}</strong>
+          <strong>{entry.startAtUtc ? formatLaReference(entry.startAtUtc) : 'Time not announced'}</strong>
         </div>
       </div>
       <div className="schedule-card-details">
         <span>{entry.sessionCode || 'Session TBD'}</span>
-        <span>{formatDateLabel(entry.startAtUtc)}</span>
+        <span>{formatScheduleDate(entry)}</span>
       </div>
       <div className="schedule-card-footer">
         <div className="schedule-card-actions">
@@ -1251,16 +1252,16 @@ function SessionView({ runtime, entry, onCalendarExport }) {
         <div className="time-grid">
           <div>
             <span className="time-label">Your time</span>
-            <strong>{formatDateTimeLabel(entry.startAtUtc)}</strong>
+            <strong>{entry.startAtUtc ? formatDateTimeLabel(entry.startAtUtc) : 'Time not announced'}</strong>
           </div>
           <div>
             <span className="time-label">LA reference</span>
-            <strong>{formatLaReference(entry.startAtUtc)}</strong>
+            <strong>{entry.startAtUtc ? formatLaReference(entry.startAtUtc) : 'Time not announced'}</strong>
           </div>
         </div>
         <div className="session-facts">
           <SummaryCard label="Venue" value={entry.venue || 'Venue TBC'} />
-          <SummaryCard label="Date" value={formatDateLabel(entry.startAtUtc)} />
+          <SummaryCard label="Date" value={formatScheduleDate(entry)} />
         </div>
         <div className="session-links">
           <AppLink href={getSportPath(entry.sport)} className="text-link">Open {entry.sport} schedule</AppLink>
