@@ -1837,6 +1837,8 @@ body {
 
 .country-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .country-card { padding: 16px; border-radius: 12px; box-shadow: none; }
+.country-card-identity { min-width: 0; }
+.country-card-identity h3 { min-width: 0; overflow-wrap: anywhere; }
 .country-card:hover { border-color: var(--line-strong); box-shadow: 0 8px 20px rgba(39, 43, 56, 0.05); }
 .country-card-actions { margin-top: 14px; }
 
@@ -1999,6 +2001,7 @@ body {
 .admin-community-report-layout { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr); align-items: start; }
 
 @media (max-width: 1099px) {
+  .country-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .featured-country-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .featured-country-row:not(:nth-child(3n)) { border-right: 0; padding-right: 8px; }
   .featured-country-row:not(:nth-child(3n + 1)) { padding-left: 8px; }
@@ -2032,6 +2035,7 @@ body {
   }
   .home-intro { padding-top: 10px; }
   .home-intro h1, .section-heading h1, .country-page__hero h1, .session-detail h1 { font-size: clamp(2.15rem, 12vw, 3.1rem); }
+  .country-grid { grid-template-columns: minmax(0, 1fr); }
   .saved-countries-row--editorial, .site-footer { align-items: flex-start; flex-direction: column; }
   .saved-countries-row--editorial .saved-countries-list { width: 100%; }
   .home-discovery .section-heading { align-items: flex-start; }
