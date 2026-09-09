@@ -48,3 +48,24 @@ test('a cached official PDF passing validation is not a fresh publication or pro
   assert.equal(shadow.scheduleAuthority, 'community_reference');
   assert.equal(shadow.promotionAchieved, false);
 });
+
+test('supersession cannot remove another country or event or consume an allocation with a selection', () => {
+  for (const change of [{ noc: 'USA' }, { disciplines: ['200m'] }, { subjectType: 'noc_quota', athleteName: null, quotaCount: 1 }]) {
+    const { records } = normalizeQualificationRecords([base, { ...base, ...change, id: 'other', supersedesId: 'one', sourcePublishedAt: '2028-06-10' }], [source]);
+    assert.equal(resolveActiveQualificationRecords(records).length, 2);
+  }
+});
+
+test('cyclic replacements preserve active evidence rather than hiding both people', () => {
+  const { records } = normalizeQualificationRecords([
+    { ...base, supersedesId: 'two' },
+    { ...base, id: 'two', athleteName: 'Other Runner', supersedesId: 'one' }
+  ], [source]);
+  assert.equal(resolveActiveQualificationRecords(records).length, 2);
+});
+
+test('valid later replacement supersedes the earlier named athlete but retains history', () => {
+  const { records } = normalizeQualificationRecords([base, { ...base, id: 'replacement', athleteName: 'Other Runner', supersedesId: 'one', sourcePublishedAt: '2028-06-10' }], [source]);
+  assert.deepEqual(resolveActiveQualificationRecords(records).map((record) => record.id), ['replacement']);
+  assert.equal(records.length, 2);
+});

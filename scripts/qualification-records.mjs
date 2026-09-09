@@ -134,8 +134,33 @@ export function normalizeReviewQueue(entries, sources) {
   return { queue, approvedRecords: approved.records, rejected: [...rejected, ...approved.rejected] };
 }
 
+export function qualificationSupersessionLinks(records) {
+  const byId = new Map(records.map((record) => [record.id, record]));
+  const supersededIds = new Set();
+  const problems = [];
+  const event = (record) => record.canonicalEventKey || [...new Set([...(record.disciplines || []), ...(record.events || [])])].sort().join('|');
+  for (const record of records) {
+    if (!record.supersedesId) continue;
+    const target = byId.get(record.supersedesId);
+    let reason = null;
+    if (!target) reason = 'superseded record not found';
+    else if (!event(record) || event(record) !== event(target) || record.noc !== target.noc || record.sport !== target.sport || record.subjectType !== target.subjectType) reason = 'supersession must stay within the same country, sport, event and subject type';
+    else if ((record.sourcePublishedAt || record.verifiedAt) < (target.sourcePublishedAt || target.verifiedAt)) reason = 'supersession predates the record it replaces';
+    const visited = new Set([record.id]);
+    let cursor = target;
+    while (!reason && cursor) {
+      if (visited.has(cursor.id)) { reason = 'cyclic supersession'; break; }
+      visited.add(cursor.id);
+      cursor = byId.get(cursor.supersedesId);
+    }
+    if (reason) problems.push({ id: record.id, problems: [reason] });
+    else supersededIds.add(target.id);
+  }
+  return { supersededIds, problems };
+}
+
 export function resolveActiveQualificationRecords(records) {
-  const supersededIds = new Set(records.map((record) => record.supersedesId).filter(Boolean));
+  const { supersededIds } = qualificationSupersessionLinks(records);
   const winnersByKey = new Map();
   records.filter((record) => !supersededIds.has(record.id)).forEach((record) => {
     const previous = winnersByKey.get(record.recordKey);
@@ -166,7 +191,7 @@ export function buildQualificationPipeline(source, sources) {
   const direct = normalizeQualificationRecords([...(source?.structuredRecords || []), ...(source?.records || [])], sources);
   const review = normalizeReviewQueue(source?.reviewQueue, sources);
   const history = [...direct.records, ...review.approvedRecords];
-  return { activeRecords: resolveActiveQualificationRecords(history), history, reviewQueue: review.queue, rejected: [...direct.rejected, ...review.rejected] };
+  return { activeRecords: resolveActiveQualificationRecords(history), history, reviewQueue: review.queue, rejected: [...direct.rejected, ...review.rejected, ...qualificationSupersessionLinks(history).problems] };
 }
 
 export function toQualificationCards(records, history = records) {
