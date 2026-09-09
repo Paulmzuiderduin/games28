@@ -89,8 +89,10 @@ export async function resolveReviewCandidate({ id, status, confirmationRecord, r
     resolved_by: status === 'pending' ? null : (await getAdminSession())?.user?.id || null,
     updated_at: new Date().toISOString()
   };
-  const { error } = await supabase.from('qualification_review_candidates').update(payload).eq('id', id);
+  const { data, error } = await supabase.from('qualification_review_candidates')
+    .update(payload).eq('id', id).select('id,status').single();
   if (error) throw error;
+  if (data?.id !== id || data?.status !== status) throw new Error('The review was not saved. Refresh the queue and try again.');
 }
 
 export async function signOutAdmin() {
