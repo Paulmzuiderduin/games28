@@ -1,3 +1,4 @@
+import { resolveQuotaSourceLinks } from '../src/lib/quota-links.js';
 import { qualificationSupersessionLinks } from '../src/lib/qualification-supersession.js';
 export { qualificationSupersessionLinks } from '../src/lib/qualification-supersession.js';
 const SOURCE_TIERS = new Set(['ioc', 'if', 'noc', 'national_federation']);
@@ -172,16 +173,7 @@ export function buildQualificationPipeline(source, sources) {
 }
 
 export function toQualificationCards(records, history = records) {
-  // A newer allocation record may replace its source ID without changing the
-  // quota itself. Resolve that historical link only to the same active identity.
-  const activeById = new Map(records.map(record => [record.id, record]));
-  const historyById = new Map(history.map(record => [record.id, record]));
-  records = records.map(record => {
-    if (!record.allocationRecordId || activeById.has(record.allocationRecordId)) return record;
-    const original = historyById.get(record.allocationRecordId);
-    const current = original?.recordKey && records.find(item => item.recordKey === original.recordKey && ['noc_quota', 'team_quota'].includes(item.subjectType));
-    return current ? { ...record, allocationRecordId: current.id } : record;
-  });
+  records = resolveQuotaSourceLinks(records, history);
   return records.map((record) => ({
     id: record.id, noc: record.noc,
     name: record.subjectType === 'athlete'

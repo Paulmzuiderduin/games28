@@ -1,10 +1,10 @@
-import { annotateQuotaLinks } from '../src/lib/quota-links.js';
+import { annotateQuotaLinks, resolveQuotaSourceLinks } from '../src/lib/quota-links.js';
 import { getSportGroup } from '../src/lib/sport-groups.js';
 
 export function buildQuotaGuardSnapshot(runtime) {
   if (!Array.isArray(runtime?.qualificationRecords)) throw new Error('A complete active qualification dataset is required');
   if (!runtime.checkedAt || !Number.isFinite(Date.parse(runtime.checkedAt))) throw new Error('A valid snapshot timestamp is required');
-  const records = runtime.qualificationRecords;
+  const records = resolveQuotaSourceLinks(runtime.qualificationRecords, runtime.qualificationHistory);
   const ids = new Set();
   for (const record of records) {
     if (!record.id || ids.has(record.id)) throw new Error('Qualification IDs must be present and unique');

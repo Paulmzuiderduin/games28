@@ -6,6 +6,25 @@ const active = record => !['withdrawn', 'replaced'].includes(record.state);
 const normalized = value => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
 const nameOf = record => record.name || record.athleteName || record.teamName || record.id;
 
+export function resolveQuotaSourceLinks(records, history = records) {
+  const byId = new Map(records.map(record => [record.id, record]));
+  const historicalById = new Map(history.map(record => [record.id, record]));
+  return records.map(record => {
+    if (!record.allocationRecordId || byId.has(record.allocationRecordId)) return record;
+    const original = historicalById.get(record.allocationRecordId);
+    if (!original?.recordKey || !quotaTypes.has(original.subjectType)) return record;
+    const matches = records.filter(item => active(item) && item.recordKey === original.recordKey
+      && item.noc === original.noc && getSportGroup(item.sport) === getSportGroup(original.sport)
+      && item.subjectType === original.subjectType
+      && (original.canonicalEventKey || item.canonicalEventKey
+        ? original.canonicalEventKey === item.canonicalEventKey
+        : (original.disciplines || []).some(value => normalized(value))
+          && JSON.stringify([...(original.disciplines || [])].map(normalized).sort()) === JSON.stringify([...(item.disciplines || [])].map(normalized).sort())));
+    // Never pick an arbitrary winner if the active identity is ambiguous.
+    return matches.length === 1 ? { ...record, allocationRecordId: matches[0].id } : record;
+  });
+}
+
 export function quotaLinkProblem(record, quota, { requireCanonicalEvent = false } = {}) {
   if (!quota || !quotaTypes.has(quota.subjectType) || !active(quota)) return 'The linked quota is no longer active or could not be found.';
   if (record.noc !== quota.noc || getSportGroup(record.sport) !== getSportGroup(quota.sport)) return 'The quota must belong to the same country and sport.';

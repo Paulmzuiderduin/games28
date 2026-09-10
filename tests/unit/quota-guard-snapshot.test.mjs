@@ -57,3 +57,15 @@ test('sync refuses missing credentials and server failure instead of silently co
   } });
   assert.equal(count, 1);
 });
+
+test('source ID corrections preserve snapshot occupancy only for a unique same-quota identity', () => {
+  const old = { ...quota, recordKey: 'same-identity' };
+  const corrected = { ...old, id: 'corrected' };
+  const selected = { ...quota, id: 'selected', subjectType: 'athlete', state: 'selected', athleteName: 'Athlete', allocationRecordId: old.id };
+  const snapshot = records => buildQuotaGuardSnapshot({ ...runtime(records), qualificationHistory: [old, corrected, selected] });
+  assert.equal(snapshot([corrected, selected]).quotas[0].occupants[0].id, selected.id);
+  assert.equal(selected.allocationRecordId, old.id, 'original evidence stays unchanged');
+  for (const records of [[corrected, { ...corrected, id: 'ambiguous' }, selected], [{ ...corrected, noc: 'USA' }, selected], [{ ...corrected, canonicalEventKey: 'other' }, selected], [{ ...corrected, subjectType: 'team_quota' }, selected]]) {
+    assert.throws(() => snapshot(records), /unresolved selection links/);
+  }
+});
