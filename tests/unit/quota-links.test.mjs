@@ -21,8 +21,8 @@ test('invalid country/event/type links are rejected rather than filling an unrel
   }
 });
 test('excess selections require review without discarding confirmed records', () => {
-  const fullQuota = { ...quota, quotaCount: 1 };
-  const other = { ...athlete, id: 'b', athleteName: 'Athlete B' };
+  const fullQuota = { ...quota, canonicalEventKey: 'athletics:men-100m', quotaCount: 1 };
+  const other = { ...athlete, canonicalEventKey: 'athletics:men-100m', id: 'b', athleteName: 'Athlete B' };
   assert.throws(() => validateQuotaSelection(other, [fullQuota, athlete]), /exceed/);
   const annotated = annotateQuotaLinks([fullQuota, athlete, other]);
   assert.equal(annotated.length, 3);
@@ -47,7 +47,16 @@ test('admin capacity uses recent approvals and explicit rejection, not only yest
 });
 
 test('updating a selection does not count its existing record twice', () => {
-  assert.doesNotThrow(() => validateQuotaSelection(athlete, [{ ...quota, quotaCount: 1 }, athlete]));
+  const canonicalEventKey = 'athletics:men-100m';
+  assert.doesNotThrow(() => validateQuotaSelection({ ...athlete, canonicalEventKey }, [{ ...quota, canonicalEventKey, quotaCount: 1 }, athlete]));
+});
+test('new admin links require canonical events without discarding historical label-based links', () => {
+  assert.equal(annotateQuotaLinks([quota, athlete])[0].filledQuotaCount, 1);
+  for (const [selection, allocation] of [[athlete, quota], [{ ...athlete, canonicalEventKey: 'a' }, quota], [athlete, { ...quota, canonicalEventKey: 'a' }]]) {
+    assert.match(quotaLinkProblem(selection, allocation, { requireCanonicalEvent: true }), /verified event/);
+    assert.throws(() => validateQuotaSelection(selection, [allocation]), /verified event/);
+  }
+  assert.doesNotThrow(() => validateQuotaSelection({ ...athlete, allocationRecordId: null }, [quota]));
 });
 test('missing or withdrawn quota retains the named record but does not invent occupancy', () => {
   assert.ok(annotateQuotaLinks([athlete])[0].allocationLinkProblem);

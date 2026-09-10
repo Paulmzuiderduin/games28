@@ -625,7 +625,7 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
   const hasCurrentDisciplineOption = qualificationEventOptions.some((entry) => entry.label === currentDiscipline);
   const allocationOptions = useMemo(() => qualificationCards.filter(card => !quotaLinkProblem({
     ...draft, canonicalEventKey: resolveCanonicalQualificationEvent(draft, qualificationSources)?.key || null
-  }, card)), [qualificationCards, draft, qualificationSources]);
+  }, card, { requireCanonicalEvent: true })), [qualificationCards, draft, qualificationSources]);
   return (
     <section className="admin-review-editor">
       <p className="eyebrow">Step 2 · Check the record</p>
@@ -700,9 +700,11 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
         <span>{draft.subjectType === 'athlete' ? 'Which quota does this athlete fill? (optional)' : 'Which quota does this team fill? (optional)'}</span>
         <select value={draft.allocationRecordId} onChange={(event) => update({ allocationRecordId: event.target.value })}>
           <option value="">No link — this source directly qualifies or names them</option>
+          {draft.allocationRecordId && !allocationOptions.some(card => card.id === draft.allocationRecordId) ? <option value={draft.allocationRecordId} disabled>Previous quota link needs review</option> : null}
           {allocationOptions.map((card) => <option key={card.id} value={card.id}>{card.name}{card.disciplines?.length ? ` · ${card.disciplines.join(', ')}` : ''}</option>)}
         </select>
         <small>Use this when a federation names people for a quota Games28 already tracks. The quota stays visible; this shows who fills it.</small>
+        {!allocationOptions.length ? <small>No matching quota is available. Both records need the same verified event, country, and quota type. If an older quota has no verified event, correct that quota first rather than guessing a link.</small> : null}
       </label> : null}
       <label>
         <span>Official announcement date</span>

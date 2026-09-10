@@ -5,10 +5,11 @@ const active = record => !['withdrawn', 'replaced'].includes(record.state);
 const normalized = value => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
 const nameOf = record => record.name || record.athleteName || record.teamName || record.id;
 
-export function quotaLinkProblem(record, quota) {
+export function quotaLinkProblem(record, quota, { requireCanonicalEvent = false } = {}) {
   if (!quota || !quotaTypes.has(quota.subjectType) || !active(quota)) return 'The linked quota is no longer active or could not be found.';
   if (record.noc !== quota.noc || getSportGroup(record.sport) !== getSportGroup(quota.sport)) return 'The quota must belong to the same country and sport.';
   if ((record.subjectType === 'athlete' && quota.subjectType !== 'noc_quota') || (record.subjectType === 'team' && quota.subjectType !== 'team_quota') || !['athlete', 'team'].includes(record.subjectType)) return 'Link an athlete to an individual quota, or a named team/pair to a team quota.';
+  if (requireCanonicalEvent && (!record.canonicalEventKey || !quota.canonicalEventKey)) return 'Choose a verified event for both the quota and the selection before linking them. Matching text labels alone are not enough.';
   if (record.canonicalEventKey && quota.canonicalEventKey) {
     if (record.canonicalEventKey !== quota.canonicalEventKey) return 'The quota and selection must be for the same event.';
   } else {
@@ -66,6 +67,8 @@ export function reviewQuotaRecords(published, candidates) {
 
 export function validateQuotaSelection(record, existing) {
   if (!record.allocationRecordId) return;
+  const problem = quotaLinkProblem(record, existing.find(item => item.id === record.allocationRecordId), { requireCanonicalEvent: true });
+  if (problem) throw new Error(problem);
   const combined = [...existing.filter(item => item.id !== record.id && item.id !== record.supersedesId), record];
   const result = annotateQuotaLinks(combined).find(item => item.id === record.id);
   if (result.allocationLinkProblem) throw new Error(result.allocationLinkProblem);
