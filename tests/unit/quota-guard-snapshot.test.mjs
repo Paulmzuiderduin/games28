@@ -1,8 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { buildQuotaGuardSnapshot } from '../../scripts/quota-guard-snapshot.mjs';
 const quota = { id: 'q', noc: 'NED', sport: 'Athletics', canonicalEventKey: 'athletics:men-100', subjectType: 'noc_quota', quotaCount: 1, state: 'allocated' };
 const runtime = (records) => ({ checkedAt: '2026-09-09T12:00:00Z', qualificationRecords: records });
+test('quota registry retirement is scoped for the REST safeupdate guard', () => {
+  const sql = readFileSync(new URL('../../supabase/migrations/20260910183640_scope_quota_registry_retirement.sql', import.meta.url), 'utf8');
+  assert.match(sql, /update games28_private\.quota_registry set active = false, checked_at = incoming_time\s+where active;/i);
+  assert.doesNotMatch(sql, /security definer|safeupdate\s*=\s*(?:off|false)/i);
+});
 test('server snapshot carries actual capacity, linked occupancy, and no review evidence', () => {
   const result = buildQuotaGuardSnapshot(runtime([quota, { ...quota, id: 'a', subjectType: 'athlete', athleteName: 'Runner', allocationRecordId: 'q', state: 'selected', extractedEvidence: 'private evidence' }]));
   assert.equal(result.quotas[0].quotaCount, 1);
