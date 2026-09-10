@@ -69,3 +69,12 @@ test('valid later replacement supersedes the earlier named athlete but retains h
   assert.deepEqual(resolveActiveQualificationRecords(records).map((record) => record.id), ['replacement']);
   assert.equal(records.length, 2);
 });
+
+test('later reviewed clerical quota correction can replace an erroneous type and source date', () => {
+  const old = { ...base, id:'wrong-type', subjectType:'noc_quota', quotaCount:3, disciplines:['Dressage'], sport:'Equestrian', reviewCandidateId:'old-review', verifiedAt:'2028-06-02', sourcePublishedAt:'2028-06-01' };
+  const correction = { ...old, id:'correct-type', subjectType:'team_quota', quotaCount:1, disciplines:['Dressage - Team'], supersedesId:old.id, reviewCandidateId:'new-review', verifiedAt:'2028-06-03', sourcePublishedAt:'2028-05-30' };
+  const { records } = normalizeQualificationRecords([old, correction], [source]);
+  assert.deepEqual(resolveActiveQualificationRecords(records).map(row=>row.id), ['correct-type']);
+  const crossCountry = normalizeQualificationRecords([old,{...correction,noc:'USA'}],[source]);
+  assert.equal(resolveActiveQualificationRecords(crossCountry.records).length,2);
+});

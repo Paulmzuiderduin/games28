@@ -6,7 +6,15 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { qualificationSupersessionLinks } from '../../scripts/qualification-records.mjs';
 const run = promisify(execFile);
+function assertRetained(original, next) {
+  const { supersededIds } = qualificationSupersessionLinks(next.qualificationHistory);
+  for (const previous of original.qualificationRecords) {
+    assert.ok(next.qualificationHistory.some(row => row.id === previous.id), `Lost history ${previous.id}`);
+    assert.ok(next.qualificationRecords.some(row => row.id === previous.id) || supersededIds.has(previous.id), `Lost qualification ${previous.id}`);
+  }
+}
 const root = fileURLToPath(new URL('../../', import.meta.url));
 
 test('complete offline refresh preserves publication and approved records, including after PDF corruption', { timeout: 60000 }, async () => {
@@ -28,7 +36,7 @@ test('complete offline refresh preserves publication and approved records, inclu
     assert.equal(offline.meta.scheduleAuthority, 'stale_official');
     assert.deepEqual(offline.scheduleEntries, original.scheduleEntries);
     assert.equal(offline.meta.officialShadowSuccessStreak, 0);
-    for (const previous of original.qualificationRecords) assert.ok(offline.qualificationRecords.some((row) => row.id === previous.id), `Lost qualification ${previous.id}`);
+    assertRetained(original, offline);
     const cachedCandidate = await readFile(join(dir, 'src/data/schedule-official-candidate.json'), 'utf8');
     assert.ok(JSON.parse(cachedCandidate).length > 0);
     await writeFile(join(dir, 'src/data/official-schedule-by-event.snapshot.pdf'), 'invalid PDF');
@@ -39,7 +47,7 @@ test('complete offline refresh preserves publication and approved records, inclu
     assert.deepEqual(broken.scheduleEntries, original.scheduleEntries);
     assert.equal(await readFile(join(dir, 'src/data/schedule-official-candidate.json'), 'utf8'), cachedCandidate);
     assert.ok((await json('source-check.json')).officialParserError);
-    for (const previous of original.qualificationRecords) assert.ok(broken.qualificationRecords.some((row) => row.id === previous.id), `Lost qualification ${previous.id}`);
+    assertRetained(original, broken);
     await cp(join(root, 'src/data/official-schedule-by-event.snapshot.pdf'), join(dir, 'src/data/official-schedule-by-event.snapshot.pdf'));
     await writeFile(join(dir, 'offline.mjs'), `
       import { readFile } from 'node:fs/promises';
@@ -58,6 +66,6 @@ test('complete offline refresh preserves publication and approved records, inclu
     assert.equal(recovered.meta.officialValidation.passed, true);
     assert.equal(recovered.meta.staleWarning, null);
     assert.equal(recovered.scheduleEntries.filter((row) => row.sessionCode === 'ARC03').length, 5);
-    for (const previous of original.qualificationRecords) assert.ok(recovered.qualificationRecords.some((row) => row.id === previous.id), `Lost qualification ${previous.id}`);
+    assertRetained(original, recovered);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
