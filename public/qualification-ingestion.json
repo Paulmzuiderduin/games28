@@ -1,18 +1,16 @@
 {
-  "checkedAt": "2026-09-09T09:46:15.020Z",
+  "checkedAt": "2026-09-10T09:44:51.478Z",
   "reviewCount": 16,
   "scans": [
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "if-3x3-basketball",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -21,7 +19,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -30,7 +28,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -39,7 +37,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -48,7 +46,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html",
       "rowCount": 0,
@@ -57,7 +55,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -66,7 +64,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -75,16 +73,14 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "if-climbing",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -93,7 +89,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -102,7 +98,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -111,7 +107,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -120,7 +116,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -129,7 +125,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -138,7 +134,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -147,7 +143,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -156,7 +152,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -165,7 +161,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -174,7 +170,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -183,7 +179,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "application/pdf",
       "rowCount": 0,
@@ -192,7 +188,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -201,7 +197,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -210,7 +206,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -219,7 +215,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -228,7 +224,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -237,7 +233,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -246,7 +242,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -255,16 +251,16 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "text/html",
       "rowCount": 0,
       "sourceId": "if-squash",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -273,7 +269,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -282,7 +278,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "rowCount": 0,
@@ -291,7 +287,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -300,7 +296,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -309,16 +305,16 @@
       "truncated": true
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "text/html",
       "rowCount": 0,
       "sourceId": "if-volleyball",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -327,7 +323,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "application/pdf",
       "rowCount": 0,
@@ -336,16 +332,14 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-arg",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -354,7 +348,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -363,7 +357,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -372,7 +366,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -381,7 +375,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; Charset=ISO-8859-1",
       "rowCount": 0,
@@ -390,7 +384,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -399,7 +393,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -408,7 +402,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -417,7 +411,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html",
       "rowCount": 0,
@@ -426,7 +420,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -435,7 +429,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -444,7 +438,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -453,7 +447,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -462,7 +456,7 @@
       "truncated": true
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -471,7 +465,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -480,7 +474,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -489,7 +483,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -498,7 +492,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -507,7 +501,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -516,7 +510,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -525,7 +519,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -534,7 +528,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -543,7 +537,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -552,7 +546,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -561,7 +555,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -570,7 +564,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -579,7 +573,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -588,7 +582,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -597,7 +591,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -606,7 +600,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -615,7 +609,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -624,7 +618,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -633,7 +627,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -642,7 +636,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -651,7 +645,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -660,7 +654,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -669,94 +663,74 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-rou",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-rsa",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "national-federation-rsa-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-kor",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html;charset=UTF-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-swe",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html;charset=UTF-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-sui",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "noc-usa",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "national-federation-usa-1",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "national-federation-usa-2",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     },
     {
-      "checkedAt": "2026-09-09T09:46:15.020Z",
-      "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "checkedAt": "2026-09-10T09:44:51.478Z",
+      "format": "unavailable",
       "rowCount": 0,
       "sourceId": "national-federation-usa-3",
-      "structuredRecordCount": 0,
-      "truncated": false
+      "structuredRecordCount": 0
     }
   ]
 }
