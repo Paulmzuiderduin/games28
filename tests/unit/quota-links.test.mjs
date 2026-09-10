@@ -86,3 +86,22 @@ test('a quota source-record correction keeps the selection linked to the same qu
   assert.equal(annotateQuotaLinks(cards)[0].filledQuotaCount, 1);
   assert.equal(selection.allocationRecordId, 'quota', 'original evidence is not mutated');
 });
+
+test('quota replacements need newer same-quota evidence and retain history for later edits', () => {
+  const canonicalEventKey = 'athletics:men-100m';
+  const allocation = { ...quota, canonicalEventKey, quotaCount: 1 };
+  const original = { ...athlete, canonicalEventKey, sourcePublishedAt: '2026-08-01' };
+  const replacement = { ...original, id: 'replacement', athleteName: 'New athlete', supersedesId: original.id, sourcePublishedAt: '2026-08-02' };
+  for (const change of [{ sourcePublishedAt: '2026-08-01' }, { sourcePublishedAt: null }, { supersedesId: 'missing' }, { supersedesId: 'replacement' }]) {
+    assert.throws(() => validateQuotaSelection({ ...replacement, ...change }, [allocation, original]), /replacement/);
+  }
+  assert.throws(() => validateQuotaSelection(replacement, [allocation, { ...original, allocationRecordId: 'another-quota' }]), /replacement/);
+  assert.doesNotThrow(() => validateQuotaSelection(replacement, [allocation, original]));
+  const candidates = [{ status: 'approved', confirmation_record: replacement }];
+  assert.equal(reviewQuotaRecords([allocation, original], candidates).length, 2);
+  const history = reviewQuotaRecords([allocation, original], candidates, { includeHistory: true });
+  assert.equal(history.length, 3);
+  assert.throws(() => validateQuotaSelection(original, history), /already been replaced/);
+  assert.doesNotThrow(() => validateQuotaSelection({ ...replacement, notes: 'Updated note' }, history));
+  assert.throws(() => validateQuotaSelection({ ...original, sourcePublishedAt: '2026-08-03', supersedesId: replacement.id }, history), /replacement/);
+});

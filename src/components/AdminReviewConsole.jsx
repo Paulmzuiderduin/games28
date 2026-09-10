@@ -252,7 +252,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       sourceRecordType: 'review_approved'
     };
     record.canonicalEventKey = resolveCanonicalQualificationEvent(record, qualificationSources)?.key || null;
-    validateQuotaSelection(record, liveQualificationCards);
+    validateQuotaSelection(record, reviewQuotaRecords(qualificationCards, candidates, { includeHistory: true }));
     return record;
   }
 

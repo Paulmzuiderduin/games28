@@ -52,7 +52,7 @@ export function annotateQuotaLinks(records) {
   return copies;
 }
 
-export function reviewQuotaRecords(published, candidates) {
+export function reviewQuotaRecords(published, candidates, { includeHistory = false } = {}) {
   const byId = new Map(published.map(record => [record.id, record]));
   for (const candidate of candidates) {
     const id = candidate.confirmation_record?.id || `approved-${candidate.id}`;
@@ -62,6 +62,7 @@ export function reviewQuotaRecords(published, candidates) {
       byId.set(id, { ...record, name: record.athleteName || record.teamName || `${record.quotaCount} quota places` });
     }
   }
+  if (includeHistory) return [...byId.values()];
   const { supersededIds: superseded } = qualificationSupersessionLinks([...byId.values()]);
   return [...byId.values()].filter(record => active(record) && !superseded.has(record.id));
 }
@@ -70,7 +71,20 @@ export function validateQuotaSelection(record, existing) {
   if (!record.allocationRecordId) return;
   const problem = quotaLinkProblem(record, existing.find(item => item.id === record.allocationRecordId), { requireCanonicalEvent: true });
   if (problem) throw new Error(problem);
-  const combined = [...existing.filter(item => item.id !== record.id && item.id !== record.supersedesId), record];
+  const history = [...existing.filter(item => item.id !== record.id), record];
+  const { supersededIds, problems } = qualificationSupersessionLinks(history);
+  if (record.supersedesId) {
+    const target = existing.find(item => item.id === record.supersedesId);
+    const date = Date.parse(record.sourcePublishedAt);
+    const priorDate = Date.parse(target?.sourcePublishedAt);
+    if (!target || target.id === record.id || target.allocationRecordId !== record.allocationRecordId
+      || !Number.isFinite(date) || !Number.isFinite(priorDate) || date <= priorDate
+      || problems.some(item => item.id === record.id)) {
+      throw new Error('A replacement needs an existing selection for the same quota and newer official evidence.');
+    }
+  }
+  const combined = history.filter(item => !supersededIds.has(item.id));
   const result = annotateQuotaLinks(combined).find(item => item.id === record.id);
+  if (!result) throw new Error('This selection has already been replaced. Review the current selection instead.');
   if (result.allocationLinkProblem) throw new Error(result.allocationLinkProblem);
 }
