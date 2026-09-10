@@ -29,6 +29,18 @@ test('ambiguous legacy quotas remain recorded but cannot authorize a selection l
   assert.match(snapshot.quotas[0].linkProblem, /canonical event/);
 });
 
+test('broken active selection links cannot silently free server quota capacity', async () => {
+  const { syncQuotaGuardSnapshot } = await import('../../scripts/quota-guard-snapshot.mjs');
+  const selection = { ...quota, id: 'person', subjectType: 'athlete', athleteName: 'Private name', state: 'selected', allocationRecordId: quota.id };
+  for (const change of [{ allocationRecordId: 'missing' }, { noc: 'USA' }, { canonicalEventKey: 'another-event' }, { subjectType: 'team' }]) {
+    let fetched = false;
+    await assert.rejects(syncQuotaGuardSnapshot({ runtime: runtime([quota, { ...selection, ...change }]), supabaseUrl: 'https://test.supabase.co', serviceRoleKey: 'secret', fetchImpl: async () => { fetched = true; return new Response('1'); } }), /unresolved selection links/);
+    assert.equal(fetched, false, 'invalid snapshot must never reach the server');
+  }
+  const withdrawn = buildQuotaGuardSnapshot(runtime([quota, { ...selection, state: 'withdrawn', allocationRecordId: 'missing' }]));
+  assert.equal(withdrawn.quotas[0].occupants.length, 0);
+});
+
 test('sync refuses missing credentials and server failure instead of silently continuing', async () => {
   const { syncQuotaGuardSnapshot } = await import('../../scripts/quota-guard-snapshot.mjs');
   const input = { runtime: runtime([quota]), supabaseUrl: 'https://test.supabase.co', serviceRoleKey: 'test-secret' };

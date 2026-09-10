@@ -11,6 +11,11 @@ export function buildQuotaGuardSnapshot(runtime) {
     ids.add(record.id);
   }
   const annotated = annotateQuotaLinks(records);
+  // An invalid named selection must not disappear from the capacity calculation.
+  // Keep the last server snapshot until its link has been reviewed or corrected.
+  if (annotated.some((record) => record.allocationLinkProblem)) {
+    throw new Error('Quota snapshot contains unresolved selection links; keep the previous snapshot and review the links.');
+  }
   const quotas = annotated.filter((record) => ['noc_quota', 'team_quota'].includes(record.subjectType));
   return {
     checkedAt: runtime.checkedAt,
