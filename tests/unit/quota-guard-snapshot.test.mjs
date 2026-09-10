@@ -28,6 +28,10 @@ test('sync refuses missing credentials and server failure instead of silently co
   const input = { runtime: runtime([quota]), supabaseUrl: 'https://test.supabase.co', serviceRoleKey: 'test-secret' };
   await assert.rejects(syncQuotaGuardSnapshot({ runtime: input.runtime }), /server credentials/);
   await assert.rejects(syncQuotaGuardSnapshot({ ...input, fetchImpl: async () => new Response('private server details', { status: 409 }) }), error => /409/.test(error.message) && !error.message.includes('private'));
+  for (const code of ['22023', 'PGRST202', 'private details']) {
+    await assert.rejects(syncQuotaGuardSnapshot({ ...input, fetchImpl: async () => new Response(JSON.stringify({ code, message: 'private evidence', details: 'private record' }), { status: 400 }) }), error =>
+      error.message.includes('400') && !error.message.includes('private') && (code === 'private details' || error.message.includes(code)));
+  }
   const count = await syncQuotaGuardSnapshot({ ...input, fetchImpl: async (url, options) => {
     assert.match(url, /rpc\/sync_games28_quota_snapshot$/);
     assert.equal(JSON.parse(options.body).p_snapshot.quotas.length, 1);

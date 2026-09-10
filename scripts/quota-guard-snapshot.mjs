@@ -46,7 +46,12 @@ export async function syncQuotaGuardSnapshot({ runtime, supabaseUrl, serviceRole
     body: JSON.stringify({ p_snapshot: snapshot }),
     signal: AbortSignal.timeout(30000)
   });
-  if (!response.ok) throw new Error(`Quota guard snapshot sync failed (${response.status})`);
+  if (!response.ok) {
+    // Log only a validated database/API error code, never private record details.
+    const error = await response.json().catch(() => null);
+    const code = /^(?:[A-Z0-9]{5}|PGRST\d{3})$/.test(error?.code || '') ? `; code ${error.code}` : '';
+    throw new Error(`Quota guard snapshot sync failed (${response.status}${code})`);
+  }
   const result = await response.json();
   if (!Number.isInteger(result) || result < 0) throw new Error('Invalid quota guard sync response');
   return result;
