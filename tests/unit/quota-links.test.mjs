@@ -45,6 +45,17 @@ test('admin capacity uses recent approvals and explicit rejection, not only yest
   ]);
   assert.deepEqual(current.map(record => record.id), ['quota', 'approved-review-b']);
 });
+test('admin corrections cannot hide another country, event, or cyclicly linked quotas', () => {
+  const original = { ...quota, sourcePublishedAt: '2026-08-01' };
+  const correction = { ...original, id: 'correction', supersedesId: original.id, sourcePublishedAt: '2026-08-02' };
+  for (const change of [{ noc: 'USA' }, { disciplines: ["Men's 200m"] }, { sourcePublishedAt: '2026-07-01' }]) {
+    const records = reviewQuotaRecords([original], [{ status: 'approved', confirmation_record: { ...correction, ...change } }]);
+    assert.equal(records.length, 2);
+    assert.ok(records.some(record => record.id === original.id));
+  }
+  assert.equal(reviewQuotaRecords([original], [{ status: 'approved', confirmation_record: correction }]).length, 1);
+  assert.equal(reviewQuotaRecords([{ ...original, supersedesId: correction.id }, correction], []).length, 2);
+});
 
 test('updating a selection does not count its existing record twice', () => {
   const canonicalEventKey = 'athletics:men-100m';

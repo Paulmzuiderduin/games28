@@ -1,4 +1,5 @@
 import { getSportGroup } from './sport-groups.js';
+import { qualificationSupersessionLinks } from './qualification-supersession.js';
 
 const quotaTypes = new Set(['noc_quota', 'team_quota']);
 const active = record => !['withdrawn', 'replaced'].includes(record.state);
@@ -61,7 +62,7 @@ export function reviewQuotaRecords(published, candidates) {
       byId.set(id, { ...record, name: record.athleteName || record.teamName || `${record.quotaCount} quota places` });
     }
   }
-  const superseded = new Set([...byId.values()].map(record => record.supersedesId).filter(Boolean));
+  const { supersededIds: superseded } = qualificationSupersessionLinks([...byId.values()]);
   return [...byId.values()].filter(record => active(record) && !superseded.has(record.id));
 }
 
