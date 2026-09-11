@@ -1,4 +1,5 @@
 import { applySeoPage, getSeoPage } from './lib/seo-pages.js';
+import { officialCheckStatus } from './lib/source-status.js';
 import { getSportGroup } from './lib/sport-groups.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import CountryFlag from './components/CountryFlag.jsx';
@@ -346,9 +347,7 @@ function SourcesView({ runtime }) {
     : runtime.meta.scheduleAuthority === 'stale_official'
       ? 'Last good official schedule'
       : 'Community fallback is live';
-  const officialValidationStreak = runtime.meta.officialShadowSuccessStreak || 0;
-  const officialValidationTarget = 3;
-  const officialValidationRemaining = Math.max(0, officialValidationTarget - officialValidationStreak);
+  const officialCheck = officialCheckStatus(runtime.meta);
   const qualificationCoverage = runtime.meta.qualificationCoverage || {};
   const countrySelectionCoverage = runtime.meta.countrySelectionCoverage || {};
   const iocQualificationRules = runtime.meta.iocQualificationRules || {};
@@ -369,10 +368,8 @@ function SourcesView({ runtime }) {
         <SummaryCard label="Published schedule" value={runtime.meta.scheduleAuthority?.replace(/_/g, ' ') || 'unknown'} />
         <SummaryCard
           label="Official PDF check"
-          value={runtime.meta.officialValidation?.passed ? 'Passed' : 'Needs review'}
-          detail={runtime.meta.officialValidation?.passed
-            ? `${officialValidationStreak} of ${officialValidationTarget} successful checks recorded before the parser is trusted automatically.`
-            : runtime.meta.officialValidation?.issues?.[0] || `${officialValidationRemaining} successful checks still needed before promotion.`}
+          value={officialCheck.value}
+          detail={officialCheck.detail}
         />
         <SummaryCard
           label="Qualification systems"
