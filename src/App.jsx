@@ -1009,7 +1009,7 @@ function SportQualificationOverview({ overview, sport }) {
           <h2>Confirmed qualification</h2>
           <p className="supporting-copy">Official quota places and named athletes or teams, grouped by event. No rankings or predictions.</p>
         </div>
-        {overview.cards.length ? <span className="status-pill">{formatCount(overview.stats.countryCount)} countries</span> : null}
+        {overview.cards.length ? <span className="status-pill">{formatCount(overview.stats.countryCount)} {overview.stats.countryCount === 1 ? 'country' : 'countries'}</span> : null}
       </div>
 
       {overview.groups.length ? (
