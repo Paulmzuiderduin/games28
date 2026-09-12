@@ -156,6 +156,7 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         const [reviewCandidates, reports] = await Promise.all([getReviewCandidates(), getCommunityReports()]);
         setCandidates(reviewCandidates);
         setCommunityReports(reports);
+        return reviewCandidates;
       } else {
         const response = await fetch(localCandidateUrl(), { headers: { 'cache-control': 'no-cache' } });
         const artifact = response.ok ? await response.json() : { reviewQueue: [] };
@@ -320,9 +321,15 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       const candidateId = await createReviewCandidateFromCommunityReport({ report, source, suggestedRecord, evidenceUrl });
       setSelectedCommunityReportId(null);
       setActiveReviewTab('pending');
-      setSelectedCandidateId(candidateId);
+      const refreshedCandidates = await loadCandidates();
+      const convertedCandidate = refreshedCandidates?.find((candidate) => candidate.id === candidateId);
+      if (!convertedCandidate) {
+        setMessage('The candidate was created, but the queue could not be reloaded. Refresh before reviewing it.');
+        return;
+      }
+      // Select the fetched record and its draft together, never the previous form.
+      selectCandidate(convertedCandidate);
       setMessage('Added to the qualification review queue. Check the selected official source before approving it.');
-      await loadCandidates();
     } catch (error) {
       setMessage(error.message || 'Unable to create a qualification review candidate.');
     } finally {
