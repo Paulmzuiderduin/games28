@@ -47,6 +47,15 @@ export function selectSeoSessionEntries(scheduleEntries, limit = 240) {
     .slice(0, limit);
 }
 
+export function canonicalRoutePath(path) {
+  const value = String(path || '/');
+  const suffixIndex = value.search(/[?#]/);
+  const pathname = suffixIndex === -1 ? value : value.slice(0, suffixIndex);
+  const suffix = suffixIndex === -1 ? '' : value.slice(suffixIndex);
+  const normalizedPath = pathname === '/' ? '/' : `${pathname.replace(/\/+$/, '')}/`;
+  return `${normalizedPath}${suffix}`;
+}
+
 export function routeUrl(path) {
-  return `${SITE_ORIGIN}${path === '/' ? '/' : path}`;
+  return `${SITE_ORIGIN}${canonicalRoutePath(path)}`;
 }

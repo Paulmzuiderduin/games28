@@ -23,7 +23,7 @@ import { navigate, parseRoute } from './lib/router.js';
 import { isMedalEvent } from './lib/schedule-events.js';
 import { getShareUrl, sharePage } from './lib/share.js';
 import { loadRuntimeDataset, runtimeFallback } from './lib/runtime-data.js';
-import { findSportBySlug, getSessionPath, getSportPath } from './lib/seo.js';
+import { canonicalRoutePath, findSportBySlug, getSessionPath, getSportPath } from './lib/seo.js';
 import {
   buildCountryDashboard,
   buildHomeStats,
@@ -117,16 +117,17 @@ function useThemePreference() {
 }
 
 function AppLink({ href, children, className }) {
+  const canonicalHref = href.startsWith('/') ? canonicalRoutePath(href) : href;
   return (
     <a
-      href={href}
+      href={canonicalHref}
       className={className}
       onClick={(event) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
           return;
         }
         event.preventDefault();
-        navigate(href);
+        navigate(canonicalHref);
       }}
     >
       {children}

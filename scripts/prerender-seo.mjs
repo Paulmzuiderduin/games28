@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJson } from './dataset-utils.mjs';
-import { SITE_NAME } from '../src/lib/seo.js';
+import { canonicalRoutePath, SITE_NAME } from '../src/lib/seo.js';
 import { buildSeoPages, seoHeadElements } from '../src/lib/seo-pages.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -27,7 +27,7 @@ function renderHeadElement({ tag, attributes = {}, content }) {
 
 function fallbackHtml(page) {
   const links = (page.links || [])
-    .map((link) => `<li><a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a></li>`)
+    .map((link) => `<li><a href="${escapeHtml(link.href.startsWith('/') ? canonicalRoutePath(link.href) : link.href)}">${escapeHtml(link.label)}</a></li>`)
     .join('');
   const facts = (page.facts || [])
     .map((fact) => `<li>${escapeHtml(fact)}</li>`)

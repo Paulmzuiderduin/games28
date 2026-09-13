@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  canonicalRoutePath,
   findSportBySlug,
   getSessionPath,
   getSportPath,
   isCountryDashboardIndexable,
+  routeUrl,
   selectSeoSessionEntries,
   slugify
 } from '../../src/lib/seo.js';
@@ -12,6 +14,13 @@ import {
 test('slugify creates stable URL slugs for sport names', () => {
   assert.equal(slugify('Football (Soccer)'), 'football-soccer');
   assert.equal(getSportPath('3x3 Basketball'), '/sports/3x3-basketball');
+});
+
+test('canonical public routes use the trailing slash served directly by GitHub Pages', () => {
+  assert.equal(canonicalRoutePath('/countries/NED'), '/countries/NED/');
+  assert.equal(canonicalRoutePath('/sports/?view=all#top'), '/sports/?view=all#top');
+  assert.equal(canonicalRoutePath('/'), '/');
+  assert.equal(routeUrl('/sports'), 'https://games28.paulzuiderduin.com/sports/');
 });
 
 test('findSportBySlug resolves sports from schedule entries', () => {

@@ -13,7 +13,7 @@ test('direct and client navigation use identical metadata for every generated pa
   }
 });
 test('country case and trailing slash use the canonical route; missing pages are noindex', () => {
-  assert.equal(getSeoPage(runtime, '/countries/ned/').url, 'https://games28.paulzuiderduin.com/countries/NED');
+  assert.equal(getSeoPage(runtime, '/countries/ned/').url, 'https://games28.paulzuiderduin.com/countries/NED/');
   assert.equal(getSeoPage(runtime, '/countries/XXX').indexable, false);
   assert.equal(getSeoPage(runtime, '/admin').indexable, false);
 });
