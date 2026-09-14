@@ -24,7 +24,8 @@
     {
       "noc": "GBR",
       "officialNocUrl": "https://www.teamgb.com/",
-      "nationalFederationUrls": ["https://www.ecb.co.uk/", "https://www.britishswimming.org/", "https://www.britishcycling.org.uk/"]
+      "nationalFederationUrls": ["https://www.ecb.co.uk/", "https://www.britishswimming.org/", "https://www.britishcycling.org.uk/"],
+      "referenceOnlyUrls": ["https://www.britishcycling.org.uk/"]
     },
     {
       "noc": "IND",
@@ -84,8 +85,7 @@
     },
     {
       "noc": "RSA",
-      "officialNocUrl": "https://www.sascoc.co.za/",
-      "nationalFederationUrls": ["https://cricket.co.za/"]
+      "officialNocUrl": "https://www.sascoc.co.za/"
     },
     {
       "noc": "USA",

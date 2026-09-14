@@ -58,6 +58,7 @@ async function main() {
     qualificationReviewCount: runtime.meta.qualificationReviewCount,
     qualificationAutoRecordCount: runtime.meta.qualificationAutoRecordCount,
     qualificationSourceScanCount: runtime.meta.qualificationSourceScanCount,
+    qualificationReferenceSourceCount: runtime.meta.qualificationReferenceSourceCount,
     iocQualificationRules: runtime.meta.iocQualificationRules,
     qualificationCoverage: runtime.meta.qualificationCoverage,
     countrySelectionCoverage: runtime.meta.countrySelectionCoverage,

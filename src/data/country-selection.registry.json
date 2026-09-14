@@ -5,6 +5,7 @@
     "noc": "AFG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -14,6 +15,7 @@
     "noc": "ALB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -23,6 +25,7 @@
     "noc": "ALG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -32,6 +35,7 @@
     "noc": "ASA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -41,6 +45,7 @@
     "noc": "AND",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -50,6 +55,7 @@
     "noc": "ANG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -59,6 +65,7 @@
     "noc": "ANT",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -68,6 +75,7 @@
     "noc": "ARG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://coarg.org.ar/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -77,6 +85,7 @@
     "noc": "ARM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -86,6 +95,7 @@
     "noc": "ARU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -98,6 +108,7 @@
     "noc": "AUS",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.olympics.com.au/",
+    "referenceOnlyUrls": [],
     "selectionSources": [
       {
         "adapter": "official_confirmation_article",
@@ -138,6 +149,7 @@
     "noc": "AUT",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.olympia.at/main.asp?kat1=2116&kat2=2771",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -147,6 +159,7 @@
     "noc": "AZE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -156,6 +169,7 @@
     "noc": "BAH",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -165,6 +179,7 @@
     "noc": "BRN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -174,6 +189,7 @@
     "noc": "BAN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -183,6 +199,7 @@
     "noc": "BAR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -192,6 +209,7 @@
     "noc": "BLR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -201,6 +219,7 @@
     "noc": "BEL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.teambelgium.be/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -210,6 +229,7 @@
     "noc": "BIZ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -219,6 +239,7 @@
     "noc": "BEN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -228,6 +249,7 @@
     "noc": "BER",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -237,6 +259,7 @@
     "noc": "BHU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -246,6 +269,7 @@
     "noc": "BOL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -255,6 +279,7 @@
     "noc": "BIH",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -264,6 +289,7 @@
     "noc": "BOT",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -273,6 +299,7 @@
     "noc": "BRA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.cob.org.br/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -282,6 +309,7 @@
     "noc": "BRU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -291,6 +319,7 @@
     "noc": "BUL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -300,6 +329,7 @@
     "noc": "BUR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -309,6 +339,7 @@
     "noc": "BDI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -318,6 +349,7 @@
     "noc": "CAM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -327,6 +359,7 @@
     "noc": "CMR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -336,6 +369,7 @@
     "noc": "CAN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olympic.ca/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -345,6 +379,7 @@
     "noc": "CPV",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -354,6 +389,7 @@
     "noc": "CAY",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -363,6 +399,7 @@
     "noc": "CAF",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -372,6 +409,7 @@
     "noc": "CHA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -381,6 +419,7 @@
     "noc": "CHI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -390,6 +429,7 @@
     "noc": "CHN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.olympic.cn/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -399,6 +439,7 @@
     "noc": "COL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -408,6 +449,7 @@
     "noc": "COM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -417,6 +459,7 @@
     "noc": "COK",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -426,6 +469,7 @@
     "noc": "CRC",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -435,6 +479,7 @@
     "noc": "CRO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -444,6 +489,7 @@
     "noc": "CUB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -453,6 +499,7 @@
     "noc": "CYP",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -462,6 +509,7 @@
     "noc": "CZE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.olympijskytym.cz/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -471,6 +519,7 @@
     "noc": "COD",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -480,6 +529,7 @@
     "noc": "DEN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.dif.dk/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -489,6 +539,7 @@
     "noc": "DJI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -498,6 +549,7 @@
     "noc": "DMA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -507,6 +559,7 @@
     "noc": "DOM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -516,6 +569,7 @@
     "noc": "ECU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -525,6 +579,7 @@
     "noc": "EGY",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -534,6 +589,7 @@
     "noc": "ESA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -543,6 +599,7 @@
     "noc": "GEQ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -552,6 +609,7 @@
     "noc": "ERI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -561,6 +619,7 @@
     "noc": "EST",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -570,6 +629,7 @@
     "noc": "ETH",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -579,6 +639,7 @@
     "noc": "FIJ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -588,6 +649,7 @@
     "noc": "FIN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.olympiakomitea.fi/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -597,6 +659,7 @@
     "noc": "FRA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://cnosf.franceolympique.com/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -606,6 +669,7 @@
     "noc": "GAB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -615,6 +679,7 @@
     "noc": "GAM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -624,6 +689,7 @@
     "noc": "GEO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -633,6 +699,7 @@
     "noc": "GER",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.dosb.de/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -642,6 +709,7 @@
     "noc": "GHA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -655,6 +723,9 @@
     "noc": "GBR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.teamgb.com/",
+    "referenceOnlyUrls": [
+      "https://www.britishcycling.org.uk/"
+    ],
     "selectionSources": [],
     "status": "configured"
   },
@@ -664,6 +735,7 @@
     "noc": "GRE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.hoc.gr/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -673,6 +745,7 @@
     "noc": "GRN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -682,6 +755,7 @@
     "noc": "GUM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -691,6 +765,7 @@
     "noc": "GUA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -700,6 +775,7 @@
     "noc": "GUI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -709,6 +785,7 @@
     "noc": "GBS",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -718,6 +795,7 @@
     "noc": "GUY",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -727,6 +805,7 @@
     "noc": "HAI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -736,6 +815,7 @@
     "noc": "HON",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -745,6 +825,7 @@
     "noc": "HUN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olimpia.hu/kezdolap",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -754,6 +835,7 @@
     "noc": "ISL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -765,6 +847,7 @@
     "noc": "IND",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olympic.ind.in/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -774,6 +857,7 @@
     "noc": "INA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -783,6 +867,7 @@
     "noc": "IRI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -792,6 +877,7 @@
     "noc": "IRQ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -801,6 +887,7 @@
     "noc": "IRL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olympics.ie/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -810,6 +897,7 @@
     "noc": "ISR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -819,6 +907,7 @@
     "noc": "ITA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.coni.it/it/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -828,6 +917,7 @@
     "noc": "CIV",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -837,6 +927,7 @@
     "noc": "JAM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -846,6 +937,7 @@
     "noc": "JPN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.joc.or.jp/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -855,6 +947,7 @@
     "noc": "JOR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -864,6 +957,7 @@
     "noc": "KAZ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -873,6 +967,7 @@
     "noc": "KEN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -882,6 +977,7 @@
     "noc": "KIR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -891,6 +987,7 @@
     "noc": "KOS",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -900,6 +997,7 @@
     "noc": "KUW",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -909,6 +1007,7 @@
     "noc": "KGZ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -918,6 +1017,7 @@
     "noc": "LAO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -927,6 +1027,7 @@
     "noc": "LAT",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -936,6 +1037,7 @@
     "noc": "LIB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -945,6 +1047,7 @@
     "noc": "LES",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -954,6 +1057,7 @@
     "noc": "LBR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -963,6 +1067,7 @@
     "noc": "LBA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -972,6 +1077,7 @@
     "noc": "LIE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -981,6 +1087,7 @@
     "noc": "LTU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -990,6 +1097,7 @@
     "noc": "LUX",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -999,6 +1107,7 @@
     "noc": "MKD",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1008,6 +1117,7 @@
     "noc": "MAD",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1017,6 +1127,7 @@
     "noc": "MAW",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1026,6 +1137,7 @@
     "noc": "MAL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1035,6 +1147,7 @@
     "noc": "MDV",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1044,6 +1157,7 @@
     "noc": "MLI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1053,6 +1167,7 @@
     "noc": "MLT",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1062,6 +1177,7 @@
     "noc": "MHL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1071,6 +1187,7 @@
     "noc": "MTN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1080,6 +1197,7 @@
     "noc": "MRI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1089,6 +1207,7 @@
     "noc": "MEX",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1098,6 +1217,7 @@
     "noc": "FSM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1107,6 +1227,7 @@
     "noc": "MDA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1116,6 +1237,7 @@
     "noc": "MON",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1125,6 +1247,7 @@
     "noc": "MGL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1134,6 +1257,7 @@
     "noc": "MNE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1143,6 +1267,7 @@
     "noc": "MAR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1152,6 +1277,7 @@
     "noc": "MOZ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1161,6 +1287,7 @@
     "noc": "MYA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1170,6 +1297,7 @@
     "noc": "TUV",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1179,6 +1307,7 @@
     "noc": "NAM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1188,6 +1317,7 @@
     "noc": "NRU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1197,6 +1327,7 @@
     "noc": "NEP",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1209,6 +1340,7 @@
     "noc": "NED",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.teamnl.org/",
+    "referenceOnlyUrls": [],
     "selectionSources": [
       {
         "adapter": "official_confirmation_article",
@@ -1309,6 +1441,7 @@
     "noc": "NZL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olympic.org.nz/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1318,6 +1451,7 @@
     "noc": "NCA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1327,6 +1461,7 @@
     "noc": "NIG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1336,6 +1471,7 @@
     "noc": "NGR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1345,6 +1481,7 @@
     "noc": "PRK",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1354,6 +1491,7 @@
     "noc": "NOR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olympic.no/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1363,6 +1501,7 @@
     "noc": "OMA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1372,6 +1511,7 @@
     "noc": "PAK",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1381,6 +1521,7 @@
     "noc": "PLW",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1390,6 +1531,7 @@
     "noc": "PLE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1399,6 +1541,7 @@
     "noc": "PAN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1408,6 +1551,7 @@
     "noc": "PNG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1417,6 +1561,7 @@
     "noc": "PAR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1426,6 +1571,7 @@
     "noc": "PER",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://ccdp.org.pe/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1435,6 +1581,7 @@
     "noc": "PHI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1444,6 +1591,7 @@
     "noc": "POL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://olimpijski.pl/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1453,6 +1601,7 @@
     "noc": "POR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://comiteolimpicoportugal.pt/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1462,6 +1611,7 @@
     "noc": "PUR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1471,6 +1621,7 @@
     "noc": "QAT",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1480,6 +1631,7 @@
     "noc": "CGO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1489,6 +1641,7 @@
     "noc": "ROU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.cosr.ro/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1498,6 +1651,7 @@
     "noc": "RUS",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1507,6 +1661,7 @@
     "noc": "RWA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1516,6 +1671,7 @@
     "noc": "SKN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1525,6 +1681,7 @@
     "noc": "LCA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1534,6 +1691,7 @@
     "noc": "VIN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1543,6 +1701,7 @@
     "noc": "SAM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1552,6 +1711,7 @@
     "noc": "SMR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1561,6 +1721,7 @@
     "noc": "STP",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1570,6 +1731,7 @@
     "noc": "KSA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1579,6 +1741,7 @@
     "noc": "SEN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1588,6 +1751,7 @@
     "noc": "SRB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1597,6 +1761,7 @@
     "noc": "SEY",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1606,6 +1771,7 @@
     "noc": "SLE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1615,6 +1781,7 @@
     "noc": "SIN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1624,6 +1791,7 @@
     "noc": "SVK",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1633,6 +1801,7 @@
     "noc": "SLO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1642,6 +1811,7 @@
     "noc": "SOL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1651,17 +1821,17 @@
     "noc": "SOM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
   {
     "countryName": "South Africa",
-    "nationalFederationUrls": [
-      "https://cricket.co.za/"
-    ],
+    "nationalFederationUrls": [],
     "noc": "RSA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.sascoc.co.za/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1671,6 +1841,7 @@
     "noc": "KOR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.sports.or.kr/sports/main/main.do",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1680,6 +1851,7 @@
     "noc": "SSD",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1689,6 +1861,7 @@
     "noc": "ESP",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1698,6 +1871,7 @@
     "noc": "SRI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1707,6 +1881,7 @@
     "noc": "SUD",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1716,6 +1891,7 @@
     "noc": "SUR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1725,6 +1901,7 @@
     "noc": "SWZ",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1734,6 +1911,7 @@
     "noc": "SWE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://sok.se/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1743,6 +1921,7 @@
     "noc": "SUI",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://swissolympic.ch/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1752,6 +1931,7 @@
     "noc": "SYR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1761,6 +1941,7 @@
     "noc": "TPE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1770,6 +1951,7 @@
     "noc": "TJK",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1779,6 +1961,7 @@
     "noc": "TAN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1788,6 +1971,7 @@
     "noc": "THA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1797,6 +1981,7 @@
     "noc": "TLS",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1806,6 +1991,7 @@
     "noc": "TOG",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1815,6 +2001,7 @@
     "noc": "TGA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1824,6 +2011,7 @@
     "noc": "TTO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1833,6 +2021,7 @@
     "noc": "TUN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1842,6 +2031,7 @@
     "noc": "TUR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1851,6 +2041,7 @@
     "noc": "TKM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1860,6 +2051,7 @@
     "noc": "UGA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1869,6 +2061,7 @@
     "noc": "UKR",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1878,6 +2071,7 @@
     "noc": "UAE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1891,6 +2085,7 @@
     "noc": "USA",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.usopc.org/",
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "configured"
   },
@@ -1900,6 +2095,7 @@
     "noc": "URU",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1909,6 +2105,7 @@
     "noc": "UZB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1918,6 +2115,7 @@
     "noc": "VAN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1927,6 +2125,7 @@
     "noc": "VEN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1936,6 +2135,7 @@
     "noc": "VIE",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1945,6 +2145,7 @@
     "noc": "IVB",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1954,6 +2155,7 @@
     "noc": "ISV",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1963,6 +2165,7 @@
     "noc": "YEM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1972,6 +2175,7 @@
     "noc": "ZAM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   },
@@ -1981,6 +2185,7 @@
     "noc": "RHO",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
+    "referenceOnlyUrls": [],
     "selectionSources": [],
     "status": "awaiting_endpoint"
   }

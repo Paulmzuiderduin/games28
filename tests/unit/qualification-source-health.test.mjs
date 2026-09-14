@@ -71,3 +71,22 @@ test('repeated failures keep the original last-success timestamp without hiding 
   assert.equal(recovered[0].lastSuccessfulAt, '2028-01-04');
   assert.equal(recovered[0].healthCheckFailedAt, null);
 });
+
+test('a reference-only source is neutral rather than a false health failure', () => {
+  const result = preserveQualificationSourceHealth([{
+    id: 'source',
+    available: null,
+    checkStatus: 'reference_only',
+    checkedAt: '2028-01-03'
+  }], [{
+    id: 'source',
+    available: false,
+    checkedAt: '2028-01-02',
+    lastSuccessfulAt: '2028-01-01',
+    healthCheckFailedAt: '2028-01-02'
+  }]);
+
+  assert.equal(result[0].available, null);
+  assert.equal(result[0].lastSuccessfulAt, '2028-01-01');
+  assert.equal(result[0].healthCheckFailedAt, null);
+});

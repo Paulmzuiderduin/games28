@@ -26,6 +26,8 @@ function system(key, label, governingBody, sports, url, options = {}) {
     // These are qualification-level labels, never LA28 schedule rounds or sessions.
     qualificationEvents: options.qualificationEvents || [],
     sourcePublishedAt: options.sourcePublishedAt || null,
+    sourceCheckMode: options.sourceCheckMode || 'fetch',
+    sourceCheckReason: options.sourceCheckReason || null,
     url,
     notes: options.notes || 'Publish only explicit quota allocations, selections, or final entries.'
   };
@@ -42,8 +44,11 @@ export const qualificationSystems = [
   ] }),
   system('aquatics', 'Aquatics', 'World Aquatics', ['Artistic Swimming', 'Diving', 'Open Water Swimming', 'Swimming', 'Water Polo'], 'https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming', { status: 'rules_published' }),
   system('athletics', 'Athletics', 'World Athletics', ['Athletics (Marathon)', 'Athletics (Race Walk)', 'Athletics (Track & Field)'], 'https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263'),
-  system('badminton', 'Badminton', 'Badminton World Federation', ['Badminton'], 'https://corporate.bwfbadminton.com/'),
-  system('baseball-softball', 'Baseball and Softball', 'World Baseball Softball Confederation', ['Baseball', 'Softball'], 'https://www.wbsc.org/', { qualificationEvents: [
+  system('badminton', 'Badminton', 'Badminton World Federation', ['Badminton'], 'https://corporate.bwfbadminton.com/', {
+    sourceCheckMode: 'reference_only',
+    sourceCheckReason: 'BWF blocks automated requests; the IOC-listed qualification document remains the version authority.'
+  }),
+  system('baseball-softball', 'Baseball and Softball', 'World Baseball Softball Confederation', ['Baseball', 'Softball'], 'https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf', { status: 'rules_published', qualificationEvents: [
     qualificationEvent('baseball', 'Baseball tournament', ['Baseball']),
     qualificationEvent('softball', 'Softball tournament', ['Softball'])
   ] }),
@@ -151,10 +156,24 @@ export const qualificationSystems = [
   system('sailing', 'Sailing', 'World Sailing', ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Dinghy, Skiff & | Multihull)', 'Sailing (Windsurfing & Kite)'], 'https://www.sailing.org/'),
   system('shooting', 'Shooting', 'International Shooting Sport Federation', ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'], 'https://www.issf-sports.org/competitions/3488', { status: 'rules_published', sourceType: 'quota_tracker', adapter: 'issf_quota_tracker' }),
   system('skateboarding', 'Skateboarding', 'World Skate', ['Skateboarding (Park)', 'Skateboarding (Street)'], 'https://www.worldskate.org/'),
-  system('canoe', 'Canoe', 'International Canoe Federation', ['Slalom Paddle', 'Sprint Paddle', 'Canoe Slalom', 'Canoe Sprint'], 'https://www.canoeicf.com/'),
-  system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.org/'),
-  system('surfing', 'Surfing', 'International Surfing Association', ['Surfing'], 'https://isasurf.org/'),
-  system('table-tennis', 'Table Tennis', 'International Table Tennis Federation', ['Table Tennis'], 'https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/', { status: 'rules_published' }),
+  system('canoe', 'Canoe', 'International Canoe Federation', ['Slalom Paddle', 'Sprint Paddle', 'Canoe Slalom', 'Canoe Sprint'], 'https://rankings.canoeicf.com/', {
+    sourceLabel: 'International Canoe Federation - LA28 Qualification Rankings',
+    notes: 'The rankings are provisional. Publish only a later explicit quota allocation or final entry.'
+  }),
+  system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.org/', {
+    sourceCheckMode: 'reference_only',
+    sourceCheckReason: 'World Squash blocks automated requests; the IOC-listed qualification document remains the version authority.'
+  }),
+  system('surfing', 'Surfing', 'International Surfing Association', ['Surfing'], 'https://isasurf.org/ioc-executive-board-approves-updated-surfing-qualification-system-for-la28-olympic-games/', {
+    status: 'rules_published',
+    sourceCheckMode: 'reference_only',
+    sourceCheckReason: 'ISA blocks automated requests; the official article is retained as a human-readable reference.'
+  }),
+  system('table-tennis', 'Table Tennis', 'International Table Tennis Federation', ['Table Tennis'], 'https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/', {
+    status: 'rules_published',
+    sourceCheckMode: 'reference_only',
+    sourceCheckReason: 'ITTF blocks automated requests; the official article is retained as a human-readable reference.'
+  }),
   system('taekwondo', 'Taekwondo', 'World Taekwondo', ['Taekwondo'], 'https://www.worldtaekwondo.org/'),
   system('tennis', 'Tennis', 'International Tennis Federation', ['Tennis'], 'https://www.itftennis.com/'),
   system('triathlon', 'Triathlon', 'World Triathlon', ['Triathlon'], 'https://triathlon.org/'),
@@ -176,7 +195,12 @@ export const qualificationSystems = [
     ],
     notes: 'FIVB confirms Canada won the 2026 NORCECA Women’s Continental Championship and its LA28 quota.'
   }),
-  system('weightlifting', 'Weightlifting', 'International Weightlifting Federation', ['Weightlifting'], 'https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/', { status: 'rules_published', sourceType: 'qualification_ranking' }),
+  system('weightlifting', 'Weightlifting', 'International Weightlifting Federation', ['Weightlifting'], 'https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/', {
+    status: 'rules_published',
+    sourceType: 'qualification_ranking',
+    sourceCheckMode: 'reference_only',
+    sourceCheckReason: 'IWF blocks automated requests; the official article is retained as a human-readable reference.'
+  }),
   system('wrestling', 'Wrestling', 'United World Wrestling', ['Wrestling'], 'https://cdn.uww.org/2026-02/01_qs_la28.pdf', { status: 'rules_published' })
 ];
 
@@ -214,6 +238,8 @@ export function toQualificationSources(systems) {
     confirmationCandidates: entry.confirmationCandidates,
     qualificationEvents: entry.qualificationEvents,
     sourcePublishedAt: entry.sourcePublishedAt,
+    sourceCheckMode: entry.sourceCheckMode,
+    sourceCheckReason: entry.sourceCheckReason,
     url: entry.url,
     refreshPolicy: 'daily',
     notes: entry.notes

@@ -27,7 +27,7 @@ test('complete offline refresh preserves publication and approved records, inclu
     await writeFile(join(dir, 'offline.mjs'), "globalThis.fetch = async () => { throw new Error('Simulated offline'); };\n");
     const json = async (name) => JSON.parse(await readFile(join(dir, 'src/data', name), 'utf8'));
     const original = await json('runtime.json');
-    const env = { ...process.env };
+    const env = { ...process.env, GAMES28_SOURCE_FETCH_ATTEMPTS: '1' };
     delete env.SUPABASE_URL;
     delete env.SUPABASE_SERVICE_ROLE_KEY;
     const refresh = async () => run(process.execPath, ['--import', join(dir, 'offline.mjs'), 'scripts/update-data.mjs'], { cwd: dir, env, maxBuffer: 1024 * 1024, timeout: 25000 });

@@ -2,6 +2,9 @@ import { createHash } from 'node:crypto';
 import { normalizeQualificationRecords } from './qualification-records.mjs';
 
 const MAX_SOURCE_BYTES = 2 * 1024 * 1024;
+const DEFAULT_FETCH_CONCURRENCY = 6;
+const DEFAULT_FETCH_ATTEMPTS = 3;
+const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
 const HEADER_ALIASES = {
   noc: ['noc', 'country code', 'nation code', 'national olympic committee'],
   countryName: ['country', 'nation', 'noc name'],
@@ -157,23 +160,65 @@ function detectRows(body, contentType) {
   return [];
 }
 
-async function fetchSource(source, fetchImpl) {
-  const response = await fetchImpl(source.url, {
-    headers: { 'user-agent': 'games28-data-bot/0.4', accept: 'application/json,text/csv,text/html,application/pdf;q=0.9,*/*;q=0.1' },
-    redirect: 'follow',
-    signal: AbortSignal.timeout(15000)
-  });
-  const contentType = response.headers.get('content-type') || '';
-  const body = await response.text();
-  return {
-    available: response.ok,
-    httpStatus: response.status,
-    resolvedUrl: response.url || source.url,
-    contentType,
-    lastModified: response.headers.get('last-modified') || null,
-    body: body.slice(0, MAX_SOURCE_BYTES),
-    truncated: body.length > MAX_SOURCE_BYTES
-  };
+function wait(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+function safeFetchError(error) {
+  const message = error?.message || 'Source request failed';
+  const code = error?.cause?.code;
+  return typeof code === 'string' && /^[A-Z0-9_]+$/.test(code) ? `${message} (${code})` : message;
+}
+
+async function fetchSource(source, fetchImpl, { attempts, retryDelayMs }) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetchImpl(source.url, {
+        headers: { 'user-agent': 'games28-data-bot/0.5', accept: 'application/json,text/csv,text/html,application/pdf;q=0.9,*/*;q=0.1' },
+        redirect: 'follow',
+        signal: AbortSignal.timeout(30000)
+      });
+      if (TRANSIENT_HTTP_STATUSES.has(response.status) && attempt < attempts) {
+        await response.body?.cancel();
+        await wait(retryDelayMs * attempt);
+        continue;
+      }
+      const contentType = response.headers.get('content-type') || '';
+      const body = await response.text();
+      return {
+        available: response.ok,
+        httpStatus: response.status,
+        resolvedUrl: response.url || source.url,
+        contentType,
+        lastModified: response.headers.get('last-modified') || null,
+        body: body.slice(0, MAX_SOURCE_BYTES),
+        truncated: body.length > MAX_SOURCE_BYTES
+      };
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) {
+        await wait(retryDelayMs * attempt);
+        continue;
+      }
+    }
+  }
+  throw new Error(safeFetchError(lastError));
+}
+
+async function mapWithConcurrency(items, concurrency, transform) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  async function worker() {
+    while (nextIndex < items.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      results[index] = await transform(items[index], index);
+    }
+  }
+  const workerCount = Math.min(Math.max(1, concurrency), items.length);
+  await Promise.all(Array.from({ length: workerCount }, worker));
+  return results;
 }
 
 function htmlLinks(body, baseUrl) {
@@ -207,11 +252,11 @@ function issfQuotaTrackerUrl(body, baseUrl) {
   })?.url || null;
 }
 
-async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl) {
+async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions) {
   let tracker = sourceResult;
   const trackerUrl = issfQuotaTrackerUrl(sourceResult.body, sourceResult.resolvedUrl);
   if (trackerUrl && trackerUrl !== sourceResult.resolvedUrl) {
-    tracker = await fetchSource({ ...source, url: trackerUrl }, fetchImpl);
+    tracker = await fetchSource({ ...source, url: trackerUrl }, fetchImpl, fetchOptions);
   }
 
   // The ISSF page has also hosted previous Olympic cycles. Never carry those
@@ -243,12 +288,12 @@ function sameOrigin(expected, actual) {
   try { return new URL(expected).origin === new URL(actual).origin; } catch { return false; }
 }
 
-async function recordsFromAdapter(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl) {
+async function recordsFromAdapter(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions) {
   const rejected = { records: [], adapter: { name: source.adapter || 'unconfigured', eligible: false, rowCount: 0 } };
   if (!['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier)
     || sourceResult.truncated || !sameOrigin(source.url, sourceResult.resolvedUrl)) return rejected;
   if (source.adapter === 'issf_quota_tracker') {
-    return recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl);
+    return recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions);
   }
   // Generic tables on rules/news/rankings pages are not allocation feeds. This
   // adapter must be opted into for a vetted endpoint, with edition per record.
@@ -329,14 +374,49 @@ function genericReviewCandidate(source, body, checkedAt) {
   };
 }
 
-export async function ingestQualificationSources({ sources, countries, checkedAt, fetchImpl = fetch }) {
+export async function ingestQualificationSources({
+  sources,
+  countries,
+  checkedAt,
+  fetchImpl = fetch,
+  fetchConcurrency = DEFAULT_FETCH_CONCURRENCY,
+  fetchAttempts = fetchImpl === fetch ? DEFAULT_FETCH_ATTEMPTS : 1,
+  retryDelayMs = fetchImpl === fetch ? 500 : 0
+}) {
   const knownNocs = new Set(countries.map((country) => country.noc));
   const nocByCountryName = new Map(countries.map((country) => [key(country.name), country.noc]));
-  const results = await Promise.all(sources.map(async (source) => {
+  const normalizedAttempts = Number.isInteger(fetchAttempts) && fetchAttempts > 0 ? fetchAttempts : DEFAULT_FETCH_ATTEMPTS;
+  const fetchOptions = { attempts: normalizedAttempts, retryDelayMs: Math.max(0, retryDelayMs) };
+  const results = await mapWithConcurrency(sources, fetchConcurrency, async (source) => {
+    if (source.sourceCheckMode === 'reference_only') {
+      return {
+        sourceCheck: {
+          ...source,
+          checkedAt,
+          available: null,
+          checkStatus: 'reference_only',
+          httpStatus: null,
+          resolvedUrl: source.url
+        },
+        records: [],
+        reviewCandidates: [],
+        scan: {
+          sourceId: source.id,
+          checkedAt,
+          format: 'reference_only',
+          dataValidated: false,
+          rowCount: 0,
+          structuredRecordCount: 0,
+          reviewCandidateIds: [],
+          adapter: null,
+          truncated: false
+        }
+      };
+    }
     try {
-      const result = await fetchSource(source, fetchImpl);
+      const result = await fetchSource(source, fetchImpl, fetchOptions);
       const extracted = result.available
-        ? await recordsFromAdapter(source, result, knownNocs, nocByCountryName, checkedAt, fetchImpl)
+        ? await recordsFromAdapter(source, result, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions)
         : { records: [], adapter: null };
       const validated = normalizeQualificationRecords(extracted.records, [source]);
       if (validated.rejected.length) {
@@ -348,20 +428,20 @@ export async function ingestQualificationSources({ sources, countries, checkedAt
       const genericCandidate = result.available && !configuredCandidates.length ? genericReviewCandidate(source, result.body, checkedAt) : null;
       const reviewCandidates = [...configuredCandidates, genericCandidate].filter(Boolean);
       return {
-        sourceCheck: { ...source, checkedAt, available: result.available, httpStatus: result.httpStatus, resolvedUrl: result.resolvedUrl },
+        sourceCheck: { ...source, checkedAt, available: result.available, checkStatus: result.available ? 'available' : 'failed', httpStatus: result.httpStatus, resolvedUrl: result.resolvedUrl },
         records,
         reviewCandidates,
         scan: { sourceId: source.id, checkedAt, format: result.contentType || 'unknown', dataValidated: extracted.adapter?.eligible === true, rowCount: extracted.adapter?.rowCount ?? detectRows(result.body, result.contentType).length, structuredRecordCount: records.length, reviewCandidateIds: reviewCandidates.map((candidate) => candidate.id), adapter: extracted.adapter, truncated: result.truncated }
       };
     } catch (error) {
       return {
-        sourceCheck: { ...source, checkedAt, available: false, httpStatus: null, resolvedUrl: source.url, checkError: error.message },
+        sourceCheck: { ...source, checkedAt, available: false, checkStatus: 'failed', httpStatus: null, resolvedUrl: source.url, checkError: error.message },
         records: [],
         reviewCandidates: [],
         scan: { sourceId: source.id, checkedAt, format: 'unavailable', rowCount: 0, structuredRecordCount: 0, reviewCandidateIds: [], error: error.message }
       };
     }
-  }));
+  });
 
   return {
     sourceChecks: results.map((result) => result.sourceCheck),

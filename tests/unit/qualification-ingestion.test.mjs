@@ -222,3 +222,106 @@ test('a named team cannot auto-publish an allocated quota as a selected roster',
   assert.equal(result.scans[0].dataValidated, false);
   assert.equal(result.structuredRecords.length, 0);
 });
+
+test('bounds concurrent source requests', async () => {
+  let active = 0;
+  let peak = 0;
+  const sources = Array.from({ length: 12 }, (_, index) => ({
+    ...source,
+    id: `source-${index}`,
+    status: 'watching'
+  }));
+  const result = await ingestQualificationSources({
+    sources,
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchConcurrency: 3,
+    fetchImpl: async () => {
+      active += 1;
+      peak = Math.max(peak, active);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+      active -= 1;
+      return response('<p>Official source</p>');
+    }
+  });
+
+  assert.equal(result.sourceChecks.length, sources.length);
+  assert.equal(peak, 3);
+});
+
+test('retries transient network and HTTP failures but not permanent responses', async () => {
+  let networkAttempts = 0;
+  const networkResult = await ingestQualificationSources({
+    sources: [{ ...source, status: 'watching' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchAttempts: 3,
+    retryDelayMs: 0,
+    fetchImpl: async () => {
+      networkAttempts += 1;
+      if (networkAttempts < 3) throw new TypeError('fetch failed', { cause: { code: 'ECONNRESET' } });
+      return response('<p>Recovered source</p>');
+    }
+  });
+  assert.equal(networkAttempts, 3);
+  assert.equal(networkResult.sourceChecks[0].available, true);
+
+  let serverAttempts = 0;
+  const serverResult = await ingestQualificationSources({
+    sources: [{ ...source, status: 'watching' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchAttempts: 2,
+    retryDelayMs: 0,
+    fetchImpl: async () => new Response('', { status: ++serverAttempts === 1 ? 503 : 200 })
+  });
+  assert.equal(serverAttempts, 2);
+  assert.equal(serverResult.sourceChecks[0].available, true);
+
+  let permanentAttempts = 0;
+  const permanentResult = await ingestQualificationSources({
+    sources: [{ ...source, status: 'watching' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchAttempts: 3,
+    retryDelayMs: 0,
+    fetchImpl: async () => {
+      permanentAttempts += 1;
+      return new Response('', { status: 404 });
+    }
+  });
+  assert.equal(permanentAttempts, 1);
+  assert.equal(permanentResult.sourceChecks[0].httpStatus, 404);
+  assert.equal(permanentResult.sourceChecks[0].available, false);
+});
+
+test('reports a safe network error code after retries are exhausted', async () => {
+  const result = await ingestQualificationSources({
+    sources: [{ ...source, status: 'watching' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchAttempts: 2,
+    retryDelayMs: 0,
+    fetchImpl: async () => { throw new TypeError('fetch failed', { cause: { code: 'CERT_HAS_EXPIRED' } }); }
+  });
+
+  assert.equal(result.sourceChecks[0].available, false);
+  assert.match(result.scans[0].error, /CERT_HAS_EXPIRED/);
+});
+
+test('retains bot-blocked official pages as references without reporting a failed fetch', async () => {
+  let fetchCalls = 0;
+  const result = await ingestQualificationSources({
+    sources: [{ ...source, status: 'watching', sourceCheckMode: 'reference_only' }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => { fetchCalls += 1; throw new Error('must not fetch'); }
+  });
+
+  assert.equal(fetchCalls, 0);
+  assert.equal(result.sourceChecks[0].available, null);
+  assert.equal(result.sourceChecks[0].checkStatus, 'reference_only');
+  assert.equal(result.scans[0].format, 'reference_only');
+  assert.equal(result.structuredRecords.length, 0);
+  assert.equal(result.reviewQueue.length, 0);
+});

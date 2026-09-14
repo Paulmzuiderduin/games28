@@ -1,16 +1,18 @@
 {
-  "checkedAt": "2026-09-13T10:17:54.344Z",
+  "checkedAt": "2026-09-14T10:05:04.105Z",
   "reviewCount": 16,
   "scans": [
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "if-3x3-basketball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -19,7 +21,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -28,7 +30,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -37,46 +39,52 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "reference_only",
       "rowCount": 0,
       "sourceId": "if-badminton",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html",
+      "format": "application/pdf",
       "rowCount": 0,
       "sourceId": "if-baseball-softball",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "if-basketball",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
       "rowCount": 0,
       "sourceId": "if-boxing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "if-climbing",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -85,7 +93,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -94,7 +102,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -103,7 +111,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -112,7 +120,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -121,7 +129,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -130,7 +138,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -139,7 +147,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -148,7 +156,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -157,7 +165,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -166,7 +174,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -175,7 +183,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "application/pdf",
       "rowCount": 0,
@@ -184,7 +192,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -193,7 +201,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -202,7 +210,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -211,7 +219,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -220,7 +228,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -229,7 +237,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -238,7 +246,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -247,34 +255,34 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "reference_only",
       "rowCount": 0,
       "sourceId": "if-squash",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "reference_only",
       "rowCount": 0,
       "sourceId": "if-surfing",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "reference_only",
       "rowCount": 0,
       "sourceId": "if-table-tennis",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "rowCount": 0,
@@ -283,16 +291,16 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "format": "text/html",
       "rowCount": 0,
       "sourceId": "if-tennis",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -301,7 +309,7 @@
       "truncated": true
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -310,16 +318,16 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "reference_only",
       "rowCount": 0,
       "sourceId": "if-weightlifting",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "application/pdf",
       "rowCount": 0,
@@ -328,7 +336,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -337,7 +345,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -346,7 +354,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -355,7 +363,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -364,7 +372,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -373,7 +381,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; Charset=ISO-8859-1",
       "rowCount": 0,
@@ -382,7 +390,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -391,7 +399,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -400,7 +408,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -409,7 +417,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html",
       "rowCount": 0,
@@ -418,7 +426,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -427,7 +435,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -436,7 +444,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -445,7 +453,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -454,7 +462,7 @@
       "truncated": true
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -463,7 +471,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -472,7 +480,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "rowCount": 0,
@@ -481,7 +489,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -490,16 +498,16 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "reference_only",
       "rowCount": 0,
       "sourceId": "national-federation-gbr-3",
       "structuredRecordCount": 0,
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -508,7 +516,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -517,7 +525,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -526,7 +534,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -535,7 +543,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -544,7 +552,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "rowCount": 0,
@@ -553,7 +561,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "rowCount": 0,
@@ -562,151 +570,184 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-ned",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "national-federation-ned-1",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
       "rowCount": 0,
       "sourceId": "national-federation-ned-2",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-ned-dressage-la28",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-ned-beach-volleyball-la28",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "if-hockey-ned-women-la28",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-nzl",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-nor",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
       "rowCount": 0,
       "sourceId": "noc-per",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
       "rowCount": 0,
       "sourceId": "noc-pol",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-por",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
       "rowCount": 0,
       "sourceId": "noc-rou",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
       "rowCount": 0,
       "sourceId": "noc-rsa",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
-      "rowCount": 0,
-      "sourceId": "national-federation-rsa-1",
-      "structuredRecordCount": 0
-    },
-    {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-kor",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html;charset=UTF-8",
       "rowCount": 0,
       "sourceId": "noc-swe",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html;charset=UTF-8",
       "rowCount": 0,
       "sourceId": "noc-sui",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "noc-usa",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html;charset=utf-8",
       "rowCount": 0,
       "sourceId": "national-federation-usa-1",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "national-federation-usa-2",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
-      "checkedAt": "2026-09-13T10:17:54.344Z",
-      "format": "unavailable",
+      "checkedAt": "2026-09-14T10:05:04.105Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "rowCount": 0,
       "sourceId": "national-federation-usa-3",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     }
   ]
 }

@@ -143,6 +143,13 @@ export function preserveQualificationSourceHealth(currentChecks, previousSources
 
   return currentChecks.map((source) => {
     const previous = previousById.get(source.id);
+    if (source.checkStatus === 'reference_only') {
+      return {
+        ...source,
+        lastSuccessfulAt: previous?.lastSuccessfulAt || (previous?.available ? previous.checkedAt : null),
+        healthCheckFailedAt: null
+      };
+    }
     return {
       ...source,
       lastSuccessfulAt: source.available ? source.checkedAt : previous?.lastSuccessfulAt || (previous?.available ? previous.checkedAt : null),
@@ -535,7 +542,10 @@ async function main() {
   const currentIngestion = await ingestQualificationSources({
     sources: qualificationSources,
     countries: countryRegistry,
-    checkedAt
+    checkedAt,
+    fetchAttempts: process.env.GAMES28_SOURCE_FETCH_ATTEMPTS
+      ? Number(process.env.GAMES28_SOURCE_FETCH_ATTEMPTS)
+      : undefined
   });
   const ingestion = preserveUnavailableIngestion(currentIngestion, previousIngestion);
   const qualificationSourceChecks = preserveQualificationSourceHealth(
@@ -657,7 +667,8 @@ async function main() {
       qualificationRejectedCount: qualificationResult.rejected.length,
       qualificationReviewCount: qualificationResult.reviewQueue.filter((entry) => entry.resolution === 'pending').length,
       qualificationAutoRecordCount: ingestion.structuredRecords.length,
-      qualificationSourceScanCount: ingestion.scans.length,
+      qualificationSourceScanCount: ingestion.scans.filter((scan) => scan.format !== 'reference_only').length,
+      qualificationReferenceSourceCount: ingestion.scans.filter((scan) => scan.format === 'reference_only').length,
       qualificationPolicy: 'confirmation_only',
       iocQualificationRules,
       qualificationCoverage: {
@@ -688,6 +699,9 @@ async function main() {
         allocationUrl: source.allocationUrl,
         entryUrl: source.entryUrl,
         refreshPolicy: source.refreshPolicy,
+        sourceCheckMode: source.sourceCheckMode,
+        sourceCheckReason: source.sourceCheckReason,
+        checkStatus: source.checkStatus,
         checkedAt: source.checkedAt,
         available: source.available,
         httpStatus: source.httpStatus,

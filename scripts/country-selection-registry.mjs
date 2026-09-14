@@ -7,6 +7,9 @@ export function buildCountrySelectionRegistry(countries, overrides = {}) {
     const nationalFederationUrls = Array.isArray(override.nationalFederationUrls)
       ? override.nationalFederationUrls.filter((url) => /^https:\/\//.test(url))
       : [];
+    const referenceOnlyUrls = Array.isArray(override.referenceOnlyUrls)
+      ? override.referenceOnlyUrls.filter((url) => /^https:\/\//.test(url))
+      : [];
     const selectionSources = Array.isArray(override.selectionSources)
       ? override.selectionSources.filter((source) => source && /^https:\/\//.test(source.url || ''))
       : [];
@@ -17,6 +20,7 @@ export function buildCountrySelectionRegistry(countries, overrides = {}) {
       nocAuthorityUrl: country.profileUrl || country.sourceUrl,
       officialNocUrl,
       nationalFederationUrls,
+      referenceOnlyUrls,
       selectionSources,
       status: officialNocUrl || nationalFederationUrls.length || selectionSources.length ? 'configured' : 'awaiting_endpoint'
     };
@@ -59,6 +63,10 @@ export function toCountrySelectionSources(registry) {
         allocationUrl: url,
         entryUrl: null,
         url,
+        sourceCheckMode: entry.referenceOnlyUrls.includes(url) ? 'reference_only' : 'fetch',
+        sourceCheckReason: entry.referenceOnlyUrls.includes(url)
+          ? 'This federation blocks automated requests; the page is retained as an official manual reference.'
+          : null,
         refreshPolicy: 'daily'
       });
     });

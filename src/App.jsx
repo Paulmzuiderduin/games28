@@ -388,11 +388,11 @@ function SourcesView({ runtime }) {
           detail="Every IOC NOC has a source slot; unavailable endpoints stay explicitly unavailable."
         />
         <SummaryCard
-          label="Automatic qualification scan"
-          value={`${runtime.meta.qualificationSourceScanCount || 0} official sources checked`}
-          detail={runtime.meta.qualificationAutoRecordCount
+          label="Qualification monitoring"
+          value={`${runtime.meta.qualificationSourceScanCount || 0} automated source checks`}
+          detail={`${runtime.meta.qualificationReferenceSourceCount || 0} bot-blocked official pages are retained as manual references, not reported as failed checks. ${runtime.meta.qualificationAutoRecordCount
             ? `${runtime.meta.qualificationAutoRecordCount} structured records passed automatic validation.`
-            : 'Only complete official allocation tables publish automatically; prose stays in review.'}
+            : 'Only complete official allocation tables publish automatically; prose stays in review.'}`}
         />
       </div>
       <div className="source-list">
