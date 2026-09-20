@@ -142,6 +142,7 @@
       },
       {
         "adapter": "official_confirmation_article",
+        "allocationRecipient": "noc",
         "confirmationCandidates": [
           {
             "discipline": "Beach Volleyball - Men's tournament",
@@ -150,10 +151,13 @@
               "Izac Carracher"
             ],
             "noc": "AUS",
+            "qualificationRoute": "2026 AVC Beach Volleyball Continental Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-asia-2026-la28-aus-d5e37a90adca779a",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Mark Nicolaidis and Izac Carracher"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           },
           {
             "discipline": "Beach Volleyball - Women's tournament",
@@ -162,12 +166,17 @@
               "Taliqua Clancy"
             ],
             "noc": "AUS",
+            "qualificationRoute": "2026 AVC Beach Volleyball Continental Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-asia-2026-la28-aus-ea4466cbc39fba8c",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Stefanie Fejes and Taliqua Clancy"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           }
         ],
+        "defaultQuotaCount": 1,
+        "defaultTeamSizeMax": 2,
         "evidenceTerms": [
           "Australia",
           "secured two spots",
@@ -176,7 +185,7 @@
         "governingBody": "Fédération Internationale de Volleyball",
         "id": "if-fivb-beach-asia-2026-la28",
         "kind": "team_qualification",
-        "label": "FIVB - Australian men and women earn LA28 beach volleyball quotas",
+        "label": "FIVB - Australia earns two LA28 beach volleyball NOC quotas",
         "qualificationSystemKey": "volleyball",
         "sourcePublishedAt": "2026-09-06",
         "sourceTier": "if",
@@ -347,6 +356,7 @@
     "selectionSources": [
       {
         "adapter": "official_confirmation_article",
+        "allocationRecipient": "noc",
         "confirmationCandidates": [
           {
             "discipline": "Beach Volleyball - Men's tournament",
@@ -355,10 +365,13 @@
               "Renato Andrew Lima de Carvalho"
             ],
             "noc": "BRA",
+            "qualificationRoute": "2026 CSV Beach Volleyball Continental Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-south-america-2026-la28-bra-b59798980ae24a07",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Andre Loyola Stein and Renato Andrew Lima de Carvalho"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           },
           {
             "discipline": "Beach Volleyball - Women's tournament",
@@ -367,12 +380,17 @@
               "Victoria Lopes Pereira Tosta"
             ],
             "noc": "BRA",
+            "qualificationRoute": "2026 CSV Beach Volleyball Continental Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-south-america-2026-la28-bra-049218824790f1c9",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Thamela Coradello Galil and Victoria Lopes Pereira Tosta"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           }
         ],
+        "defaultQuotaCount": 1,
+        "defaultTeamSizeMax": 2,
         "evidenceTerms": [
           "Brazil",
           "secured two spots",
@@ -381,7 +399,7 @@
         "governingBody": "Fédération Internationale de Volleyball",
         "id": "if-fivb-beach-south-america-2026-la28",
         "kind": "team_qualification",
-        "label": "FIVB - Brazilian men and women earn LA28 beach volleyball quotas",
+        "label": "FIVB - Brazil earns two LA28 beach volleyball NOC quotas",
         "qualificationSystemKey": "volleyball",
         "sourcePublishedAt": "2026-09-06",
         "sourceTier": "if",
@@ -1707,27 +1725,33 @@
       },
       {
         "adapter": "official_confirmation_article",
+        "allocationRecipient": "noc",
         "confirmationCandidates": [
           {
-            "discipline": "Women's beach volleyball",
+            "discipline": "Beach Volleyball - Women's tournament",
             "evidenceTerms": [
               "Katja",
               "Raïsa"
             ],
             "noc": "NED",
+            "qualificationRoute": "2026 CEV Beach Volleyball European Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-noc-ned-beach-volleyball-la28-ned-34e1db485cc64f7a",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Katja Stam and Raïsa Schoon"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           }
         ],
+        "defaultQuotaCount": 1,
+        "defaultTeamSizeMax": 2,
         "evidenceTerms": [
           "ticket",
           "Los Angeles",
           "olympisch beachvolleybal"
         ],
         "id": "noc-ned-beach-volleyball-la28",
-        "label": "TeamNL - Beach volleyball pair qualified for LA28",
+        "label": "TeamNL - Netherlands earns an LA28 women's beach volleyball NOC quota",
         "sourcePublishedAt": "2026-08-15",
         "sourceTier": "noc",
         "sport": "Beach Volleyball",
@@ -1808,6 +1832,7 @@
     "selectionSources": [
       {
         "adapter": "official_confirmation_article",
+        "allocationRecipient": "noc",
         "confirmationCandidates": [
           {
             "discipline": "Beach Volleyball - Women's tournament",
@@ -1816,10 +1841,13 @@
               "Pamela Miyoum Bawa"
             ],
             "noc": "NGR",
+            "qualificationRoute": "2026 CAVB Beach Volleyball Continental Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-africa-2026-la28-ngr-c37f4cf79c18bf65",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Esther Onyinye Mbah and Pamela Miyoum Bawa"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           },
           {
             "discipline": "Beach Volleyball - Men's tournament",
@@ -1828,12 +1856,17 @@
               "Soufiane El Gharouti"
             ],
             "noc": "MAR",
+            "qualificationRoute": "2026 CAVB Beach Volleyball Continental Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-africa-2026-la28-mar-50c9a161c901c6aa",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Zouheir Elgraoui and Soufiane El Gharouti"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           }
         ],
+        "defaultQuotaCount": 1,
+        "defaultTeamSizeMax": 2,
         "evidenceTerms": [
           "Nigeria",
           "Morocco",
@@ -1843,7 +1876,7 @@
         "governingBody": "Fédération Internationale de Volleyball",
         "id": "if-fivb-beach-africa-2026-la28",
         "kind": "team_qualification",
-        "label": "FIVB - Nigeria women and Morocco men earn LA28 beach volleyball quotas",
+        "label": "FIVB - Nigeria women and Morocco men earn LA28 beach volleyball NOC quotas",
         "qualificationSystemKey": "volleyball",
         "sourcePublishedAt": "2026-08-22",
         "sourceTier": "if",
@@ -2294,6 +2327,7 @@
     "selectionSources": [
       {
         "adapter": "official_confirmation_article",
+        "allocationRecipient": "noc",
         "confirmationCandidates": [
           {
             "discipline": "Beach Volleyball - Men's tournament",
@@ -2302,12 +2336,17 @@
               "Andersson Elmer"
             ],
             "noc": "SWE",
+            "qualificationRoute": "2026 CEV Beach Volleyball European Championship",
+            "quotaCount": 1,
+            "reviewCandidateId": "review-if-fivb-beach-europe-2026-la28-swe-0ce3bcadb329cbea",
             "sport": "Beach Volleyball",
-            "state": "earned",
-            "subjectType": "team",
-            "teamName": "Jacob Hölting Nilsson and Elmer Andersson"
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
           }
         ],
+        "defaultQuotaCount": 1,
+        "defaultTeamSizeMax": 2,
         "evidenceTerms": [
           "Sweden",
           "Hölting Nilsson",
@@ -2317,7 +2356,7 @@
         "governingBody": "Fédération Internationale de Volleyball",
         "id": "if-fivb-beach-europe-2026-la28",
         "kind": "team_qualification",
-        "label": "FIVB - Sweden men earn a beach volleyball quota for LA28",
+        "label": "FIVB - Sweden earns an LA28 men's beach volleyball NOC quota",
         "qualificationSystemKey": "volleyball",
         "sourcePublishedAt": "2026-08-16",
         "sourceTier": "if",
@@ -2531,7 +2570,89 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.usopc.org/",
     "referenceOnlyUrls": [],
-    "selectionSources": [],
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "allocationRecipient": "noc",
+        "confirmationCandidates": [
+          {
+            "discipline": "Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Volleyball Qualification System",
+              "one guaranteed quota place per gender"
+            ],
+            "noc": "USA",
+            "qualificationRoute": "LA28 host nation quota",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 12
+          },
+          {
+            "discipline": "Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Volleyball Qualification System",
+              "one guaranteed quota place per gender"
+            ],
+            "noc": "USA",
+            "qualificationRoute": "LA28 host nation quota",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 12
+          },
+          {
+            "discipline": "Beach Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Beach volleyball Qualification System",
+              "one guaranteed quota place per gender"
+            ],
+            "noc": "USA",
+            "qualificationRoute": "LA28 host nation quota",
+            "quotaCount": 1,
+            "sport": "Beach Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
+          },
+          {
+            "discipline": "Beach Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Beach volleyball Qualification System",
+              "one guaranteed quota place per gender"
+            ],
+            "noc": "USA",
+            "qualificationRoute": "LA28 host nation quota",
+            "quotaCount": 1,
+            "sport": "Beach Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 2
+          }
+        ],
+        "evidenceTerms": [
+          "host nation",
+          "USA",
+          "guaranteed quota place per gender"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-usa-host-la28",
+        "kind": "host_qualification",
+        "label": "FIVB - USA host quota places for volleyball and beach volleyball",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2025-12-11",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "sports": [
+          "Volleyball",
+          "Beach Volleyball"
+        ],
+        "status": "review_required",
+        "url": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/"
+      }
+    ],
     "status": "configured"
   },
   {
