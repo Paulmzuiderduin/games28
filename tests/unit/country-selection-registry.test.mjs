@@ -46,3 +46,24 @@ test('official selection announcements retain review prefill metadata', async ()
   assert.equal(source.adapter, 'official_confirmation_article');
   assert.deepEqual(source.confirmationCandidates[0].noc, 'NED');
 });
+
+test('new official qualification discoveries are review-only and exclude existing records', async () => {
+  const countries = JSON.parse(await readFile(new URL('../../src/data/countries.registry.json', import.meta.url), 'utf8'));
+  const overrides = JSON.parse(await readFile(new URL('../../src/data/country-selection-source-overrides.json', import.meta.url), 'utf8'));
+  const sources = toCountrySelectionSources(buildCountrySelectionRegistry(countries, overrides));
+  const discovered = sources.filter((source) => source.id.endsWith('2026-la28'));
+  const candidates = discovered.flatMap((source) => source.confirmationCandidates);
+  const identities = candidates.map((candidate) => [
+    candidate.noc,
+    candidate.sport,
+    candidate.discipline,
+    candidate.teamName || candidate.subjectType
+  ].join('|'));
+
+  assert.equal(discovered.length, 10);
+  assert.equal(candidates.length, 19);
+  assert.equal(discovered.every((source) => source.status === 'review_required'), true);
+  assert.equal(new Set(identities).size, identities.length);
+  assert.equal(candidates.some((candidate) => candidate.noc === 'NED' && candidate.sport === 'Beach Volleyball'), false);
+  assert.equal(candidates.every((candidate) => !/preliminary|quarter|semi|final/i.test(candidate.discipline)), true);
+});
