@@ -294,9 +294,10 @@ h4,
   font-weight: 700;
 }
 
-.mobile-tab span:first-child {
-  font-size: 17px;
-  line-height: 1;
+.nav-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
 }
 
 .mobile-tab.active {
@@ -1659,7 +1660,7 @@ body {
 .site-brand small { font-size: 0.78rem; }
 .desktop-nav { gap: 2px; }
 .desktop-nav-link { min-height: 36px; padding: 0 12px; border-radius: 8px; font-size: 13px; }
-.desktop-nav-link span:first-child { font-size: 14px; }
+.desktop-nav-link .nav-icon { width: 15px; height: 15px; }
 
 .page-section,
 .country-page__hero,

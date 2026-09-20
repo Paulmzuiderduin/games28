@@ -1,4 +1,4 @@
-const DATA_BASE_URL = import.meta.env.VITE_DATA_BASE_URL || '';
+const DATA_BASE_URL = import.meta.env?.VITE_DATA_BASE_URL || '';
 
 function withDataBaseUrl(path) {
   if (!DATA_BASE_URL) {
@@ -93,20 +93,11 @@ function protectPublicQualificationCards(runtime) {
 }
 
 export async function loadRuntimeDataset() {
-  try {
-    const response = await fetch(RUNTIME_URL, {
-      headers: {
-        'cache-control': 'no-cache'
-      }
-    });
+  const response = await fetch(RUNTIME_URL, { cache: 'no-store' });
 
-    if (!response.ok) {
-      throw new Error(`Runtime dataset request failed with ${response.status}`);
-    }
-
-    return protectPublicQualificationCards(await response.json());
-  } catch (error) {
-    console.warn('Falling back to empty runtime dataset.', error);
-    return runtimeFallback;
+  if (!response.ok) {
+    throw new Error(`Runtime dataset request failed with ${response.status}`);
   }
+
+  return protectPublicQualificationCards(await response.json());
 }
