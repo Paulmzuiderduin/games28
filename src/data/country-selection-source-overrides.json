@@ -856,6 +856,118 @@
               ]
             }
           ]
+        },
+        {
+          "id": "if-fiba-3x3-usa-host-la28",
+          "qualificationSystemKey": "3x3-basketball",
+          "governingBody": "FIBA",
+          "label": "FIBA - USA host quota places for 3x3 basketball",
+          "url": "https://www.fiba.basketball/en/news/from-the-streets-to-the-valley-the-race-to-la28-heats-up",
+          "sport": "3x3 Basketball",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-07-16"
+        },
+        {
+          "id": "if-wbsc-usa-host-la28",
+          "qualificationSystemKey": "baseball-softball",
+          "governingBody": "World Baseball Softball Confederation",
+          "label": "WBSC - USA host quota places for baseball and softball",
+          "url": "https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf",
+          "sport": "Baseball and Softball",
+          "sports": [
+            "Baseball",
+            "Softball"
+          ],
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-02-05"
+        },
+        {
+          "id": "ioc-aquatics-usa-artistic-swimming-host-la28",
+          "qualificationSystemKey": "aquatics",
+          "governingBody": "International Olympic Committee / World Aquatics",
+          "label": "IOC - USA host quota for artistic swimming",
+          "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf",
+          "sport": "Artistic Swimming",
+          "sourceTier": "ioc",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-05-12"
+        },
+        {
+          "id": "if-aquatics-usa-diving-host-la28",
+          "qualificationSystemKey": "aquatics",
+          "governingBody": "World Aquatics",
+          "label": "World Aquatics - USA synchronized diving host quotas",
+          "url": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+          "sport": "Diving",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-02-03"
+        },
+        {
+          "id": "if-aquatics-usa-water-polo-host-la28",
+          "qualificationSystemKey": "aquatics",
+          "governingBody": "World Aquatics",
+          "label": "World Aquatics - USA water polo host quotas",
+          "url": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics",
+          "sport": "Water Polo",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-05-07"
+        },
+        {
+          "id": "if-fifa-usa-host-la28",
+          "qualificationSystemKey": "football",
+          "governingBody": "FIFA",
+          "label": "FIFA - USA host quota places for Olympic football",
+          "url": "https://inside.fifa.com/organisation/fifa-council/media-releases/council-approves-record-breaking-world-cup-2026-financial-contribution",
+          "sport": "Football (Soccer)",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2025-12-17"
+        },
+        {
+          "id": "if-ihf-usa-host-la28",
+          "qualificationSystemKey": "handball",
+          "governingBody": "International Handball Federation",
+          "label": "IHF - USA qualified for both handball tournaments",
+          "url": "https://www.ihf.info/media-center/news/two-years-go-handball-set-centre-stage-los-angeles-2028",
+          "sport": "Handball",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-07-14"
+        },
+        {
+          "id": "if-fih-usa-host-la28",
+          "qualificationSystemKey": "hockey",
+          "governingBody": "International Hockey Federation",
+          "label": "FIH - USA qualified for both hockey tournaments",
+          "url": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games",
+          "sport": "Hockey",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-09-14"
+        },
+        {
+          "id": "if-world-rugby-usa-host-la28",
+          "qualificationSystemKey": "rugby-sevens",
+          "governingBody": "World Rugby",
+          "label": "World Rugby - USA qualified for both rugby sevens tournaments",
+          "url": "https://www.world.rugby/media-zone/advisory/1046251",
+          "sport": "Rugby Sevens",
+          "sourceTier": "if",
+          "status": "review_required",
+          "kind": "host_qualification",
+          "sourcePublishedAt": "2026-09-09"
         }
       ]
     }

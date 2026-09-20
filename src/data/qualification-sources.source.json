@@ -792,6 +792,522 @@
         "sourcePublishedAt": "2025-12-11",
         "sourceRecordType": "review_approved"
       }
+    },
+    {
+      "id": "review-if-fiba-3x3-usa-host-la28-3x3-basketball-mens-tournament",
+      "sourceId": "if-fiba-3x3-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-07-16T00:00:00.000Z",
+      "sourceUrl": "https://www.fiba.basketball/en/news/from-the-streets-to-the-valley-the-race-to-la28-heats-up",
+      "extractedEvidence": "FIBA confirms the USA automatically qualifies one men’s team as LA28 host.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fiba-3x3-usa-host-la28-3x3-basketball-mens-tournament",
+        "noc": "USA",
+        "sport": "3x3 Basketball",
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-fiba-3x3-usa-host-la28",
+        "sourceUrl": "https://www.fiba.basketball/en/news/from-the-streets-to-the-valley-the-race-to-la28-heats-up",
+        "sourcePublishedAt": "2026-07-16",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 4
+      }
+    },
+    {
+      "id": "review-if-fiba-3x3-usa-host-la28-3x3-basketball-womens-tournament",
+      "sourceId": "if-fiba-3x3-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-07-16T00:00:00.000Z",
+      "sourceUrl": "https://www.fiba.basketball/en/news/from-the-streets-to-the-valley-the-race-to-la28-heats-up",
+      "extractedEvidence": "FIBA confirms the USA automatically qualifies one women’s team as LA28 host.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fiba-3x3-usa-host-la28-3x3-basketball-womens-tournament",
+        "noc": "USA",
+        "sport": "3x3 Basketball",
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-fiba-3x3-usa-host-la28",
+        "sourceUrl": "https://www.fiba.basketball/en/news/from-the-streets-to-the-valley-the-race-to-la28-heats-up",
+        "sourcePublishedAt": "2026-07-16",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 4
+      }
+    },
+    {
+      "id": "review-if-wbsc-usa-host-la28-baseball-baseball-tournament",
+      "sourceId": "if-wbsc-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-02-05T00:00:00.000Z",
+      "sourceUrl": "https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf",
+      "extractedEvidence": "The official WBSC qualification system guarantees the USA one host-country baseball quota.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-wbsc-usa-host-la28-baseball-baseball-tournament",
+        "noc": "USA",
+        "sport": "Baseball",
+        "disciplines": [
+          "Baseball tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-wbsc-usa-host-la28",
+        "sourceUrl": "https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf",
+        "sourcePublishedAt": "2026-02-05",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 24
+      }
+    },
+    {
+      "id": "review-if-wbsc-usa-host-la28-softball-softball-tournament",
+      "sourceId": "if-wbsc-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-02-05T00:00:00.000Z",
+      "sourceUrl": "https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf",
+      "extractedEvidence": "The official WBSC qualification system guarantees the USA one host-country softball quota.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-wbsc-usa-host-la28-softball-softball-tournament",
+        "noc": "USA",
+        "sport": "Softball",
+        "disciplines": [
+          "Softball tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-wbsc-usa-host-la28",
+        "sourceUrl": "https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf",
+        "sourcePublishedAt": "2026-02-05",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 15
+      }
+    },
+    {
+      "id": "review-ioc-aquatics-usa-artistic-swimming-host-la28-artistic-swimming-open-team",
+      "sourceId": "ioc-aquatics-usa-artistic-swimming-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-05-12T00:00:00.000Z",
+      "sourceUrl": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf",
+      "extractedEvidence": "The official IOC/World Aquatics qualification system gives the USA the right to enter one artistic swimming team.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-ioc-aquatics-usa-artistic-swimming-host-la28-artistic-swimming-open-team",
+        "noc": "USA",
+        "sport": "Artistic Swimming",
+        "disciplines": [
+          "Open Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "ioc-aquatics-usa-artistic-swimming-host-la28",
+        "sourceUrl": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf",
+        "sourcePublishedAt": "2026-05-12",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 8
+      }
+    },
+    {
+      "id": "review-ioc-aquatics-usa-artistic-swimming-host-la28-artistic-swimming-womens-duet",
+      "sourceId": "ioc-aquatics-usa-artistic-swimming-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-05-12T00:00:00.000Z",
+      "sourceUrl": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf",
+      "extractedEvidence": "The official IOC/World Aquatics qualification system gives the USA the right to enter one artistic swimming duet.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-ioc-aquatics-usa-artistic-swimming-host-la28-artistic-swimming-womens-duet",
+        "noc": "USA",
+        "sport": "Artistic Swimming",
+        "disciplines": [
+          "Women's Duet"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "ioc-aquatics-usa-artistic-swimming-host-la28",
+        "sourceUrl": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SWA-LA28-Qualification-System.pdf",
+        "sourcePublishedAt": "2026-05-12",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "id": "review-if-aquatics-usa-diving-host-la28-diving-womens-synchronized-3m-springboard",
+      "sourceId": "if-aquatics-usa-diving-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-02-03T00:00:00.000Z",
+      "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+      "extractedEvidence": "World Aquatics confirms the USA receives a host quota in this synchronized diving event.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-aquatics-usa-diving-host-la28-diving-womens-synchronized-3m-springboard",
+        "noc": "USA",
+        "sport": "Diving",
+        "disciplines": [
+          "Women's Synchronized 3m Springboard"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-aquatics-usa-diving-host-la28",
+        "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+        "sourcePublishedAt": "2026-02-03",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "id": "review-if-aquatics-usa-diving-host-la28-diving-mens-synchronized-3m-springboard",
+      "sourceId": "if-aquatics-usa-diving-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-02-03T00:00:00.000Z",
+      "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+      "extractedEvidence": "World Aquatics confirms the USA receives a host quota in this synchronized diving event.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-aquatics-usa-diving-host-la28-diving-mens-synchronized-3m-springboard",
+        "noc": "USA",
+        "sport": "Diving",
+        "disciplines": [
+          "Men's Synchronized 3m Springboard"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-aquatics-usa-diving-host-la28",
+        "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+        "sourcePublishedAt": "2026-02-03",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "id": "review-if-aquatics-usa-diving-host-la28-diving-womens-synchronized-10m-platform",
+      "sourceId": "if-aquatics-usa-diving-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-02-03T00:00:00.000Z",
+      "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+      "extractedEvidence": "World Aquatics confirms the USA receives a host quota in this synchronized diving event.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-aquatics-usa-diving-host-la28-diving-womens-synchronized-10m-platform",
+        "noc": "USA",
+        "sport": "Diving",
+        "disciplines": [
+          "Women's Synchronized 10m Platform"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-aquatics-usa-diving-host-la28",
+        "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+        "sourcePublishedAt": "2026-02-03",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "id": "review-if-aquatics-usa-diving-host-la28-diving-mens-synchronized-10m-platform",
+      "sourceId": "if-aquatics-usa-diving-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-02-03T00:00:00.000Z",
+      "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+      "extractedEvidence": "World Aquatics confirms the USA receives a host quota in this synchronized diving event.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-aquatics-usa-diving-host-la28-diving-mens-synchronized-10m-platform",
+        "noc": "USA",
+        "sport": "Diving",
+        "disciplines": [
+          "Men's Synchronized 10m Platform"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-aquatics-usa-diving-host-la28",
+        "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved",
+        "sourcePublishedAt": "2026-02-03",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "id": "review-if-aquatics-usa-water-polo-host-la28-water-polo-mens-tournament",
+      "sourceId": "if-aquatics-usa-water-polo-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-05-07T00:00:00.000Z",
+      "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics",
+      "extractedEvidence": "World Aquatics confirms the USA automatically qualifies for the men’s water polo tournament.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-aquatics-usa-water-polo-host-la28-water-polo-mens-tournament",
+        "noc": "USA",
+        "sport": "Water Polo",
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-aquatics-usa-water-polo-host-la28",
+        "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics",
+        "sourcePublishedAt": "2026-05-07",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-aquatics-usa-water-polo-host-la28-water-polo-womens-tournament",
+      "sourceId": "if-aquatics-usa-water-polo-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-05-07T00:00:00.000Z",
+      "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics",
+      "extractedEvidence": "World Aquatics confirms the USA automatically qualifies for the women’s water polo tournament.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-aquatics-usa-water-polo-host-la28-water-polo-womens-tournament",
+        "noc": "USA",
+        "sport": "Water Polo",
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-aquatics-usa-water-polo-host-la28",
+        "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics",
+        "sourcePublishedAt": "2026-05-07",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fifa-usa-host-la28-football-soccer-mens-tournament",
+      "sourceId": "if-fifa-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2025-12-17T00:00:00.000Z",
+      "sourceUrl": "https://inside.fifa.com/organisation/fifa-council/media-releases/council-approves-record-breaking-world-cup-2026-financial-contribution",
+      "extractedEvidence": "FIFA confirms one LA28 men’s football slot for host country USA.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fifa-usa-host-la28-football-soccer-mens-tournament",
+        "noc": "USA",
+        "sport": "Football (Soccer)",
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-fifa-usa-host-la28",
+        "sourceUrl": "https://inside.fifa.com/organisation/fifa-council/media-releases/council-approves-record-breaking-world-cup-2026-financial-contribution",
+        "sourcePublishedAt": "2025-12-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fifa-usa-host-la28-football-soccer-womens-tournament",
+      "sourceId": "if-fifa-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2025-12-17T00:00:00.000Z",
+      "sourceUrl": "https://inside.fifa.com/organisation/fifa-council/media-releases/council-approves-record-breaking-world-cup-2026-financial-contribution",
+      "extractedEvidence": "FIFA confirms one LA28 women’s football slot for host country USA.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fifa-usa-host-la28-football-soccer-womens-tournament",
+        "noc": "USA",
+        "sport": "Football (Soccer)",
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-fifa-usa-host-la28",
+        "sourceUrl": "https://inside.fifa.com/organisation/fifa-council/media-releases/council-approves-record-breaking-world-cup-2026-financial-contribution",
+        "sourcePublishedAt": "2025-12-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-ihf-usa-host-la28-handball-mens-tournament",
+      "sourceId": "if-ihf-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-07-14T00:00:00.000Z",
+      "sourceUrl": "https://www.ihf.info/media-center/news/two-years-go-handball-set-centre-stage-los-angeles-2028",
+      "extractedEvidence": "IHF states the USA men are qualified for the LA28 handball tournament as hosts.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-ihf-usa-host-la28-handball-mens-tournament",
+        "noc": "USA",
+        "sport": "Handball",
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-ihf-usa-host-la28",
+        "sourceUrl": "https://www.ihf.info/media-center/news/two-years-go-handball-set-centre-stage-los-angeles-2028",
+        "sourcePublishedAt": "2026-07-14",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 14
+      }
+    },
+    {
+      "id": "review-if-ihf-usa-host-la28-handball-womens-tournament",
+      "sourceId": "if-ihf-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-07-14T00:00:00.000Z",
+      "sourceUrl": "https://www.ihf.info/media-center/news/two-years-go-handball-set-centre-stage-los-angeles-2028",
+      "extractedEvidence": "IHF states the USA women are qualified for the LA28 handball tournament as hosts.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-ihf-usa-host-la28-handball-womens-tournament",
+        "noc": "USA",
+        "sport": "Handball",
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-ihf-usa-host-la28",
+        "sourceUrl": "https://www.ihf.info/media-center/news/two-years-go-handball-set-centre-stage-los-angeles-2028",
+        "sourcePublishedAt": "2026-07-14",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 14
+      }
+    },
+    {
+      "id": "review-if-fih-usa-host-la28-hockey-mens-tournament",
+      "sourceId": "if-fih-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-14T00:00:00.000Z",
+      "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games",
+      "extractedEvidence": "FIH confirms the USA men have secured LA28 Olympic hockey qualification as hosts.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fih-usa-host-la28-hockey-mens-tournament",
+        "noc": "USA",
+        "sport": "Hockey",
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-fih-usa-host-la28",
+        "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games",
+        "sourcePublishedAt": "2026-09-14",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 16
+      }
+    },
+    {
+      "id": "review-if-fih-usa-host-la28-hockey-womens-tournament",
+      "sourceId": "if-fih-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-14T00:00:00.000Z",
+      "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games",
+      "extractedEvidence": "FIH confirms the USA women have secured LA28 Olympic hockey qualification as hosts.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fih-usa-host-la28-hockey-womens-tournament",
+        "noc": "USA",
+        "sport": "Hockey",
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-fih-usa-host-la28",
+        "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games",
+        "sourcePublishedAt": "2026-09-14",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 16
+      }
+    },
+    {
+      "id": "review-if-world-rugby-usa-host-la28-rugby-sevens-mens-tournament",
+      "sourceId": "if-world-rugby-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-09T00:00:00.000Z",
+      "sourceUrl": "https://www.world.rugby/media-zone/advisory/1046251",
+      "extractedEvidence": "World Rugby confirms automatic USA qualification in the men’s rugby sevens competition.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-world-rugby-usa-host-la28-rugby-sevens-mens-tournament",
+        "noc": "USA",
+        "sport": "Rugby Sevens",
+        "disciplines": [
+          "Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-world-rugby-usa-host-la28",
+        "sourceUrl": "https://www.world.rugby/media-zone/advisory/1046251",
+        "sourcePublishedAt": "2026-09-09",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 12
+      }
+    },
+    {
+      "id": "review-if-world-rugby-usa-host-la28-rugby-sevens-womens-tournament",
+      "sourceId": "if-world-rugby-usa-host-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-09T00:00:00.000Z",
+      "sourceUrl": "https://www.world.rugby/media-zone/advisory/1046251",
+      "extractedEvidence": "World Rugby confirms automatic USA qualification in the women’s rugby sevens competition.",
+      "reason": "Official qualification evidence confirms this USA host quota. Verify the pre-filled NOC quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-world-rugby-usa-host-la28-rugby-sevens-womens-tournament",
+        "noc": "USA",
+        "sport": "Rugby Sevens",
+        "disciplines": [
+          "Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "qualificationRoute": "LA28 host nation quota",
+        "sourceId": "if-world-rugby-usa-host-la28",
+        "sourceUrl": "https://www.world.rugby/media-zone/advisory/1046251",
+        "sourcePublishedAt": "2026-09-09",
+        "sourceRecordType": "review_approved",
+        "teamSizeMax": 12
+      }
     }
   ]
 }

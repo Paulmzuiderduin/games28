@@ -1,31 +1,6 @@
 {
-  "checkedAt": "2026-09-20T13:45:51.713Z",
-  "rejected": [
-    {
-      "id": "approved-review-if-cricket-aus-571e1aa10148b156",
-      "problems": [
-        "allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence"
-      ]
-    },
-    {
-      "id": "approved-review-if-cricket-gbr-317047fbbbd66561",
-      "problems": [
-        "allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence"
-      ]
-    },
-    {
-      "id": "approved-review-if-cricket-ind-bd69176142f2771b",
-      "problems": [
-        "allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence"
-      ]
-    },
-    {
-      "id": "approved-review-if-cricket-rsa-84005752d2b77618",
-      "problems": [
-        "allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence"
-      ]
-    }
-  ],
+  "checkedAt": "2026-09-20T13:58:20.743Z",
+  "rejected": [],
   "reviewQueue": [
     {
       "detectedAt": "2026-09-02T15:16:07.524Z",
@@ -504,20 +479,20 @@
         "disciplines": [
           "Beach Volleyball - Men's tournament"
         ],
-        "id": "approved-if-fivb-beach-asia-2026-la28-aus-f3136c27a25bbd36",
+        "id": "approved-if-fivb-beach-asia-2026-la28-aus-e07acd01a6423c95",
         "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 AVC Beach Volleyball Continental Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-asia-2026-la28",
         "sourcePublishedAt": "2026-09-06",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Mark Nicolaidis and Izac Carracher",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -533,20 +508,20 @@
         "disciplines": [
           "Beach Volleyball - Women's tournament"
         ],
-        "id": "approved-if-fivb-beach-asia-2026-la28-aus-86e708af88c31203",
+        "id": "approved-if-fivb-beach-asia-2026-la28-aus-1bb55d7340aea64d",
         "noc": "AUS",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 AVC Beach Volleyball Continental Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-asia-2026-la28",
         "sourcePublishedAt": "2026-09-06",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Stefanie Fejes and Taliqua Clancy",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -562,20 +537,20 @@
         "disciplines": [
           "Beach Volleyball - Men's tournament"
         ],
-        "id": "approved-if-fivb-beach-south-america-2026-la28-bra-963acb743ade2f81",
+        "id": "approved-if-fivb-beach-south-america-2026-la28-bra-e07acd01a6423c95",
         "noc": "BRA",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 CSV Beach Volleyball Continental Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-south-america-2026-la28",
         "sourcePublishedAt": "2026-09-06",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Andre Loyola Stein and Renato Andrew Lima de Carvalho",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -591,20 +566,20 @@
         "disciplines": [
           "Beach Volleyball - Women's tournament"
         ],
-        "id": "approved-if-fivb-beach-south-america-2026-la28-bra-a949dcca12e60301",
+        "id": "approved-if-fivb-beach-south-america-2026-la28-bra-1bb55d7340aea64d",
         "noc": "BRA",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 CSV Beach Volleyball Continental Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-south-america-2026-la28",
         "sourcePublishedAt": "2026-09-06",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Thamela Coradello Galil and Victoria Lopes Pereira Tosta",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -736,20 +711,20 @@
         "disciplines": [
           "Beach Volleyball - Women's tournament"
         ],
-        "id": "approved-if-fivb-beach-africa-2026-la28-ngr-4c42a78fe980802d",
+        "id": "approved-if-fivb-beach-africa-2026-la28-ngr-1bb55d7340aea64d",
         "noc": "NGR",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 CAVB Beach Volleyball Continental Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-africa-2026-la28",
         "sourcePublishedAt": "2026-08-22",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Esther Onyinye Mbah and Pamela Miyoum Bawa",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -765,20 +740,20 @@
         "disciplines": [
           "Beach Volleyball - Men's tournament"
         ],
-        "id": "approved-if-fivb-beach-africa-2026-la28-mar-84043638d3ad5aa7",
+        "id": "approved-if-fivb-beach-africa-2026-la28-mar-e07acd01a6423c95",
         "noc": "MAR",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 CAVB Beach Volleyball Continental Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-africa-2026-la28",
         "sourcePublishedAt": "2026-08-22",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Zouheir Elgraoui and Soufiane El Gharouti",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -794,20 +769,20 @@
         "disciplines": [
           "Beach Volleyball - Men's tournament"
         ],
-        "id": "approved-if-fivb-beach-europe-2026-la28-swe-0c9640e00544b21c",
+        "id": "approved-if-fivb-beach-europe-2026-la28-swe-e07acd01a6423c95",
         "noc": "SWE",
-        "qualificationRoute": null,
-        "quotaCount": null,
+        "qualificationRoute": "2026 CEV Beach Volleyball European Championship",
+        "quotaCount": 1,
         "sourceId": "if-fivb-beach-europe-2026-la28",
         "sourcePublishedAt": "2026-08-16",
         "sourceRecordType": "review_approved",
         "sourceUrl": "https://www.fivb.com/netherlands-qualify-for-la28/",
         "sport": "Beach Volleyball",
-        "state": "earned",
-        "subjectType": "team",
+        "state": "allocated",
+        "subjectType": "team_quota",
         "supersedesId": null,
-        "teamName": "Jacob Hölting Nilsson and Elmer Andersson",
-        "teamSizeMax": null
+        "teamName": null,
+        "teamSizeMax": 2
       }
     },
     {
@@ -838,6 +813,158 @@
         "teamName": null,
         "teamSizeMax": null
       }
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed &#8211; FIVB Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players&#8217; Database → Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players&#8217; Database → Players Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball Foundation Volleyball World VBTV English Español Français Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players' Database → Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players' Database → Players PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed The road to LA28 set as world’s best volleyball and beach volleyball teams vie for Olympic quota places Back Back Dec 11, 2025 Beach Volleyball / Home / Volleyball Share The Volleyball and Beach Volleyball Qualification Systems for the Los Angeles 2028 Olympic Games have been officially unveiled, following approval from both the IOC Executive Board and the FIVB Board of Administration.",
+      "id": "review-if-fivb-usa-host-la28-usa-e07f6bdf62f41c6e",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fivb-usa-host-la28",
+      "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Volleyball - Men's tournament"
+        ],
+        "id": "approved-if-fivb-usa-host-la28-usa-70f4ebbf08b40a7a",
+        "noc": "USA",
+        "qualificationRoute": "LA28 host nation quota",
+        "quotaCount": 1,
+        "sourceId": "if-fivb-usa-host-la28",
+        "sourcePublishedAt": "2025-12-11",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+        "sport": "Volleyball",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 12
+      }
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed &#8211; FIVB Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players&#8217; Database → Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players&#8217; Database → Players Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball Foundation Volleyball World VBTV English Español Français Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players' Database → Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players' Database → Players PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed The road to LA28 set as world’s best volleyball and beach volleyball teams vie for Olympic quota places Back Back Dec 11, 2025 Beach Volleyball / Home / Volleyball Share The Volleyball and Beach Volleyball Qualification Systems for the Los Angeles 2028 Olympic Games have been officially unveiled, following approval from both the IOC Executive Board and the FIVB Board of Administration.",
+      "id": "review-if-fivb-usa-host-la28-usa-101795d5e6bcef8e",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fivb-usa-host-la28",
+      "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Volleyball - Women's tournament"
+        ],
+        "id": "approved-if-fivb-usa-host-la28-usa-f3fc3513dc161d0d",
+        "noc": "USA",
+        "qualificationRoute": "LA28 host nation quota",
+        "quotaCount": 1,
+        "sourceId": "if-fivb-usa-host-la28",
+        "sourcePublishedAt": "2025-12-11",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+        "sport": "Volleyball",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 12
+      }
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed &#8211; FIVB Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players&#8217; Database → Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players&#8217; Database → Players Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball Foundation Volleyball World VBTV English Español Français Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players' Database → Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players' Database → Players PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed The road to LA28 set as world’s best volleyball and beach volleyball teams vie for Olympic quota places Back Back Dec 11, 2025 Beach Volleyball / Home / Volleyball Share The Volleyball and Beach Volleyball Qualification Systems for the Los Angeles 2028 Olympic Games have been officially unveiled, following approval from both the IOC Executive Board and the FIVB Board of Administration.",
+      "id": "review-if-fivb-usa-host-la28-usa-1542d70274116051",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fivb-usa-host-la28",
+      "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Beach Volleyball - Men's tournament"
+        ],
+        "id": "approved-if-fivb-usa-host-la28-usa-e07acd01a6423c95",
+        "noc": "USA",
+        "qualificationRoute": "LA28 host nation quota",
+        "quotaCount": 1,
+        "sourceId": "if-fivb-usa-host-la28",
+        "sourcePublishedAt": "2025-12-11",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+        "sport": "Beach Volleyball",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed &#8211; FIVB Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players&#8217; Database → Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players&#8217; Database → Players Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball Foundation Volleyball World VBTV English Español Français Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball Volleyball MAIN PAGE Competitions Calendar Rankings Regulations and Forms Bidding Process Transfers The Game History Basic Rules Official Volleyball Rules Players' Database → Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball Beach Volleyball MAIN PAGE Competitions Calendar Rankings Tools and Forms Bidding Process The Game History Basic Rules Official Rules of the Games Players' Database → Players PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS PLAYERS Main Page Athletes’ Commission Athletes’ Commission elections 2024 Beyond the Court Players’ Database Transfers → Contact → Empowerment &#038; Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Empowerment & Development Main Page Volleyball Empowerment Targeted Support Application-Based Support Description of Application-Based Support Type A – Coach Support for development of National teams Type B – Volleyball Equipment Type C – Knowledge transfer programme General Conditions / Applications windows MASS PARTICIPATION Volleyball Experience Snow Volleyball Calendar The Game FIVB Snow Volleyball World Tour Zonal Associations Zonal Association List AVC CAVB CEV CSV NORCECA FIVB Constitution – ZA FIVB General Regulations – ZA International Centres of Excellence ICoE Recognition Framework NF Access to ICoE ICoE List Sustainability Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB Inside FIVB MAIN PAGE FIVB About President Organisation Chart Strategic Vision 2032 Structure Board of Administration Executive Committee Commissions Councils Judicial Bodies Directory National Federations AVC FIVB World Congress Contact FIVB World Congress Partners Contact Medical Anti-Doping Health Information Safeguarding Medical Congress Further Resources Forms Publications Legal Constitution and Regulations Judicial Bodies Financial Disputes International Transfers FIVB Licensed Agents Homologation Education Coaches Courses Calendar Volleyball Referee Course Beach Volleyball Referee Course Tools and Resources Centre E-Learning Refereeing Referee Database Reports &#038; Documents News Documents English Español Français Volleyball and beach volleyball qualification systems for LA28 Olympic Games confirmed The road to LA28 set as world’s best volleyball and beach volleyball teams vie for Olympic quota places Back Back Dec 11, 2025 Beach Volleyball / Home / Volleyball Share The Volleyball and Beach Volleyball Qualification Systems for the Los Angeles 2028 Olympic Games have been officially unveiled, following approval from both the IOC Executive Board and the FIVB Board of Administration.",
+      "id": "review-if-fivb-usa-host-la28-usa-43ce0459027163ee",
+      "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fivb-usa-host-la28",
+      "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+      "suggestedRecord": {
+        "athleteName": null,
+        "disciplines": [
+          "Beach Volleyball - Women's tournament"
+        ],
+        "id": "approved-if-fivb-usa-host-la28-usa-1bb55d7340aea64d",
+        "noc": "USA",
+        "qualificationRoute": "LA28 host nation quota",
+        "quotaCount": 1,
+        "sourceId": "if-fivb-usa-host-la28",
+        "sourcePublishedAt": "2025-12-11",
+        "sourceRecordType": "review_approved",
+        "sourceUrl": "https://www.fivb.com/volleyball-and-beach-volleyball-qualification-systems-for-la28-olympic-games-confirmed/",
+        "sport": "Beach Volleyball",
+        "state": "allocated",
+        "subjectType": "team_quota",
+        "supersedesId": null,
+        "teamName": null,
+        "teamSizeMax": 2
+      }
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "Route to LA28 Confirmed as Diving Qualification System Approved Skip to main content LIVE COMPETITIONS View All Show Less Home United by Water GALLERY BY SONY WATCH DEVELOPMENT MASTERS FOUNDATION AQIU GMS Home SPORTS SWIMMING WATER POLO DIVING ARTISTIC SWIMMING OPEN WATER SWIMMING HIGH DIVING LATEST NEWS VIDEOS PHOTOS CALENDAR RESULTS ATHLETES SEARCH ATHLETES ATHLETE SERVICES SHOP MORE ABOUT US CAREERS STRUCTURE RULES PARTNERS MEMBERS MEDIA label.toggleMobileNavigation SPORTS SPORTS SWIMMING WATER POLO DIVING ARTISTIC SWIMMING OPEN WATER SWIMMING HIGH DIVING LATEST LATEST NEWS VIDEOS PHOTOS CALENDAR RESULTS ATHLETES ATHLETES SEARCH ATHLETES ATHLETE SERVICES SHOP MORE MORE ABOUT US CAREERS ST",
+      "id": "review-if-aquatics-usa-diving-host-la28-f6e21e36eb9f8b8e",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-aquatics-usa-diving-host-la28",
+      "sourceUrl": "https://www.worldaquatics.com/news/4443694/route-to-la28-confirmed-as-diving-qualification-system-approved"
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "LA28 Olympic Water Polo Qualification System Finalised Skip to main content LIVE COMPETITIONS View All Show Less Home United by Water GALLERY BY SONY WATCH DEVELOPMENT MASTERS FOUNDATION AQIU GMS Home SPORTS SWIMMING WATER POLO DIVING ARTISTIC SWIMMING OPEN WATER SWIMMING HIGH DIVING LATEST NEWS VIDEOS PHOTOS CALENDAR RESULTS ATHLETES SEARCH ATHLETES ATHLETE SERVICES SHOP MORE ABOUT US CAREERS STRUCTURE RULES PARTNERS MEMBERS MEDIA label.toggleMobileNavigation SPORTS SPORTS SWIMMING WATER POLO DIVING ARTISTIC SWIMMING OPEN WATER SWIMMING HIGH DIVING LATEST LATEST NEWS VIDEOS PHOTOS CALENDAR RESULTS ATHLETES ATHLETES SEARCH ATHLETES ATHLETE SERVICES SHOP MORE MORE ABOUT US CAREERS STRUCTURE R",
+      "id": "review-if-aquatics-usa-water-polo-host-la28-8fcb07db47212569",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-aquatics-usa-water-polo-host-la28",
+      "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics"
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "Road to LA28: Continental Glory and Olympic Qualification on the Line at 20th Asian Games Trending Vote now for the Poligras Magic Skill Award! Medical/Anti-Doping Rankings FIH.HOCKEY Like us on Facebook Subscribe to YouTube Follow us on Twitter Follow us on Instagram Login View Profile Logout International Hockey Federation HOME NEWS EVENTS MATCHES VIDEOS PHOTOS Event Highlights FIH Hockey World Cup 2026 FIH Para Hockey World Cup 2026 FIH Men's Nations Cup 2025-26 FIH Women's Nations Cup 2025-26 FIH World Cup 2026 Qualifiers Santiago FIH World Cup 2026 Qualifiers Hyderabad FIH World Cup 2026 Qualifiers Ismailia View all + icon THE GAME Athletes Corner FIH Quality Programme Women in Hockey A",
+      "id": "review-if-fih-usa-host-la28-243c3181ab3f6695",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fih-usa-host-la28",
+      "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games"
+    },
+    {
+      "detectedAt": "2026-09-20T13:58:20.743Z",
+      "extractedEvidence": "World Rugby confirms qualification pathway for Los Angeles 2028 Olympics Games World Rugby Media Zone Media Zone Website language English English Français Español 日本語 Account Settings Log Out Media Zones World Rugby - All content Men's RWC 2027 HSBC SVNS Nations Cup WXV Global Series Pacific Nations Cup Junior World Championship Media Zone archive Select Tournament World Rugby Main Menu Dashboard Media Release Photos Match Notes & Stats Match Officials Video News Release Infographics & Social Calendar Rules & Resources Contacts Media Zone archive Media Releases Olympics Wed 9 September, 2026 14:00 World Rugby confirms qualification pathway for Los Angeles 2028 Olympics Games World Rugby has ",
+      "id": "review-if-world-rugby-usa-host-la28-5b1225d2bd188a56",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-world-rugby-usa-host-la28",
+      "sourceUrl": "https://www.world.rugby/media-zone/advisory/1046251"
     }
   ],
   "scans": [
@@ -847,7 +974,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -862,7 +989,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -877,7 +1004,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -892,7 +1019,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -903,7 +1030,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -918,7 +1045,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -933,7 +1060,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -948,7 +1075,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -963,7 +1090,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -978,7 +1105,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -998,7 +1125,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1013,7 +1140,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1035,7 +1162,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1050,7 +1177,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1065,7 +1192,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1080,7 +1207,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1095,7 +1222,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1110,7 +1237,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1125,7 +1252,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1142,7 +1269,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1157,7 +1284,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1172,7 +1299,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1187,7 +1314,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1202,7 +1329,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1217,7 +1344,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1233,7 +1360,7 @@
         "resolvedUrl": "https://www.issf-sports.org/competitions/olympic-qualification-tracker/quota-place-by-nation-and-number",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1248,7 +1375,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1263,7 +1390,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1274,7 +1401,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1285,7 +1412,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1296,7 +1423,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1311,7 +1438,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1326,9 +1453,9 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-tennis",
@@ -1341,7 +1468,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1356,10 +1483,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-volleyball-can-ec9089de2b28a22f"
+      ],
       "rowCount": 0,
       "sourceId": "if-volleyball",
       "structuredRecordCount": 0,
@@ -1367,7 +1496,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1382,7 +1511,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1397,7 +1526,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1412,7 +1541,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1427,7 +1556,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1442,7 +1571,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1457,7 +1586,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1474,10 +1603,13 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-asia-2026-la28-aus-d5e37a90adca779a",
+        "review-if-fivb-beach-asia-2026-la28-aus-ea4466cbc39fba8c"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-asia-2026-la28",
       "structuredRecordCount": 0,
@@ -1489,7 +1621,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; Charset=ISO-8859-1",
       "reviewCandidateIds": [],
@@ -1504,7 +1636,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1519,7 +1651,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1534,10 +1666,13 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-south-america-2026-la28-bra-b59798980ae24a07",
+        "review-if-fivb-beach-south-america-2026-la28-bra-049218824790f1c9"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-south-america-2026-la28",
       "structuredRecordCount": 0,
@@ -1549,10 +1684,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-bra-women-2026-la28-bra-e02d11dee762f950"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-bra-women-2026-la28",
       "structuredRecordCount": 0,
@@ -1564,7 +1701,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1579,7 +1716,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html",
       "reviewCandidateIds": [],
@@ -1594,10 +1731,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-cub-men-2026-la28-cub-f47297e6a07d51b1"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-cub-men-2026-la28",
       "structuredRecordCount": 0,
@@ -1609,7 +1748,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1624,7 +1763,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1639,10 +1778,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-egy-women-2026-la28-egy-5049c8c5db6ef807"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-egy-women-2026-la28",
       "structuredRecordCount": 0,
@@ -1654,7 +1795,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1669,7 +1810,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1684,7 +1825,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1699,7 +1840,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1714,7 +1855,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1729,7 +1870,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1740,7 +1881,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1751,7 +1892,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html, application/json;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1766,7 +1907,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1781,7 +1922,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1796,7 +1937,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1811,7 +1952,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1826,7 +1967,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1836,13 +1977,19 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-20T13:45:51.713Z",
-      "error": "fetch failed (EAI_AGAIN)",
-      "format": "unavailable",
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-ita",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
       "adapter": {
@@ -1850,7 +1997,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1865,10 +2012,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-jpn-men-2026-la28-jpn-94d03126dd626391"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-jpn-men-2026-la28",
       "structuredRecordCount": 0,
@@ -1880,7 +2029,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1895,7 +2044,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1910,7 +2059,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1925,7 +2074,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1942,7 +2091,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1959,7 +2108,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1976,7 +2125,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1991,10 +2140,13 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-africa-2026-la28-ngr-c37f4cf79c18bf65",
+        "review-if-fivb-beach-africa-2026-la28-mar-50c9a161c901c6aa"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-africa-2026-la28",
       "structuredRecordCount": 0,
@@ -2006,7 +2158,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2021,7 +2173,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2036,7 +2188,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2051,7 +2203,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2061,10 +2213,14 @@
       "truncated": false
     },
     {
-      "adapter": null,
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "application/json",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rou",
@@ -2077,9 +2233,9 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rsa",
@@ -2092,7 +2248,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2102,13 +2258,19 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-09-20T13:45:51.713Z",
-      "error": "fetch failed (ETIMEDOUT)",
-      "format": "unavailable",
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-swe",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
       "adapter": {
@@ -2116,10 +2278,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-europe-2026-la28-swe-0ce3bcadb329cbea"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-europe-2026-la28",
       "structuredRecordCount": 0,
@@ -2131,7 +2295,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2146,10 +2310,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-tur-women-2026-la28-tur-dfd87d101c2eb3c5"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-tur-women-2026-la28",
       "structuredRecordCount": 0,
@@ -2161,7 +2327,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2176,7 +2342,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -2191,7 +2357,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2206,7 +2372,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2221,12 +2387,154 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-09-20T13:45:51.713Z",
+      "checkedAt": "2026-09-20T13:58:20.743Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-usa-host-la28-usa-e07f6bdf62f41c6e",
+        "review-if-fivb-usa-host-la28-usa-101795d5e6bcef8e",
+        "review-if-fivb-usa-host-la28-usa-1542d70274116051",
+        "review-if-fivb-usa-host-la28-usa-43ce0459027163ee"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-usa-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
+      "reviewCandidateIds": [],
+      "rowCount": 0,
+      "sourceId": "if-fiba-3x3-usa-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "application/pdf",
+      "reviewCandidateIds": [],
+      "rowCount": 0,
+      "sourceId": "if-wbsc-usa-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "error": "The operation was aborted due to timeout",
+      "format": "unavailable",
+      "reviewCandidateIds": [],
+      "rowCount": 0,
+      "sourceId": "ioc-aquatics-usa-artistic-swimming-host-la28",
+      "structuredRecordCount": 0
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html;charset=utf-8",
+      "reviewCandidateIds": [
+        "review-if-aquatics-usa-diving-host-la28-f6e21e36eb9f8b8e"
+      ],
+      "rowCount": 0,
+      "sourceId": "if-aquatics-usa-diving-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html;charset=utf-8",
+      "reviewCandidateIds": [
+        "review-if-aquatics-usa-water-polo-host-la28-8fcb07db47212569"
+      ],
+      "rowCount": 0,
+      "sourceId": "if-aquatics-usa-water-polo-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
+      "reviewCandidateIds": [],
+      "rowCount": 0,
+      "sourceId": "if-fifa-usa-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [],
+      "rowCount": 0,
+      "sourceId": "if-ihf-usa-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html; charset=utf-8",
+      "reviewCandidateIds": [
+        "review-if-fih-usa-host-la28-243c3181ab3f6695"
+      ],
+      "rowCount": 0,
+      "sourceId": "if-fih-usa-host-la28",
+      "structuredRecordCount": 0,
+      "truncated": false
+    },
+    {
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-09-20T13:58:20.743Z",
+      "dataValidated": false,
+      "format": "text/html;charset=utf-8",
+      "reviewCandidateIds": [
+        "review-if-world-rugby-usa-host-la28-5b1225d2bd188a56"
+      ],
+      "rowCount": 0,
+      "sourceId": "if-world-rugby-usa-host-la28",
       "structuredRecordCount": 0,
       "truncated": false
     }
