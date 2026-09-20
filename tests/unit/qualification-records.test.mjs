@@ -8,6 +8,7 @@ import {
   toQualificationCards
 } from '../../scripts/qualification-records.mjs';
 import { buildQualificationSystemIndex, toQualificationSources } from '../../scripts/qualification-systems.mjs';
+import { buildCountrySelectionRegistry, toCountrySelectionSources } from '../../scripts/country-selection-registry.mjs';
 import { approvedRecordsFromRuntime, retainedApprovedRecords } from '../../scripts/update-data.mjs';
 
 const sources = [{
@@ -209,7 +210,12 @@ test('queues prose evidence until a reviewer approves a valid confirmation recor
 test('keeps manually discovered official qualifications private but ready for approval', async () => {
   const input = JSON.parse(await readFile(new URL('../../src/data/qualification-sources.source.json', import.meta.url), 'utf8'));
   const runtime = JSON.parse(await readFile(new URL('../../src/data/runtime.json', import.meta.url), 'utf8'));
-  const sourceList = toQualificationSources(buildQualificationSystemIndex(runtime.scheduleEntries).systems);
+  const countries = JSON.parse(await readFile(new URL('../../src/data/countries.registry.json', import.meta.url), 'utf8'));
+  const overrides = JSON.parse(await readFile(new URL('../../src/data/country-selection-source-overrides.json', import.meta.url), 'utf8'));
+  const sourceList = [
+    ...toQualificationSources(buildQualificationSystemIndex(runtime.scheduleEntries).systems),
+    ...toCountrySelectionSources(buildCountrySelectionRegistry(countries, overrides))
+  ];
   const pipeline = buildQualificationPipeline({ reviewQueue: input.reviewQueue }, sourceList);
   const recordsToApprove = input.reviewQueue.map((candidate) => ({
     ...candidate.suggestedRecord,
@@ -218,6 +224,6 @@ test('keeps manually discovered official qualifications private but ready for ap
   const validation = normalizeQualificationRecords(recordsToApprove, sourceList);
 
   assert.equal(pipeline.activeRecords.length, 0);
-  assert.equal(pipeline.reviewQueue.length, 5);
+  assert.equal(pipeline.reviewQueue.length, input.reviewQueue.length);
   assert.equal(validation.rejected.length, 0);
 });

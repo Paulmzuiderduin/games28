@@ -12,7 +12,9 @@
         "id": "approved-review-if-flag-football-ita-men-2026-worlds",
         "noc": "ITA",
         "sport": "Flag Football",
-        "disciplines": ["Men's tournament"],
+        "disciplines": [
+          "Men's tournament"
+        ],
         "subjectType": "team_quota",
         "state": "allocated",
         "quotaCount": 1,
@@ -35,7 +37,9 @@
         "id": "approved-review-if-flag-football-can-men-2026-worlds",
         "noc": "CAN",
         "sport": "Flag Football",
-        "disciplines": ["Men's tournament"],
+        "disciplines": [
+          "Men's tournament"
+        ],
         "subjectType": "team_quota",
         "state": "allocated",
         "quotaCount": 1,
@@ -58,7 +62,9 @@
         "id": "approved-review-if-flag-football-can-women-2026-worlds",
         "noc": "CAN",
         "sport": "Flag Football",
-        "disciplines": ["Women's tournament"],
+        "disciplines": [
+          "Women's tournament"
+        ],
         "subjectType": "team_quota",
         "state": "allocated",
         "quotaCount": 1,
@@ -81,7 +87,9 @@
         "id": "approved-review-if-flag-football-mex-women-2026-worlds",
         "noc": "MEX",
         "sport": "Flag Football",
-        "disciplines": ["Women's tournament"],
+        "disciplines": [
+          "Women's tournament"
+        ],
         "subjectType": "team_quota",
         "state": "allocated",
         "quotaCount": 1,
@@ -104,7 +112,9 @@
         "id": "approved-review-if-volleyball-tha-women-2026-avc",
         "noc": "THA",
         "sport": "Volleyball",
-        "disciplines": ["Women's tournament"],
+        "disciplines": [
+          "Women's tournament"
+        ],
         "subjectType": "team_quota",
         "state": "allocated",
         "quotaCount": 1,
@@ -113,6 +123,557 @@
         "sourceId": "if-volleyball",
         "sourceUrl": "https://www.fivb.com/thailand-retain-avc-continental-title-to-secure-first-ever-olympic-berth/",
         "sourcePublishedAt": "2026-08-30T00:00:00.000Z",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-asia-2026-la28-aus-d5e37a90adca779a",
+      "sourceId": "if-fivb-beach-asia-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-06T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/",
+      "extractedEvidence": "The official FIVB report confirms that Mark Nicolaidis and Izac Carracher (Australia) earned qualification for the LA28 Beach Volleyball - Men's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-asia-2026-la28-aus-f3136c27a25bbd36",
+        "noc": "AUS",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Men's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Mark Nicolaidis and Izac Carracher",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-asia-2026-la28",
+        "sourceUrl": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-asia-2026-la28-aus-ea4466cbc39fba8c",
+      "sourceId": "if-fivb-beach-asia-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-06T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/",
+      "extractedEvidence": "The official FIVB report confirms that Stefanie Fejes and Taliqua Clancy (Australia) earned qualification for the LA28 Beach Volleyball - Women's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-asia-2026-la28-aus-86e708af88c31203",
+        "noc": "AUS",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Women's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Stefanie Fejes and Taliqua Clancy",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-asia-2026-la28",
+        "sourceUrl": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-south-america-2026-la28-bra-b59798980ae24a07",
+      "sourceId": "if-fivb-beach-south-america-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-06T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/",
+      "extractedEvidence": "The official FIVB report confirms that Andre Loyola Stein and Renato Andrew Lima de Carvalho (Brazil) earned qualification for the LA28 Beach Volleyball - Men's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-south-america-2026-la28-bra-963acb743ade2f81",
+        "noc": "BRA",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Men's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Andre Loyola Stein and Renato Andrew Lima de Carvalho",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-south-america-2026-la28",
+        "sourceUrl": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-south-america-2026-la28-bra-049218824790f1c9",
+      "sourceId": "if-fivb-beach-south-america-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-06T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/",
+      "extractedEvidence": "The official FIVB report confirms that Thamela Coradello Galil and Victoria Lopes Pereira Tosta (Brazil) earned qualification for the LA28 Beach Volleyball - Women's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-south-america-2026-la28-bra-a949dcca12e60301",
+        "noc": "BRA",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Women's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Thamela Coradello Galil and Victoria Lopes Pereira Tosta",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-south-america-2026-la28",
+        "sourceUrl": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-volleyball-bra-women-2026-la28-bra-e02d11dee762f950",
+      "sourceId": "if-fivb-volleyball-bra-women-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-13T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/brazil-keep-csv-crown-to-confirm-la28-qualification/",
+      "extractedEvidence": "The official FIVB report confirms that Brazil earned the LA28 quota place for the Volleyball - Women's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-volleyball-bra-women-2026-la28-bra-f3fc3513dc161d0d",
+        "noc": "BRA",
+        "sport": "Volleyball",
+        "disciplines": [
+          "Volleyball - Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-volleyball-bra-women-2026-la28",
+        "sourceUrl": "https://www.fivb.com/brazil-keep-csv-crown-to-confirm-la28-qualification/",
+        "sourcePublishedAt": "2026-09-13",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-volleyball-cub-men-2026-la28-cub-f47297e6a07d51b1",
+      "sourceId": "if-fivb-volleyball-cub-men-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-19T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/cuba-clinch-la28-ticket-with-victory-over-canada-in-norceca-qualification/",
+      "extractedEvidence": "The official FIVB report confirms that Cuba earned the LA28 quota place for the Volleyball - Men's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-volleyball-cub-men-2026-la28-cub-70f4ebbf08b40a7a",
+        "noc": "CUB",
+        "sport": "Volleyball",
+        "disciplines": [
+          "Volleyball - Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-volleyball-cub-men-2026-la28",
+        "sourceUrl": "https://www.fivb.com/cuba-clinch-la28-ticket-with-victory-over-canada-in-norceca-qualification/",
+        "sourcePublishedAt": "2026-09-19",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-volleyball-egy-women-2026-la28-egy-5049c8c5db6ef807",
+      "sourceId": "if-fivb-volleyball-egy-women-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-04T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/egypt-claim-african-title-to-secure-historic-first-olympic-berth-for-la28/",
+      "extractedEvidence": "The official FIVB report confirms that Egypt earned the LA28 quota place for the Volleyball - Women's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-volleyball-egy-women-2026-la28-egy-f3fc3513dc161d0d",
+        "noc": "EGY",
+        "sport": "Volleyball",
+        "disciplines": [
+          "Volleyball - Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-volleyball-egy-women-2026-la28",
+        "sourceUrl": "https://www.fivb.com/egypt-claim-african-title-to-secure-historic-first-olympic-berth-for-la28/",
+        "sourcePublishedAt": "2026-09-04",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-gbr-71b16af09757f6c2",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists Great Britain among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-gbr-da7eed8974a58d58",
+        "noc": "GBR",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-ger-a1343e75e89c4c8a",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists Germany among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-ger-da7eed8974a58d58",
+        "noc": "GER",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-irl-8ef2af9a2d566a22",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists Ireland among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-irl-da7eed8974a58d58",
+        "noc": "IRL",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-sui-8f6642a28ccba425",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists Switzerland among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-sui-da7eed8974a58d58",
+        "noc": "SUI",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-nzl-1c705dd59f60bc6e",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists New Zealand among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-nzl-da7eed8974a58d58",
+        "noc": "NZL",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-swe-edc0e005ed527984",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists Sweden among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-swe-da7eed8974a58d58",
+        "noc": "SWE",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fei-eventing-worlds-2026-la28-bel-03b69c4eeeb8eed4",
+      "sourceId": "if-fei-eventing-worlds-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-17T00:00:00.000Z",
+      "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+      "extractedEvidence": "The official FEI World Championships report lists Belgium among the seven nations that earned an Olympic Eventing team place for Los Angeles 2028.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fei-eventing-worlds-2026-la28-bel-da7eed8974a58d58",
+        "noc": "BEL",
+        "sport": "Equestrian",
+        "disciplines": [
+          "Eventing - Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": 3,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fei-eventing-worlds-2026-la28",
+        "sourceUrl": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-volleyball-jpn-men-2026-la28-jpn-94d03126dd626391",
+      "sourceId": "if-fivb-volleyball-jpn-men-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-13T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/japan-triumph-at-home-to-secure-11th-continental-crown-and-la28-berth/",
+      "extractedEvidence": "The official FIVB report confirms that Japan earned the LA28 quota place for the Volleyball - Men's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-volleyball-jpn-men-2026-la28-jpn-70f4ebbf08b40a7a",
+        "noc": "JPN",
+        "sport": "Volleyball",
+        "disciplines": [
+          "Volleyball - Men's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-volleyball-jpn-men-2026-la28",
+        "sourceUrl": "https://www.fivb.com/japan-triumph-at-home-to-secure-11th-continental-crown-and-la28-berth/",
+        "sourcePublishedAt": "2026-09-13",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-africa-2026-la28-ngr-c37f4cf79c18bf65",
+      "sourceId": "if-fivb-beach-africa-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-22T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/",
+      "extractedEvidence": "The official FIVB report confirms that Esther Onyinye Mbah and Pamela Miyoum Bawa (Nigeria) earned qualification for the LA28 Beach Volleyball - Women's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-africa-2026-la28-ngr-4c42a78fe980802d",
+        "noc": "NGR",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Women's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Esther Onyinye Mbah and Pamela Miyoum Bawa",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-africa-2026-la28",
+        "sourceUrl": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/",
+        "sourcePublishedAt": "2026-08-22",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-africa-2026-la28-mar-50c9a161c901c6aa",
+      "sourceId": "if-fivb-beach-africa-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-22T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/",
+      "extractedEvidence": "The official FIVB report confirms that Zouheir Elgraoui and Soufiane El Gharouti (Morocco) earned qualification for the LA28 Beach Volleyball - Men's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-africa-2026-la28-mar-84043638d3ad5aa7",
+        "noc": "MAR",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Men's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Zouheir Elgraoui and Soufiane El Gharouti",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-africa-2026-la28",
+        "sourceUrl": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/",
+        "sourcePublishedAt": "2026-08-22",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-beach-europe-2026-la28-swe-0ce3bcadb329cbea",
+      "sourceId": "if-fivb-beach-europe-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-08-16T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/netherlands-qualify-for-la28/",
+      "extractedEvidence": "The official FIVB report confirms that Jacob Hölting Nilsson and Elmer Andersson (Sweden) earned qualification for the LA28 Beach Volleyball - Men's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-beach-europe-2026-la28-swe-0c9640e00544b21c",
+        "noc": "SWE",
+        "sport": "Beach Volleyball",
+        "disciplines": [
+          "Beach Volleyball - Men's tournament"
+        ],
+        "subjectType": "team",
+        "state": "earned",
+        "athleteName": null,
+        "teamName": "Jacob Hölting Nilsson and Elmer Andersson",
+        "quotaCount": null,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-beach-europe-2026-la28",
+        "sourceUrl": "https://www.fivb.com/netherlands-qualify-for-la28/",
+        "sourcePublishedAt": "2026-08-16",
+        "sourceRecordType": "review_approved"
+      }
+    },
+    {
+      "id": "review-if-fivb-volleyball-tur-women-2026-la28-tur-dfd87d101c2eb3c5",
+      "sourceId": "if-fivb-volleyball-tur-women-2026-la28",
+      "resolution": "pending",
+      "detectedAt": "2026-09-06T00:00:00.000Z",
+      "sourceUrl": "https://www.fivb.com/turkiye-extend-european-reign-and-seal-la28-qualification/",
+      "extractedEvidence": "The official FIVB report confirms that Türkiye earned the LA28 quota place for the Volleyball - Women's tournament.",
+      "reason": "New official qualification confirmation found during the Games28 web search. Verify the pre-filled record before publication.",
+      "suggestedRecord": {
+        "id": "approved-if-fivb-volleyball-tur-women-2026-la28-tur-f3fc3513dc161d0d",
+        "noc": "TUR",
+        "sport": "Volleyball",
+        "disciplines": [
+          "Volleyball - Women's tournament"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "athleteName": null,
+        "teamName": null,
+        "quotaCount": 1,
+        "teamSizeMax": null,
+        "qualificationRoute": null,
+        "supersedesId": null,
+        "sourceId": "if-fivb-volleyball-tur-women-2026-la28",
+        "sourceUrl": "https://www.fivb.com/turkiye-extend-european-reign-and-seal-la28-qualification/",
+        "sourcePublishedAt": "2026-09-06",
         "sourceRecordType": "review_approved"
       }
     }
