@@ -110,11 +110,11 @@ test('repairs only a reset approval that still has its confirmation record', asy
   assert.deepEqual(JSON.parse(repair.options.body), { status: 'approved' });
 });
 
-test('updates changed search evidence in place without reopening a review', async () => {
+test('updates changed pending evidence in place without reopening a review', async () => {
   const requests = [];
   const result = await syncReviewCandidates({
     candidates: [{
-      id: 'review-search-if-example-event-ned-allocation',
+      id: 'manual-official-correction',
       sourceId: 'if-example',
       sourceUrl: 'https://if.example.org/new-announcement',
       extractedEvidence: 'Updated official evidence.',
@@ -128,7 +128,7 @@ test('updates changed search evidence in place without reopening a review', asyn
       if (options.method === 'PATCH') return new Response(null, { status: 204 });
       if (new URL(url).searchParams.get('id')?.startsWith('gt.')) return new Response('[]');
       return new Response(JSON.stringify([{
-        id: 'review-search-if-example-event-ned-allocation',
+        id: 'manual-official-correction',
         status: 'review_later',
         confirmation_record: null,
         source_url: 'https://if.example.org/old-announcement',
@@ -141,7 +141,7 @@ test('updates changed search evidence in place without reopening a review', asyn
 
   assert.deepEqual(result, { insertedCount: 0, updatedEvidenceCount: 1, restoredApprovalCount: 0, existingCount: 1 });
   const update = requests.find((request) => request.options.method === 'PATCH');
-  assert.match(update.url, /review-search-if-example-event-ned-allocation/);
+  assert.match(update.url, /manual-official-correction/);
   assert.equal(JSON.parse(update.options.body).source_url, 'https://if.example.org/new-announcement');
   assert.equal(JSON.parse(update.options.body).status, undefined);
 });

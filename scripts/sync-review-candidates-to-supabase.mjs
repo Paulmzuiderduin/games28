@@ -38,11 +38,7 @@ function stableJson(value) {
   return JSON.stringify(value ?? null);
 }
 
-function isSearchCandidate(entry) {
-  return String(entry?.id || '').startsWith('review-search-');
-}
-
-function searchEvidenceChanged(candidate, existing) {
+function reviewEvidenceChanged(candidate, existing) {
   const next = toDatabaseCandidate(candidate);
   return next.source_url !== existing.source_url
     || next.extracted_evidence !== existing.extracted_evidence
@@ -72,9 +68,8 @@ export async function syncReviewCandidates({ candidates, supabaseUrl, serviceRol
   const newCandidates = candidates.filter((candidate) => !existingById.has(candidate.id));
   const evidenceUpdates = candidates.filter((candidate) => {
     const existingCandidate = existingById.get(candidate.id);
-    return isSearchCandidate(candidate)
-      && ['pending', 'review_later'].includes(existingCandidate?.status)
-      && searchEvidenceChanged(candidate, existingCandidate);
+    return ['pending', 'review_later'].includes(existingCandidate?.status)
+      && reviewEvidenceChanged(candidate, existingCandidate);
   });
 
   // Older upserts could reset an approved row to pending. A pending row that

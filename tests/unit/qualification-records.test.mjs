@@ -77,6 +77,35 @@ test('keeps an unnamed country team quota distinct from a named team', () => {
   assert.equal(card.teamSizeMax, 3);
 });
 
+test('an NOC-owned quota source cannot publish its winning pair as the selected Olympic team', () => {
+  const sourceList = [{
+    ...sources[0],
+    id: 'if-beach-continental',
+    sport: 'Beach Volleyball',
+    allocationRecipient: 'noc',
+    defaultQuotaCount: 1,
+    defaultTeamSizeMax: 2
+  }];
+  const result = normalizeQualificationRecords([record({
+    id: 'legacy-winning-pair',
+    sourceId: 'if-beach-continental',
+    sourceUrl: 'https://example.org/la28-allocations',
+    sport: 'Beach Volleyball',
+    disciplines: ["Beach Volleyball - Women's tournament"],
+    subjectType: 'team',
+    teamName: 'Example Winners',
+    quotaCount: null,
+    state: 'earned'
+  })], sourceList);
+
+  assert.equal(result.rejected.length, 0);
+  assert.equal(result.records[0].subjectType, 'team_quota');
+  assert.equal(result.records[0].state, 'allocated');
+  assert.equal(result.records[0].teamName, null);
+  assert.equal(result.records[0].quotaCount, 1);
+  assert.equal(result.records[0].teamSizeMax, 2);
+});
+
 test('normalizes qualification aliases to one canonical event identity', () => {
   const volleyballSources = [{
     id: 'if-volleyball', sourceTier: 'if', sport: 'Volleyball',

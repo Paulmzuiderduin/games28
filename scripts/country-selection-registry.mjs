@@ -87,6 +87,9 @@ export function toCountrySelectionSources(registry) {
         url: source.url,
         refreshPolicy: 'daily',
         adapter: source.adapter || null,
+        allocationRecipient: source.allocationRecipient || null,
+        defaultQuotaCount: source.defaultQuotaCount || null,
+        defaultTeamSizeMax: source.defaultTeamSizeMax || null,
         evidenceTerms: source.evidenceTerms || [],
         confirmationCandidates: source.confirmationCandidates || [],
         sourcePublishedAt: source.sourcePublishedAt || null

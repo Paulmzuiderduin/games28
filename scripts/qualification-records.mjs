@@ -58,6 +58,18 @@ function normalizeRawRecord(raw, index, sourceById, sources) {
     supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
     sourceRecordType: asNonEmptyString(raw.sourceRecordType || 'structured_allocation')
   };
+  // Some qualification events are won by named athletes but allocate the
+  // Olympic place to their NOC. Keep older approved reviews correct even when
+  // their original article headline named the winning pair.
+  if (sourceDefinition?.allocationRecipient === 'noc' && ACTIVE_STATES.has(record.state)) {
+    record.subjectType = 'team_quota';
+    record.state = 'allocated';
+    record.athleteName = null;
+    record.teamName = null;
+    record.quotaCount = record.quotaCount || sourceDefinition.defaultQuotaCount || 1;
+    record.teamSizeMax = record.teamSizeMax || sourceDefinition.defaultTeamSizeMax || null;
+    record.allocationRecordId = null;
+  }
   const canonicalEvent = resolveCanonicalQualificationEvent(record, sources);
   record.canonicalEventKey = canonicalEvent?.key || null;
   record.canonicalEventLabel = canonicalEvent?.label || null;

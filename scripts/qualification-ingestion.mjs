@@ -329,7 +329,7 @@ function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
     const candidateTerms = (candidate.evidenceTerms || [candidate.noc, candidate.teamName, candidate.sport]).filter(Boolean);
     if (!candidateTerms.some((term) => key(evidence).includes(key(term)))) return [];
     const suggestion = {
-      id: `approved-${source.id}-${candidate.noc.toLowerCase()}-${hash(candidate.teamName || candidate.discipline || candidate.sport)}`,
+      id: candidate.recordId || `approved-${source.id}-${candidate.noc.toLowerCase()}-${hash(candidate.teamName || candidate.discipline || candidate.sport)}`,
       noc: candidate.noc,
       sport: candidate.sport || source.sport,
       disciplines: candidate.discipline ? [candidate.discipline] : [],
@@ -347,7 +347,7 @@ function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
       sourceRecordType: 'review_approved'
     };
     return [{
-      id: `review-${source.id}-${candidate.noc.toLowerCase()}-${hash(JSON.stringify(suggestion))}`,
+      id: candidate.reviewCandidateId || `review-${source.id}-${candidate.noc.toLowerCase()}-${hash(JSON.stringify(suggestion))}`,
       sourceId: source.id,
       resolution: 'pending',
       detectedAt: checkedAt,
