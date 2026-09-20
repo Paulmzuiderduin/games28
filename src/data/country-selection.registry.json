@@ -139,6 +139,50 @@
         "sport": "Equestrian",
         "status": "review_required",
         "url": "https://www.olympics.com.au/news/dressage-team-en-route-to-la28/"
+      },
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Beach Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Mark Nicolaidis",
+              "Izac Carracher"
+            ],
+            "noc": "AUS",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Mark Nicolaidis and Izac Carracher"
+          },
+          {
+            "discipline": "Beach Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Stefanie Fejes",
+              "Taliqua Clancy"
+            ],
+            "noc": "AUS",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Stefanie Fejes and Taliqua Clancy"
+          }
+        ],
+        "evidenceTerms": [
+          "Australia",
+          "secured two spots",
+          "Los Angeles 2028"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-beach-asia-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Australian men and women earn LA28 beach volleyball quotas",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceTier": "if",
+        "sport": "Beach Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/australian-duos-book-two-spots-at-the-olympic-games-los-angeles-2028/"
       }
     ],
     "status": "configured"
@@ -300,7 +344,83 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.cob.org.br/",
     "referenceOnlyUrls": [],
-    "selectionSources": [],
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Beach Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Andre Loyola Stein",
+              "Renato Andrew Lima de Carvalho"
+            ],
+            "noc": "BRA",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Andre Loyola Stein and Renato Andrew Lima de Carvalho"
+          },
+          {
+            "discipline": "Beach Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Thamela Coradello Galil",
+              "Victoria Lopes Pereira Tosta"
+            ],
+            "noc": "BRA",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Thamela Coradello Galil and Victoria Lopes Pereira Tosta"
+          }
+        ],
+        "evidenceTerms": [
+          "Brazil",
+          "secured two spots",
+          "Los Angeles 2028"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-beach-south-america-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Brazilian men and women earn LA28 beach volleyball quotas",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceTier": "if",
+        "sport": "Beach Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/two-brazilian-pairs-earn-spots-at-the-olympic-games-los-angeles-2028/"
+      },
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Brazil",
+              "direct quota berth"
+            ],
+            "noc": "BRA",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota"
+          }
+        ],
+        "evidenceTerms": [
+          "Brazil",
+          "direct quota berth"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-volleyball-bra-women-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Brazil women qualify for LA28 volleyball",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-13",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/brazil-keep-csv-crown-to-confirm-la28-qualification/"
+      }
+    ],
     "status": "configured"
   },
   {
@@ -490,8 +610,40 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
-    "selectionSources": [],
-    "status": "awaiting_endpoint"
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Cuba",
+              "officially punched their ticket"
+            ],
+            "noc": "CUB",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota"
+          }
+        ],
+        "evidenceTerms": [
+          "Cuba",
+          "officially punched their ticket"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-volleyball-cub-men-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Cuba men qualify for LA28 volleyball",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-19",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/cuba-clinch-la28-ticket-with-victory-over-canada-in-norceca-qualification/"
+      }
+    ],
+    "status": "configured"
   },
   {
     "countryName": "Cyprus",
@@ -580,8 +732,40 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
-    "selectionSources": [],
-    "status": "awaiting_endpoint"
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Egypt",
+              "Olympic berth"
+            ],
+            "noc": "EGY",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota"
+          }
+        ],
+        "evidenceTerms": [
+          "Egypt",
+          "Olympic berth"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-volleyball-egy-women-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Egypt women qualify for LA28 volleyball",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-04",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/egypt-claim-african-title-to-secure-historic-first-olympic-berth-for-la28/"
+      }
+    ],
+    "status": "configured"
   },
   {
     "countryName": "El Salvador",
@@ -726,7 +910,124 @@
     "referenceOnlyUrls": [
       "https://www.britishcycling.org.uk/"
     ],
-    "selectionSources": [],
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "Great Britain",
+              "team quota place"
+            ],
+            "noc": "GBR",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          },
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "Germany",
+              "team quota place"
+            ],
+            "noc": "GER",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          },
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "Ireland",
+              "team quota place"
+            ],
+            "noc": "IRL",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          },
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "Switzerland",
+              "team quota place"
+            ],
+            "noc": "SUI",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          },
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "New Zealand",
+              "team quota place"
+            ],
+            "noc": "NZL",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          },
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "Sweden",
+              "team quota place"
+            ],
+            "noc": "SWE",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          },
+          {
+            "discipline": "Eventing - Team",
+            "evidenceTerms": [
+              "Belgium",
+              "team quota place"
+            ],
+            "noc": "BEL",
+            "quotaCount": 1,
+            "sport": "Equestrian",
+            "state": "allocated",
+            "subjectType": "team_quota",
+            "teamSizeMax": 3
+          }
+        ],
+        "evidenceTerms": [
+          "seven Olympic places",
+          "Great Britain",
+          "Germany",
+          "Ireland",
+          "Switzerland",
+          "New Zealand",
+          "Sweden",
+          "Belgium"
+        ],
+        "governingBody": "Fédération Equestre Internationale",
+        "id": "if-fei-eventing-worlds-2026-la28",
+        "kind": "team_qualification",
+        "label": "FEI - Seven Eventing teams earn LA28 quota places",
+        "qualificationSystemKey": "equestrian",
+        "sourcePublishedAt": "2026-08-17",
+        "sourceTier": "if",
+        "sport": "Equestrian",
+        "status": "review_required",
+        "url": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold"
+      }
+    ],
     "status": "configured"
   },
   {
@@ -938,7 +1239,39 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://www.joc.or.jp/",
     "referenceOnlyUrls": [],
-    "selectionSources": [],
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Japan",
+              "automatic quota place"
+            ],
+            "noc": "JPN",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota"
+          }
+        ],
+        "evidenceTerms": [
+          "Japan",
+          "automatic quota place"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-volleyball-jpn-men-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Japan men qualify for LA28 volleyball",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-13",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/japan-triumph-at-home-to-secure-11th-continental-crown-and-la28-berth/"
+      }
+    ],
     "status": "configured"
   },
   {
@@ -1472,8 +1805,54 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
-    "selectionSources": [],
-    "status": "awaiting_endpoint"
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Beach Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Esther Onyinye Mbah",
+              "Pamela Miyoum Bawa"
+            ],
+            "noc": "NGR",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Esther Onyinye Mbah and Pamela Miyoum Bawa"
+          },
+          {
+            "discipline": "Beach Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Zouheir Elgraoui",
+              "Soufiane El Gharouti"
+            ],
+            "noc": "MAR",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Zouheir Elgraoui and Soufiane El Gharouti"
+          }
+        ],
+        "evidenceTerms": [
+          "Nigeria",
+          "Morocco",
+          "secured a spot",
+          "Los Angeles 2028"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-beach-africa-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Nigeria women and Morocco men earn LA28 beach volleyball quotas",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-08-22",
+        "sourceTier": "if",
+        "sport": "Beach Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/nigeria-and-morocco-qualify-for-la28/"
+      }
+    ],
+    "status": "configured"
   },
   {
     "countryName": "North Korea",
@@ -1912,7 +2291,41 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": "https://sok.se/",
     "referenceOnlyUrls": [],
-    "selectionSources": [],
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Beach Volleyball - Men's tournament",
+            "evidenceTerms": [
+              "Hölting Nilsson",
+              "Andersson Elmer"
+            ],
+            "noc": "SWE",
+            "sport": "Beach Volleyball",
+            "state": "earned",
+            "subjectType": "team",
+            "teamName": "Jacob Hölting Nilsson and Elmer Andersson"
+          }
+        ],
+        "evidenceTerms": [
+          "Sweden",
+          "Hölting Nilsson",
+          "Andersson",
+          "secured a spot"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-beach-europe-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Sweden men earn a beach volleyball quota for LA28",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-08-16",
+        "sourceTier": "if",
+        "sport": "Beach Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/netherlands-qualify-for-la28/"
+      }
+    ],
     "status": "configured"
   },
   {
@@ -2032,8 +2445,40 @@
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
-    "selectionSources": [],
-    "status": "awaiting_endpoint"
+    "selectionSources": [
+      {
+        "adapter": "official_confirmation_article",
+        "confirmationCandidates": [
+          {
+            "discipline": "Volleyball - Women's tournament",
+            "evidenceTerms": [
+              "Türkiye",
+              "direct qualification"
+            ],
+            "noc": "TUR",
+            "quotaCount": 1,
+            "sport": "Volleyball",
+            "state": "allocated",
+            "subjectType": "team_quota"
+          }
+        ],
+        "evidenceTerms": [
+          "Türkiye",
+          "direct qualification"
+        ],
+        "governingBody": "Fédération Internationale de Volleyball",
+        "id": "if-fivb-volleyball-tur-women-2026-la28",
+        "kind": "team_qualification",
+        "label": "FIVB - Türkiye women qualify for LA28 volleyball",
+        "qualificationSystemKey": "volleyball",
+        "sourcePublishedAt": "2026-09-06",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "status": "review_required",
+        "url": "https://www.fivb.com/turkiye-extend-european-reign-and-seal-la28-qualification/"
+      }
+    ],
+    "status": "configured"
   },
   {
     "countryName": "Turkmenistan",
