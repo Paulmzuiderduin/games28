@@ -1353,24 +1353,26 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
           </div>
         </div>
         <p className="country-page__intro">
-          Games28 shows confirmation only: an official quota, an officially selected athlete, or a final Games entry. It never predicts a roster from rankings.
+          Confirmed quotas, official selections, and final entries only — never ranking-based predictions.
         </p>
-        <TrustLine runtime={runtime} />
-        <div className="country-page__utility">
-          <ShareButton
-            title={`${dashboard.country.name} at LA 2028 | Games28`}
-            text={`Follow ${dashboard.country.name}'s LA 2028 qualification updates and schedule in your local time.`}
-            path={`/countries/${dashboard.country.noc}`}
-            context={{ entityType: 'country', noc: dashboard.country.noc }}
-          >
-            Share dashboard
-          </ShareButton>
+        <div className="country-page__meta">
+          <TrustLine runtime={runtime} />
+          <div className="country-page__utility">
+            <ShareButton
+              title={`${dashboard.country.name} at LA 2028 | Games28`}
+              text={`Follow ${dashboard.country.name}'s LA 2028 qualification updates and schedule in your local time.`}
+              path={`/countries/${dashboard.country.noc}`}
+              context={{ entityType: 'country', noc: dashboard.country.noc }}
+            >
+              Share dashboard
+            </ShareButton>
+          </div>
         </div>
       </div>
 
       <section className="summary-grid country-page__stats">
         <SummaryCard label="Confirmed athletes / teams" value={dashboard.stats.namedAthleteCount} />
-        <SummaryCard label="Confirmed quota places" value={dashboard.stats.quotaCount} detail="Individual places and team slots; not an athlete total." />
+        <SummaryCard label="Confirmed quota places" value={dashboard.stats.quotaCount} detail="Places and team slots; not an athlete total." />
         <SummaryCard label="Confirmed sessions" value={dashboard.stats.confirmedSessionCount} />
         <SummaryCard label="Entries awaiting draw" value={dashboard.stats.awaitingScheduleGroupCount} />
       </section>
