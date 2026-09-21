@@ -26,6 +26,8 @@ import { loadRuntimeDataset, runtimeFallback } from './lib/runtime-data.js';
 import { canonicalRoutePath, findSportBySlug, getSessionPath, getSportPath } from './lib/seo.js';
 import {
   buildCountryDashboard,
+  buildCountryQualificationOverview,
+  buildCountryScheduleStatusOverview,
   buildHomeStats,
   buildScheduleOptions,
   buildSportDirectory,
@@ -1288,9 +1290,34 @@ function SessionView({ runtime, entry, onCalendarExport }) {
   );
 }
 
+function compactQuotaDescription(card) {
+  const count = Number.isInteger(card.quotaCount) && card.quotaCount > 0 ? card.quotaCount : 1;
+  const unit = card.subjectType === 'team_quota' ? 'team quota' : 'quota place';
+  const countLabel = `${count} ${unit}${count === 1 ? '' : 's'}`;
+  return card.qualificationRoute ? `${countLabel} · ${card.qualificationRoute}` : countLabel;
+}
+
+function compactQuotaSelection(card) {
+  if (card.allocationLinkProblem || card.quotaLinkProblem) return 'Selection link awaiting review';
+  if (card.quotaOccupants?.length) return `Selected: ${card.quotaOccupants.map((entry) => entry.name).join(', ')}`;
+  return card.subjectType === 'team_quota' ? 'Final team not selected yet' : 'Athlete not selected yet';
+}
+
 function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, onCalendarExport }) {
   const hasQualificationData = dashboard.athleteCards.length > 0;
   const hasConfirmedSessions = dashboard.confirmedSessions.length > 0;
+  const qualificationOverview = useMemo(
+    () => buildCountryQualificationOverview(runtime, dashboard.quotaPlaces),
+    [runtime, dashboard.quotaPlaces]
+  );
+  const qualificationSportCount = useMemo(
+    () => new Set(dashboard.athleteCards.map((card) => card.sport).filter(Boolean)).size,
+    [dashboard.athleteCards]
+  );
+  const scheduleStatusOverview = useMemo(
+    () => buildCountryScheduleStatusOverview(dashboard.awaitingScheduleGroups),
+    [dashboard.awaitingScheduleGroups]
+  );
 
   return (
     <section className="country-page">
@@ -1348,15 +1375,109 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
         <SummaryCard label="Entries awaiting draw" value={dashboard.stats.awaitingScheduleGroupCount} />
       </section>
 
+      <section className="country-section country-section--qualification">
+        <div className="country-section__heading">
+          <div className="country-section__title">
+            <span className="country-section__marker" aria-hidden="true" />
+            <div>
+              <p className="eyebrow">Qualification</p>
+              <h2>What {dashboard.country.name} has qualified for</h2>
+            </div>
+          </div>
+          {hasQualificationData ? (
+            <div className="country-section__summary" aria-label="Qualification totals">
+              <strong>{formatCount(dashboard.stats.quotaCount || dashboard.stats.namedAthleteCount)}</strong>
+              <span>
+                {dashboard.stats.quotaCount
+                  ? `quota ${dashboard.stats.quotaCount === 1 ? 'place' : 'places'}`
+                  : `named ${dashboard.stats.namedAthleteCount === 1 ? 'entry' : 'entries'}`}
+                {' · '}{formatCount(qualificationSportCount)} {qualificationSportCount === 1 ? 'sport' : 'sports'}
+              </span>
+            </div>
+          ) : null}
+        </div>
+
+        {dashboard.namedAthletes.length ? (
+          <div className="country-qualification-block">
+            <div className="country-subsection-heading">
+              <h3>Named athletes and teams</h3>
+              <span>{formatCount(dashboard.namedAthletes.length)} confirmed</span>
+            </div>
+            <div className="country-named-list">
+              {dashboard.namedAthletes.map((card) => (
+                <article key={card.id} className="country-named-row">
+                  <SportIcon sport={card.sport} size={24} />
+                  <div className="country-named-row__identity">
+                    <strong>{card.name}</strong>
+                    <span>{card.sport} · {(card.disciplines || []).join(', ') || 'Event not specified'}</span>
+                    <QuotaLinkDetails card={card} />
+                  </div>
+                  <div className="country-named-row__meta">
+                    <span className="tag confirmed">{formatStatusLabel(card.state || card.status)}</span>
+                    {card.profileUrl ? <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>Profile</SourceLink> : null}
+                    {card.sourceUrl ? <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} /> : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {qualificationOverview.groups.length ? (
+          <div className="country-qualification-block">
+            <div className="country-subsection-heading">
+              <h3>Quota overview by sport</h3>
+              <span>{formatCount(qualificationOverview.stats.eventCount)} qualified events</span>
+            </div>
+            <div className="country-quota-grid">
+              {qualificationOverview.groups.map((group) => (
+                <article key={group.id} className="country-quota-sport">
+                  <div className="country-quota-sport__heading">
+                    <div>
+                      <SportIcon sport={group.sport} size={25} />
+                      <h3>{group.sport}</h3>
+                    </div>
+                    <span>{formatCount(group.cards.length)} {group.cards.length === 1 ? 'event' : 'events'}</span>
+                  </div>
+                  <ul className="country-quota-events">
+                    {group.cards.map((card) => (
+                      <li key={card.id}>
+                        <div className="country-quota-event__copy">
+                          <strong>{card.eventLabel}</strong>
+                          <span>{compactQuotaDescription(card)}</span>
+                          <small>{compactQuotaSelection(card)}</small>
+                        </div>
+                        {card.sourceUrl ? <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} /> : null}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {!hasQualificationData ? (
+          <EmptyState
+            compact
+            title="No confirmed qualification records yet"
+            description="A quota, athlete, or team appears only after an official federation, NOC, or IOC source confirms it."
+          />
+        ) : null}
+      </section>
+
       <div className="country-page__body">
         <div className="country-page__main">
-          <section className="panel">
-            <div className="section-heading compact">
-              <div>
-                <p className="eyebrow">Country schedule</p>
-                <h2>Next sessions</h2>
+          <section className="country-section country-section--schedule">
+            <div className="country-section__heading">
+              <div className="country-section__title">
+                <span className="country-section__marker" aria-hidden="true" />
+                <div>
+                  <p className="eyebrow">Country schedule</p>
+                  <h2>Confirmed sessions</h2>
+                </div>
               </div>
-              <span className="status-pill">Confirmed first</span>
+              <span className="status-pill">Exact entries only</span>
             </div>
             {dashboard.confirmedSessions.length ? (
               <div className="schedule-grid compact-grid">
@@ -1372,114 +1493,43 @@ function CountryView({ runtime, dashboard, favoriteCountries, onToggleFavorite, 
               />
             )}
           </section>
-
-          <section className="panel">
-            <div className="section-heading compact">
-              <div>
-                <p className="eyebrow">Qualification</p>
-                <h2>Confirmed athletes and teams</h2>
-              </div>
-            </div>
-            {dashboard.namedAthletes.length ? (
-              <div className="stacked-list">
-                {dashboard.namedAthletes.map((card) => (
-                  <article key={card.id} className="info-card">
-                    <div className="info-card-top">
-                      <div>
-                        <h3>{card.name}</h3>
-                        <p>{card.sport}</p>
-                      </div>
-                      <span className="tag confirmed">{formatStatusLabel(card.state || card.status)}</span>
-                    </div>
-                    <p>{qualificationDetail(card)}</p>
-                    <QuotaLinkDetails card={card} />
-                    <div className="info-card-footer">
-                      <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
-                      {card.profileUrl ? (
-                        <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>
-                          Profile
-                        </SourceLink>
-                      ) : null}
-                      {card.sourceUrl ? (
-                        <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
-                      ) : null}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <EmptyState
-                compact
-                title="No confirmed athletes or teams yet"
-                description="A person appears only after an official federation, NOC, or IOC source confirms their qualification, selection, or final entry."
-              />
-            )}
-          </section>
-
-          <section className="panel">
-            <div className="section-heading compact">
-              <div>
-                <p className="eyebrow">Qualification</p>
-                <h2>Confirmed quota places</h2>
-              </div>
-            </div>
-            {dashboard.quotaPlaces.length ? (
-              <div className="stacked-list">
-                {dashboard.quotaPlaces.map((card) => (
-                  <article key={card.id} className="info-card">
-                    <div className="info-card-top">
-                      <div>
-                        <h3>{card.name}</h3>
-                        <p>{card.sport}</p>
-                      </div>
-                      <span className="tag pending">{formatStatusLabel(card.state || card.status)}</span>
-                    </div>
-                    <p>{qualificationDetail(card)}</p>
-                    <QuotaLinkDetails card={card} />
-                    <div className="info-card-footer">
-                      <span>{formatUpdatedLabel(card.lastUpdatedAt)}</span>
-                      {card.sourceUrl ? (
-                        <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
-                      ) : null}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <EmptyState
-                compact
-                title="No confirmed quota places yet"
-                description="A quota appears only after the IOC, International Federation, or NOC publishes the allocation."
-              />
-            )}
-          </section>
         </div>
 
         <aside className="country-page__aside">
-          <section className="panel">
-            <div className="section-heading compact">
-              <div>
-                <p className="eyebrow">Schedule status</p>
-                <h2>Awaiting official draw</h2>
+          <section className="country-section country-section--status">
+            <div className="country-section__heading">
+              <div className="country-section__title">
+                <span className="country-section__marker" aria-hidden="true" />
+                <div>
+                  <p className="eyebrow">Schedule status</p>
+                  <h2>Qualified, session unknown</h2>
+                </div>
               </div>
             </div>
-            {dashboard.awaitingScheduleGroups.length ? (
-              <div className="stacked-list">
-                {dashboard.awaitingScheduleGroups.map((group) => (
-                  <article key={group.id} className="info-card">
-                    <div className="info-card-top">
-                      <div>
-                        <h3>{group.sport}</h3>
-                        <p>{group.disciplines.join(', ') || 'Qualified entry'}</p>
+            {scheduleStatusOverview.length ? (
+              <div className="country-status-list">
+                {scheduleStatusOverview.map((group) => (
+                  <article key={group.id} className="country-status-row">
+                    <SportIcon sport={group.sport} size={23} />
+                    <div className="country-status-row__copy">
+                      <div className="country-status-row__heading">
+                        <div>
+                          <h3>{group.sport}</h3>
+                          <p>{group.disciplines.join(' · ') || 'Qualified entry'}</p>
+                        </div>
+                        <span className="tag pending">Awaiting draw</span>
                       </div>
-                      <span className="tag pending">Awaiting draw</span>
-                    </div>
-                    <p className="awaiting-entry-note">
-                      {group.entryCount} qualified {group.entryCount === 1 ? 'entry is' : 'entries are'} awaiting an official draw or final entry list. Possible sessions are not shown as a country schedule.
-                    </p>
-                    <div className="info-card-footer">
-                      <AppLink href={getSportPath(group.sport)} className="text-link">Open {group.sport} schedule</AppLink>
-                      {group.sourceUrl ? <SourceLink href={group.sourceUrl} context={{ noc: dashboard.country.noc, sport: group.sport }} /> : null}
+                      <p className="awaiting-entry-note">
+                        {group.entryCount} qualified {group.entryCount === 1 ? 'entry' : 'entries'} in this sport; exact sessions appear after the official draw or entry list.
+                      </p>
+                      <div className="country-status-row__actions">
+                        <AppLink href={getSportPath(group.sport)} className="text-link">Open {group.sport} schedule</AppLink>
+                        {group.sourceUrls.map((sourceUrl, index) => (
+                          <SourceLink key={sourceUrl} href={sourceUrl} context={{ noc: dashboard.country.noc, sport: group.sport }}>
+                            {group.sourceUrls.length > 1 ? `Source ${index + 1}` : 'Source'}
+                          </SourceLink>
+                        ))}
+                      </div>
                     </div>
                   </article>
                 ))}

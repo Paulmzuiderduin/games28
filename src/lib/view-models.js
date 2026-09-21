@@ -281,6 +281,69 @@ function qualificationGroupLabel(runtime, card, sport) {
   return disciplines.join(' / ');
 }
 
+export function buildCountryQualificationOverview(runtime, cards) {
+  const groups = new Map();
+
+  (cards || []).forEach((card) => {
+    const sport = getSportGroup(card.sport) || card.sport || 'Other sport';
+    const group = groups.get(sport) || {
+      id: sport,
+      sport,
+      cards: [],
+      quotaCount: 0
+    };
+    group.cards.push({
+      ...card,
+      eventLabel: qualificationGroupLabel(runtime, card, sport)
+    });
+    group.quotaCount += Number.isInteger(card.quotaCount) && card.quotaCount > 0 ? card.quotaCount : 0;
+    groups.set(sport, group);
+  });
+
+  const qualificationGroups = [...groups.values()]
+    .map((group) => ({
+      ...group,
+      cards: group.cards.sort((left, right) => left.eventLabel.localeCompare(right.eventLabel))
+    }))
+    .sort((left, right) => left.sport.localeCompare(right.sport));
+
+  return {
+    groups: qualificationGroups,
+    stats: {
+      sportCount: qualificationGroups.length,
+      eventCount: qualificationGroups.reduce((total, group) => total + group.cards.length, 0),
+      quotaCount: qualificationGroups.reduce((total, group) => total + group.quotaCount, 0)
+    }
+  };
+}
+
+export function buildCountryScheduleStatusOverview(groups) {
+  const sports = new Map();
+
+  (groups || []).forEach((group) => {
+    const sport = getSportGroup(group.sport) || group.sport || 'Other sport';
+    const overview = sports.get(sport) || {
+      id: sport,
+      sport,
+      disciplines: new Set(),
+      entryCount: 0,
+      sourceUrls: new Set()
+    };
+    (group.disciplines || []).forEach((discipline) => overview.disciplines.add(discipline));
+    overview.entryCount += Number.isInteger(group.entryCount) && group.entryCount > 0 ? group.entryCount : 0;
+    if (group.sourceUrl) overview.sourceUrls.add(group.sourceUrl);
+    sports.set(sport, overview);
+  });
+
+  return [...sports.values()]
+    .map((group) => ({
+      ...group,
+      disciplines: [...group.disciplines].sort(),
+      sourceUrls: [...group.sourceUrls]
+    }))
+    .sort((left, right) => left.sport.localeCompare(right.sport));
+}
+
 export function buildSportQualificationOverview(runtime, sport) {
   const countryByNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
   const cards = annotateQuotaLinks(runtime.athleteCards || [])

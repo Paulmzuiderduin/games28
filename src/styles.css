@@ -1910,7 +1910,138 @@ body {
 .country-page__stats { gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .country-page__stats .summary-card { border: 0; border-radius: 0; background: transparent; box-shadow: none; padding: 16px 18px; }
 .country-page__stats .summary-card + .summary-card { border-left: 1px solid var(--line); }
-.country-page__body { gap: 28px; }
+.country-page__body { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.country-section {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.78);
+}
+.country-section__heading,
+.country-subsection-heading,
+.country-quota-sport__heading,
+.country-status-row__heading,
+.country-status-row__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.country-section__title,
+.country-quota-sport__heading > div,
+.country-named-row,
+.country-status-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.country-section__marker {
+  width: 7px;
+  height: 38px;
+  flex: 0 0 7px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+.country-section__heading h2,
+.country-subsection-heading h3,
+.country-quota-sport__heading h3,
+.country-status-row h3 { margin: 0; }
+.country-section__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--text-muted);
+  text-align: right;
+}
+.country-section__summary strong { color: var(--text); font-size: 1.65rem; line-height: 1; }
+.country-section__summary span { font-size: 13px; font-weight: 700; }
+.country-section--qualification {
+  border-color: rgba(7, 70, 201, 0.22);
+  background: rgba(238, 244, 255, 0.62);
+}
+.country-section--schedule {
+  border-color: rgba(30, 126, 88, 0.24);
+  background: rgba(237, 248, 242, 0.64);
+}
+.country-section--schedule .country-section__marker { background: #1e7e58; }
+.country-section--status {
+  border-color: rgba(176, 123, 18, 0.27);
+  background: rgba(255, 248, 229, 0.68);
+}
+.country-section--status .country-section__marker { background: #b07b12; }
+.country-qualification-block {
+  display: grid;
+  gap: 12px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(7, 70, 201, 0.15);
+}
+.country-subsection-heading h3 { font-size: 15px; }
+.country-subsection-heading span,
+.country-quota-sport__heading > span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.country-quota-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.country-quota-sport {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(7, 70, 201, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.62);
+}
+.country-quota-sport__heading { padding: 12px 14px; border-bottom: 1px solid rgba(7, 70, 201, 0.12); }
+.country-quota-sport__heading > div { align-items: center; min-width: 0; }
+.country-quota-sport__heading h3 { min-width: 0; font-size: 15px; }
+.country-quota-events { margin: 0; padding: 0; list-style: none; }
+.country-quota-events li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+}
+.country-quota-events li + li { border-top: 1px solid rgba(7, 70, 201, 0.10); }
+.country-quota-event__copy { display: grid; gap: 2px; min-width: 0; }
+.country-quota-event__copy strong { font-size: 14px; line-height: 1.35; }
+.country-quota-event__copy span,
+.country-quota-event__copy small { color: var(--text-muted); font-size: 11px; line-height: 1.4; }
+.country-quota-event__copy small { color: #56647c; }
+.country-quota-events a { flex: 0 0 auto; font-size: 12px; }
+.country-named-list { display: grid; gap: 8px; }
+.country-named-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid rgba(7, 70, 201, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.62);
+}
+.country-named-row__identity { display: grid; gap: 2px; min-width: 0; }
+.country-named-row__identity > strong { font-size: 14px; }
+.country-named-row__identity > span { color: var(--text-muted); font-size: 12px; }
+.country-named-row__identity .supporting-copy { margin: 3px 0 0; font-size: 11px; }
+.country-named-row__meta { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; font-size: 12px; }
+.country-section--schedule .schedule-grid { padding: 0; }
+.country-status-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.country-status-row {
+  padding: 12px;
+  border: 1px solid rgba(176, 123, 18, 0.18);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.56);
+}
+.country-status-row__copy { display: grid; gap: 8px; min-width: 0; width: 100%; }
+.country-status-row__heading { align-items: flex-start; }
+.country-status-row__heading h3 { font-size: 14px; }
+.country-status-row__heading p { margin: 2px 0 0; color: var(--text-muted); font-size: 11px; line-height: 1.4; }
+.country-status-row__actions { justify-content: flex-start; font-size: 12px; }
 .country-page__main > .panel,
 .country-page__aside > .panel { border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
 .country-page__main > .panel .section-heading,
@@ -2064,6 +2195,9 @@ body {
   .share-feedback { display: none; }
   .country-page { gap: 22px; }
   .country-page__head, .country-page__actions { align-items: flex-start; }
+  .country-page__identity { width: 100%; min-width: 0; }
+  .country-page__identity > div { min-width: 0; }
+  .country-page__hero h1 { max-width: 100%; overflow-wrap: break-word; }
   .country-page__actions { width: 100%; }
   .country-page__actions .button-primary, .country-page__actions .button-secondary { width: 100%; }
   .country-page__stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2071,6 +2205,17 @@ body {
   .country-page__stats .summary-card:nth-child(odd) { border-left: 0; }
   .country-page__stats .summary-card:nth-child(n + 3) { border-top: 1px solid var(--line); }
   .country-page__stats .summary-card strong { font-size: 1.45rem; }
+  .country-section { gap: 16px; padding: 17px 15px; border-radius: 14px; }
+  .country-section__heading { align-items: flex-start; }
+  .country-section__marker { width: 6px; height: 34px; flex-basis: 6px; }
+  .country-section__summary { align-items: flex-end; flex-direction: column; gap: 2px; }
+  .country-section__summary strong { font-size: 1.35rem; }
+  .country-section__summary span { max-width: 12rem; line-height: 1.35; }
+  .country-quota-grid { grid-template-columns: minmax(0, 1fr); }
+  .country-named-row { grid-template-columns: auto minmax(0, 1fr); align-items: flex-start; }
+  .country-named-row__meta { grid-column: 2; justify-content: flex-start; }
+  .country-status-list { grid-template-columns: minmax(0, 1fr); }
+  .country-status-row__heading { gap: 8px; }
   .country-page__main > .panel .section-heading, .country-page__aside > .panel .section-heading { padding-top: 16px; }
   .country-page .empty-state { padding: 14px; }
   .sources-page .source-summary, .sources-page .source-list { grid-template-columns: 1fr; }
@@ -2337,6 +2482,24 @@ body {
 }
 
 :root[data-theme='dark'] .trust-line__dot { background: #66c49f; }
+:root[data-theme='dark'] .country-section--qualification {
+  border-color: rgba(145, 176, 255, 0.27);
+  background: rgba(25, 40, 69, 0.76);
+}
+:root[data-theme='dark'] .country-section--schedule {
+  border-color: rgba(102, 196, 159, 0.26);
+  background: rgba(22, 54, 45, 0.72);
+}
+:root[data-theme='dark'] .country-section--status {
+  border-color: rgba(238, 177, 61, 0.28);
+  background: rgba(66, 48, 23, 0.72);
+}
+:root[data-theme='dark'] .country-quota-sport,
+:root[data-theme='dark'] .country-named-row,
+:root[data-theme='dark'] .country-status-row {
+  background: rgba(18, 23, 32, 0.64);
+}
+:root[data-theme='dark'] .country-quota-event__copy small { color: #aebbd0; }
 :root[data-theme='dark'] .medal-badge {
   border-color: rgba(238, 177, 61, 0.36);
   background: linear-gradient(160deg, rgba(105, 70, 22, 0.92), rgba(65, 48, 25, 0.96));

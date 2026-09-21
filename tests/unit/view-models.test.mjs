@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildCountryDashboard, buildSportDirectory, buildSportQualificationOverview, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
+import { buildCountryDashboard, buildCountryQualificationOverview, buildCountryScheduleStatusOverview, buildSportDirectory, buildSportQualificationOverview, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
 
 const runtime = {
   checkedAt: '2026-04-13T12:00:00.000Z',
@@ -86,6 +86,31 @@ test('buildCountryDashboard shows only explicit sessions and groups entries awai
   assert.equal(dashboard.awaitingScheduleGroups[0].entryCount, 1);
   assert.equal(dashboard.stats.awaitingScheduleGroupCount, 1);
   assert.equal(dashboard.changes.length, 1);
+});
+
+test('buildCountryQualificationOverview groups many quota records into compact sport rows', () => {
+  const overview = buildCountryQualificationOverview({ meta: { qualificationSources: [] } }, [
+    { id: 'vb-men', sport: 'Volleyball', disciplines: ["Men's tournament"], quotaCount: 1 },
+    { id: 'vb-women', sport: 'Volleyball', disciplines: ["Women's tournament"], quotaCount: 1 },
+    { id: 'baseball', sport: 'Baseball', disciplines: ['Baseball tournament'], quotaCount: 1 }
+  ]);
+
+  assert.deepEqual(overview.stats, { sportCount: 2, eventCount: 3, quotaCount: 3 });
+  assert.deepEqual(overview.groups.map((group) => group.sport), ['Baseball', 'Volleyball']);
+  assert.deepEqual(overview.groups[1].cards.map((card) => card.eventLabel), ["Men's tournament", "Women's tournament"]);
+});
+
+test('buildCountryScheduleStatusOverview condenses pending events by sport', () => {
+  const overview = buildCountryScheduleStatusOverview([
+    { sport: 'Volleyball', disciplines: ["Men's tournament"], entryCount: 1, sourceUrl: 'https://example.com/volleyball' },
+    { sport: 'Volleyball', disciplines: ["Women's tournament"], entryCount: 1, sourceUrl: 'https://example.com/volleyball' },
+    { sport: 'Baseball', disciplines: ['Baseball tournament'], entryCount: 1, sourceUrl: 'https://example.com/baseball' }
+  ]);
+
+  assert.deepEqual(overview.map((group) => group.sport), ['Baseball', 'Volleyball']);
+  assert.equal(overview[1].entryCount, 2);
+  assert.deepEqual(overview[1].disciplines, ["Men's tournament", "Women's tournament"]);
+  assert.deepEqual(overview[1].sourceUrls, ['https://example.com/volleyball']);
 });
 
 test('filterScheduleEntries respects sport, date, and text filters', () => {
