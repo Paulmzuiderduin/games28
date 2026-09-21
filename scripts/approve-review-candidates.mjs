@@ -20,6 +20,27 @@ async function responseError(action, response) {
   return new Error(`${action}: ${response.status} ${await response.text()}`);
 }
 
+function completeConfirmationRecord(suggestedRecord, timestamp) {
+  const publishedAt = suggestedRecord.sourcePublishedAt || suggestedRecord.verifiedAt;
+  if (!publishedAt || !Number.isFinite(Date.parse(publishedAt))) {
+    throw new Error(`Proposed record ${suggestedRecord.id || 'without an ID'} has no valid official publication date.`);
+  }
+  return {
+    ...suggestedRecord,
+    sourcePublishedAt: new Date(publishedAt).toISOString(),
+    verifiedAt: suggestedRecord.verifiedAt && Number.isFinite(Date.parse(suggestedRecord.verifiedAt))
+      ? new Date(suggestedRecord.verifiedAt).toISOString()
+      : timestamp,
+    sourceRecordType: 'review_approved'
+  };
+}
+
+function hasCompleteConfirmationRecord(record) {
+  return Boolean(record
+    && Number.isFinite(Date.parse(record.sourcePublishedAt))
+    && Number.isFinite(Date.parse(record.verifiedAt)));
+}
+
 export async function approveReviewCandidates({
   candidateIds,
   supabaseUrl,
@@ -47,21 +68,23 @@ export async function approveReviewCandidates({
   if (invalidIds.length) throw new Error(`Review candidates have no proposed record: ${invalidIds.join(', ')}`);
 
   let approvedCount = 0;
+  let repairedCount = 0;
   let alreadyApprovedCount = 0;
   for (const id of candidateIds) {
     const row = rowsById.get(id);
-    if (row.status === 'approved' && row.confirmation_record) {
+    if (row.status === 'approved' && hasCompleteConfirmationRecord(row.confirmation_record)) {
       alreadyApprovedCount += 1;
       continue;
     }
 
     const timestamp = now();
+    const confirmationRecord = completeConfirmationRecord(row.confirmation_record || row.suggested_record, timestamp);
     const response = await fetchImpl(`${endpoint}?id=eq.${encodeURIComponent(id)}`, {
       method: 'PATCH',
       headers: { ...serviceHeaders(serviceRoleKey), prefer: 'return=minimal' },
       body: JSON.stringify({
         status: 'approved',
-        confirmation_record: row.suggested_record,
+        confirmation_record: confirmationRecord,
         resolution_note: resolutionNote,
         resolved_at: timestamp,
         resolved_by: null,
@@ -69,7 +92,8 @@ export async function approveReviewCandidates({
       })
     });
     if (!response.ok) throw await responseError(`Unable to approve ${id}`, response);
-    approvedCount += 1;
+    if (row.status === 'approved') repairedCount += 1;
+    else approvedCount += 1;
   }
 
   const verificationRows = await fetchRestIdPages(`${endpoint}?select=id,status,confirmation_record`, {
@@ -79,11 +103,11 @@ export async function approveReviewCandidates({
   const verifiedById = new Map(verificationRows.map((row) => [row.id, row]));
   const unverifiedIds = candidateIds.filter((id) => {
     const row = verifiedById.get(id);
-    return row?.status !== 'approved' || !row.confirmation_record;
+    return row?.status !== 'approved' || !hasCompleteConfirmationRecord(row.confirmation_record);
   });
   if (unverifiedIds.length) throw new Error(`Approval verification failed for: ${unverifiedIds.join(', ')}`);
 
-  return { approvedCount, alreadyApprovedCount, verifiedCount: candidateIds.length };
+  return { approvedCount, repairedCount, alreadyApprovedCount, verifiedCount: candidateIds.length };
 }
 
 async function main() {
@@ -94,7 +118,7 @@ async function main() {
     serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
     resolutionNote: process.env.REVIEW_RESOLUTION_NOTE
   });
-  console.log(`Review approvals: ${result.approvedCount} approved, ${result.alreadyApprovedCount} already approved, ${result.verifiedCount} verified.`);
+  console.log(`Review approvals: ${result.approvedCount} approved, ${result.repairedCount} repaired, ${result.alreadyApprovedCount} already approved, ${result.verifiedCount} verified.`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
