@@ -1,3 +1,5 @@
+import { formatCount } from '../lib/format.js';
+
 export default function SummaryCard({ label, value, detail }) {
   return (
     <article className="summary-card">
