@@ -1,7 +1,7 @@
 import { applySeoPage, getSeoPage } from './lib/seo-pages.js';
 import { useEffect, useMemo, useState } from 'react';
 import AppLink from './components/AppLink.jsx';
-import { SiteNavigation, SiteFooter, SupportCta } from './components/AppChrome.jsx';
+import { SiteNavigation, SiteFooter, SupportCta, ThemeToggle } from './components/AppChrome.jsx';
 import EmptyState from './components/EmptyState.jsx';
 import AdminReviewConsole from './components/AdminReviewConsole.jsx';
 import ReportUpdateForm from './components/ReportUpdateForm.jsx';
