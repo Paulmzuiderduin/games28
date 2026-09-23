@@ -91,7 +91,7 @@
     
     
     
-<link rel="stylesheet" href="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-ebce966187a3f5ad5027dcedd51f392b-lc.min.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-fb16b226f4b0466afb97cf763674f8d5-lc.min.css" type="text/css">
 
 
 
@@ -1648,7 +1648,7 @@
                         
                         
                         
-    <div data-component="form-input" class="form-input-wrapper " data-input-name="first_name">
+    <div data-component="form-input" class="form-input-wrapper required " data-input-name="first_name">
         
             
                 <input class="form-input" data-ref="form-input" required="true" id="first_name" name="first_name" placeholder="First Name" aria-required="true" type="text" maxlength="50"/>
@@ -1662,7 +1662,7 @@
     </div>
 
                         
-    <div data-component="form-input" class="form-input-wrapper " data-input-name="last_name">
+    <div data-component="form-input" class="form-input-wrapper required " data-input-name="last_name">
         
             
                 <input class="form-input" data-ref="form-input" required="true" id="last_name" name="last_name" placeholder="Last Name" aria-required="true" type="text" maxlength="50"/>
@@ -1676,7 +1676,7 @@
     </div>
 
                         
-    <div data-component="form-input" class="form-input-wrapper " data-input-name="email">
+    <div data-component="form-input" class="form-input-wrapper required " data-input-name="email">
         
             
                 <input class="form-input" data-ref="form-input" required="true" id="email" name="email" placeholder="Email Address" aria-required="true" type="email" maxlength="254"/>
@@ -1689,11 +1689,12 @@
         <span id="error_email" class="error-message" data-ref="email"></span>
     </div>
 
-                        <div class="dropdown c18-dropdown" data-component="dropdown">
-                            
-                            <select id="country" name="country" class="dropdown-select global-button" data-dropdown-name="country" data-ref="form-input" aria-label="Select a country">
-                                <option class="dropdown-option" value="">Select a country</option>
-                                <option value="US" class="dropdown-option">United States of America</option>
+                        <div class="dropdown-wrapper required">
+                            <div class="dropdown c18-dropdown" data-component="dropdown">
+                                
+                                <select id="country" name="country" class="dropdown-select global-button" data-dropdown-name="country" data-ref="form-input" aria-label="Select a country">
+                                    <option class="dropdown-default dropdown-option" value="">Select a country</option>
+                                    <option value="US" class="dropdown-option">United States of America</option>
 <option value="AF" class="dropdown-option">Afghanistan</option>
 <option value="AL" class="dropdown-option">Albania</option>
 <option value="DZ" class="dropdown-option">Algeria</option>
@@ -1888,12 +1889,13 @@
 <option value="ZM" class="dropdown-option">Zambia</option>
 <option value="ZW" class="dropdown-option">Zimbabwe</option>
 
-                            </select>
-                            
+                                </select>
+                                
     <span class="icon dropdown-icon" data-component="icon" data-icon="arrow-down_short"></span>
 
+                            </div>
+                            <span class="error-message" data-ref="country"></span>
                         </div>
-                        <span class="error-message" data-ref="country"></span>
                         
     <div data-component="form-input" class="form-input-wrapper " data-input-name="zip">
         
@@ -1909,8 +1911,8 @@
     </div>
 
                         
-    <div data-component="form-input" class="form-input-wrapper " data-input-name="age">
-        <div class="form-checkbox">
+    <div data-component="form-input" class="form-input-wrapper required " data-input-name="age">
+        <div class="form-checkbox required">
             <div>
                 <input class="form-input" data-ref="form-checkbox" required="true" id="age" name="age" aria-required="true" type="checkbox"/>
             </div>
@@ -1924,8 +1926,8 @@
     </div>
 
                         
-    <div data-component="form-input" class="form-input-wrapper " data-input-name="terms">
-        <div class="form-checkbox">
+    <div data-component="form-input" class="form-input-wrapper required " data-input-name="terms">
+        <div class="form-checkbox required">
             <div>
                 <input class="form-input" data-ref="form-checkbox" required="true" id="terms" name="terms" aria-required="true" type="checkbox"/>
             </div>
@@ -1938,7 +1940,7 @@
         <span id="error_terms" class="error-message" data-ref="terms"></span>
     </div>
 
-                        
+
                         <div data-recaptcha data-sitekey="6LcBkaUZAAAAAEnZXEkDVpen7aH8ucScGTJvViws"></div>
                         <button class="btn-submit second-step" data-ref="submit-button" type="submit" aria-label="Sign Up Now">
                             
@@ -2137,7 +2139,7 @@
                 
     
     
-<script src="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-7439d227efdd0c7c66cd18e150e9ef0d-lc.min.js"></script>
+<script src="/etc.clientlibs/latwentyeight/clientlibs/clientlib-site.lc-39a3b25837cf22636850447df4402837-lc.min.js"></script>
 <script src="/etc.clientlibs/clientlibs/granite/jquery.lc-7842899024219bcbdb5e72c946870b79-lc.min.js"></script>
 <script src="/etc.clientlibs/clientlibs/granite/utils.lc-e7bf340a353e643d198b25d0c8ccce47-lc.min.js"></script>
 
