@@ -437,6 +437,16 @@
         "sport": "Volleyball",
         "status": "review_required",
         "url": "https://www.fivb.com/brazil-keep-csv-crown-to-confirm-la28-qualification/"
+      },
+      {
+        "id": "if-fivb-bra-men-csv-2026",
+        "kind": "team_qualification",
+        "label": "FIVB - Brazil men LA28 quota",
+        "qualificationSystemKey": "volleyball",
+        "sourceTier": "if",
+        "sport": "Volleyball",
+        "status": "watching",
+        "url": "https://www.fivb.com/brazil-reclaim-south-american-crown-in-rio-to-book-la28-olympics-and-2027-world-cup-spots/"
       }
     ],
     "status": "configured"
@@ -1044,6 +1054,16 @@
         "sport": "Equestrian",
         "status": "review_required",
         "url": "https://www.fei.org/stories/sport/eventing/great-britain-break-team-record-and-michael-jung-wins-fifth-individual-gold"
+      },
+      {
+        "id": "nf-british-equestrian-jumping-2026",
+        "kind": "team_qualification",
+        "label": "British Equestrian - Aachen jumping Olympic quotas",
+        "qualificationSystemKey": "equestrian",
+        "sourceTier": "national_federation",
+        "sport": "Equestrian",
+        "status": "watching",
+        "url": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification"
       }
     ],
     "status": "configured"
