@@ -1309,5 +1309,159 @@
         "teamSizeMax": 12
       }
     }
+  ],
+  "records": [
+    {
+      "id": "verified-bra-volleyball-men-csv-2026",
+      "noc": "BRA",
+      "sport": "Volleyball",
+      "disciplines": [
+        "Volleyball - Men's tournament"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 CSV Men's South American Championship",
+      "sourceId": "if-fivb-bra-men-csv-2026",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.fivb.com/brazil-reclaim-south-american-crown-in-rio-to-book-la28-olympics-and-2027-world-cup-spots/",
+      "sourcePublishedAt": "2026-09-20T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-ger-jumping-team-aachen-2026",
+      "noc": "GER",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-bel-jumping-team-aachen-2026",
+      "noc": "BEL",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-gbr-jumping-team-aachen-2026",
+      "noc": "GBR",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-ita-jumping-team-aachen-2026",
+      "noc": "ITA",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-sui-jumping-team-aachen-2026",
+      "noc": "SUI",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-irl-jumping-team-aachen-2026",
+      "noc": "IRL",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    },
+    {
+      "id": "verified-fra-jumping-team-aachen-2026",
+      "noc": "FRA",
+      "sport": "Equestrian",
+      "disciplines": [
+        "Jumping - Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "qualificationRoute": "2026 FEI Jumping World Championship",
+      "sourceId": "nf-british-equestrian-jumping-2026",
+      "sourceTier": "national_federation",
+      "sourceUrl": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+      "sourcePublishedAt": "2026-08-22T00:00:00.000Z",
+      "verifiedAt": "2026-09-25T00:00:00.000Z",
+      "sourceRecordType": "manually_verified",
+      "notes": "Official country quota confirmed in the linked announcement. Publication authorized by the Games28 owner on 25 September 2026. Athletes are not yet selected."
+    }
   ]
 }

@@ -192,6 +192,16 @@
               ]
             }
           ]
+        },
+        {
+          "id": "if-fivb-bra-men-csv-2026",
+          "label": "FIVB - Brazil men LA28 quota",
+          "url": "https://www.fivb.com/brazil-reclaim-south-american-crown-in-rio-to-book-la28-olympics-and-2027-world-cup-spots/",
+          "sport": "Volleyball",
+          "sourceTier": "if",
+          "qualificationSystemKey": "volleyball",
+          "status": "watching",
+          "kind": "team_qualification"
         }
       ]
     },
@@ -418,6 +428,16 @@
               "teamSizeMax": 3
             }
           ]
+        },
+        {
+          "id": "nf-british-equestrian-jumping-2026",
+          "label": "British Equestrian - Aachen jumping Olympic quotas",
+          "url": "https://www.britishequestrian.org.uk/news/britain-s-jumpers-clinch-bronze-and-olympic-qualification",
+          "sport": "Equestrian",
+          "sourceTier": "national_federation",
+          "qualificationSystemKey": "equestrian",
+          "status": "watching",
+          "kind": "team_qualification"
         }
       ]
     },

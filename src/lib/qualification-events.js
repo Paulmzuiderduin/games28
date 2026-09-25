@@ -42,6 +42,12 @@ export function resolveCanonicalQualificationEvent(record, sources) {
   if (!candidates.length) return null;
 
   const evidence = [...(record.disciplines || []), ...(record.events || [])].join(' ');
+  // Prefer the registry's exact label before dropping generic words such as
+  // "team" and "individual", which distinguish equestrian quota events.
+  const labels = new Set([...(record.disciplines || []), ...(record.events || [])].map(normalizeText));
+  const exact = candidates.filter((candidate) => labels.has(normalizeText(candidate.label)));
+  const uniqueExact = [...new Map(exact.map((candidate) => [candidate.key, candidate])).values()];
+  if (uniqueExact.length === 1) return uniqueExact[0];
   const gender = genderFromText(evidence);
   if (gender) {
     const genderMatches = candidates.filter((candidate) => genderFromText(candidate.label) === gender);
