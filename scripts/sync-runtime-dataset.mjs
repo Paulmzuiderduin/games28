@@ -5,13 +5,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { copyFile, writeFile } from 'node:fs/promises';
 import { readJson, stableStringify } from './dataset-utils.mjs';
-import {
-  getSessionPath,
-  getSportPath,
-  isCountryDashboardIndexable,
-  routeUrl,
-  selectSeoSessionEntries
-} from '../src/lib/seo.js';
+import { buildSeoPages } from '../src/lib/seo-pages.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -68,29 +62,12 @@ async function main() {
 
   await writeFile(publicMetaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
 
-  const sports = [...new Set(runtime.scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
-    .sort((left, right) => left.localeCompare(right));
-  const selectedSessions = selectSeoSessionEntries(runtime.scheduleEntries);
-  const lastmod = runtime.checkedAt ? runtime.checkedAt.slice(0, 10) : new Date().toISOString().slice(0, 10);
-
-  const urls = [
-    '/',
-    '/schedule',
-    '/sports',
-    '/changes',
-    '/sources',
-    '/countries',
-    ...runtime.countries
-      .filter((country) => isCountryDashboardIndexable(runtime, country.noc))
-      .map((country) => `/countries/${country.noc}`),
-    ...sports.map((sport) => getSportPath(sport)),
-    ...selectedSessions.map((entry) => getSessionPath(entry.id))
-  ];
+  const urls = buildSeoPages(runtime).filter(page => page.indexable !== false).map(page => page.url);
 
   const sitemap = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...urls.map((path) => `  <url><loc>${escapeXml(routeUrl(path))}</loc><lastmod>${lastmod}</lastmod></url>`),
+    ...urls.map((path) => `  <url><loc>${escapeXml(path)}</loc></url>`),
     '</urlset>'
   ].join('\n');
 

@@ -1,7 +1,7 @@
 import { getSportGroup } from './sport-groups.js';
 export const SITE_ORIGIN = 'https://games28.paulzuiderduin.com';
 export const SITE_NAME = 'Games28';
-export const SOCIAL_IMAGE_URL = `${SITE_ORIGIN}/social-card.svg`;
+export const SOCIAL_IMAGE_URL = `${SITE_ORIGIN}/social-card.png`;
 
 export function slugify(value) {
   return String(value || '')

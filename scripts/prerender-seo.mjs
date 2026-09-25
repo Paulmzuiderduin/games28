@@ -35,10 +35,13 @@ function fallbackHtml(page) {
 
   return [
     '<main class="seo-fallback">',
+    '<nav aria-label="Main navigation"><a href="/countries/">Countries</a> · <a href="/sports/">Sports</a> · <a href="/schedule/">Schedule</a></nav>',
+
     `<p>${escapeHtml(page.eyebrow || SITE_NAME)}</p>`,
     `<h1>${escapeHtml(page.heading || page.title)}</h1>`,
     `<p>${escapeHtml(page.description)}</p>`,
     facts ? `<ul>${facts}</ul>` : '',
+    ...(page.sections || []).map(section => `<section><h2>${escapeHtml(section.heading)}</h2><ul>${section.items.map(item => `<li>${escapeHtml(item.text)} ${(item.links || []).map(link => `<a href="${escapeHtml(link.href.startsWith('/') ? canonicalRoutePath(link.href) : link.href)}">${escapeHtml(link.label)}</a>`).join(' · ')}</li>`).join('')}</ul></section>`),
     links ? `<nav aria-label="Related Games28 pages"><ul>${links}</ul></nav>` : '',
     '</main>'
   ].join('');

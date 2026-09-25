@@ -1,3 +1,4 @@
+import { findVenue, venueAddress, eventOrganizer } from '../lib/venues.js';
 import AppLink from '../components/AppLink.jsx';
 import EmptyState from '../components/EmptyState.jsx';
 import SummaryCard from '../components/SummaryCard.jsx';
@@ -18,6 +19,7 @@ export default function SessionView({ runtime, entry, onCalendarExport }) {
     );
   }
 
+  const venue = findVenue(entry.venue);
   return (
     <section className="page-section session-detail">
       <div className="section-heading section-heading--flush">
@@ -57,6 +59,8 @@ export default function SessionView({ runtime, entry, onCalendarExport }) {
           <SummaryCard label="Venue" value={entry.venue || 'Venue TBC'} />
           <SummaryCard label="Date" value={formatScheduleDate(entry)} />
         </div>
+        <p>Organizer: <a href={eventOrganizer.url}>LA28</a>. Games28 is an independent guide.</p>
+        {venue && <p>Address: {venueAddress(venue)} · <a href={venue.sourceUrl}>Venue source</a></p>}
         <div className="session-links">
           <AppLink href={getSportPath(entry.sport)} className="text-link">Open {entry.sport} schedule</AppLink>
           <AppLink href="/schedule" className="text-link">Browse all sessions</AppLink>

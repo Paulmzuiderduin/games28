@@ -1,3 +1,5 @@
+import { findVenue, venueAddress, eventOrganizer } from './venues.js';
+import { buildSportQualificationOverview, buildCountryDashboard } from './view-models.js';
 import { getSportGroup } from './sport-groups.js';
 import { SITE_NAME, SOCIAL_IMAGE_URL, getSessionPath, getSportPath, isCountryDashboardIndexable, routeUrl, selectSeoSessionEntries, findSportBySlug } from './seo.js';
 import { getQualificationSportLabels } from './view-models.js';
@@ -8,7 +10,7 @@ function compact(value, fallback = '') {
 }
 
 function formatDateTime(isoString) {
-  if (!isoString) {
+  if (!isoString || !Number.isFinite(Date.parse(isoString))) {
     return 'Time TBD';
   }
 
@@ -36,17 +38,30 @@ function breadcrumbJsonLd(items) {
   };
 }
 
+function qualificationSections(groups, sport, noc) {
+  return groups.map(group => ({
+    heading: `${sport}: ${group.label}`,
+    items: group.cards.filter(card => !noc || card.noc === noc).map(card => ({
+      text: `${card.country.name}: ${card.status === 'quota' ? `${card.quotaCount || 1} quota place(s)${card.quotaOccupants?.length ? `; selected: ${card.quotaOccupants.map(person => person.name).join(', ')}` : '; athletes not yet selected'}` : `${card.name || 'Confirmed entry'} (${card.state || 'selected'})`}`,
+      links: [{ href: `/countries/${card.noc}`, label: card.country.name }, { href: getSportPath(sport), label: sport }, ...(card.sourceUrl ? [{ href: card.sourceUrl, label: 'Official source' }] : []), ...(card.quotaOccupants || []).filter(person => person.sourceUrl).map(person => ({ href: person.sourceUrl, label: `Selection source: ${person.name}` }))]
+
+    }))
+  })).filter(section => section.items.length);
+}
+
 export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntries(runtime.scheduleEntries) } = {}) {
   const sports = [...new Set(runtime.scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
     .sort((left, right) => left.localeCompare(right));
+  const overviewBySport = new Map(sports.map(sport => [sport, buildSportQualificationOverview(runtime, sport).groups]));
   const selectedSessions = sessionEntries;
+  const generatedSessionIds = new Set(selectSeoSessionEntries(runtime.scheduleEntries).map(entry => entry.id));
   const pages = [
     {
       url: routeUrl('/'),
       title: 'Games28 | LA 2028 Schedule and Country Dashboards',
       description: `Explore ${runtime.meta.scheduleCount || runtime.scheduleEntries.length} LA 2028 sessions across ${sports.length} sports with local-time schedule views, country dashboards, and calendar exports.`,
       heading: 'Games28 LA 2028 schedule and country dashboards',
-      facts: [`${runtime.countries.length} countries indexed`, `${sports.length} sports tracked`, 'Times shown in each visitor local timezone'],
+      facts: [`${runtime.countries.length} country dashboards`, `${sports.length} sports tracked`, 'Times shown in each visitor local timezone'],
       links: [
         { href: '/schedule', label: 'Full LA 2028 schedule' },
         { href: '/changes', label: 'Recent schedule changes' },
@@ -121,12 +136,16 @@ export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntrie
 
   runtime.countries.forEach((country) => {
     const indexable = isCountryDashboardIndexable(runtime, country.noc);
+    const countryCards = runtime.athleteCards.filter(card => card.noc === country.noc);
+    const confirmed = buildCountryDashboard(runtime, country.noc).confirmedSessions;
+    const countrySections = sports.flatMap(sport => qualificationSections(overviewBySport.get(sport), sport, country.noc));
     pages.push({
       url: routeUrl(`/countries/${country.noc}`),
-      title: `${country.name} LA 2028 Schedule and Dashboard | Games28`,
-      description: `Follow ${country.name} at LA 2028 with a country dashboard for schedule matches, qualification tracking, local-time sessions, and calendar export.`,
+      title: `${country.name} LA 2028 Qualifications and Schedule | Games28`,
+      sections: [...countrySections, ...(confirmed.length ? [{ heading: 'Confirmed sessions (Los Angeles time)', items: confirmed.map(entry => ({ text: `${entry.eventName} - ${formatDateTime(entry.startAtUtc)}`, links: generatedSessionIds.has(entry.id) ? [{ href: getSessionPath(entry.id), label: 'Session details' }] : [{ href: getSportPath(entry.sport), label: `${entry.sport} schedule` }] })) }] : [])],
+      description: countryCards.length ? `Explore ${country.name}'s ${countryCards.length} verified LA 2028 qualification records, official sources and ${confirmed.length} confirmed sessions. Quotas and athlete selections are shown separately.` : `Follow ${country.name} at LA 2028. Confirmed qualifications and sessions will appear when verified; no predicted entries.`,
       heading: `${country.name} LA 2028 schedule dashboard`,
-      facts: [`NOC ${country.noc}`, country.continent, 'Qualification cards appear when verified sources are added'],
+      facts: [`NOC ${country.noc}`, country.continent, `${countryCards.length} verified qualification records; ${confirmed.length} confirmed sessions`, 'A quota does not confirm an athlete selection or an appearance in a specific session.'],
       indexable,
       links: [
         { href: '/schedule', label: 'Full schedule' },
@@ -146,7 +165,8 @@ export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntrie
     const qualificationCountries = new Set(qualifications.map((card) => card.noc)).size;
     pages.push({
       url: routeUrl(getSportPath(sport)),
-      title: `${sport} LA 2028 Schedule | Games28`,
+      title: `${sport} LA 2028 Qualifications and Schedule | Games28`,
+      sections: [...qualificationSections(overviewBySport.get(sport), sport), { heading: 'Schedule preview (Los Angeles time)', items: entries.slice(0, 8).map(entry => ({ text: `${entry.eventName} — ${formatDateTime(entry.startAtUtc)} — ${entry.venue || 'Venue TBC'}`, links: generatedSessionIds.has(entry.id) ? [{ href: getSessionPath(entry.id), label: 'Session details' }] : [] })) }],
       description: qualifications.length
         ? `Browse the ${sport} LA 2028 schedule plus ${qualifications.length} confirmed qualification records across ${qualificationCountries} countries, with official source links and calendar export.`
         : `Browse the ${sport} LA 2028 schedule with session times, venues, source links, and calendar export.`,
@@ -157,7 +177,7 @@ export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntrie
         qualifications.length ? `${qualifications.length} confirmed qualification records across ${qualificationCountries} countries` : 'Qualification records publish only after official confirmation',
         'Times convert to each visitor local timezone'
       ],
-      links: entries.slice(0, 8).map((entry) => ({ href: getSessionPath(entry.id), label: compact(`${entry.eventName} ${entry.sessionCode}`) })),
+      links: entries.filter(entry => generatedSessionIds.has(entry.id)).slice(0, 8).map((entry) => ({ href: getSessionPath(entry.id), label: compact(`${entry.eventName} ${entry.sessionCode}`) })),
       structuredData: [breadcrumbJsonLd([
         { name: 'Games28', url: routeUrl('/') },
         { name: 'Sports', url: routeUrl('/sports') },
@@ -168,17 +188,21 @@ export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntrie
 
   selectedSessions.forEach((entry) => {
     const path = getSessionPath(entry.id);
-    const eventData = Number.isFinite(Date.parse(entry.startAtUtc)) && entry.eventName && entry.sport && entry.venue && !/^(tbd|tbc|n\/a|unknown)$/i.test(entry.venue.trim()) ? {
+    const venue = findVenue(entry.venue);
+    const eventData = venue && Number.isFinite(Date.parse(entry.startAtUtc)) && entry.eventName && entry.sport && entry.venue && !/^(tbd|tbc|n\/a|unknown)$/i.test(entry.venue.trim()) ? {
       '@context': 'https://schema.org',
       '@type': 'Event',
       name: `${entry.sport}: ${entry.eventName}`,
       startDate: entry.startAtUtc,
-      endDate: entry.endAtUtc || undefined,
+      endDate: Number.isFinite(Date.parse(entry.endAtUtc)) && Date.parse(entry.endAtUtc) > Date.parse(entry.startAtUtc) ? entry.endAtUtc : undefined,
+      organizer: eventOrganizer,
+      url: routeUrl(path),
       eventStatus: entry.status === 'cancelled' ? 'https://schema.org/EventCancelled' : 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
         '@type': 'Place',
-        name: entry.venue
+        name: venue.name,
+        address: { '@type': 'PostalAddress', ...venue.address }
       },
       description: compact(`${entry.eventName} for ${entry.sport} at LA 2028. Source data is tracked by Games28.`)
     } : null;
@@ -191,9 +215,13 @@ export function buildSeoPages(runtime, { sessionEntries = selectSeoSessionEntrie
       facts: [
         `Session ${entry.sessionCode || 'TBD'}`,
         `${entry.venue || 'Venue TBC'}`,
+        ...(venue ? [venueAddress(venue)] : []),
+        'Organized by LA28; Games28 is an independent guide',
         formatDateTime(entry.startAtUtc)
       ],
       links: [
+        { href: eventOrganizer.url, label: 'Official organizer: LA28' },
+        ...(venue ? [{ href: venue.sourceUrl, label: 'Venue address source' }] : []),
         { href: getSportPath(entry.sport), label: `${entry.sport} schedule` },
         { href: '/schedule', label: 'Full LA 2028 schedule' }
       ],
