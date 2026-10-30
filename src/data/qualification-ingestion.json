@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-07T11:47:38.757Z",
+  "checkedAt": "2026-10-30T11:24:20.005Z",
   "rejected": [
     {
       "id": "approved-review-if-cricket-aus-571e1aa10148b156",
@@ -319,7 +319,7 @@
     },
     {
       "detectedAt": "2026-09-02T15:22:23.370Z",
-      "extractedEvidence": "Belgium men seal the deal as Irish women bow out Trending 50th FIH Congress: agenda confirmed International Hockey Federation Medical/Anti-Doping Rankings FIH.",
+      "extractedEvidence": "Belgium men seal the deal as Irish women bow out Trending FIH Hockey Stars Awards 2026 Winners Crowned in Doha International Hockey Federation Medical/Anti-Doping Rankings FIH.",
       "id": "review-if-hockey-bel-7b07da54de4cebe3",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
@@ -348,7 +348,7 @@
     },
     {
       "detectedAt": "2026-09-02T15:16:07.524Z",
-      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 1 month ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past an",
+      "extractedEvidence": "Dressage Team En Route to LA28 | Australian Olympic Committee News by Sport Dressage Team En Route to LA28 Dressage Team En Route to LA28 AOC 2 months ago Australia’s Dressage team delivered one of the nation’s standout performances at the FEI World Championships Aachen 2026, securing Olympic qualification for the Los Angeles 2028 Olympic Games. Share this story Share this story See more about Equestrian Simone Pearce Will Matthew Mary Hanna Andrew Hoy The Australian Olympic Committee acknowledges Aboriginal and Torres Strait Islander peoples of this nation. We acknowledge the Traditional Custodians of all the lands on which we are located. We pay our respects to ancestors and Elders, past a",
       "id": "review-noc-aus-dressage-la28-aus-1ce9e125e048d221",
       "reason": "Official confirmation article detected. Review the pre-filled record before publication.",
       "resolution": "pending",
@@ -1017,6 +1017,33 @@
       "resolution": "pending",
       "sourceId": "if-fih-usa-host-la28",
       "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games"
+    },
+    {
+      "detectedAt": "2026-10-13T12:43:10.285Z",
+      "extractedEvidence": "Road to LA28: Continental Glory and Olympic Qualification on the Line at 20th Asian Games Trending 50th FIH Congress: agenda confirmed Medical/Anti-Doping Rankings FIH.HOCKEY Like us on Facebook Subscribe to YouTube Follow us on Twitter Follow us on Instagram Login View Profile Logout International Hockey Federation HOME MATCHES EVENTS NEWS VIDEOS PHOTOS Event Highlights FIH Hockey World Cup 2026 FIH Para Hockey World Cup 2026 FIH Men's Nations Cup 2025-26 FIH Women's Nations Cup 2025-26 FIH World Cup 2026 Qualifiers Santiago FIH World Cup 2026 Qualifiers Hyderabad FIH World Cup 2026 Qualifiers Ismailia View all + icon THE GAME FIH Academy FIH Quality Programme History of Hockey Athletes Cor",
+      "id": "review-if-fih-usa-host-la28-8efb02a3aea6a5cc",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fih-usa-host-la28",
+      "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games"
+    },
+    {
+      "detectedAt": "2026-10-22T10:11:20.428Z",
+      "extractedEvidence": "World Rugby confirms qualification pathway for Los Angeles 2028 Olympics Games World Rugby Media Zone Media Zone Website language English English Français Español 日本語 Account Settings Log Out Media Zones World Rugby - All content Men's RWC 2027 HSBC SVNS Nations Cup WXV Global Series Pacific Nations Cup Youth Olympic Games 2026 Junior World Championship Media Zone archive Select Tournament World Rugby Main Menu Dashboard Media Release Photos Match Notes & Stats Match Officials Video News Release Infographics & Social Calendar Rules & Resources Contacts Media Zone archive Media Releases Olympics Wed 9 September, 2026 14:00 World Rugby confirms qualification pathway for Los Angeles 2028 Olympi",
+      "id": "review-if-world-rugby-usa-host-la28-e1fcdb845a9dbc9b",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-world-rugby-usa-host-la28",
+      "sourceUrl": "https://www.world.rugby/media-zone/advisory/1046251"
+    },
+    {
+      "detectedAt": "2026-10-27T10:34:41.702Z",
+      "extractedEvidence": "Road to LA28: Continental Glory and Olympic Qualification on the Line at 20th Asian Games Trending FIH Hockey Stars Awards 2026 Winners Crowned in Doha Medical/Anti-Doping Rankings FIH.HOCKEY Like us on Facebook Subscribe to YouTube Follow us on Twitter Follow us on Instagram Login View Profile Logout International Hockey Federation HOME MATCHES EVENTS NEWS VIDEOS PHOTOS Event Highlights FIH Hockey World Cup 2026 FIH Para Hockey World Cup 2026 FIH Men's Nations Cup 2025-26 FIH Women's Nations Cup 2025-26 FIH World Cup 2026 Qualifiers Santiago FIH World Cup 2026 Qualifiers Hyderabad FIH World Cup 2026 Qualifiers Ismailia View all + icon THE GAME FIH Academy FIH Quality Programme History of Ho",
+      "id": "review-if-fih-usa-host-la28-ead5fffeddeea017",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fih-usa-host-la28",
+      "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games"
     }
   ],
   "scans": [
@@ -1026,7 +1053,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1041,9 +1068,9 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-archery",
@@ -1056,7 +1083,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1071,7 +1098,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1082,7 +1109,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1097,7 +1124,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1112,7 +1139,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1127,7 +1154,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1142,7 +1169,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1157,7 +1184,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1177,7 +1204,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1192,7 +1219,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1214,7 +1241,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1229,7 +1256,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1244,7 +1271,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1259,7 +1286,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1274,7 +1301,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1289,7 +1316,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1304,7 +1331,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1321,7 +1348,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1336,7 +1363,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1351,7 +1378,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1366,7 +1393,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1381,7 +1408,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1396,7 +1423,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1412,7 +1439,7 @@
         "resolvedUrl": "https://www.issf-sports.org/competitions/olympic-qualification-tracker/quota-place-by-nation-and-number",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1427,7 +1454,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1442,7 +1469,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1453,7 +1480,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1464,7 +1491,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1475,7 +1502,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1490,7 +1517,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1505,7 +1532,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1520,14 +1547,14 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-triathlon",
       "structuredRecordCount": 0,
-      "truncated": true
+      "truncated": false
     },
     {
       "adapter": {
@@ -1535,10 +1562,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-volleyball-can-ec9089de2b28a22f"
+      ],
       "rowCount": 0,
       "sourceId": "if-volleyball",
       "structuredRecordCount": 0,
@@ -1546,7 +1575,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1561,7 +1590,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1576,7 +1605,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1591,7 +1620,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1606,7 +1635,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1621,7 +1650,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1636,7 +1665,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1653,10 +1682,13 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-asia-2026-la28-aus-d5e37a90adca779a",
+        "review-if-fivb-beach-asia-2026-la28-aus-ea4466cbc39fba8c"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-asia-2026-la28",
       "structuredRecordCount": 0,
@@ -1668,7 +1700,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; Charset=ISO-8859-1",
       "reviewCandidateIds": [],
@@ -1683,7 +1715,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1698,7 +1730,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1713,10 +1745,13 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-south-america-2026-la28-bra-b59798980ae24a07",
+        "review-if-fivb-beach-south-america-2026-la28-bra-049218824790f1c9"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-south-america-2026-la28",
       "structuredRecordCount": 0,
@@ -1728,10 +1763,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-bra-women-2026-la28-bra-e02d11dee762f950"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-bra-women-2026-la28",
       "structuredRecordCount": 0,
@@ -1743,9 +1780,9 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-fivb-bra-men-csv-2026",
@@ -1758,7 +1795,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1773,7 +1810,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html",
       "reviewCandidateIds": [],
@@ -1788,10 +1825,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-cub-men-2026-la28-cub-f47297e6a07d51b1"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-cub-men-2026-la28",
       "structuredRecordCount": 0,
@@ -1803,7 +1842,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1818,7 +1857,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1833,10 +1872,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-egy-women-2026-la28-egy-5049c8c5db6ef807"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-egy-women-2026-la28",
       "structuredRecordCount": 0,
@@ -1848,7 +1889,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1863,7 +1904,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1878,7 +1919,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1893,7 +1934,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1908,7 +1949,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1923,7 +1964,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1934,7 +1975,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1945,7 +1986,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html, application/json;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1960,7 +2001,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1975,7 +2016,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1990,7 +2031,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2005,7 +2046,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2020,7 +2061,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2035,7 +2076,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2050,7 +2091,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2065,7 +2106,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2080,10 +2121,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-jpn-men-2026-la28-jpn-94d03126dd626391"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-jpn-men-2026-la28",
       "structuredRecordCount": 0,
@@ -2095,7 +2138,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2110,7 +2153,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2125,7 +2168,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2140,7 +2183,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -2157,7 +2200,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -2174,7 +2217,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -2191,7 +2234,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2206,10 +2249,13 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-africa-2026-la28-ngr-c37f4cf79c18bf65",
+        "review-if-fivb-beach-africa-2026-la28-mar-50c9a161c901c6aa"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-africa-2026-la28",
       "structuredRecordCount": 0,
@@ -2221,7 +2267,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2236,7 +2282,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2251,7 +2297,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2266,7 +2312,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2281,7 +2327,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2296,9 +2342,9 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
+      "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rsa",
@@ -2311,7 +2357,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2326,7 +2372,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2341,10 +2387,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-beach-europe-2026-la28-swe-0ce3bcadb329cbea"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-beach-europe-2026-la28",
       "structuredRecordCount": 0,
@@ -2356,7 +2404,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2371,10 +2419,12 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-volleyball-tur-women-2026-la28-tur-dfd87d101c2eb3c5"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-volleyball-tur-women-2026-la28",
       "structuredRecordCount": 0,
@@ -2386,7 +2436,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2401,7 +2451,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -2416,7 +2466,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2431,7 +2481,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2446,10 +2496,15 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
-      "format": "text/html",
-      "reviewCandidateIds": [],
+      "format": "text/html; charset=UTF-8",
+      "reviewCandidateIds": [
+        "review-if-fivb-usa-host-la28-usa-e07f6bdf62f41c6e",
+        "review-if-fivb-usa-host-la28-usa-101795d5e6bcef8e",
+        "review-if-fivb-usa-host-la28-usa-1542d70274116051",
+        "review-if-fivb-usa-host-la28-usa-43ce0459027163ee"
+      ],
       "rowCount": 0,
       "sourceId": "if-fivb-usa-host-la28",
       "structuredRecordCount": 0,
@@ -2461,7 +2516,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2476,7 +2531,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -2486,7 +2541,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "error": "The operation was aborted due to timeout",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -2500,7 +2555,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [
@@ -2517,7 +2572,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [
@@ -2534,7 +2589,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2549,7 +2604,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2564,11 +2619,11 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
-        "review-if-fih-usa-host-la28-41d5a13b37afa578"
+        "review-if-fih-usa-host-la28-ead5fffeddeea017"
       ],
       "rowCount": 0,
       "sourceId": "if-fih-usa-host-la28",
@@ -2581,11 +2636,11 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-10-07T11:47:38.757Z",
+      "checkedAt": "2026-10-30T11:24:20.005Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [
-        "review-if-world-rugby-usa-host-la28-5b1225d2bd188a56"
+        "review-if-world-rugby-usa-host-la28-e1fcdb845a9dbc9b"
       ],
       "rowCount": 0,
       "sourceId": "if-world-rugby-usa-host-la28",
