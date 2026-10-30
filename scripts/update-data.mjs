@@ -49,9 +49,9 @@ const COMMUNITY_SCHEDULE_URL =
 const COMMUNITY_REFERENCE_URL =
   'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921';
 const OFFICIAL_PDF_FALLBACK_URL =
-  'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf';
+  'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-oct-25-oly-4-1/LA28OlympicGamesCompetitionScheduleByEventV4.1.pdf';
 const OFFICIAL_SESSION_PDF_URL =
-  'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleBySessionV4.0.pdf';
+  'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-oct-25-oly-4-1/LA28OlympicGamesCompetitionScheduleBySessionV4.1.pdf';
 const IOC_NOC_LIST_URL = 'https://www.olympics.com/ioc/national-olympic-committees';
 const OFFICIAL_PROMOTION_STREAK = 3;
 const MAX_PUBLIC_CHANGES = 500;

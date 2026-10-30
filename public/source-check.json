@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-10-30T11:24:20.005Z",
+  "checkedAt": "2026-10-30T19:06:08.744Z",
   "officialFetchUsedFallback": false,
-  "officialLastSuccessfulAt": "2026-10-30T11:24:20.005Z",
+  "officialLastSuccessfulAt": "2026-10-30T19:06:08.744Z",
   "officialPageUrl": "https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule",
   "officialParserError": null,
   "officialPdfHash": "1ac55ba331da4784a682519cbf49692c59aed5eb2f7cd0c2b233860f6bad8b8c",
   "officialPdfUrl": "https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-oct-25-oly-4-1/LA28OlympicGamesCompetitionScheduleByEventV4.1.pdf",
-  "officialShadowSuccessStreak": 84,
-  "officialSourceVersion": "V4.1.",
+  "officialShadowSuccessStreak": 85,
+  "officialSourceVersion": "V4.1",
   "officialValidationIssues": [],
   "officialValidationPassed": true,
   "promotionAchieved": false

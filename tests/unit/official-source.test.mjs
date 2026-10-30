@@ -12,9 +12,11 @@ const page = await readFile(new URL('../../src/data/official-page.html', import.
 test('official page discovery keeps the event and session PDFs on the same live version', () => {
   const eventUrl = extractOfficialPdfUrl(page);
   const sessionUrl = extractOfficialSessionPdfUrl(page);
-  assert.match(eventUrl, /ByEventV4\.0\.pdf$/);
-  assert.match(sessionUrl, /BySessionV4\.0\.pdf$/);
-  assert.equal(detectSourceVersion(eventUrl, Buffer.from('')), 'V4.0');
+  const eventVersion = /ByEvent(V\d+(?:\.\d+)*)\.pdf$/.exec(eventUrl)?.[1];
+  const sessionVersion = /BySession(V\d+(?:\.\d+)*)\.pdf$/.exec(sessionUrl)?.[1];
+  assert.ok(eventVersion);
+  assert.equal(eventVersion, sessionVersion);
+  assert.equal(detectSourceVersion(eventUrl, Buffer.from('')), eventVersion);
 });
 
 test('source versions never keep the dot before the .pdf extension', () => {
@@ -27,6 +29,6 @@ test('source versions never keep the dot before the .pdf extension', () => {
 });
 
 test('missing official links fall back to the canonical current PDFs', () => {
-  assert.match(extractOfficialPdfUrl('<html>blocked</html>'), /ByEventV4\.0\.pdf$/);
-  assert.match(extractOfficialSessionPdfUrl('<html>blocked</html>'), /BySessionV4\.0\.pdf$/);
+  assert.match(extractOfficialPdfUrl('<html>blocked</html>'), /ByEventV4\.1\.pdf$/);
+  assert.match(extractOfficialSessionPdfUrl('<html>blocked</html>'), /BySessionV4\.1\.pdf$/);
 });
