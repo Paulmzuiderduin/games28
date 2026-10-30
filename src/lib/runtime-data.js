@@ -93,7 +93,26 @@ function protectPublicQualificationCards(runtime) {
 }
 
 export async function loadRuntimeDataset() {
-  const response = await fetch(RUNTIME_URL, { cache: 'no-store' });
+  let version = '';
+  try {
+    const metaResponse = await fetch(RUNTIME_META_URL, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
+    if (metaResponse.ok) {
+      const meta = await metaResponse.json();
+      if (meta?.runtimeVersion) version = String(meta.runtimeVersion);
+      else if (meta?.checkedAt) version = String(meta.checkedAt);
+    }
+  } catch (error) {
+    // The small meta endpoint is an optimization; never let it replace the
+    // runtime request or hide the real data error.
+  }
+
+  const runtimeUrl = version
+    ? `${RUNTIME_URL}${RUNTIME_URL.includes('?') ? '&' : '?'}v=${encodeURIComponent(version)}`
+    : RUNTIME_URL;
+  const response = await fetch(runtimeUrl, {
+    cache: version ? 'force-cache' : 'no-store',
+    signal: AbortSignal.timeout(30000)
+  });
 
   if (!response.ok) {
     throw new Error(`Runtime dataset request failed with ${response.status}`);

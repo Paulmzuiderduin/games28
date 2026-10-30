@@ -29,7 +29,9 @@ export default function CountryDirectory({ countries, athleteCards, favorites, o
                 {favorites.includes(country.noc) ? 'Saved' : 'Save'}
               </button>
             </div>
-            <p>{country.noc} · {country.continent}</p>
+            <p>
+              {country.noc} · {country.continent}
+            </p>
             <div className="country-card-actions">
               <AppLink href={`/countries/${country.noc}`} className="text-link">
                 Open dashboard

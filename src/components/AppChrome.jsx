@@ -13,15 +13,50 @@ const PRIMARY_NAV_ITEMS = [
 
 function NavIcon({ name }) {
   const paths = {
-    home: <><path d="M3 11.5 12 4l9 7.5" /><path d="M5.5 10v10h13V10" /><path d="M9.5 20v-6h5v6" /></>,
-    flag: <><path d="M5 21V4" /><path d="M5 5h11l-2 4 2 4H5" /></>,
-    sports: <><circle cx="12" cy="12" r="8" /><path d="M8.5 5a10 10 0 0 1 7 14" /><path d="M5 9.5a10 10 0 0 0 14 5" /></>,
-    calendar: <><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /></>,
-    pulse: <><path d="M3 12h4l2.5-6 5 12 2.5-6h4" /></>
+    home: (
+      <>
+        <path d="M3 11.5 12 4l9 7.5" />
+        <path d="M5.5 10v10h13V10" />
+        <path d="M9.5 20v-6h5v6" />
+      </>
+    ),
+    flag: (
+      <>
+        <path d="M5 21V4" />
+        <path d="M5 5h11l-2 4 2 4H5" />
+      </>
+    ),
+    sports: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <path d="M8.5 5a10 10 0 0 1 7 14" />
+        <path d="M5 9.5a10 10 0 0 0 14 5" />
+      </>
+    ),
+    calendar: (
+      <>
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M16 3v4M8 3v4M3 10h18" />
+      </>
+    ),
+    pulse: (
+      <>
+        <path d="M3 12h4l2.5-6 5 12 2.5-6h4" />
+      </>
+    )
   };
 
   return (
-    <svg className="nav-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      className="nav-icon"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       {paths[name] || paths.home}
     </svg>
   );
@@ -39,11 +74,7 @@ export function SiteNavigation({ routeName, mobile = false }) {
           : `desktop-nav-link ${isActive ? 'active' : ''}`.trim();
 
         return (
-          <AppLink
-            key={item.href}
-            href={item.href}
-            className={linkClassName}
-          >
+          <AppLink key={item.href} href={item.href} className={linkClassName}>
             <NavIcon name={item.icon} />
             <span>{item.label}</span>
           </AppLink>
@@ -55,6 +86,8 @@ export function SiteNavigation({ routeName, mobile = false }) {
 
 export function ThemeToggle({ theme, preference, onToggle, onFollowDevice, compact = false }) {
   const nextTheme = theme === 'dark' ? 'light' : 'dark';
+  const currentThemeLabel = theme === 'dark' ? 'Dark mode' : 'Light mode';
+  const actionLabel = `Switch to ${nextTheme} mode`;
 
   return (
     <div className={`theme-controls ${compact ? 'theme-controls--compact' : ''}`.trim()}>
@@ -62,11 +95,13 @@ export function ThemeToggle({ theme, preference, onToggle, onFollowDevice, compa
         type="button"
         className="theme-toggle"
         onClick={onToggle}
-        aria-label={`Switch to ${nextTheme} mode`}
-        title={`Switch to ${nextTheme} mode`}
+        aria-label={`${currentThemeLabel}. ${actionLabel}`}
+        title={actionLabel}
       >
-        <span className="theme-toggle__icon" aria-hidden="true">{theme === 'dark' ? '☾' : '☀'}</span>
-        {!compact ? <span>{theme === 'dark' ? 'Dark mode' : 'Light mode'}</span> : null}
+        <span className="theme-toggle__icon" aria-hidden="true">
+          {theme === 'dark' ? '☾' : '☀'}
+        </span>
+        {!compact ? <span>{currentThemeLabel}</span> : null}
       </button>
       {!compact && preference !== 'system' ? (
         <button type="button" className="theme-follow-device" onClick={onFollowDevice}>
@@ -125,7 +160,10 @@ export function SupportCta({ onDismiss }) {
 export function SiteFooter({ theme, themePreference, onToggleTheme, onFollowDeviceTheme }) {
   return (
     <footer className="site-footer">
-      <p>Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic Games.</p>
+      <p>
+        Games28 is an independent fan-made schedule tracker and is not affiliated with LA28, the IOC, or the Olympic
+        Games.
+      </p>
       <div className="site-footer__links">
         <AppLink href="/sources">Data & sources</AppLink>
         <AppLink href="/report">Report an update</AppLink>

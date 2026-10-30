@@ -1,16 +1,25 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildIocQualificationRulesIndex, getAllIocQualificationDocuments, getIocQualificationDocuments } from '../../scripts/ioc-qualification-documents.mjs';
+import {
+  buildIocQualificationRulesIndex,
+  getAllIocQualificationDocuments,
+  getIocQualificationDocuments
+} from '../../scripts/ioc-qualification-documents.mjs';
 import { qualificationSystems } from '../../scripts/qualification-systems.mjs';
 
 test('maps IOC qualification PDFs to their qualification-system groups', () => {
   const documents = getAllIocQualificationDocuments(qualificationSystems);
-  const missing = qualificationSystems.filter((system) => !getIocQualificationDocuments(system.key).length).map((system) => system.key);
+  const missing = qualificationSystems
+    .filter((system) => !getIocQualificationDocuments(system.key).length)
+    .map((system) => system.key);
 
   assert.equal(documents.length, 52);
   assert.equal(new Set(documents.map((entry) => entry.qualificationSystemKey)).size, 35);
   assert.deepEqual(missing, ['athletics', 'football']);
-  assert.equal(documents.every((entry) => entry.url.startsWith('https://stillmed.olympics.com/')), true);
+  assert.equal(
+    documents.every((entry) => entry.url.startsWith('https://stillmed.olympics.com/')),
+    true
+  );
 });
 
 test('keeps sport-specific IOC rules separate inside multi-discipline systems', () => {

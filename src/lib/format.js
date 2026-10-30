@@ -1,5 +1,36 @@
+let cachedViewerTimeZone;
+const dateTimeFormatterCache = new Map();
+const numberFormatterCache = new Map();
+
 function getViewerTimeZone() {
-  return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  if (!cachedViewerTimeZone) {
+    cachedViewerTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  }
+  return cachedViewerTimeZone;
+}
+
+function getDateTimeFormatter(locale, options) {
+  const key = `${locale || 'default'}|${JSON.stringify(options)}`;
+  let formatter = dateTimeFormatterCache.get(key);
+  if (!formatter) {
+    formatter = new Intl.DateTimeFormat(locale, options);
+    dateTimeFormatterCache.set(key, formatter);
+  }
+  return formatter;
+}
+
+function getNumberFormatter(locale, options) {
+  const key = `${locale || 'default'}|${JSON.stringify(options)}`;
+  let formatter = numberFormatterCache.get(key);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(locale, options);
+    numberFormatterCache.set(key, formatter);
+  }
+  return formatter;
+}
+
+function validTimestamp(isoString) {
+  return Number.isFinite(Date.parse(isoString));
 }
 
 export function getViewerTimeZoneLabel() {
@@ -7,15 +38,15 @@ export function getViewerTimeZoneLabel() {
 }
 
 export function formatCount(value) {
-  return new Intl.NumberFormat(undefined).format(value || 0);
+  return getNumberFormatter(undefined, {}).format(value || 0);
 }
 
 export function formatDateLabel(isoString, options = {}) {
-  if (!isoString) {
+  if (!isoString || !validTimestamp(isoString)) {
     return 'TBD';
   }
 
-  const formatter = new Intl.DateTimeFormat(undefined, {
+  const formatter = getDateTimeFormatter(undefined, {
     weekday: options.includeWeekday === false ? undefined : 'short',
     month: 'short',
     day: 'numeric',
@@ -26,7 +57,8 @@ export function formatDateLabel(isoString, options = {}) {
 }
 
 export function formatScheduleDate(entry, options = {}) {
-  if (entry.startAtUtc && Number.isFinite(Date.parse(entry.startAtUtc))) return formatDateLabel(entry.startAtUtc, options);
+  if (entry.startAtUtc && Number.isFinite(Date.parse(entry.startAtUtc)))
+    return formatDateLabel(entry.startAtUtc, options);
   const day = String(entry.dayKey || '');
   if (/^\d{4}-\d{2}-\d{2}$/.test(day)) {
     const date = new Date(`${day}T12:00:00Z`);
@@ -38,26 +70,12 @@ export function formatScheduleDate(entry, options = {}) {
   return 'Date not announced';
 }
 
-export function formatTimeLabel(isoString, options = {}) {
-  if (!isoString) {
-    return 'TBD';
-  }
-
-  const formatter = new Intl.DateTimeFormat(undefined, {
-    hour: 'numeric',
-    minute: '2-digit',
-    timeZone: options.timeZone || getViewerTimeZone()
-  });
-
-  return formatter.format(new Date(isoString));
-}
-
 export function formatDateTimeLabel(isoString, options = {}) {
-  if (!isoString) {
+  if (!isoString || !validTimestamp(isoString)) {
     return 'TBD';
   }
 
-  const formatter = new Intl.DateTimeFormat(undefined, {
+  const formatter = getDateTimeFormatter(undefined, {
     weekday: 'short',
     month: 'short',
     day: 'numeric',
@@ -86,12 +104,14 @@ export function formatDayKey(isoString, options = {}) {
     return 'unknown';
   }
 
-  return new Intl.DateTimeFormat('sv-SE', {
+  const formatter = getDateTimeFormatter('sv-SE', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
     timeZone: options.timeZone || getViewerTimeZone()
-  }).format(new Date(isoString));
+  });
+
+  return formatter.format(new Date(isoString));
 }
 
 export function formatStatusLabel(status) {

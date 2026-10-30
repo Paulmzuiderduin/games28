@@ -10,6 +10,35 @@ export async function readJson(path, fallback = null) {
   }
 }
 
+export async function readJsonIfExists(path, fallback = null) {
+  let raw;
+  try {
+    raw = await readFile(path, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return fallback;
+    throw new Error(`Required dataset is unreadable: ${path}`, { cause: error });
+  }
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Required dataset is not valid JSON: ${path}`, { cause: error });
+  }
+}
+
+export async function readJsonRequired(path) {
+  let raw;
+  try {
+    raw = await readFile(path, 'utf8');
+  } catch (error) {
+    throw new Error(`Required dataset is missing or unreadable: ${path}`, { cause: error });
+  }
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Required dataset is not valid JSON: ${path}`, { cause: error });
+  }
+}
+
 export async function readText(path, fallback = '') {
   try {
     return await readFile(path, 'utf8');
@@ -135,7 +164,10 @@ export function slugify(value) {
 }
 
 export function makeId(parts) {
-  return parts.map((part) => slugify(part)).filter(Boolean).join('--');
+  return parts
+    .map((part) => slugify(part))
+    .filter(Boolean)
+    .join('--');
 }
 
 export function sha256Hex(input) {

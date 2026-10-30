@@ -18,11 +18,16 @@ const HEADER_ALIASES = {
 };
 
 function text(value) {
-  return String(value ?? '').replace(/\s+/g, ' ').trim();
+  return String(value ?? '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function key(value) {
-  return text(value).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  return text(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
 }
 
 function hash(value) {
@@ -30,37 +35,59 @@ function hash(value) {
 }
 
 function stripHtml(value) {
-  return text(String(value || '')
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&(nbsp|#160);/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&(quot|#34);/gi, '"')
-    .replace(/&#x27;|&#39;/gi, "'"));
-}
-
-function parseCsvLine(line) {
-  const cells = [];
-  let cell = '';
-  let quoted = false;
-  for (let index = 0; index < line.length; index += 1) {
-    const char = line[index];
-    if (char === '"' && line[index + 1] === '"') { cell += '"'; index += 1; continue; }
-    if (char === '"') { quoted = !quoted; continue; }
-    if (char === ',' && !quoted) { cells.push(text(cell)); cell = ''; continue; }
-    cell += char;
-  }
-  cells.push(text(cell));
-  return cells;
+  return text(
+    String(value || '')
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&(nbsp|#160);/gi, ' ')
+      .replace(/&amp;/gi, '&')
+      .replace(/&(quot|#34);/gi, '"')
+      .replace(/&#x27;|&#39;/gi, "'")
+  );
 }
 
 function rowsFromCsv(body) {
-  const lines = String(body || '').split(/\r?\n/).filter((line) => line.trim());
-  if (lines.length < 2) return [];
-  const headers = parseCsvLine(lines[0]);
-  return lines.slice(1).map((line) => {
-    const cells = parseCsvLine(line);
+  const source = String(body || '');
+  const rows = [];
+  let row = [];
+  let cell = '';
+  let quoted = false;
+
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    if (char === '"') {
+      if (quoted && source[index + 1] === '"') {
+        cell += '"';
+        index += 1;
+      } else {
+        quoted = !quoted;
+      }
+      continue;
+    }
+    if (char === ',' && !quoted) {
+      row.push(text(cell));
+      cell = '';
+      continue;
+    }
+    if ((char === '\n' || char === '\r') && !quoted) {
+      if (char === '\r' && source[index + 1] === '\n') index += 1;
+      row.push(text(cell));
+      cell = '';
+      if (row.some((value) => value !== '')) rows.push(row);
+      row = [];
+      continue;
+    }
+    cell += char;
+  }
+
+  if (cell.length || row.length) {
+    row.push(text(cell));
+    if (row.some((value) => value !== '')) rows.push(row);
+  }
+  if (rows.length < 2) return [];
+  const headers = rows[0];
+  return rows.slice(1).map((cells) => {
     if (cells.length !== headers.length) throw new Error('CSV column count changed');
     return Object.fromEntries(headers.map((header, index) => [header, cells[index] || '']));
   });
@@ -73,8 +100,10 @@ function rowsFromHtml(body) {
     if (rows.length < 2) return [];
     const matrix = rows.map((row) => (row.match(/<t[hd]\b[\s\S]*?<\/t[hd]>/gi) || []).map(stripHtml));
     const headers = matrix[0];
-    if (matrix.slice(1).some((cells) => cells.length !== headers.length)) throw new Error('HTML table column count changed');
-    return matrix.slice(1)
+    if (matrix.slice(1).some((cells) => cells.length !== headers.length))
+      throw new Error('HTML table column count changed');
+    return matrix
+      .slice(1)
       .filter((cells) => cells.length === headers.length)
       .map((cells) => Object.fromEntries(headers.map((header, index) => [header, cells[index]])));
   });
@@ -125,12 +154,19 @@ function recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, _ind
   const quotaValue = findValue(row, HEADER_ALIASES.quotaCount);
   const quotaCount = Number(quotaValue);
   const terminal = ['withdrawn', 'replaced'].includes(key(findValue(row, HEADER_ALIASES.state)));
-  const subjectType = athleteName ? 'athlete' : teamName ? 'team' : quotaValue !== null && Number.isInteger(quotaCount) && (quotaCount > 0 || (terminal && quotaCount === 0)) ? 'noc_quota' : null;
+  const subjectType = athleteName
+    ? 'athlete'
+    : teamName
+      ? 'team'
+      : quotaValue !== null && Number.isInteger(quotaCount) && (quotaCount > 0 || (terminal && quotaCount === 0))
+        ? 'noc_quota'
+        : null;
   const sourcePublishedAt = findValue(row, HEADER_ALIASES.sourcePublishedAt) || options.sourcePublishedAt;
   const state = normalizeState(findValue(row, HEADER_ALIASES.state), subjectType);
 
   const discipline = findValue(row, HEADER_ALIASES.discipline);
-  if (!noc || !knownNocs.has(noc) || !subjectType || !state || !discipline || !isIsoDate(sourcePublishedAt)) return null;
+  if (!noc || !knownNocs.has(noc) || !subjectType || !state || !discipline || !isIsoDate(sourcePublishedAt))
+    return null;
   if (new Date(sourcePublishedAt) > new Date(checkedAt)) return null;
   return {
     // The row's source content is the identity. A supplier may reorder a table
@@ -170,12 +206,45 @@ function safeFetchError(error) {
   return typeof code === 'string' && /^[A-Z0-9_]+$/.test(code) ? `${message} (${code})` : message;
 }
 
+async function readLimitedText(response, maxBytes) {
+  if (!response.body?.getReader) {
+    const text = await response.text();
+    return { body: text.slice(0, maxBytes), truncated: text.length > maxBytes };
+  }
+
+  const reader = response.body.getReader();
+  const chunks = [];
+  let total = 0;
+  let truncated = false;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      const remaining = maxBytes - total;
+      if (value.byteLength >= remaining) {
+        chunks.push(value.slice(0, remaining));
+        truncated = true;
+        await reader.cancel().catch(() => {});
+        break;
+      }
+      chunks.push(value);
+      total += value.byteLength;
+    }
+  } finally {
+    reader.releaseLock?.();
+  }
+  return { body: Buffer.concat(chunks.map((chunk) => Buffer.from(chunk))).toString('utf8'), truncated };
+}
+
 async function fetchSource(source, fetchImpl, { attempts, retryDelayMs }) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const response = await fetchImpl(source.url, {
-        headers: { 'user-agent': 'games28-data-bot/0.5', accept: 'application/json,text/csv,text/html,application/pdf;q=0.9,*/*;q=0.1' },
+        headers: {
+          'user-agent': 'games28-data-bot/0.5',
+          accept: 'application/json,text/csv,text/html,application/pdf;q=0.9,*/*;q=0.1'
+        },
         redirect: 'follow',
         signal: AbortSignal.timeout(30000)
       });
@@ -185,15 +254,15 @@ async function fetchSource(source, fetchImpl, { attempts, retryDelayMs }) {
         continue;
       }
       const contentType = response.headers.get('content-type') || '';
-      const body = await response.text();
+      const limited = await readLimitedText(response, MAX_SOURCE_BYTES);
       return {
         available: response.ok,
         httpStatus: response.status,
         resolvedUrl: response.url || source.url,
         contentType,
         lastModified: response.headers.get('last-modified') || null,
-        body: body.slice(0, MAX_SOURCE_BYTES),
-        truncated: body.length > MAX_SOURCE_BYTES
+        body: limited.body,
+        truncated: limited.truncated
       };
     } catch (error) {
       lastError = error;
@@ -238,7 +307,9 @@ function extractPublishedAt(body, fallback = null) {
   const html = String(body || '');
   const candidates = [
     html.match(/<time\b[^>]*\bdatetime\s*=\s*(["'])(.*?)\1/i)?.[2],
-    html.match(/<meta\b[^>]*(?:property|name)\s*=\s*(["'])(?:article:published_time|datePublished)\1[^>]*\bcontent\s*=\s*(["'])(.*?)\2/i)?.[3],
+    html.match(
+      /<meta\b[^>]*(?:property|name)\s*=\s*(["'])(?:article:published_time|datePublished)\1[^>]*\bcontent\s*=\s*(["'])(.*?)\2/i
+    )?.[3],
     html.match(/"datePublished"\s*:\s*"([^"]+)"/i)?.[1],
     fallback
   ];
@@ -246,13 +317,23 @@ function extractPublishedAt(body, fallback = null) {
 }
 
 function issfQuotaTrackerUrl(body, baseUrl) {
-  return htmlLinks(body, baseUrl).find(({ label, url }) => {
-    const description = `${label} ${url}`.toLowerCase();
-    return description.includes('quota') && (description.includes('nation') || description.includes('country'));
-  })?.url || null;
+  return (
+    htmlLinks(body, baseUrl).find(({ label, url }) => {
+      const description = `${label} ${url}`.toLowerCase();
+      return description.includes('quota') && (description.includes('nation') || description.includes('country'));
+    })?.url || null
+  );
 }
 
-async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions) {
+async function recordsFromIssfQuotaTracker(
+  source,
+  sourceResult,
+  knownNocs,
+  nocByCountryName,
+  checkedAt,
+  fetchImpl,
+  fetchOptions
+) {
   let tracker = sourceResult;
   const trackerUrl = issfQuotaTrackerUrl(sourceResult.body, sourceResult.resolvedUrl);
   if (trackerUrl && trackerUrl !== sourceResult.resolvedUrl) {
@@ -261,50 +342,100 @@ async function recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocB
 
   // The ISSF page has also hosted previous Olympic cycles. Never carry those
   // quota places into LA28 just because the table shape matches.
-  if (!tracker.available || tracker.truncated || !sameOrigin(source.url, tracker.resolvedUrl)
-    || !/\b(?:la\s*28|los angeles\s*2028)\b/i.test(stripHtml(tracker.body))
-    || /\b(?:paris\s*2024|tokyo\s*2020|projection|projected|ranking)\b/i.test(stripHtml(tracker.body))) {
-    return { records: [], adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: 0, eligible: false } };
+  if (
+    !tracker.available ||
+    tracker.truncated ||
+    !sameOrigin(source.url, tracker.resolvedUrl) ||
+    !/\b(?:la\s*28|los angeles\s*2028)\b/i.test(stripHtml(tracker.body)) ||
+    /\b(?:paris\s*2024|tokyo\s*2020|projection|projected|ranking)\b/i.test(stripHtml(tracker.body))
+  ) {
+    return {
+      records: [],
+      adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: 0, eligible: false }
+    };
   }
 
   const publishedAt = extractPublishedAt(tracker.body, source.sourcePublishedAt);
   const rows = detectRows(tracker.body, tracker.contentType);
-  const records = rows.map((row, index) => recordFromRow({
-    ...row,
-    Status: findValue(row, HEADER_ALIASES.state) || 'Allocated',
-    'Qualification date': findValue(row, HEADER_ALIASES.sourcePublishedAt) || publishedAt
-  }, source, knownNocs, nocByCountryName, checkedAt, index, {
-    sourceUrl: tracker.resolvedUrl,
-    sourcePublishedAt: publishedAt
-  })).filter(Boolean);
+  const records = rows
+    .map((row, index) =>
+      recordFromRow(
+        {
+          ...row,
+          Status: findValue(row, HEADER_ALIASES.state) || 'Allocated',
+          'Qualification date': findValue(row, HEADER_ALIASES.sourcePublishedAt) || publishedAt
+        },
+        source,
+        knownNocs,
+        nocByCountryName,
+        checkedAt,
+        index,
+        {
+          sourceUrl: tracker.resolvedUrl,
+          sourcePublishedAt: publishedAt
+        }
+      )
+    )
+    .filter(Boolean);
 
   return {
     records: rows.length > 0 && records.length === rows.length ? records : [],
-    adapter: { name: 'issf_quota_tracker', resolvedUrl: tracker.resolvedUrl, rowCount: rows.length, eligible: rows.length > 0 && records.length === rows.length }
+    adapter: {
+      name: 'issf_quota_tracker',
+      resolvedUrl: tracker.resolvedUrl,
+      rowCount: rows.length,
+      eligible: rows.length > 0 && records.length === rows.length
+    }
   };
 }
 
 function sameOrigin(expected, actual) {
-  try { return new URL(expected).origin === new URL(actual).origin; } catch { return false; }
+  try {
+    return new URL(expected).origin === new URL(actual).origin;
+  } catch {
+    return false;
+  }
 }
 
-async function recordsFromAdapter(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions) {
+async function recordsFromAdapter(
+  source,
+  sourceResult,
+  knownNocs,
+  nocByCountryName,
+  checkedAt,
+  fetchImpl,
+  fetchOptions
+) {
   const rejected = { records: [], adapter: { name: source.adapter || 'unconfigured', eligible: false, rowCount: 0 } };
-  if (!['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier)
-    || sourceResult.truncated || !sameOrigin(source.url, sourceResult.resolvedUrl)) return rejected;
+  if (
+    !['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier) ||
+    sourceResult.truncated ||
+    !sameOrigin(source.url, sourceResult.resolvedUrl)
+  )
+    return rejected;
   if (source.adapter === 'issf_quota_tracker') {
-    return recordsFromIssfQuotaTracker(source, sourceResult, knownNocs, nocByCountryName, checkedAt, fetchImpl, fetchOptions);
+    return recordsFromIssfQuotaTracker(
+      source,
+      sourceResult,
+      knownNocs,
+      nocByCountryName,
+      checkedAt,
+      fetchImpl,
+      fetchOptions
+    );
   }
   // Generic tables on rules/news/rankings pages are not allocation feeds. This
   // adapter must be opted into for a vetted endpoint, with edition per record.
-  if (source.adapter !== 'la28_allocation_table'
-    || !['structured_live', 'final_entries_live'].includes(source.status)) return rejected;
+  if (source.adapter !== 'la28_allocation_table' || !['structured_live', 'final_entries_live'].includes(source.status))
+    return rejected;
   const rows = detectRows(sourceResult.body, sourceResult.contentType);
-  const records = rows.map((row, index) => {
-    const edition = key(findValue(row, ['games', 'edition', 'olympic games']));
-    if (!['la28', 'la 28', 'los angeles 2028'].includes(edition)) return null;
-    return recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index);
-  }).filter(Boolean);
+  const records = rows
+    .map((row, index) => {
+      const edition = key(findValue(row, ['games', 'edition', 'olympic games']));
+      if (!['la28', 'la 28', 'los angeles 2028'].includes(edition)) return null;
+      return recordFromRow(row, source, knownNocs, nocByCountryName, checkedAt, index);
+    })
+    .filter(Boolean);
   const eligible = rows.length > 0 && records.length === rows.length;
   return { records: eligible ? records : [], adapter: { name: source.adapter, rowCount: rows.length, eligible } };
 }
@@ -326,10 +457,14 @@ function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
 
   return (source.confirmationCandidates || []).flatMap((candidate) => {
     if (!knownNocs.has(candidate.noc)) return [];
-    const candidateTerms = (candidate.evidenceTerms || [candidate.noc, candidate.teamName, candidate.sport]).filter(Boolean);
+    const candidateTerms = (candidate.evidenceTerms || [candidate.noc, candidate.teamName, candidate.sport]).filter(
+      Boolean
+    );
     if (!candidateTerms.some((term) => key(evidence).includes(key(term)))) return [];
     const suggestion = {
-      id: candidate.recordId || `approved-${source.id}-${candidate.noc.toLowerCase()}-${hash(candidate.teamName || candidate.discipline || candidate.sport)}`,
+      id:
+        candidate.recordId ||
+        `approved-${source.id}-${candidate.noc.toLowerCase()}-${hash(candidate.teamName || candidate.discipline || candidate.sport)}`,
       noc: candidate.noc,
       sport: candidate.sport || source.sport,
       disciplines: candidate.discipline ? [candidate.discipline] : [],
@@ -346,16 +481,23 @@ function configuredReviewCandidates(source, body, checkedAt, knownNocs) {
       sourcePublishedAt: candidate.sourcePublishedAt || source.sourcePublishedAt || null,
       sourceRecordType: 'review_approved'
     };
-    return [{
-      id: candidate.reviewCandidateId || `review-${source.id}-${candidate.noc.toLowerCase()}-${hash(JSON.stringify(suggestion))}`,
-      sourceId: source.id,
-      resolution: 'pending',
-      detectedAt: checkedAt,
-      sourceUrl: source.url,
-      extractedEvidence: sentenceAround(evidence, candidate.evidenceTerms?.[0] || candidate.teamName || candidate.noc),
-      reason: 'Official confirmation article detected. Review the pre-filled record before publication.',
-      suggestedRecord: suggestion
-    }];
+    return [
+      {
+        id:
+          candidate.reviewCandidateId ||
+          `review-${source.id}-${candidate.noc.toLowerCase()}-${hash(JSON.stringify(suggestion))}`,
+        sourceId: source.id,
+        resolution: 'pending',
+        detectedAt: checkedAt,
+        sourceUrl: source.url,
+        extractedEvidence: sentenceAround(
+          evidence,
+          candidate.evidenceTerms?.[0] || candidate.teamName || candidate.noc
+        ),
+        reason: 'Official confirmation article detected. Review the pre-filled record before publication.',
+        suggestedRecord: suggestion
+      }
+    ];
   });
 }
 
@@ -385,7 +527,8 @@ export async function ingestQualificationSources({
 }) {
   const knownNocs = new Set(countries.map((country) => country.noc));
   const nocByCountryName = new Map(countries.map((country) => [key(country.name), country.noc]));
-  const normalizedAttempts = Number.isInteger(fetchAttempts) && fetchAttempts > 0 ? fetchAttempts : DEFAULT_FETCH_ATTEMPTS;
+  const normalizedAttempts =
+    Number.isInteger(fetchAttempts) && fetchAttempts > 0 ? fetchAttempts : DEFAULT_FETCH_ATTEMPTS;
   const fetchOptions = { attempts: normalizedAttempts, retryDelayMs: Math.max(0, retryDelayMs) };
   const results = await mapWithConcurrency(sources, fetchConcurrency, async (source) => {
     if (source.sourceCheckMode === 'reference_only') {
@@ -424,21 +567,61 @@ export async function ingestQualificationSources({
         if (extracted.adapter) extracted.adapter.eligible = false;
       }
       const records = extracted.records;
-      const configuredCandidates = result.available ? configuredReviewCandidates(source, result.body, checkedAt, knownNocs) : [];
-      const genericCandidate = result.available && !configuredCandidates.length ? genericReviewCandidate(source, result.body, checkedAt) : null;
+      const candidateEvidenceEligible =
+        result.available && !result.truncated && sameOrigin(source.url, result.resolvedUrl);
+      const configuredCandidates = candidateEvidenceEligible
+        ? configuredReviewCandidates(source, result.body, checkedAt, knownNocs)
+        : [];
+      const genericCandidate =
+        candidateEvidenceEligible && !configuredCandidates.length
+          ? genericReviewCandidate(source, result.body, checkedAt)
+          : null;
       const reviewCandidates = [...configuredCandidates, genericCandidate].filter(Boolean);
       return {
-        sourceCheck: { ...source, checkedAt, available: result.available, checkStatus: result.available ? 'available' : 'failed', httpStatus: result.httpStatus, resolvedUrl: result.resolvedUrl },
+        sourceCheck: {
+          ...source,
+          checkedAt,
+          available: result.available,
+          checkStatus: result.available ? 'available' : 'failed',
+          httpStatus: result.httpStatus,
+          resolvedUrl: result.resolvedUrl
+        },
         records,
         reviewCandidates,
-        scan: { sourceId: source.id, checkedAt, format: result.contentType || 'unknown', dataValidated: extracted.adapter?.eligible === true, rowCount: extracted.adapter?.rowCount ?? detectRows(result.body, result.contentType).length, structuredRecordCount: records.length, reviewCandidateIds: reviewCandidates.map((candidate) => candidate.id), adapter: extracted.adapter, truncated: result.truncated }
+        scan: {
+          sourceId: source.id,
+          checkedAt,
+          format: result.contentType || 'unknown',
+          dataValidated: extracted.adapter?.eligible === true,
+          rowCount: extracted.adapter?.rowCount ?? detectRows(result.body, result.contentType).length,
+          structuredRecordCount: records.length,
+          reviewCandidateIds: reviewCandidates.map((candidate) => candidate.id),
+          adapter: extracted.adapter,
+          truncated: result.truncated
+        }
       };
     } catch (error) {
       return {
-        sourceCheck: { ...source, checkedAt, available: false, checkStatus: 'failed', httpStatus: null, resolvedUrl: source.url, checkError: error.message },
+        sourceCheck: {
+          ...source,
+          checkedAt,
+          available: false,
+          checkStatus: 'failed',
+          httpStatus: null,
+          resolvedUrl: source.url,
+          checkError: error.message
+        },
         records: [],
         reviewCandidates: [],
-        scan: { sourceId: source.id, checkedAt, format: 'unavailable', rowCount: 0, structuredRecordCount: 0, reviewCandidateIds: [], error: error.message }
+        scan: {
+          sourceId: source.id,
+          checkedAt,
+          format: 'unavailable',
+          rowCount: 0,
+          structuredRecordCount: 0,
+          reviewCandidateIds: [],
+          error: error.message
+        }
       };
     }
   });

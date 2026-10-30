@@ -30,14 +30,29 @@ test('findSportBySlug resolves sports from schedule entries', () => {
 });
 
 test('selectSeoSessionEntries prioritizes medal and final sessions with times', () => {
-  const selected = selectSeoSessionEntries([
-    { id: 'early', eventName: 'Pool Round', phase: 'Preliminary', startAtUtc: '2028-07-15T10:00:00Z' },
-    { id: 'quarterfinal', eventName: 'Quarterfinal', phase: 'Final', startAtUtc: '2028-07-16T10:00:00Z' },
-    { id: 'final', eventName: 'Gold Medal Match', phase: 'Final', startAtUtc: '2028-07-20T10:00:00Z' },
-    { id: 'tbd', eventName: 'Final', phase: 'Final', startAtUtc: null }
-  ], 1);
+  const selected = selectSeoSessionEntries(
+    [
+      { id: 'early', eventName: 'Pool Round', phase: 'Preliminary', startAtUtc: '2028-07-15T10:00:00Z' },
+      { id: 'quarterfinal', eventName: 'Quarterfinal', phase: 'Final', startAtUtc: '2028-07-16T10:00:00Z' },
+      { id: 'final', eventName: 'Gold Medal Match', phase: 'Final', startAtUtc: '2028-07-20T10:00:00Z' },
+      { id: 'tbd', eventName: 'Final', phase: 'Final', startAtUtc: null }
+    ],
+    1
+  );
 
   assert.equal(selected[0].id, 'final');
+});
+
+test('selectSeoSessionEntries creates one page per session code', () => {
+  const selected = selectSeoSessionEntries([
+    { id: 'ctr05-a', sessionCode: 'CTR05', eventName: 'Gold Medal Match', startAtUtc: '2028-07-20T10:00:00Z' },
+    { id: 'ctr05-b', sessionCode: 'CTR05', eventName: 'Sprint Final', startAtUtc: '2028-07-20T11:00:00Z' },
+    { id: 'ctr06', sessionCode: 'CTR06', eventName: 'Keirin Final', startAtUtc: '2028-07-21T10:00:00Z' }
+  ]);
+  assert.deepEqual(
+    selected.map((entry) => entry.id),
+    ['ctr05-a', 'ctr06']
+  );
 });
 
 test('getSessionPath encodes ids for route generation', () => {

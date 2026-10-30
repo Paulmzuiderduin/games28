@@ -36,9 +36,10 @@ jobs:
       - name: Run regression tests
         run: npm run test:unit
 
-      # Restore any historical approval that an older sync accidentally reset
-      # before the refresh decides which confirmed records stay public.
+      # Review sync is private infrastructure. An outage must not block the
+      # public schedule refresh; update-data retains the previous approvals.
       - name: Protect resolved qualification reviews
+        continue-on-error: true
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -65,6 +66,7 @@ jobs:
         run: node scripts/discover-qualification-search.mjs
 
       - name: Sync newly found qualification reviews
+        continue-on-error: true
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

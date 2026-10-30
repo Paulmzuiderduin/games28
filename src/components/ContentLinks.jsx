@@ -5,7 +5,7 @@ import { getShareUrl, sharePage } from '../lib/share.js';
 import { formatUpdatedLabel } from '../lib/format.js';
 
 export function SourceLink({ href, children = 'Source', context = {}, className = '' }) {
-  if (!href) {
+  if (!href || !/^https?:\/\//i.test(String(href))) {
     return null;
   }
 
@@ -46,7 +46,11 @@ export function ShareButton({ title, text, path, context = {}, className = 'text
       <button type="button" className={className} onClick={handleShare}>
         {children}
       </button>
-      {feedback ? <span className="share-feedback" aria-live="polite">{feedback}</span> : null}
+      {feedback ? (
+        <span className="share-feedback" aria-live="polite">
+          {feedback}
+        </span>
+      ) : null}
     </span>
   );
 }
@@ -66,7 +70,9 @@ export function TrustLine({ runtime, className = '' }) {
       <span>{getScheduleAuthorityLabel(runtime)}</span>
       <span aria-hidden="true">·</span>
       <span>{formatUpdatedLabel(runtime.checkedAt)}</span>
-      <AppLink href="/sources" className="trust-line__link">Data & sources</AppLink>
+      <AppLink href="/sources" className="trust-line__link">
+        Data & sources
+      </AppLink>
     </div>
   );
 }

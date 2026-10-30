@@ -11,7 +11,11 @@ export function extractRowSeparators(operatorList, tableLeft = 56, tableRight = 
     if (op === OPS.save) stack.push([...transform]);
     else if (op === OPS.restore) transform = stack.pop() || [1, 0, 0, 1, 0, 0];
     else if (op === OPS.transform) transform = Util.transform(transform, args);
-    else if (op === OPS.constructPath && args[2] && [OPS.fill, OPS.eoFill, OPS.stroke, OPS.fillStroke, OPS.eoFillStroke].includes(args[0])) {
+    else if (
+      op === OPS.constructPath &&
+      args[2] &&
+      [OPS.fill, OPS.eoFill, OPS.stroke, OPS.fillStroke, OPS.eoFillStroke].includes(args[0])
+    ) {
       const bounds = Array.from(args[2]);
       if (bounds.length !== 4 || !bounds.every(Number.isFinite)) return;
       // Rotated/sheared paths cannot safely delimit horizontal text rows.

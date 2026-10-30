@@ -1,6 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildSportDirectory, buildScheduleOptions, filterScheduleEntries, getQualificationSportLabels } from '../../src/lib/view-models.js';
+import {
+  buildSportDirectory,
+  buildScheduleOptions,
+  filterScheduleEntries,
+  getQualificationSportLabels
+} from '../../src/lib/view-models.js';
 import { getSportPath, findSportBySlug } from '../../src/lib/seo.js';
 
 const entries = ['Boxing - Preliminary Stages', 'Boxing - Final Stages'].map((sport, i) => ({ id: String(i), sport }));
@@ -20,7 +25,7 @@ test('boxing stages share one directory, filter and canonical route without muta
 test('qualification mappings count one record even when both boxing stage labels are mapped', () => {
   const runtime = {
     scheduleEntries: entries,
-    meta: { qualificationSources: [{ id: 'boxing-source', sports: entries.map(e => e.sport) }] },
+    meta: { qualificationSources: [{ id: 'boxing-source', sports: entries.map((e) => e.sport) }] },
     athleteCards: [{ id: 'quota', sourceId: 'boxing-source', sport: 'Boxing', noc: 'NED' }]
   };
   assert.deepEqual(getQualificationSportLabels(runtime, runtime.athleteCards[0]), ['Boxing']);

@@ -6,7 +6,8 @@ export default function FilterBar({ filters, options, onChange, searchPlaceholde
   return (
     <>
       <div className="timezone-note">
-        Times are shown in your local timezone: <strong>{viewerTimeZoneLabel}</strong>. Each session also shows an LA reference time.
+        Times are shown in your local timezone: <strong>{viewerTimeZoneLabel}</strong>. Each session also shows an LA
+        reference time.
       </div>
       <div className="filters-grid">
         <label>

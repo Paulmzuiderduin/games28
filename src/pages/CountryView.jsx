@@ -51,7 +51,9 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
             <div>
               <p className="eyebrow">Country dashboard</p>
               <h1>{dashboard.country.name}</h1>
-              <p className="hero-copy">{dashboard.country.noc} · {dashboard.country.continent}</p>
+              <p className="hero-copy">
+                {dashboard.country.noc} · {dashboard.country.continent}
+              </p>
             </div>
           </div>
           <div className="country-page__actions">
@@ -66,10 +68,17 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
               type="button"
               className="button-primary"
               disabled={!getExportableEntries(dashboard.confirmedSessions).length}
-              onClick={() => onCalendarExport(dashboard.confirmedSessions, `${dashboard.country.noc}-games28`, 'calendar_export_country', {
-                noc: dashboard.country.noc,
-                count: dashboard.confirmedSessions.length
-              })}
+              onClick={() =>
+                onCalendarExport(
+                  dashboard.confirmedSessions,
+                  `${dashboard.country.noc}-games28`,
+                  'calendar_export_country',
+                  {
+                    noc: dashboard.country.noc,
+                    count: dashboard.confirmedSessions.length
+                  }
+                )
+              }
             >
               Export confirmed sessions
             </button>
@@ -95,7 +104,11 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
 
       <section className="summary-grid country-page__stats">
         <SummaryCard label="Confirmed athletes / teams" value={dashboard.stats.namedAthleteCount} />
-        <SummaryCard label="Confirmed quota places" value={dashboard.stats.quotaCount} detail="Places and team slots; not an athlete total." />
+        <SummaryCard
+          label="Confirmed quota places"
+          value={dashboard.stats.quotaCount}
+          detail="Places and team slots; not an athlete total."
+        />
         <SummaryCard label="Confirmed sessions" value={dashboard.stats.confirmedSessionCount} />
         <SummaryCard label="Entries awaiting draw" value={dashboard.stats.awaitingScheduleGroupCount} />
       </section>
@@ -116,7 +129,8 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
                 {dashboard.stats.quotaCount
                   ? `quota ${dashboard.stats.quotaCount === 1 ? 'place' : 'places'}`
                   : `named ${dashboard.stats.namedAthleteCount === 1 ? 'entry' : 'entries'}`}
-                {' · '}{formatCount(qualificationSportCount)} {qualificationSportCount === 1 ? 'sport' : 'sports'}
+                {' · '}
+                {formatCount(qualificationSportCount)} {qualificationSportCount === 1 ? 'sport' : 'sports'}
               </span>
             </div>
           ) : null}
@@ -134,13 +148,21 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
                   <SportIcon sport={card.sport} size={24} />
                   <div className="country-named-row__identity">
                     <strong>{card.name}</strong>
-                    <span>{card.sport} · {(card.disciplines || []).join(', ') || 'Event not specified'}</span>
+                    <span>
+                      {card.sport} · {(card.disciplines || []).join(', ') || 'Event not specified'}
+                    </span>
                     <QuotaLinkDetails card={card} />
                   </div>
                   <div className="country-named-row__meta">
                     <span className="tag confirmed">{formatStatusLabel(card.state || card.status)}</span>
-                    {card.profileUrl ? <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>Profile</SourceLink> : null}
-                    {card.sourceUrl ? <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} /> : null}
+                    {card.profileUrl ? (
+                      <SourceLink href={card.profileUrl} context={{ noc: card.noc, athleteId: card.id }}>
+                        Profile
+                      </SourceLink>
+                    ) : null}
+                    {card.sourceUrl ? (
+                      <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
+                    ) : null}
                   </div>
                 </article>
               ))}
@@ -162,7 +184,9 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
                       <SportIcon sport={group.sport} size={25} />
                       <h3>{group.sport}</h3>
                     </div>
-                    <span>{formatCount(group.cards.length)} {group.cards.length === 1 ? 'event' : 'events'}</span>
+                    <span>
+                      {formatCount(group.cards.length)} {group.cards.length === 1 ? 'event' : 'events'}
+                    </span>
                   </div>
                   <ul className="country-quota-events">
                     {group.cards.map((card) => (
@@ -172,7 +196,9 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
                           <span>{compactQuotaDescription(card)}</span>
                           <small>{compactQuotaSelection(card)}</small>
                         </div>
-                        {card.sourceUrl ? <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} /> : null}
+                        {card.sourceUrl ? (
+                          <SourceLink href={card.sourceUrl} context={{ noc: card.noc, athleteId: card.id }} />
+                        ) : null}
                       </li>
                     ))}
                   </ul>
@@ -245,12 +271,19 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
                         <span className="tag pending">Awaiting draw</span>
                       </div>
                       <p className="awaiting-entry-note">
-                        {group.entryCount} qualified {group.entryCount === 1 ? 'entry' : 'entries'} in this sport; exact sessions appear after the official draw or entry list.
+                        {group.entryCount} qualified {group.entryCount === 1 ? 'entry' : 'entries'} in this sport; exact
+                        sessions appear after the official draw or entry list.
                       </p>
                       <div className="country-status-row__actions">
-                        <AppLink href={getSportPath(group.sport)} className="text-link">Open {group.sport} schedule</AppLink>
+                        <AppLink href={getSportPath(group.sport)} className="text-link">
+                          Open {group.sport} schedule
+                        </AppLink>
                         {group.sourceUrls.map((sourceUrl, index) => (
-                          <SourceLink key={sourceUrl} href={sourceUrl} context={{ noc: dashboard.country.noc, sport: group.sport }}>
+                          <SourceLink
+                            key={sourceUrl}
+                            href={sourceUrl}
+                            context={{ noc: dashboard.country.noc, sport: group.sport }}
+                          >
                             {group.sourceUrls.length > 1 ? `Source ${index + 1}` : 'Source'}
                           </SourceLink>
                         ))}
@@ -278,15 +311,33 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
             <div className="stacked-list">
               <article className="info-card">
                 <h3>{formatUpdatedLabel(dashboard.latestUpdateAt)}</h3>
-                <p>{hasQualificationData ? 'Every qualification card has a dated official source.' : 'No confirmed qualification records have been published yet.'}</p>
+                <p>
+                  {hasQualificationData
+                    ? 'Every qualification card has a dated official source.'
+                    : 'No confirmed qualification records have been published yet.'}
+                </p>
               </article>
               <article className="info-card">
                 <h3>{hasConfirmedSessions ? 'Confirmed sessions ready' : 'Waiting for entry lists'}</h3>
-                <p>{hasConfirmedSessions ? 'Confirmed sessions can be exported now.' : 'Games28 does not list possible sessions. Exact sessions appear only after an official draw or entry list.'}</p>
+                <p>
+                  {hasConfirmedSessions
+                    ? 'Confirmed sessions can be exported now.'
+                    : 'Games28 does not list possible sessions. Exact sessions appear only after an official draw or entry list.'}
+                </p>
               </article>
               <article className="info-card">
-                <h3>{runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status === 'configured' ? 'Official selection source configured' : 'Official selection source slot reserved'}</h3>
-                <p>{runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status === 'configured' ? 'Games28 watches the listed NOC or national federation source for confirmed selections.' : 'No official country selection endpoint has been added yet. This never creates an inferred athlete.'}</p>
+                <h3>
+                  {runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status ===
+                  'configured'
+                    ? 'Official selection source configured'
+                    : 'Official selection source slot reserved'}
+                </h3>
+                <p>
+                  {runtime.countrySelectionRegistry?.find((entry) => entry.noc === dashboard.country.noc)?.status ===
+                  'configured'
+                    ? 'Games28 watches the listed NOC or national federation source for confirmed selections.'
+                    : 'No official country selection endpoint has been added yet. This never creates an inferred athlete.'}
+                </p>
               </article>
             </div>
           </section>
@@ -328,7 +379,9 @@ export default function CountryView({ runtime, dashboard, favoriteCountries, onT
                     <div>
                       <p className="eyebrow">{formatChangeEntityLabel(change)}</p>
                       <h3>{change.summary}</h3>
-                      <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
+                      <p>
+                        {change.changeType} · {formatUpdatedLabel(change.changedAt)}
+                      </p>
                     </div>
                     <SourceLink href={change.sourceUrl} context={{ changeId: change.id, noc: dashboard.country.noc }} />
                   </article>

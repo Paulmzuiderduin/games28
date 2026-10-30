@@ -53,15 +53,18 @@ export async function getCommunityReports() {
   return fetchClientIdPages(supabase, 'community_reports', 'created_at');
 }
 
-export async function resolveCommunityReport({ id, status, resolutionNote }) {
+export async function resolveCommunityReport({ id, status, resolutionNote = null }) {
   if (!supabase) throw new Error('Supabase is not configured.');
   const session = await getAdminSession();
-  const { error } = await supabase.from('community_reports').update({
-    status,
-    resolution_note: resolutionNote || null,
-    reviewed_at: new Date().toISOString(),
-    reviewed_by: session?.user?.id || null
-  }).eq('id', id);
+  const { error } = await supabase
+    .from('community_reports')
+    .update({
+      status,
+      resolution_note: resolutionNote || null,
+      reviewed_at: new Date().toISOString(),
+      reviewed_by: session?.user?.id || null
+    })
+    .eq('id', id);
   if (error) throw error;
 }
 
@@ -89,10 +92,15 @@ export async function resolveReviewCandidate({ id, status, confirmationRecord, r
     resolved_by: status === 'pending' ? null : (await getAdminSession())?.user?.id || null,
     updated_at: new Date().toISOString()
   };
-  const { data, error } = await supabase.from('qualification_review_candidates')
-    .update(payload).eq('id', id).select('id,status').single();
+  const { data, error } = await supabase
+    .from('qualification_review_candidates')
+    .update(payload)
+    .eq('id', id)
+    .select('id,status')
+    .single();
   if (error) throw error;
-  if (data?.id !== id || data?.status !== status) throw new Error('The review was not saved. Refresh the queue and try again.');
+  if (data?.id !== id || data?.status !== status)
+    throw new Error('The review was not saved. Refresh the queue and try again.');
 }
 
 export async function signOutAdmin() {

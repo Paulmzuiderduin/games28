@@ -2,13 +2,13 @@ import { annotateQuotaLinks } from './quota-links.js';
 import { formatDayKey } from './format.js';
 import { getSportGroup } from './sport-groups.js';
 import { formatCanonicalEventLabel, resolveCanonicalQualificationEvent } from './qualification-events.js';
+import { countUniqueSessions } from './schedule-events.js';
 
 const EMPTY_COUNTRY = {
   noc: 'TBD',
   name: 'Unknown country',
   flag: 'TBD',
   continent: 'Unknown',
-  profileSlug: 'unknown',
   medals: { gold: 0, silver: 0, bronze: 0, total: 0 }
 };
 
@@ -33,11 +33,14 @@ export function getScheduleFilterDay(entry, timeZone) {
   return formatDayKey(entry.startAtUtc, { timeZone });
 }
 
+/** @param {Array<any>} scheduleEntries @param {{ timeZone?: string }} [options] */
 export function buildScheduleOptions(scheduleEntries, { timeZone } = {}) {
-  const sportOptions = [...new Set(scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b));
-  const dayOptions = [...new Set(scheduleEntries.map((entry) => getScheduleFilterDay(entry, timeZone)).filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b));
+  const sportOptions = [...new Set(scheduleEntries.map((entry) => getSportGroup(entry.sport)).filter(Boolean))].sort(
+    (a, b) => a.localeCompare(b)
+  );
+  const dayOptions = [
+    ...new Set(scheduleEntries.map((entry) => getScheduleFilterDay(entry, timeZone)).filter(Boolean))
+  ].sort((a, b) => a.localeCompare(b));
 
   return { sportOptions, dayOptions };
 }
@@ -45,21 +48,38 @@ export function buildScheduleOptions(scheduleEntries, { timeZone } = {}) {
 export function getQualificationSportLabels(runtime, card) {
   const sources = runtime.meta?.qualificationSources || [];
   const matchingSources = sources.filter((source) => source.id === card.sourceId || source.sport === card.sport);
-  const mappedSports = [...new Set(matchingSources.flatMap((source) => {
-    const qualificationEvents = source.qualificationEvents || [];
-    const directSportEvents = qualificationEvents.filter((event) => (event.sports || []).includes(card.sport));
+  const directSports = [
+    ...new Set(
+      matchingSources
+        .flatMap((source) => {
+          const qualificationEvents = source.qualificationEvents || [];
+          return qualificationEvents
+            .filter((event) => (event.sports || []).includes(card.sport))
+            .flatMap((event) => event.sports || []);
+        })
+        .filter(Boolean)
+    )
+  ];
 
-    // Some governing bodies cover related Olympic sports. Prefer the record's
-    // explicit sport over the entire governing-body group (for example indoor
-    // volleyball must not also appear on the beach volleyball page).
-    if (directSportEvents.length) {
-      return directSportEvents.flatMap((event) => event.sports || []);
-    }
+  // Some governing bodies cover related Olympic sports. Prefer the record's
+  // explicit sport when the source directly lists it; only inherit the whole
+  // governing-body group when the record uses a broader system label.
+  if (directSports.length) return [...new Set(directSports.map(getSportGroup))];
+  const cardSport = getSportGroup(card.sport);
+  const sourceCoversCardSport = matchingSources.some((source) =>
+    (source.sports || []).filter(Boolean).map(getSportGroup).includes(cardSport)
+  );
+  if (sourceCoversCardSport) return cardSport ? [cardSport] : [];
 
-    return source.sports || [];
-  }).filter(Boolean))];
-
-  return [...new Set((mappedSports.length ? mappedSports : [card.sport].filter(Boolean)).map(getSportGroup))];
+  const groupedSports = [
+    ...new Set(
+      matchingSources
+        .flatMap((source) => source.sports || [])
+        .filter(Boolean)
+        .map(getSportGroup)
+    )
+  ];
+  return groupedSports.length ? groupedSports : cardSport ? [cardSport] : [];
 }
 
 export function buildSportDirectory(runtime) {
@@ -71,11 +91,13 @@ export function buildSportDirectory(runtime) {
     const summary = sports.get(sport) || {
       sport,
       sessionCount: 0,
+      sessionKeys: new Set(),
       venues: new Set(),
       qualificationRecordCount: 0,
       qualificationCountries: new Set()
     };
-    summary.sessionCount += 1;
+    const sessionKey = entry.sessionCode || entry.id;
+    if (sessionKey) summary.sessionKeys.add(sessionKey);
     if (entry.venue) summary.venues.add(entry.venue);
     sports.set(sport, summary);
   });
@@ -90,17 +112,21 @@ export function buildSportDirectory(runtime) {
   });
 
   return [...sports.values()]
-    .map((summary) => ({
+    .map(({ sessionKeys, ...summary }) => ({
       ...summary,
+      sessionCount: sessionKeys.size,
       venueCount: summary.venues.size,
       qualificationCountryCount: summary.qualificationCountries.size
     }))
     .sort((left, right) => left.sport.localeCompare(right.sport));
 }
 
+/** @param {Array<any>} scheduleEntries @param {any} filters @param {{ timeZone?: string }} [options] */
 export function filterScheduleEntries(scheduleEntries, filters, { timeZone } = {}) {
   const query = normalizeText(filters.searchText);
-  const exactRoundQuery = new Set(['final', 'finals', 'semifinal', 'semifinals', 'quarterfinal', 'quarterfinals']).has(query);
+  const exactRoundQuery = new Set(['final', 'finals', 'semifinal', 'semifinals', 'quarterfinal', 'quarterfinals']).has(
+    query
+  );
 
   return scheduleEntries.filter((entry) => {
     if (filters.sport !== 'all' && getSportGroup(entry.sport) !== getSportGroup(filters.sport)) {
@@ -168,61 +194,81 @@ function sessionMatchesQualificationEvent(runtime, entry, card) {
   // Match exact event fields only. A sport match or fuzzy round-name match is
   // not evidence that another event (or another athlete) has a confirmed draw.
   const eventLabels = [entry.discipline, entry.eventName].map(normalizeText).filter(Boolean);
-  return disciplines.length === 1 && disciplines[0] !== normalizeText(card.sport)
-    && eventLabels.includes(disciplines[0]);
+  return (
+    disciplines.length === 1 && disciplines[0] !== normalizeText(card.sport) && eventLabels.includes(disciplines[0])
+  );
 }
 
 export function buildCountryDashboard(runtime, noc) {
-  const country = runtime.countries.find((entry) => entry.noc === noc) || { ...EMPTY_COUNTRY, noc };
+  const country = runtime.countries.find((entry) => entry.noc === noc);
+  if (!country) return null;
   const athleteCards = annotateQuotaLinks(runtime.athleteCards.filter((card) => card.noc === noc));
   const namedAthletes = athleteCards.filter((card) => card.status === 'named');
   const quotaPlaces = athleteCards.filter((card) => card.status === 'quota');
   const confirmedSessions = sortByDate(
     runtime.scheduleEntries
-      .filter((entry) => (entry.nocs || []).includes(noc) || (entry.athleteIds || []).some((id) => athleteCards.some((card) => card.id === id)))
+      .filter(
+        (entry) =>
+          (entry.nocs || []).includes(noc) ||
+          (entry.athleteIds || []).some((id) => athleteCards.some((card) => card.id === id))
+      )
       .map((entry) => {
         const linkedCards = athleteCards.filter((card) => (entry.athleteIds || []).includes(card.id));
         return {
           ...entry,
           derivedStatus: 'confirmed',
           linkedQualificationId: linkedCards.length === 1 ? linkedCards[0].id : null,
-          linkedQualificationLabel: linkedCards.length ? linkedCards.map(card => card.name).join(', ') : country.name
+          linkedQualificationLabel: linkedCards.length ? linkedCards.map((card) => card.name).join(', ') : country.name
         };
       })
   );
-  const awaitingScheduleGroups = [...athleteCards
-    .map((card) => {
-      if ((card.disciplines || []).length <= 1) return card;
-      const disciplines = card.disciplines.filter(discipline => !confirmedSessions.some(entry =>
-        sessionMatchesQualificationEvent(runtime, entry, { ...card, canonicalEventKey: null, disciplines: [discipline], id: null })
-      ));
-      return { ...card, disciplines, canonicalEventKey: null, hasPendingDisciplines: disciplines.length > 0 };
-    })
-    .filter((card) => card.hasPendingDisciplines ?? !confirmedSessions.some(entry => sessionMatchesQualificationEvent(runtime, entry, card)))
-    .reduce((groups, card) => {
-      const disciplines = [...new Set(card.disciplines || [])].sort();
-      const key = `${card.sport}::${disciplines.join('|')}`;
-      const group = groups.get(key) || {
-        id: key,
-        sport: card.sport,
-        disciplines,
-        entryCount: 0,
-        sourceUrl: card.sourceUrl || null
-      };
-      group.entryCount += 1;
-      groups.set(key, group);
-      return groups;
-    }, new Map())
-    .values()]
-    .sort((left, right) => left.sport.localeCompare(right.sport));
+  const awaitingScheduleGroups = [
+    ...athleteCards
+      .map((card) => {
+        if ((card.disciplines || []).length <= 1) return card;
+        const disciplines = card.disciplines.filter(
+          (discipline) =>
+            !confirmedSessions.some((entry) =>
+              sessionMatchesQualificationEvent(runtime, entry, {
+                ...card,
+                canonicalEventKey: null,
+                disciplines: [discipline],
+                id: null
+              })
+            )
+        );
+        return { ...card, disciplines, canonicalEventKey: null, hasPendingDisciplines: disciplines.length > 0 };
+      })
+      .filter(
+        (card) =>
+          card.hasPendingDisciplines ??
+          !confirmedSessions.some((entry) => sessionMatchesQualificationEvent(runtime, entry, card))
+      )
+      .reduce((groups, card) => {
+        const disciplines = [...new Set(card.disciplines || [])].sort();
+        const key = `${card.sport}::${disciplines.join('|')}`;
+        const group = groups.get(key) || {
+          id: key,
+          sport: card.sport,
+          disciplines,
+          entryCount: 0,
+          sourceUrl: card.sourceUrl || null
+        };
+        group.entryCount += 1;
+        groups.set(key, group);
+        return groups;
+      }, new Map())
+      .values()
+  ].sort((left, right) => left.sport.localeCompare(right.sport));
   const changes = sortByDate(
     runtime.changes.filter((change) => change.noc === noc || athleteCards.some((card) => card.id === change.entityId))
   ).reverse();
 
-  const latestUpdateAt = athleteCards
-    .map((card) => card.lastUpdatedAt)
-    .filter(Boolean)
-    .sort((a, b) => String(b).localeCompare(String(a)))[0] || runtime.checkedAt;
+  const latestUpdateAt =
+    athleteCards
+      .map((card) => card.lastUpdatedAt)
+      .filter(Boolean)
+      .sort((a, b) => String(b).localeCompare(String(a)))[0] || runtime.checkedAt;
 
   return {
     country,
@@ -235,8 +281,11 @@ export function buildCountryDashboard(runtime, noc) {
     latestUpdateAt,
     stats: {
       namedAthleteCount: namedAthletes.length,
-      quotaCount: quotaPlaces.reduce((total, card) => total + (Number.isInteger(card.quotaCount) && card.quotaCount > 0 ? card.quotaCount : 0), 0),
-      confirmedSessionCount: confirmedSessions.length,
+      quotaCount: quotaPlaces.reduce(
+        (total, card) => total + (Number.isInteger(card.quotaCount) && card.quotaCount > 0 ? card.quotaCount : 0),
+        0
+      ),
+      confirmedSessionCount: countUniqueSessions(confirmedSessions),
       awaitingScheduleGroupCount: awaitingScheduleGroups.length
     }
   };
@@ -262,7 +311,9 @@ function qualificationGroupLabel(runtime, card, sport) {
     return formatCanonicalEventLabel(canonicalEvent.label, sport);
   }
 
-  const disciplines = [...new Set(card.disciplines || [])].filter(Boolean).sort((left, right) => left.localeCompare(right));
+  const disciplines = [...new Set(card.disciplines || [])]
+    .filter(Boolean)
+    .sort((left, right) => left.localeCompare(right));
   if (!disciplines.length) return 'All qualification events';
 
   // Official announcements use both "Women's beach volleyball" and
@@ -270,7 +321,10 @@ function qualificationGroupLabel(runtime, card, sport) {
   // Present one concise, consistent event label on the sport page.
   if (sport === 'Beach Volleyball' && disciplines.length === 1) {
     const discipline = normalizeText(disciplines[0]);
-    if (discipline.includes('women') && (discipline.includes('beach volleyball') || discipline.includes('tournament'))) {
+    if (
+      discipline.includes('women') &&
+      (discipline.includes('beach volleyball') || discipline.includes('tournament'))
+    ) {
       return "Women's tournament";
     }
     if (discipline.includes('men') && (discipline.includes('beach volleyball') || discipline.includes('tournament'))) {
@@ -352,7 +406,9 @@ export function buildSportQualificationOverview(runtime, sport) {
       const statusDelta = qualificationStatusRank(left) - qualificationStatusRank(right);
       if (statusDelta !== 0) return statusDelta;
 
-      const countryDelta = String(countryByNoc.get(left.noc)?.name || left.noc).localeCompare(String(countryByNoc.get(right.noc)?.name || right.noc));
+      const countryDelta = String(countryByNoc.get(left.noc)?.name || left.noc).localeCompare(
+        String(countryByNoc.get(right.noc)?.name || right.noc)
+      );
       if (countryDelta !== 0) return countryDelta;
 
       return String(left.name).localeCompare(String(right.name));
@@ -361,7 +417,12 @@ export function buildSportQualificationOverview(runtime, sport) {
 
   cards.forEach((card) => {
     // A linked selection is rendered inside its quota row, not as a second place.
-    if (card.allocationRecordId && !card.allocationLinkProblem && cards.some(quota => quota.id === card.allocationRecordId)) return;
+    if (
+      card.allocationRecordId &&
+      !card.allocationLinkProblem &&
+      cards.some((quota) => quota.id === card.allocationRecordId)
+    )
+      return;
     const label = qualificationGroupLabel(runtime, card, sport);
     const group = groups.get(label) || {
       id: `${sport}::${label}`,
@@ -384,8 +445,12 @@ export function buildSportQualificationOverview(runtime, sport) {
       countryCount: group.countries.size
     }))
     .sort((left, right) => left.label.localeCompare(right.label));
-  const namedCount = cards.filter((card) => card.status === 'named' || ['selected', 'entered'].includes(card.state)).length;
-  const quotaCount = cards.filter((card) => card.status === 'quota').reduce((total, card) => total + (Number.isInteger(card.quotaCount) ? card.quotaCount : 0), 0);
+  const namedCount = cards.filter(
+    (card) => card.status === 'named' || ['selected', 'entered'].includes(card.state)
+  ).length;
+  const quotaCount = cards
+    .filter((card) => card.status === 'quota')
+    .reduce((total, card) => total + (Number.isInteger(card.quotaCount) ? card.quotaCount : 0), 0);
 
   return {
     cards,
@@ -406,7 +471,7 @@ export function buildHomeStats(runtime) {
   return [
     {
       label: 'Sessions tracked',
-      value: runtime.scheduleEntries.length
+      value: countUniqueSessions(runtime.scheduleEntries)
     },
     {
       label: 'Sports in schedule',

@@ -39,12 +39,19 @@ export default function SportsView({ sports }) {
             <AppLink key={sport.sport} href={getSportPath(sport.sport)} className="sport-directory-card">
               <div>
                 <p className="eyebrow">{formatCount(sport.sessionCount)} sessions</p>
-                <h2 className="sport-label"><SportIcon sport={sport.sport} /><span>{sport.sport}</span></h2>
-                <p>{sport.qualificationRecordCount
-                  ? `${sport.qualificationRecordCount} confirmed qualification ${sport.qualificationRecordCount === 1 ? 'record' : 'records'} across ${sport.qualificationCountryCount} ${sport.qualificationCountryCount === 1 ? 'country' : 'countries'}`
-                  : 'Qualification records publish when officially confirmed'}</p>
+                <h2 className="sport-label">
+                  <SportIcon sport={sport.sport} />
+                  <span>{sport.sport}</span>
+                </h2>
+                <p>
+                  {sport.qualificationRecordCount
+                    ? `${sport.qualificationRecordCount} confirmed qualification ${sport.qualificationRecordCount === 1 ? 'record' : 'records'} across ${sport.qualificationCountryCount} ${sport.qualificationCountryCount === 1 ? 'country' : 'countries'}`
+                    : 'Qualification records publish when officially confirmed'}
+                </p>
               </div>
-              <span className="row-arrow" aria-hidden="true">›</span>
+              <span className="row-arrow" aria-hidden="true">
+                ›
+              </span>
             </AppLink>
           ))}
         </div>

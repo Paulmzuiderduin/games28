@@ -1,3 +1,5 @@
+import { canonicalRoutePath } from './seo.js';
+
 function currentPageUrl() {
   if (typeof window === 'undefined') {
     return '';
@@ -11,9 +13,15 @@ export function getShareUrl(path = '') {
     return path;
   }
 
-  return new URL(path || window.location.href, window.location.origin).href;
+  const target = path || window.location.href;
+  const resolved = path && path.startsWith('/') ? canonicalRoutePath(path) : target;
+  return new URL(resolved, window.location.origin).href;
 }
 
+/**
+ * @param {{ title?: string, text?: string, url?: string }} [options]
+ * @param {any} [browser]
+ */
 export async function sharePage({ title, text, url = currentPageUrl() } = {}, browser = globalThis) {
   const navigatorApi = browser?.navigator;
   const payload = { title, text, url };

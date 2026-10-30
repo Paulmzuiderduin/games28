@@ -1,6 +1,6 @@
 import { formatCount } from '../lib/format.js';
 
-export default function SummaryCard({ label, value, detail }) {
+export default function SummaryCard({ label, value, detail = null }) {
   return (
     <article className="summary-card">
       <p className="eyebrow">{label}</p>

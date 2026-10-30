@@ -1,10 +1,9 @@
-import { getSportGroup } from '../src/lib/sport-groups.js';
 import { publicRuntime, publicIngestion } from './public-dataset.mjs';
 import { mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { copyFile, writeFile } from 'node:fs/promises';
-import { readJson, stableStringify } from './dataset-utils.mjs';
+import { readJson, sha256Hex, stableStringify } from './dataset-utils.mjs';
 import { buildSeoPages } from '../src/lib/seo-pages.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -38,12 +37,19 @@ async function main() {
   if (!runtime) {
     throw new Error('Missing runtime dataset. Run npm run data:update first.');
   }
-  await writeFile(publicRuntimePath, stableStringify(publicRuntime(runtime)) + '\n');
+  const publicData = publicRuntime(runtime);
+  const publicDataJson = stableStringify(publicData);
+  const runtimeVersion = sha256Hex(publicDataJson).slice(0, 20);
+  await writeFile(publicRuntimePath, publicDataJson + '\n');
   const ingestion = await readJson(qualificationIngestionPath, {});
-  await writeFile(resolve(publicDir, 'qualification-ingestion.json'), stableStringify(publicIngestion(ingestion)) + '\n');
+  await writeFile(
+    resolve(publicDir, 'qualification-ingestion.json'),
+    stableStringify(publicIngestion(ingestion)) + '\n'
+  );
 
   const meta = {
     checkedAt: runtime.checkedAt,
+    runtimeVersion,
     countryCount: runtime.meta.countryCount,
     lastChangedAt: runtime.meta.lastChangedAt,
     qualificationCount: runtime.meta.qualificationCount,
@@ -62,7 +68,9 @@ async function main() {
 
   await writeFile(publicMetaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
 
-  const urls = buildSeoPages(runtime).filter(page => page.indexable !== false).map(page => page.url);
+  const urls = buildSeoPages(runtime)
+    .filter((page) => page.indexable !== false)
+    .map((page) => page.url);
 
   const sitemap = [
     '<?xml version="1.0" encoding="UTF-8"?>',

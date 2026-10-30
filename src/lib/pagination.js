@@ -15,11 +15,15 @@ export async function collectIdPages(readPage, { pageSize = 500, maxPages = 1000
       seen.add(row.id);
       rows.push(row);
     }
-    afterId = batch.at(-1).id;
+    afterId = batch[batch.length - 1].id;
   }
   throw new Error('Pagination limit reached. No partial data was accepted.');
 }
 
+/**
+ * @param {string} endpoint
+ * @param {{ headers?: HeadersInit, fetchImpl?: typeof fetch }} [options]
+ */
 export async function fetchRestIdPages(endpoint, { headers, fetchImpl = fetch } = {}) {
   return collectIdPages(async ({ afterId, limit }) => {
     const url = new URL(endpoint);
@@ -40,5 +44,7 @@ export async function fetchClientIdPages(client, table, dateColumn) {
     if (error) throw error;
     return data;
   });
-  return rows.sort((a, b) => String(b[dateColumn] || '').localeCompare(String(a[dateColumn] || '')) || a.id.localeCompare(b.id));
+  return rows.sort(
+    (a, b) => String(b[dateColumn] || '').localeCompare(String(a[dateColumn] || '')) || a.id.localeCompare(b.id)
+  );
 }

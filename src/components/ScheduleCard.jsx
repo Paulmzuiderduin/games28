@@ -14,7 +14,10 @@ export default function ScheduleCard({ entry, countryMode = false, onCalendarExp
       <div className="schedule-card-top">
         <div>
           <p className="eyebrow">
-            <AppLink href={getSportPath(entry.sport)} className="eyebrow-link sport-label"><SportIcon sport={entry.sport} size={18} />{entry.sport}</AppLink>
+            <AppLink href={getSportPath(entry.sport)} className="eyebrow-link sport-label">
+              <SportIcon sport={entry.sport} size={18} />
+              {entry.sport}
+            </AppLink>
           </p>
           <h3>{entry.eventName}</h3>
           <p className="schedule-meta">{entry.venue || 'Venue TBC'}</p>
@@ -26,7 +29,9 @@ export default function ScheduleCard({ entry, countryMode = false, onCalendarExp
               <span>Medal</span>
             </span>
           ) : null}
-          <span className={`tag ${entry.derivedStatus === 'confirmed' ? 'confirmed' : entry.derivedStatus === 'pending' ? 'pending' : 'scheduled'}`}>
+          <span
+            className={`tag ${entry.derivedStatus === 'confirmed' ? 'confirmed' : entry.derivedStatus === 'pending' ? 'pending' : 'scheduled'}`}
+          >
             {formatStatusLabel(entry.derivedStatus || entry.status)}
           </span>
         </div>
@@ -53,15 +58,19 @@ export default function ScheduleCard({ entry, countryMode = false, onCalendarExp
           <button
             type="button"
             className="text-button schedule-card-action"
-            onClick={() => onCalendarExport?.([entry], `${entry.sessionCode || 'session'}-games28`, 'calendar_export_session', {
-              sessionId: entry.id,
-              sport: entry.sport
-            })}
+            onClick={() =>
+              onCalendarExport?.([entry], `${entry.sessionCode || 'session'}-games28`, 'calendar_export_session', {
+                sessionId: entry.id,
+                sport: entry.sport
+              })
+            }
             disabled={!getExportableEntries([entry]).length}
           >
             Add to calendar
           </button>
-          <AppLink href={getSessionPath(entry.id)} className="text-link schedule-card-action">Details</AppLink>
+          <AppLink href={getSessionPath(entry.id)} className="text-link schedule-card-action">
+            Details
+          </AppLink>
           <ShareButton
             title={`${entry.eventName} | Games28`}
             text={`${entry.sport} at LA 2028: ${entry.eventName}.`}
@@ -69,7 +78,11 @@ export default function ScheduleCard({ entry, countryMode = false, onCalendarExp
             context={{ entityType: 'session', sessionId: entry.id, sport: entry.sport }}
             className="text-button schedule-card-action"
           />
-          <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} className="schedule-card-action schedule-card-source-link" />
+          <SourceLink
+            href={entry.sourceUrl}
+            context={{ sessionId: entry.id, sport: entry.sport }}
+            className="schedule-card-action schedule-card-source-link"
+          />
         </div>
       </div>
     </article>

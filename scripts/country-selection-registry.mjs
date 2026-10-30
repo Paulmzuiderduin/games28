@@ -22,7 +22,8 @@ export function buildCountrySelectionRegistry(countries, overrides = {}) {
       nationalFederationUrls,
       referenceOnlyUrls,
       selectionSources,
-      status: officialNocUrl || nationalFederationUrls.length || selectionSources.length ? 'configured' : 'awaiting_endpoint'
+      status:
+        officialNocUrl || nationalFederationUrls.length || selectionSources.length ? 'configured' : 'awaiting_endpoint'
     };
   });
 }

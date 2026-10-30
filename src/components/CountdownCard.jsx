@@ -15,7 +15,9 @@ export default function CountdownCard({ targetIso }) {
     <div className="countdown-card">
       <p className="eyebrow">Countdown</p>
       <h2>{countdown.label}</h2>
-      <p>Until the Opening Ceremony on {formatDateTimeLabel(targetIso, { timeZone: 'America/Los_Angeles' })} LA time.</p>
+      <p>
+        Until the Opening Ceremony on {formatDateTimeLabel(targetIso, { timeZone: 'America/Los_Angeles' })} LA time.
+      </p>
     </div>
   );
 }

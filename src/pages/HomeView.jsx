@@ -24,8 +24,7 @@ export default function HomeView({
   countryFilters,
   onCountryFiltersChange,
   countries,
-  favorites,
-  onToggleFavorite
+  favorites
 }) {
   const featuredCountries = useMemo(() => {
     const byNoc = new Map((runtime.countries || []).map((country) => [country.noc, country]));
@@ -37,7 +36,8 @@ export default function HomeView({
     return favorites.map((noc) => byNoc.get(noc)).filter(Boolean);
   }, [favorites, runtime.countries]);
 
-  const displayCountries = countryFilters.searchText || countryFilters.favoriteOnly ? countries.slice(0, 6) : featuredCountries;
+  const displayCountries =
+    countryFilters.searchText || countryFilters.favoriteOnly ? countries.slice(0, 6) : featuredCountries;
   const isSearchingCountries = Boolean(countryFilters.searchText || countryFilters.favoriteOnly);
   useCountrySearchNoResults(countryFilters.searchText, countries.length, 'home');
 
@@ -47,7 +47,10 @@ export default function HomeView({
         <section className="home-intro">
           <p className="eyebrow">LA 2028, in your time zone</p>
           <h1>Follow your country at the Games.</h1>
-          <p className="hero-copy">Find a country dashboard for verified qualification updates, session times in your local timezone, and a calendar you can take with you.</p>
+          <p className="hero-copy">
+            Find a country dashboard for verified qualification updates, session times in your local timezone, and a
+            calendar you can take with you.
+          </p>
           <label className="search-field hero-search">
             <span>Find a country</span>
             <input
@@ -64,7 +67,11 @@ export default function HomeView({
               <p className="eyebrow">{isSearchingCountries ? 'Search results' : 'Popular dashboards'}</p>
               <h2>{isSearchingCountries ? 'Choose a country' : 'Start with a country'}</h2>
             </div>
-            {!isSearchingCountries ? <AppLink href="/countries" className="text-link">View all</AppLink> : null}
+            {!isSearchingCountries ? (
+              <AppLink href="/countries" className="text-link">
+                View all
+              </AppLink>
+            ) : null}
           </div>
           {displayCountries.length ? (
             <div className="featured-country-list">
@@ -77,7 +84,9 @@ export default function HomeView({
                       <p>{country.noc} country dashboard</p>
                     </div>
                   </div>
-                  <span className="row-arrow" aria-hidden="true">›</span>
+                  <span className="row-arrow" aria-hidden="true">
+                    ›
+                  </span>
                 </AppLink>
               ))}
             </div>
@@ -86,11 +95,15 @@ export default function HomeView({
           )}
         </aside>
         <div className="home-intro-actions">
-        <div className="hero-actions">
-          <AppLink href="/countries" className="button-primary">Browse all countries</AppLink>
-          <AppLink href="/sports" className="button-secondary">Browse sports</AppLink>
-        </div>
-        <TrustLine runtime={runtime} />
+          <div className="hero-actions">
+            <AppLink href="/countries" className="button-primary">
+              Browse all countries
+            </AppLink>
+            <AppLink href="/sports" className="button-secondary">
+              Browse sports
+            </AppLink>
+          </div>
+          <TrustLine runtime={runtime} />
         </div>
       </div>
 
@@ -114,7 +127,9 @@ export default function HomeView({
       <section className="home-meta-strip">
         <CountdownCard targetIso={LA28_OPENING_CEREMONY_UTC} />
         <div className="home-stats">
-          {homeStats.slice(0, 3).map((card) => <SummaryCard key={card.label} {...card} />)}
+          {homeStats.slice(0, 3).map((card) => (
+            <SummaryCard key={card.label} {...card} />
+          ))}
         </div>
       </section>
 
@@ -128,10 +143,12 @@ export default function HomeView({
             <button
               type="button"
               className="button-secondary"
-              onClick={() => onCalendarExport(scheduleEntries.slice(0, 8), 'games28-schedule', 'calendar_export_visible', {
-                route: 'home',
-                count: scheduleEntries.slice(0, 8).length
-              })}
+              onClick={() =>
+                onCalendarExport(scheduleEntries.slice(0, 8), 'games28-schedule', 'calendar_export_visible', {
+                  route: 'home',
+                  count: scheduleEntries.slice(0, 8).length
+                })
+              }
               disabled={!getExportableEntries(scheduleEntries.slice(0, 8)).length}
             >
               Export visible sessions

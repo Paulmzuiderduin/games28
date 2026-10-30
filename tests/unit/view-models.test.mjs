@@ -1,12 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildCountryDashboard, buildCountryQualificationOverview, buildCountryScheduleStatusOverview, buildSportDirectory, buildSportQualificationOverview, filterCountries, filterScheduleEntries } from '../../src/lib/view-models.js';
+import {
+  buildCountryDashboard,
+  buildCountryQualificationOverview,
+  buildCountryScheduleStatusOverview,
+  buildSportDirectory,
+  buildSportQualificationOverview,
+  filterCountries,
+  filterScheduleEntries,
+  getQualificationSportLabels
+} from '../../src/lib/view-models.js';
 
 const runtime = {
   checkedAt: '2026-04-13T12:00:00.000Z',
   countries: [
-    { noc: 'NED', name: 'Netherlands', flag: 'NED', continent: 'Europe', profileSlug: 'netherlands' },
-    { noc: 'USA', name: 'United States', flag: 'USA', continent: 'North America', profileSlug: 'united-states' }
+    { noc: 'NED', name: 'Netherlands', flag: 'NED', continent: 'Europe' },
+    { noc: 'USA', name: 'United States', flag: 'USA', continent: 'North America' }
   ],
   athleteCards: [
     {
@@ -96,18 +105,42 @@ test('buildCountryQualificationOverview groups many quota records into compact s
   ]);
 
   assert.deepEqual(overview.stats, { sportCount: 2, eventCount: 3, quotaCount: 3 });
-  assert.deepEqual(overview.groups.map((group) => group.sport), ['Baseball', 'Volleyball']);
-  assert.deepEqual(overview.groups[1].cards.map((card) => card.eventLabel), ["Men's tournament", "Women's tournament"]);
+  assert.deepEqual(
+    overview.groups.map((group) => group.sport),
+    ['Baseball', 'Volleyball']
+  );
+  assert.deepEqual(
+    overview.groups[1].cards.map((card) => card.eventLabel),
+    ["Men's tournament", "Women's tournament"]
+  );
 });
 
 test('buildCountryScheduleStatusOverview condenses pending events by sport', () => {
   const overview = buildCountryScheduleStatusOverview([
-    { sport: 'Volleyball', disciplines: ["Men's tournament"], entryCount: 1, sourceUrl: 'https://example.com/volleyball' },
-    { sport: 'Volleyball', disciplines: ["Women's tournament"], entryCount: 1, sourceUrl: 'https://example.com/volleyball' },
-    { sport: 'Baseball', disciplines: ['Baseball tournament'], entryCount: 1, sourceUrl: 'https://example.com/baseball' }
+    {
+      sport: 'Volleyball',
+      disciplines: ["Men's tournament"],
+      entryCount: 1,
+      sourceUrl: 'https://example.com/volleyball'
+    },
+    {
+      sport: 'Volleyball',
+      disciplines: ["Women's tournament"],
+      entryCount: 1,
+      sourceUrl: 'https://example.com/volleyball'
+    },
+    {
+      sport: 'Baseball',
+      disciplines: ['Baseball tournament'],
+      entryCount: 1,
+      sourceUrl: 'https://example.com/baseball'
+    }
   ]);
 
-  assert.deepEqual(overview.map((group) => group.sport), ['Baseball', 'Volleyball']);
+  assert.deepEqual(
+    overview.map((group) => group.sport),
+    ['Baseball', 'Volleyball']
+  );
   assert.equal(overview[1].entryCount, 2);
   assert.deepEqual(overview[1].disciplines, ["Men's tournament", "Women's tournament"]);
   assert.deepEqual(overview[1].sourceUrls, ['https://example.com/volleyball']);
@@ -116,25 +149,65 @@ test('buildCountryScheduleStatusOverview condenses pending events by sport', () 
 test('filterScheduleEntries respects sport, date, and text filters', () => {
   const filtered = filterScheduleEntries(
     [
-      { id: '1', sport: 'Athletics', eventName: 'Marathon', phase: 'Final', venue: 'Stadium', sessionCode: 'A1', dayKey: '2028-07-29', startAtUtc: '2028-07-29T12:00:00Z' },
-      { id: '2', sport: 'Rowing', eventName: 'Eight', phase: 'Heat', venue: 'Lake', sessionCode: 'R2', dayKey: '2028-07-30', startAtUtc: '2028-07-30T12:00:00Z' }
+      {
+        id: '1',
+        sport: 'Athletics',
+        eventName: 'Marathon',
+        phase: 'Final',
+        venue: 'Stadium',
+        sessionCode: 'A1',
+        dayKey: '2028-07-29',
+        startAtUtc: '2028-07-29T12:00:00Z'
+      },
+      {
+        id: '2',
+        sport: 'Rowing',
+        eventName: 'Eight',
+        phase: 'Heat',
+        venue: 'Lake',
+        sessionCode: 'R2',
+        dayKey: '2028-07-30',
+        startAtUtc: '2028-07-30T12:00:00Z'
+      }
     ],
     { sport: 'Athletics', dayKey: '2028-07-29', searchText: 'marathon' },
     { timeZone: 'UTC' }
   );
-  assert.deepEqual(filtered.map((entry) => entry.id), ['1']);
+  assert.deepEqual(
+    filtered.map((entry) => entry.id),
+    ['1']
+  );
 });
 
 test('schedule search ignores misleading session-level phases', () => {
   const filtered = filterScheduleEntries(
     [
-      { id: 'quarterfinal', sport: 'Badminton', eventName: 'Quarterfinal', phase: 'Final', venue: 'Arena', sessionCode: 'BDM10', dayKey: '2028-07-25' },
-      { id: 'final', sport: 'Badminton', eventName: "Women's Singles Final", phase: 'Final', venue: 'Arena', sessionCode: 'BDM20', dayKey: '2028-07-27' }
+      {
+        id: 'quarterfinal',
+        sport: 'Badminton',
+        eventName: 'Quarterfinal',
+        phase: 'Final',
+        venue: 'Arena',
+        sessionCode: 'BDM10',
+        dayKey: '2028-07-25'
+      },
+      {
+        id: 'final',
+        sport: 'Badminton',
+        eventName: "Women's Singles Final",
+        phase: 'Final',
+        venue: 'Arena',
+        sessionCode: 'BDM20',
+        dayKey: '2028-07-27'
+      }
     ],
     { sport: 'all', dayKey: 'all', searchText: 'final' }
   );
 
-  assert.deepEqual(filtered.map((entry) => entry.id), ['final']);
+  assert.deepEqual(
+    filtered.map((entry) => entry.id),
+    ['final']
+  );
 });
 
 test('filterCountries prioritizes favorites and search', () => {
@@ -148,23 +221,26 @@ test('filterCountries prioritizes favorites and search', () => {
 });
 
 test('buildSportQualificationOverview groups confirmed records by event and keeps their confirmation state distinct', () => {
-  const overview = buildSportQualificationOverview({
-    ...runtime,
-    athleteCards: [
-      ...runtime.athleteCards,
-      {
-        id: 'usa-marathon-selection',
-        noc: 'USA',
-        name: 'Alex Runner',
-        sport: 'Athletics',
-        disciplines: ['Marathon'],
-        status: 'named',
-        state: 'selected',
-        teamType: 'individual',
-        lastUpdatedAt: '2026-04-12T00:00:00.000Z'
-      }
-    ]
-  }, 'Athletics');
+  const overview = buildSportQualificationOverview(
+    {
+      ...runtime,
+      athleteCards: [
+        ...runtime.athleteCards,
+        {
+          id: 'usa-marathon-selection',
+          noc: 'USA',
+          name: 'Alex Runner',
+          sport: 'Athletics',
+          disciplines: ['Marathon'],
+          status: 'named',
+          state: 'selected',
+          teamType: 'individual',
+          lastUpdatedAt: '2026-04-12T00:00:00.000Z'
+        }
+      ]
+    },
+    'Athletics'
+  );
 
   assert.equal(overview.stats.countryCount, 2);
   assert.equal(overview.stats.recordCount, 2);
@@ -173,7 +249,10 @@ test('buildSportQualificationOverview groups confirmed records by event and keep
   assert.equal(overview.groups.length, 1);
   assert.equal(overview.groups[0].label, 'Marathon');
   assert.equal(overview.groups[0].countryCount, 2);
-  assert.deepEqual(overview.groups[0].cards.map((card) => card.noc), ['USA', 'NED']);
+  assert.deepEqual(
+    overview.groups[0].cards.map((card) => card.noc),
+    ['USA', 'NED']
+  );
 });
 
 test('buildSportDirectory makes every scheduled sport discoverable with qualification counts', () => {
@@ -195,21 +274,25 @@ test('sport pages inherit qualification records from their official qualificatio
       { id: 'marathon', sport: 'Athletics (Marathon)', venue: 'Road' },
       { id: 'track', sport: 'Athletics (Track & Field)', venue: 'Stadium' }
     ],
-    athleteCards: [{
-      id: 'athletics-quota',
-      noc: 'NED',
-      name: '1 quota place',
-      sport: 'Athletics',
-      sourceId: 'if-athletics',
-      status: 'quota',
-      disciplines: ['Track event']
-    }],
-    meta: {
-      qualificationSources: [{
-        id: 'if-athletics',
+    athleteCards: [
+      {
+        id: 'athletics-quota',
+        noc: 'NED',
+        name: '1 quota place',
         sport: 'Athletics',
-        sports: ['Athletics (Marathon)', 'Athletics (Track & Field)']
-      }]
+        sourceId: 'if-athletics',
+        status: 'quota',
+        disciplines: ['Track event']
+      }
+    ],
+    meta: {
+      qualificationSources: [
+        {
+          id: 'if-athletics',
+          sport: 'Athletics',
+          sports: ['Athletics (Marathon)', 'Athletics (Track & Field)']
+        }
+      ]
     }
   };
 
@@ -226,18 +309,30 @@ test('sport pages keep related qualification-system sports separate and normaliz
     countries: runtime.countries,
     athleteCards: [
       {
-        id: 'can-indoor', noc: 'USA', name: '1 team quota place', sport: 'Volleyball',
-        sourceId: 'if-volleyball', disciplines: ["Women's tournament"], status: 'quota'
+        id: 'can-indoor',
+        noc: 'USA',
+        name: '1 team quota place',
+        sport: 'Volleyball',
+        sourceId: 'if-volleyball',
+        disciplines: ["Women's tournament"],
+        status: 'quota'
       },
       {
-        id: 'ned-beach', noc: 'NED', name: 'Beach pair', sport: 'Beach Volleyball',
-        sourceId: 'noc-ned-beach', disciplines: ["Women's beach volleyball"], status: 'named'
+        id: 'ned-beach',
+        noc: 'NED',
+        name: 'Beach pair',
+        sport: 'Beach Volleyball',
+        sourceId: 'noc-ned-beach',
+        disciplines: ["Women's beach volleyball"],
+        status: 'named'
       }
     ],
     meta: {
       qualificationSources: [
         {
-          id: 'if-volleyball', sport: 'Volleyball', sports: ['Beach Volleyball', 'Volleyball'],
+          id: 'if-volleyball',
+          sport: 'Volleyball',
+          sports: ['Beach Volleyball', 'Volleyball'],
           qualificationEvents: [
             { label: "Beach Volleyball - Women's tournament", sports: ['Beach Volleyball'] },
             { label: "Volleyball - Women's tournament", sports: ['Volleyball'] }
@@ -251,33 +346,73 @@ test('sport pages keep related qualification-system sports separate and normaliz
   const beachOverview = buildSportQualificationOverview(volleyballRuntime, 'Beach Volleyball');
   const indoorOverview = buildSportQualificationOverview(volleyballRuntime, 'Volleyball');
 
-  assert.deepEqual(beachOverview.cards.map((card) => card.id), ['ned-beach']);
+  assert.deepEqual(
+    beachOverview.cards.map((card) => card.id),
+    ['ned-beach']
+  );
   assert.equal(beachOverview.groups[0].label, "Women's tournament");
-  assert.deepEqual(indoorOverview.cards.map((card) => card.id), ['can-indoor']);
+  assert.deepEqual(
+    indoorOverview.cards.map((card) => card.id),
+    ['can-indoor']
+  );
 });
 
 test('country quota total sums allocated places rather than counting records', () => {
-  const result = buildCountryDashboard({
-    countries:[{noc:'NED',name:'Netherlands'}],
-    athleteCards:[
-      {id:'one',noc:'NED',sport:'Athletics',status:'quota',quotaCount:3},
-      {id:'two',noc:'NED',sport:'Hockey',status:'quota',quotaCount:1,subjectType:'team_quota',teamSizeMax:16}
-    ],scheduleEntries:[],changes:[]
-  },'NED');
-  assert.equal(result.stats.quotaCount,4);
+  const result = buildCountryDashboard(
+    {
+      countries: [{ noc: 'NED', name: 'Netherlands' }],
+      athleteCards: [
+        { id: 'one', noc: 'NED', sport: 'Athletics', status: 'quota', quotaCount: 3 },
+        {
+          id: 'two',
+          noc: 'NED',
+          sport: 'Hockey',
+          status: 'quota',
+          quotaCount: 1,
+          subjectType: 'team_quota',
+          teamSizeMax: 16
+        }
+      ],
+      scheduleEntries: [],
+      changes: []
+    },
+    'NED'
+  );
+  assert.equal(result.stats.quotaCount, 4);
 });
 
 test('country schedule confirmation only removes the matching event from awaiting draw', () => {
   const data = {
     ...runtime,
     athleteCards: [
-      { id: '100m', noc: 'NED', sport: 'Athletics', disciplines: ["Men's 100m"], canonicalEventKey: 'athletics:men-100m', status: 'named', name: 'First athlete' },
-      { id: '200m', noc: 'NED', sport: 'Athletics', disciplines: ["Men's 200m"], canonicalEventKey: 'athletics:men-200m', status: 'named', name: 'Second athlete' }
+      {
+        id: '100m',
+        noc: 'NED',
+        sport: 'Athletics',
+        disciplines: ["Men's 100m"],
+        canonicalEventKey: 'athletics:men-100m',
+        status: 'named',
+        name: 'First athlete'
+      },
+      {
+        id: '200m',
+        noc: 'NED',
+        sport: 'Athletics',
+        disciplines: ["Men's 200m"],
+        canonicalEventKey: 'athletics:men-200m',
+        status: 'named',
+        name: 'Second athlete'
+      }
     ],
-    scheduleEntries: [{ id: '100m-final', sport: 'Athletics', canonicalEventKey: 'athletics:men-100m', nocs: ['NED'], athleteIds: [] }]
+    scheduleEntries: [
+      { id: '100m-final', sport: 'Athletics', canonicalEventKey: 'athletics:men-100m', nocs: ['NED'], athleteIds: [] }
+    ]
   };
   const dashboard = buildCountryDashboard(data, 'NED');
-  assert.deepEqual(dashboard.awaitingScheduleGroups.map(group => group.disciplines), [["Men's 200m"]]);
+  assert.deepEqual(
+    dashboard.awaitingScheduleGroups.map((group) => group.disciplines),
+    [["Men's 200m"]]
+  );
   assert.equal(dashboard.confirmedSessions[0].linkedQualificationLabel, 'Netherlands');
   assert.equal(dashboard.confirmedSessions[0].linkedQualificationId, null);
   data.scheduleEntries[0].athleteIds = ['100m'];
@@ -288,21 +423,102 @@ test('unknown event context does not suppress other qualifications in a confirme
   assert.equal(buildCountryDashboard(data, 'NED').awaitingScheduleGroups.length, 2);
 });
 test('a multi-event card retains only its events still awaiting a draw', () => {
-  const data = { ...runtime,
-    athleteCards: [{ id: 'runner', noc: 'NED', sport: 'Athletics', disciplines: ["Men's 100m", "Men's 200m"], status: 'named', name: 'Runner' }],
+  const data = {
+    ...runtime,
+    athleteCards: [
+      {
+        id: 'runner',
+        noc: 'NED',
+        sport: 'Athletics',
+        disciplines: ["Men's 100m", "Men's 200m"],
+        status: 'named',
+        name: 'Runner'
+      }
+    ],
     scheduleEntries: [{ id: '100m', sport: 'Athletics', discipline: "Men's 100m", nocs: ['NED'], athleteIds: [] }]
   };
   assert.deepEqual(buildCountryDashboard(data, 'NED').awaitingScheduleGroups[0].disciplines, ["Men's 200m"]);
 });
 
 test('sport overview nests a linked selection under its quota instead of creating a second place', () => {
-  const data = { ...runtime, athleteCards: [
-    { id: 'quota', noc: 'NED', sport: 'Rowing', subjectType: 'team_quota', status: 'quota', state: 'allocated', quotaCount: 1, disciplines: ['Eight'], name: '1 team quota' },
-    { id: 'crew', noc: 'NED', sport: 'Rowing', subjectType: 'team', status: 'named', state: 'selected', disciplines: ['Eight'], name: 'Named crew', allocationRecordId: 'quota' }
-  ] };
+  const data = {
+    ...runtime,
+    athleteCards: [
+      {
+        id: 'quota',
+        noc: 'NED',
+        sport: 'Rowing',
+        subjectType: 'team_quota',
+        status: 'quota',
+        state: 'allocated',
+        quotaCount: 1,
+        disciplines: ['Eight'],
+        name: '1 team quota'
+      },
+      {
+        id: 'crew',
+        noc: 'NED',
+        sport: 'Rowing',
+        subjectType: 'team',
+        status: 'named',
+        state: 'selected',
+        disciplines: ['Eight'],
+        name: 'Named crew',
+        allocationRecordId: 'quota'
+      }
+    ]
+  };
   const overview = buildSportQualificationOverview(data, 'Rowing');
   assert.equal(overview.stats.quotaCount, 1);
   assert.equal(overview.stats.namedCount, 1);
   assert.equal(overview.groups[0].cards.length, 1);
   assert.equal(overview.groups[0].cards[0].quotaOccupants[0].name, 'Named crew');
+});
+
+test('sport directory counts unique sessions instead of every event row', () => {
+  const directory = buildSportDirectory({
+    scheduleEntries: [
+      { id: 'swm01-a', sport: 'Swimming', sessionCode: 'SWM01' },
+      { id: 'swm01-b', sport: 'Swimming', sessionCode: 'SWM01' },
+      { id: 'swm02', sport: 'Swimming', sessionCode: 'SWM02' }
+    ]
+  });
+  assert.equal(directory[0].sessionCount, 2);
+  assert.equal(directory[0].venueCount, 0);
+});
+
+test('a record with an explicit sport is not inherited by related sports', () => {
+  const data = {
+    countries: runtime.countries,
+    athleteCards: [
+      {
+        id: 'swimmer',
+        noc: 'USA',
+        sport: 'Swimming',
+        sourceId: 'if-aquatics',
+        subjectType: 'noc_quota',
+        status: 'quota',
+        state: 'allocated',
+        quotaCount: 1,
+        disciplines: ['100m Freestyle']
+      }
+    ],
+    meta: {
+      qualificationSources: [
+        {
+          id: 'if-aquatics',
+          sport: 'Aquatics',
+          sports: ['Artistic Swimming', 'Diving', 'Open Water Swimming', 'Swimming', 'Water Polo']
+        }
+      ]
+    }
+  };
+  assert.deepEqual(getQualificationSportLabels(data, data.athleteCards[0]), ['Swimming']);
+  assert.equal(buildSportQualificationOverview(data, 'Swimming').cards.length, 1);
+  assert.equal(buildSportQualificationOverview(data, 'Diving').cards.length, 0);
+  assert.equal(buildSportQualificationOverview(data, 'Water Polo').cards.length, 0);
+});
+
+test('unknown country dashboards are not invented', () => {
+  assert.equal(buildCountryDashboard(runtime, 'XXX'), null);
 });

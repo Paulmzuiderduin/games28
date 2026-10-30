@@ -13,8 +13,20 @@ function genderFromText(value) {
 }
 
 const GENERIC_EVENT_WORDS = new Set([
-  'men', 'man', 'male', 'women', 'woman', 'female', 'tournament', 'team',
-  'individual', 'olympic', 'olympics', 'la28', 'qualification', 'event'
+  'men',
+  'man',
+  'male',
+  'women',
+  'woman',
+  'female',
+  'tournament',
+  'team',
+  'individual',
+  'olympic',
+  'olympics',
+  'la28',
+  'qualification',
+  'event'
 ]);
 
 function meaningfulWords(value, sport) {
@@ -25,14 +37,16 @@ function meaningfulWords(value, sport) {
 }
 
 function eventCandidates(record, sources) {
-  return (sources || []).flatMap((source) => (source.qualificationEvents || [])
-    .filter((event) => (event.sports || []).includes(record.sport))
-    .map((event) => ({
-      key: `${source.qualificationSystemKey || source.id}:${event.key}`,
-      label: event.label,
-      sourceId: source.id,
-      event
-    })));
+  return (sources || []).flatMap((source) =>
+    (source.qualificationEvents || [])
+      .filter((event) => (event.sports || []).includes(record.sport))
+      .map((event) => ({
+        key: `${source.qualificationSystemKey || source.id}:${event.key}`,
+        label: event.label,
+        sourceId: source.id,
+        event
+      }))
+  );
 }
 
 // A qualification source may use editorial wording while the registry owns the
@@ -58,13 +72,10 @@ export function resolveCanonicalQualificationEvent(record, sources) {
   if (evidenceWords.size) {
     const scored = candidates.map((candidate) => ({
       candidate,
-      score: meaningfulWords(candidate.label, record.sport)
-        .filter((word) => evidenceWords.has(word)).length
+      score: meaningfulWords(candidate.label, record.sport).filter((word) => evidenceWords.has(word)).length
     }));
     const highScore = Math.max(...scored.map(({ score }) => score));
-    if (highScore > 0) candidates = scored
-      .filter(({ score }) => score === highScore)
-      .map(({ candidate }) => candidate);
+    if (highScore > 0) candidates = scored.filter(({ score }) => score === highScore).map(({ candidate }) => candidate);
   }
 
   const uniqueCandidates = [...new Map(candidates.map((candidate) => [candidate.key, candidate])).values()];

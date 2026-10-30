@@ -18,15 +18,21 @@ test('qualification option lists are source-driven, not derived from LA28 sessio
   assert.equal(sports.includes('Equestrian'), true);
   assert.equal(sports.includes('Boxing'), true);
   assert.equal(sports.includes('Boxing - Preliminary Stages'), false);
-  assert.deepEqual(events.map((event) => event.label), [
-    'Dressage - Individual',
-    'Dressage - Team',
-    'Eventing - Individual',
-    'Eventing - Team',
-    'Jumping - Individual',
-    'Jumping - Team'
-  ]);
-  assert.equal(events.some((event) => /Grand Prix|Session|Day \d|Qualifier/i.test(event.label)), false);
+  assert.deepEqual(
+    events.map((event) => event.label),
+    [
+      'Dressage - Individual',
+      'Dressage - Team',
+      'Eventing - Individual',
+      'Eventing - Team',
+      'Jumping - Individual',
+      'Jumping - Team'
+    ]
+  );
+  assert.equal(
+    events.some((event) => /Grand Prix|Session|Day \d|Qualifier/i.test(event.label)),
+    false
+  );
 });
 
 test('qualification event choices only apply to their configured sport and source', async () => {
@@ -35,4 +41,22 @@ test('qualification event choices only apply to their configured sport and sourc
 
   assert.deepEqual(getQualificationEventOptions(sourceList, 'Equestrian', 'if-cricket'), []);
   assert.equal(getQualificationEventOptions(sourceList, 'Cricket', equestrianSource.id).length, 0);
+});
+
+test('multi-sport governing bodies keep beach and indoor qualification events separate', async () => {
+  const sourceList = await sources();
+  const volleyballSource = sourceList.find((source) => source.qualificationSystemKey === 'volleyball');
+  const sportOptions = getQualificationSportOptions(sourceList);
+
+  assert.equal(sportOptions.includes('Beach Volleyball'), true);
+  assert.equal(sportOptions.includes('Volleyball'), true);
+  assert.equal(sportOptions.includes('Diving'), true);
+  assert.deepEqual(
+    getQualificationEventOptions(sourceList, 'Beach Volleyball', volleyballSource.id).map((event) => event.label),
+    ["Beach Volleyball - Men's tournament", "Beach Volleyball - Women's tournament"]
+  );
+  assert.deepEqual(
+    getQualificationEventOptions(sourceList, 'Volleyball', volleyballSource.id).map((event) => event.label),
+    ["Volleyball - Men's tournament", "Volleyball - Women's tournament"]
+  );
 });

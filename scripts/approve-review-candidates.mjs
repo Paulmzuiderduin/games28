@@ -10,10 +10,14 @@ function serviceHeaders(serviceRoleKey) {
 }
 
 export function parseCandidateIds(value) {
-  return [...new Set(String(value || '')
-    .split(/[\s,]+/)
-    .map((id) => id.trim())
-    .filter(Boolean))];
+  return [
+    ...new Set(
+      String(value || '')
+        .split(/[\s,]+/)
+        .map((id) => id.trim())
+        .filter(Boolean)
+    )
+  ];
 }
 
 async function responseError(action, response) {
@@ -28,17 +32,18 @@ function completeConfirmationRecord(suggestedRecord, timestamp) {
   return {
     ...suggestedRecord,
     sourcePublishedAt: new Date(publishedAt).toISOString(),
-    verifiedAt: suggestedRecord.verifiedAt && Number.isFinite(Date.parse(suggestedRecord.verifiedAt))
-      ? new Date(suggestedRecord.verifiedAt).toISOString()
-      : timestamp,
+    verifiedAt:
+      suggestedRecord.verifiedAt && Number.isFinite(Date.parse(suggestedRecord.verifiedAt))
+        ? new Date(suggestedRecord.verifiedAt).toISOString()
+        : timestamp,
     sourceRecordType: 'review_approved'
   };
 }
 
 function hasCompleteConfirmationRecord(record) {
-  return Boolean(record
-    && Number.isFinite(Date.parse(record.sourcePublishedAt))
-    && Number.isFinite(Date.parse(record.verifiedAt)));
+  return Boolean(
+    record && Number.isFinite(Date.parse(record.sourcePublishedAt)) && Number.isFinite(Date.parse(record.verifiedAt))
+  );
 }
 
 export async function approveReviewCandidates({
@@ -118,7 +123,9 @@ async function main() {
     serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
     resolutionNote: process.env.REVIEW_RESOLUTION_NOTE
   });
-  console.log(`Review approvals: ${result.approvedCount} approved, ${result.repairedCount} repaired, ${result.alreadyApprovedCount} already approved, ${result.verifiedCount} verified.`);
+  console.log(
+    `Review approvals: ${result.approvedCount} approved, ${result.repairedCount} repaired, ${result.alreadyApprovedCount} already approved, ${result.verifiedCount} verified.`
+  );
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

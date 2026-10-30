@@ -1,7 +1,7 @@
 import { navigate } from '../lib/router.js';
 import { canonicalRoutePath } from '../lib/seo.js';
 
-export default function AppLink({ href, children, className }) {
+export default function AppLink({ href, children, className = '' }) {
   const canonicalHref = href.startsWith('/') ? canonicalRoutePath(href) : href;
 
   return (

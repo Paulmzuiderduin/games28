@@ -24,7 +24,12 @@ function parseDate(value) {
 }
 
 function sourceHosts(sourceDefinition) {
-  return [sourceDefinition?.url, sourceDefinition?.rulesUrl, sourceDefinition?.allocationUrl, sourceDefinition?.entryUrl]
+  return [
+    sourceDefinition?.url,
+    sourceDefinition?.rulesUrl,
+    sourceDefinition?.allocationUrl,
+    sourceDefinition?.entryUrl
+  ]
     .filter(Boolean)
     .map((url) => new URL(url).hostname.replace(/^www\./, '').toLowerCase());
 }
@@ -47,15 +52,30 @@ function normalizeRawRecord(raw, index, sourceById, sources) {
   const quotaCount = Number(raw.quotaCount);
   const teamSizeMax = Number(raw.teamSizeMax);
   const record = {
-    id: asNonEmptyString(raw.id), noc: asNonEmptyString(raw.noc), sport: asNonEmptyString(raw.sport || sourceDefinition?.sport),
-    disciplines: asStringArray(raw.disciplines), events: asStringArray(raw.events), scheduleHints: asStringArray(raw.scheduleHints),
-    subjectType, state, athleteName: asNonEmptyString(raw.athleteName), teamName: asNonEmptyString(raw.teamName),
+    id: asNonEmptyString(raw.id),
+    noc: asNonEmptyString(raw.noc),
+    sport: asNonEmptyString(raw.sport || sourceDefinition?.sport),
+    disciplines: asStringArray(raw.disciplines),
+    events: asStringArray(raw.events),
+    scheduleHints: asStringArray(raw.scheduleHints),
+    subjectType,
+    state,
+    athleteName: asNonEmptyString(raw.athleteName),
+    teamName: asNonEmptyString(raw.teamName),
     quotaCount: Number.isInteger(quotaCount) && quotaCount > 0 ? quotaCount : null,
     teamSizeMax: Number.isInteger(teamSizeMax) && teamSizeMax > 0 ? teamSizeMax : null,
-    qualificationRoute: asNonEmptyString(raw.qualificationRoute), sourceId: asNonEmptyString(raw.sourceId), sourceTier, sourceUrl,
-    sourcePublishedAt: parseDate(raw.sourcePublishedAt), verifiedAt: parseDate(raw.verifiedAt), profileUrl: asNonEmptyString(raw.profileUrl),
-    notes: asNonEmptyString(raw.notes), allocationRecordId: asNonEmptyString(raw.allocationRecordId), reviewCandidateId: asNonEmptyString(raw.reviewCandidateId),
-    supersedesId: asNonEmptyString(raw.supersedesId), recordKey: asNonEmptyString(raw.recordKey),
+    qualificationRoute: asNonEmptyString(raw.qualificationRoute),
+    sourceId: asNonEmptyString(raw.sourceId),
+    sourceTier,
+    sourceUrl,
+    sourcePublishedAt: parseDate(raw.sourcePublishedAt),
+    verifiedAt: parseDate(raw.verifiedAt),
+    profileUrl: asNonEmptyString(raw.profileUrl),
+    notes: asNonEmptyString(raw.notes),
+    allocationRecordId: asNonEmptyString(raw.allocationRecordId),
+    reviewCandidateId: asNonEmptyString(raw.reviewCandidateId),
+    supersedesId: asNonEmptyString(raw.supersedesId),
+    recordKey: asNonEmptyString(raw.recordKey),
     sourceRecordType: asNonEmptyString(raw.sourceRecordType || 'structured_allocation')
   };
   // Some qualification events are won by named athletes but allocate the
@@ -83,26 +103,37 @@ function normalizeRawRecord(raw, index, sourceById, sources) {
   if (record.subjectType === 'athlete' && !record.athleteName) problems.push('athlete record missing athleteName');
   if (record.subjectType === 'team' && !record.teamName) problems.push('team record missing teamName');
   if (['athlete', 'team'].includes(record.subjectType) && record.state === 'allocated') {
-    problems.push('allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence');
+    problems.push(
+      'allocated places must use a quota record; named athletes or teams require earned, selected, or entered evidence'
+    );
   }
-  if (['noc_quota', 'team_quota'].includes(record.subjectType) && !record.quotaCount && ACTIVE_STATES.has(record.state)) problems.push('quota record missing quotaCount');
-  if (!sourceDefinition || !SOURCE_TIERS.has(sourceDefinition.sourceTier)) problems.push('sourceId does not resolve to a trusted source');
-  if (sourceDefinition && !hasTrustedSourceUrl(record.sourceUrl, sourceDefinition)) problems.push('source URL does not match the trusted official source');
+  if (['noc_quota', 'team_quota'].includes(record.subjectType) && !record.quotaCount && ACTIVE_STATES.has(record.state))
+    problems.push('quota record missing quotaCount');
+  if (!sourceDefinition || !SOURCE_TIERS.has(sourceDefinition.sourceTier))
+    problems.push('sourceId does not resolve to a trusted source');
+  if (sourceDefinition && !hasTrustedSourceUrl(record.sourceUrl, sourceDefinition))
+    problems.push('source URL does not match the trusted official source');
   return { record, problems, fallbackId: `row-${index + 1}` };
 }
 
 function defaultRecordKey(record) {
-  const subject = record.subjectType === 'athlete'
-    ? record.athleteName
-    : record.subjectType === 'team'
-      ? record.teamName
-      : record.canonicalEventKey || record.disciplines.join('|') || record.events.join('|') || 'all';
-  return [record.noc, record.sport, record.subjectType, subject].map((value) => String(value || '').toLowerCase()).join('::');
+  const subject =
+    record.subjectType === 'athlete'
+      ? record.athleteName
+      : record.subjectType === 'team'
+        ? record.teamName
+        : record.canonicalEventKey || record.disciplines.join('|') || record.events.join('|') || 'all';
+  return [record.noc, record.sport, record.subjectType, subject]
+    .map((value) => String(value || '').toLowerCase())
+    .join('::');
 }
 
 function eventScopedRecordKey(record) {
   const base = (record.recordKey || defaultRecordKey(record)).replace(/::event=.*$/, '');
-  const event = record.canonicalEventKey || [...new Set([...record.disciplines, ...record.events])].sort().join('|') || 'unspecified';
+  const event =
+    record.canonicalEventKey ||
+    [...new Set([...record.disciplines, ...record.events])].sort().join('|') ||
+    'unspecified';
   return `${base}::event=${event.toLowerCase()}`;
 }
 
@@ -114,7 +145,10 @@ export function normalizeQualificationRecords(rawRecords, sources) {
   (rawRecords || []).forEach((raw, index) => {
     const { record, problems, fallbackId } = normalizeRawRecord(raw, index, sourceById, sources);
     if (ids.has(record.id)) problems.push('duplicate qualification record id');
-    if (problems.length) { rejected.push({ id: record.id || fallbackId, problems }); return; }
+    if (problems.length) {
+      rejected.push({ id: record.id || fallbackId, problems });
+      return;
+    }
     ids.add(record.id);
     records.push({ ...record, recordKey: eventScopedRecordKey(record) });
   });
@@ -134,12 +168,21 @@ export function normalizeReviewQueue(entries, sources) {
     const reason = asNonEmptyString(entry.reason);
     const problems = [];
     if (!REVIEW_RESOLUTIONS.has(resolution)) problems.push('invalid review resolution');
-    if (!detectedAt || !sourceUrl || !extractedEvidence || !reason) problems.push('missing review evidence, date, source, or reason');
+    if (!detectedAt || !sourceUrl || !extractedEvidence || !reason)
+      problems.push('missing review evidence, date, source, or reason');
     if (resolution === 'approved' && !entry.record) problems.push('approved review requires record');
-    if (problems.length) { rejected.push({ id, problems }); return; }
+    if (problems.length) {
+      rejected.push({ id, problems });
+      return;
+    }
     const record = entry.record ? { ...entry.record, reviewCandidateId: entry.record.reviewCandidateId || id } : null;
     queue.push({
-      id, resolution, detectedAt, sourceUrl, extractedEvidence, reason,
+      id,
+      resolution,
+      detectedAt,
+      sourceUrl,
+      extractedEvidence,
+      reason,
       record,
       suggestedRecord: entry.suggestedRecord || entry.suggested_record || null
     });
@@ -152,23 +195,34 @@ export function normalizeReviewQueue(entries, sources) {
 export function resolveActiveQualificationRecords(records) {
   const { supersededIds } = qualificationSupersessionLinks(records);
   const winnersByKey = new Map();
-  records.filter((record) => !supersededIds.has(record.id)).forEach((record) => {
-    const previous = winnersByKey.get(record.recordKey);
-    if (!previous) { winnersByKey.set(record.recordKey, record); return; }
-    const terminal = !ACTIVE_STATES.has(record.state);
-    const previousTerminal = !ACTIVE_STATES.has(previous.state);
-    const date = record.sourcePublishedAt || record.verifiedAt;
-    const previousDate = previous.sourcePublishedAt || previous.verifiedAt;
-    if (terminal || previousTerminal) {
-      // Resolve corrections before hiding terminal states. Equal-date withdrawal
-      // wins conservatively until an explicit later reinstatement is supplied.
-      if (date > previousDate || (date === previousDate && terminal)) winnersByKey.set(record.recordKey, record);
-      return;
-    }
-    const delta = (STATE_PRECEDENCE[record.state] || 0) - (STATE_PRECEDENCE[previous.state] || 0);
-    if (delta > 0 || (delta === 0 && (date > previousDate || (date === previousDate && record.verifiedAt > previous.verifiedAt)))) winnersByKey.set(record.recordKey, record);
-  });
-  return [...winnersByKey.values()].filter((record) => ACTIVE_STATES.has(record.state)).sort((left, right) => left.noc.localeCompare(right.noc) || left.sport.localeCompare(right.sport));
+  records
+    .filter((record) => !supersededIds.has(record.id))
+    .forEach((record) => {
+      const previous = winnersByKey.get(record.recordKey);
+      if (!previous) {
+        winnersByKey.set(record.recordKey, record);
+        return;
+      }
+      const terminal = !ACTIVE_STATES.has(record.state);
+      const previousTerminal = !ACTIVE_STATES.has(previous.state);
+      const date = record.sourcePublishedAt || record.verifiedAt;
+      const previousDate = previous.sourcePublishedAt || previous.verifiedAt;
+      if (terminal || previousTerminal) {
+        // Resolve corrections before hiding terminal states. Equal-date withdrawal
+        // wins conservatively until an explicit later reinstatement is supplied.
+        if (date > previousDate || (date === previousDate && terminal)) winnersByKey.set(record.recordKey, record);
+        return;
+      }
+      const delta = (STATE_PRECEDENCE[record.state] || 0) - (STATE_PRECEDENCE[previous.state] || 0);
+      if (
+        delta > 0 ||
+        (delta === 0 && (date > previousDate || (date === previousDate && record.verifiedAt > previous.verifiedAt)))
+      )
+        winnersByKey.set(record.recordKey, record);
+    });
+  return [...winnersByKey.values()]
+    .filter((record) => ACTIVE_STATES.has(record.state))
+    .sort((left, right) => left.noc.localeCompare(right.noc) || left.sport.localeCompare(right.sport));
 }
 
 export function isPublishableQualificationCard(card) {
@@ -178,27 +232,51 @@ export function isPublishableQualificationCard(card) {
 }
 
 export function buildQualificationPipeline(source, sources) {
-  const direct = normalizeQualificationRecords([...(source?.structuredRecords || []), ...(source?.records || [])], sources);
+  const direct = normalizeQualificationRecords(
+    [...(source?.structuredRecords || []), ...(source?.records || [])],
+    sources
+  );
   const review = normalizeReviewQueue(source?.reviewQueue, sources);
   const history = [...direct.records, ...review.approvedRecords];
-  return { activeRecords: resolveActiveQualificationRecords(history), history, reviewQueue: review.queue, rejected: [...direct.rejected, ...review.rejected, ...qualificationSupersessionLinks(history).problems] };
+  return {
+    activeRecords: resolveActiveQualificationRecords(history),
+    history,
+    reviewQueue: review.queue,
+    rejected: [...direct.rejected, ...review.rejected, ...qualificationSupersessionLinks(history).problems]
+  };
 }
 
 export function toQualificationCards(records, history = records) {
   records = resolveQuotaSourceLinks(records, history);
   return records.map((record) => ({
-    id: record.id, noc: record.noc,
-    name: record.subjectType === 'athlete'
-      ? record.athleteName
-      : record.subjectType === 'team'
-        ? record.teamName
-        : `${record.quotaCount} ${record.subjectType === 'team_quota' ? 'team' : 'individual'} ${record.quotaCount === 1 ? 'quota place' : 'quota places'}`,
-    sport: record.sport, disciplines: record.disciplines, canonicalEventKey: record.canonicalEventKey, canonicalEventLabel: record.canonicalEventLabel,
+    id: record.id,
+    noc: record.noc,
+    name:
+      record.subjectType === 'athlete'
+        ? record.athleteName
+        : record.subjectType === 'team'
+          ? record.teamName
+          : `${record.quotaCount} ${record.subjectType === 'team_quota' ? 'team' : 'individual'} ${record.quotaCount === 1 ? 'quota place' : 'quota places'}`,
+    sport: record.sport,
+    disciplines: record.disciplines,
+    canonicalEventKey: record.canonicalEventKey,
+    canonicalEventLabel: record.canonicalEventLabel,
     scheduleHints: record.scheduleHints.length ? record.scheduleHints : record.events,
-    status: ['noc_quota', 'team_quota'].includes(record.subjectType) ? 'quota' : 'named', teamType: ['team', 'team_quota'].includes(record.subjectType) ? 'team' : 'individual',
-    subjectType: record.subjectType, state: record.state, quotaCount: record.quotaCount, teamSizeMax: record.teamSizeMax, qualificationRoute: record.qualificationRoute,
-    sourceId: record.sourceId, sourceTier: record.sourceTier, sourcePublishedAt: record.sourcePublishedAt, verifiedAt: record.verifiedAt,
+    status: ['noc_quota', 'team_quota'].includes(record.subjectType) ? 'quota' : 'named',
+    teamType: ['team', 'team_quota'].includes(record.subjectType) ? 'team' : 'individual',
+    subjectType: record.subjectType,
+    state: record.state,
+    quotaCount: record.quotaCount,
+    teamSizeMax: record.teamSizeMax,
+    qualificationRoute: record.qualificationRoute,
+    sourceId: record.sourceId,
+    sourceTier: record.sourceTier,
+    sourcePublishedAt: record.sourcePublishedAt,
+    verifiedAt: record.verifiedAt,
     allocationRecordId: record.allocationRecordId,
-    lastUpdatedAt: record.verifiedAt, sourceUrl: record.sourceUrl, profileUrl: record.profileUrl, notes: record.notes
+    lastUpdatedAt: record.verifiedAt,
+    sourceUrl: record.sourceUrl,
+    profileUrl: record.profileUrl,
+    notes: record.notes
   }));
 }

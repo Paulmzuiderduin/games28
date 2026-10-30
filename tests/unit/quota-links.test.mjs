@@ -1,9 +1,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { annotateQuotaLinks, quotaLinkProblem, reviewQuotaRecords, validateQuotaSelection } from '../../src/lib/quota-links.js';
+import {
+  annotateQuotaLinks,
+  quotaLinkProblem,
+  reviewQuotaRecords,
+  validateQuotaSelection
+} from '../../src/lib/quota-links.js';
 
-const quota = { id: 'quota', noc: 'NED', sport: 'Athletics', subjectType: 'noc_quota', state: 'allocated', disciplines: ["Men's 100m"], quotaCount: 2 };
-const athlete = { id: 'a', noc: 'NED', sport: 'Athletics', subjectType: 'athlete', state: 'selected', disciplines: ["Men's 100m"], athleteName: 'Athlete A', allocationRecordId: 'quota' };
+const quota = {
+  id: 'quota',
+  noc: 'NED',
+  sport: 'Athletics',
+  subjectType: 'noc_quota',
+  state: 'allocated',
+  disciplines: ["Men's 100m"],
+  quotaCount: 2
+};
+const athlete = {
+  id: 'a',
+  noc: 'NED',
+  sport: 'Athletics',
+  subjectType: 'athlete',
+  state: 'selected',
+  disciplines: ["Men's 100m"],
+  athleteName: 'Athlete A',
+  allocationRecordId: 'quota'
+};
 
 test('partial and full quotas retain the allocation while tracking selected occupants', () => {
   const partial = annotateQuotaLinks([quota, athlete]);
@@ -15,7 +37,12 @@ test('partial and full quotas retain the allocation while tracking selected occu
   assert.equal(full[0].quotaCount, 2);
 });
 test('invalid country/event/type links are rejected rather than filling an unrelated quota', () => {
-  for (const change of [{ noc: 'USA' }, { sport: 'Swimming' }, { disciplines: ["Men's 200m"] }, { subjectType: 'team' }]) {
+  for (const change of [
+    { noc: 'USA' },
+    { sport: 'Swimming' },
+    { disciplines: ["Men's 200m"] },
+    { subjectType: 'team' }
+  ]) {
     assert.ok(quotaLinkProblem({ ...athlete, ...change }, quota));
     assert.throws(() => validateQuotaSelection({ ...athlete, ...change }, [quota]));
   }
@@ -39,19 +66,28 @@ test('withdrawn athletes release their occupancy; duplicate evidence does not do
   assert.equal(annotateQuotaLinks([quota, athlete, { ...athlete, id: 'other-source' }])[0].filledQuotaCount, 1);
 });
 test('admin capacity uses recent approvals and explicit rejection, not only yesterday public data', () => {
-  const current = reviewQuotaRecords([quota, { ...athlete, id: 'approved-review-a' }], [
-    { id: 'review-a', status: 'rejected' },
-    { id: 'review-b', status: 'approved', confirmation_record: { ...athlete, id: 'approved-review-b' } }
-  ]);
-  assert.deepEqual(current.map(record => record.id), ['quota', 'approved-review-b']);
+  const current = reviewQuotaRecords(
+    [quota, { ...athlete, id: 'approved-review-a' }],
+    [
+      { id: 'review-a', status: 'rejected' },
+      { id: 'review-b', status: 'approved', confirmation_record: { ...athlete, id: 'approved-review-b' } }
+    ]
+  );
+  assert.deepEqual(
+    current.map((record) => record.id),
+    ['quota', 'approved-review-b']
+  );
 });
 test('admin corrections cannot hide another country, event, or cyclicly linked quotas', () => {
   const original = { ...quota, sourcePublishedAt: '2026-08-01' };
   const correction = { ...original, id: 'correction', supersedesId: original.id, sourcePublishedAt: '2026-08-02' };
   for (const change of [{ noc: 'USA' }, { disciplines: ["Men's 200m"] }, { sourcePublishedAt: '2026-07-01' }]) {
-    const records = reviewQuotaRecords([original], [{ status: 'approved', confirmation_record: { ...correction, ...change } }]);
+    const records = reviewQuotaRecords(
+      [original],
+      [{ status: 'approved', confirmation_record: { ...correction, ...change } }]
+    );
     assert.equal(records.length, 2);
-    assert.ok(records.some(record => record.id === original.id));
+    assert.ok(records.some((record) => record.id === original.id));
   }
   assert.equal(reviewQuotaRecords([original], [{ status: 'approved', confirmation_record: correction }]).length, 1);
   assert.equal(reviewQuotaRecords([{ ...original, supersedesId: correction.id }, correction], []).length, 2);
@@ -59,11 +95,17 @@ test('admin corrections cannot hide another country, event, or cyclicly linked q
 
 test('updating a selection does not count its existing record twice', () => {
   const canonicalEventKey = 'athletics:men-100m';
-  assert.doesNotThrow(() => validateQuotaSelection({ ...athlete, canonicalEventKey }, [{ ...quota, canonicalEventKey, quotaCount: 1 }, athlete]));
+  assert.doesNotThrow(() =>
+    validateQuotaSelection({ ...athlete, canonicalEventKey }, [{ ...quota, canonicalEventKey, quotaCount: 1 }, athlete])
+  );
 });
 test('new admin links require canonical events without discarding historical label-based links', () => {
   assert.equal(annotateQuotaLinks([quota, athlete])[0].filledQuotaCount, 1);
-  for (const [selection, allocation] of [[athlete, quota], [{ ...athlete, canonicalEventKey: 'a' }, quota], [athlete, { ...quota, canonicalEventKey: 'a' }]]) {
+  for (const [selection, allocation] of [
+    [athlete, quota],
+    [{ ...athlete, canonicalEventKey: 'a' }, quota],
+    [athlete, { ...quota, canonicalEventKey: 'a' }]
+  ]) {
     assert.match(quotaLinkProblem(selection, allocation, { requireCanonicalEvent: true }), /verified event/);
     assert.throws(() => validateQuotaSelection(selection, [allocation]), /verified event/);
   }
@@ -91,11 +133,25 @@ test('quota replacements need newer same-quota evidence and retain history for l
   const canonicalEventKey = 'athletics:men-100m';
   const allocation = { ...quota, canonicalEventKey, quotaCount: 1 };
   const original = { ...athlete, canonicalEventKey, sourcePublishedAt: '2026-08-01' };
-  const replacement = { ...original, id: 'replacement', athleteName: 'New athlete', supersedesId: original.id, sourcePublishedAt: '2026-08-02' };
-  for (const change of [{ sourcePublishedAt: '2026-08-01' }, { sourcePublishedAt: null }, { supersedesId: 'missing' }, { supersedesId: 'replacement' }]) {
+  const replacement = {
+    ...original,
+    id: 'replacement',
+    athleteName: 'New athlete',
+    supersedesId: original.id,
+    sourcePublishedAt: '2026-08-02'
+  };
+  for (const change of [
+    { sourcePublishedAt: '2026-08-01' },
+    { sourcePublishedAt: null },
+    { supersedesId: 'missing' },
+    { supersedesId: 'replacement' }
+  ]) {
     assert.throws(() => validateQuotaSelection({ ...replacement, ...change }, [allocation, original]), /replacement/);
   }
-  assert.throws(() => validateQuotaSelection(replacement, [allocation, { ...original, allocationRecordId: 'another-quota' }]), /replacement/);
+  assert.throws(
+    () => validateQuotaSelection(replacement, [allocation, { ...original, allocationRecordId: 'another-quota' }]),
+    /replacement/
+  );
   assert.doesNotThrow(() => validateQuotaSelection(replacement, [allocation, original]));
   const candidates = [{ status: 'approved', confirmation_record: replacement }];
   assert.equal(reviewQuotaRecords([allocation, original], candidates).length, 2);
@@ -103,5 +159,9 @@ test('quota replacements need newer same-quota evidence and retain history for l
   assert.equal(history.length, 3);
   assert.throws(() => validateQuotaSelection(original, history), /already been replaced/);
   assert.doesNotThrow(() => validateQuotaSelection({ ...replacement, notes: 'Updated note' }, history));
-  assert.throws(() => validateQuotaSelection({ ...original, sourcePublishedAt: '2026-08-03', supersedesId: replacement.id }, history), /replacement/);
+  assert.throws(
+    () =>
+      validateQuotaSelection({ ...original, sourcePublishedAt: '2026-08-03', supersedesId: replacement.id }, history),
+    /replacement/
+  );
 });

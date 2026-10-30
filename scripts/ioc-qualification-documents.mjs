@@ -1,4 +1,5 @@
-export const IOC_LA28_QUALIFICATION_HUB_URL = 'https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games';
+export const IOC_LA28_QUALIFICATION_HUB_URL =
+  'https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games';
 
 export const IOC_LA28_QUALIFICATION_PRINCIPLES = {
   id: 'ioc-la28-qualification-principles',
@@ -20,14 +21,20 @@ const bySystem = {
   '3x3-basketball': [document('3x3-basketball', '3x3 Basketball', '2026-07-10', 'BK3-LA28-Qualification-System.pdf')],
   archery: [document('archery', 'Archery', '2026-05-12', 'ARC-LA28-Qualification-System.pdf')],
   aquatics: [
-    document('artistic-swimming', 'Artistic Swimming', '2026-05-12', 'SWA-LA28-Qualification-System.pdf', ['Artistic Swimming']),
+    document('artistic-swimming', 'Artistic Swimming', '2026-05-12', 'SWA-LA28-Qualification-System.pdf', [
+      'Artistic Swimming'
+    ]),
     document('diving', 'Diving', '2026-06-16', 'DIV-LA28-Qualification-System.pdf', ['Diving']),
-    document('open-water-swimming', 'Open Water Swimming', '2026-05-12', 'OWS-LA28-Qualification-System.pdf', ['Open Water Swimming']),
+    document('open-water-swimming', 'Open Water Swimming', '2026-05-12', 'OWS-LA28-Qualification-System.pdf', [
+      'Open Water Swimming'
+    ]),
     document('swimming', 'Swimming', '2026-05-12', 'SWM-LA28-Qualification-System.pdf', ['Swimming']),
     document('water-polo', 'Water Polo', '2026-05-06', 'WPO-LA28-Qualification-System.pdf', ['Water Polo'])
   ],
   badminton: [document('badminton', 'Badminton', '2026-05-12', 'BDM-LA28-Qualification-System.pdf')],
-  'baseball-softball': [document('baseball-softball', 'Baseball and Softball', '2026-05-12', 'BSB-LA28-Qualification-System.pdf')],
+  'baseball-softball': [
+    document('baseball-softball', 'Baseball and Softball', '2026-05-12', 'BSB-LA28-Qualification-System.pdf')
+  ],
   basketball: [document('basketball', 'Basketball', '2026-05-12', 'BKB-LA28-Qualification-System.pdf')],
   boxing: [document('boxing', 'Boxing', '2026-08-05', 'BOX-LA28-Qualification-System.pdf')],
   climbing: [
@@ -37,7 +44,10 @@ const bySystem = {
   ],
   cricket: [document('cricket', 'Cricket', '2026-06-29', 'CRT-LA28-Qualification-System.pdf')],
   cycling: [
-    document('cycling-road', 'Cycling Road', '2026-05-12', 'CRD-LA28-Qualification-System.pdf', ['Cycling Road (Road Race)', 'Cycling Road (Time Trial)']),
+    document('cycling-road', 'Cycling Road', '2026-05-12', 'CRD-LA28-Qualification-System.pdf', [
+      'Cycling Road (Road Race)',
+      'Cycling Road (Time Trial)'
+    ]),
     document('cycling-track', 'Cycling Track', '2026-07-10', 'CTR-LA28-Qualification-System.pdf', ['Cycling Track']),
     document('mountain-bike', 'Mountain Bike', '2026-07-10', 'MTB-LA28-Qualification-System.pdf', ['Mountain Bike']),
     document('bmx-freestyle', 'BMX Freestyle', '2026-07-22', 'BMF-LA28-Qualification-System.pdf', ['BMX Freestyle']),
@@ -52,26 +62,40 @@ const bySystem = {
   'flag-football': [document('flag-football', 'Flag Football', '2026-07-10', 'FFB-LA28-Qualification-System.pdf')],
   golf: [document('golf', 'Golf', '2026-08-28', 'GLF-LA28-Qualification-System.pdf')],
   gymnastics: [
-    document('artistic-gymnastics', 'Artistic Gymnastics', '2026-05-29', 'GAR-LA28-Qualification-System.pdf', ['Artistic Gymnastics']),
-    document('rhythmic-gymnastics', 'Rhythmic Gymnastics', '2026-05-12', 'GRY-LA28-Qualification-System.pdf', ['Rhythmic Gymnastics']),
+    document('artistic-gymnastics', 'Artistic Gymnastics', '2026-05-29', 'GAR-LA28-Qualification-System.pdf', [
+      'Artistic Gymnastics'
+    ]),
+    document('rhythmic-gymnastics', 'Rhythmic Gymnastics', '2026-05-12', 'GRY-LA28-Qualification-System.pdf', [
+      'Rhythmic Gymnastics'
+    ]),
     document('trampoline', 'Trampoline', '2026-05-12', 'GTR-LA28-Qualification-System.pdf', ['Trampoline Gymnastics'])
   ],
   handball: [document('handball', 'Handball', '2026-05-12', 'HBL-LA28-Qualification-System.pdf')],
   hockey: [document('hockey', 'Hockey', '2026-05-12', 'HOC-LA28-Qualification-System.pdf')],
   judo: [document('judo', 'Judo', '2026-05-12', 'JUD-LA28-Qualification-System.pdf')],
   lacrosse: [document('lacrosse', 'Lacrosse', '2026-05-12', 'LAC-LA28-Qualification-System.pdf')],
-  'modern-pentathlon': [document('modern-pentathlon', 'Modern Pentathlon', '2026-05-12', 'MPN-LA28-Qualification-System.pdf')],
+  'modern-pentathlon': [
+    document('modern-pentathlon', 'Modern Pentathlon', '2026-05-12', 'MPN-LA28-Qualification-System.pdf')
+  ],
   rowing: [
     document('rowing', 'Rowing', '2026-05-12', 'ROW-LA28-Qualification-System.pdf', ['Rowing']),
-    document('rowing-coastal', 'Rowing Coastal', '2026-05-12', 'RCB-LA28-Qualification-System.pdf', ['Rowing Coastal Beach Sprints'])
+    document('rowing-coastal', 'Rowing Coastal', '2026-05-12', 'RCB-LA28-Qualification-System.pdf', [
+      'Rowing Coastal Beach Sprints'
+    ])
   ],
   'rugby-sevens': [document('rugby-sevens', 'Rugby Sevens', '2026-05-12', 'RU7-LA28-Qualification-System.pdf')],
   sailing: [document('sailing', 'Sailing', '2026-06-22', 'SAL-LA28-Qualification-System.pdf')],
   shooting: [document('shooting', 'Shooting', '2026-06-23', 'SHO-LA28-Qualification-System.pdf')],
   skateboarding: [document('skateboarding', 'Skateboarding', '2026-07-10', 'SKB-LA28-Qualification-System.pdf')],
   canoe: [
-    document('slalom-paddle', 'Slalom Paddle', '2026-05-12', 'PSL-LA28-Qualification-System.pdf', ['Slalom Paddle', 'Canoe Slalom']),
-    document('sprint-paddle', 'Sprint Paddle', '2026-07-28', 'PSP-LA28-Qualification-System.pdf', ['Sprint Paddle', 'Canoe Sprint'])
+    document('slalom-paddle', 'Slalom Paddle', '2026-05-12', 'PSL-LA28-Qualification-System.pdf', [
+      'Slalom Paddle',
+      'Canoe Slalom'
+    ]),
+    document('sprint-paddle', 'Sprint Paddle', '2026-07-28', 'PSP-LA28-Qualification-System.pdf', [
+      'Sprint Paddle',
+      'Canoe Sprint'
+    ])
   ],
   squash: [document('squash', 'Squash', '2026-06-23', 'SQU-LA28-Qualification-System.pdf')],
   surfing: [document('surfing', 'Surfing', '2026-06-29', 'SRF-LA28-Qualification-System.pdf')],
@@ -80,7 +104,9 @@ const bySystem = {
   tennis: [document('tennis', 'Tennis', '2026-05-12', 'TEN-LA28-Qualification-System.pdf')],
   triathlon: [document('triathlon', 'Triathlon', '2026-05-12', 'TRI-LA28-Qualification-System.pdf')],
   volleyball: [
-    document('beach-volleyball', 'Beach Volleyball', '2026-07-10', 'VBV-LA28-Qualification-System.pdf', ['Beach Volleyball']),
+    document('beach-volleyball', 'Beach Volleyball', '2026-07-10', 'VBV-LA28-Qualification-System.pdf', [
+      'Beach Volleyball'
+    ]),
     document('volleyball', 'Volleyball', '2026-05-12', 'VVO-LA28-Qualification-System.pdf', ['Volleyball'])
   ],
   weightlifting: [document('weightlifting', 'Weightlifting', '2026-05-12', 'WLF-LA28-Qualification-System.pdf')],
@@ -92,11 +118,13 @@ export function getIocQualificationDocuments(systemKey) {
 }
 
 export function getAllIocQualificationDocuments(systems) {
-  return systems.flatMap((system) => getIocQualificationDocuments(system.key).map((entry) => ({
-    ...entry,
-    qualificationSystemKey: system.key,
-    governingBody: system.governingBody
-  })));
+  return systems.flatMap((system) =>
+    getIocQualificationDocuments(system.key).map((entry) => ({
+      ...entry,
+      qualificationSystemKey: system.key,
+      governingBody: system.governingBody
+    }))
+  );
 }
 
 // The IOC's document CDN rejects non-browser bot checks, so we deliberately
@@ -118,6 +146,8 @@ export function buildIocQualificationRulesIndex({ systems, checkedAt }) {
     expectedSystemCount: systems.length,
     publishedSystemCount: new Set(documents.map((entry) => entry.qualificationSystemKey)).size,
     listedDocumentCount: documents.length,
-    waitingSystems: systems.filter((system) => !getIocQualificationDocuments(system.key).length).map((system) => system.key)
+    waitingSystems: systems
+      .filter((system) => !getIocQualificationDocuments(system.key).length)
+      .map((system) => system.key)
   };
 }

@@ -1,6 +1,12 @@
 import { getIocQualificationDocuments } from './ioc-qualification-documents.mjs';
 
-const STATUS_VALUES = new Set(['rules_published', 'watching', 'structured_live', 'review_required', 'final_entries_live']);
+const STATUS_VALUES = new Set([
+  'rules_published',
+  'watching',
+  'structured_live',
+  'review_required',
+  'final_entries_live'
+]);
 
 function qualificationEvent(key, label, sports) {
   return { key, label, sports };
@@ -34,174 +40,479 @@ function system(key, label, governingBody, sports, url, options = {}) {
 }
 
 export const qualificationSystems = [
-  system('3x3-basketball', '3x3 Basketball', 'FIBA', ['3x3 Basketball'], 'https://fiba.basketball/3x3', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['3x3 Basketball']),
-    qualificationEvent('women', "Women's tournament", ['3x3 Basketball'])
-  ] }),
-  system('archery', 'Archery', 'World Archery', ['Archery'], 'https://www.worldarchery.sport/', { qualificationEvents: [
-    qualificationEvent('recurve', 'Recurve', ['Archery']),
-    qualificationEvent('compound', 'Compound', ['Archery'])
-  ] }),
-  system('aquatics', 'Aquatics', 'World Aquatics', ['Artistic Swimming', 'Diving', 'Open Water Swimming', 'Swimming', 'Water Polo'], 'https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming', { status: 'rules_published' }),
-  system('athletics', 'Athletics', 'World Athletics', ['Athletics (Marathon)', 'Athletics (Race Walk)', 'Athletics (Track & Field)'], 'https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263'),
+  system('3x3-basketball', '3x3 Basketball', 'FIBA', ['3x3 Basketball'], 'https://fiba.basketball/3x3', {
+    qualificationEvents: [
+      qualificationEvent('men', "Men's tournament", ['3x3 Basketball']),
+      qualificationEvent('women', "Women's tournament", ['3x3 Basketball'])
+    ]
+  }),
+  system('archery', 'Archery', 'World Archery', ['Archery'], 'https://www.worldarchery.sport/', {
+    qualificationEvents: [
+      qualificationEvent('recurve', 'Recurve', ['Archery']),
+      qualificationEvent('compound', 'Compound', ['Archery'])
+    ]
+  }),
+  system(
+    'aquatics',
+    'Aquatics',
+    'World Aquatics',
+    ['Artistic Swimming', 'Diving', 'Open Water Swimming', 'Swimming', 'Water Polo'],
+    'https://www.worldaquatics.com/news/4418041/la28-los-angeles-2028-olympic-games-qualification-system-principles-finalised-swimming-open-water-swimming',
+    { status: 'rules_published' }
+  ),
+  system(
+    'athletics',
+    'Athletics',
+    'World Athletics',
+    ['Athletics (Marathon)', 'Athletics (Race Walk)', 'Athletics (Track & Field)'],
+    'https://worldathletics.org/competitions/olympic-games/the-xxxiv-olympic-games-7173263'
+  ),
   system('badminton', 'Badminton', 'Badminton World Federation', ['Badminton'], 'https://corporate.bwfbadminton.com/', {
     sourceCheckMode: 'reference_only',
-    sourceCheckReason: 'BWF blocks automated requests; the IOC-listed qualification document remains the version authority.'
+    sourceCheckReason:
+      'BWF blocks automated requests; the IOC-listed qualification document remains the version authority.'
   }),
-  system('baseball-softball', 'Baseball and Softball', 'World Baseball Softball Confederation', ['Baseball', 'Softball'], 'https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf', { status: 'rules_published', qualificationEvents: [
-    qualificationEvent('baseball', 'Baseball tournament', ['Baseball']),
-    qualificationEvent('softball', 'Softball tournament', ['Softball'])
-  ] }),
-  system('basketball', 'Basketball', 'FIBA', ['Basketball'], 'https://www.fiba.basketball/', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['Basketball']),
-    qualificationEvent('women', "Women's tournament", ['Basketball'])
-  ] }),
-  system('boxing', 'Boxing', 'World Boxing', ['Boxing - Final Stages', 'Boxing - Preliminary Stages'], 'https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/', { status: 'rules_published' }),
-  system('climbing', 'Sport Climbing', 'International Federation of Sport Climbing', ['Climbing'], 'https://www.ifsc-climbing.org/'),
-  system('cricket', 'Cricket', 'International Cricket Council', ['Cricket'], 'https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28', {
-    status: 'review_required',
-    sourceType: 'team_qualification',
-    adapter: 'official_confirmation_article',
-    evidenceTerms: ['first four teams', 'qualified', 'LA28'],
-    sourcePublishedAt: '2026-06-29',
-    confirmationCandidates: [
-      { noc: 'AUS', sport: 'Cricket', discipline: "Women's T20 tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Australia', 'qualified'] },
-      { noc: 'GBR', sport: 'Cricket', discipline: "Women's T20 tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Great Britain', 'qualified'] },
-      { noc: 'IND', sport: 'Cricket', discipline: "Women's T20 tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['India', 'qualified'] },
-      { noc: 'RSA', sport: 'Cricket', discipline: "Women's T20 tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['South Africa', 'qualified'] }
-    ],
+  system(
+    'baseball-softball',
+    'Baseball and Softball',
+    'World Baseball Softball Confederation',
+    ['Baseball', 'Softball'],
+    'https://static.wbsc.org/uploads/federations/0/documents/871506df-a39d-6ed7-5b48-dd4451d0ecf7.pdf',
+    {
+      status: 'rules_published',
+      qualificationEvents: [
+        qualificationEvent('baseball', 'Baseball tournament', ['Baseball']),
+        qualificationEvent('softball', 'Softball tournament', ['Softball'])
+      ]
+    }
+  ),
+  system('basketball', 'Basketball', 'FIBA', ['Basketball'], 'https://www.fiba.basketball/', {
     qualificationEvents: [
-      qualificationEvent('women-t20', "Women's T20 tournament", ['Cricket']),
-      qualificationEvent('men-t20', "Men's T20 tournament", ['Cricket'])
-    ],
-    notes: 'Official prose announcements are reviewed before they become public records.'
+      qualificationEvent('men', "Men's tournament", ['Basketball']),
+      qualificationEvent('women', "Women's tournament", ['Basketball'])
+    ]
   }),
-  system('cycling', 'Cycling', 'Union Cycliste Internationale', ['BMX Freestyle', 'BMX Racing', 'Cycling Road (Road Race)', 'Cycling Road (Time Trial)', 'Cycling Track', 'Mountain Bike'], 'https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI', { status: 'rules_published' }),
-  system('equestrian', 'Equestrian', 'Fédération Equestre Internationale', ['Equestrian'], 'https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil', {
-    // FEI governs the qualification system. This Equestrian Australia report
-    // publishes the exact six team allocations, so it is suitable for review
-    // candidates but never for automatic publication.
-    sourceLabel: 'Equestrian Australia - Aachen Dressage Team qualification',
-    sourceTier: 'national_federation',
-    sourceType: 'team_qualification',
-    status: 'review_required',
-    adapter: 'official_confirmation_article',
-    rulesUrl: 'https://inside.fei.org/',
-    allocationUrl: 'https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil',
-    evidenceTerms: ['six highest-ranked eligible teams', 'Germany', 'Great Britain', 'Denmark', 'Belgium', 'Netherlands', 'Sweden'],
-    sourcePublishedAt: '2026-08-13',
-    confirmationCandidates: [
-      { noc: 'GER', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', supersedesId: 'approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da', evidenceTerms: ['Germany', 'team quota place'] },
-      { noc: 'GBR', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Great Britain', 'team quota place'] },
-      { noc: 'DEN', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Denmark', 'team quota place'] },
-      { noc: 'BEL', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Belgium', 'team quota place'] },
-      { noc: 'NED', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', supersedesId: 'approved-review-noc-ned-dressage-la28-ned-61961ba7662742db', evidenceTerms: ['Netherlands', 'team quota place'] },
-      { noc: 'SWE', sport: 'Equestrian', discipline: 'Dressage - Team', subjectType: 'team_quota', quotaCount: 1, teamSizeMax: 3, state: 'allocated', evidenceTerms: ['Sweden', 'team quota place'] }
+  system(
+    'boxing',
+    'Boxing',
+    'World Boxing',
+    ['Boxing - Final Stages', 'Boxing - Preliminary Stages'],
+    'https://worldboxing.org/ioc-approves-olympic-qualification-system-for-boxing-competition-at-la28/',
+    { status: 'rules_published' }
+  ),
+  system(
+    'climbing',
+    'Sport Climbing',
+    'International Federation of Sport Climbing',
+    ['Climbing'],
+    'https://www.ifsc-climbing.org/'
+  ),
+  system(
+    'cricket',
+    'Cricket',
+    'International Cricket Council',
+    ['Cricket'],
+    'https://www.icc-cricket.com/news/first-four-teams-confirmed-for-women-s-cricket-at-la28',
+    {
+      status: 'review_required',
+      sourceType: 'team_qualification',
+      adapter: 'official_confirmation_article',
+      evidenceTerms: ['first four teams', 'qualified', 'LA28'],
+      sourcePublishedAt: '2026-06-29',
+      confirmationCandidates: [
+        {
+          noc: 'AUS',
+          sport: 'Cricket',
+          discipline: "Women's T20 tournament",
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          state: 'allocated',
+          evidenceTerms: ['Australia', 'qualified']
+        },
+        {
+          noc: 'GBR',
+          sport: 'Cricket',
+          discipline: "Women's T20 tournament",
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          state: 'allocated',
+          evidenceTerms: ['Great Britain', 'qualified']
+        },
+        {
+          noc: 'IND',
+          sport: 'Cricket',
+          discipline: "Women's T20 tournament",
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          state: 'allocated',
+          evidenceTerms: ['India', 'qualified']
+        },
+        {
+          noc: 'RSA',
+          sport: 'Cricket',
+          discipline: "Women's T20 tournament",
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          state: 'allocated',
+          evidenceTerms: ['South Africa', 'qualified']
+        }
+      ],
+      qualificationEvents: [
+        qualificationEvent('women-t20', "Women's T20 tournament", ['Cricket']),
+        qualificationEvent('men-t20', "Men's T20 tournament", ['Cricket'])
+      ],
+      notes: 'Official prose announcements are reviewed before they become public records.'
+    }
+  ),
+  system(
+    'cycling',
+    'Cycling',
+    'Union Cycliste Internationale',
+    [
+      'BMX Freestyle',
+      'BMX Racing',
+      'Cycling Road (Road Race)',
+      'Cycling Road (Time Trial)',
+      'Cycling Track',
+      'Mountain Bike'
     ],
-    qualificationEvents: [
-      qualificationEvent('dressage-team', 'Dressage - Team', ['Equestrian']),
-      qualificationEvent('dressage-individual', 'Dressage - Individual', ['Equestrian']),
-      qualificationEvent('eventing-team', 'Eventing - Team', ['Equestrian']),
-      qualificationEvent('eventing-individual', 'Eventing - Individual', ['Equestrian']),
-      qualificationEvent('jumping-team', 'Jumping - Team', ['Equestrian']),
-      qualificationEvent('jumping-individual', 'Jumping - Individual', ['Equestrian'])
-    ],
-    notes: 'Review source: Equestrian Australia reports the six Dressage team quota allocations at Aachen. FEI remains the governing qualification authority.'
-  }),
+    'https://www.uci.org/pressrelease/los-angeles-2028-olympic-games-qualification-systems-and-quotas-for-cycling/43qivaAiGWBf621RhQBvDI',
+    { status: 'rules_published' }
+  ),
+  system(
+    'equestrian',
+    'Equestrian',
+    'Fédération Equestre Internationale',
+    ['Equestrian'],
+    'https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil',
+    {
+      // FEI governs the qualification system. This Equestrian Australia report
+      // publishes the exact six team allocations, so it is suitable for review
+      // candidates but never for automatic publication.
+      sourceLabel: 'Equestrian Australia - Aachen Dressage Team qualification',
+      sourceTier: 'national_federation',
+      sourceType: 'team_qualification',
+      status: 'review_required',
+      adapter: 'official_confirmation_article',
+      rulesUrl: 'https://inside.fei.org/',
+      allocationUrl:
+        'https://www.sydneycdi.equestrian.org.au/news/germany-claim-13th-world-championship-team-gold-home-soil',
+      evidenceTerms: [
+        'six highest-ranked eligible teams',
+        'Germany',
+        'Great Britain',
+        'Denmark',
+        'Belgium',
+        'Netherlands',
+        'Sweden'
+      ],
+      sourcePublishedAt: '2026-08-13',
+      confirmationCandidates: [
+        {
+          noc: 'GER',
+          sport: 'Equestrian',
+          discipline: 'Dressage - Team',
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          teamSizeMax: 3,
+          state: 'allocated',
+          supersedesId: 'approved-visitor-report-aadfaa7a-8fa5-4009-bdff-1d22eb5c82da',
+          evidenceTerms: ['Germany', 'team quota place']
+        },
+        {
+          noc: 'GBR',
+          sport: 'Equestrian',
+          discipline: 'Dressage - Team',
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          teamSizeMax: 3,
+          state: 'allocated',
+          evidenceTerms: ['Great Britain', 'team quota place']
+        },
+        {
+          noc: 'DEN',
+          sport: 'Equestrian',
+          discipline: 'Dressage - Team',
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          teamSizeMax: 3,
+          state: 'allocated',
+          evidenceTerms: ['Denmark', 'team quota place']
+        },
+        {
+          noc: 'BEL',
+          sport: 'Equestrian',
+          discipline: 'Dressage - Team',
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          teamSizeMax: 3,
+          state: 'allocated',
+          evidenceTerms: ['Belgium', 'team quota place']
+        },
+        {
+          noc: 'NED',
+          sport: 'Equestrian',
+          discipline: 'Dressage - Team',
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          teamSizeMax: 3,
+          state: 'allocated',
+          supersedesId: 'approved-review-noc-ned-dressage-la28-ned-61961ba7662742db',
+          evidenceTerms: ['Netherlands', 'team quota place']
+        },
+        {
+          noc: 'SWE',
+          sport: 'Equestrian',
+          discipline: 'Dressage - Team',
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          teamSizeMax: 3,
+          state: 'allocated',
+          evidenceTerms: ['Sweden', 'team quota place']
+        }
+      ],
+      qualificationEvents: [
+        qualificationEvent('dressage-team', 'Dressage - Team', ['Equestrian']),
+        qualificationEvent('dressage-individual', 'Dressage - Individual', ['Equestrian']),
+        qualificationEvent('eventing-team', 'Eventing - Team', ['Equestrian']),
+        qualificationEvent('eventing-individual', 'Eventing - Individual', ['Equestrian']),
+        qualificationEvent('jumping-team', 'Jumping - Team', ['Equestrian']),
+        qualificationEvent('jumping-individual', 'Jumping - Individual', ['Equestrian'])
+      ],
+      notes:
+        'Review source: Equestrian Australia reports the six Dressage team quota allocations at Aachen. FEI remains the governing qualification authority.'
+    }
+  ),
   system('fencing', 'Fencing', 'International Fencing Federation', ['Fencing'], 'https://fie.org/'),
-  system('flag-football', 'Flag Football', 'International Federation of American Football', ['Flag Football'], 'https://www.americanfootball.sport/', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['Flag Football']),
-    qualificationEvent('women', "Women's tournament", ['Flag Football'])
-  ] }),
-  system('football', 'Football', 'FIFA', ['Football (Soccer)'], 'https://inside.fifa.com/', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['Football (Soccer)']),
-    qualificationEvent('women', "Women's tournament", ['Football (Soccer)'])
-  ] }),
-  system('golf', 'Golf', 'International Golf Federation', ['Golf'], 'https://www.igfgolf.org/', { qualificationEvents: [
-    qualificationEvent('men-individual', "Men's individual", ['Golf']),
-    qualificationEvent('women-individual', "Women's individual", ['Golf'])
-  ] }),
-  system('gymnastics', 'Gymnastics', 'International Gymnastics Federation', ['Artistic Gymnastics', 'Rhythmic Gymnastics', 'Trampoline Gymnastics'], 'https://www.gymnastics.sport/'),
-  system('handball', 'Handball', 'International Handball Federation', ['Handball'], 'https://www.ihf.info/', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['Handball']),
-    qualificationEvent('women', "Women's tournament", ['Handball'])
-  ] }),
-  system('hockey', 'Hockey', 'International Hockey Federation', ['Hockey'], 'https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out', {
-    sourceLabel: 'FIH - Belgium men qualify through the Hockey Pro League',
-    sourceType: 'team_qualification',
-    status: 'review_required',
-    adapter: 'official_confirmation_article',
-    evidenceTerms: ['Belgium', 'Olympic qualification', 'LA'],
-    sourcePublishedAt: '2026-06-28',
-    confirmationCandidates: [
-      { noc: 'BEL', sport: 'Hockey', discipline: "Men's tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Belgium', 'Olympic qualification'] }
-    ],
+  system(
+    'flag-football',
+    'Flag Football',
+    'International Federation of American Football',
+    ['Flag Football'],
+    'https://www.americanfootball.sport/',
+    {
+      qualificationEvents: [
+        qualificationEvent('men', "Men's tournament", ['Flag Football']),
+        qualificationEvent('women', "Women's tournament", ['Flag Football'])
+      ]
+    }
+  ),
+  system('football', 'Football', 'FIFA', ['Football (Soccer)'], 'https://inside.fifa.com/', {
     qualificationEvents: [
-      qualificationEvent('men', "Men's tournament", ['Hockey']),
-      qualificationEvent('women', "Women's tournament", ['Hockey'])
-    ],
-    notes: 'FIH confirms Belgium won the 2025-26 Hockey Pro League and its LA28 quota. A separate FIH report is registered for the Netherlands women.'
+      qualificationEvent('men', "Men's tournament", ['Football (Soccer)']),
+      qualificationEvent('women', "Women's tournament", ['Football (Soccer)'])
+    ]
   }),
-  system('judo', 'Judo', 'International Judo Federation', ['Judo'], 'https://www.ijf.org/ijf/documents/26', { status: 'rules_published' }),
-  system('lacrosse', 'Lacrosse', 'World Lacrosse', ['Lacrosse'], 'https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf', { status: 'rules_published', qualificationEvents: [
-    qualificationEvent('men-sixes', "Men's Sixes tournament", ['Lacrosse']),
-    qualificationEvent('women-sixes', "Women's Sixes tournament", ['Lacrosse'])
-  ] }),
-  system('modern-pentathlon', 'Modern Pentathlon', 'Union Internationale de Pentathlon Moderne', ['Modern Pentathlon'], 'https://www.uipmworld.org/'),
-  system('rowing', 'Rowing', 'World Rowing', ['Rowing', 'Rowing Coastal Beach Sprints'], 'https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/'),
-  system('rugby-sevens', 'Rugby Sevens', 'World Rugby', ['Rugby Sevens'], 'https://www.world.rugby/', { qualificationEvents: [
-    qualificationEvent('men', "Men's tournament", ['Rugby Sevens']),
-    qualificationEvent('women', "Women's tournament", ['Rugby Sevens'])
-  ] }),
-  system('sailing', 'Sailing', 'World Sailing', ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Dinghy, Skiff & | Multihull)', 'Sailing (Windsurfing & Kite)'], 'https://www.sailing.org/'),
-  system('shooting', 'Shooting', 'International Shooting Sport Federation', ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'], 'https://www.issf-sports.org/competitions/3488', { status: 'rules_published', sourceType: 'quota_tracker', adapter: 'issf_quota_tracker' }),
-  system('skateboarding', 'Skateboarding', 'World Skate', ['Skateboarding (Park)', 'Skateboarding (Street)'], 'https://www.worldskate.org/'),
-  system('canoe', 'Canoe', 'International Canoe Federation', ['Slalom Paddle', 'Sprint Paddle', 'Canoe Slalom', 'Canoe Sprint'], 'https://rankings.canoeicf.com/', {
-    sourceLabel: 'International Canoe Federation - LA28 Qualification Rankings',
-    notes: 'The rankings are provisional. Publish only a later explicit quota allocation or final entry.'
+  system('golf', 'Golf', 'International Golf Federation', ['Golf'], 'https://www.igfgolf.org/', {
+    qualificationEvents: [
+      qualificationEvent('men-individual', "Men's individual", ['Golf']),
+      qualificationEvent('women-individual', "Women's individual", ['Golf'])
+    ]
   }),
+  system(
+    'gymnastics',
+    'Gymnastics',
+    'International Gymnastics Federation',
+    ['Artistic Gymnastics', 'Rhythmic Gymnastics', 'Trampoline Gymnastics'],
+    'https://www.gymnastics.sport/'
+  ),
+  system('handball', 'Handball', 'International Handball Federation', ['Handball'], 'https://www.ihf.info/', {
+    qualificationEvents: [
+      qualificationEvent('men', "Men's tournament", ['Handball']),
+      qualificationEvent('women', "Women's tournament", ['Handball'])
+    ]
+  }),
+  system(
+    'hockey',
+    'Hockey',
+    'International Hockey Federation',
+    ['Hockey'],
+    'https://www.fih.hockey/events/fih-pro-league/news/belgium-men-seal-the-deal-as-irish-women-bow-out',
+    {
+      sourceLabel: 'FIH - Belgium men qualify through the Hockey Pro League',
+      sourceType: 'team_qualification',
+      status: 'review_required',
+      adapter: 'official_confirmation_article',
+      evidenceTerms: ['Belgium', 'Olympic qualification', 'LA'],
+      sourcePublishedAt: '2026-06-28',
+      confirmationCandidates: [
+        {
+          noc: 'BEL',
+          sport: 'Hockey',
+          discipline: "Men's tournament",
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          state: 'allocated',
+          evidenceTerms: ['Belgium', 'Olympic qualification']
+        }
+      ],
+      qualificationEvents: [
+        qualificationEvent('men', "Men's tournament", ['Hockey']),
+        qualificationEvent('women', "Women's tournament", ['Hockey'])
+      ],
+      notes:
+        'FIH confirms Belgium won the 2025-26 Hockey Pro League and its LA28 quota. A separate FIH report is registered for the Netherlands women.'
+    }
+  ),
+  system('judo', 'Judo', 'International Judo Federation', ['Judo'], 'https://www.ijf.org/ijf/documents/26', {
+    status: 'rules_published'
+  }),
+  system(
+    'lacrosse',
+    'Lacrosse',
+    'World Lacrosse',
+    ['Lacrosse'],
+    'https://worldlacrosse.sport/wp-content/uploads/2026/02/LAC-LA28-Qualification-System.pdf',
+    {
+      status: 'rules_published',
+      qualificationEvents: [
+        qualificationEvent('men-sixes', "Men's Sixes tournament", ['Lacrosse']),
+        qualificationEvent('women-sixes', "Women's Sixes tournament", ['Lacrosse'])
+      ]
+    }
+  ),
+  system(
+    'modern-pentathlon',
+    'Modern Pentathlon',
+    'Union Internationale de Pentathlon Moderne',
+    ['Modern Pentathlon'],
+    'https://www.uipmworld.org/'
+  ),
+  system(
+    'rowing',
+    'Rowing',
+    'World Rowing',
+    ['Rowing', 'Rowing Coastal Beach Sprints'],
+    'https://worldrowing.com/2025/04/09/world-rowing-welcomes-confirmation-of-rowing-programme-and-quotas-for-la-2028-olympic-games/'
+  ),
+  system('rugby-sevens', 'Rugby Sevens', 'World Rugby', ['Rugby Sevens'], 'https://www.world.rugby/', {
+    qualificationEvents: [
+      qualificationEvent('men', "Men's tournament", ['Rugby Sevens']),
+      qualificationEvent('women', "Women's tournament", ['Rugby Sevens'])
+    ]
+  }),
+  system(
+    'sailing',
+    'Sailing',
+    'World Sailing',
+    ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Windsurfing & Kite)'],
+    'https://www.sailing.org/'
+  ),
+  system(
+    'shooting',
+    'Shooting',
+    'International Shooting Sport Federation',
+    ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'],
+    'https://www.issf-sports.org/competitions/3488',
+    { status: 'rules_published', sourceType: 'quota_tracker', adapter: 'issf_quota_tracker' }
+  ),
+  system(
+    'skateboarding',
+    'Skateboarding',
+    'World Skate',
+    ['Skateboarding (Park)', 'Skateboarding (Street)'],
+    'https://www.worldskate.org/'
+  ),
+  system(
+    'canoe',
+    'Canoe',
+    'International Canoe Federation',
+    ['Slalom Paddle', 'Sprint Paddle', 'Canoe Slalom', 'Canoe Sprint'],
+    'https://rankings.canoeicf.com/',
+    {
+      sourceLabel: 'International Canoe Federation - LA28 Qualification Rankings',
+      notes: 'The rankings are provisional. Publish only a later explicit quota allocation or final entry.'
+    }
+  ),
   system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.org/', {
     sourceCheckMode: 'reference_only',
-    sourceCheckReason: 'World Squash blocks automated requests; the IOC-listed qualification document remains the version authority.'
+    sourceCheckReason:
+      'World Squash blocks automated requests; the IOC-listed qualification document remains the version authority.'
   }),
-  system('surfing', 'Surfing', 'International Surfing Association', ['Surfing'], 'https://isasurf.org/ioc-executive-board-approves-updated-surfing-qualification-system-for-la28-olympic-games/', {
-    status: 'rules_published',
-    sourceCheckMode: 'reference_only',
-    sourceCheckReason: 'ISA blocks automated requests; the official article is retained as a human-readable reference.'
-  }),
-  system('table-tennis', 'Table Tennis', 'International Table Tennis Federation', ['Table Tennis'], 'https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/', {
-    status: 'rules_published',
-    sourceCheckMode: 'reference_only',
-    sourceCheckReason: 'ITTF blocks automated requests; the official article is retained as a human-readable reference.'
-  }),
+  system(
+    'surfing',
+    'Surfing',
+    'International Surfing Association',
+    ['Surfing'],
+    'https://isasurf.org/ioc-executive-board-approves-updated-surfing-qualification-system-for-la28-olympic-games/',
+    {
+      status: 'rules_published',
+      sourceCheckMode: 'reference_only',
+      sourceCheckReason:
+        'ISA blocks automated requests; the official article is retained as a human-readable reference.'
+    }
+  ),
+  system(
+    'table-tennis',
+    'Table Tennis',
+    'International Table Tennis Federation',
+    ['Table Tennis'],
+    'https://www.ittf.com/2026/02/13/road-to-la28-mapped-out-as-qualification-system-released/',
+    {
+      status: 'rules_published',
+      sourceCheckMode: 'reference_only',
+      sourceCheckReason:
+        'ITTF blocks automated requests; the official article is retained as a human-readable reference.'
+    }
+  ),
   system('taekwondo', 'Taekwondo', 'World Taekwondo', ['Taekwondo'], 'https://www.worldtaekwondo.org/'),
   system('tennis', 'Tennis', 'International Tennis Federation', ['Tennis'], 'https://www.itftennis.com/'),
   system('triathlon', 'Triathlon', 'World Triathlon', ['Triathlon'], 'https://triathlon.org/'),
-  system('volleyball', 'Volleyball', 'Fédération Internationale de Volleyball', ['Beach Volleyball', 'Volleyball'], 'https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/', {
-    sourceLabel: 'FIVB - Canada women qualify for LA28 volleyball',
-    sourceType: 'team_qualification',
-    status: 'review_required',
-    adapter: 'official_confirmation_article',
-    evidenceTerms: ['Canada', 'LA28 Olympic', 'earned their place'],
-    sourcePublishedAt: '2026-08-30',
-    confirmationCandidates: [
-      { noc: 'CAN', sport: 'Volleyball', discipline: "Women's tournament", subjectType: 'team_quota', quotaCount: 1, state: 'allocated', evidenceTerms: ['Canada', 'earned their place'] }
-    ],
-    qualificationEvents: [
-      qualificationEvent('beach-men', "Beach Volleyball - Men's tournament", ['Beach Volleyball']),
-      qualificationEvent('beach-women', "Beach Volleyball - Women's tournament", ['Beach Volleyball']),
-      qualificationEvent('indoor-men', "Volleyball - Men's tournament", ['Volleyball']),
-      qualificationEvent('indoor-women', "Volleyball - Women's tournament", ['Volleyball'])
-    ],
-    notes: 'FIVB confirms Canada won the 2026 NORCECA Women’s Continental Championship and its LA28 quota.'
-  }),
-  system('weightlifting', 'Weightlifting', 'International Weightlifting Federation', ['Weightlifting'], 'https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/', {
-    status: 'rules_published',
-    sourceType: 'qualification_ranking',
-    sourceCheckMode: 'reference_only',
-    sourceCheckReason: 'IWF blocks automated requests; the official article is retained as a human-readable reference.'
-  }),
-  system('wrestling', 'Wrestling', 'United World Wrestling', ['Wrestling'], 'https://cdn.uww.org/2026-02/01_qs_la28.pdf', { status: 'rules_published' })
+  system(
+    'volleyball',
+    'Volleyball',
+    'Fédération Internationale de Volleyball',
+    ['Beach Volleyball', 'Volleyball'],
+    'https://www.fivb.com/canada-secure-la28-olympic-berth-to-complete-historic-norceca-double/',
+    {
+      sourceLabel: 'FIVB - Canada women qualify for LA28 volleyball',
+      sourceType: 'team_qualification',
+      status: 'review_required',
+      adapter: 'official_confirmation_article',
+      evidenceTerms: ['Canada', 'LA28 Olympic', 'earned their place'],
+      sourcePublishedAt: '2026-08-30',
+      confirmationCandidates: [
+        {
+          noc: 'CAN',
+          sport: 'Volleyball',
+          discipline: "Women's tournament",
+          subjectType: 'team_quota',
+          quotaCount: 1,
+          state: 'allocated',
+          evidenceTerms: ['Canada', 'earned their place']
+        }
+      ],
+      qualificationEvents: [
+        qualificationEvent('beach-men', "Beach Volleyball - Men's tournament", ['Beach Volleyball']),
+        qualificationEvent('beach-women', "Beach Volleyball - Women's tournament", ['Beach Volleyball']),
+        qualificationEvent('indoor-men', "Volleyball - Men's tournament", ['Volleyball']),
+        qualificationEvent('indoor-women', "Volleyball - Women's tournament", ['Volleyball'])
+      ],
+      notes: 'FIVB confirms Canada won the 2026 NORCECA Women’s Continental Championship and its LA28 quota.'
+    }
+  ),
+  system(
+    'weightlifting',
+    'Weightlifting',
+    'International Weightlifting Federation',
+    ['Weightlifting'],
+    'https://iwf.sport/2026/02/02/qualification-system-for-the-olympic-games-la-2028-has-been-approved/',
+    {
+      status: 'rules_published',
+      sourceType: 'qualification_ranking',
+      sourceCheckMode: 'reference_only',
+      sourceCheckReason:
+        'IWF blocks automated requests; the official article is retained as a human-readable reference.'
+    }
+  ),
+  system(
+    'wrestling',
+    'Wrestling',
+    'United World Wrestling',
+    ['Wrestling'],
+    'https://cdn.uww.org/2026-02/01_qs_la28.pdf',
+    { status: 'rules_published' }
+  )
 ];
 
 export function buildQualificationSystemIndex(scheduleEntries) {

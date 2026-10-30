@@ -1,10 +1,8 @@
 import { applySeoPage, getSeoPage } from './lib/seo-pages.js';
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import AppLink from './components/AppLink.jsx';
 import { SiteNavigation, SiteFooter, SupportCta, ThemeToggle } from './components/AppChrome.jsx';
 import EmptyState from './components/EmptyState.jsx';
-import AdminReviewConsole from './components/AdminReviewConsole.jsx';
-import ReportUpdateForm from './components/ReportUpdateForm.jsx';
 import SportsView from './pages/SportsView.jsx';
 import HomeView from './pages/HomeView.jsx';
 import CountriesView from './pages/CountriesView.jsx';
@@ -30,6 +28,17 @@ import {
   filterScheduleEntries
 } from './lib/view-models.js';
 
+const AdminReviewConsole = lazy(() => import('./components/AdminReviewConsole.jsx'));
+const ReportUpdateForm = lazy(() => import('./components/ReportUpdateForm.jsx'));
+
+function RouteLoading({ label }) {
+  return (
+    <section className="panel page-section">
+      <EmptyState title={`Loading ${label}`} description="Please wait while this section loads." />
+    </section>
+  );
+}
+
 const DEFAULT_SCHEDULE_FILTERS = {
   sport: 'all',
   dayKey: 'all',
@@ -43,7 +52,6 @@ const DEFAULT_COUNTRY_FILTERS = {
 };
 
 const THEME_PREFERENCE_KEY = 'games28-theme-preference';
-
 
 function useStoredState(key, fallbackValue) {
   const [value, setValue] = useState(() => {
@@ -111,7 +119,10 @@ export default function App() {
   const [exportNotice, setExportNotice] = useState('');
   const [scheduleFilters, setScheduleFilters] = useStoredState('games28-schedule-filters', DEFAULT_SCHEDULE_FILTERS);
   const [favoriteCountries, setFavoriteCountries] = useStoredState('games28-favorite-countries', []);
-  const [countryFiltersState, setCountryFiltersState] = useStoredState('games28-country-filters', DEFAULT_COUNTRY_FILTERS);
+  const [countryFiltersState, setCountryFiltersState] = useStoredState(
+    'games28-country-filters',
+    DEFAULT_COUNTRY_FILTERS
+  );
   const themePreference = useThemePreference();
 
   useEffect(() => {
@@ -135,7 +146,10 @@ export default function App() {
         if (!cancelled) setRuntime(dataset);
       } catch (error) {
         console.error('Unable to load the Games28 runtime dataset.', error);
-        if (!cancelled) setRuntimeLoadError('The latest Games28 data could not be loaded. Your connection may be offline, or the data service may be temporarily unavailable.');
+        if (!cancelled)
+          setRuntimeLoadError(
+            'The latest Games28 data could not be loaded. Your connection may be offline, or the data service may be temporarily unavailable.'
+          );
       } finally {
         if (!cancelled) setIsLoadingRuntime(false);
       }
@@ -159,10 +173,13 @@ export default function App() {
   const homeStats = useMemo(() => buildHomeStats(runtime), [runtime]);
   const sports = useMemo(() => buildSportDirectory(runtime), [runtime]);
 
-  const countryFilters = useMemo(() => ({
-    ...countryFiltersState,
-    favorites: favoriteCountries
-  }), [countryFiltersState, favoriteCountries]);
+  const countryFilters = useMemo(
+    () => ({
+      ...countryFiltersState,
+      favorites: favoriteCountries
+    }),
+    [countryFiltersState, favoriteCountries]
+  );
 
   const countries = useMemo(() => {
     return filterCountries(runtime.countries || [], runtime.athleteCards || [], countryFilters);
@@ -197,11 +214,17 @@ export default function App() {
     if (route.name !== 'session') {
       return null;
     }
-    return (runtime.scheduleEntries || []).find((entry) => entry.id === route.sessionId || entry.aliasIds?.includes(route.sessionId)) || null;
+    return (
+      (runtime.scheduleEntries || []).find(
+        (entry) => entry.id === route.sessionId || entry.aliasIds?.includes(route.sessionId)
+      ) || null
+    );
   }, [runtime.scheduleEntries, route]);
 
   const changes = useMemo(() => {
-    return [...(runtime.changes || [])].sort((left, right) => String(right.changedAt).localeCompare(String(left.changedAt)));
+    return [...(runtime.changes || [])].sort((left, right) =>
+      String(right.changedAt).localeCompare(String(left.changedAt))
+    );
   }, [runtime.changes]);
 
   function toggleFavoriteCountry(noc) {
@@ -214,14 +237,19 @@ export default function App() {
 
   function handleCalendarExport(entries, title, eventName, eventData = {}) {
     const valid = getExportableEntries(entries);
+    const calendar = downloadCalendarEntries(valid, title);
     const skipped = entries.length - valid.length;
-    const exported = downloadCalendarEntries(valid, title);
-    setExportNotice(exported ? `Exported ${valid.length} schedule entries.${skipped ? ` Skipped ${skipped} entries with unavailable or invalid times.` : ''}` : 'No entries with confirmed times are available to export.');
-    if (exported) {
-      trackEvent(eventName, { ...eventData, count: valid.length, skipped });
+    const grouped = calendar?.collapsedCount || 0;
+    setExportNotice(
+      calendar
+        ? `Exported ${calendar.exportedCount} calendar event${calendar.exportedCount === 1 ? '' : 's'}.${grouped ? ` Grouped ${grouped} extra schedule ${grouped === 1 ? 'entry' : 'entries'} from the same session.` : ''}${skipped ? ` Skipped ${skipped} entries with unavailable or invalid times.` : ''}`
+        : 'No entries with confirmed times are available to export.'
+    );
+    if (calendar) {
+      trackEvent(eventName, { ...eventData, count: calendar.exportedCount, skipped, grouped });
       setShowSupportCta(true);
     }
-    return exported;
+    return Boolean(calendar);
   }
 
   return (
@@ -256,114 +284,136 @@ export default function App() {
 
       <main className="page-shell">
         <div className="page-content">
-        {exportNotice ? <p className="timezone-note" role="status">{exportNotice}</p> : null}
-        {isLoadingRuntime ? (
-          <section className="panel page-section">
-            <EmptyState
-              title="Loading the latest Games28 snapshot"
-              description="The app is fetching the generated runtime dataset."
+          {exportNotice ? (
+            <p className="timezone-note" role="status">
+              {exportNotice}
+            </p>
+          ) : null}
+          {isLoadingRuntime ? (
+            <section className="panel page-section">
+              <EmptyState
+                title="Loading the latest Games28 snapshot"
+                description="The app is fetching the generated runtime dataset."
+              />
+            </section>
+          ) : null}
+
+          {!isLoadingRuntime && runtimeLoadError ? (
+            <section className="panel page-section" role="alert">
+              <EmptyState title="Games28 data is temporarily unavailable" description={runtimeLoadError}>
+                <button
+                  type="button"
+                  className="button-primary"
+                  onClick={() => setRuntimeReloadKey((current) => current + 1)}
+                >
+                  Try loading again
+                </button>
+              </EmptyState>
+            </section>
+          ) : null}
+
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'home' ? (
+            <HomeView
+              runtime={runtime}
+              scheduleFilters={scheduleFilters}
+              onScheduleFiltersChange={setScheduleFilters}
+              onCalendarExport={handleCalendarExport}
+              scheduleEntries={scheduleEntries}
+              scheduleOptions={scheduleOptions}
+              homeStats={homeStats}
+              countryFilters={countryFilters}
+              onCountryFiltersChange={setCountryFiltersState}
+              countries={countries}
+              favorites={favoriteCountries}
             />
-          </section>
-        ) : null}
+          ) : null}
 
-        {!isLoadingRuntime && runtimeLoadError ? (
-          <section className="panel page-section" role="alert">
-            <EmptyState
-              title="Games28 data is temporarily unavailable"
-              description={runtimeLoadError}
-            >
-              <button type="button" className="button-primary" onClick={() => setRuntimeReloadKey((current) => current + 1)}>
-                Try loading again
-              </button>
-            </EmptyState>
-          </section>
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'countries' ? (
+            <CountriesView
+              runtime={runtime}
+              countryFilters={countryFilters}
+              onCountryFiltersChange={setCountryFiltersState}
+              countries={countries}
+              favorites={favoriteCountries}
+              onToggleFavorite={toggleFavoriteCountry}
+            />
+          ) : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'home' ? (
-          <HomeView
-            runtime={runtime}
-            scheduleFilters={scheduleFilters}
-            onScheduleFiltersChange={setScheduleFilters}
-            onCalendarExport={handleCalendarExport}
-            scheduleEntries={scheduleEntries}
-            scheduleOptions={scheduleOptions}
-            homeStats={homeStats}
-            countryFilters={countryFilters}
-            onCountryFiltersChange={setCountryFiltersState}
-            countries={countries}
-            favorites={favoriteCountries}
-            onToggleFavorite={toggleFavoriteCountry}
-          />
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'schedule' ? (
+            <ScheduleView
+              runtime={runtime}
+              scheduleEntries={scheduleEntries}
+              scheduleFilters={scheduleFilters}
+              onScheduleFiltersChange={setScheduleFilters}
+              scheduleOptions={scheduleOptions}
+              onCalendarExport={handleCalendarExport}
+            />
+          ) : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'countries' ? (
-          <CountriesView
-            runtime={runtime}
-            countryFilters={countryFilters}
-            onCountryFiltersChange={setCountryFiltersState}
-            countries={countries}
-            favorites={favoriteCountries}
-            onToggleFavorite={toggleFavoriteCountry}
-          />
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'sports' ? <SportsView sports={sports} /> : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'schedule' ? (
-          <ScheduleView
-            runtime={runtime}
-            scheduleEntries={scheduleEntries}
-            scheduleFilters={scheduleFilters}
-            onScheduleFiltersChange={setScheduleFilters}
-            scheduleOptions={scheduleOptions}
-            onCalendarExport={handleCalendarExport}
-          />
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'sport' ? (
+            <SportView
+              runtime={runtime}
+              sport={currentSport}
+              entries={currentSportEntries}
+              scheduleFilters={scheduleFilters}
+              onScheduleFiltersChange={setScheduleFilters}
+              scheduleOptions={scheduleOptions}
+              onCalendarExport={handleCalendarExport}
+            />
+          ) : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'sports' ? <SportsView sports={sports} /> : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'session' ? (
+            <SessionView runtime={runtime} entry={currentSession} onCalendarExport={handleCalendarExport} />
+          ) : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'sport' ? (
-          <SportView
-            runtime={runtime}
-            sport={currentSport}
-            entries={currentSportEntries}
-            scheduleFilters={scheduleFilters}
-            onScheduleFiltersChange={setScheduleFilters}
-            scheduleOptions={scheduleOptions}
-            onCalendarExport={handleCalendarExport}
-          />
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'country' && currentDashboard ? (
+            <CountryView
+              runtime={runtime}
+              dashboard={currentDashboard}
+              favoriteCountries={favoriteCountries}
+              onToggleFavorite={toggleFavoriteCountry}
+              onCalendarExport={handleCalendarExport}
+            />
+          ) : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'session' ? (
-          <SessionView
-            runtime={runtime}
-            entry={currentSession}
-            onCalendarExport={handleCalendarExport}
-          />
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'country' && !currentDashboard ? (
+            <NotFoundView />
+          ) : null}
 
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'country' && currentDashboard ? (
-          <CountryView
-            runtime={runtime}
-            dashboard={currentDashboard}
-            favoriteCountries={favoriteCountries}
-            onToggleFavorite={toggleFavoriteCountry}
-            onCalendarExport={handleCalendarExport}
-          />
-        ) : null}
-
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'changes' ? <ChangesView runtime={runtime} changes={changes} /> : null}
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'sources' ? <SourcesView runtime={runtime} /> : null}
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'report' ? <ReportUpdateForm countries={runtime.countries} scheduleEntries={runtime.scheduleEntries} /> : null}
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'admin' ? <AdminReviewConsole countries={runtime.countries} qualificationSources={runtime.meta.qualificationSources} qualificationCards={runtime.athleteCards} /> : null}
-        {!isLoadingRuntime && !runtimeLoadError && route.name === 'not-found' ? <NotFoundView /> : null}
-        {!isLoadingRuntime && !runtimeLoadError && route.name !== 'admin' && showSupportCta ? <SupportCta onDismiss={() => setShowSupportCta(false)} /> : null}
-        {!isLoadingRuntime && route.name !== 'admin' ? (
-          <SiteFooter
-            theme={themePreference.theme}
-            themePreference={themePreference.preference}
-            onToggleTheme={themePreference.toggleTheme}
-            onFollowDeviceTheme={themePreference.followDeviceTheme}
-          />
-        ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'changes' ? (
+            <ChangesView runtime={runtime} changes={changes} />
+          ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'sources' ? (
+            <SourcesView runtime={runtime} />
+          ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'report' ? (
+            <Suspense fallback={<RouteLoading label="the report form" />}>
+              <ReportUpdateForm countries={runtime.countries} scheduleEntries={runtime.scheduleEntries} />
+            </Suspense>
+          ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'admin' ? (
+            <Suspense fallback={<RouteLoading label="the review console" />}>
+              <AdminReviewConsole
+                countries={runtime.countries}
+                qualificationSources={runtime.meta.qualificationSources}
+                qualificationCards={runtime.athleteCards}
+              />
+            </Suspense>
+          ) : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name === 'not-found' ? <NotFoundView /> : null}
+          {!isLoadingRuntime && !runtimeLoadError && route.name !== 'admin' && showSupportCta ? (
+            <SupportCta onDismiss={() => setShowSupportCta(false)} />
+          ) : null}
+          {!isLoadingRuntime && route.name !== 'admin' ? (
+            <SiteFooter
+              theme={themePreference.theme}
+              themePreference={themePreference.preference}
+              onToggleTheme={themePreference.toggleTheme}
+              onFollowDeviceTheme={themePreference.followDeviceTheme}
+            />
+          ) : null}
         </div>
       </main>
       <SiteNavigation routeName={route.name} mobile />

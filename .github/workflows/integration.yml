@@ -1,0 +1,126 @@
+name: Database integration
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'supabase/migrations/**'
+      - 'tests/integration/**'
+      - 'scripts/quota-*.mjs'
+      - 'scripts/update-data.mjs'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+
+jobs:
+  quota-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start disposable Supabase database
+        run: supabase start
+
+      - name: Install PostgreSQL client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+
+      - name: Create test databases and apply migrations
+        env:
+          PGHOST: 127.0.0.1
+          PGPORT: 54322
+          PGUSER: postgres
+          PGPASSWORD: postgres
+          PGSSLMODE: disable
+        run: |
+          set -euo pipefail
+          for db in games28_guard_test games28_alias_test; do
+            createdb "$db"
+            psql -v ON_ERROR_STOP=1 -d "$db" -c "create extension if not exists pgcrypto;"
+            psql -v ON_ERROR_STOP=1 -d "$db" <<'SQL'
+          create schema if not exists auth;
+          create table if not exists auth.users (
+            id uuid primary key,
+            email text
+          );
+          create or replace function auth.uid()
+          returns uuid
+          language sql
+          stable
+          as $$ select null::uuid $$;
+          SQL
+            for migration in $(ls supabase/migrations/*.sql | sort); do
+              psql -v ON_ERROR_STOP=1 -d "$db" -f "$migration"
+            done
+          done
+
+      - name: Run quota guard regressions
+        env:
+          PGHOST: 127.0.0.1
+          PGPORT: 54322
+          PGUSER: postgres
+          PGPASSWORD: postgres
+          PGSSLMODE: disable
+          PGDATABASE: games28_guard_test
+        run: |
+          set -euo pipefail
+          psql -v ON_ERROR_STOP=1 -d games28_guard_test -f tests/integration/quota-guard.sql
+          psql -v ON_ERROR_STOP=1 -d games28_guard_test -f tests/integration/quota-source-correction.sql
+          psql -v ON_ERROR_STOP=1 -d games28_guard_test -f tests/integration/quota-terminal-replacement.sql
+          psql -v ON_ERROR_STOP=1 -d games28_guard_test -f tests/integration/report-rate-limit.sql
+          node tests/integration/quota-concurrency.mjs
+
+      - name: Run quota alias concurrency regression
+        env:
+          PGHOST: 127.0.0.1
+          PGPORT: 54322
+          PGUSER: postgres
+          PGPASSWORD: postgres
+          PGSSLMODE: disable
+          PGDATABASE: games28_alias_test
+        run: node tests/integration/quota-alias-concurrency.mjs
+
+  admin-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build app
+        run: npm run build
+
+      - name: Run admin browser fixture
+        run: |
+          set -euo pipefail
+          npx vite preview --port 4184 --host 127.0.0.1 > /tmp/games28-preview.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4184/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4184/ >/dev/null
+          PLAYWRIGHT_MODULE=playwright GAMES28_PREVIEW_URL=http://127.0.0.1:4184 node tests/integration/admin-browser.cjs

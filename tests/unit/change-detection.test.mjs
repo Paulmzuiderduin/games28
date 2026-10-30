@@ -84,10 +84,22 @@ test('detectChanges reports schedule and qualification deltas', () => {
   };
 
   const changes = detectChanges(previousRuntime, nextRuntime);
-  assert.equal(changes.some((change) => change.changeType === 'schedule-added'), true);
-  assert.equal(changes.some((change) => change.changeType === 'schedule-updated'), true);
-  assert.equal(changes.some((change) => change.changeType === 'qualification-updated'), true);
-  assert.equal(changes.some((change) => change.changeType === 'quota-added'), true);
+  assert.equal(
+    changes.some((change) => change.changeType === 'schedule-added'),
+    true
+  );
+  assert.equal(
+    changes.some((change) => change.changeType === 'schedule-updated'),
+    true
+  );
+  assert.equal(
+    changes.some((change) => change.changeType === 'qualification-updated'),
+    true
+  );
+  assert.equal(
+    changes.some((change) => change.changeType === 'quota-added'),
+    true
+  );
 });
 
 test('detectChanges records when an active qualification card is removed', () => {
@@ -103,23 +115,63 @@ test('detectChanges records when an active qualification card is removed', () =>
   };
 
   const changes = detectChanges(previousRuntime, nextRuntime);
-  assert.equal(changes.some((change) => change.changeType === 'qualification-removed'), true);
+  assert.equal(
+    changes.some((change) => change.changeType === 'qualification-removed'),
+    true
+  );
 });
 
 test('PDF hashes produce one source notice, not false changes for every event', () => {
-  const previous = { checkedAt:'2026-09-01',meta:{officialPdfHash:'old'}, athleteCards:[], scheduleEntries:[{id:'one',eventName:'Final',sourcePdfHash:'old'}],changes:[] };
-  const next = { ...previous,checkedAt:'2026-09-08',meta:{officialPdfHash:'new'},scheduleEntries:[{...previous.scheduleEntries[0],sourcePdfHash:'new'}] };
-  const changes=detectChanges(previous,next);
-  assert.deepEqual(changes.map(c=>c.changeType),['schedule-source-updated']);
+  const previous = {
+    checkedAt: '2026-09-01',
+    meta: { officialPdfHash: 'old' },
+    athleteCards: [],
+    scheduleEntries: [{ id: 'one', eventName: 'Final', sourcePdfHash: 'old' }],
+    changes: []
+  };
+  const next = {
+    ...previous,
+    checkedAt: '2026-09-08',
+    meta: { officialPdfHash: 'new' },
+    scheduleEntries: [{ ...previous.scheduleEntries[0], sourcePdfHash: 'new' }]
+  };
+  const changes = detectChanges(previous, next);
+  assert.deepEqual(
+    changes.map((c) => c.changeType),
+    ['schedule-source-updated']
+  );
 });
 test('removed sessions are recorded and older audit history is retained', () => {
-  const previous={athleteCards:[],scheduleEntries:[{id:'removed',eventName:'Final',sessionCode:'A01'}],changes:Array.from({length:90},(_,i)=>({id:String(i),changedAt:'2026-01-01'}))};
-  const changes=detectChanges(previous,{athleteCards:[],scheduleEntries:[],checkedAt:'2026-09-08'});
-  assert.equal(changes.length,91);
-  assert.equal(changes[0].changeType,'schedule-removed');
+  const previous = {
+    athleteCards: [],
+    scheduleEntries: [{ id: 'removed', eventName: 'Final', sessionCode: 'A01' }],
+    changes: Array.from({ length: 90 }, (_, i) => ({ id: String(i), changedAt: '2026-01-01' }))
+  };
+  const changes = detectChanges(previous, { athleteCards: [], scheduleEntries: [], checkedAt: '2026-09-08' });
+  assert.equal(changes.length, 91);
+  assert.equal(changes[0].changeType, 'schedule-removed');
 });
 test('qualification check timestamps alone do not create public changes', () => {
-  const previous={scheduleEntries:[],athleteCards:[{id:'quota',lastUpdatedAt:'2026-01-01'}]};
-  const changes=detectChanges(previous,{scheduleEntries:[],athleteCards:[{id:'quota',lastUpdatedAt:'2026-02-01'}],checkedAt:'2026-02-01'});
-  assert.equal(changes.length,0);
+  const previous = { scheduleEntries: [], athleteCards: [{ id: 'quota', lastUpdatedAt: '2026-01-01' }] };
+  const changes = detectChanges(previous, {
+    scheduleEntries: [],
+    athleteCards: [{ id: 'quota', lastUpdatedAt: '2026-02-01' }],
+    checkedAt: '2026-02-01'
+  });
+  assert.equal(changes.length, 0);
+});
+
+test('public change history is capped to keep the runtime bounded', () => {
+  const previous = {
+    athleteCards: [],
+    scheduleEntries: [],
+    changes: Array.from({ length: 700 }, (_, index) => ({
+      id: `old-${index}`,
+      changedAt: `2026-01-${String((index % 28) + 1).padStart(2, '0')}`
+    }))
+  };
+  const next = { ...previous, checkedAt: '2026-09-08T00:00:00.000Z', changes: [] };
+  const changes = detectChanges(previous, next);
+  assert.equal(changes.length, 500);
+  assert.equal(new Set(changes.map((change) => change.id)).size, 500);
 });

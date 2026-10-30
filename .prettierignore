@@ -1,0 +1,7 @@
+dist
+node_modules
+.worktrees
+public
+src/data
+src/assets
+package-lock.json

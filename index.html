@@ -31,12 +31,17 @@
       (function () {
         try {
           var preference = JSON.parse(window.localStorage.getItem('games28-theme-preference'));
-          var theme = preference === 'light' || preference === 'dark'
-            ? preference
-            : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          var theme =
+            preference === 'light' || preference === 'dark'
+              ? preference
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
           document.documentElement.dataset.theme = theme;
         } catch (error) {
-          document.documentElement.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
         }
       })();
     </script>
@@ -51,10 +56,17 @@
         var queryIndex = path.indexOf('&q=');
         var route = queryIndex >= 0 ? path.slice(0, queryIndex) : path;
         var query = queryIndex >= 0 ? path.slice(queryIndex + 3) : '';
-        var decodedPath = '/' + route.split('&').shift().split('/').map(function (part) {
-          return decodeURIComponent(part);
-        }).join('/');
-        var decodedQuery = query ? ('?' + decodeURIComponent(query)) : '';
+        var decodedPath =
+          '/' +
+          route
+            .split('&')
+            .shift()
+            .split('/')
+            .map(function (part) {
+              return decodeURIComponent(part);
+            })
+            .join('/');
+        var decodedQuery = query ? '?' + decodeURIComponent(query) : '';
         window.history.replaceState(null, '', decodedPath + decodedQuery + window.location.hash);
       })();
     </script>

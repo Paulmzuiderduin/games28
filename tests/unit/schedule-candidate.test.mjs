@@ -15,12 +15,23 @@ test('IDs survive description reordering and new rows without giving moved event
 
 test('parse exceptions and duplicate event identities retain last good publication', async () => {
   const previous = [event('Final', 'kept')];
-  for (const parse of [async () => { throw new Error('Changed layout'); }, async () => [], async () => [event('Final'), event('Final')]]) {
+  for (const parse of [
+    async () => {
+      throw new Error('Changed layout');
+    },
+    async () => [],
+    async () => [event('Final'), event('Final')]
+  ]) {
     const result = await buildScheduleCandidate(null, {}, previous, parse);
     assert.ok(result.parserError);
     assert.deepEqual(result.entries, []);
-    const publication = choosePublishedSchedule({ validation: { passed: false }, candidate: result.entries,
-      previousRuntime: { meta: { scheduleAuthority: 'official_pdf' }, scheduleEntries: previous }, communityReference: [], sourceCheck: {} });
+    const publication = choosePublishedSchedule({
+      validation: { passed: false },
+      candidate: result.entries,
+      previousRuntime: { meta: { scheduleAuthority: 'official_pdf' }, scheduleEntries: previous },
+      communityReference: [],
+      sourceCheck: {}
+    });
     assert.equal(publication.scheduleAuthority, 'stale_official');
     assert.deepEqual(publication.publishedSchedule, previous);
   }
@@ -35,7 +46,9 @@ test('full official fixture passes publication gates and retains unchanged publi
   const validation = validateOfficialCandidate(result.entries, load('schedule-community-reference.json'), previous);
   assert.equal(validation.passed, true, JSON.stringify(validation));
   assert.equal(new Set(result.entries.map((row) => row.sessionCode)).size, 842);
-  const old = new Map(previous.scheduleEntries.map((row) => [JSON.stringify([row.sessionCode, row.eventName]), row.id]));
+  const old = new Map(
+    previous.scheduleEntries.map((row) => [JSON.stringify([row.sessionCode, row.eventName]), row.id])
+  );
   for (const row of result.entries) {
     const oldId = old.get(JSON.stringify([row.sessionCode, row.eventName]));
     if (oldId) assert.ok([row.id, ...(row.aliasIds || [])].includes(oldId));

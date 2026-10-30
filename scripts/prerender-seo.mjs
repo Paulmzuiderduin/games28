@@ -2,8 +2,9 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJson } from './dataset-utils.mjs';
-import { canonicalRoutePath, SITE_NAME } from '../src/lib/seo.js';
-import { buildSeoPages, seoHeadElements } from '../src/lib/seo-pages.js';
+import { canonicalRoutePath, SITE_NAME, selectSeoSessionEntries } from '../src/lib/seo.js';
+import { buildSeoPages, buildSessionSeoPage, seoHeadElements } from '../src/lib/seo-pages.js';
+import { groupEntriesBySession } from '../src/lib/schedule-events.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -20,18 +21,21 @@ function escapeHtml(value) {
 }
 
 function renderHeadElement({ tag, attributes = {}, content }) {
-  const attrs = Object.entries(attributes).map(([key, value]) => ` ${key}="${escapeHtml(value)}"`).join('');
+  const attrs = Object.entries(attributes)
+    .map(([key, value]) => ` ${key}="${escapeHtml(value)}"`)
+    .join('');
   if (tag === 'meta' || tag === 'link') return `<${tag}${attrs} />`;
   return `<${tag}${attrs}>${tag === 'script' ? content : escapeHtml(content)}</${tag}>`;
 }
 
 function fallbackHtml(page) {
   const links = (page.links || [])
-    .map((link) => `<li><a href="${escapeHtml(link.href.startsWith('/') ? canonicalRoutePath(link.href) : link.href)}">${escapeHtml(link.label)}</a></li>`)
+    .map(
+      (link) =>
+        `<li><a href="${escapeHtml(link.href.startsWith('/') ? canonicalRoutePath(link.href) : link.href)}">${escapeHtml(link.label)}</a></li>`
+    )
     .join('');
-  const facts = (page.facts || [])
-    .map((fact) => `<li>${escapeHtml(fact)}</li>`)
-    .join('');
+  const facts = (page.facts || []).map((fact) => `<li>${escapeHtml(fact)}</li>`).join('');
 
   return [
     '<main class="seo-fallback">',
@@ -41,7 +45,10 @@ function fallbackHtml(page) {
     `<h1>${escapeHtml(page.heading || page.title)}</h1>`,
     `<p>${escapeHtml(page.description)}</p>`,
     facts ? `<ul>${facts}</ul>` : '',
-    ...(page.sections || []).map(section => `<section><h2>${escapeHtml(section.heading)}</h2><ul>${section.items.map(item => `<li>${escapeHtml(item.text)} ${(item.links || []).map(link => `<a href="${escapeHtml(link.href.startsWith('/') ? canonicalRoutePath(link.href) : link.href)}">${escapeHtml(link.label)}</a>`).join(' · ')}</li>`).join('')}</ul></section>`),
+    ...(page.sections || []).map(
+      (section) =>
+        `<section><h2>${escapeHtml(section.heading)}</h2><ul>${section.items.map((item) => `<li>${escapeHtml(item.text)} ${(item.links || []).map((link) => `<a href="${escapeHtml(link.href.startsWith('/') ? canonicalRoutePath(link.href) : link.href)}">${escapeHtml(link.label)}</a>`).join(' · ')}</li>`).join('')}</ul></section>`
+    ),
     links ? `<nav aria-label="Related Games28 pages"><ul>${links}</ul></nav>` : '',
     '</main>'
   ].join('');
@@ -65,20 +72,25 @@ async function writeRoute(template, page) {
   await writeFile(filePath, renderPage(template, page), 'utf8');
 }
 
-
 async function main() {
-  const [template, runtime] = await Promise.all([
-    readFile(templatePath, 'utf8'),
-    readJson(runtimePath, null)
-  ]);
+  const [template, runtime] = await Promise.all([readFile(templatePath, 'utf8'), readJson(runtimePath, null)]);
 
   if (!runtime) {
     throw new Error('Missing runtime dataset. Run npm run data:update first.');
   }
 
   const pages = buildSeoPages(runtime);
-  await Promise.all(pages.map((page) => writeRoute(template, page)));
-  console.log(`Pre-rendered ${pages.length} SEO routes.`);
+  const generatedSessionIds = new Set(selectSeoSessionEntries(runtime.scheduleEntries).map((entry) => entry.id));
+  const sessionGroups = new Map(
+    groupEntriesBySession(runtime.scheduleEntries).map((group) => [group[0].sessionCode || group[0].id, group])
+  );
+  const shareableSessionPages = runtime.scheduleEntries
+    .filter((entry) => !generatedSessionIds.has(entry.id))
+    .map((entry) =>
+      buildSessionSeoPage(entry, sessionGroups.get(entry.sessionCode || entry.id) || [entry], { indexable: false })
+    );
+  await Promise.all([...pages, ...shareableSessionPages].map((page) => writeRoute(template, page)));
+  console.log(`Pre-rendered ${pages.length} SEO routes and ${shareableSessionPages.length} shareable session routes.`);
 }
 
 main().catch((error) => {

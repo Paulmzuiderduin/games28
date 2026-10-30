@@ -20,6 +20,10 @@ export default function SessionView({ runtime, entry, onCalendarExport }) {
   }
 
   const venue = findVenue(entry.venue);
+  const sessionEntries = entry.sessionCode
+    ? (runtime.scheduleEntries || []).filter((item) => item.sessionCode === entry.sessionCode)
+    : [entry];
+  const sessionSiblings = sessionEntries.filter((item) => item.id !== entry.id);
   return (
     <section className="page-section session-detail">
       <div className="section-heading section-heading--flush">
@@ -32,11 +36,13 @@ export default function SessionView({ runtime, entry, onCalendarExport }) {
           <button
             type="button"
             className="button-secondary"
-            onClick={() => onCalendarExport([entry], `${entry.sessionCode || entry.id}-games28`, 'calendar_export_session', {
-              route: 'session',
-              sessionId: entry.id,
-              sport: entry.sport
-            })}
+            onClick={() =>
+              onCalendarExport([entry], `${entry.sessionCode || entry.id}-games28`, 'calendar_export_session', {
+                route: 'session',
+                sessionId: entry.id,
+                sport: entry.sport
+              })
+            }
             disabled={!getExportableEntries([entry]).length}
           >
             Add to calendar
@@ -59,21 +65,59 @@ export default function SessionView({ runtime, entry, onCalendarExport }) {
           <SummaryCard label="Venue" value={entry.venue || 'Venue TBC'} />
           <SummaryCard label="Date" value={formatScheduleDate(entry)} />
         </div>
-        <p>Organizer: <a href={eventOrganizer.url}>LA28</a>. Games28 is an independent guide.</p>
-        {venue && <p>Address: {venueAddress(venue)} · <a href={venue.sourceUrl}>Venue source</a></p>}
+        <p>
+          Organizer: <a href={eventOrganizer.url}>LA28</a>. Games28 is an independent guide.
+        </p>
+        {venue && (
+          <p>
+            Address: {venueAddress(venue)} · <a href={venue.sourceUrl}>Venue source</a>
+          </p>
+        )}
         <div className="session-links">
-          <AppLink href={getSportPath(entry.sport)} className="text-link">Open {entry.sport} schedule</AppLink>
-          <AppLink href="/schedule" className="text-link">Browse all sessions</AppLink>
+          <AppLink href={getSportPath(entry.sport)} className="text-link">
+            Open {entry.sport} schedule
+          </AppLink>
+          <AppLink href="/schedule" className="text-link">
+            Browse all sessions
+          </AppLink>
           <ShareButton
             title={`${entry.eventName} | Games28`}
             text={`${entry.sport} at LA 2028: ${entry.eventName}.`}
             path={getSessionPath(entry.id)}
             context={{ entityType: 'session', sessionId: entry.id, sport: entry.sport }}
           >
-            Share this session
+            Share this event
           </ShareButton>
           <SourceLink href={entry.sourceUrl} context={{ sessionId: entry.id, sport: entry.sport }} />
         </div>
+        {sessionSiblings.length ? (
+          <section className="panel session-siblings">
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Session {entry.sessionCode}</p>
+                <h2>All events in this session</h2>
+              </div>
+            </div>
+            <div className="stacked-list">
+              {sessionEntries.map((item) => (
+                <article className="info-card" key={item.id}>
+                  <h3>{item.eventName}</h3>
+                  <p>
+                    {item.startAtUtc ? formatDateTimeLabel(item.startAtUtc) : 'Time not announced'} ·{' '}
+                    {item.venue || 'Venue TBC'}
+                  </p>
+                  {item.id === entry.id ? (
+                    <span className="supporting-copy">Current event</span>
+                  ) : (
+                    <AppLink href={getSessionPath(item.id)} className="text-link">
+                      Open event details
+                    </AppLink>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </div>
     </section>
   );

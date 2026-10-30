@@ -19,9 +19,29 @@ test('approves proposed records and verifies the result', async () => {
       return new Response(null, { status: 204 });
     }
     reads += 1;
-    if (reads === 1) return jsonResponse([{ id: 'review-usa', status: 'pending', suggested_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16' }, confirmation_record: null }]);
+    if (reads === 1)
+      return jsonResponse([
+        {
+          id: 'review-usa',
+          status: 'pending',
+          suggested_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16' },
+          confirmation_record: null
+        }
+      ]);
     if (reads === 2) return jsonResponse([]);
-    if (reads === 3) return jsonResponse([{ id: 'review-usa', status: 'approved', confirmation_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16T00:00:00.000Z', verifiedAt: '2026-09-20T12:00:00.000Z' } }]);
+    if (reads === 3)
+      return jsonResponse([
+        {
+          id: 'review-usa',
+          status: 'approved',
+          confirmation_record: {
+            id: 'approved-usa',
+            noc: 'USA',
+            sourcePublishedAt: '2026-07-16T00:00:00.000Z',
+            verifiedAt: '2026-09-20T12:00:00.000Z'
+          }
+        }
+      ]);
     return jsonResponse([]);
   };
 
@@ -54,14 +74,20 @@ test('repairs an approved record that predates verification timestamps', async (
       return new Response(null, { status: 204 });
     }
     reads += 1;
-    if (reads === 1) return jsonResponse([{
-      id: 'review-usa',
-      status: 'approved',
-      suggested_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16' },
-      confirmation_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16' }
-    }]);
+    if (reads === 1)
+      return jsonResponse([
+        {
+          id: 'review-usa',
+          status: 'approved',
+          suggested_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16' },
+          confirmation_record: { id: 'approved-usa', noc: 'USA', sourcePublishedAt: '2026-07-16' }
+        }
+      ]);
     if (reads === 2) return jsonResponse([]);
-    if (reads === 3) return jsonResponse([{ id: 'review-usa', status: 'approved', confirmation_record: patches[0].confirmation_record }]);
+    if (reads === 3)
+      return jsonResponse([
+        { id: 'review-usa', status: 'approved', confirmation_record: patches[0].confirmation_record }
+      ]);
     return jsonResponse([]);
   };
 

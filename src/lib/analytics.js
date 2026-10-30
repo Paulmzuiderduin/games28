@@ -48,8 +48,9 @@ export function trackEvent(name, data = {}) {
   }
 
   try {
-    if (typeof window.umami?.track === 'function') {
-      window.umami.track(name, data);
+    const umami = /** @type {any} */ (window).umami;
+    if (typeof umami?.track === 'function') {
+      umami.track(name, data);
     }
   } catch (error) {
     console.warn('Unable to track analytics event.', error);

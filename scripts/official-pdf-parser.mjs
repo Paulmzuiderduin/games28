@@ -1,11 +1,6 @@
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { extractRowSeparators, rowBoundsAt } from './pdf-row-bounds.mjs';
-import {
-  dayKeyFromDateLabel,
-  localTimeToUtcIso,
-  makeId,
-  pickDisciplineLabel
-} from './dataset-utils.mjs';
+import { dayKeyFromDateLabel, localTimeToUtcIso, makeId, pickDisciplineLabel } from './dataset-utils.mjs';
 
 const COLUMN_DEFAULTS = {
   sportStart: 56,
@@ -26,7 +21,9 @@ const DATE_RE = /^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+
 const TIMEZONE_HINT_RE = /Time \(([A-Z]{2})\)/;
 
 function normalizeText(value) {
-  return String(value || '').replace(/\s+/g, ' ').trim();
+  return String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function bucketByY(items, tolerance = 1.2) {
@@ -59,7 +56,11 @@ function bucketByY(items, tolerance = 1.2) {
   return lines
     .map((line) => {
       const itemsByX = [...line.items].sort((left, right) => left.x - right.x);
-      const text = itemsByX.map((item) => normalizeText(item.str)).join(' ').replace(/\s+/g, ' ').trim();
+      const text = itemsByX
+        .map((item) => normalizeText(item.str))
+        .join(' ')
+        .replace(/\s+/g, ' ')
+        .trim();
       return {
         y: Number(line.y.toFixed(2)),
         items: itemsByX,
@@ -108,7 +109,9 @@ function isBoilerplateLine(line) {
   return (
     !text ||
     /^(?:Version\s+)?\d+\.\d+$/.test(text) ||
-    text.startsWith('Sport Venue Zone Session Code Date Games Day Session Type Session Description Start Time End Time') ||
+    text.startsWith(
+      'Sport Venue Zone Session Code Date Games Day Session Type Session Description Start Time End Time'
+    ) ||
     text.startsWith('Olympic Competition Schedule by Event Version') ||
     /^As of [A-Za-z]+ \d{1,2}, \d{4}/.test(text) ||
     text.startsWith('This competition schedule is subject to change') ||
@@ -121,7 +124,10 @@ function isBoilerplateLine(line) {
 }
 
 function findSessionCode(line, columns) {
-  return line.items.find((item) => getColumnName(item.x, columns) === 'sessionCode' && SESSION_CODE_RE.test(item.str))?.str || null;
+  return (
+    line.items.find((item) => getColumnName(item.x, columns) === 'sessionCode' && SESSION_CODE_RE.test(item.str))
+      ?.str || null
+  );
 }
 
 function hasInlineDescription(line, columns) {
@@ -201,9 +207,8 @@ function normalizeDescriptionLines(lines, columns) {
   const merged = [];
   extracted.forEach((line) => {
     const previous = merged[merged.length - 1];
-    const looksLikeContinuation = previous
-      && (line.text.startsWith('(') || /^[a-z]/.test(line.text))
-      && Math.abs(previous.y - line.y) <= 7;
+    const looksLikeContinuation =
+      previous && (line.text.startsWith('(') || /^[a-z]/.test(line.text)) && Math.abs(previous.y - line.y) <= 7;
 
     if (looksLikeContinuation) {
       previous.text = `${previous.text} ${line.text}`.replace(/\s+/g, ' ').trim();
@@ -222,8 +227,11 @@ function parseTimeValue(value) {
     return null;
   }
 
-  const [hour, minute] = String(value).trim().split(':').map((part) => Number(part));
-  return (hour * 60) + minute;
+  const [hour, minute] = String(value)
+    .trim()
+    .split(':')
+    .map((part) => Number(part));
+  return hour * 60 + minute;
 }
 
 function extractSupplementalTiming(rowLines, columns, fallbackTimezone) {
@@ -263,11 +271,13 @@ function extractSupplementalTiming(rowLines, columns, fallbackTimezone) {
 
 function extractColumnFragments(rowLines, columns, targetColumn) {
   return rowLines
-    .map((line) => line.items
-      .filter((item) => getColumnName(item.x, columns) === targetColumn)
-      .map((item) => normalizeText(item.str))
-      .join(' ')
-      .trim())
+    .map((line) =>
+      line.items
+        .filter((item) => getColumnName(item.x, columns) === targetColumn)
+        .map((item) => normalizeText(item.str))
+        .join(' ')
+        .trim()
+    )
     .filter(Boolean);
 }
 
@@ -295,8 +305,13 @@ function buildUtcRange(dateLabel, startTimeLocal, endTimeLocal, timezone) {
 export async function extractPdfPageLines(pdfInput, options = {}) {
   options = { tableBorders: true, ...options };
   const normalizedInput = Buffer.isBuffer(pdfInput) ? new Uint8Array(pdfInput) : pdfInput;
-  const loadingTask = pdfjs.getDocument(normalizedInput instanceof Uint8Array || normalizedInput instanceof ArrayBuffer
-    ? { data: normalizedInput } : typeof normalizedInput === 'string' ? { url: normalizedInput } : normalizedInput);
+  const loadingTask = pdfjs.getDocument(
+    normalizedInput instanceof Uint8Array || normalizedInput instanceof ArrayBuffer
+      ? { data: normalizedInput }
+      : typeof normalizedInput === 'string'
+        ? { url: normalizedInput }
+        : normalizedInput
+  );
   try {
     const pdf = await loadingTask.promise;
     const pages = options.pages || Array.from({ length: pdf.numPages }, (_, index) => index + 1);
@@ -305,12 +320,14 @@ export async function extractPdfPageLines(pdfInput, options = {}) {
     for (const pageNumber of pages) {
       const page = await pdf.getPage(pageNumber);
       const content = await page.getTextContent();
-      const items = content.items.map((item) => ({
-        str: item.str,
-        x: Number(item.transform[4].toFixed(2)),
-        y: Number(item.transform[5].toFixed(2)),
-        width: Number((item.width || 0).toFixed?.(2) || 0)
-      }));
+      const items = content.items
+        .filter((item) => 'str' in item)
+        .map((item) => ({
+          str: item.str,
+          x: Number(item.transform[4].toFixed(2)),
+          y: Number(item.transform[5].toFixed(2)),
+          width: Number((item.width || 0).toFixed?.(2) || 0)
+        }));
       results.push({
         pageNumber,
         ...(options.tableBorders ? { rowSeparators: extractRowSeparators(await page.getOperatorList()) } : {}),
@@ -330,7 +347,11 @@ export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
   let columns = COLUMN_DEFAULTS;
 
   pageLines.forEach((page) => {
-    const headerLine = page.lines.find((line) => line.text.startsWith('Sport Venue Zone Session Code Date Games Day Session Type Session Description Start Time End Time'));
+    const headerLine = page.lines.find((line) =>
+      line.text.startsWith(
+        'Sport Venue Zone Session Code Date Games Day Session Type Session Description Start Time End Time'
+      )
+    );
     columns = detectColumns(headerLine || page.lines[0]);
 
     const usableLines = page.lines.filter((line) => !isBoilerplateLine(line));
@@ -360,24 +381,39 @@ export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
       const previousHasInlineDescription = previousAnchor ? hasInlineDescription(previousAnchor.line, columns) : false;
       const nextHasInlineDescription = nextAnchor ? hasInlineDescription(nextAnchor.line, columns) : false;
       const borders = options.tableBorders ? rowBoundsAt(anchor.line.y, page.rowSeparators || []) : null;
-      if (options.tableBorders && (!borders || anchors.filter((candidate) => candidate.line.y < borders.upper && candidate.line.y > borders.lower).length !== 1)) {
+      if (
+        options.tableBorders &&
+        (!borders ||
+          anchors.filter((candidate) => candidate.line.y < borders.upper && candidate.line.y > borders.lower).length !==
+            1)
+      ) {
         throw new Error(`Uncertain PDF row boundaries on page ${page.pageNumber}, session ${anchor.sessionCode}`);
       }
 
-      const upperBound = borders?.upper ?? (previousAnchor
-        ? (!anchorHasInlineDescription && previousHasInlineDescription
-          ? previousAnchor.line.y
-          : midpoint(previousAnchor.line.y, anchor.line.y))
-        : Number.POSITIVE_INFINITY);
-      const lowerBound = borders?.lower ?? (nextAnchor
-        ? (!anchorHasInlineDescription && nextHasInlineDescription
-          ? nextAnchor.line.y
-          : midpoint(anchor.line.y, nextAnchor.line.y))
-        : Number.NEGATIVE_INFINITY);
+      const upperBound =
+        borders?.upper ??
+        (previousAnchor
+          ? !anchorHasInlineDescription && previousHasInlineDescription
+            ? previousAnchor.line.y
+            : midpoint(previousAnchor.line.y, anchor.line.y)
+          : Number.POSITIVE_INFINITY);
+      const lowerBound =
+        borders?.lower ??
+        (nextAnchor
+          ? !anchorHasInlineDescription && nextHasInlineDescription
+            ? nextAnchor.line.y
+            : midpoint(anchor.line.y, nextAnchor.line.y)
+          : Number.NEGATIVE_INFINITY);
       const rowLines = usableLines.filter((line) => line.y <= upperBound && line.y > lowerBound);
       const base = extractBaseFields(anchor.line, columns, options.timezoneFallback || 'PT');
       if (borders) {
-        for (const [field, column] of [['sport', 'sport'], ['venue', 'venue'], ['zone', 'zone'], ['dateLabel', 'date'], ['sessionType', 'sessionType']]) {
+        for (const [field, column] of [
+          ['sport', 'sport'],
+          ['venue', 'venue'],
+          ['zone', 'zone'],
+          ['dateLabel', 'date'],
+          ['sessionType', 'sessionType']
+        ]) {
           base[field] = extractColumnFragments(rowLines, columns, column).join(' ');
         }
         base.dayKey = DATE_RE.test(base.dateLabel) ? dayKeyFromDateLabel(base.dateLabel) : null;
@@ -390,7 +426,10 @@ export function parseScheduleEntriesFromPageLines(pageLines, options = {}) {
       const timezone = supplementalTiming.timezone || base.timezone;
       const startTimeLocal = base.startTimeLocal || supplementalTiming.startTimeLocal;
       const endTimeLocal = base.endTimeLocal || supplementalTiming.endTimeLocal;
-      const descriptions = normalizeDescriptionLines(!borders && anchorHasInlineDescription ? [anchor.line] : rowLines, columns);
+      const descriptions = normalizeDescriptionLines(
+        !borders && anchorHasInlineDescription ? [anchor.line] : rowLines,
+        columns
+      );
       const eventNames = descriptions.length ? descriptions : ['Session details pending'];
       const { startAtUtc, endAtUtc } = buildUtcRange(base.dateLabel, startTimeLocal, endTimeLocal, timezone);
 

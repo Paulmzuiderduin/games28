@@ -317,7 +317,7 @@
     "status": "awaiting_endpoint"
   },
   {
-    "countryName": "Boliva",
+    "countryName": "Bolivia",
     "nationalFederationUrls": [],
     "noc": "BOL",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
@@ -1405,7 +1405,7 @@
   {
     "countryName": "Lebanon",
     "nationalFederationUrls": [],
-    "noc": "LIB",
+    "noc": "LBN",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
@@ -1505,7 +1505,7 @@
   {
     "countryName": "Malaysia",
     "nationalFederationUrls": [],
-    "noc": "MAL",
+    "noc": "MAS",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
@@ -1656,16 +1656,6 @@
     "countryName": "Myanmar",
     "nationalFederationUrls": [],
     "noc": "MYA",
-    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
-    "officialNocUrl": null,
-    "referenceOnlyUrls": [],
-    "selectionSources": [],
-    "status": "awaiting_endpoint"
-  },
-  {
-    "countryName": "NA",
-    "nationalFederationUrls": [],
-    "noc": "TUV",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
@@ -2210,7 +2200,7 @@
   {
     "countryName": "Singapore",
     "nationalFederationUrls": [],
-    "noc": "SIN",
+    "noc": "SGP",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],
@@ -2550,6 +2540,16 @@
     "status": "awaiting_endpoint"
   },
   {
+    "countryName": "Tuvalu",
+    "nationalFederationUrls": [],
+    "noc": "TUV",
+    "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
+    "officialNocUrl": null,
+    "referenceOnlyUrls": [],
+    "selectionSources": [],
+    "status": "awaiting_endpoint"
+  },
+  {
     "countryName": "Uganda",
     "nationalFederationUrls": [],
     "noc": "UGA",
@@ -2880,7 +2880,7 @@
   {
     "countryName": "Zimbabwe",
     "nationalFederationUrls": [],
-    "noc": "RHO",
+    "noc": "ZIM",
     "nocAuthorityUrl": "https://www.olympics.com/ioc/national-olympic-committees",
     "officialNocUrl": null,
     "referenceOnlyUrls": [],

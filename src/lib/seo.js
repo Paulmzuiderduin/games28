@@ -4,11 +4,13 @@ export const SITE_NAME = 'Games28';
 export const SOCIAL_IMAGE_URL = `${SITE_ORIGIN}/social-card.png`;
 
 export function slugify(value) {
-  return String(value || '')
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '') || 'item';
+  return (
+    String(value || '')
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '') || 'item'
+  );
 }
 
 export function getSportSlug(sport) {
@@ -20,9 +22,15 @@ export function getSportPath(sport) {
 }
 
 export function findSportBySlug(scheduleEntries, sportSlug) {
-  return [...new Set((scheduleEntries || []).map((entry) => entry.sport).filter(Boolean))]
-    .map(getSportGroup)
-    .find((sport) => getSportSlug(sport) === sportSlug || (sport === 'Boxing' && ['boxing-final-stages', 'boxing-preliminary-stages'].includes(sportSlug))) || null;
+  return (
+    [...new Set((scheduleEntries || []).map((entry) => entry.sport).filter(Boolean))]
+      .map(getSportGroup)
+      .find(
+        (sport) =>
+          getSportSlug(sport) === sportSlug ||
+          (sport === 'Boxing' && ['boxing-final-stages', 'boxing-preliminary-stages'].includes(sportSlug))
+      ) || null
+  );
 }
 
 export function getSessionPath(sessionId) {
@@ -31,7 +39,9 @@ export function getSessionPath(sessionId) {
 
 export function isCountryDashboardIndexable(runtime, noc) {
   const hasQualification = (runtime?.athleteCards || []).some((card) => card.noc === noc);
-  const hasConfirmedSession = (runtime?.scheduleEntries || []).some((entry) => Array.isArray(entry.nocs) && entry.nocs.includes(noc));
+  const hasConfirmedSession = (runtime?.scheduleEntries || []).some(
+    (entry) => Array.isArray(entry.nocs) && entry.nocs.includes(noc)
+  );
 
   return hasQualification || hasConfirmedSession;
 }
@@ -42,9 +52,21 @@ export function selectSeoSessionEntries(scheduleEntries, limit = 240) {
   const priority = withTimes.filter((entry) => priorityPattern.test(`${entry.eventName} ${entry.description}`));
   const remaining = withTimes.filter((entry) => !priority.includes(entry));
   const byStart = (left, right) => String(left.startAtUtc).localeCompare(String(right.startAtUtc));
+  const ordered = [...priority.sort(byStart), ...remaining.sort(byStart)];
+  const selected = [];
+  const seenSessions = new Set();
 
-  return [...priority.sort(byStart), ...remaining.sort(byStart)]
-    .slice(0, limit);
+  // A session can contain many event rows. Publish one canonical page per
+  // session code instead of near-duplicate pages for every row.
+  for (const entry of ordered) {
+    const sessionKey = entry.sessionCode || entry.id;
+    if (seenSessions.has(sessionKey)) continue;
+    seenSessions.add(sessionKey);
+    selected.push(entry);
+    if (selected.length >= limit) break;
+  }
+
+  return selected;
 }
 
 export function canonicalRoutePath(path) {

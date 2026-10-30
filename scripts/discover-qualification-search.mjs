@@ -15,7 +15,9 @@ function hash(value) {
 }
 
 function text(value) {
-  return String(value || '').replace(/\s+/g, ' ').trim();
+  return String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function domain(value) {
@@ -30,7 +32,9 @@ function hostMatches(url, expectedHost) {
   try {
     const parsed = new URL(url);
     if (parsed.protocol !== 'https:' || parsed.username || parsed.password) return false;
-  } catch { return false; }
+  } catch {
+    return false;
+  }
   const candidate = domain(url);
   return Boolean(candidate && expectedHost && (candidate === expectedHost || candidate.endsWith(`.${expectedHost}`)));
 }
@@ -42,14 +46,19 @@ function escapeRegExp(value) {
 function intentFromEvidence(value) {
   const evidence = text(value).toLowerCase();
   if (/\b(selected|selection|named|nominated|nomination|roster|squad|entered)\b/.test(evidence)) return 'selection';
-  if (/\b(qualif(?:ied|ication|ications|y|ying)?|quota|berth|allocated|allocation|secured|earn(?:ed|s)?)\b/.test(evidence)) return 'allocation';
+  if (
+    /\b(qualif(?:ied|ication|ications|y|ying)?|quota|berth|allocated|allocation|secured|earn(?:ed|s)?)\b/.test(evidence)
+  )
+    return 'allocation';
   return null;
 }
 
 function isDiscoveryEvidence(value) {
   const evidence = text(value).toLowerCase();
-  return Boolean(intentFromEvidence(evidence))
-    && !/\b(prediction|projected|projection|odds|ranking preview)\b/.test(evidence);
+  return (
+    Boolean(intentFromEvidence(evidence)) &&
+    !/\b(prediction|projected|projection|odds|ranking preview)\b/.test(evidence)
+  );
 }
 
 function countryNocsInEvidence(value, countries) {
@@ -98,16 +107,17 @@ function queryForTarget(target) {
 
 function hasKnownQuota(records, target, noc, result) {
   if (!target.canonicalEventKey || !noc) return false;
-  return (records || []).some((record) => (
-    record.noc === noc
-    && record.canonicalEventKey === target.canonicalEventKey
-    && QUOTA_TYPES.has(record.subjectType)
-    && ACTIVE_STATES.has(record.state)
-    // A country can earn multiple places in one event. Only suppress evidence
-    // already recorded, never all future allocations for that country/event.
-    && record.sourceUrl === result.url
-    && record.discoveryEvidenceHash === hash(text([result.title, result.description].filter(Boolean).join('. ')).slice(0, 1200))
-  ));
+  return (records || []).some(
+    (record) =>
+      record.noc === noc &&
+      record.canonicalEventKey === target.canonicalEventKey &&
+      QUOTA_TYPES.has(record.subjectType) &&
+      ACTIVE_STATES.has(record.state) &&
+      // A country can earn multiple places in one event. Suppress only the same
+      // official evidence URL so another allocation announcement can still be
+      // reviewed as a separate place.
+      record.sourceUrl === result.url
+  );
 }
 
 function candidateId(target, noc, intent, url) {
@@ -118,7 +128,8 @@ function candidateId(target, noc, intent, url) {
   }
   article.searchParams.sort();
   return `review-search-${target.sourceId}-${target.eventKey || 'all'}-${hash(article.href)}-${noc || 'unassigned'}-${intent}`
-    .replace(/[^a-z0-9-]+/gi, '-').toLowerCase();
+    .replace(/[^a-z0-9-]+/gi, '-')
+    .toLowerCase();
 }
 
 function candidateForResult(target, result, noc, intent, checkedAt) {
@@ -157,11 +168,17 @@ function stripHtml(value) {
 
 function qualificationExcerpt(value) {
   const content = text(stripHtml(value));
-  const match = /\b(qualif\w*|quota|berth|allocated|allocation|selected|selection|named|nominated|roster|squad|entered)\b/i.exec(content);
+  const match =
+    /\b(qualif\w*|quota|berth|allocated|allocation|selected|selection|named|nominated|roster|squad|entered)\b/i.exec(
+      content
+    );
   if (!match) return content.slice(0, 1200);
   const start = Math.max(0, content.lastIndexOf('.', match.index) + 1);
   const end = content.indexOf('.', match.index + 700);
-  return content.slice(start, end >= 0 ? end + 1 : match.index + 900).trim().slice(0, 1200);
+  return content
+    .slice(start, end >= 0 ? end + 1 : match.index + 900)
+    .trim()
+    .slice(0, 1200);
 }
 
 async function refreshEvidenceFromOfficialPage(candidate, fetchImpl) {
@@ -170,7 +187,12 @@ async function refreshEvidenceFromOfficialPage(candidate, fetchImpl) {
       headers: { 'user-agent': 'games28-data-bot/0.5' },
       signal: AbortSignal.timeout(15_000)
     });
-    if (!response.ok || (response.url && !hostMatches(response.url, domain(candidate.sourceUrl))) || !/text\/html/i.test(response.headers.get('content-type') || '')) return candidate;
+    if (
+      !response.ok ||
+      (response.url && !hostMatches(response.url, domain(candidate.sourceUrl))) ||
+      !/text\/html/i.test(response.headers.get('content-type') || '')
+    )
+      return candidate;
     const excerpt = qualificationExcerpt(await response.text());
     if (!excerpt || !isDiscoveryEvidence(excerpt)) return candidate;
     return {
@@ -250,17 +272,29 @@ export async function discoverQualificationSearch({
       const results = payload.web?.results || [];
       const extracted = candidatesFromSearchResults({ target, results, countries, qualificationRecords, checkedAt });
       for (const rawCandidate of extracted.candidates) {
-        const candidate = remainingPageFetches > 0
-          ? await refreshEvidenceFromOfficialPage(rawCandidate, fetchImpl)
-          : rawCandidate;
+        const candidate =
+          remainingPageFetches > 0 ? await refreshEvidenceFromOfficialPage(rawCandidate, fetchImpl) : rawCandidate;
         if (remainingPageFetches > 0) remainingPageFetches -= 1;
         // Result ordering is a useful relevance signal; keep the first result
         // for a qualification scope and refresh its evidence if it changes.
         if (!candidatesById.has(candidate.id)) candidatesById.set(candidate.id, candidate);
       }
-      scans.push({ targetId: target.id, query: queryForTarget(target), resultCount: results.length, candidateIds: extracted.candidates.map((candidate) => candidate.id), suppressedKnownQuotaCount: extracted.suppressedKnownQuotaCount });
+      scans.push({
+        targetId: target.id,
+        query: queryForTarget(target),
+        resultCount: results.length,
+        candidateIds: extracted.candidates.map((candidate) => candidate.id),
+        suppressedKnownQuotaCount: extracted.suppressedKnownQuotaCount
+      });
     } catch (error) {
-      scans.push({ targetId: target.id, query: queryForTarget(target), resultCount: 0, candidateIds: [], suppressedKnownQuotaCount: 0, error: error.message });
+      scans.push({
+        targetId: target.id,
+        query: queryForTarget(target),
+        resultCount: 0,
+        candidateIds: [],
+        suppressedKnownQuotaCount: 0,
+        error: error.message
+      });
     }
   }
 
@@ -292,7 +326,9 @@ async function main() {
   });
   await mkdir(dirname(artifactPath), { recursive: true });
   await writeFile(artifactPath, JSON.stringify(artifact, null, 2) + '\n', 'utf8');
-  console.log(`Qualification web discovery: ${artifact.queryCount} searches, ${artifact.candidates.length} review candidates.`);
+  console.log(
+    `Qualification web discovery: ${artifact.queryCount} searches, ${artifact.candidates.length} review candidates.`
+  );
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

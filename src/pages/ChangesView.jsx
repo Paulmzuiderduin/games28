@@ -22,10 +22,16 @@ export default function ChangesView({ runtime, changes }) {
               <div>
                 <p className="eyebrow">{formatChangeEntityLabel(change)}</p>
                 <h3>{change.summary}</h3>
-                <p>{change.changeType} · {formatUpdatedLabel(change.changedAt)}</p>
+                <p>
+                  {change.changeType} · {formatUpdatedLabel(change.changedAt)}
+                </p>
               </div>
               <div className="change-card-actions">
-                {change.noc ? <AppLink href={`/countries/${change.noc}`} className="text-link">Open country</AppLink> : null}
+                {change.noc ? (
+                  <AppLink href={`/countries/${change.noc}`} className="text-link">
+                    Open country
+                  </AppLink>
+                ) : null}
                 <SourceLink href={change.sourceUrl} context={{ changeId: change.id }} />
               </div>
             </article>

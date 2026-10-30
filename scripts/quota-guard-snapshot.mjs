@@ -2,8 +2,10 @@ import { annotateQuotaLinks, resolveQuotaSourceLinks } from '../src/lib/quota-li
 import { getSportGroup } from '../src/lib/sport-groups.js';
 
 export function buildQuotaGuardSnapshot(runtime) {
-  if (!Array.isArray(runtime?.qualificationRecords)) throw new Error('A complete active qualification dataset is required');
-  if (!runtime.checkedAt || !Number.isFinite(Date.parse(runtime.checkedAt))) throw new Error('A valid snapshot timestamp is required');
+  if (!Array.isArray(runtime?.qualificationRecords))
+    throw new Error('A complete active qualification dataset is required');
+  if (!runtime.checkedAt || !Number.isFinite(Date.parse(runtime.checkedAt)))
+    throw new Error('A valid snapshot timestamp is required');
   const records = resolveQuotaSourceLinks(runtime.qualificationRecords, runtime.qualificationHistory);
   const ids = new Set();
   for (const record of records) {
@@ -14,13 +16,16 @@ export function buildQuotaGuardSnapshot(runtime) {
   // An invalid named selection must not disappear from the capacity calculation.
   // Keep the last server snapshot until its link has been reviewed or corrected.
   if (annotated.some((record) => record.allocationLinkProblem)) {
-    throw new Error('Quota snapshot contains unresolved selection links; keep the previous snapshot and review the links.');
+    throw new Error(
+      'Quota snapshot contains unresolved selection links; keep the previous snapshot and review the links.'
+    );
   }
   const quotas = annotated.filter((record) => ['noc_quota', 'team_quota'].includes(record.subjectType));
   return {
     checkedAt: runtime.checkedAt,
     quotas: quotas.map((record) => {
-      if (!Number.isInteger(record.quotaCount) || record.quotaCount < 1) throw new Error(`Invalid quota capacity: ${record.id}`);
+      if (!Number.isInteger(record.quotaCount) || record.quotaCount < 1)
+        throw new Error(`Invalid quota capacity: ${record.id}`);
       if (!record.noc || !record.sport) throw new Error(`Quota needs a country and sport: ${record.id}`);
       if (record.quotaLinkProblem) throw new Error(`Quota links need review: ${record.id}`);
       return {
@@ -35,8 +40,12 @@ export function buildQuotaGuardSnapshot(runtime) {
         subjectType: record.subjectType,
         quotaCount: record.quotaCount,
         sourcePublishedAt: record.sourcePublishedAt,
-        occupants: record.quotaOccupants.map((person) => ({ id: person.id, name: person.name, subjectType: person.subjectType,
-          sourcePublishedAt: records.find((item) => item.id === person.id)?.sourcePublishedAt || null }))
+        occupants: record.quotaOccupants.map((person) => ({
+          id: person.id,
+          name: person.name,
+          subjectType: person.subjectType,
+          sourcePublishedAt: records.find((item) => item.id === person.id)?.sourcePublishedAt || null
+        }))
       };
     })
   };
@@ -45,12 +54,33 @@ export function buildQuotaGuardSnapshot(runtime) {
 export async function syncQuotaGuardSnapshot({ runtime, supabaseUrl, serviceRoleKey, fetchImpl = fetch }) {
   if (!supabaseUrl || !serviceRoleKey) throw new Error('Quota guard sync requires server credentials');
   const snapshot = buildQuotaGuardSnapshot(runtime);
-  const response = await fetchImpl(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/sync_games28_quota_snapshot`, {
-    method: 'POST',
-    headers: { apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}`, 'content-type': 'application/json' },
-    body: JSON.stringify({ p_snapshot: snapshot }),
-    signal: AbortSignal.timeout(30000)
-  });
+  let response;
+  try {
+    response = await fetchImpl(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/sync_games28_quota_snapshot`, {
+      method: 'POST',
+      headers: {
+        apikey: serviceRoleKey,
+        authorization: `Bearer ${serviceRoleKey}`,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ p_snapshot: snapshot }),
+      signal: AbortSignal.timeout(30000)
+    });
+  } catch (error) {
+    /** @type {Error & { unavailable?: boolean }} */
+    const unavailable = new Error('Quota guard is temporarily unavailable; keeping the previous snapshot.');
+    unavailable.unavailable = true;
+    unavailable.cause = error;
+    throw unavailable;
+  }
+  if ([408, 425, 429, 500, 502, 503, 504].includes(response.status)) {
+    /** @type {Error & { unavailable?: boolean }} */
+    const unavailable = new Error(
+      `Quota guard is temporarily unavailable (HTTP ${response.status}); keeping the previous snapshot.`
+    );
+    unavailable.unavailable = true;
+    throw unavailable;
+  }
   if (!response.ok) {
     // Log only a validated database/API error code, never private record details.
     const error = await response.json().catch(() => null);

@@ -2,7 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { ingestQualificationSources } from '../../scripts/qualification-ingestion.mjs';
 
-const countries = [{ noc: 'NED', name: 'Netherlands' }, { noc: 'USA', name: 'United States' }];
+const countries = [
+  { noc: 'NED', name: 'Netherlands' },
+  { noc: 'USA', name: 'United States' }
+];
 const source = {
   id: 'if-example',
   url: 'https://if.example.org/allocations',
@@ -21,7 +24,8 @@ test('auto-publishes only complete structured official allocation rows', async (
     sources: [source],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response(`
+    fetchImpl: async () =>
+      response(`
       <table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
       <tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr></table>
     `)
@@ -35,18 +39,26 @@ test('auto-publishes only complete structured official allocation rows', async (
 });
 
 test('keeps a structured record ID stable when an official table is reordered', async () => {
-  const sourceRows = (rows) => ingestQualificationSources({
-    sources: [source],
-    countries,
-    checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response(`<table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>${rows}</table>`)
-  });
-  const netherlands = '<tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr>';
+  const sourceRows = (rows) =>
+    ingestQualificationSources({
+      sources: [source],
+      countries,
+      checkedAt: '2028-01-02T00:00:00.000Z',
+      fetchImpl: async () =>
+        response(
+          `<table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>${rows}</table>`
+        )
+    });
+  const netherlands =
+    '<tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td><td>Allocated</td><td>2028-01-01</td></tr>';
   const usa = '<tr><td>LA28</td><td>Mixed event</td><td>USA</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr>';
   const first = await sourceRows(`${netherlands}${usa}`);
   const second = await sourceRows(`${usa}${netherlands}`);
 
-  assert.equal(first.structuredRecords.find((record) => record.noc === 'NED').id, second.structuredRecords.find((record) => record.noc === 'NED').id);
+  assert.equal(
+    first.structuredRecords.find((record) => record.noc === 'NED').id,
+    second.structuredRecords.find((record) => record.noc === 'NED').id
+  );
 });
 
 test('does not publish incomplete tables or unknown NOCs', async () => {
@@ -54,7 +66,8 @@ test('does not publish incomplete tables or unknown NOCs', async () => {
     sources: [source],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response(`
+    fetchImpl: async () =>
+      response(`
       <table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th><th>Status</th></tr>
       <tr><td>LA28</td><td>Mixed event</td><td>XXX</td><td>2</td><td>Allocated</td></tr></table>
     `)
@@ -68,7 +81,8 @@ test('maps a full official country name to its IOC NOC code', async () => {
     sources: [source],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response(`
+    fetchImpl: async () =>
+      response(`
       <table><tr><th>Games</th><th>Event</th><th>Country</th><th>Quota places</th><th>Status</th><th>Qualification date</th></tr>
       <tr><td>LA28</td><td>Mixed event</td><td>Netherlands</td><td>1</td><td>Allocated</td><td>2028-01-01</td></tr></table>
     `)
@@ -82,7 +96,8 @@ test('creates a stable pending candidate for designated official prose sources',
     sources: [{ ...source, id: 'if-prose', status: 'review_required' }],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response('<article><p>The federation confirmed the Olympic qualification selection pathway.</p></article>')
+    fetchImpl: async () =>
+      response('<article><p>The federation confirmed the Olympic qualification selection pathway.</p></article>')
   });
 
   assert.equal(result.structuredRecords.length, 0);
@@ -92,26 +107,33 @@ test('creates a stable pending candidate for designated official prose sources',
 
 test('pre-fills, but does not publish, configured official confirmation articles', async () => {
   const result = await ingestQualificationSources({
-    sources: [{
-      ...source,
-      id: 'if-official-article',
-      status: 'review_required',
-      adapter: 'official_confirmation_article',
-      evidenceTerms: ['first teams', 'LA28'],
-      sourcePublishedAt: '2028-01-01',
-      confirmationCandidates: [{
-        noc: 'NED',
-        sport: 'Example Sport',
-        discipline: 'Example discipline',
-        subjectType: 'team',
-        teamName: 'Netherlands example team',
-        state: 'allocated',
-        evidenceTerms: ['Netherlands', 'qualified']
-      }]
-    }],
+    sources: [
+      {
+        ...source,
+        id: 'if-official-article',
+        status: 'review_required',
+        adapter: 'official_confirmation_article',
+        evidenceTerms: ['first teams', 'LA28'],
+        sourcePublishedAt: '2028-01-01',
+        confirmationCandidates: [
+          {
+            noc: 'NED',
+            sport: 'Example Sport',
+            discipline: 'Example discipline',
+            subjectType: 'team',
+            teamName: 'Netherlands example team',
+            state: 'allocated',
+            evidenceTerms: ['Netherlands', 'qualified']
+          }
+        ]
+      }
+    ],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response('<article><script>ignore this qualification text</script><p>The first teams qualified for LA28: Netherlands.</p></article>')
+    fetchImpl: async () =>
+      response(
+        '<article><script>ignore this qualification text</script><p>The first teams qualified for LA28: Netherlands.</p></article>'
+      )
   });
 
   assert.equal(result.structuredRecords.length, 0);
@@ -123,25 +145,29 @@ test('pre-fills, but does not publish, configured official confirmation articles
 
 test('preserves an unnamed team allocation without treating it as a selected roster', async () => {
   const result = await ingestQualificationSources({
-    sources: [{
-      ...source,
-      id: 'if-team-allocation',
-      status: 'review_required',
-      adapter: 'official_confirmation_article',
-      evidenceTerms: ['team quota', 'LA28'],
-      sourcePublishedAt: '2028-01-01',
-      confirmationCandidates: [{
-        noc: 'NED',
-        sport: 'Example Sport',
-        discipline: 'Example team event',
-        subjectType: 'team_quota',
-        quotaCount: 1,
-        teamSizeMax: 3,
-        state: 'allocated',
-        supersedesId: 'old-incorrect-individual-quota',
-        evidenceTerms: ['Netherlands', 'qualified']
-      }]
-    }],
+    sources: [
+      {
+        ...source,
+        id: 'if-team-allocation',
+        status: 'review_required',
+        adapter: 'official_confirmation_article',
+        evidenceTerms: ['team quota', 'LA28'],
+        sourcePublishedAt: '2028-01-01',
+        confirmationCandidates: [
+          {
+            noc: 'NED',
+            sport: 'Example Sport',
+            discipline: 'Example team event',
+            subjectType: 'team_quota',
+            quotaCount: 1,
+            teamSizeMax: 3,
+            state: 'allocated',
+            supersedesId: 'old-incorrect-individual-quota',
+            evidenceTerms: ['Netherlands', 'qualified']
+          }
+        ]
+      }
+    ],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
     fetchImpl: async () => response('<article><p>LA28 team quota: Netherlands qualified.</p></article>')
@@ -182,18 +208,33 @@ test('does not use a stale non-LA28 ISSF tracker even when its table looks valid
     sources: [{ ...source, id: 'if-shooting', sport: 'Shooting', adapter: 'issf_quota_tracker' }],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => response('<table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th></tr><tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td></tr></table>')
+    fetchImpl: async () =>
+      response(
+        '<table><tr><th>Games</th><th>Event</th><th>NOC</th><th>Quota places</th></tr><tr><td>LA28</td><td>Mixed event</td><td>NED</td><td>2</td></tr></table>'
+      )
   });
 
   assert.equal(result.structuredRecords.length, 0);
   assert.equal(result.scans[0].adapter.eligible, false);
 });
 
-const validRows = [{ Games: 'LA28', Event: 'Mixed event', NOC: 'NED', 'Quota places': 1, Status: 'Allocated', 'Qualification date': '2028-01-01' }];
-const ingestRows = (rows, overrides = {}) => ingestQualificationSources({
-  sources: [{ ...source, ...overrides }], countries, checkedAt: '2028-01-02T00:00:00Z',
-  fetchImpl: async () => response(JSON.stringify(rows), 'application/json')
-});
+const validRows = [
+  {
+    Games: 'LA28',
+    Event: 'Mixed event',
+    NOC: 'NED',
+    'Quota places': 1,
+    Status: 'Allocated',
+    'Qualification date': '2028-01-01'
+  }
+];
+const ingestRows = (rows, overrides = {}) =>
+  ingestQualificationSources({
+    sources: [{ ...source, ...overrides }],
+    countries,
+    checkedAt: '2028-01-02T00:00:00Z',
+    fetchImpl: async () => response(JSON.stringify(rows), 'application/json')
+  });
 test('rules, watching and prose sources never auto-publish matching tables', async () => {
   for (const status of ['rules_published', 'watching', 'review_required']) {
     assert.equal((await ingestRows(validRows, { status })).structuredRecords.length, 0);
@@ -201,7 +242,14 @@ test('rules, watching and prose sources never auto-publish matching tables', asy
   assert.equal((await ingestRows(validRows, { adapter: null })).structuredRecords.length, 0);
 });
 test('rejects wrong editions, missing events, projections and partial tables atomically', async () => {
-  for (const mutation of [{ Games: 'Paris 2024' }, { Games: '' }, { Event: '' }, { Status: 'Projected' }, { NOC: 'XXX' }, { 'Qualification date': '2030-01-01' }]) {
+  for (const mutation of [
+    { Games: 'Paris 2024' },
+    { Games: '' },
+    { Event: '' },
+    { Status: 'Projected' },
+    { NOC: 'XXX' },
+    { 'Qualification date': '2030-01-01' }
+  ]) {
     const result = await ingestRows([...validRows, { ...validRows[0], ...mutation }]);
     assert.equal(result.structuredRecords.length, 0);
     assert.equal(result.scans[0].dataValidated, false);
@@ -302,7 +350,9 @@ test('reports a safe network error code after retries are exhausted', async () =
     checkedAt: '2028-01-02T00:00:00.000Z',
     fetchAttempts: 2,
     retryDelayMs: 0,
-    fetchImpl: async () => { throw new TypeError('fetch failed', { cause: { code: 'CERT_HAS_EXPIRED' } }); }
+    fetchImpl: async () => {
+      throw new TypeError('fetch failed', { cause: { code: 'CERT_HAS_EXPIRED' } });
+    }
   });
 
   assert.equal(result.sourceChecks[0].available, false);
@@ -315,7 +365,10 @@ test('retains bot-blocked official pages as references without reporting a faile
     sources: [{ ...source, status: 'watching', sourceCheckMode: 'reference_only' }],
     countries,
     checkedAt: '2028-01-02T00:00:00.000Z',
-    fetchImpl: async () => { fetchCalls += 1; throw new Error('must not fetch'); }
+    fetchImpl: async () => {
+      fetchCalls += 1;
+      throw new Error('must not fetch');
+    }
   });
 
   assert.equal(fetchCalls, 0);
@@ -323,5 +376,57 @@ test('retains bot-blocked official pages as references without reporting a faile
   assert.equal(result.sourceChecks[0].checkStatus, 'reference_only');
   assert.equal(result.scans[0].format, 'reference_only');
   assert.equal(result.structuredRecords.length, 0);
+  assert.equal(result.reviewQueue.length, 0);
+});
+
+test('CSV allocation feeds can contain quoted newlines', async () => {
+  const body =
+    'Games,Event,NOC,Quota places,Status,Qualification date\nLA28,"Mixed event, second line",NED,1,Allocated,2028-01-01\n';
+  const result = await ingestQualificationSources({
+    sources: [source],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => response(body, 'text/csv')
+  });
+  assert.equal(result.structuredRecords.length, 1);
+  assert.equal(result.structuredRecords[0].noc, 'NED');
+  assert.match(result.structuredRecords[0].disciplines[0], /second line/);
+});
+
+test('prose candidates from a cross-origin redirect are not trusted', async () => {
+  const redirected = {
+    ok: true,
+    status: 200,
+    url: 'https://evil.example/article',
+    headers: new Headers({ 'content-type': 'text/html' }),
+    body: null,
+    text: async () => '<article><p>The first teams qualified for LA28: Netherlands.</p></article>'
+  };
+  const result = await ingestQualificationSources({
+    sources: [
+      {
+        ...source,
+        id: 'if-prose-redirect',
+        status: 'review_required',
+        adapter: 'official_confirmation_article',
+        evidenceTerms: ['first teams', 'LA28'],
+        sourcePublishedAt: '2028-01-01',
+        confirmationCandidates: [
+          {
+            noc: 'NED',
+            sport: 'Example Sport',
+            discipline: 'Example discipline',
+            subjectType: 'team_quota',
+            quotaCount: 1,
+            state: 'allocated',
+            evidenceTerms: ['Netherlands', 'qualified']
+          }
+        ]
+      }
+    ],
+    countries,
+    checkedAt: '2028-01-02T00:00:00.000Z',
+    fetchImpl: async () => redirected
+  });
   assert.equal(result.reviewQueue.length, 0);
 });

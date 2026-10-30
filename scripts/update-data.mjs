@@ -9,6 +9,8 @@ import {
   parseCsv,
   readBuffer,
   readJson,
+  readJsonIfExists,
+  readJsonRequired,
   readText,
   sha256Hex,
   writeBufferIfChanged,
@@ -42,18 +44,26 @@ const countrySelectionRegistryPath = resolve(dataDir, 'country-selection.registr
 const qualificationIngestionPath = resolve(dataDir, 'qualification-ingestion.json');
 
 const OFFICIAL_PAGE_URL = 'https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule';
-const COMMUNITY_SCHEDULE_URL = 'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/export?format=csv&gid=1622079921';
-const COMMUNITY_REFERENCE_URL = 'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921';
-const OFFICIAL_PDF_FALLBACK_URL = 'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleByEventV3.0.pdf';
-const OFFICIAL_SESSION_PDF_URL = 'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-march-16-v-3-0/LA28OlympicGamesCompetitionScheduleBySessionV3.0.pdf';
+const COMMUNITY_SCHEDULE_URL =
+  'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/export?format=csv&gid=1622079921';
+const COMMUNITY_REFERENCE_URL =
+  'https://docs.google.com/spreadsheets/d/1N8y_tcoS54UFA20kW2Sg3E1lGjupyoHC8c0KZ3WCfvs/edit?gid=1622079921#gid=1622079921';
+const OFFICIAL_PDF_FALLBACK_URL =
+  'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleByEventV4.0.pdf';
+const OFFICIAL_SESSION_PDF_URL =
+  'https://la28.org/content/dam/latwentyeight/competition-schedule-imagery/uploaded-july-29-oly-version-4-0/LA28OlympicGamesCompetitionScheduleBySessionV4.0.pdf';
 const IOC_NOC_LIST_URL = 'https://www.olympics.com/ioc/national-olympic-committees';
 const OFFICIAL_PROMOTION_STREAK = 3;
+const MAX_PUBLIC_CHANGES = 500;
+// A stalled upstream must never hold the daily workflow open indefinitely.
+const FETCH_TIMEOUT_MS = Math.max(1, Number(process.env.GAMES28_OFFICIAL_FETCH_TIMEOUT_MS) || 30000);
 
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: {
       'user-agent': 'games28-data-bot/0.2'
-    }
+    },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
   });
 
   if (!response.ok) {
@@ -70,7 +80,8 @@ async function fetchBuffer(url) {
   const response = await fetch(url, {
     headers: {
       'user-agent': 'games28-data-bot/0.2'
-    }
+    },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
   });
 
   if (!response.ok) {
@@ -83,40 +94,47 @@ async function fetchBuffer(url) {
   };
 }
 
-async function fetchApprovedReviewQueue() {
+export async function fetchApprovedReviewQueue() {
   const supabaseUrl = process.env.SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   // Local builds deliberately do not have the private key. Treat that as an
   // unavailable source, never as proof that the approved queue is empty.
-  if (!supabaseUrl || !serviceRoleKey) return { available: false, entries: [] };
+  if (!supabaseUrl || !serviceRoleKey) return { available: false, entries: [], statusesById: {} };
 
   // Fetch every candidate status, not only approved rows. A published record
   // may be removed only when Supabase explicitly says its review changed.
   const url = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/qualification_review_candidates?select=id,status,source_id,source_url,extracted_evidence,reason,detected_at,confirmation_record`;
-  const rows = await fetchRestIdPages(url, {
-    headers: { apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}` }
-  });
-  const statusesById = Object.fromEntries(rows.map((row) => [row.id, row.status]));
-  return {
-    available: true,
-    statusesById,
-    entries: rows
-    .filter((row) => row.status === 'approved' && row.confirmation_record)
-    .map((row) => ({
-      id: row.id,
-      resolution: 'approved',
-      detectedAt: row.detected_at,
-      sourceUrl: row.source_url,
-      extractedEvidence: row.extracted_evidence,
-      reason: row.reason,
-      record: row.confirmation_record
-    }))
-  };
+  try {
+    const rows = await fetchRestIdPages(url, {
+      headers: { apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}` }
+    });
+    const statusesById = Object.fromEntries(rows.map((row) => [row.id, row.status]));
+    return {
+      available: true,
+      statusesById,
+      entries: rows
+        .filter((row) => row.status === 'approved' && row.confirmation_record)
+        .map((row) => ({
+          id: row.id,
+          resolution: 'approved',
+          detectedAt: row.detected_at,
+          sourceUrl: row.source_url,
+          extractedEvidence: row.extracted_evidence,
+          reason: row.reason,
+          record: row.confirmation_record
+        }))
+    };
+  } catch (error) {
+    // Supabase is private review infrastructure, not a schedule source. A
+    // temporary outage must not block the public dataset refresh or erase
+    // previously approved records.
+    console.warn(`Approved review queue unavailable; retaining previous approvals. ${error.message}`);
+    return { available: false, entries: [], statusesById: {} };
+  }
 }
 
 export function approvedRecordsFromRuntime(runtime) {
-  return (runtime?.qualificationHistory || [])
-    .filter((record) => record.sourceRecordType === 'review_approved');
+  return (runtime?.qualificationHistory || []).filter((record) => record.sourceRecordType === 'review_approved');
 }
 
 function reviewCandidateIdFor(record) {
@@ -152,7 +170,9 @@ export function preserveQualificationSourceHealth(currentChecks, previousSources
     }
     return {
       ...source,
-      lastSuccessfulAt: source.available ? source.checkedAt : previous?.lastSuccessfulAt || (previous?.available ? previous.checkedAt : null),
+      lastSuccessfulAt: source.available
+        ? source.checkedAt
+        : previous?.lastSuccessfulAt || (previous?.available ? previous.checkedAt : null),
       healthCheckFailedAt: source.available ? null : source.checkedAt
     };
   });
@@ -160,9 +180,15 @@ export function preserveQualificationSourceHealth(currentChecks, previousSources
 
 export function preserveUnavailableIngestion(current, previous = {}) {
   const scans = current.scans || [];
-  const invalidSourceIds = new Set(current.sourceChecks.filter((source) =>
-    !source.available || !scans.some((scan) => scan.sourceId === source.id && scan.dataValidated === true && !scan.truncated)
-  ).map((source) => source.id));
+  const invalidSourceIds = new Set(
+    current.sourceChecks
+      .filter(
+        (source) =>
+          !source.available ||
+          !scans.some((scan) => scan.sourceId === source.id && scan.dataValidated === true && !scan.truncated)
+      )
+      .map((source) => source.id)
+  );
   const previousRecordsById = new Map((previous.structuredRecords || []).map((record) => [record.id, record]));
   const previousReviewsById = new Map((previous.reviewQueue || []).map((entry) => [entry.id, entry]));
   // An omitted row is not an official withdrawal. Preserve evidence history;
@@ -185,9 +211,17 @@ export function preserveUnavailableIngestion(current, previous = {}) {
   };
 }
 
-async function fetchTextWithFallback(url, snapshotPath) {
+/**
+ * @param {string} url
+ * @param {string} snapshotPath
+ * @param {{ validate?: (body: string) => boolean }} [options]
+ */
+async function fetchTextWithFallback(url, snapshotPath, { validate } = {}) {
   try {
     const result = await fetchText(url);
+    if (validate && !validate(result.body)) {
+      throw new Error('Fetched content did not pass snapshot validation');
+    }
     await writeTextIfChanged(snapshotPath, result.body.endsWith('\n') ? result.body : `${result.body}\n`);
     return { ...result, fallbackUsed: false };
   } catch (error) {
@@ -200,10 +234,17 @@ async function fetchTextWithFallback(url, snapshotPath) {
   }
 }
 
-async function fetchBufferWithFallback(url, snapshotPath) {
+/**
+ * @param {string} url
+ * @param {string} snapshotPath
+ * @param {{ persist?: boolean }} [options]
+ */
+async function fetchBufferWithFallback(url, snapshotPath, { persist = true } = {}) {
   try {
     const result = await fetchBuffer(url);
-    await writeBufferIfChanged(snapshotPath, result.body);
+    if (persist) {
+      await writeBufferIfChanged(snapshotPath, result.body);
+    }
     return { ...result, fallbackUsed: false };
   } catch (error) {
     console.warn(`Falling back to snapshot for ${url}`, error.message);
@@ -215,10 +256,14 @@ async function fetchBufferWithFallback(url, snapshotPath) {
   }
 }
 
-function extractOfficialPdfUrl(html) {
-  const match = html.match(/href="([^"]*LA28OlympicGamesCompetitionScheduleByEventV[^"#?]+\.pdf)"/i);
+function extractSchedulePdfUrl(html, scheduleKind) {
+  const pattern = new RegExp(
+    `href=["']([^"']*LA28OlympicGamesCompetitionScheduleBy${scheduleKind}V[^"'#?]+\\.pdf)["']`,
+    'i'
+  );
+  const match = String(html || '').match(pattern);
   if (!match) {
-    return OFFICIAL_PDF_FALLBACK_URL;
+    return null;
   }
 
   if (match[1].startsWith('http')) {
@@ -228,14 +273,26 @@ function extractOfficialPdfUrl(html) {
   return new URL(match[1], 'https://la28.org').toString();
 }
 
-function detectSourceVersion(pdfUrl, pdfBytes) {
-  const fromUrl = /CompetitionScheduleByEvent(V[\d.]+)/i.exec(pdfUrl)?.[1];
+export function extractOfficialPdfUrl(html) {
+  return extractSchedulePdfUrl(html, 'Event') || OFFICIAL_PDF_FALLBACK_URL;
+}
+
+export function extractOfficialSessionPdfUrl(html) {
+  return extractSchedulePdfUrl(html, 'Session') || OFFICIAL_SESSION_PDF_URL;
+}
+
+function hasOfficialScheduleLink(html) {
+  return Boolean(extractSchedulePdfUrl(html, 'Event') || extractSchedulePdfUrl(html, 'Session'));
+}
+
+export function detectSourceVersion(pdfUrl, pdfBytes) {
+  const fromUrl = /CompetitionScheduleByEvent(V\d+(?:\.\d+)*)\.pdf/i.exec(pdfUrl)?.[1];
   if (fromUrl) {
     return fromUrl.toUpperCase();
   }
 
-  const text = pdfBytes.toString('latin1');
-  const fromBytes = /Version\s+([\d.]+)/i.exec(text)?.[1];
+  const text = Buffer.isBuffer(pdfBytes) ? pdfBytes.toString('latin1') : Buffer.from(pdfBytes || '').toString('latin1');
+  const fromBytes = /Version\s+(\d+(?:\.\d+)*)/i.exec(text)?.[1];
   return fromBytes ? `V${fromBytes}` : 'UNKNOWN';
 }
 
@@ -272,20 +329,36 @@ function normalizeCommunityReference(rows, sourceUrl) {
 
 export function validateOfficialCandidate(candidate, communityReference, previousRuntime) {
   const duplicateIds = candidate.length - new Set(candidate.map((entry) => entry.id)).size;
-  const missingRequired = candidate.filter((entry) => !entry.sport || !entry.sessionCode || !entry.dateLabel || !entry.eventName).length;
-  const invalidTimes = candidate.filter((entry) => entry.startAtUtc && entry.endAtUtc && entry.startAtUtc >= entry.endAtUtc).length;
-  const missingVenueRate = candidate.length ? candidate.filter((entry) => !entry.venue || entry.venue === 'Venue TBC').length / candidate.length : 1;
+  const missingRequired = candidate.filter(
+    (entry) => !entry.sport || !entry.sessionCode || !entry.dateLabel || !entry.eventName
+  ).length;
+  const invalidTimes = candidate.filter(
+    (entry) => entry.startAtUtc && entry.endAtUtc && entry.startAtUtc >= entry.endAtUtc
+  ).length;
+  const missingVenueRate = candidate.length
+    ? candidate.filter((entry) => !entry.venue || entry.venue === 'Venue TBC').length / candidate.length
+    : 1;
   const communityCount = communityReference.length;
   const countDeltaRatio = communityCount ? Math.abs(candidate.length - communityCount) / communityCount : 1;
-  const previousCount = previousRuntime?.meta?.officialCandidateCount || previousRuntime?.scheduleEntries?.length || communityCount;
+  const previousCount =
+    previousRuntime?.meta?.officialCandidateCount || previousRuntime?.scheduleEntries?.length || communityCount;
   const previousDeltaRatio = previousCount ? Math.abs(candidate.length - previousCount) / previousCount : 0;
 
-  const candidateBySportDay = asComparableCountMap(candidate, (entry) => `${entry.sport}::${entry.dayKey || entry.dateLabel || 'unknown'}`);
-  const communityBySportDay = asComparableCountMap(communityReference, (entry) => `${entry.sport}::${entry.dayKey || entry.dateLabel || 'unknown'}`);
+  const candidateBySportDay = asComparableCountMap(
+    candidate,
+    (entry) => `${entry.sport}::${entry.dayKey || entry.dateLabel || 'unknown'}`
+  );
+  const communityBySportDay = asComparableCountMap(
+    communityReference,
+    (entry) => `${entry.sport}::${entry.dayKey || entry.dateLabel || 'unknown'}`
+  );
   let maxBucketDelta = 0;
 
   new Set([...candidateBySportDay.keys(), ...communityBySportDay.keys()]).forEach((key) => {
-    maxBucketDelta = Math.max(maxBucketDelta, Math.abs((candidateBySportDay.get(key) || 0) - (communityBySportDay.get(key) || 0)));
+    maxBucketDelta = Math.max(
+      maxBucketDelta,
+      Math.abs((candidateBySportDay.get(key) || 0) - (communityBySportDay.get(key) || 0))
+    );
   });
 
   const issues = [];
@@ -316,13 +389,21 @@ export function validateOfficialCandidate(candidate, communityReference, previou
   };
 }
 
-export function choosePublishedSchedule({ validation, candidate, communityReference, previousRuntime, sourceCheck, officialFetchUsedFallback = false }) {
+export function choosePublishedSchedule({
+  validation,
+  candidate,
+  communityReference,
+  previousRuntime,
+  sourceCheck,
+  officialFetchUsedFallback = false
+}) {
   const previousMeta = previousRuntime?.meta || {};
   const previousAuthority = previousMeta.scheduleAuthority || null;
   const previousPublished = Array.isArray(previousRuntime?.scheduleEntries) ? previousRuntime.scheduleEntries : [];
   const previousStreak = Number(sourceCheck?.officialShadowSuccessStreak || 0);
   const nextStreak = validation.passed && !officialFetchUsedFallback ? previousStreak + 1 : 0;
-  const alreadyOfficial = ['official_pdf', 'stale_official'].includes(previousAuthority) && previousPublished.length > 0;
+  const alreadyOfficial =
+    ['official_pdf', 'stale_official'].includes(previousAuthority) && previousPublished.length > 0;
 
   if (validation.passed && !officialFetchUsedFallback && (alreadyOfficial || nextStreak >= OFFICIAL_PROMOTION_STREAK)) {
     return {
@@ -363,7 +444,10 @@ export function detectChanges(previousRuntime, nextRuntime) {
         changeType: 'initial-import',
         changedAt: nextRuntime.checkedAt,
         noc: null,
-        sourceUrl: nextRuntime.meta.scheduleAuthority === 'official_pdf' ? nextRuntime.meta.officialEventPdfUrl : nextRuntime.meta.communityScheduleUrl,
+        sourceUrl:
+          nextRuntime.meta.scheduleAuthority === 'official_pdf'
+            ? nextRuntime.meta.officialEventPdfUrl
+            : nextRuntime.meta.communityScheduleUrl,
         summary: `Published ${nextRuntime.scheduleEntries.length} schedule rows into Games28.`
       }
     ];
@@ -391,7 +475,8 @@ export function detectChanges(previousRuntime, nextRuntime) {
     const fields = ['startAtUtc', 'endAtUtc', 'dayKey', 'venue', 'eventName', 'sport', 'status'];
     const changedFields = fields.filter((field) => (previous[field] ?? null) !== (entry[field] ?? null));
     for (const field of ['nocs', 'athleteIds']) {
-      if (JSON.stringify([...(previous[field] || [])].sort()) !== JSON.stringify([...(entry[field] || [])].sort())) changedFields.push(field);
+      if (JSON.stringify([...(previous[field] || [])].sort()) !== JSON.stringify([...(entry[field] || [])].sort()))
+        changedFields.push(field);
     }
 
     if (changedFields.length) {
@@ -403,18 +488,24 @@ export function detectChanges(previousRuntime, nextRuntime) {
         changedAt: nextRuntime.checkedAt,
         noc: null,
         sourceUrl: entry.sourceUrl,
-        summary: `Updated ${entry.eventName} (${entry.sessionCode}): ${changedFields.join(", ")}.`
+        summary: `Updated ${entry.eventName} (${entry.sessionCode}): ${changedFields.join(', ')}.`
       });
     }
   });
 
-  const nextScheduleIds = new Set(nextRuntime.scheduleEntries.flatMap((entry) => [entry.id, ...(entry.aliasIds || [])]));
+  const nextScheduleIds = new Set(
+    nextRuntime.scheduleEntries.flatMap((entry) => [entry.id, ...(entry.aliasIds || [])])
+  );
   for (const entry of previousRuntime.scheduleEntries) {
     if (nextScheduleIds.has(entry.id)) continue;
     changes.push({
       id: buildChangeId(['schedule-removed', entry.id, nextRuntime.checkedAt]),
-      entityId: entry.id, entityType: 'schedule_entry', changeType: 'schedule-removed',
-      changedAt: nextRuntime.checkedAt, noc: null, sourceUrl: entry.sourceUrl,
+      entityId: entry.id,
+      entityType: 'schedule_entry',
+      changeType: 'schedule-removed',
+      changedAt: nextRuntime.checkedAt,
+      noc: null,
+      sourceUrl: entry.sourceUrl,
       summary: `Removed ${entry.eventName} (${entry.sessionCode}) from the published schedule.`
     });
   }
@@ -423,8 +514,12 @@ export function detectChanges(previousRuntime, nextRuntime) {
   if (beforeHash && afterHash && beforeHash !== afterHash) {
     changes.push({
       id: buildChangeId(['schedule-source-updated', afterHash]),
-      entityId: 'official-schedule-source', entityType: 'source', changeType: 'schedule-source-updated',
-      changedAt: nextRuntime.checkedAt, noc: null, sourceUrl: nextRuntime.meta.officialEventPdfUrl,
+      entityId: 'official-schedule-source',
+      entityType: 'source',
+      changeType: 'schedule-source-updated',
+      changedAt: nextRuntime.checkedAt,
+      noc: null,
+      sourceUrl: nextRuntime.meta.officialEventPdfUrl,
       summary: 'The official schedule source was revised. Session changes are listed separately.'
     });
   }
@@ -447,14 +542,14 @@ export function detectChanges(previousRuntime, nextRuntime) {
     }
 
     if (
-      previous.status !== card.status
-      || previous.state !== card.state
-      || previous.subjectType !== card.subjectType
-      || previous.quotaCount !== card.quotaCount
-      || previous.name !== card.name
-      || previous.sourceUrl !== card.sourceUrl
-      || previous.canonicalEventKey !== card.canonicalEventKey
-      || JSON.stringify([...(previous.disciplines || [])].sort()) !== JSON.stringify([...(card.disciplines || [])].sort())
+      previous.status !== card.status ||
+      previous.state !== card.state ||
+      previous.subjectType !== card.subjectType ||
+      previous.quotaCount !== card.quotaCount ||
+      previous.name !== card.name ||
+      previous.sourceUrl !== card.sourceUrl ||
+      previous.canonicalEventKey !== card.canonicalEventKey ||
+      JSON.stringify([...(previous.disciplines || [])].sort()) !== JSON.stringify([...(card.disciplines || [])].sort())
     ) {
       changes.push({
         id: buildChangeId(['qualification-updated', card.id, nextRuntime.checkedAt]),
@@ -494,40 +589,77 @@ export function detectChanges(previousRuntime, nextRuntime) {
       seen.add(change.id);
       return true;
     })
-;
+    .slice(0, MAX_PUBLIC_CHANGES);
+}
+
+function hasCommunityScheduleHeaders(body) {
+  const header = String(body || '').split(/\r?\n/, 1)[0];
+  return ['Session Code', 'Sport', 'Event'].every((column) => header.includes(column));
 }
 
 async function main() {
   const checkedAt = new Date().toISOString();
-  const [sourceCheck, previousRuntime, qualificationInput, countrySelectionOverrides, previousIngestion, approvedReviewResult] = await Promise.all([
+  const [
+    sourceCheck,
+    previousRuntime,
+    qualificationInput,
+    countrySelectionOverrides,
+    previousIngestion,
+    approvedReviewResult
+  ] = await Promise.all([
     readJson(sourceCheckPath, {}),
-    readJson(runtimePath, null),
-    readJson(qualificationSourcesPath, { structuredRecords: [], reviewQueue: [] }),
-    readJson(countrySelectionOverridesPath, { sources: [] }),
-    readJson(qualificationIngestionPath, { structuredRecords: [], reviewQueue: [] }),
+    readJsonIfExists(runtimePath, null),
+    readJsonRequired(qualificationSourcesPath),
+    readJsonRequired(countrySelectionOverridesPath),
+    readJsonIfExists(qualificationIngestionPath, { structuredRecords: [], reviewQueue: [] }),
     fetchApprovedReviewQueue()
   ]);
 
-  const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath);
+  const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath, {
+    validate: hasOfficialScheduleLink
+  });
   const officialPdfUrl = extractOfficialPdfUrl(officialPage.body);
-  const officialPdf = await fetchBufferWithFallback(officialPdfUrl, officialPdfSnapshotPath);
-  const communitySchedule = await fetchTextWithFallback(COMMUNITY_SCHEDULE_URL, scheduleSnapshotPath);
+  const officialSessionPdfUrl = extractOfficialSessionPdfUrl(officialPage.body);
+  const officialPdf = await fetchBufferWithFallback(officialPdfUrl, officialPdfSnapshotPath, { persist: false });
+  const communitySchedule = await fetchTextWithFallback(COMMUNITY_SCHEDULE_URL, scheduleSnapshotPath, {
+    validate: hasCommunityScheduleHeaders
+  });
 
   const sourcePdfHash = sha256Hex(officialPdf.body);
   const sourceVersion = detectSourceVersion(officialPdfUrl, officialPdf.body);
   const countryRegistry = await buildCountryRegistry({ registrySourcePath, isoOverridesPath });
   const countrySelectionRegistry = buildCountrySelectionRegistry(countryRegistry, countrySelectionOverrides);
   const communityReference = normalizeCommunityReference(parseCsv(communitySchedule.body), COMMUNITY_REFERENCE_URL);
-  const candidateResult = await buildScheduleCandidate(officialPdf.body, {
-    sourcePdfHash,
-    sourcePdfUrl: officialPdfUrl,
-    sourceVersion,
-    timezoneFallback: 'PT'
-  }, previousRuntime?.scheduleEntries || []);
+  const candidateResult = await buildScheduleCandidate(
+    officialPdf.body,
+    {
+      sourcePdfHash,
+      sourcePdfUrl: officialPdfUrl,
+      sourceVersion,
+      timezoneFallback: 'PT'
+    },
+    previousRuntime?.scheduleEntries || []
+  );
   const officialCandidate = candidateResult.entries;
-  const qualificationSystemIndex = buildQualificationSystemIndex(candidateResult.parserError
-    ? previousRuntime?.scheduleEntries?.length ? previousRuntime.scheduleEntries : communityReference
-    : officialCandidate);
+
+  const validation = validateOfficialCandidate(officialCandidate, communityReference, previousRuntime);
+  if (candidateResult.parserError) {
+    validation.passed = false;
+    validation.issues.unshift(`Official PDF parsing failed: ${candidateResult.parserError}`);
+  }
+  const publication = choosePublishedSchedule({
+    validation,
+    candidate: officialCandidate,
+    communityReference,
+    previousRuntime,
+    sourceCheck,
+    officialFetchUsedFallback: officialPage.fallbackUsed || officialPdf.fallbackUsed
+  });
+
+  const publishedSchedule = publication.publishedSchedule;
+  // Coverage must follow the schedule that is actually published. A candidate
+  // that fails validation must not be able to block the last-good fallback.
+  const qualificationSystemIndex = buildQualificationSystemIndex(publishedSchedule);
   const qualificationSources = [
     ...toQualificationSources(qualificationSystemIndex.systems),
     ...toCountrySelectionSources(countrySelectionRegistry)
@@ -556,29 +688,21 @@ async function main() {
   const manualReviewIds = new Set(manualReviewQueue.map((entry) => entry.id).filter(Boolean));
   const approvedReviewQueue = approvedReviewResult.entries;
   const retainedRecords = retainedApprovedRecords(previousRuntime, approvedReviewResult);
-  const qualificationResult = buildQualificationPipeline({
-    structuredRecords: [...(qualificationInput.structuredRecords || []), ...ingestion.structuredRecords],
-    records: [...(qualificationInput.records || []), ...retainedRecords],
-    reviewQueue: [...manualReviewQueue, ...approvedReviewQueue, ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))]
-  }, qualificationSources);
+  const qualificationResult = buildQualificationPipeline(
+    {
+      structuredRecords: [...(qualificationInput.structuredRecords || []), ...ingestion.structuredRecords],
+      records: [...(qualificationInput.records || []), ...retainedRecords],
+      reviewQueue: [
+        ...manualReviewQueue,
+        ...approvedReviewQueue,
+        ...ingestion.reviewQueue.filter((entry) => !manualReviewIds.has(entry.id))
+      ]
+    },
+    qualificationSources
+  );
   const qualificationRecords = qualificationResult.activeRecords;
   const athleteCards = toQualificationCards(qualificationRecords, qualificationResult.history);
 
-  const validation = validateOfficialCandidate(officialCandidate, communityReference, previousRuntime);
-  if (candidateResult.parserError) {
-    validation.passed = false;
-    validation.issues.unshift(`Official PDF parsing failed: ${candidateResult.parserError}`);
-  }
-  const publication = choosePublishedSchedule({
-    validation,
-    candidate: officialCandidate,
-    communityReference,
-    previousRuntime,
-    sourceCheck,
-    officialFetchUsedFallback: officialPage.fallbackUsed || officialPdf.fallbackUsed
-  });
-
-  const publishedSchedule = publication.publishedSchedule;
   const sports = new Set(publishedSchedule.map((entry) => entry.sport).filter(Boolean));
 
   const nextRuntime = {
@@ -609,9 +733,9 @@ async function main() {
         kind: 'official',
         label: 'Official LA28 By Session PDF',
         description: 'Visual audit reference only; not used for machine parsing.',
-        url: OFFICIAL_SESSION_PDF_URL,
+        url: officialSessionPdfUrl,
         checkedAt,
-        fallbackUsed: false
+        fallbackUsed: officialPage.fallbackUsed
       },
       {
         id: 'community-la28-sheet',
@@ -626,10 +750,11 @@ async function main() {
         id: 'ioc-noc-list',
         kind: 'official',
         label: 'IOC NOC list authority',
-        description: 'Canonical authority URL for the maintained NOC registry snapshot.',
+        description:
+          'Canonical authority URL for the maintained NOC registry snapshot; the registry is curated rather than fetched on every refresh.',
         url: IOC_NOC_LIST_URL,
         checkedAt,
-        fallbackUsed: true
+        fallbackUsed: false
       }
     ],
     countries: countryRegistry,
@@ -652,7 +777,7 @@ async function main() {
       officialEventPdfUrl: officialPdfUrl,
       officialPageUrl: OFFICIAL_PAGE_URL,
       officialPdfHash: sourcePdfHash,
-      officialSessionPdfUrl: OFFICIAL_SESSION_PDF_URL,
+      officialSessionPdfUrl: officialSessionPdfUrl,
       officialSourceVersion: sourceVersion,
       officialValidation: validation,
       officialShadowSuccessStreak: publication.officialShadowSuccessStreak,
@@ -665,7 +790,8 @@ async function main() {
         retainedApprovedCount: retainedRecords.length
       },
       qualificationRejectedCount: qualificationResult.rejected.length,
-      qualificationReviewCount: qualificationResult.reviewQueue.filter((entry) => entry.resolution === 'pending').length,
+      qualificationReviewCount: qualificationResult.reviewQueue.filter((entry) => entry.resolution === 'pending')
+        .length,
       qualificationAutoRecordCount: ingestion.structuredRecords.length,
       qualificationSourceScanCount: ingestion.scans.filter((scan) => scan.format !== 'reference_only').length,
       qualificationReferenceSourceCount: ingestion.scans.filter((scan) => scan.format === 'reference_only').length,
@@ -729,8 +855,10 @@ async function main() {
     officialSourceVersion: sourceVersion,
     officialShadowSuccessStreak: publication.officialShadowSuccessStreak,
     officialFetchUsedFallback: officialPage.fallbackUsed || officialPdf.fallbackUsed,
-    officialLastSuccessfulAt: !officialPage.fallbackUsed && !officialPdf.fallbackUsed
-      ? checkedAt : sourceCheck.officialLastSuccessfulAt || null,
+    officialLastSuccessfulAt:
+      !officialPage.fallbackUsed && !officialPdf.fallbackUsed && validation.passed
+        ? checkedAt
+        : sourceCheck.officialLastSuccessfulAt || null,
     officialValidationPassed: validation.passed,
     officialValidationIssues: validation.issues,
     officialParserError: candidateResult.parserError,
@@ -740,6 +868,11 @@ async function main() {
   await Promise.all([
     writeJsonIfChanged(runtimePath, nextRuntime),
     writeJsonIfChanged(sourceCheckPath, nextSourceCheck),
+    // Only persist a snapshot that passed every publication gate. A transient
+    // 200 error page or a corrupt PDF must never replace the last good copy.
+    ...(validation.passed && !officialPdf.fallbackUsed
+      ? [writeBufferIfChanged(officialPdfSnapshotPath, officialPdf.body)]
+      : []),
     // Preserve the previous candidate artifact when no complete parse exists.
     ...(candidateResult.parserError ? [] : [writeJsonIfChanged(officialCandidatePath, officialCandidate)]),
     writeJsonIfChanged(communityReferencePath, communityReference),
@@ -754,7 +887,9 @@ async function main() {
     })
   ]);
 
-  console.log(`Updated Games28 runtime with ${publishedSchedule.length} published schedule entries (${publication.scheduleAuthority}).`);
+  console.log(
+    `Updated Games28 runtime with ${publishedSchedule.length} published schedule entries (${publication.scheduleAuthority}).`
+  );
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

@@ -5,7 +5,14 @@ import CountryDirectory from '../components/CountryDirectory.jsx';
 import useCountrySearchNoResults from '../hooks/useCountrySearchNoResults.js';
 import { formatCount } from '../lib/format.js';
 
-export default function CountriesView({ runtime, countryFilters, onCountryFiltersChange, countries, favorites, onToggleFavorite }) {
+export default function CountriesView({
+  runtime,
+  countryFilters,
+  onCountryFiltersChange,
+  countries,
+  favorites,
+  onToggleFavorite
+}) {
   const [visibleCountryCount, setVisibleCountryCount] = useState(48);
 
   useEffect(() => {
@@ -36,20 +43,22 @@ export default function CountriesView({ runtime, countryFilters, onCountryFilter
       <div className="section-intro">
         Pick a country to see its dashboard, save favorites, and follow qualification and schedule updates in one place.
       </div>
-      {savedCountries.length ? <div className="saved-countries-row saved-countries-row--editorial">
-        <div className="saved-countries-label">
-          <p className="eyebrow">Saved countries</p>
-          <span>{savedCountries.length} saved</span>
+      {savedCountries.length ? (
+        <div className="saved-countries-row saved-countries-row--editorial">
+          <div className="saved-countries-label">
+            <p className="eyebrow">Saved countries</p>
+            <span>{savedCountries.length} saved</span>
+          </div>
+          <div className="saved-countries-list">
+            {savedCountries.map((country) => (
+              <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
+                <CountryFlag country={country} size="sm" />
+                <span>{country.name}</span>
+              </AppLink>
+            ))}
+          </div>
         </div>
-        <div className="saved-countries-list">
-          {savedCountries.map((country) => (
-            <AppLink key={country.noc} href={`/countries/${country.noc}`} className="saved-country-chip">
-              <CountryFlag country={country} size="sm" />
-              <span>{country.name}</span>
-            </AppLink>
-          ))}
-        </div>
-      </div> : null}
+      ) : null}
       <div className="filters-grid countries-filter-grid">
         <label className="search-field">
           <span>Find a country</span>

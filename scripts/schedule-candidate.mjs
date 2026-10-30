@@ -25,7 +25,8 @@ export async function buildScheduleCandidate(pdf, options, previous = [], parse 
   try {
     const entries = preserveScheduleIds(await parse(pdf, options), previous);
     if (!entries.length) throw new Error('Official PDF produced no schedule entries');
-    if (new Set(entries.map(identity)).size !== entries.length) throw new Error('Duplicate session/event identities in official PDF');
+    if (new Set(entries.map(identity)).size !== entries.length)
+      throw new Error('Duplicate session/event identities in official PDF');
     return { entries, parserError: null };
   } catch (error) {
     return { entries: [], parserError: String(error?.message || error).slice(0, 500) };

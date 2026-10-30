@@ -6,7 +6,6 @@ import {
   createReviewCandidateFromCommunityReport,
   getCommunityReports,
   getReviewCandidates,
-  isSupabaseConfigured,
   requestAdminMagicLink,
   resolveCommunityReport,
   resolveReviewCandidate,
@@ -16,8 +15,19 @@ import { isAnalyticsDisabled, setAnalyticsDisabled } from '../lib/analytics.js';
 import { getQualificationEventOptions, getQualificationSportOptions } from '../lib/qualification-options.js';
 
 const EMPTY_DRAFT = {
-  noc: '', sport: '', disciplines: [], subjectType: 'noc_quota', state: 'allocated',
-  athleteName: '', teamName: '', quotaCount: '1', teamSizeMax: '', allocationRecordId: '', qualificationRoute: '', supersedesId: '', sourcePublishedAt: ''
+  noc: '',
+  sport: '',
+  disciplines: [],
+  subjectType: 'noc_quota',
+  state: 'allocated',
+  athleteName: '',
+  teamName: '',
+  quotaCount: '1',
+  teamSizeMax: '',
+  allocationRecordId: '',
+  qualificationRoute: '',
+  supersedesId: '',
+  sourcePublishedAt: ''
 };
 
 const SUBJECT_LABELS = {
@@ -55,11 +65,6 @@ const REPORT_CATEGORY_LABELS = {
   qualification_correction: 'Qualification correction',
   other: 'Other update'
 };
-
-function localCandidateUrl() {
-  const base = import.meta.env.VITE_DATA_BASE_URL || '';
-  return `${base.replace(/\/$/, '')}/qualification-ingestion.json` || '/qualification-ingestion.json';
-}
 
 function suggestedRecord(candidate) {
   return candidate?.suggested_record || candidate?.suggestedRecord || {};
@@ -102,13 +107,14 @@ function countryName(countries, noc) {
 
 function suggestedSubject(candidate, countries) {
   const suggested = suggestedRecord(candidate);
-  const subject = suggested.subjectType === 'team'
-    ? suggested.teamName
-    : suggested.subjectType === 'athlete'
-      ? suggested.athleteName
-      : suggested.quotaCount
-        ? `${suggested.quotaCount} ${suggested.quotaCount === 1 ? 'quota place' : 'quota places'}`
-        : 'Qualification record';
+  const subject =
+    suggested.subjectType === 'team'
+      ? suggested.teamName
+      : suggested.subjectType === 'athlete'
+        ? suggested.athleteName
+        : suggested.quotaCount
+          ? `${suggested.quotaCount} ${suggested.quotaCount === 1 ? 'quota place' : 'quota places'}`
+          : 'Qualification record';
   return `${countryName(countries, suggested.noc)} · ${subject || 'Qualification record'}`;
 }
 
@@ -127,66 +133,63 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   const [note, setNote] = useState('');
   const [analyticsDisabled, setAnalyticsDisabledState] = useState(() => isAnalyticsDisabled());
 
-  const liveQualificationCards = useMemo(() => reviewQuotaRecords(qualificationCards, candidates), [qualificationCards, candidates]);
+  const liveQualificationCards = useMemo(
+    () => reviewQuotaRecords(qualificationCards, candidates),
+    [qualificationCards, candidates]
+  );
 
   const candidatesByStatus = useMemo(
-    () => REVIEW_TABS.reduce((groups, tab) => ({
-      ...groups,
-      [tab.status]: candidates.filter((candidate) => candidate.status === tab.status)
-    }), {}),
+    () =>
+      REVIEW_TABS.reduce(
+        (groups, tab) => ({
+          ...groups,
+          [tab.status]: candidates.filter((candidate) => candidate.status === tab.status)
+        }),
+        /** @type {Record<string, any[]>} */ ({})
+      ),
     [candidates]
   );
   const visibleCandidates = candidatesByStatus[activeReviewTab] || [];
   const selectedCandidate = visibleCandidates.find((candidate) => candidate.id === selectedCandidateId) || null;
   const sportOptions = useMemo(() => getQualificationSportOptions(qualificationSources), [qualificationSources]);
   const communityReportsByStatus = useMemo(
-    () => COMMUNITY_REPORT_TABS.reduce((groups, tab) => ({
-      ...groups,
-      [tab.status]: communityReports.filter((report) => report.status === tab.status)
-    }), {}),
+    () =>
+      COMMUNITY_REPORT_TABS.reduce(
+        (groups, tab) => ({
+          ...groups,
+          [tab.status]: communityReports.filter((report) => report.status === tab.status)
+        }),
+        /** @type {Record<string, any[]>} */ ({})
+      ),
     [communityReports]
   );
   const visibleCommunityReports = communityReportsByStatus[activeCommunityReportTab] || [];
-  const selectedCommunityReport = visibleCommunityReports.find((report) => report.id === selectedCommunityReportId) || null;
+  const selectedCommunityReport =
+    visibleCommunityReports.find((report) => report.id === selectedCommunityReportId) || null;
 
   async function loadCandidates() {
     setIsLoading(true);
     try {
-      if (isSupabaseConfigured) {
-        const [reviewCandidates, reports] = await Promise.all([getReviewCandidates(), getCommunityReports()]);
-        setCandidates(reviewCandidates);
-        setCommunityReports(reports);
-        return reviewCandidates;
-      } else {
-        const response = await fetch(localCandidateUrl(), { headers: { 'cache-control': 'no-cache' } });
-        const artifact = response.ok ? await response.json() : { reviewQueue: [] };
-        setCandidates((artifact.reviewQueue || []).map((candidate) => ({
-          ...candidate,
-          status: candidate.resolution || 'pending',
-          detected_at: candidate.detectedAt,
-          extracted_evidence: candidate.extractedEvidence,
-          source_url: candidate.sourceUrl,
-          suggested_record: candidate.suggestedRecord || null
-        })));
-        setCommunityReports([]);
-      }
+      const [reviewCandidates, reports] = await Promise.all([getReviewCandidates(), getCommunityReports()]);
+      setCandidates(reviewCandidates);
+      setCommunityReports(reports);
+      return reviewCandidates;
     } catch (error) {
-      setMessage(error.message || 'Unable to load review candidates.');
+      console.error('Unable to load the private review queue.', error);
+      setMessage('Unable to load review candidates. Please try again.');
     } finally {
       setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    if (!isSupabaseConfigured) {
-      loadCandidates();
-      return;
-    }
-    getAdminSession().then(setSession).catch((error) => setMessage(error.message));
+    getAdminSession()
+      .then(setSession)
+      .catch((error) => setMessage(error.message));
   }, []);
 
   useEffect(() => {
-    if (session || !isSupabaseConfigured) loadCandidates();
+    if (session) loadCandidates();
   }, [session]);
 
   function selectCandidate(candidate) {
@@ -203,10 +206,13 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
 
   useEffect(() => {
     if (!selectedCandidate && visibleCandidates[0]) selectCandidate(visibleCandidates[0]);
+    // selectCandidate is intentionally stable for this selection reset.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeReviewTab, selectedCandidateId, visibleCandidates]);
 
   useEffect(() => {
     if (!selectedCommunityReport && visibleCommunityReports[0]) selectCommunityReport(visibleCommunityReports[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCommunityReportTab, selectedCommunityReportId, visibleCommunityReports]);
 
   async function requestLink(event) {
@@ -223,14 +229,28 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   }
 
   function buildConfirmationRecord(candidate) {
-    if (!draft.noc || !draft.sport || !draft.sourcePublishedAt) throw new Error('Confirm the country, sport, and official publication date before approving.');
-    if (draft.subjectType === 'athlete' && !draft.athleteName.trim()) throw new Error('Add the athlete name shown in the official source.');
-    if (draft.subjectType === 'team' && !draft.teamName.trim()) throw new Error('Add the team name shown in the official source.');
+    if (!draft.noc || !draft.sport || !draft.sourcePublishedAt)
+      throw new Error('Confirm the country, sport, and official publication date before approving.');
+    if (draft.subjectType === 'athlete' && !draft.athleteName.trim())
+      throw new Error('Add the athlete name shown in the official source.');
+    if (draft.subjectType === 'team' && !draft.teamName.trim())
+      throw new Error('Add the team name shown in the official source.');
     if (['athlete', 'team'].includes(draft.subjectType) && !NAMED_RECORD_STATES.has(draft.state)) {
-      throw new Error('A named athlete or team cannot be an allocated quota. Choose earned, selected, or entered — or change this to a country quota.');
+      throw new Error(
+        'A named athlete or team cannot be an allocated quota. Choose earned, selected, or entered — or change this to a country quota.'
+      );
     }
-    if (['noc_quota', 'team_quota'].includes(draft.subjectType) && (!Number.isInteger(Number(draft.quotaCount)) || Number(draft.quotaCount) < 1)) throw new Error('Quota places must be at least 1.');
-    if (draft.subjectType === 'team_quota' && draft.teamSizeMax && (!Number.isInteger(Number(draft.teamSizeMax)) || Number(draft.teamSizeMax) < 1)) throw new Error('Team size must be a positive whole number.');
+    if (
+      ['noc_quota', 'team_quota'].includes(draft.subjectType) &&
+      (!Number.isInteger(Number(draft.quotaCount)) || Number(draft.quotaCount) < 1)
+    )
+      throw new Error('Quota places must be at least 1.');
+    if (
+      draft.subjectType === 'team_quota' &&
+      draft.teamSizeMax &&
+      (!Number.isInteger(Number(draft.teamSizeMax)) || Number(draft.teamSizeMax) < 1)
+    )
+      throw new Error('Team size must be a positive whole number.');
     const record = {
       id: `approved-${candidate.id}`,
       reviewCandidateId: candidate.id,
@@ -290,9 +310,11 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     setIsLoading(true);
     try {
       await resolveCommunityReport({ id: report.id, status });
-      setMessage(status === 'review_later'
-        ? 'Moved to Review later. This stays private.'
-        : 'Dismissed. This report stays private and can be reopened later.');
+      setMessage(
+        status === 'review_later'
+          ? 'Moved to Review later. This stays private.'
+          : 'Dismissed. This report stays private and can be reopened later.'
+      );
       setSelectedCommunityReportId(null);
       await loadCandidates();
     } catch (error) {
@@ -318,7 +340,12 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         quotaCount: 1,
         sourcePublishedAt: ''
       };
-      const candidateId = await createReviewCandidateFromCommunityReport({ report, source, suggestedRecord, evidenceUrl });
+      const candidateId = await createReviewCandidateFromCommunityReport({
+        report,
+        source,
+        suggestedRecord,
+        evidenceUrl
+      });
       setSelectedCommunityReportId(null);
       setActiveReviewTab('pending');
       const refreshedCandidates = await loadCandidates();
@@ -337,17 +364,6 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
     }
   }
 
-  if (!isSupabaseConfigured) {
-    return (
-      <section className="panel page-section admin-console">
-        <p className="eyebrow">Private review console</p>
-        <h1>Review qualification evidence</h1>
-        <p>Supabase is not connected yet, so this read-only preview shows daily candidates from the local ingestion artifact. Approval controls unlock after secure owner login is configured.</p>
-        {candidates.length ? candidates.map((candidate) => <CandidateEvidence key={candidate.id} candidate={candidate} countries={countries} source={sourceFor(candidate, qualificationSources)} />) : <p className="supporting-copy">No review candidates are waiting right now.</p>}
-      </section>
-    );
-  }
-
   if (!session) {
     return (
       <section className="panel page-section admin-console">
@@ -357,9 +373,17 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         <form className="admin-login" onSubmit={requestLink}>
           <label>
             <span>Email address</span>
-            <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder="you@example.com" />
+            <input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              placeholder="you@example.com"
+            />
           </label>
-          <button className="button-primary" type="submit" disabled={isLoading}>Send secure sign-in link</button>
+          <button className="button-primary" type="submit" disabled={isLoading}>
+            Send secure sign-in link
+          </button>
         </form>
         {message ? <p className="supporting-copy">{message}</p> : null}
       </section>
@@ -372,20 +396,33 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
         <div>
           <p className="eyebrow">Private review console</p>
           <h1>Confirm qualification reports</h1>
-          <p>{candidatesByStatus.pending.length} waiting · {session.user.email}</p>
+          <p>
+            {candidatesByStatus.pending.length} waiting · {session.user.email}
+          </p>
         </div>
-        <button type="button" className="button-secondary" onClick={() => signOutAdmin().then(() => setSession(null))}>Sign out</button>
+        <button type="button" className="button-secondary" onClick={() => signOutAdmin().then(() => setSession(null))}>
+          Sign out
+        </button>
       </div>
       <section className="admin-how-it-works" aria-label="How to review a qualification report">
-        <p><strong>1. Check the official source.</strong> Open the link and verify the finding.</p>
-        <p><strong>2. Check the proposed record.</strong> It is pre-filled; edit only what the source clearly proves.</p>
-        <p><strong>3. Decide.</strong> Approve for the next daily publish, or reject so it stays private.</p>
+        <p>
+          <strong>1. Check the official source.</strong> Open the link and verify the finding.
+        </p>
+        <p>
+          <strong>2. Check the proposed record.</strong> It is pre-filled; edit only what the source clearly proves.
+        </p>
+        <p>
+          <strong>3. Decide.</strong> Approve for the next daily publish, or reject so it stays private.
+        </p>
       </section>
       <section className="admin-analytics-control" aria-label="Analytics preference for this browser">
         <div>
           <p className="eyebrow">Your testing browser</p>
           <h2>Exclude this browser from analytics</h2>
-          <p>When enabled, Games28 does not send page views or action events from this browser to Umami. Turning it on reloads once to apply the setting. Other visitors are unaffected.</p>
+          <p>
+            When enabled, Games28 does not send page views or action events from this browser to Umami. Turning it on
+            reloads once to apply the setting. Other visitors are unaffected.
+          </p>
         </div>
         <label className="analytics-toggle">
           <input
@@ -422,12 +459,18 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
       </div>
       {selectedCandidate ? (
         <div className="admin-review-layout">
-          <CandidateEvidence candidate={selectedCandidate} countries={countries} source={sourceFor(selectedCandidate, qualificationSources)} />
+          <CandidateEvidence
+            candidate={selectedCandidate}
+            countries={countries}
+            source={sourceFor(selectedCandidate, qualificationSources)}
+          />
           {activeReviewTab === 'rejected' ? (
-            <RejectedCandidateActions candidate={selectedCandidate} onReopen={() => resolve(selectedCandidate, 'pending')} />
+            <RejectedCandidateActions
+              candidate={selectedCandidate}
+              onReopen={() => resolve(selectedCandidate, 'pending')}
+            />
           ) : (
             <ReviewEditor
-              candidate={selectedCandidate}
               countries={countries}
               sportOptions={sportOptions}
               qualificationSources={qualificationSources}
@@ -446,18 +489,29 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
             />
           )}
         </div>
-      ) : !isLoading ? <p className="supporting-copy">No {REVIEW_TABS.find((tab) => tab.status === activeReviewTab)?.label.toLowerCase()} reports right now.</p> : null}
+      ) : !isLoading ? (
+        <p className="supporting-copy">
+          No {REVIEW_TABS.find((tab) => tab.status === activeReviewTab)?.label.toLowerCase()} reports right now.
+        </p>
+      ) : null}
       {visibleCandidates.length > 1 ? (
         <section className="admin-other-candidates">
           <p className="eyebrow">Other reports</p>
           <h2>Choose the next report to review</h2>
           <div className="admin-candidate-list">
-            {visibleCandidates.filter((candidate) => candidate.id !== selectedCandidate?.id).map((candidate) => (
-              <button type="button" className="admin-candidate-choice" key={candidate.id} onClick={() => selectCandidate(candidate)}>
-                <span>{suggestedSubject(candidate, countries)}</span>
-                <small>{sourceFor(candidate, qualificationSources)?.label || 'Official qualification report'}</small>
-              </button>
-            ))}
+            {visibleCandidates
+              .filter((candidate) => candidate.id !== selectedCandidate?.id)
+              .map((candidate) => (
+                <button
+                  type="button"
+                  className="admin-candidate-choice"
+                  key={candidate.id}
+                  onClick={() => selectCandidate(candidate)}
+                >
+                  <span>{suggestedSubject(candidate, countries)}</span>
+                  <small>{sourceFor(candidate, qualificationSources)?.label || 'Official qualification report'}</small>
+                </button>
+              ))}
           </div>
         </section>
       ) : null}
@@ -484,20 +538,42 @@ export default function AdminReviewConsole({ countries = [], qualificationSource
   );
 }
 
-function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport, activeTab, countries, qualificationSources, isLoading, onTabChange, onSelect, onReviewLater, onDismiss, onReopen, onConvert }) {
+function CommunityReportsPanel({
+  reportsByStatus,
+  visibleReports,
+  selectedReport,
+  activeTab,
+  countries,
+  qualificationSources,
+  isLoading,
+  onTabChange,
+  onSelect,
+  onReviewLater,
+  onDismiss,
+  onReopen,
+  onConvert
+}) {
   const [sourceId, setSourceId] = useState('');
   const [evidenceUrl, setEvidenceUrl] = useState('');
-  const relevantSources = useMemo(() => qualificationSources
-    .filter((source) => ['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier))
-    .filter((source) => !selectedReport?.sport || !source.sports?.length || source.sports.includes(selectedReport.sport))
-    .sort((left, right) => left.label.localeCompare(right.label)), [qualificationSources, selectedReport?.sport]);
+  const relevantSources = useMemo(
+    () =>
+      qualificationSources
+        .filter((source) => ['ioc', 'if', 'noc', 'national_federation'].includes(source.sourceTier))
+        .filter(
+          (source) => !selectedReport?.sport || !source.sports?.length || source.sports.includes(selectedReport.sport)
+        )
+        .sort((left, right) => left.label.localeCompare(right.label)),
+    [qualificationSources, selectedReport?.sport]
+  );
   const selectedSource = relevantSources.find((source) => source.id === sourceId) || null;
-  const canCreateQualificationCandidate = ['missing_qualification', 'qualification_correction'].includes(selectedReport?.category);
+  const canCreateQualificationCandidate = ['missing_qualification', 'qualification_correction'].includes(
+    selectedReport?.category
+  );
 
   useEffect(() => {
     setSourceId('');
     setEvidenceUrl(selectedReport?.source_url || '');
-  }, [selectedReport?.id]);
+  }, [selectedReport?.id, selectedReport?.source_url]);
 
   return (
     <section className="admin-community-reports" aria-label="Visitor reports">
@@ -505,12 +581,22 @@ function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport
         <div>
           <p className="eyebrow">Visitor reports</p>
           <h2>Community updates</h2>
-          <p>These are leads, not evidence. Nothing moves into the qualification queue until you choose an official source to check.</p>
+          <p>
+            These are leads, not evidence. Nothing moves into the qualification queue until you choose an official
+            source to check.
+          </p>
         </div>
       </div>
       <div className="admin-review-tabs" role="tablist" aria-label="Community report status">
         {COMMUNITY_REPORT_TABS.map((tab) => (
-          <button key={tab.status} type="button" role="tab" aria-selected={activeTab === tab.status} className={`admin-review-tab ${activeTab === tab.status ? 'active' : ''}`} onClick={() => onTabChange(tab.status)}>
+          <button
+            key={tab.status}
+            type="button"
+            role="tab"
+            aria-selected={activeTab === tab.status}
+            className={`admin-review-tab ${activeTab === tab.status ? 'active' : ''}`}
+            onClick={() => onTabChange(tab.status)}
+          >
             {tab.label} <span>{reportsByStatus[tab.status].length}</span>
           </button>
         ))}
@@ -522,59 +608,121 @@ function CommunityReportsPanel({ reportsByStatus, visibleReports, selectedReport
             <section className="admin-review-editor">
               <p className="eyebrow">In qualification review</p>
               <h2>Private candidate created</h2>
-              <p className="supporting-copy">This visitor report has been copied into the qualification review queue. Approve it there only after the official source proves the record.</p>
+              <p className="supporting-copy">
+                This visitor report has been copied into the qualification review queue. Approve it there only after the
+                official source proves the record.
+              </p>
             </section>
           ) : activeTab === 'rejected' ? (
             <section className="admin-review-editor">
               <p className="eyebrow">Dismissed report</p>
               <h2>Keep private or reopen</h2>
               <p className="supporting-copy">This report was not used. Reopen it if new official evidence appears.</p>
-              <div className="admin-actions"><button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Reopen report</button></div>
+              <div className="admin-actions">
+                <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>
+                  Reopen report
+                </button>
+              </div>
             </section>
           ) : canCreateQualificationCandidate ? (
             <section className="admin-review-editor">
               <p className="eyebrow">Check before creating a candidate</p>
               <h2>Choose an official source</h2>
-              <p className="supporting-copy">Use the visitor link as a lead only. Select the IOC, LA28, federation, or NOC source you will verify before this enters the qualification queue.</p>
+              <p className="supporting-copy">
+                Use the visitor link as a lead only. Select the IOC, LA28, federation, or NOC source you will verify
+                before this enters the qualification queue.
+              </p>
               <label>
                 <span>Official source to verify</span>
                 <select value={sourceId} onChange={(event) => setSourceId(event.target.value)}>
                   <option value="">Choose official source</option>
-                  {relevantSources.map((source) => <option key={source.id} value={source.id}>{source.label}</option>)}
+                  {relevantSources.map((source) => (
+                    <option key={source.id} value={source.id}>
+                      {source.label}
+                    </option>
+                  ))}
                 </select>
               </label>
               <label>
                 <span>Exact official evidence link</span>
-                <input type="url" value={evidenceUrl} onChange={(event) => setEvidenceUrl(event.target.value)} placeholder="https://official-source.org/article" />
-                <span className="supporting-copy">Keep the submitted article if it is official, or replace it with the official confirmation. This exact link stays with the review.</span>
+                <input
+                  type="url"
+                  value={evidenceUrl}
+                  onChange={(event) => setEvidenceUrl(event.target.value)}
+                  placeholder="https://official-source.org/article"
+                />
+                <span className="supporting-copy">
+                  Keep the submitted article if it is official, or replace it with the official confirmation. This exact
+                  link stays with the review.
+                </span>
               </label>
               <div className="admin-actions">
-                <button type="button" className="button-primary" disabled={isLoading || !selectedSource || !evidenceUrl.trim()} onClick={() => onConvert(selectedReport, selectedSource, evidenceUrl)}>Create qualification candidate</button>
-                {activeTab === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to new</button>}
-                <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>Dismiss report</button>
+                <button
+                  type="button"
+                  className="button-primary"
+                  disabled={isLoading || !selectedSource || !evidenceUrl.trim()}
+                  onClick={() => onConvert(selectedReport, selectedSource, evidenceUrl)}
+                >
+                  Create qualification candidate
+                </button>
+                {activeTab === 'pending' ? (
+                  <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>
+                    Review later
+                  </button>
+                ) : (
+                  <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>
+                    Return to new
+                  </button>
+                )}
+                <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>
+                  Dismiss report
+                </button>
               </div>
             </section>
           ) : (
             <section className="admin-review-editor">
               <p className="eyebrow">Schedule report</p>
               <h2>Check the official schedule</h2>
-              <p className="supporting-copy">Schedule reports are not qualification evidence. Check the official LA28 schedule and update the schedule pipeline only if it confirms a correction.</p>
+              <p className="supporting-copy">
+                Schedule reports are not qualification evidence. Check the official LA28 schedule and update the
+                schedule pipeline only if it confirms a correction.
+              </p>
               <div className="admin-actions">
-                {activeTab === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to new</button>}
-                <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>Dismiss report</button>
+                {activeTab === 'pending' ? (
+                  <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>
+                    Review later
+                  </button>
+                ) : (
+                  <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>
+                    Return to new
+                  </button>
+                )}
+                <button type="button" className="button-secondary" disabled={isLoading} onClick={onDismiss}>
+                  Dismiss report
+                </button>
               </div>
             </section>
           )}
         </div>
-      ) : <p className="supporting-copy">No {COMMUNITY_REPORT_TABS.find((tab) => tab.status === activeTab)?.label.toLowerCase()} visitor reports right now.</p>}
+      ) : (
+        <p className="supporting-copy">
+          No {COMMUNITY_REPORT_TABS.find((tab) => tab.status === activeTab)?.label.toLowerCase()} visitor reports right
+          now.
+        </p>
+      )}
       {visibleReports.length > 1 ? (
         <div className="admin-candidate-list">
-          {visibleReports.filter((report) => report.id !== selectedReport?.id).map((report) => (
-            <button type="button" className="admin-candidate-choice" key={report.id} onClick={() => onSelect(report)}>
-              <span>{REPORT_CATEGORY_LABELS[report.category] || 'Visitor report'}{report.noc ? ` · ${countryName(countries, report.noc)}` : ''}</span>
-              <small>{formatDate(report.created_at)}</small>
-            </button>
-          ))}
+          {visibleReports
+            .filter((report) => report.id !== selectedReport?.id)
+            .map((report) => (
+              <button type="button" className="admin-candidate-choice" key={report.id} onClick={() => onSelect(report)}>
+                <span>
+                  {REPORT_CATEGORY_LABELS[report.category] || 'Visitor report'}
+                  {report.noc ? ` · ${countryName(countries, report.noc)}` : ''}
+                </span>
+                <small>{formatDate(report.created_at)}</small>
+              </button>
+            ))}
         </div>
       ) : null}
     </section>
@@ -587,13 +735,32 @@ function CommunityReportCard({ report, countries }) {
       <p className="eyebrow">Visitor-submitted lead</p>
       <h2>{REPORT_CATEGORY_LABELS[report.category] || 'Visitor report'}</h2>
       <dl className="admin-evidence-summary">
-        <div><dt>Country</dt><dd>{report.noc ? countryName(countries, report.noc) : 'Not specified'}</dd></div>
-        <div><dt>Sport</dt><dd>{report.sport || 'Not specified'}</dd></div>
-        <div><dt>Submitted</dt><dd>{formatDate(report.created_at)}</dd></div>
+        <div>
+          <dt>Country</dt>
+          <dd>{report.noc ? countryName(countries, report.noc) : 'Not specified'}</dd>
+        </div>
+        <div>
+          <dt>Sport</dt>
+          <dd>{report.sport || 'Not specified'}</dd>
+        </div>
+        <div>
+          <dt>Submitted</dt>
+          <dd>{formatDate(report.created_at)}</dd>
+        </div>
       </dl>
-      <p className="admin-evidence-reason"><strong>What the visitor says:</strong> {report.details}</p>
-      {report.source_url ? <a className="button-secondary admin-source-link" href={report.source_url} target="_blank" rel="noreferrer">Open submitted link</a> : null}
-      {report.reporter_email ? <p className="admin-publish-note"><strong>Contact:</strong> {report.reporter_email}</p> : null}
+      <p className="admin-evidence-reason">
+        <strong>What the visitor says:</strong> {report.details}
+      </p>
+      {report.source_url ? (
+        <a className="button-secondary admin-source-link" href={report.source_url} target="_blank" rel="noreferrer">
+          Open submitted link
+        </a>
+      ) : null}
+      {report.reporter_email ? (
+        <p className="admin-publish-note">
+          <strong>Contact:</strong> {report.reporter_email}
+        </p>
+      ) : null}
     </article>
   );
 }
@@ -607,12 +774,32 @@ function CandidateEvidence({ candidate, countries, source }) {
       <p className="eyebrow">Step 1 · Official report found</p>
       <h2>{source?.label || 'Official qualification report'}</h2>
       <dl className="admin-evidence-summary">
-        <div><dt>What Games28 found</dt><dd>{suggestedSubject(candidate, countries)}</dd></div>
-        <div><dt>Sport</dt><dd>{suggested.sport || source?.sport || 'Not supplied'}{suggested.disciplines?.length ? ` · ${suggested.disciplines.join(', ')}` : ''}</dd></div>
-        <div><dt>Officially published</dt><dd>{suggested.sourcePublishedAt ? formatDate(suggested.sourcePublishedAt) : 'Verify the official publication date'}</dd></div>
+        <div>
+          <dt>What Games28 found</dt>
+          <dd>{suggestedSubject(candidate, countries)}</dd>
+        </div>
+        <div>
+          <dt>Sport</dt>
+          <dd>
+            {suggested.sport || source?.sport || 'Not supplied'}
+            {suggested.disciplines?.length ? ` · ${suggested.disciplines.join(', ')}` : ''}
+          </dd>
+        </div>
+        <div>
+          <dt>Officially published</dt>
+          <dd>
+            {suggested.sourcePublishedAt
+              ? formatDate(suggested.sourcePublishedAt)
+              : 'Verify the official publication date'}
+          </dd>
+        </div>
       </dl>
-      <p className="admin-evidence-reason"><strong>Why you are seeing this:</strong> {candidate.reason}</p>
-      <a className="button-secondary admin-source-link" href={sourceUrl} target="_blank" rel="noreferrer">Open official source</a>
+      <p className="admin-evidence-reason">
+        <strong>Why you are seeing this:</strong> {candidate.reason}
+      </p>
+      <a className="button-secondary admin-source-link" href={sourceUrl} target="_blank" rel="noreferrer">
+        Open official source
+      </a>
       <details className="admin-evidence-details">
         <summary>Read the extracted evidence</summary>
         <blockquote>{evidence}</blockquote>
@@ -621,7 +808,23 @@ function CandidateEvidence({ candidate, countries, source }) {
   );
 }
 
-function ReviewEditor({ candidate, countries, sportOptions, qualificationSources, qualificationCards, source, draft, isLoading, note, reviewStatus, onChange, onNoteChange, onApprove, onReject, onReviewLater, onReopen }) {
+function ReviewEditor({
+  countries,
+  sportOptions,
+  qualificationSources,
+  qualificationCards,
+  source,
+  draft,
+  isLoading,
+  note,
+  reviewStatus,
+  onChange,
+  onNoteChange,
+  onApprove,
+  onReject,
+  onReviewLater,
+  onReopen
+}) {
   const update = (changes) => onChange({ ...draft, ...changes });
   const qualificationEventOptions = useMemo(
     () => getQualificationEventOptions(qualificationSources, draft.sport, source?.id),
@@ -630,39 +833,84 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
   const currentDiscipline = draft.disciplines.length === 1 ? draft.disciplines[0] : '';
   const hasCurrentSportOption = sportOptions.includes(draft.sport);
   const hasCurrentDisciplineOption = qualificationEventOptions.some((entry) => entry.label === currentDiscipline);
-  const allocationOptions = useMemo(() => qualificationCards.filter(card => !quotaLinkProblem({
-    ...draft, canonicalEventKey: resolveCanonicalQualificationEvent(draft, qualificationSources)?.key || null
-  }, card, { requireCanonicalEvent: true })), [qualificationCards, draft, qualificationSources]);
+  const allocationOptions = useMemo(
+    () =>
+      qualificationCards.filter(
+        (card) =>
+          !quotaLinkProblem(
+            {
+              ...draft,
+              canonicalEventKey: resolveCanonicalQualificationEvent(draft, qualificationSources)?.key || null
+            },
+            card,
+            { requireCanonicalEvent: true }
+          )
+      ),
+    [qualificationCards, draft, qualificationSources]
+  );
   return (
     <section className="admin-review-editor">
       <p className="eyebrow">Step 2 · Check the record</p>
       <h2>What will be published</h2>
-      <p className="supporting-copy">These fields are pre-filled from the report. Edit only details the official source makes explicit. Qualification choices are separate from LA28 schedule sessions.</p>
-      {draft.supersedesId ? <p className="admin-publish-note"><strong>Correction:</strong> approving this record replaces a previously published record that used the wrong qualification type.</p> : null}
+      <p className="supporting-copy">
+        These fields are pre-filled from the report. Edit only details the official source makes explicit. Qualification
+        choices are separate from LA28 schedule sessions.
+      </p>
+      {draft.supersedesId ? (
+        <p className="admin-publish-note">
+          <strong>Correction:</strong> approving this record replaces a previously published record that used the wrong
+          qualification type.
+        </p>
+      ) : null}
       <label>
         <span>Country</span>
         <select value={draft.noc} onChange={(event) => update({ noc: event.target.value })}>
           <option value="">Choose country</option>
-          {countries.map((country) => <option key={country.noc} value={country.noc}>{country.name} ({country.noc})</option>)}
+          {countries.map((country) => (
+            <option key={country.noc} value={country.noc}>
+              {country.name} ({country.noc})
+            </option>
+          ))}
         </select>
       </label>
       <label>
         <span>Qualification sport</span>
         <select value={draft.sport} onChange={(event) => update({ sport: event.target.value, disciplines: [] })}>
           <option value="">Choose sport</option>
-          {draft.sport && !hasCurrentSportOption ? <option value={draft.sport}>Current value: {draft.sport}</option> : null}
-          {sportOptions.map((sport) => <option key={sport} value={sport}>{sport}</option>)}
+          {draft.sport && !hasCurrentSportOption ? (
+            <option value={draft.sport}>Current value: {draft.sport}</option>
+          ) : null}
+          {sportOptions.map((sport) => (
+            <option key={sport} value={sport}>
+              {sport}
+            </option>
+          ))}
         </select>
-        <small>Choose the qualification system, not a schedule label. For example, select Boxing rather than a preliminary or final stage.</small>
+        <small>
+          Choose the qualification system, not a schedule label. For example, select Boxing rather than a preliminary or
+          final stage.
+        </small>
       </label>
       <label>
         <span>Qualification event or discipline</span>
-        <select value={currentDiscipline} onChange={(event) => update({ disciplines: event.target.value ? [event.target.value] : [] })} disabled={!draft.sport}>
+        <select
+          value={currentDiscipline}
+          onChange={(event) => update({ disciplines: event.target.value ? [event.target.value] : [] })}
+          disabled={!draft.sport}
+        >
           <option value="">No event specified in the official source</option>
-          {currentDiscipline && !hasCurrentDisciplineOption ? <option value={currentDiscipline}>Current value: {currentDiscipline}</option> : null}
-          {qualificationEventOptions.map((event) => <option key={event.key} value={event.label}>{event.label}</option>)}
+          {currentDiscipline && !hasCurrentDisciplineOption ? (
+            <option value={currentDiscipline}>Current value: {currentDiscipline}</option>
+          ) : null}
+          {qualificationEventOptions.map((event) => (
+            <option key={event.key} value={event.label}>
+              {event.label}
+            </option>
+          ))}
         </select>
-        <small>These are the common curated choices. They are qualification events, never LA28 heats, finals, or sessions.</small>
+        <small>
+          These are the common curated choices. They are qualification events, never LA28 heats, finals, or sessions.
+        </small>
       </label>
       <label>
         <span>Exact official event or discipline (if not listed above)</span>
@@ -672,7 +920,10 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
           disabled={!draft.sport}
           placeholder="Type the exact label used by the official source"
         />
-        <small>Use this when the official source names a specific event not yet in the list. Leave it blank only when the source truly does not specify an event.</small>
+        <small>
+          Use this when the official source names a specific event not yet in the list. Leave it blank only when the
+          source truly does not specify an event.
+        </small>
       </label>
       <div className="admin-form-row">
         <label>
@@ -689,45 +940,148 @@ function ReviewEditor({ candidate, countries, sportOptions, qualificationSources
           <span>Qualification outcome</span>
           <select value={draft.state} onChange={(event) => update({ state: event.target.value })}>
             {Object.entries(STATE_LABELS).map(([value, label]) => (
-              <option key={value} value={value} disabled={['athlete', 'team'].includes(draft.subjectType) && value === 'allocated'}>{label}</option>
+              <option
+                key={value}
+                value={value}
+                disabled={['athlete', 'team'].includes(draft.subjectType) && value === 'allocated'}
+              >
+                {label}
+              </option>
             ))}
           </select>
           <small>{STATE_LABELS[draft.state]}</small>
         </label>
       </div>
-      {['athlete', 'team'].includes(draft.subjectType) && draft.state === 'allocated' ? <p className="admin-publish-note"><strong>Fix needed:</strong> an allocated place belongs to a country quota, not a named athlete or team. Choose <em>Country team quota</em> for a qualified national team, or use earned, selected, or entered only when the official source names the people or pair.</p> : null}
-      {draft.subjectType === 'noc_quota' ? <label><span>Confirmed individual quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label> : null}
-      {draft.subjectType === 'team_quota' ? <div className="admin-form-row">
-        <label><span>Confirmed team quota places</span><input type="number" min="1" value={draft.quotaCount} onChange={(event) => update({ quotaCount: event.target.value })} /></label>
-        <label><span>Maximum athletes in each team (optional)</span><input type="number" min="1" value={draft.teamSizeMax} onChange={(event) => update({ teamSizeMax: event.target.value })} /></label>
-      </div> : null}
-      {draft.subjectType === 'athlete' ? <label><span>Confirmed athlete name</span><input value={draft.athleteName} onChange={(event) => update({ athleteName: event.target.value })} /></label> : null}
-      {draft.subjectType === 'team' ? <label><span>Confirmed team or pair name</span><input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} /><small>Use only when the source names a specific roster or pair, such as “Katja Stam and Raïsa Schoon”. A country team that merely qualified is a Country team quota.</small></label> : null}
-      {['athlete', 'team'].includes(draft.subjectType) ? <label>
-        <span>{draft.subjectType === 'athlete' ? 'Which quota does this athlete fill? (optional)' : 'Which quota does this team fill? (optional)'}</span>
-        <select value={draft.allocationRecordId} onChange={(event) => update({ allocationRecordId: event.target.value })}>
-          <option value="">No link — this source directly qualifies or names them</option>
-          {draft.allocationRecordId && !allocationOptions.some(card => card.id === draft.allocationRecordId) ? <option value={draft.allocationRecordId} disabled>Previous quota link needs review</option> : null}
-          {allocationOptions.map((card) => <option key={card.id} value={card.id}>{card.name}{card.disciplines?.length ? ` · ${card.disciplines.join(', ')}` : ''}</option>)}
-        </select>
-        <small>Use this when a federation names people for a quota Games28 already tracks. The quota stays visible; this shows who fills it.</small>
-        {!allocationOptions.length ? <small>No matching quota is available. Both records need the same verified event, country, and quota type. If an older quota has no verified event, correct that quota first rather than guessing a link.</small> : null}
-      </label> : null}
+      {['athlete', 'team'].includes(draft.subjectType) && draft.state === 'allocated' ? (
+        <p className="admin-publish-note">
+          <strong>Fix needed:</strong> an allocated place belongs to a country quota, not a named athlete or team.
+          Choose <em>Country team quota</em> for a qualified national team, or use earned, selected, or entered only
+          when the official source names the people or pair.
+        </p>
+      ) : null}
+      {draft.subjectType === 'noc_quota' ? (
+        <label>
+          <span>Confirmed individual quota places</span>
+          <input
+            type="number"
+            min="1"
+            value={draft.quotaCount}
+            onChange={(event) => update({ quotaCount: event.target.value })}
+          />
+        </label>
+      ) : null}
+      {draft.subjectType === 'team_quota' ? (
+        <div className="admin-form-row">
+          <label>
+            <span>Confirmed team quota places</span>
+            <input
+              type="number"
+              min="1"
+              value={draft.quotaCount}
+              onChange={(event) => update({ quotaCount: event.target.value })}
+            />
+          </label>
+          <label>
+            <span>Maximum athletes in each team (optional)</span>
+            <input
+              type="number"
+              min="1"
+              value={draft.teamSizeMax}
+              onChange={(event) => update({ teamSizeMax: event.target.value })}
+            />
+          </label>
+        </div>
+      ) : null}
+      {draft.subjectType === 'athlete' ? (
+        <label>
+          <span>Confirmed athlete name</span>
+          <input value={draft.athleteName} onChange={(event) => update({ athleteName: event.target.value })} />
+        </label>
+      ) : null}
+      {draft.subjectType === 'team' ? (
+        <label>
+          <span>Confirmed team or pair name</span>
+          <input value={draft.teamName} onChange={(event) => update({ teamName: event.target.value })} />
+          <small>
+            Use only when the source names a specific roster or pair, such as “Katja Stam and Raïsa Schoon”. A country
+            team that merely qualified is a Country team quota.
+          </small>
+        </label>
+      ) : null}
+      {['athlete', 'team'].includes(draft.subjectType) ? (
+        <label>
+          <span>
+            {draft.subjectType === 'athlete'
+              ? 'Which quota does this athlete fill? (optional)'
+              : 'Which quota does this team fill? (optional)'}
+          </span>
+          <select
+            value={draft.allocationRecordId}
+            onChange={(event) => update({ allocationRecordId: event.target.value })}
+          >
+            <option value="">No link — this source directly qualifies or names them</option>
+            {draft.allocationRecordId && !allocationOptions.some((card) => card.id === draft.allocationRecordId) ? (
+              <option value={draft.allocationRecordId} disabled>
+                Previous quota link needs review
+              </option>
+            ) : null}
+            {allocationOptions.map((card) => (
+              <option key={card.id} value={card.id}>
+                {card.name}
+                {card.disciplines?.length ? ` · ${card.disciplines.join(', ')}` : ''}
+              </option>
+            ))}
+          </select>
+          <small>
+            Use this when a federation names people for a quota Games28 already tracks. The quota stays visible; this
+            shows who fills it.
+          </small>
+          {!allocationOptions.length ? (
+            <small>
+              No matching quota is available. Both records need the same verified event, country, and quota type. If an
+              older quota has no verified event, correct that quota first rather than guessing a link.
+            </small>
+          ) : null}
+        </label>
+      ) : null}
       <label>
         <span>Official announcement date</span>
-        <input type="date" value={draft.sourcePublishedAt} onChange={(event) => update({ sourcePublishedAt: event.target.value })} />
+        <input
+          type="date"
+          value={draft.sourcePublishedAt}
+          onChange={(event) => update({ sourcePublishedAt: event.target.value })}
+        />
       </label>
       <label>
         <span>Optional review note</span>
-        <input value={note} onChange={(event) => onNoteChange(event.target.value)} placeholder="Optional: why this is safe to publish" />
+        <input
+          value={note}
+          onChange={(event) => onNoteChange(event.target.value)}
+          placeholder="Optional: why this is safe to publish"
+        />
       </label>
       <div className="admin-actions">
-        <button type="button" className="button-primary" disabled={isLoading} onClick={onApprove}>Approve for next daily publish</button>
-        {reviewStatus === 'pending' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>Review later</button> : null}
-        {reviewStatus === 'review_later' ? <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>Return to waiting</button> : null}
-        <button type="button" className="button-secondary" disabled={isLoading} onClick={onReject}>Reject — do not publish</button>
+        <button type="button" className="button-primary" disabled={isLoading} onClick={onApprove}>
+          Approve for next daily publish
+        </button>
+        {reviewStatus === 'pending' ? (
+          <button type="button" className="button-secondary" disabled={isLoading} onClick={onReviewLater}>
+            Review later
+          </button>
+        ) : null}
+        {reviewStatus === 'review_later' ? (
+          <button type="button" className="button-secondary" disabled={isLoading} onClick={onReopen}>
+            Return to waiting
+          </button>
+        ) : null}
+        <button type="button" className="button-secondary" disabled={isLoading} onClick={onReject}>
+          Reject — do not publish
+        </button>
       </div>
-      <p className="admin-publish-note"><strong>Step 3:</strong> Approval adds this to the next daily data refresh. It does not make a prediction or name anyone beyond the official source.</p>
+      <p className="admin-publish-note">
+        <strong>Step 3:</strong> Approval adds this to the next daily data refresh. It does not make a prediction or
+        name anyone beyond the official source.
+      </p>
     </section>
   );
 }
@@ -737,10 +1091,19 @@ function RejectedCandidateActions({ candidate, onReopen }) {
     <section className="admin-review-editor">
       <p className="eyebrow">Rejected report</p>
       <h2>Keep private or reopen</h2>
-      <p className="supporting-copy">This report is not public and will not be included in the daily publish. Reopen it only when you want to review the official evidence again.</p>
-      {candidate.resolution_note || candidate.resolutionNote ? <p className="admin-publish-note"><strong>Previous note:</strong> {candidate.resolution_note || candidate.resolutionNote}</p> : null}
+      <p className="supporting-copy">
+        This report is not public and will not be included in the daily publish. Reopen it only when you want to review
+        the official evidence again.
+      </p>
+      {candidate.resolution_note || candidate.resolutionNote ? (
+        <p className="admin-publish-note">
+          <strong>Previous note:</strong> {candidate.resolution_note || candidate.resolutionNote}
+        </p>
+      ) : null}
       <div className="admin-actions">
-        <button type="button" className="button-secondary" onClick={onReopen}>Reopen for review</button>
+        <button type="button" className="button-secondary" onClick={onReopen}>
+          Reopen for review
+        </button>
       </div>
     </section>
   );

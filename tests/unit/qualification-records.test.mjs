@@ -9,14 +9,20 @@ import {
 } from '../../scripts/qualification-records.mjs';
 import { buildQualificationSystemIndex, toQualificationSources } from '../../scripts/qualification-systems.mjs';
 import { buildCountrySelectionRegistry, toCountrySelectionSources } from '../../scripts/country-selection-registry.mjs';
-import { approvedRecordsFromRuntime, retainedApprovedRecords } from '../../scripts/update-data.mjs';
+import {
+  approvedRecordsFromRuntime,
+  fetchApprovedReviewQueue,
+  retainedApprovedRecords
+} from '../../scripts/update-data.mjs';
 
-const sources = [{
-  id: 'if-example',
-  sourceTier: 'if',
-  sport: 'Cycling',
-  allocationUrl: 'https://example.org/la28-allocations'
-}];
+const sources = [
+  {
+    id: 'if-example',
+    sourceTier: 'if',
+    sport: 'Cycling',
+    allocationUrl: 'https://example.org/la28-allocations'
+  }
+];
 
 function record(overrides = {}) {
   return {
@@ -36,18 +42,21 @@ function record(overrides = {}) {
 }
 
 test('normalizes confirmed quota and named qualification records', () => {
-  const result = normalizeQualificationRecords([
-    record(),
-    record({
-      id: 'ned-cyclist',
-      subjectType: 'athlete',
-      state: 'selected',
-      athleteName: 'Example Rider',
-      quotaCount: null,
-      sourcePublishedAt: '2028-06-01T00:00:00.000Z',
-      verifiedAt: '2028-06-01T06:00:00.000Z'
-    })
-  ], sources);
+  const result = normalizeQualificationRecords(
+    [
+      record(),
+      record({
+        id: 'ned-cyclist',
+        subjectType: 'athlete',
+        state: 'selected',
+        athleteName: 'Example Rider',
+        quotaCount: null,
+        sourcePublishedAt: '2028-06-01T00:00:00.000Z',
+        verifiedAt: '2028-06-01T06:00:00.000Z'
+      })
+    ],
+    sources
+  );
 
   assert.equal(result.rejected.length, 0);
   const cards = toQualificationCards(result.records);
@@ -57,17 +66,20 @@ test('normalizes confirmed quota and named qualification records', () => {
 });
 
 test('keeps an unnamed country team quota distinct from a named team', () => {
-  const result = normalizeQualificationRecords([
-    record({
-      id: 'ger-dressage-team-quota',
-      sport: 'Equestrian',
-      disciplines: ['Dressage - Team'],
-      subjectType: 'team_quota',
-      state: 'allocated',
-      quotaCount: 1,
-      teamSizeMax: 3
-    })
-  ], sources);
+  const result = normalizeQualificationRecords(
+    [
+      record({
+        id: 'ger-dressage-team-quota',
+        sport: 'Equestrian',
+        disciplines: ['Dressage - Team'],
+        subjectType: 'team_quota',
+        state: 'allocated',
+        quotaCount: 1,
+        teamSizeMax: 3
+      })
+    ],
+    sources
+  );
 
   assert.equal(result.rejected.length, 0);
   const [card] = toQualificationCards(result.records);
@@ -78,25 +90,32 @@ test('keeps an unnamed country team quota distinct from a named team', () => {
 });
 
 test('an NOC-owned quota source cannot publish its winning pair as the selected Olympic team', () => {
-  const sourceList = [{
-    ...sources[0],
-    id: 'if-beach-continental',
-    sport: 'Beach Volleyball',
-    allocationRecipient: 'noc',
-    defaultQuotaCount: 1,
-    defaultTeamSizeMax: 2
-  }];
-  const result = normalizeQualificationRecords([record({
-    id: 'legacy-winning-pair',
-    sourceId: 'if-beach-continental',
-    sourceUrl: 'https://example.org/la28-allocations',
-    sport: 'Beach Volleyball',
-    disciplines: ["Beach Volleyball - Women's tournament"],
-    subjectType: 'team',
-    teamName: 'Example Winners',
-    quotaCount: null,
-    state: 'earned'
-  })], sourceList);
+  const sourceList = [
+    {
+      ...sources[0],
+      id: 'if-beach-continental',
+      sport: 'Beach Volleyball',
+      allocationRecipient: 'noc',
+      defaultQuotaCount: 1,
+      defaultTeamSizeMax: 2
+    }
+  ];
+  const result = normalizeQualificationRecords(
+    [
+      record({
+        id: 'legacy-winning-pair',
+        sourceId: 'if-beach-continental',
+        sourceUrl: 'https://example.org/la28-allocations',
+        sport: 'Beach Volleyball',
+        disciplines: ["Beach Volleyball - Women's tournament"],
+        subjectType: 'team',
+        teamName: 'Example Winners',
+        quotaCount: null,
+        state: 'earned'
+      })
+    ],
+    sourceList
+  );
 
   assert.equal(result.rejected.length, 0);
   assert.equal(result.records[0].subjectType, 'team_quota');
@@ -107,19 +126,31 @@ test('an NOC-owned quota source cannot publish its winning pair as the selected 
 });
 
 test('normalizes qualification aliases to one canonical event identity', () => {
-  const volleyballSources = [{
-    id: 'if-volleyball', sourceTier: 'if', sport: 'Volleyball',
-    allocationUrl: 'https://example.org/la28-allocations',
-    qualificationSystemKey: 'volleyball',
-    qualificationEvents: [
-      { key: 'beach-women', label: "Beach Volleyball - Women's tournament", sports: ['Beach Volleyball'] },
-      { key: 'indoor-women', label: "Volleyball - Women's tournament", sports: ['Volleyball'] }
-    ]
-  }];
-  const result = normalizeQualificationRecords([
-    record({ id: 'ned-beach', sport: 'Beach Volleyball', disciplines: ["Women's beach volleyball"], sourceId: 'if-volleyball' }),
-    record({ id: 'can-indoor', sport: 'Volleyball', disciplines: ["Women's tournament"], sourceId: 'if-volleyball' })
-  ], volleyballSources);
+  const volleyballSources = [
+    {
+      id: 'if-volleyball',
+      sourceTier: 'if',
+      sport: 'Volleyball',
+      allocationUrl: 'https://example.org/la28-allocations',
+      qualificationSystemKey: 'volleyball',
+      qualificationEvents: [
+        { key: 'beach-women', label: "Beach Volleyball - Women's tournament", sports: ['Beach Volleyball'] },
+        { key: 'indoor-women', label: "Volleyball - Women's tournament", sports: ['Volleyball'] }
+      ]
+    }
+  ];
+  const result = normalizeQualificationRecords(
+    [
+      record({
+        id: 'ned-beach',
+        sport: 'Beach Volleyball',
+        disciplines: ["Women's beach volleyball"],
+        sourceId: 'if-volleyball'
+      }),
+      record({ id: 'can-indoor', sport: 'Volleyball', disciplines: ["Women's tournament"], sourceId: 'if-volleyball' })
+    ],
+    volleyballSources
+  );
 
   assert.equal(result.rejected.length, 0);
   assert.equal(result.records[0].canonicalEventKey, 'volleyball:beach-women');
@@ -128,12 +159,20 @@ test('normalizes qualification aliases to one canonical event identity', () => {
 });
 
 test('rejects a qualified national team incorrectly entered as a named team', () => {
-  const result = normalizeQualificationRecords([
-    record({
-      id: 'aus-cricket-team', sport: 'Cricket', disciplines: ["Women's T20 tournament"],
-      subjectType: 'team', state: 'allocated', teamName: "Australia women's cricket team", quotaCount: null
-    })
-  ], sources);
+  const result = normalizeQualificationRecords(
+    [
+      record({
+        id: 'aus-cricket-team',
+        sport: 'Cricket',
+        disciplines: ["Women's T20 tournament"],
+        subjectType: 'team',
+        state: 'allocated',
+        teamName: "Australia women's cricket team",
+        quotaCount: null
+      })
+    ],
+    sources
+  );
 
   assert.equal(result.records.length, 0);
   assert.match(result.rejected[0].problems.join(' '), /allocated places must use a quota record/);
@@ -141,12 +180,23 @@ test('rejects a qualified national team incorrectly entered as a named team', ()
 });
 
 test('keeps a country quota visible when a later named athlete is linked to it', () => {
-  const result = buildQualificationPipeline({
-    structuredRecords: [
-      record({ id: 'ned-road-quota', recordKey: 'ned-road-quota', quotaCount: 1 }),
-      record({ id: 'ned-rider', recordKey: 'ned-rider', subjectType: 'athlete', athleteName: 'Example Rider', quotaCount: null, state: 'selected', allocationRecordId: 'ned-road-quota' })
-    ]
-  }, sources);
+  const result = buildQualificationPipeline(
+    {
+      structuredRecords: [
+        record({ id: 'ned-road-quota', recordKey: 'ned-road-quota', quotaCount: 1 }),
+        record({
+          id: 'ned-rider',
+          recordKey: 'ned-rider',
+          subjectType: 'athlete',
+          athleteName: 'Example Rider',
+          quotaCount: null,
+          state: 'selected',
+          allocationRecordId: 'ned-road-quota'
+        })
+      ]
+    },
+    sources
+  );
 
   assert.equal(result.activeRecords.length, 2);
   const namedCard = toQualificationCards(result.activeRecords).find((card) => card.id === 'ned-rider');
@@ -164,44 +214,73 @@ test('only removes an approved review after Supabase explicitly changes its stat
   const previousRuntime = { qualificationHistory: [approved] };
 
   assert.equal(retainedApprovedRecords(previousRuntime, { available: true, statusesById: {} }).length, 1);
-  assert.equal(retainedApprovedRecords(previousRuntime, { available: true, statusesById: { 'candidate-1': 'approved' } }).length, 0);
-  assert.equal(retainedApprovedRecords(previousRuntime, { available: true, statusesById: { 'candidate-1': 'rejected' } }).length, 0);
+  assert.equal(
+    retainedApprovedRecords(previousRuntime, { available: true, statusesById: { 'candidate-1': 'approved' } }).length,
+    0
+  );
+  assert.equal(
+    retainedApprovedRecords(previousRuntime, { available: true, statusesById: { 'candidate-1': 'rejected' } }).length,
+    0
+  );
 });
 
 test('rejects predictions, untrusted sources, and undated records', () => {
-  const result = normalizeQualificationRecords([
-    record({
-      id: 'prediction',
-      subjectType: 'athlete',
-      state: 'predicted',
-      athleteName: 'No Guessing',
-      quotaCount: null,
-      sourceTier: 'media',
-      sourceUrl: 'https://example.net/article',
-      sourcePublishedAt: null,
-      verifiedAt: null
-    }),
-    record({
-      id: 'unconfirmed-name',
-      subjectType: 'athlete',
-      athleteName: null,
-      quotaCount: null
-    })
-  ], sources);
+  const result = normalizeQualificationRecords(
+    [
+      record({
+        id: 'prediction',
+        subjectType: 'athlete',
+        state: 'predicted',
+        athleteName: 'No Guessing',
+        quotaCount: null,
+        sourceTier: 'media',
+        sourceUrl: 'https://example.net/article',
+        sourcePublishedAt: null,
+        verifiedAt: null
+      }),
+      record({
+        id: 'unconfirmed-name',
+        subjectType: 'athlete',
+        athleteName: null,
+        quotaCount: null
+      })
+    ],
+    sources
+  );
 
   assert.equal(result.records.length, 0);
   assert.equal(result.rejected.length, 2);
 });
 
 test('keeps lifecycle history but publishes the strongest active record', () => {
-  const result = buildQualificationPipeline({
-    structuredRecords: [
-      record({ id: 'quota', recordKey: 'ned-cycling-road', state: 'allocated' }),
-      record({ id: 'selected', recordKey: 'ned-cycling-road', subjectType: 'athlete', athleteName: 'Example Rider', quotaCount: null, state: 'selected', verifiedAt: '2028-06-01T00:00:00.000Z' }),
-      record({ id: 'entered', recordKey: 'ned-cycling-road', subjectType: 'athlete', athleteName: 'Example Rider', quotaCount: null, state: 'entered', supersedesId: 'selected', verifiedAt: '2028-07-01T00:00:00.000Z' }),
-      record({ id: 'withdrawn', recordKey: 'ned-cycling-withdrawn', state: 'withdrawn', quotaCount: null })
-    ]
-  }, sources);
+  const result = buildQualificationPipeline(
+    {
+      structuredRecords: [
+        record({ id: 'quota', recordKey: 'ned-cycling-road', state: 'allocated' }),
+        record({
+          id: 'selected',
+          recordKey: 'ned-cycling-road',
+          subjectType: 'athlete',
+          athleteName: 'Example Rider',
+          quotaCount: null,
+          state: 'selected',
+          verifiedAt: '2028-06-01T00:00:00.000Z'
+        }),
+        record({
+          id: 'entered',
+          recordKey: 'ned-cycling-road',
+          subjectType: 'athlete',
+          athleteName: 'Example Rider',
+          quotaCount: null,
+          state: 'entered',
+          supersedesId: 'selected',
+          verifiedAt: '2028-07-01T00:00:00.000Z'
+        }),
+        record({ id: 'withdrawn', recordKey: 'ned-cycling-withdrawn', state: 'withdrawn', quotaCount: null })
+      ]
+    },
+    sources
+  );
 
   assert.equal(result.history.length, 4);
   assert.equal(result.activeRecords.length, 1);
@@ -209,27 +288,36 @@ test('keeps lifecycle history but publishes the strongest active record', () => 
 });
 
 test('queues prose evidence until a reviewer approves a valid confirmation record', () => {
-  const result = buildQualificationPipeline({
-    reviewQueue: [
-      {
-        id: 'official-news',
-        resolution: 'pending',
-        detectedAt: '2028-05-01T00:00:00.000Z',
-        sourceUrl: 'https://example.org/news',
-        extractedEvidence: 'The federation announced a selection.',
-        reason: 'Official prose requires human confirmation.'
-      },
-      {
-        id: 'approved-news',
-        resolution: 'approved',
-        detectedAt: '2028-06-01T00:00:00.000Z',
-        sourceUrl: 'https://example.org/news-2',
-        extractedEvidence: 'The NOC named Example Rider.',
-        reason: 'Approved by reviewer.',
-        record: record({ id: 'approved-rider', subjectType: 'athlete', athleteName: 'Example Rider', quotaCount: null, state: 'selected' })
-      }
-    ]
-  }, sources);
+  const result = buildQualificationPipeline(
+    {
+      reviewQueue: [
+        {
+          id: 'official-news',
+          resolution: 'pending',
+          detectedAt: '2028-05-01T00:00:00.000Z',
+          sourceUrl: 'https://example.org/news',
+          extractedEvidence: 'The federation announced a selection.',
+          reason: 'Official prose requires human confirmation.'
+        },
+        {
+          id: 'approved-news',
+          resolution: 'approved',
+          detectedAt: '2028-06-01T00:00:00.000Z',
+          sourceUrl: 'https://example.org/news-2',
+          extractedEvidence: 'The NOC named Example Rider.',
+          reason: 'Approved by reviewer.',
+          record: record({
+            id: 'approved-rider',
+            subjectType: 'athlete',
+            athleteName: 'Example Rider',
+            quotaCount: null,
+            state: 'selected'
+          })
+        }
+      ]
+    },
+    sources
+  );
 
   assert.equal(result.reviewQueue.length, 2);
   assert.equal(result.activeRecords.length, 1);
@@ -237,10 +325,16 @@ test('queues prose evidence until a reviewer approves a valid confirmation recor
 });
 
 test('keeps manually discovered official qualifications private but ready for approval', async () => {
-  const input = JSON.parse(await readFile(new URL('../../src/data/qualification-sources.source.json', import.meta.url), 'utf8'));
+  const input = JSON.parse(
+    await readFile(new URL('../../src/data/qualification-sources.source.json', import.meta.url), 'utf8')
+  );
   const runtime = JSON.parse(await readFile(new URL('../../src/data/runtime.json', import.meta.url), 'utf8'));
-  const countries = JSON.parse(await readFile(new URL('../../src/data/countries.registry.json', import.meta.url), 'utf8'));
-  const overrides = JSON.parse(await readFile(new URL('../../src/data/country-selection-source-overrides.json', import.meta.url), 'utf8'));
+  const countries = JSON.parse(
+    await readFile(new URL('../../src/data/countries.registry.json', import.meta.url), 'utf8')
+  );
+  const overrides = JSON.parse(
+    await readFile(new URL('../../src/data/country-selection-source-overrides.json', import.meta.url), 'utf8')
+  );
   const sourceList = [
     ...toQualificationSources(buildQualificationSystemIndex(runtime.scheduleEntries).systems),
     ...toCountrySelectionSources(buildCountrySelectionRegistry(countries, overrides))
@@ -255,4 +349,28 @@ test('keeps manually discovered official qualifications private but ready for ap
   assert.equal(pipeline.activeRecords.length, 0);
   assert.equal(pipeline.reviewQueue.length, input.reviewQueue.length);
   assert.equal(validation.rejected.length, 0);
+});
+
+test('an approved queue outage retains previous approvals instead of failing the refresh', async (t) => {
+  const originalFetch = globalThis.fetch;
+  const originalUrl = process.env.SUPABASE_URL;
+  const originalKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    if (originalUrl === undefined) delete process.env.SUPABASE_URL;
+    else process.env.SUPABASE_URL = originalUrl;
+    if (originalKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY;
+    else process.env.SUPABASE_SERVICE_ROLE_KEY = originalKey;
+  });
+  process.env.SUPABASE_URL = 'https://review.example.test';
+  process.env.SUPABASE_SERVICE_ROLE_KEY = 'test-key';
+  globalThis.fetch = async () => {
+    throw new Error('supabase offline');
+  };
+
+  const result = await fetchApprovedReviewQueue();
+  assert.deepEqual(result, { available: false, entries: [], statusesById: {} });
+
+  const previous = { qualificationHistory: [{ id: 'approved-kept', sourceRecordType: 'review_approved' }] };
+  assert.deepEqual(retainedApprovedRecords(previous, result), previous.qualificationHistory);
 });

@@ -8,7 +8,7 @@ Games28 is a standalone React + Vite app for `games28.paulzuiderduin.com`.
 - Country dashboards with saved countries, qualification-ready cards, derived country schedules, and change feed
 - Daily data refresh workflow
 - GitHub Pages deploy with custom domain
-- No login and no Supabase for MVP
+- No visitor login; the owner-only review console uses Supabase (see below)
 
 ## Local development
 
@@ -21,6 +21,8 @@ npm run dev
 ## Data model
 
 The runtime dataset is generated into `src/data/runtime.json` and copied into `public/runtime.json`.
+
+A schedule entry is one event row parsed from the official PDF. Rows that share a `sessionCode` belong to the same Olympic session; the app reports unique sessions in its statistics and collapses those rows into one calendar event, while country/event detail pages remain at event-row level.
 
 - Official source metadata: LA28 schedule page + by-event PDF URL
 - Practical parser input: public planning sheet export
@@ -52,6 +54,7 @@ Records carry a lifecycle state: `allocated`, `earned`, `selected`, `entered`, `
 
 ```bash
 npm run data:update
+npm run check
 npm run build
 npm run test:unit
 ```
@@ -60,10 +63,14 @@ npm run test:unit
 
 `/admin` is an owner-only qualification-review console. It uses Supabase email magic-link authentication and an RLS-protected audit trail. The public app stays static and does not expose the Supabase server key.
 
-1. The Games28 Supabase project is `gavpllldsyepqhldczud`; apply both migration files in `supabase/migrations/` if setting up another environment.
+1. The Games28 Supabase project is `gavpllldsyepqhldczud`; apply the migration files in `supabase/migrations/` if setting up another environment.
 2. Configure `https://games28.paulzuiderduin.com` as the hosted Auth site URL and `https://games28.paulzuiderduin.com/admin` as an allowed Auth redirect URL.
-3. Add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` as GitHub Actions secrets. The daily workflow then syncs detected review candidates to the private queue. The public project URL and publishable key are intentionally already bundled in the static app; do not add a service-role key to Vite variables.
+3. Add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` as GitHub Actions secrets. The daily workflow then syncs detected review candidates to the private queue. The public project URL and publishable key are intentionally already bundled in the static app; do not add a service-role key to Vite variables. For local admin sign-in, also add `http://localhost:4178/admin` to the Supabase Auth redirect URLs.
 4. After your first magic-link sign-in, insert your `auth.users` UUID into `public.games28_admins` using the documented line at the end of the migration. This is intentionally a one-time, explicit owner grant.
+
+## Integration tests
+
+`tests/integration` contains the PostgreSQL quota-guard/RLS regressions and the browser admin fixture test. The database suite requires Docker, the Supabase CLI and `psql`; the browser suite requires Playwright. `.github/workflows/integration.yml` runs both suites on pull requests that touch migrations, integration tests, source code or build configuration.
 
 ## Deployment target
 
