@@ -127,6 +127,29 @@ test(
         'invalid 200 responses must not replace the good PDF snapshot'
       );
       assertRetained(original, poisoned);
+
+      await writeFile(
+        join(dir, 'src/data/schedule-entry-lists.source.json'),
+        JSON.stringify({
+          entries: [
+            {
+              id: 'qa-draw-arc03',
+              sessionCode: 'ARC03',
+              nocs: ['NED'],
+              publishedAt: '2026-10-30T00:00:00.000Z',
+              sourceUrl: 'https://official.example/draws/arc03'
+            }
+          ]
+        })
+      );
+      await refresh();
+      const withDraw = await json('runtime.json');
+      assert.equal(withDraw.meta.entryListAppliedCount, 5);
+      assert.equal(
+        withDraw.scheduleEntries.filter((row) => row.sessionCode === 'ARC03').every((row) => row.nocs.includes('NED')),
+        true
+      );
+      assertRetained(original, withDraw);
     } finally {
       await rm(dir, { recursive: true, force: true });
     }

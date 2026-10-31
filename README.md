@@ -50,6 +50,12 @@ To enable it, create a Brave Search API key and save it as the GitHub Actions se
 
 Records carry a lifecycle state: `allocated`, `earned`, `selected`, `entered`, `withdrawn`, or `replaced`. Final entries override earlier selections and quotas. Withdrawn or replaced history is retained but never shown as an active card.
 
+## Official draws and entry lists
+
+`src/data/schedule-entry-lists.source.json` is the only input for confirmed schedule participation. Each manually verified record needs an official HTTPS `sourceUrl`, a `publishedAt` date, one or more known NOCs, and either explicit `scheduleEntryIds` or a `sessionCode` (optionally narrowed with `eventName` or `discipline`). The refresh fails closed if a record is unsafe or cannot be matched, and fills `nocs`/`athleteIds` only from that verified evidence.
+
+The file stays empty until LA28 or the relevant federation publishes an official draw or entry list. Do not add possible or inferred participants: confirmed country sessions and country calendar exports should only appear after this evidence exists.
+
 ## Commands
 
 ```bash

@@ -1,0 +1,4 @@
+{
+  "notes": "Manually verified official draw and entry-list records. Each entry needs a sourceUrl, publishedAt, one or more known NOCs, and either scheduleEntryIds or a sessionCode (optionally narrowed by eventName or discipline). The daily refresh applies these once and fails closed on invalid records.",
+  "entries": []
+}

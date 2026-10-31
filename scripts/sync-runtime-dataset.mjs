@@ -63,6 +63,8 @@ async function main() {
     qualificationCoverage: runtime.meta.qualificationCoverage,
     countrySelectionCoverage: runtime.meta.countrySelectionCoverage,
     scheduleCount: runtime.meta.scheduleCount,
+    entryListCount: runtime.meta.entryListCount || 0,
+    entryListAppliedCount: runtime.meta.entryListAppliedCount || 0,
     sportCount: runtime.meta.sportCount
   };
 

@@ -23,6 +23,7 @@ import { buildQualificationSystemIndex, toQualificationSources } from './qualifi
 import { buildCountrySelectionRegistry, toCountrySelectionSources } from './country-selection-registry.mjs';
 import { ingestQualificationSources } from './qualification-ingestion.mjs';
 import { buildIocQualificationRulesIndex } from './ioc-qualification-documents.mjs';
+import { applyEntryLists } from './schedule-entry-lists.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
@@ -42,6 +43,7 @@ const communityReferencePath = resolve(dataDir, 'schedule-community-reference.js
 const countryRegistryPath = resolve(dataDir, 'countries.registry.json');
 const countrySelectionRegistryPath = resolve(dataDir, 'country-selection.registry.json');
 const qualificationIngestionPath = resolve(dataDir, 'qualification-ingestion.json');
+const scheduleEntryListsPath = resolve(dataDir, 'schedule-entry-lists.source.json');
 
 const OFFICIAL_PAGE_URL = 'https://la28.org/en/games-plan/olympics.html#olympic-competition-schedule';
 const COMMUNITY_SCHEDULE_URL =
@@ -605,14 +607,16 @@ async function main() {
     qualificationInput,
     countrySelectionOverrides,
     previousIngestion,
-    approvedReviewResult
+    approvedReviewResult,
+    entryListInput
   ] = await Promise.all([
     readJson(sourceCheckPath, {}),
     readJsonIfExists(runtimePath, null),
     readJsonRequired(qualificationSourcesPath),
     readJsonRequired(countrySelectionOverridesPath),
     readJsonIfExists(qualificationIngestionPath, { structuredRecords: [], reviewQueue: [] }),
-    fetchApprovedReviewQueue()
+    fetchApprovedReviewQueue(),
+    readJsonIfExists(scheduleEntryListsPath, { entries: [] })
   ]);
 
   const officialPage = await fetchTextWithFallback(OFFICIAL_PAGE_URL, officialPageSnapshotPath, {
@@ -657,6 +661,13 @@ async function main() {
   });
 
   const publishedSchedule = publication.publishedSchedule;
+  const entryListResult = applyEntryLists(publishedSchedule, entryListInput, { countries: countryRegistry });
+  if (entryListResult.rejected.length) {
+    throw new Error(
+      `Invalid official draw/entry-list data: ${entryListResult.rejected.map((entry) => `${entry.id}: ${entry.problems.join(', ')}`).join('; ')}`
+    );
+  }
+  const scheduleWithEntries = entryListResult.scheduleEntries;
   // Coverage must follow the schedule that is actually published. A candidate
   // that fails validation must not be able to block the last-good fallback.
   const qualificationSystemIndex = buildQualificationSystemIndex(publishedSchedule);
@@ -703,7 +714,7 @@ async function main() {
   const qualificationRecords = qualificationResult.activeRecords;
   const athleteCards = toQualificationCards(qualificationRecords, qualificationResult.history);
 
-  const sports = new Set(publishedSchedule.map((entry) => entry.sport).filter(Boolean));
+  const sports = new Set(scheduleWithEntries.map((entry) => entry.sport).filter(Boolean));
 
   const nextRuntime = {
     version: 2,
@@ -764,7 +775,7 @@ async function main() {
     qualificationHistory: qualificationResult.history,
     // Evidence lives in the private review console, never in a committed runtime.
     athleteCards,
-    scheduleEntries: publishedSchedule,
+    scheduleEntries: scheduleWithEntries,
     changes: [],
     meta: {
       communityReferenceCount: communityReference.length,
@@ -837,7 +848,9 @@ async function main() {
       })),
       refreshCadence: 'Daily',
       scheduleAuthority: publication.scheduleAuthority,
-      scheduleCount: publishedSchedule.length,
+      scheduleCount: scheduleWithEntries.length,
+      entryListCount: entryListInput.entries?.length || 0,
+      entryListAppliedCount: entryListResult.appliedCount,
       shadowMode: true,
       sportCount: sports.size,
       staleWarning: publication.staleWarning || null
@@ -888,7 +901,7 @@ async function main() {
   ]);
 
   console.log(
-    `Updated Games28 runtime with ${publishedSchedule.length} published schedule entries (${publication.scheduleAuthority}).`
+    `Updated Games28 runtime with ${scheduleWithEntries.length} published schedule entries (${publication.scheduleAuthority}).`
   );
 }
 
