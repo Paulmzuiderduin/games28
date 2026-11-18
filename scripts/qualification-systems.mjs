@@ -49,7 +49,13 @@ export const qualificationSystems = [
   system('archery', 'Archery', 'World Archery', ['Archery'], 'https://www.worldarchery.sport/', {
     qualificationEvents: [
       qualificationEvent('recurve', 'Recurve', ['Archery']),
-      qualificationEvent('compound', 'Compound', ['Archery'])
+      qualificationEvent('compound', 'Compound', ['Archery']),
+      qualificationEvent('recurve-men-individual', "Recurve Men's Individual", ['Archery']),
+      qualificationEvent('recurve-women-individual', "Recurve Women's Individual", ['Archery']),
+      qualificationEvent('compound-men-individual', "Compound Men's Individual", ['Archery']),
+      qualificationEvent('compound-women-individual', "Compound Women's Individual", ['Archery']),
+      qualificationEvent('recurve-mixed-team', 'Recurve Mixed Team', ['Archery']),
+      qualificationEvent('compound-mixed-team', 'Compound Mixed Team', ['Archery'])
     ]
   }),
   system(
@@ -314,7 +320,16 @@ export const qualificationSystems = [
     'Gymnastics',
     'International Gymnastics Federation',
     ['Artistic Gymnastics', 'Rhythmic Gymnastics', 'Trampoline Gymnastics'],
-    'https://www.gymnastics.sport/'
+    'https://www.gymnastics.sport/',
+    {
+      allocationUrl: 'https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/men/team/',
+      qualificationEvents: [
+        qualificationEvent('artistic-men-team', "Men's Team", ['Artistic Gymnastics']),
+        qualificationEvent('artistic-women-team', "Women's Team", ['Artistic Gymnastics']),
+        qualificationEvent('rhythmic-individual-all-around', 'Individual All-Around', ['Rhythmic Gymnastics']),
+        qualificationEvent('rhythmic-group-all-around', 'Group All-Around', ['Rhythmic Gymnastics'])
+      ]
+    }
   ),
   system('handball', 'Handball', 'International Handball Federation', ['Handball'], 'https://www.ihf.info/', {
     qualificationEvents: [
@@ -396,7 +411,21 @@ export const qualificationSystems = [
     'Sailing',
     'World Sailing',
     ['Sailing (Dinghy, Skiff & Multihull)', 'Sailing (Windsurfing & Kite)'],
-    'https://www.sailing.org/'
+    'https://www.sailing.org/',
+    {
+      qualificationEvents: [
+        qualificationEvent('men-windsurfing', "Men's Windsurfing", ['Sailing (Windsurfing & Kite)']),
+        qualificationEvent('women-windsurfing', "Women's Windsurfing", ['Sailing (Windsurfing & Kite)']),
+        qualificationEvent('men-kite', "Men's Kite", ['Sailing (Windsurfing & Kite)']),
+        qualificationEvent('women-kite', "Women's Kite", ['Sailing (Windsurfing & Kite)']),
+        qualificationEvent('men-dinghy', "Men's Dinghy", ['Sailing (Dinghy, Skiff & Multihull)']),
+        qualificationEvent('women-dinghy', "Women's Dinghy", ['Sailing (Dinghy, Skiff & Multihull)']),
+        qualificationEvent('men-skiff', "Men's Skiff", ['Sailing (Dinghy, Skiff & Multihull)']),
+        qualificationEvent('women-skiff', "Women's Skiff", ['Sailing (Dinghy, Skiff & Multihull)']),
+        qualificationEvent('mixed-dinghy', 'Mixed Dinghy', ['Sailing (Dinghy, Skiff & Multihull)']),
+        qualificationEvent('mixed-multihull', 'Mixed Multihull', ['Sailing (Dinghy, Skiff & Multihull)'])
+      ]
+    }
   ),
   system(
     'shooting',
@@ -404,7 +433,25 @@ export const qualificationSystems = [
     'International Shooting Sport Federation',
     ['Shooting (Rifle & Pistol)', 'Shooting (Shotgun)'],
     'https://www.issf-sports.org/competitions/3488',
-    { status: 'rules_published', sourceType: 'quota_tracker', adapter: 'issf_quota_tracker' }
+    {
+      status: 'rules_published',
+      sourceType: 'quota_tracker',
+      adapter: 'issf_quota_tracker',
+      qualificationEvents: [
+        qualificationEvent('10m-air-rifle-men', '10m Air Rifle Men', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('10m-air-rifle-women', '10m Air Rifle Women', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('50m-rifle-3-positions-men', '50m Rifle 3 Positions Men', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('50m-rifle-3-positions-women', '50m Rifle 3 Positions Women', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('10m-air-pistol-men', '10m Air Pistol Men', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('10m-air-pistol-women', '10m Air Pistol Women', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('25m-rapid-fire-pistol-men', '25m Rapid Fire Pistol Men', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('25m-pistol-women', '25m Pistol Women', ['Shooting (Rifle & Pistol)']),
+        qualificationEvent('trap-men', 'Trap Men', ['Shooting (Shotgun)']),
+        qualificationEvent('trap-women', 'Trap Women', ['Shooting (Shotgun)']),
+        qualificationEvent('skeet-men', 'Skeet Men', ['Shooting (Shotgun)']),
+        qualificationEvent('skeet-women', 'Skeet Women', ['Shooting (Shotgun)'])
+      ]
+    }
   ),
   system(
     'skateboarding',
@@ -424,10 +471,15 @@ export const qualificationSystems = [
       notes: 'The rankings are provisional. Publish only a later explicit quota allocation or final entry.'
     }
   ),
-  system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.org/', {
+  system('squash', 'Squash', 'World Squash Federation', ['Squash'], 'https://www.worldsquash.sport/', {
     sourceCheckMode: 'reference_only',
     sourceCheckReason:
-      'World Squash blocks automated requests; the IOC-listed qualification document remains the version authority.'
+      'World Squash blocks automated requests; the IOC-listed qualification document remains the version authority.',
+    qualificationEvents: [
+      qualificationEvent('men-singles', "Men's Singles", ['Squash']),
+      qualificationEvent('women-singles', "Women's Singles", ['Squash']),
+      qualificationEvent('mixed-doubles', 'Mixed Doubles', ['Squash'])
+    ]
   }),
   system(
     'surfing',
@@ -439,7 +491,11 @@ export const qualificationSystems = [
       status: 'rules_published',
       sourceCheckMode: 'reference_only',
       sourceCheckReason:
-        'ISA blocks automated requests; the official article is retained as a human-readable reference.'
+        'ISA blocks automated requests; the official article is retained as a human-readable reference.',
+      qualificationEvents: [
+        qualificationEvent('men-shortboard', "Men's Shortboard", ['Surfing']),
+        qualificationEvent('women-shortboard', "Women's Shortboard", ['Surfing'])
+      ]
     }
   ),
   system(

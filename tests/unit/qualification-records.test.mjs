@@ -339,15 +339,16 @@ test('keeps manually discovered official qualifications private but ready for ap
     ...toQualificationSources(buildQualificationSystemIndex(runtime.scheduleEntries).systems),
     ...toCountrySelectionSources(buildCountrySelectionRegistry(countries, overrides))
   ];
-  const pipeline = buildQualificationPipeline({ reviewQueue: input.reviewQueue }, sourceList);
-  const recordsToApprove = input.reviewQueue.map((candidate) => ({
+  const pendingCandidates = input.reviewQueue.filter((candidate) => candidate.resolution === 'pending');
+  const pipeline = buildQualificationPipeline({ reviewQueue: pendingCandidates }, sourceList);
+  const recordsToApprove = pendingCandidates.map((candidate) => ({
     ...candidate.suggestedRecord,
     verifiedAt: candidate.detectedAt
   }));
   const validation = normalizeQualificationRecords(recordsToApprove, sourceList);
 
   assert.equal(pipeline.activeRecords.length, 0);
-  assert.equal(pipeline.reviewQueue.length, input.reviewQueue.length);
+  assert.equal(pipeline.reviewQueue.length, pendingCandidates.length);
   assert.equal(validation.rejected.length, 0);
 });
 

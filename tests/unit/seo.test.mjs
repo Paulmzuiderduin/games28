@@ -59,8 +59,18 @@ test('getSessionPath encodes ids for route generation', () => {
   assert.equal(getSessionPath('swm01--women-s-final'), '/sessions/swm01--women-s-final');
 });
 
-test('country dashboards become indexable only with qualification or confirmed session data', () => {
+test('country dashboards need three qualification records or a confirmed session before indexing', () => {
   assert.equal(isCountryDashboardIndexable({ athleteCards: [], scheduleEntries: [] }, 'NED'), false);
-  assert.equal(isCountryDashboardIndexable({ athleteCards: [{ noc: 'NED' }], scheduleEntries: [] }, 'NED'), true);
+  assert.equal(
+    isCountryDashboardIndexable({ athleteCards: [{ noc: 'NED' }, { noc: 'NED' }], scheduleEntries: [] }, 'NED'),
+    false
+  );
+  assert.equal(
+    isCountryDashboardIndexable(
+      { athleteCards: [{ noc: 'NED' }, { noc: 'NED' }, { noc: 'NED' }], scheduleEntries: [] },
+      'NED'
+    ),
+    true
+  );
   assert.equal(isCountryDashboardIndexable({ athleteCards: [], scheduleEntries: [{ nocs: ['NED'] }] }, 'NED'), true);
 });

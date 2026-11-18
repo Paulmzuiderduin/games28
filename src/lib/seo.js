@@ -38,12 +38,15 @@ export function getSessionPath(sessionId) {
 }
 
 export function isCountryDashboardIndexable(runtime, noc) {
-  const hasQualification = (runtime?.athleteCards || []).some((card) => card.noc === noc);
+  const qualificationCount = (runtime?.athleteCards || []).filter((card) => card.noc === noc).length;
   const hasConfirmedSession = (runtime?.scheduleEntries || []).some(
     (entry) => Array.isArray(entry.nocs) && entry.nocs.includes(noc)
   );
 
-  return hasQualification || hasConfirmedSession;
+  // Country dashboards with only one or two records are too similar to each
+  // other to earn a search result. Keep them available to visitors, but wait
+  // for enough confirmed data (or a confirmed session) before indexing them.
+  return qualificationCount >= 3 || hasConfirmedSession;
 }
 
 export function selectSeoSessionEntries(scheduleEntries, limit = 240) {

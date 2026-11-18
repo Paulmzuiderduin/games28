@@ -92,7 +92,7 @@ test('dynamic session pages still resolve outside the 240 statically selected se
   }));
   const dynamicRuntime = { ...runtime, scheduleEntries: entries };
   const page = getSeoPage(dynamicRuntime, '/sessions/swm-241');
-  assert.equal(page.title, 'Event 241 LA 2028 Swimming Session | Games28');
+  assert.equal(page.title, 'Event 241 - Aug 1, 2028 | LA 2028 Swimming');
   assert.equal(page.indexable, false);
   const repeated = getSeoPage(dynamicRuntime, '/sessions/swm-241');
   assert.equal(repeated, page);

@@ -1,5 +1,1146 @@
 {
-  "structuredRecords": [],
+  "structuredRecords": [
+    {
+      "id": "verified-chn-10m-air-rifle-men-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Rifle Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "SHENG Lihao",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by SHENG Lihao. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-chn-10m-air-pistol-men-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Pistol Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "HU Kai",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by HU Kai. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-chn-trap-men-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Trap Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "QI Ying",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by QI Ying. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-chn-10m-air-rifle-women-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Rifle Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "HAN Jiayu",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by HAN Jiayu. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-chn-10m-air-pistol-women-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Pistol Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "JIANG Ranxin",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by JIANG Ranxin. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-chn-25m-pistol-women-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "25m Pistol Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "ZHANG Yueyue",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by ZHANG Yueyue. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-chn-skeet-women-doha-2026",
+      "noc": "CHN",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Skeet Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "JIANG Yiting",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by JIANG Yiting. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-cro-10m-air-rifle-men-doha-2026",
+      "noc": "CRO",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Rifle Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "MARICIC Miran",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by MARICIC Miran. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-cze-10m-air-pistol-men-doha-2026",
+      "noc": "CZE",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Pistol Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "DUBOVY Jindrich",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by DUBOVY Jindrich. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-cze-25m-rapid-fire-pistol-men-doha-2026",
+      "noc": "CZE",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "25m Rapid Fire Pistol Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "RAMPULA Matej",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by RAMPULA Matej. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-den-skeet-men-doha-2026",
+      "noc": "DEN",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Skeet Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "HANSEN Jesper",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by HANSEN Jesper. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-egy-skeet-men-doha-2026",
+      "noc": "EGY",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Skeet Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "MEHELBA Azmy",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by MEHELBA Azmy. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-fra-25m-rapid-fire-pistol-men-doha-2026",
+      "noc": "FRA",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "25m Rapid Fire Pistol Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "BESSAGUET Clement",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by BESSAGUET Clement. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-fra-10m-air-rifle-women-doha-2026",
+      "noc": "FRA",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Rifle Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "MULLER Oceanne",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by MULLER Oceanne. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-ger-25m-rapid-fire-pistol-men-doha-2026",
+      "noc": "GER",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "25m Rapid Fire Pistol Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "PETER Florian",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by PETER Florian. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-gua-trap-women-doha-2026",
+      "noc": "GUA",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Trap Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "RUANO OLIVA Adriana",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by RUANO OLIVA Adriana. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-hun-10m-air-pistol-women-doha-2026",
+      "noc": "HUN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Pistol Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "MAJOR Veronika",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by MAJOR Veronika. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-ind-50m-rifle-3-positions-men-doha-2026",
+      "noc": "IND",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "50m Rifle 3 Positions Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "KUMAR Niraj",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by KUMAR Niraj. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-ind-10m-air-pistol-men-doha-2026",
+      "noc": "IND",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Pistol Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "MALVIYA Jaypal",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by MALVIYA Jaypal. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-ind-trap-men-doha-2026",
+      "noc": "IND",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Trap Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "KAPOOR Vivaan",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by KAPOOR Vivaan. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-iri-10m-air-pistol-women-doha-2026",
+      "noc": "IRI",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Pistol Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "ROSTAMIYAN Haniyeh",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by ROSTAMIYAN Haniyeh. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-ita-trap-women-doha-2026",
+      "noc": "ITA",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Trap Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "ROSSI Jessica",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by ROSSI Jessica. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-jpn-50m-rifle-3-positions-women-doha-2026",
+      "noc": "JPN",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "50m Rifle 3 Positions Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "NOBATA Misaki",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by NOBATA Misaki. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-kaz-skeet-women-doha-2026",
+      "noc": "KAZ",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Skeet Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "ORYNBAY Assem",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by ORYNBAY Assem. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-kor-10m-air-rifle-women-doha-2026",
+      "noc": "KOR",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Rifle Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "BAN Hyojin",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by BAN Hyojin. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-kor-50m-rifle-3-positions-women-doha-2026",
+      "noc": "KOR",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "50m Rifle 3 Positions Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "OH Sehee",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by OH Sehee. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-kor-25m-pistol-women-doha-2026",
+      "noc": "KOR",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "25m Pistol Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "YANG Jiin",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by YANG Jiin. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-kuw-trap-men-doha-2026",
+      "noc": "KUW",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Trap Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "ALFAIHAN Abdulrahman",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by ALFAIHAN Abdulrahman. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-kuw-skeet-men-doha-2026",
+      "noc": "KUW",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Skeet Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "ALSAAD Abdulaziz",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by ALSAAD Abdulaziz. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-nor-50m-rifle-3-positions-men-doha-2026",
+      "noc": "NOR",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "50m Rifle 3 Positions Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "HEGG Jon-Hermann",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by HEGG Jon-Hermann. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-srb-50m-rifle-3-positions-women-doha-2026",
+      "noc": "SRB",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "50m Rifle 3 Positions Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "STOJADINOVIC Aleksandra",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by STOJADINOVIC Aleksandra. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-svk-10m-air-rifle-men-doha-2026",
+      "noc": "SVK",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "10m Air Rifle Men"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "JANY Patrik",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by JANY Patrik. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-svk-skeet-women-doha-2026",
+      "noc": "SVK",
+      "sport": "Shooting (Shotgun)",
+      "disciplines": [
+        "Skeet Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "STIBRAVA Monika",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by STIBRAVA Monika. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-vie-25m-pistol-women-doha-2026",
+      "noc": "VIE",
+      "sport": "Shooting (Rifle & Pistol)",
+      "disciplines": [
+        "25m Pistol Women"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "TRINH Thu Vinh",
+      "qualificationRoute": "2026 ISSF World Championship Rifle/Pistol/Shotgun, Doha",
+      "sourceId": "if-shooting",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.issf-sports.org/competitions/olympic-qualification-data/quota-places/by-country",
+      "sourcePublishedAt": "2026-11-12T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by TRINH Thu Vinh. The quota belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-per-surfing-team-men's-wsg-2026",
+      "noc": "PER",
+      "sport": "Surfing",
+      "disciplines": [
+        "Men's Shortboard"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 3,
+      "qualificationRoute": "2026 ISA World Surfing Games - men's team",
+      "sourceId": "if-surfing",
+      "sourceTier": "if",
+      "sourceUrl": "https://isasurf.org/australia-sweeps-2026-isa-world-surfing-games-claims-gold-across-the-board-womens-la28-olympic-slot/",
+      "sourcePublishedAt": "2026-11-16T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Team slot (extra third surfer) earned at the 2026 ISA World Surfing Games. The slot belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-aus-surfing-team-women's-wsg-2026",
+      "noc": "AUS",
+      "sport": "Surfing",
+      "disciplines": [
+        "Women's Shortboard"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 3,
+      "qualificationRoute": "2026 ISA World Surfing Games - women's team",
+      "sourceId": "if-surfing",
+      "sourceTier": "if",
+      "sourceUrl": "https://isasurf.org/australia-sweeps-2026-isa-world-surfing-games-claims-gold-across-the-board-womens-la28-olympic-slot/",
+      "sourcePublishedAt": "2026-11-16T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Team slot (extra third surfer) earned at the 2026 ISA World Surfing Games. The slot belongs to the NOC; athlete selection is separate."
+    },
+    {
+      "id": "verified-jpn-artistic-team-men-rotterdam-2026",
+      "noc": "JPN",
+      "sport": "Artistic Gymnastics",
+      "disciplines": [
+        "Men's Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 World Artistic Gymnastics Championships - men's team",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/men/team/",
+      "sourcePublishedAt": "2026-10-20T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete team quota. The NOC selects the final team."
+    },
+    {
+      "id": "verified-chn-artistic-team-men-rotterdam-2026",
+      "noc": "CHN",
+      "sport": "Artistic Gymnastics",
+      "disciplines": [
+        "Men's Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 World Artistic Gymnastics Championships - men's team",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/men/team/",
+      "sourcePublishedAt": "2026-10-20T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete team quota. The NOC selects the final team."
+    },
+    {
+      "id": "verified-chn-artistic-team-women-rotterdam-2026",
+      "noc": "CHN",
+      "sport": "Artistic Gymnastics",
+      "disciplines": [
+        "Women's Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 World Artistic Gymnastics Championships - women's team",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/women/team/",
+      "sourcePublishedAt": "2026-10-21T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete team quota. The NOC selects the final team."
+    },
+    {
+      "id": "verified-usa-artistic-team-women-rotterdam-2026",
+      "noc": "USA",
+      "sport": "Artistic Gymnastics",
+      "disciplines": [
+        "Women's Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 World Artistic Gymnastics Championships - women's team",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/women/team/",
+      "sourcePublishedAt": "2026-10-21T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete team quota. The NOC selects the final team."
+    },
+    {
+      "id": "verified-jpn-artistic-team-women-rotterdam-2026",
+      "noc": "JPN",
+      "sport": "Artistic Gymnastics",
+      "disciplines": [
+        "Women's Team"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 World Artistic Gymnastics Championships - women's team",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/women/team/",
+      "sourcePublishedAt": "2026-10-21T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete team quota. The NOC selects the final team."
+    },
+    {
+      "id": "verified-ger-rhythmic-individual-frankfurt-2026",
+      "noc": "GER",
+      "sport": "Rhythmic Gymnastics",
+      "disciplines": [
+        "Individual All-Around"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Darja Varfolomeev",
+      "qualificationRoute": "2026 Rhythmic Gymnastics World Championships - individual all-around",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.gymnastics.sport/asset.php?id=fidb_23376",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Darja Varfolomeev; allocated to the NOC."
+    },
+    {
+      "id": "verified-bul-rhythmic-individual-frankfurt-2026",
+      "noc": "BUL",
+      "sport": "Rhythmic Gymnastics",
+      "disciplines": [
+        "Individual All-Around"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Stiliana Nikolova",
+      "qualificationRoute": "2026 Rhythmic Gymnastics World Championships - individual all-around",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.gymnastics.sport/asset.php?id=fidb_23376",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Stiliana Nikolova; allocated to the NOC."
+    },
+    {
+      "id": "verified-ita-rhythmic-individual-frankfurt-2026",
+      "noc": "ITA",
+      "sport": "Rhythmic Gymnastics",
+      "disciplines": [
+        "Individual All-Around"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Sofia Raffaeli",
+      "qualificationRoute": "2026 Rhythmic Gymnastics World Championships - individual all-around",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.gymnastics.sport/asset.php?id=fidb_23376",
+      "sourcePublishedAt": "2026-08-16T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Sofia Raffaeli; allocated to the NOC."
+    },
+    {
+      "id": "verified-esp-rhythmic-group-frankfurt-2026",
+      "noc": "ESP",
+      "sport": "Rhythmic Gymnastics",
+      "disciplines": [
+        "Group All-Around"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 Rhythmic Gymnastics World Championships - group all-around",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.gymnastics.sport/site/news/displaynews.php?urlNews=4866863",
+      "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete group quota. The NOC selects the final group."
+    },
+    {
+      "id": "verified-jpn-rhythmic-group-frankfurt-2026",
+      "noc": "JPN",
+      "sport": "Rhythmic Gymnastics",
+      "disciplines": [
+        "Group All-Around"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 Rhythmic Gymnastics World Championships - group all-around",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.gymnastics.sport/site/news/displaynews.php?urlNews=4866863",
+      "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete group quota. The NOC selects the final group."
+    },
+    {
+      "id": "verified-bra-rhythmic-group-frankfurt-2026",
+      "noc": "BRA",
+      "sport": "Rhythmic Gymnastics",
+      "disciplines": [
+        "Group All-Around"
+      ],
+      "subjectType": "team_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "teamSizeMax": 5,
+      "qualificationRoute": "2026 Rhythmic Gymnastics World Championships - group all-around",
+      "sourceId": "if-gymnastics",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.gymnastics.sport/site/news/displaynews.php?urlNews=4866863",
+      "sourcePublishedAt": "2026-08-15T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Five-athlete group quota. The NOC selects the final group."
+    },
+    {
+      "id": "verified-kor-men-s-dinghy-asian-games-2026",
+      "noc": "KOR",
+      "sport": "Sailing (Dinghy, Skiff & Multihull)",
+      "disciplines": [
+        "Men's Dinghy"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Jeemin Ha",
+      "qualificationRoute": "2026 Asian Games - Men's Dinghy",
+      "sourceId": "if-sailing",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.sailing.org/2026/10/03/2026-asian-games-jeemin-ha-and-sophia-montgomery-win-the-first-olympic-spots-for-la28/",
+      "sourcePublishedAt": "2026-10-03T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Jeemin Ha; allocated to the NOC. The NOC selects the sailor."
+    },
+    {
+      "id": "verified-tha-women-s-dinghy-asian-games-2026",
+      "noc": "THA",
+      "sport": "Sailing (Dinghy, Skiff & Multihull)",
+      "disciplines": [
+        "Women's Dinghy"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Sophia Montgomery",
+      "qualificationRoute": "2026 Asian Games - Women's Dinghy",
+      "sourceId": "if-sailing",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.sailing.org/2026/10/03/2026-asian-games-jeemin-ha-and-sophia-montgomery-win-the-first-olympic-spots-for-la28/",
+      "sourcePublishedAt": "2026-10-03T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Sophia Montgomery; allocated to the NOC. The NOC selects the sailor."
+    },
+    {
+      "id": "verified-chn-recurve-men-s-individual-asian-games-2026",
+      "noc": "CHN",
+      "sport": "Archery",
+      "disciplines": [
+        "Recurve Men's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Zhu Jingyi",
+      "qualificationRoute": "2026 Asian Games - Recurve Men's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Zhu Jingyi; allocated to the NOC."
+    },
+    {
+      "id": "verified-chn-recurve-women-s-individual-asian-games-2026",
+      "noc": "CHN",
+      "sport": "Archery",
+      "disciplines": [
+        "Recurve Women's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Li Mengqi",
+      "qualificationRoute": "2026 Asian Games - Recurve Women's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Li Mengqi; allocated to the NOC."
+    },
+    {
+      "id": "verified-ind-compound-men-s-individual-asian-games-2026",
+      "noc": "IND",
+      "sport": "Archery",
+      "disciplines": [
+        "Compound Men's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Sahil Rajesh Jadhav",
+      "qualificationRoute": "2026 Asian Games - Compound Men's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Sahil Rajesh Jadhav; allocated to the NOC."
+    },
+    {
+      "id": "verified-ind-compound-women-s-individual-asian-games-2026",
+      "noc": "IND",
+      "sport": "Archery",
+      "disciplines": [
+        "Compound Women's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Chikitha Taniparthi",
+      "qualificationRoute": "2026 Asian Games - Compound Women's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Chikitha Taniparthi; allocated to the NOC."
+    },
+    {
+      "id": "verified-ind-recurve-women-s-individual-asian-games-2026",
+      "noc": "IND",
+      "sport": "Archery",
+      "disciplines": [
+        "Recurve Women's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Kumukum Anil Mohod",
+      "qualificationRoute": "2026 Asian Games - Recurve Women's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Kumukum Anil Mohod; allocated to the NOC."
+    },
+    {
+      "id": "verified-jpn-recurve-men-s-individual-asian-games-2026",
+      "noc": "JPN",
+      "sport": "Archery",
+      "disciplines": [
+        "Recurve Men's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Junya Nakanishi",
+      "qualificationRoute": "2026 Asian Games - Recurve Men's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Junya Nakanishi; allocated to the NOC."
+    },
+    {
+      "id": "verified-kor-recurve-men-s-individual-asian-games-2026",
+      "noc": "KOR",
+      "sport": "Archery",
+      "disciplines": [
+        "Recurve Men's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Lee Woo-seok",
+      "qualificationRoute": "2026 Asian Games - Recurve Men's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Lee Woo-seok; allocated to the NOC."
+    },
+    {
+      "id": "verified-kor-recurve-women-s-individual-asian-games-2026",
+      "noc": "KOR",
+      "sport": "Archery",
+      "disciplines": [
+        "Recurve Women's Individual"
+      ],
+      "subjectType": "noc_quota",
+      "state": "allocated",
+      "quotaCount": 1,
+      "athleteName": "Oh Yejin",
+      "qualificationRoute": "2026 Asian Games - Recurve Women's Individual",
+      "sourceId": "if-archery",
+      "sourceTier": "if",
+      "sourceUrl": "https://www.worldarchery.sport/news/202662/first-angeles-2028-olympic-quotas-awarded-asian-games",
+      "sourcePublishedAt": "2026-10-06T00:00:00.000Z",
+      "verifiedAt": "2026-11-16T00:00:00.000Z",
+      "sourceRecordType": "structured_allocation",
+      "notes": "Quota earned by Oh Yejin; allocated to the NOC."
+    }
+  ],
   "reviewQueue": [
     {
       "id": "review-if-flag-football-ita-men-2026-worlds",
@@ -1307,6 +2448,246 @@
         "sourcePublishedAt": "2026-09-09",
         "sourceRecordType": "review_approved",
         "teamSizeMax": 12
+      }
+    },
+    {
+      "id": "review-rus-artistic-team-men-rotterdam-2026",
+      "resolution": "approved",
+      "detectedAt": "2026-10-20T00:00:00.000Z",
+      "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/men/team/",
+      "extractedEvidence": "FIG results show Russia (competing as World Gymnastics 2) finished second in the men's team final at the 2026 World Artistic Gymnastics Championships. The top three eligible NOCs receive a five-athlete team quota; eligibility of the neutral team is subject to FIG/IOC confirmation.",
+      "reason": "FIG and the IOC must confirm whether the neutral team is eligible for an Olympic team quota before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-rus-artistic-team-men-rotterdam-2026",
+        "noc": "RUS",
+        "sport": "Artistic Gymnastics",
+        "disciplines": [
+          "Men's Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 5,
+        "qualificationRoute": "2026 World Artistic Gymnastics Championships - men's team",
+        "sourceId": "if-gymnastics",
+        "sourceTier": "if",
+        "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/men/team/",
+        "sourcePublishedAt": "2026-10-20T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Published after owner approval on 17 November 2026. Neutral team quota subject to FIG/IOC eligibility confirmation."
+      },
+      "record": {
+        "id": "approved-review-rus-artistic-team-men-rotterdam-2026",
+        "noc": "RUS",
+        "sport": "Artistic Gymnastics",
+        "disciplines": [
+          "Men's Team"
+        ],
+        "subjectType": "team_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "teamSizeMax": 5,
+        "qualificationRoute": "2026 World Artistic Gymnastics Championships - men's team",
+        "sourceId": "if-gymnastics",
+        "sourceTier": "if",
+        "sourceUrl": "https://worldgymnastics.org/en/events/ag-rotterdam-2026/results/final/men/team/",
+        "sourcePublishedAt": "2026-10-20T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Published after owner approval on 17 November 2026. Neutral team quota subject to FIG/IOC eligibility confirmation."
+      }
+    },
+    {
+      "id": "review-jpn-surfing-men-asian-games-2026",
+      "resolution": "approved",
+      "detectedAt": "2026-09-29T00:00:00.000Z",
+      "sourceUrl": "https://isasurf.org/japans-kanoa-igarashi-and-mirai-ikeda-win-2026-asian-games-qualify-for-la28-olympic-games/",
+      "extractedEvidence": "ISA reports Kanoa Igarashi (JPN) won the 2026 Asian Games men's shortboard and secured a provisional LA28 quota for Japan.",
+      "reason": "The Asian Games quota is reported as provisional. Confirm the final allocation before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-jpn-surfing-men-asian-games-2026",
+        "noc": "JPN",
+        "sport": "Surfing",
+        "disciplines": [
+          "Men's Shortboard"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Kanoa Igarashi",
+        "qualificationRoute": "2026 Asian Games - men's shortboard",
+        "sourceId": "if-surfing",
+        "sourceTier": "if",
+        "sourceUrl": "https://isasurf.org/japans-kanoa-igarashi-and-mirai-ikeda-win-2026-asian-games-qualify-for-la28-olympic-games/",
+        "sourcePublishedAt": "2026-09-29T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Provisional quota earned by Kanoa Igarashi; published after owner approval on 17 November 2026. Final allocation remains subject to the ISA qualification process."
+      },
+      "record": {
+        "id": "approved-review-jpn-surfing-men-asian-games-2026",
+        "noc": "JPN",
+        "sport": "Surfing",
+        "disciplines": [
+          "Men's Shortboard"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Kanoa Igarashi",
+        "qualificationRoute": "2026 Asian Games - men's shortboard",
+        "sourceId": "if-surfing",
+        "sourceTier": "if",
+        "sourceUrl": "https://isasurf.org/japans-kanoa-igarashi-and-mirai-ikeda-win-2026-asian-games-qualify-for-la28-olympic-games/",
+        "sourcePublishedAt": "2026-09-29T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Provisional quota earned by Kanoa Igarashi; published after owner approval on 17 November 2026. Final allocation remains subject to the ISA qualification process."
+      }
+    },
+    {
+      "id": "review-jpn-surfing-women-asian-games-2026",
+      "resolution": "approved",
+      "detectedAt": "2026-09-29T00:00:00.000Z",
+      "sourceUrl": "https://isasurf.org/japans-kanoa-igarashi-and-mirai-ikeda-win-2026-asian-games-qualify-for-la28-olympic-games/",
+      "extractedEvidence": "ISA reports Mirai Ikeda (JPN) won the 2026 Asian Games women's shortboard and secured a provisional LA28 quota for Japan.",
+      "reason": "The Asian Games quota is reported as provisional. Confirm the final allocation before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-jpn-surfing-women-asian-games-2026",
+        "noc": "JPN",
+        "sport": "Surfing",
+        "disciplines": [
+          "Women's Shortboard"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Mirai Ikeda",
+        "qualificationRoute": "2026 Asian Games - women's shortboard",
+        "sourceId": "if-surfing",
+        "sourceTier": "if",
+        "sourceUrl": "https://isasurf.org/japans-kanoa-igarashi-and-mirai-ikeda-win-2026-asian-games-qualify-for-la28-olympic-games/",
+        "sourcePublishedAt": "2026-09-29T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Provisional quota earned by Mirai Ikeda; published after owner approval on 17 November 2026. Final allocation remains subject to the ISA qualification process."
+      },
+      "record": {
+        "id": "approved-review-jpn-surfing-women-asian-games-2026",
+        "noc": "JPN",
+        "sport": "Surfing",
+        "disciplines": [
+          "Women's Shortboard"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Mirai Ikeda",
+        "qualificationRoute": "2026 Asian Games - women's shortboard",
+        "sourceId": "if-surfing",
+        "sourceTier": "if",
+        "sourceUrl": "https://isasurf.org/japans-kanoa-igarashi-and-mirai-ikeda-win-2026-asian-games-qualify-for-la28-olympic-games/",
+        "sourcePublishedAt": "2026-09-29T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Provisional quota earned by Mirai Ikeda; published after owner approval on 17 November 2026. Final allocation remains subject to the ISA qualification process."
+      }
+    },
+    {
+      "id": "review-mas-squash-men-asian-games-2026",
+      "resolution": "approved",
+      "detectedAt": "2026-09-27T00:00:00.000Z",
+      "sourceUrl": "https://www.worldsquash.sport/historic-gold-for-malaysias-subramaniam-and-yow-ng-at-2026-asian-games/",
+      "extractedEvidence": "World Squash reports Eain Yow Ng (MAS) won the 2026 Asian Games men's singles and qualified for LA28, subject to the final qualifying criteria (PSA World Top 50 on 22 May 2028).",
+      "reason": "Official World Squash confirmation exists, but the quota is conditional on the PSA World Top 50 on 22 May 2028. Confirm the final eligibility condition before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-mas-squash-men-asian-games-2026",
+        "noc": "MAS",
+        "sport": "Squash",
+        "disciplines": [
+          "Men's Singles"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Eain Yow Ng",
+        "qualificationRoute": "2026 Asian Games - men's singles",
+        "sourceId": "if-squash",
+        "sourceTier": "if",
+        "sourceUrl": "https://www.worldsquash.sport/historic-gold-for-malaysias-subramaniam-and-yow-ng-at-2026-asian-games/",
+        "sourcePublishedAt": "2026-09-27T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Published after owner approval on 17 November 2026. Quota remains subject to the athlete being ranked inside the PSA World Top 50 on 22 May 2028."
+      },
+      "record": {
+        "id": "approved-review-mas-squash-men-asian-games-2026",
+        "noc": "MAS",
+        "sport": "Squash",
+        "disciplines": [
+          "Men's Singles"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Eain Yow Ng",
+        "qualificationRoute": "2026 Asian Games - men's singles",
+        "sourceId": "if-squash",
+        "sourceTier": "if",
+        "sourceUrl": "https://www.worldsquash.sport/historic-gold-for-malaysias-subramaniam-and-yow-ng-at-2026-asian-games/",
+        "sourcePublishedAt": "2026-09-27T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Published after owner approval on 17 November 2026. Quota remains subject to the athlete being ranked inside the PSA World Top 50 on 22 May 2028."
+      }
+    },
+    {
+      "id": "review-mas-squash-women-asian-games-2026",
+      "resolution": "approved",
+      "detectedAt": "2026-09-27T00:00:00.000Z",
+      "sourceUrl": "https://www.worldsquash.sport/historic-gold-for-malaysias-subramaniam-and-yow-ng-at-2026-asian-games/",
+      "extractedEvidence": "World Squash reports Sivasangari Subramaniam (MAS) won the 2026 Asian Games women's singles and qualified for LA28, subject to the final qualifying criteria (PSA World Top 50 on 22 May 2028).",
+      "reason": "Official World Squash confirmation exists, but the quota is conditional on the PSA World Top 50 on 22 May 2028. Confirm the final eligibility condition before publication.",
+      "suggestedRecord": {
+        "id": "approved-review-mas-squash-women-asian-games-2026",
+        "noc": "MAS",
+        "sport": "Squash",
+        "disciplines": [
+          "Women's Singles"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Sivasangari Subramaniam",
+        "qualificationRoute": "2026 Asian Games - women's singles",
+        "sourceId": "if-squash",
+        "sourceTier": "if",
+        "sourceUrl": "https://www.worldsquash.sport/historic-gold-for-malaysias-subramaniam-and-yow-ng-at-2026-asian-games/",
+        "sourcePublishedAt": "2026-09-27T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Published after owner approval on 17 November 2026. Quota remains subject to the athlete being ranked inside the PSA World Top 50 on 22 May 2028."
+      },
+      "record": {
+        "id": "approved-review-mas-squash-women-asian-games-2026",
+        "noc": "MAS",
+        "sport": "Squash",
+        "disciplines": [
+          "Women's Singles"
+        ],
+        "subjectType": "noc_quota",
+        "state": "allocated",
+        "quotaCount": 1,
+        "athleteName": "Sivasangari Subramaniam",
+        "qualificationRoute": "2026 Asian Games - women's singles",
+        "sourceId": "if-squash",
+        "sourceTier": "if",
+        "sourceUrl": "https://www.worldsquash.sport/historic-gold-for-malaysias-subramaniam-and-yow-ng-at-2026-asian-games/",
+        "sourcePublishedAt": "2026-09-27T00:00:00.000Z",
+        "verifiedAt": "2026-11-17T17:58:40.000Z",
+        "sourceRecordType": "review_approved",
+        "notes": "Published after owner approval on 17 November 2026. Quota remains subject to the athlete being ranked inside the PSA World Top 50 on 22 May 2028."
       }
     }
   ],
