@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-25T15:36:35.708Z",
+  "checkedAt": "2026-11-26T15:17:17.347Z",
   "rejected": [
     {
       "id": "approved-review-if-cricket-aus-571e1aa10148b156",
@@ -1098,6 +1098,24 @@
       "resolution": "pending",
       "sourceId": "if-aquatics-usa-water-polo-host-la28",
       "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics"
+    },
+    {
+      "detectedAt": "2026-11-26T15:17:17.347Z",
+      "extractedEvidence": "LA28 Olympic Water Polo Qualification System Finalised Skip to main content LIVE COMPETITIONS View All Show Less Home United by Water GALLERY BY SONY WATCH DEVELOPMENT MASTERS FOUNDATION AQIU GMS Home SPORTS SWIMMING WATER POLO DIVING ARTISTIC SWIMMING OPEN WATER SWIMMING HIGH DIVING LATEST NEWS VIDEOS PHOTOS CALENDAR RESULTS ATHLETES SEARCH ATHLETES ATHLETE SERVICES SHOP FANTASY MORE ABOUT US CAREERS STRUCTURE RULES PARTNERS MEMBERS MEDIA label.toggleMobileNavigation SPORTS SPORTS SWIMMING WATER POLO DIVING ARTISTIC SWIMMING OPEN WATER SWIMMING HIGH DIVING LATEST LATEST NEWS VIDEOS PHOTOS CALENDAR RESULTS ATHLETES ATHLETES SEARCH ATHLETES ATHLETE SERVICES SHOP FANTASY MORE MORE ABOUT US CAR",
+      "id": "review-if-aquatics-usa-water-polo-host-la28-1d26668d66771c63",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-aquatics-usa-water-polo-host-la28",
+      "sourceUrl": "https://www.worldaquatics.com/news/4498571/la28-olympic-games-angeles-2028-water-polo-qualification-system-finalised-ioc-world-aquatics"
+    },
+    {
+      "detectedAt": "2026-11-26T15:17:17.347Z",
+      "extractedEvidence": "Road to LA28: Continental Glory and Olympic Qualification on the Line at 20th Asian Games Trending Pakistan to host the fifth edition of the FIH Hockey Men’s Nations Cup Medical/Anti-Doping Rankings FIH.HOCKEY Like us on Facebook Follow us on Twitter Subscribe to YouTube Follow us on Instagram Login View Profile Logout International Hockey Federation HOME MATCHES EVENTS NEWS VIDEOS PHOTOS Event Highlights FIH Youth Hockey 5s World Cup FIH Pro League FIH Hockey World Cup 2026 FIH Para Hockey World Cup 2026 FIH Men's Nations Cup 2025-26 FIH Women's Nations Cup 2025-26 View all + icon THE GAME FIH Academy FIH Quality Programme History of Hockey Athletes Corner Women in Hockey Anti Doping & Medi",
+      "id": "review-if-fih-usa-host-la28-5dfb1a9b393879da",
+      "reason": "Official prose announcement detected; human approval is required before publication.",
+      "resolution": "pending",
+      "sourceId": "if-fih-usa-host-la28",
+      "sourceUrl": "https://www.fih.hockey/news/road-to-la28-continental-glory-and-olympic-qualifying-on-the-line-at-20th-asian-games"
     }
   ],
   "scans": [
@@ -1107,7 +1125,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1122,7 +1140,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1137,7 +1155,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1152,7 +1170,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1163,7 +1181,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1178,7 +1196,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1193,7 +1211,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1208,7 +1226,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1223,7 +1241,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1238,7 +1256,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1258,7 +1276,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1273,7 +1291,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1295,7 +1313,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1310,7 +1328,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1325,7 +1343,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1340,7 +1358,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1355,7 +1373,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1370,7 +1388,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1385,7 +1403,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1402,7 +1420,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1417,7 +1435,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1432,7 +1450,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1447,7 +1465,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1462,14 +1480,14 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-rugby-sevens",
       "structuredRecordCount": 0,
-      "truncated": true
+      "truncated": false
     },
     {
       "adapter": {
@@ -1477,7 +1495,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1493,7 +1511,7 @@
         "resolvedUrl": "https://www.issf-sports.org/competitions/3488",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1508,7 +1526,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1523,7 +1541,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1534,7 +1552,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1545,7 +1563,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1556,7 +1574,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1571,7 +1589,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1586,9 +1604,9 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
-      "format": "text/html; charset=utf-8",
+      "format": "text/html",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "if-tennis",
@@ -1601,7 +1619,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1616,7 +1634,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -1629,7 +1647,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -1644,7 +1662,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -1659,7 +1677,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1674,7 +1692,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1689,7 +1707,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1704,7 +1722,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1719,7 +1737,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -1736,7 +1754,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -1754,7 +1772,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; Charset=ISO-8859-1",
       "reviewCandidateIds": [],
@@ -1769,7 +1787,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1784,7 +1802,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1799,7 +1817,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -1817,7 +1835,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -1834,7 +1852,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1849,7 +1867,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1864,7 +1882,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html",
       "reviewCandidateIds": [],
@@ -1879,7 +1897,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -1896,7 +1914,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1911,7 +1929,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1926,7 +1944,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -1943,7 +1961,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -1958,7 +1976,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -1973,7 +1991,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -1988,7 +2006,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2003,7 +2021,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -2018,7 +2036,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2029,7 +2047,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "reference_only",
       "reviewCandidateIds": [],
@@ -2040,7 +2058,7 @@
     },
     {
       "adapter": null,
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html, application/json;charset=utf-8",
       "reviewCandidateIds": [],
@@ -2055,7 +2073,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2070,7 +2088,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2085,7 +2103,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2100,7 +2118,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2115,7 +2133,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2130,7 +2148,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2145,7 +2163,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2160,7 +2178,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2175,7 +2193,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -2192,7 +2210,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2207,7 +2225,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2222,7 +2240,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2237,7 +2255,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -2254,7 +2272,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -2271,7 +2289,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
@@ -2288,7 +2306,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2303,7 +2321,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -2321,7 +2339,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2336,7 +2354,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2351,7 +2369,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2366,7 +2384,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2376,14 +2394,10 @@
       "truncated": false
     },
     {
-      "adapter": {
-        "eligible": false,
-        "name": "unconfigured",
-        "rowCount": 0
-      },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "adapter": null,
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
-      "format": "text/html; charset=UTF-8",
+      "format": "application/json",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-rou",
@@ -2396,7 +2410,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2411,7 +2425,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2421,13 +2435,19 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-11-25T15:36:35.708Z",
-      "error": "fetch failed",
-      "format": "unavailable",
+      "adapter": {
+        "eligible": false,
+        "name": "unconfigured",
+        "rowCount": 0
+      },
+      "checkedAt": "2026-11-26T15:17:17.347Z",
+      "dataValidated": false,
+      "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
       "rowCount": 0,
       "sourceId": "noc-swe",
-      "structuredRecordCount": 0
+      "structuredRecordCount": 0,
+      "truncated": false
     },
     {
       "adapter": {
@@ -2435,7 +2455,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -2452,7 +2472,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2467,7 +2487,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -2484,7 +2504,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2499,7 +2519,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [],
@@ -2514,7 +2534,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2529,7 +2549,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2544,7 +2564,7 @@
         "name": "official_confirmation_article",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [
@@ -2564,7 +2584,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2579,7 +2599,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "application/pdf",
       "reviewCandidateIds": [],
@@ -2589,7 +2609,7 @@
       "truncated": false
     },
     {
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "error": "The operation was aborted due to timeout",
       "format": "unavailable",
       "reviewCandidateIds": [],
@@ -2603,7 +2623,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [
@@ -2620,11 +2640,11 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [
-        "review-if-aquatics-usa-water-polo-host-la28-e6cdf368f1c7bc22"
+        "review-if-aquatics-usa-water-polo-host-la28-1d26668d66771c63"
       ],
       "rowCount": 0,
       "sourceId": "if-aquatics-usa-water-polo-host-la28",
@@ -2637,7 +2657,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [],
@@ -2652,7 +2672,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=UTF-8",
       "reviewCandidateIds": [],
@@ -2667,11 +2687,11 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html; charset=utf-8",
       "reviewCandidateIds": [
-        "review-if-fih-usa-host-la28-cd7170de575e9329"
+        "review-if-fih-usa-host-la28-5dfb1a9b393879da"
       ],
       "rowCount": 0,
       "sourceId": "if-fih-usa-host-la28",
@@ -2684,7 +2704,7 @@
         "name": "unconfigured",
         "rowCount": 0
       },
-      "checkedAt": "2026-11-25T15:36:35.708Z",
+      "checkedAt": "2026-11-26T15:17:17.347Z",
       "dataValidated": false,
       "format": "text/html;charset=utf-8",
       "reviewCandidateIds": [
